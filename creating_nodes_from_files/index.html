@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Creating nodes from files - Islandora Workbench</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Creating nodes from files";
+    var mkdocs_page_input_path = "creating_nodes_from_files.md";
+    var mkdocs_page_url = "/creating_nodes_from_files/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Islandora Workbench</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../installation/">Requirements and installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../configuration/">Configuration</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../check/">Checking configuration and input data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sample_data/">Creating nodes from the sample data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../preparing_data/">Preparing your data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../field_types/">Field types</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../csv_file_templates/">CSV file templates</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google_sheets/">Using Google Sheets as input data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../field_templates/">CSV field templates</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aliases/">Assigning URL aliases</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../media_types/">Setting media types</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../alt_text/">Adding alt text to images</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../paged_and_compound/">Creating paged and compound content</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nodes_only/">Creating nodes without media</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Creating nodes from files</a>
+    <ul class="subnav">
+            
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rolling_back/">Rolling back nodes and media</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../updating_nodes/">Updating nodes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deleting_nodes/">Deleting nodes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../adding_media/">Adding media to nodes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deleting_media/">Deleting media</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../output_csv/">The output CSV file</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../generating_sample_content/">Generating sample Islandora content</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../logging/">Logging</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Islandora Workbench</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Creating nodes from files</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/master/docs/creating_nodes_from_files.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>If you want to ingest some files without a metadata CSV you can do so using the <code>create_from_files</code>. A common application of this ability is in automated workflows where Islandora objects are created from files saved to a watch folder, and metadata is added later.</p>
+<p>Nodes created using this task have only the following properties/fields populated:</p>
+<ul>
+<li>Content type: this is defined in the configuration file, using the <code>content_type</code> setting.</li>
+<li>Title: this is derived from the filename minus the extension. Spaces are allowed in the filenames.</li>
+<li>Published: published by default, or overridden in the configuration file using the <code>published</code> setting.</li>
+<li>Model: defined in the configuration file using either the <code>model</code> or <code>models</code> setting.</li>
+</ul>
+<p>The media attached to the nodes is the file, with its type (image, document, audio, video, file) assigned by the <code>media_types</code> configuration setting and its Media Use tag defined in the <code>media_use_tid</code> setting.</p>
+<p>The configuration options for the <code>create_from_files</code> task are the same as the options used in the <code>create</code> task (with one exception: <code>input_csv</code> is not required). The only option specific to this task is <code>models</code>, which is a mapping from terms IDs (or term URIs) in the "Islandora Models" vocabulary to file extensions. Note that either the  <code>models</code> or <code>model</code> configuration option is required in the <code>create_from_files</code> task. <code>model</code> is conventient when all of the objects you are creating are the same Islandora Model. Here is a sample configuration file for this task:</p>
+<pre><code class="yaml">task: create_from_files
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+output_csv: /tmp/output.csv
+# model: 25
+models:
+ - 23: ['zip', 'tar', '']
+ - 27: ['pdf', 'doc', 'docx', 'ppt', 'pptx']
+ - 25: ['tif', 'tiff', 'jp2', 'png', 'gif', 'jpg', 'jpeg']
+ - 22: ['mp3', 'wav', 'aac']
+ - 26: ['mp4']
+</code></pre>
+
+<p>You can also use the URIs assigned to terms in the Islandora Models vocabulary, for example:</p>
+<p><code>yaml
+models:
+ - 'http://purl.org/coar/resource_type/c_1843': ['zip', 'tar', '']
+ - 'https://schema.org/DigitalDocument': ['pdf', 'doc', 'docx', 'ppt', 'pptx']
+ - 'http://purl.org/coar/resource_type/c_c513': ['tif', 'tiff', 'jp2', 'png', 'gif', 'jpg', 'jpeg']
+ - 'http://purl.org/coar/resource_type/c_18cc': ['mp3', 'wav', 'aac']
+ - 'http://purl.org/coar/resource_type/c_12ce': ['mp4']</code></p>
+<p>In the workflow described at the beginning of this section, you might want to include the <code>output_csv</code> option in the configuration file, since the resulting CSV file can be populated with metadata later and used in an <code>update</code> task to add it to the stub nodes.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../rolling_back/" class="btn btn-neutral float-right" title="Rolling back nodes and media">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../nodes_only/" class="btn btn-neutral" title="Creating nodes without media"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../nodes_only/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../rolling_back/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

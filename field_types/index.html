@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Field types - Islandora Workbench</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Field types";
+    var mkdocs_page_input_path = "field_types.md";
+    var mkdocs_page_url = "/field_types/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Islandora Workbench</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../installation/">Requirements and installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../configuration/">Configuration</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../check/">Checking configuration and input data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sample_data/">Creating nodes from the sample data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../preparing_data/">Preparing your data</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Field types</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#required-fields">Required fields</a></li>
+    
+
+    <li class="toctree-l2"><a href="#base-fields">Base fields</a></li>
+    
+
+    <li class="toctree-l2"><a href="#single-valued-fields">Single-valued fields</a></li>
+    
+
+    <li class="toctree-l2"><a href="#multivalued-fields">Multivalued fields</a></li>
+    
+
+    <li class="toctree-l2"><a href="#values-in-the-file-field">Values in the 'file' field</a></li>
+    
+
+    <li class="toctree-l2"><a href="#taxonomy-fields">Taxonomy fields</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#using-term-names-in-multi-vocabulary-fields">Using term names in multi-vocabulary fields</a></li>
+        
+            <li><a class="toctree-l3" href="#using-term-uris-instead-of-term-ids">Using term URIs instead of term IDs</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#typed-relation-fields">Typed Relation fields</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#adding-new-typed-relation-targets">Adding new typed relation targets</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#geolocation-fields">Geolocation fields</a></li>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../csv_file_templates/">CSV file templates</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google_sheets/">Using Google Sheets as input data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../field_templates/">CSV field templates</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aliases/">Assigning URL aliases</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../media_types/">Setting media types</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../alt_text/">Adding alt text to images</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../paged_and_compound/">Creating paged and compound content</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nodes_only/">Creating nodes without media</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../creating_nodes_from_files/">Creating nodes from files</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rolling_back/">Rolling back nodes and media</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../updating_nodes/">Updating nodes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deleting_nodes/">Deleting nodes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../adding_media/">Adding media to nodes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deleting_media/">Deleting media</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../output_csv/">The output CSV file</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../generating_sample_content/">Generating sample Islandora content</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../logging/">Logging</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Islandora Workbench</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Field types</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/master/docs/field_types.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>In addition to content files like images, the input data used by Workbench is a CSV file. This CSV file contains the metadata that is to be added to new or existing nodes, and some additional reserved columns specific to Workbench. As is standard with CSV data, field values do not need to be wrapped in double quotation marks (<code>"</code>), unless they contain an instance of the delimiter character (e.g., a comma). Field values are either strings (for string or text fields), integers (for <code>field_weight</code>, for example), <code>1</code> or <code>0</code> for binary fields, Drupal-generated IDs (term IDs taxonomy terms or node IDs for collections and parents), or structured strings (for typed relation and geolocation fields).</p>
+<p>Single-valued and multi-valued fields of the following types can be added:</p>
+<ul>
+<li>base fields</li>
+<li>text (plain, plain long, etc.) fields</li>
+<li>integer fields</li>
+<li>boolean fields, with values 1 or 0</li>
+<li>EDTF date fields</li>
+<li>entity reference (taxonomy and linked node) fields</li>
+<li>typed relation (taxonomy and linked node) fields</li>
+<li>geolocation fields</li>
+</ul>
+<h4 id="required-fields">Required fields</h4>
+<ul>
+<li>For the <code>create</code> task, <code>title</code>, <code>id</code> (or whatever field is identified in the <code>id_field</code> configuration option), and <code>file</code> are required. Empty values in the <code>file</code> field are allowed, in which case a node will be created but it will have no attached media.</li>
+<li>For the <code>update</code>, <code>delete</code>, and <code>add_media</code> tasks, the <code>node_id</code> field is required.</li>
+<li>For the <code>add_media</code> task, <code>file</code> is required, but for this task, <code>file</code> must contain a filename.</li>
+</ul>
+<h4 id="base-fields">Base fields</h4>
+<p>Base fields are basic node properties, shared by all content types. The base fields you can include in your CSV file are:</p>
+<ul>
+<li><code>title</code>: This field is required for all rows in your CSV for the <code>create</code> task. Optional for the 'update' task. Drupal limits the title's length to 255 characters, and Workbench will check that titles are less than 255 characters unless your configuration file contains <code>validate_title_length: False</code> as described above.</li>
+<li><code>langcode</code>: The language of the node. Optional. If included, use one of Drupal's language codes as values (common values are 'en', 'fr', and 'es'; the entire list can be seen <a href="https://git.drupalcode.org/project/drupal/-/blob/8.8.x/core/lib/Drupal/Core/Language/LanguageManager.php#L224">here</a>. If absent, Drupal sets the value to the default value for your content type.</li>
+<li><code>uid</code>: The Drupal user ID to assign to the node and media created with the node. Optional. Only available in <code>create</code> tasks. If you are creating paged/compound objects from directories, this value is applied to the parent's children (if you are creating them using the page/child-level metadata method, these fields must be in your CSV metadata).</li>
+<li><code>created</code>: The timestamp to use in the node's "created" attribute and in the "created" attribute of the media created with the node. Optional, but if present, it must be in format 2020-11-15T23:49:22+00:00 (the +00:00 is the difference to Greenwich time/GMT). Only available in <code>create</code> tasks. If you are creating paged/compound objects from directories, this value is applied to the parent's children (if you are creating them using the page/child-level metadata method, these fields must be in your CSV metadata).</li>
+</ul>
+<h4 id="single-valued-fields">Single-valued fields</h4>
+<p>You can include additional fields that will be added to the nodes. The column headings in the CSV file must match machine names of fields that exist in the target Islandora content type.</p>
+<p>For example, using the fields defined by the Islandora Defaults module for the "Repository Item" content type, your CSV file could look like this:</p>
+<pre><code class="csv">file,title,id,field_model,field_description,field_rights,field_extent,field_access_terms,field_member_of
+myfile.jpg,My nice image,obj_00001,24,&quot;A fine image, yes?&quot;,Do whatever you want with it.,There's only one image.,27,45
+</code></pre>
+
+<p>In this example, the term ID for the tag you want to assign in <code>field_access_terms</code> is 27, and the node ID of the collection you want to add the object to (in <code>field_member_of</code>) is 45.</p>
+<h4 id="multivalued-fields">Multivalued fields</h4>
+<p>For multivalued fields, separate the values within a field with a pipe (<code>|</code>), like this:</p>
+<pre><code>file,title,field_my_multivalued_field
+IMG_1410.tif,Small boats in Havana Harbour,foo|bar
+IMG_2549.jp2,Manhatten Island,bif|bop|burp
+</code></pre>
+
+<p>This works for string fields as well as reference fields, e.g.:</p>
+<pre><code>file,title,field_my_multivalued_taxonomy_field
+IMG_1410.tif,Small boats in Havana Harbour,35|46
+IMG_2549.jp2,Manhatten Island,34|56|28
+</code></pre>
+
+<p>Drupal strictly enforces the maximum number of values allowed in a field. If the number of values in your CSV file for a field exceed a field's configured maximum number of fields, Workbench will only populate the field to the field's configured limit.</p>
+<p>The subdelimiter character defaults to a pipe (<code>|</code>) but can be set in your config file using the <code>subdelimiter: ";"</code> option.</p>
+<h3 id="values-in-the-file-field">Values in the 'file' field</h3>
+<p>Values in the <code>file</code> field in your CSV can be relative to the directory named in <code>input_dir</code>, abolute paths, or URLs. Examples of each:</p>
+<ul>
+<li>relative to directory named in <code>input_dir</code>: <code>myfile.png</code></li>
+<li>absolute: <code>/tmp/data/myfile.png</code></li>
+<li>URL: <code>http://example.com/files/myfile.png</code></li>
+</ul>
+<p>Relative, absolute, and URL file locations can exist within the same CSV file.</p>
+<p>Things to note about URL paths:</p>
+<ul>
+<li>Workbench downloads files identified by URLs and saves them in the directory named in <code>input_dir</code> before processing them further. It does not delete the files after they have been ingested into Islandora.</li>
+<li>Files identified by URLs must be accessible to the Workbench script, which means they must not require a username/password; however, they can be protected by a firewall, ACL, etc. as long as the computer running Workbench is allowed to retrieve the files without authenticating.</li>
+<li>Currently Workbench requires that the URLs point directly to a file and not to a script, wrapper page, or other indirect route to the file.</li>
+</ul>
+<h3 id="taxonomy-fields">Taxonomy fields</h3>
+<p>In CSV columns for taxonomy fields, you can use either term IDs (integers) or term names (strings). You can even mix IDs and names in the same field:</p>
+<pre><code>file,title,field_my_multivalued_taxonomy_field
+img001.png,Picture of cats and yarn,Cats|46
+img002.png,Picture of dogs and sticks,Dogs|Sticks
+img003.png,Picture of yarn and needles,&quot;Yarn, Balls of&quot;|Knitting needles
+</code></pre>
+
+<p>By default, if you use a term name in your CSV data that doesn't match a term name that exists in the referenced taxonomy, Workbench will detect this when you use <code>--check</code> and exit. However, if you add <code>allow_adding_terms: true</code> to your configuration file for <code>create</code> and <code>update</code> tasks, Workbench will create the new term. A few of things to note:</p>
+<ul>
+<li>To create new terms, your target Drupal needs to have its "Taxonomy term" REST endpoint enabled as described in the "Requirements" section at the beginning of this README.</li>
+<li>If multiple records in your CSV contain the same new term name in the same field, the term is only created once.</li>
+<li>When Workbench checks to see if the term with the new name exists in the target vocabulary, it normalizes it and compares it with existing term names in that vocabulary, applying these normalization rules to both the new term and the existing terms:</li>
+<li>It strips all leading and trailing whitespace.</li>
+<li>It replaces all other whitespace with a single space character.</li>
+<li>It converts all text to lower case.</li>
+<li>It removes all punctuation.</li>
+<li>If the term name you provide in the CSV file does not match any existing term names in the vocabulary linked to the field after these normalization rules are applied, it is used to create a new taxonomy term. If it does match, Workbench populates the field in your nodes with the matching term.</li>
+</ul>
+<p>Adding new terms has some contraints:</p>
+<ul>
+<li>Creating taxonomy terms by including them in your CSV file adds new terms to the root of the applicable vocabulary. Workbench cannot create a new term that has another term as its parent (i.e. terms below the top leve of a hierarchical taxonomy). However, for existing terms, Workbench doesn't care where they are in a taxonomy's hierarchy.</li>
+<li>Terms created in this way do not have any external URIs. If you want your terms to have external URIs, you will need to either create the terms manually or add the URIs manually after the terms are created by Islandora Workbench.</li>
+<li><code>--check</code> will identify any new terms that exceed Drupal's maxiumum allowed length for term names, 255 characters. If a term name is longer than 255 characters, Workbench will truncate it at that length, log that it has done so, and create the term.</li>
+<li>Taxonomy terms created with new nodes are not removed when you delete the nodes.</li>
+</ul>
+<h4 id="using-term-names-in-multi-vocabulary-fields">Using term names in multi-vocabulary fields</h4>
+<p>While most node taxonomy fields reference only a single vocabulary, Drupal does allow fields to reference multiple vocabularies. This ability poses a problem when we use term names instead of term IDs in our CSV files: in a multi-vocabulary field, Workbench can't be sure which term name belongs in which of the multiple vocabularies referenced by that field. This applies to both existing terms and to new terms we want to add when creating node content.</p>
+<p>To avoid this problem, we need to tell Workbench which of the multple vocabularies each term name should (or does) belong to. We do this by namespacing terms with the applicable vocabulary ID.</p>
+<p>For example, let's imagine we have a node field whose name is <code>field_sample_tags</code>, and this field references two taxonomies, <code>cats</code> and <code>dogs</code>. To use the terms <code>Tuxedo</code>, <code>Tabby</code>, <code>German Shepherd</code> in the CSV when adding new nodes, we would namespace them like this:</p>
+<pre><code>field_sample_tags
+cats:Tabby
+cats:Tuxedo
+dogs:German Shepherd
+</code></pre>
+
+<p>If you want to use multiple terms in a single field, you would namespace them both:</p>
+<pre><code>cats:Tuxedo|cats:Misbehaving|dogs:German Shepherd
+</code></pre>
+
+<p>Term names containing commas (<code>,</code>) in multi-valued, multi-vocabulary fields need special treatment (no surprise there): you need to wrap the entire field in quotation marks (like you would for any other CSV value that contains a comma), and in addition, specify the namespace within each of the values:</p>
+<pre><code>&quot;tags:gum, Bubble|tags:candy, Hard&quot;
+</code></pre>
+
+<p>Using these conventions, Workbench will be certain which vocabulary the term names belong to. Workbench will remind you during its <code>--check</code> operation that you need to namespace terms. It determines 1) if the field references multiple vocabularies, and then checks to see 2) if the field's values in the CSV are term IDs or term names. If you use term names in multi-vocabulary fields, and the term names aren't namespaced, Workbench will warn you:</p>
+<pre><code>Error: Term names in multi-vocabulary CSV field &quot;field_tags&quot; require a vocabulary namespace; value &quot;Dogs&quot; in row 4 does not have one.
+</code></pre>
+
+<p>Note that since <code>:</code> is a special character when you use term names in multi-vocabulary CSV fields, you can't add a namespaced term that itself contains a <code>:</code>. You need to add it manually to Drupal and then use its term ID (or name, or URI) in your CSV file.</p>
+<h4 id="using-term-uris-instead-of-term-ids">Using term URIs instead of term IDs</h4>
+<p>Islandora Workbench lets you use URIs assigned to terms instead of term IDs. You can use a term URI in the <code>media_use_tid</code> configuration option (for example, <code>"http://pcdm.org/use#OriginalFile"</code>) and in taxonomy fields in your metadata CSV file:</p>
+<pre><code>field_model
+https://schema.org/DigitalDocument
+http://purl.org/coar/resource_type/c_18cc
+</code></pre>
+
+<p>During <code>--check</code>, Workbench will validate that URIs correspond to existing taxonomy terms.</p>
+<p>Using term URIs has some constraints:</p>
+<ul>
+<li>You cannot create a new term by providing a URI like you can by providing a term name.</li>
+<li>If the same URI is registered with more than one term, Workbench will choose one and write a warning to the log indicating which term it chose and which terms the URI is registered with. However, <code>--check</code> will detect that a URI is registered with more than one term and warn you. At that point you can edit your CSV file to use the correct term ID rather than the URI.</li>
+</ul>
+<h3 id="typed-relation-fields">Typed Relation fields</h3>
+<p>Unlike most field types, which take a string or an integer as their value in the CSV file, fields that have the "Typed Relation" type take structured values that need to be entered in a specific way in the CSV file. An example of this type of field is the "Linked Agent" field in the Repository Item content type created by the Islandora Defaults module.</p>
+<p>The structure of values for this field encode a namespace (indicating the vocabulary the relation is from), a relation type, and a target (which identifies what the relation refers to, such as a specific taxonomy term), each separated by a colon (<code>:</code>). The first two parts, the namespace and the relation type, come from the "Available Relations" section of the field's configuration, which looks like this (using the "Linked Agent" field's configuration as an exmple):</p>
+<p><img alt="Relations example" src="../images/relators.png" /></p>
+<p>In the node edit form, this structure is represented as a select list of the types (the namespace is not shown) and, below that, an autocomplete field to indicate the relation target, e.g.:</p>
+<p><img alt="Linked agent example" src="../images/linked_agent.png" /></p>
+<p>To include these kind of values in a CSV field, we need to use a structured string as described above (namespace:relationtype:targetid). For example:</p>
+<p><code>relators:art:30</code></p>
+<p>You can also use taxonomy term names as targets:</p>
+<p><code>"relators:art:Jordan, Mark"</code></p>
+<p>If the field you are populating references multiple vocabularies, you must include a namespace with your term name:</p>
+<p><code>"relators:art:person:Jordan, Mark"</code></p>
+<p>You can also use HTTP URIs as typed relation targets:</p>
+<p><code>"relators:art:http://markjordan.net</code></p>
+<blockquote>
+<p>Note that the structure required for typed relation values in the CSV file is not the same as the structure of the relations configuration depicted in the first screenshot above; the CSV values use only colons to seprate the three parts, but the field configuration within Drupal uses a colon and then a pipe (|) to structure its values.</p>
+</blockquote>
+<p>In this example of a CSV value, <code>relators</code> is the namespace that the relation type <code>art</code> is from (the Library of Congress <a href="http://id.loc.gov/vocabulary/relators.html">Relators</a> vocabulary), and the target taxonomy term ID is <code>30</code>. In the screenshot above showing the "Linked Agent" field of a node, the value of the Relationship Type select list is "Artist (art)", and the value of the associated taxonomy term field is the person's name that has the taxonomy term ID "30" (in this case, "Jordan, Mark"):</p>
+<p>If you want to include multiple typed relation values in a single field of your CSV file (such as in "field_linked_agent"), separate the three-part values with the same subdelimiter character you use in other fields, e.g. (<code>|</code>) (or whatever you have configured as your <code>subdelimiter</code>):</p>
+<p><code>relators:art:30|relators:art:45</code></p>
+<h4 id="adding-new-typed-relation-targets">Adding new typed relation targets</h4>
+<p>Islandora Workbench allows you to add new typed relation targets while creating and updating nodes. These targets are taxonomy terms. Your configuration file must include the <code>allow_adding_terms: true</code> option to add new targets. In general, adding new typed relation targets is just like adding new taxonomy terms as described above in the "Taxonomy fields" section.</p>
+<p>An example of a CSV value that adds a new target term is:</p>
+<p><code>"relators:art:person:Jordan, Mark"</code></p>
+<p>You can also add multiple new targets:</p>
+<p><code>"relators:art:person:Annez, Melissa|relators:art:person:Jordan, Mark"</code></p>
+<p>Note that:</p>
+<ul>
+<li>For multi-vocabulary fields, new typed relator targets must be accommpanied by a vocabulary namespace (<code>person</code> in the above examples).</li>
+<li>You cannot add new relators (e.g. <code>relators:foo</code>) in your CSV file, only new target terms.</li>
+</ul>
+<h3 id="geolocation-fields">Geolocation fields</h3>
+<p>The Geolocation field type, managed by the <a href="https://www.drupal.org/project/geolocation">Geolocation Field</a> contrib module, stores latitude and longitude coordinates in separate data elements. To add or update fields of this type, Workbench needs to provide the latitude and longitude data in these separate elements.</p>
+<p>To simplify entering geocoordinates in the CSV file, Workbench allows geocoordinates to be in <code>lat,lng</code> format, i.e., the latitude coordinate followed by a comma followed by the longitude coordinate. When Workbench reads your CSV file, it will split data on the comma into the required lat and lng parts. An example of a single geocoordinate in a field would be:</p>
+<pre><code>field_coordinates
+&quot;49.16667,-123.93333&quot;
+</code></pre>
+
+<p>You can include multiple pairs of geocoordinates in one CSV field if you separate them with the subdelimiter character:</p>
+<pre><code>field_coordinates
+&quot;49.16667,-123.93333|49.25,-124.8&quot;
+</code></pre>
+
+<p>Note that:</p>
+<ul>
+<li>Geocoordinate fields need to be wrapped in double quotation marks, unless the <code>delimiter</code> key in your configuration file is set to something other than a comma.</li>
+<li>If you are entering geocoordinates into a spreadsheet, a leading <code>+</code> will make the spreadsheet application think you are entering a formula. You can work around this by escaping the <code>+</code> with a backslash (<code>\</code>), e.g., <code>49.16667,-123.93333</code> should be <code>\+49.16667,-123.93333</code>, and <code>49.16667,-123.93333|49.25,-124.8</code> should be <code>\+49.16667,-123.93333|\+49.25,-124.8</code>. Workbench will strip the leading <code>\</code> before it populates the Drupal fields.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../csv_file_templates/" class="btn btn-neutral float-right" title="CSV file templates">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../preparing_data/" class="btn btn-neutral" title="Preparing your data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../preparing_data/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../csv_file_templates/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>
