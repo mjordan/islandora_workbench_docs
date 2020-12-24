@@ -16,6 +16,8 @@ nav:
   - Creating nodes from the sample data: sample_data.md
   - Preparing your data: preparing_data.md
   - Field types: field_types.md
+  - CSV file templates: csv_file_templates.md
+  - Using Google Sheets as input data: google_sheets.md
   - CSV field templates: field_templates.md
   - Assigning URL aliases: aliases.md
   - Setting media types: media_types.md
