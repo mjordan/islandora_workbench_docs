@@ -11,31 +11,7 @@
 
     
     <url>
-     <loc>/adding_media/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/aliases/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/alt_text/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/check/</loc>
+     <loc>/installation/</loc>
      <lastmod>2020-12-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -51,127 +27,7 @@
 
     
     <url>
-     <loc>/creating_nodes_from_files/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/csv_file_templates/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/deleting_media/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/deleting_nodes/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/field_templates/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/field_types/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/generating_sample_content/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/google_sheets/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/installation/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/logging/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/media_types/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/nodes_only/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/output_csv/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/paged_and_compound/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/preparing_data/</loc>
-     <lastmod>2020-12-24</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/rolling_back/</loc>
+     <loc>/check/</loc>
      <lastmod>2020-12-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -187,7 +43,151 @@
 
     
     <url>
+     <loc>/preparing_data/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/field_types/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/csv_file_templates/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/google_sheets/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/field_templates/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/aliases/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/media_types/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/alt_text/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/paged_and_compound/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/nodes_only/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/creating_nodes_from_files/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/rolling_back/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>/updating_nodes/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/deleting_nodes/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/adding_media/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/deleting_media/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/output_csv/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/generating_sample_content/</loc>
+     <lastmod>2020-12-24</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/logging/</loc>
      <lastmod>2020-12-24</lastmod>
      <changefreq>daily</changefreq>
     </url>
