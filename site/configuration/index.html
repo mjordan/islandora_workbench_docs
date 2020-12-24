@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Configuration - Islandora Workbench</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Configuration";
+    var mkdocs_page_input_path = "configuration.md";
+    var mkdocs_page_url = "/configuration/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Islandora Workbench</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../adding_media/">Adding media</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aliases/">Aliases</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../alt_text/">Alt text</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../check/">Check</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Configuration</a>
+    <ul class="subnav">
+            
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../creating_nodes_from_files/">Creating nodes from files</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../csv_file_templates/">Csv file templates</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deleting_media/">Deleting media</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deleting_nodes/">Deleting nodes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../field_templates/">Field templates</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../field_types/">Field types</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../generating_sample_content/">Generating sample content</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google_sheets/">Google sheets</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../installation/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../logging/">Logging</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../media_types/">Media types</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nodes_only/">Nodes only</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../output_csv/">Output csv</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../paged_and_compound/">Paged and compound</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../preparing_data/">Preparing data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rolling_back/">Rolling back</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sample_data/">Sample data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../updating_nodes/">Updating nodes</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Islandora Workbench</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Configuration</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/master/docs/configuration.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Workbench uses a YAML configuration whose location is indicated in the <code>--config</code> parameter. This file defines the various options it will use to create, update, or delete Islandora content (such as which CSV file to use and what directory your images are in). The simplest configuration file would look like this:</p>
+<pre><code class="yaml">task: create
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+</code></pre>
+
+<p>The settings defined in a configuration file are:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Required</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>task</td>
+<td>✔️</td>
+<td></td>
+<td>One of 'create', 'create_from_files', update', delete', 'add_media', or 'delete_media'</td>
+</tr>
+<tr>
+<td>host</td>
+<td>✔️</td>
+<td></td>
+<td>The hostname, including port number if not 80, of your Islandora repository.</td>
+</tr>
+<tr>
+<td>username</td>
+<td>✔️</td>
+<td></td>
+<td>The username used to authenticate the requests. This Drupal user should be a member of the "Administrator" role. If you want to create nodes that are owned by a specific Drupal user, include their numeric user ID in the <code>uid</code> column in your CSV.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>✔️</td>
+<td></td>
+<td>The user's password.</td>
+</tr>
+<tr>
+<td>content_type</td>
+<td></td>
+<td>islandora_object</td>
+<td>The machine name of the Drupal node content type you are creating or updating.</td>
+</tr>
+<tr>
+<td>input_dir</td>
+<td></td>
+<td>input_data</td>
+<td>The full or relative path to the directory containing the files and metadata CSV file.</td>
+</tr>
+<tr>
+<td>input_csv</td>
+<td></td>
+<td>metadata.csv</td>
+<td>Path to the CSV metadata file. Can be absolute, or if just the filename is provided, will be assumed to be in the directory named in <code>input_dir</code>. Can also be the URL to a Google spreadsheet (see the "Using Google Sheets as input data" section below for more information).</td>
+</tr>
+<tr>
+<td>google_sheets_csv_filename</td>
+<td></td>
+<td>google_sheet.csv</td>
+<td>Local CSV filename for data from a Google spreadsheet. See the "Using Google Sheets as input data" section below for more information.</td>
+</tr>
+<tr>
+<td>log_file_path</td>
+<td></td>
+<td>workbench.log</td>
+<td>The path to the log file, absolute or relative to <code>workbench</code>. See the "Logging" section below for more information.</td>
+</tr>
+<tr>
+<td>id_field</td>
+<td></td>
+<td>id</td>
+<td>The name of the field in the CSV that uniquely identifies each record.</td>
+</tr>
+<tr>
+<td>delimiter</td>
+<td></td>
+<td>, [comma]</td>
+<td>The delimiter used in the CSV file, for example, "," or "\t". If omitted, defaults to ",".</td>
+</tr>
+<tr>
+<td>subdelimiter</td>
+<td></td>
+<td>&#124; [pipe]</td>
+<td>The subdelimiter used in the CSV file to define multiple values in one field. If omitted, defaults to "&#124;".</td>
+</tr>
+<tr>
+<td>nodes_only</td>
+<td></td>
+<td>false</td>
+<td>Include this option in <code>create</code> tasks, set to <code>true</code>, if you want to only create nodes and not their accompanying media. See the "Creating nodes but not media" section below for more information. 'fedora://'.</td>
+</tr>
+<tr>
+<td>drupal_filesystem</td>
+<td></td>
+<td>fedora://</td>
+<td>One of 'fedora://', 'public://', or 'private://'.</td>
+</tr>
+<tr>
+<td>output_csv</td>
+<td></td>
+<td></td>
+<td>The full or relative path to a CSV file with one record per node created by Workbench. See "The output CSV file" section below for more information.</td>
+</tr>
+<tr>
+<td>media_use_tid</td>
+<td></td>
+<td><code>http://pcdm.org/use#OriginalFile</code></td>
+<td>The term ID for the term from the "Islandora Media Use" vocabulary you want to apply to the media being created. You can provide a term URI instead of a term ID, for example <code>"http://pcdm.org/use#OriginalFile"</code>.</td>
+</tr>
+<tr>
+<td>media_type [singular]</td>
+<td></td>
+<td></td>
+<td>Overrides, for all media being created, Workbench's default definition of whether the media being created is an image, file, document, audio, or video. Used in the <code>create</code>, <code>add_media</code>, and <code>create_from_files</code> tasks. More detail provided in the "Setting Media Types" section below.</td>
+</tr>
+<tr>
+<td>media_types [plural]</td>
+<td></td>
+<td></td>
+<td>Overrides default media type definitions on a per file extension basis. Used in the <code>create</code>, <code>add_media</code>, and <code>create_from_files</code> tasks. More detail provided in the "Setting Media Types" section below.</td>
+</tr>
+<tr>
+<td>allow_missing_files</td>
+<td></td>
+<td>false</td>
+<td>Determines if empty <code>file</code> values are allowed. If set to true, empty file values are allowed and will result in nodes without attached media. Defaults to false (which means all file values must contain the name of a file that exists in the <code>input_data</code> directory).</td>
+</tr>
+<tr>
+<td>allow_adding_terms</td>
+<td></td>
+<td>false</td>
+<td>Determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "Taxonomy fields" section below.</td>
+</tr>
+<tr>
+<td>published</td>
+<td></td>
+<td>true</td>
+<td>Whether nodes are published or not. Applies to <code>create</code> task only. Set to false if you want the nodes to be unpublished. Note that whether or not a node is published can also be set at a node level in the CSV file in the status base field, as described in the "Base Fields" section below. Values in the CSV override the value of published set here.</td>
+</tr>
+<tr>
+<td>validate_title_length</td>
+<td></td>
+<td>true</td>
+<td>Whether or not to check if title values in the CSV exceed Drupal's maximum allowed length of 255 characters. Defaults to true. Set to false if you are using a module that lets you override Drupal's maximum title length, such as <a href="https://www.drupal.org/project/title_length">Node Title Length</a> or <a href="https://www.drupal.org/project/entity_title_length">Entity Title Length</a>. Also, if your task is <code>update</code>, you should set this to false if <code>title</code> is not one of the fields you are updating.</td>
+</tr>
+<tr>
+<td>pause</td>
+<td></td>
+<td></td>
+<td>Defines the number of seconds to pause between each REST request to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5.</td>
+</tr>
+<tr>
+<td>delete_media_with_nodes</td>
+<td></td>
+<td>true</td>
+<td>When a node is deleted using a <code>delete</code> task, by default, all if its media are automatically deleted. Set this option to false to not delete all of a node's media (you do not generally want to keep the media without the node).</td>
+</tr>
+<tr>
+<td>paged_content_from_directories</td>
+<td></td>
+<td>false</td>
+<td>Set to true if you are using the "Without page-level metadata" method of creating paged content. See the section "Creating paged content" below for more information.</td>
+</tr>
+<tr>
+<td>paged_content_sequence_seprator</td>
+<td></td>
+<td>- [hyphen]</td>
+<td>The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the "Without page-level metadata" method. See the section "Creating paged content" below for more information.</td>
+</tr>
+<tr>
+<td>paged_content_page_model_tid</td>
+<td></td>
+<td></td>
+<td>Required if <code>paged_content_from_directories</code> is true. The the term ID from the Islandora Models taxonomy to assign to pages. See the section "Creating paged content" below for more information.</td>
+</tr>
+<tr>
+<td>paged_content_page_display_hints</td>
+<td></td>
+<td></td>
+<td>The term ID from the Islandora Display taxonomy to assign to pages. If not included, defaults to the value of the <code>field_display_hints</code> in the parent's record in the CSV file. See the section "Creating paged content" below for more information.</td>
+</tr>
+<tr>
+<td>paged_content_page_content_type</td>
+<td></td>
+<td></td>
+<td>Set to the machine name of the Drupal node content type for pages created using the "Without page-level metadata" method if it is different than the content type of the parent (which is specified in the content_type setting). See the section "Creating paged content" below for more information.</td>
+</tr>
+<tr>
+<td>log_json</td>
+<td></td>
+<td>false</td>
+<td>Whether or not to log the raw JSON POSTed, PUT, or PATCHed to Drupal. Useful for debugging.</td>
+</tr>
+<tr>
+<td>user_agent</td>
+<td></td>
+<td>Islandora Workbench</td>
+<td>String to use as the User-Agent header in HTTP requests.</td>
+</tr>
+<tr>
+<td>allow_redirects</td>
+<td></td>
+<td>true</td>
+<td>Whether or not to allow Islandora Workbench to respond to HTTP redirects.</td>
+</tr>
+<tr>
+<td>bootstrap</td>
+<td></td>
+<td></td>
+<td>Absolute path to one or more scripts that execute prior to Workbench connecting to Drupal. Scripts can be in any language, and need to be executable. For an example of using this feature to run a script that generates sample Islandora content, see the "Generating sample Islandora content" section below.</td>
+</tr>
+<tr>
+<td>model [singular]</td>
+<td></td>
+<td></td>
+<td>Used in the <code>create_from_files</code> task only. Defines the term ID from the the "Islandora Models" vocabulary for all nodes created using this task. Note: one of <code>model</code> or <code>models</code> is required. More detail provided in the "Creating nodes from files only" section below.</td>
+</tr>
+<tr>
+<td>models [plural]</td>
+<td></td>
+<td></td>
+<td>Used in the <code>create_from_files</code> task only. Provides a mapping bewteen file extensions and terms in the "Islandora Models" vocabulary. Note: one of <code>model</code> or <code>models</code> is required. More detail provided in the "Creating nodes from files only" section below.</td>
+</tr>
+<tr>
+<td>csv_field_templates</td>
+<td></td>
+<td></td>
+<td>Used in the <code>create</code> and <code>update</code> tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the "Using CSV field templates" section below.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../creating_nodes_from_files/" class="btn btn-neutral float-right" title="Creating nodes from files">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../check/" class="btn btn-neutral" title="Check"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../check/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../creating_nodes_from_files/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

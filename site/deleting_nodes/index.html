@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Deleting nodes - Islandora Workbench</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Deleting nodes";
+    var mkdocs_page_input_path = "deleting_nodes.md";
+    var mkdocs_page_url = "/deleting_nodes/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Islandora Workbench</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../adding_media/">Adding media</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aliases/">Aliases</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../alt_text/">Alt text</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../check/">Check</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../configuration/">Configuration</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../creating_nodes_from_files/">Creating nodes from files</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../csv_file_templates/">Csv file templates</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deleting_media/">Deleting media</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Deleting nodes</a>
+    <ul class="subnav">
+            
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../field_templates/">Field templates</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../field_types/">Field types</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../generating_sample_content/">Generating sample content</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../google_sheets/">Google sheets</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../installation/">Installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../logging/">Logging</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../media_types/">Media types</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nodes_only/">Nodes only</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../output_csv/">Output csv</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../paged_and_compound/">Paged and compound</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../preparing_data/">Preparing data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rolling_back/">Rolling back</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sample_data/">Sample data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../updating_nodes/">Updating nodes</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Islandora Workbench</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Deleting nodes</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/master/docs/deleting_nodes.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>You can delete nodes by providing a CSV file that contains a single column, <code>node_id</code>, like this:</p>
+<pre><code class="csv">node_id
+95
+96
+200
+</code></pre>
+
+<p>The config file for update operations looks like this (note the <code>task</code> option is 'delete'):</p>
+<pre><code class="yaml">task: delete
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+input_csv: delete.csv
+</code></pre>
+
+<p>Note that when you delete nodes using this method, all media associated with the nodes are also deleted, unless the <code>delete_media_with_nodes</code> configuration option is set to <code>false</code> (it defaults to <code>true</code>). Typical output produced by a <code>delete</code> task looks like this:</p>
+<pre><code>Node http://localhost:8000/node/89 deleted.
++ Media http://localhost:8000/media/329 deleted.
++ Media http://localhost:8000/media/331 deleted.
++ Media http://localhost:8000/media/335 deleted.
+</code></pre>
+
+<p>Note that taxonomy terms created with new nodes are not removed when you delete the nodes.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../field_templates/" class="btn btn-neutral float-right" title="Field templates">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../deleting_media/" class="btn btn-neutral" title="Deleting media"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../deleting_media/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../field_templates/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>
