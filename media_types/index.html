@@ -243,11 +243,13 @@
 <p>If you need to override this default mappping, you can do so in two ways:</p>
 <ol>
 <li>For all media being created, via the <code>media_type</code> (singluar) configuration option. If this is present (for example <code>media_type: document</code>), all media created by Workbench will be assigned that media type. Use this option if all of the files in your batch are to be assigned the same media type, but their extensions are not defined in the default mapping.</li>
-<li>On a per file extension basis, via a mapping in the <code>media_types</code> (plural) option in your configuration file like this one:</li>
-</ol>
+<li>
+<p>On a per file extension basis, via a mapping in the <code>media_types</code> (plural) option in your configuration file like this one:</p>
 <p><code>media_types:
-    - video: ['mp4', 'ogg']</code>
-   Use this option if all of the files in your batch are not to be assigned the same media type, and their extensions are not defined in the default mapping (or are in addition to the extensions in the default mapping, as in this example).</p>
+ - video: ['mp4', 'ogg']</code></p>
+<p>Use this option if all of the files in your batch are not to be assigned the same media type, and their extensions are not defined in the default mapping (or are in addition to the extensions in the default mapping, as in this example).</p>
+</li>
+</ol>
 <p>Note that:</p>
 <ul>
 <li>If a file's extension is not defined in either the default mapping, or in the <code>media_type</code> or <code>media_types</code> configuration options, the media is assigned the <code>file</code> type.</li>

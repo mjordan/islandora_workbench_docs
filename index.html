@@ -58,6 +58,9 @@
     <li class="toctree-l2"><a href="#usage">Usage</a></li>
     
 
+    <li class="toctree-l2"><a href="#license">License</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -217,7 +220,20 @@
 <p>This tool is not related in any way to the Drupal contrib module called <a href="https://www.drupal.org/project/workbench">Workbench</a>.</p>
 <h2 id="usage">Usage</h2>
 <p><code>./workbench --config config.yml --check</code></p>
-<p>then</p>
+<p><code>--check</code> <a href="./check/">validates</a> your configuration and input data. Typical output looks like:</p>
+<pre><code>OK, connection to Drupal at http://localhost:8000 verified.
+OK, configuration file has all required values (did not check for optional values).
+OK, CSV file input_data/metadata.csv found.
+OK, all 5 rows in the CSV file have the same number of columns as there are headers (5).
+OK, CSV column headers match Drupal field names.
+OK, required Drupal fields are present in the CSV file.
+OK, term IDs/names in CSV file exist in their respective taxonomies.
+OK, term IDs/names used in typed relation fields in the CSV file exist in their respective taxonomies.
+OK, files named in the CSV &quot;file&quot; column are all present.
+Configuration and input data appear to be valid.
+</code></pre>
+
+<p>If <code>--check</code> hasn't identified any problems, you can then rerun Islandora Workbench without the <code>--check</code> option to create the nodes:</p>
 <p><code>./workbench --config config.yml</code></p>
 <p>Workbench will then create a node and attached media for each record in your input CSV file. Typical output looks like:</p>
 <pre><code>Node for 'Small boats in Havana Harbour' created at http://localhost:8000/node/52.
@@ -231,6 +247,10 @@ Node for 'Amsterdam waterfront' created at http://localhost:8000/node/55.
 Node for 'Alcatraz Island' created at http://localhost:8000/node/56.
 +Image media for IMG_5083.JPG created.
 </code></pre>
+
+<h2 id="license">License</h2>
+<p>Islandora Workbench, and this documentation, are available under the terms of the Unlicense.</p>
+<p><img alt="The Unlicense" src="https://camo.githubusercontent.com/a0f44681d578ce545f4614325d26eac4036b273d21a61de5293af355cb969bac/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d556e6c6963656e73652d626c75652e737667" /></p>
               
             </div>
           </div>
@@ -279,5 +299,5 @@ Node for 'Alcatraz Island' created at http://localhost:8000/node/56.
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2020-12-24 23:01:20
+Build Date UTC : 2020-12-25 00:08:55
 -->
