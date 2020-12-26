@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Field types - Islandora Workbench</title>
+  <title>Fields - Islandora Workbench</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Field types";
-    var mkdocs_page_input_path = "field_types.md";
-    var mkdocs_page_url = "/field_types/";
+    var mkdocs_page_name = "Fields";
+    var mkdocs_page_input_path = "fields.md";
+    var mkdocs_page_url = "/fields/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -75,7 +75,7 @@
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Field types</a>
+    <a class="current" href="./">Fields</a>
     <ul class="subnav">
             
     <li class="toctree-l2"><a href="#required-fields">Required fields</a></li>
@@ -86,34 +86,15 @@
 
     <li class="toctree-l2"><a href="#base-fields">Base fields</a></li>
     
-
-    <li class="toctree-l2"><a href="#single-valued-fields">Single-valued fields</a></li>
-    
-
-    <li class="toctree-l2"><a href="#multivalued-fields">Multivalued fields</a></li>
-    
-
-    <li class="toctree-l2"><a href="#taxonomy-fields">Taxonomy fields</a></li>
-    
         <ul>
         
-            <li><a class="toctree-l3" href="#using-term-names-in-multi-vocabulary-fields">Using term names in multi-vocabulary fields</a></li>
+            <li><a class="toctree-l3" href="#content-type-specific-fields">Content type-specific fields</a></li>
         
-            <li><a class="toctree-l3" href="#using-term-uris-instead-of-term-ids">Using term URIs instead of term IDs</a></li>
+            <li><a class="toctree-l3" href="#single-and-multi-valued-fields">Single and multi-valued fields</a></li>
         
-        </ul>
-    
-
-    <li class="toctree-l2"><a href="#typed-relation-fields">Typed Relation fields</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#adding-new-typed-relation-targets">Adding new typed relation targets</a></li>
+            <li><a class="toctree-l3" href="#field-types">Field types</a></li>
         
         </ul>
-    
-
-    <li class="toctree-l2"><a href="#geolocation-fields">Geolocation fields</a></li>
     
 
     </ul>
@@ -231,10 +212,10 @@
     
       
     
-    <li>Field types</li>
+    <li>Fields</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/master/docs/field_types.md"
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/master/docs/fields.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -265,13 +246,13 @@
 <li>geolocation fields</li>
 </ul>
 <p>Where Drupal's configuration allows, fields in your input CSV can contain single values or multiple values, as described below.</p>
-<h3 id="required-fields">Required fields</h3>
+<h2 id="required-fields">Required fields</h2>
 <ul>
 <li>For the <code>create</code> task, <code>title</code>, <code>id</code> (or whatever field is identified in the <code>id_field</code> configuration option), and <code>file</code> are required. Empty values in the <code>file</code> field are allowed, in which case a node will be created but it will have no attached media.</li>
 <li>For the <code>update</code>, <code>delete</code>, and <code>add_media</code> tasks, the <code>node_id</code> field is required.</li>
 <li>For the <code>add_media</code> task, <code>file</code> is required, but for this task, <code>file</code> must contain a filename.</li>
 </ul>
-<h3 id="values-in-the-file-field">Values in the "file" field</h3>
+<h2 id="values-in-the-file-field">Values in the "file" field</h2>
 <p>Values in the <code>file</code> field in your CSV can be relative to the directory named in <code>input_dir</code>, abolute paths, or URLs. Examples of each:</p>
 <ul>
 <li>relative to directory named in <code>input_dir</code>: <code>myfile.png</code></li>
@@ -285,7 +266,7 @@
 <li>Files identified by URLs must be accessible to the Workbench script, which means they must not require a username/password; however, they can be protected by a firewall, ACL, etc. as long as the computer running Workbench is allowed to retrieve the files without authenticating.</li>
 <li>Currently Workbench requires that the URLs point directly to a file and not to a script, wrapper page, or other indirect route to the file.</li>
 </ul>
-<h3 id="base-fields">Base fields</h3>
+<h2 id="base-fields">Base fields</h2>
 <p>Base fields are basic node properties, shared by all content types. The base fields you can include in your CSV file are:</p>
 <ul>
 <li><code>title</code>: This field is required for all rows in your CSV for the <code>create</code> task. Optional for the 'update' task. Drupal limits the title's length to 255 characters, and Workbench will check that titles are less than 255 characters unless your configuration file contains <code>validate_title_length: False</code> as described above.</li>
@@ -293,16 +274,21 @@
 <li><code>uid</code>: The Drupal user ID to assign to the node and media created with the node. Optional. Only available in <code>create</code> tasks. If you are creating paged/compound objects from directories, this value is applied to the parent's children (if you are creating them using the page/child-level metadata method, these fields must be in your CSV metadata).</li>
 <li><code>created</code>: The timestamp to use in the node's "created" attribute and in the "created" attribute of the media created with the node. Optional, but if present, it must be in format 2020-11-15T23:49:22+00:00 (the +00:00 is the difference to Greenwich time/GMT). Only available in <code>create</code> tasks. If you are creating paged/compound objects from directories, this value is applied to the parent's children (if you are creating them using the page/child-level metadata method, these fields must be in your CSV metadata).</li>
 </ul>
-<h3 id="single-valued-fields">Single-valued fields</h3>
-<p>You can include additional fields that will be added to the nodes. The column headings in the CSV file must match machine names of fields that exist in the target Islandora content type.</p>
-<p>For example, using the fields defined by the Islandora Defaults module for the "Repository Item" content type, your CSV file could look like this:</p>
+<h3 id="content-type-specific-fields">Content type-specific fields</h3>
+<p>For other Drupal fields, the column headings in the CSV file must match machine names of fields that exist in the target Islandora content type. Fields' machine names are visible within the "Manage fields" section of each content type's configuration, here circled in red: </p>
+<p><img alt="Field machine names" src="../images/field_machine_names.png" /></p>
+<p>These field names, plus the fields indicated in the "Required fields" section above, are the column headers in your CSV file. </p>
+<h3 id="single-and-multi-valued-fields">Single and multi-valued fields</h3>
+<p>Drupal allows for fields to have a single value, a specific maximum number of values, or unlimited number of values.</p>
+<h4 id="single-valued-fields">Single-valued fields</h4>
+<p>In your CSV file, single-valued fields simply contain the value, which, depending on the field type, can be a string or an integer. For example, using the fields defined by the Islandora Defaults module for the "Repository Item" content type, your CSV file could look like this:</p>
 <pre><code class="text">file,title,id,field_model,field_description,field_rights,field_extent,field_access_terms,field_member_of
 myfile.jpg,My nice image,obj_00001,24,&quot;A fine image, yes?&quot;,Do whatever you want with it.,There's only one image.,27,45
 </code></pre>
 
 <p>In this example, the term ID for the tag you want to assign in <code>field_access_terms</code> is 27, and the node ID of the collection you want to add the object to (in <code>field_member_of</code>) is 45.</p>
-<h3 id="multivalued-fields">Multivalued fields</h3>
-<p>For multivalued fields, separate the values within a field with a pipe (<code>|</code>), like this:</p>
+<h4 id="multivalued-fields">Multivalued fields</h4>
+<p>For multivalued fields, you separate the values within a field with a pipe (<code>|</code>), like this:</p>
 <pre><code class="text">file,title,field_my_multivalued_field
 IMG_1410.tif,Small boats in Havana Harbour,foo|bar
 IMG_2549.jp2,Manhatten Island,bif|bop|burp
@@ -316,7 +302,8 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 
 <p>Drupal strictly enforces the maximum number of values allowed in a field. If the number of values in your CSV file for a field exceed a field's configured maximum number of fields, Workbench will only populate the field to the field's configured limit.</p>
 <p>The subdelimiter character defaults to a pipe (<code>|</code>) but can be set in your config file using the <code>subdelimiter: ";"</code> option.</p>
-<h3 id="taxonomy-fields">Taxonomy fields</h3>
+<h3 id="field-types">Field types</h3>
+<h4 id="taxonomy-fields">Taxonomy fields</h4>
 <p>In CSV columns for taxonomy fields, you can use either term IDs (integers) or term names (strings). You can even mix IDs and names in the same field:</p>
 <pre><code class="text">file,title,field_my_multivalued_taxonomy_field
 img001.png,Picture of cats and yarn,Cats|46
@@ -380,7 +367,7 @@ http://purl.org/coar/resource_type/c_18cc
 <li>You cannot create a new term by providing a URI like you can by providing a term name.</li>
 <li>If the same URI is registered with more than one term, Workbench will choose one and write a warning to the log indicating which term it chose and which terms the URI is registered with. However, <code>--check</code> will detect that a URI is registered with more than one term and warn you. At that point you can edit your CSV file to use the correct term ID rather than the URI.</li>
 </ul>
-<h3 id="typed-relation-fields">Typed Relation fields</h3>
+<h4 id="typed-relation-fields">Typed Relation fields</h4>
 <p>Unlike most field types, which take a string or an integer as their value in the CSV file, fields that have the "Typed Relation" type take structured values that need to be entered in a specific way in the CSV file. An example of this type of field is the "Linked Agent" field in the Repository Item content type created by the Islandora Defaults module.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -415,7 +402,7 @@ http://purl.org/coar/resource_type/c_18cc
 <li>For multi-vocabulary fields, new typed relator targets must be accommpanied by a vocabulary namespace (<code>person</code> in the above examples).</li>
 <li>You cannot add new relators (e.g. <code>relators:foo</code>) in your CSV file, only new target terms.</li>
 </ul>
-<h3 id="geolocation-fields">Geolocation fields</h3>
+<h4 id="geolocation-fields">Geolocation fields</h4>
 <p>The Geolocation field type, managed by the <a href="https://www.drupal.org/project/geolocation">Geolocation Field</a> contrib module, stores latitude and longitude coordinates in separate data elements. To add or update fields of this type, Workbench needs to provide the latitude and longitude data in these separate elements.</p>
 <p>To simplify entering geocoordinates in the CSV file, Workbench allows geocoordinates to be in <code>lat,lng</code> format, i.e., the latitude coordinate followed by a comma followed by the longitude coordinate. When Workbench reads your CSV file, it will split data on the comma into the required lat and lng parts. An example of a single geocoordinate in a field would be:</p>
 <pre><code class="text">field_coordinates
