@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="./css/theme.css" type="text/css" />
   <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="./css/highlight.css">
+  <link href="./css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
@@ -104,11 +105,6 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="google_sheets/">Using Google Sheets as input data</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
     <a class="" href="field_templates/">CSV field templates</a>
 	    </li>
           
@@ -182,6 +178,11 @@
     <a class="" href="logging/">Logging</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="workflows/">Workflows</a>
+	    </li>
+          
         </ul>
       </div>
       &nbsp;
@@ -218,7 +219,7 @@
             <div class="section">
               
                 <h2 id="overview">Overview</h2>
-<p>Islandora Workbench is a command-line tool that allows creation, updating, and deletion of Islandora content from CSV data. Islandora Workbench is an alternative to using Drupal's built-in Migrate tools for <a href="https://github.com/Islandora/migrate_islandora_csv">ingesting Islandora content from CSV files</a>. Unlike the Migrate tools, Islandora Workbench can be run anywhere - it does not need to run on the Islandora server. Migrate, however, is much more flexible than Islandora Workbench, and can be extended using plugins in ways that Workbench cannot.</p>
+<p>Islandora Workbench is a command-line tool that allows creation, updating, and deletion of Islandora content from CSV data. Islandora Workbench is an alternative to using Drupal's built-in Migrate tools for <a href="https://github.com/Islandora/migrate_islandora_csv">ingesting Islandora content from CSV files</a>. Unlike the Migrate tools, Islandora Workbench can be run anywhere - it does not need to run on the Drupal server. Migrate, however, is much more flexible than Islandora Workbench, and can be extended using plugins in ways that Workbench cannot.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This tool is not related in any way to the Drupal contrib module called <a href="https://www.drupal.org/project/workbench">Workbench</a>.</p>
@@ -226,18 +227,17 @@
 <h2 id="features">Features</h2>
 <ul>
 <li>Allows creation of Islandora nodes and media, updating of nodes, and deletion of nodes and media from CSV files</li>
-<li>Allows the creation of nodes and media from files only</li>
 <li>Allows creation of paged/compound content</li>
-<li>Can run from anywhere - it communicates with Drupal via REST interfaces</li>
+<li>Can run from anywhere - it communicates with Drupal via HTTP interfaces</li>
 <li>Provides robust data validation functionality</li>
 <li>Supports a variety of Drupal entity field types (text, integer, term reference, typed relation, geolocation)</li>
-<li>Can provide a CSV file template</li>
+<li>Can provide a CSV file template based on Drupal content type</li>
 <li>Can use a Google Sheet instead of a local CSV file as input</li>
 <li>Allows assignment of Drupal vocabulary terms using term IDs, term names, or term URIs</li>
 <li>Allows creation of new taxonomy terms from CSV field data</li>
 <li>Allows the assignment of URL aliases</li>
 <li>Allows adding alt text to images</li>
-<li>Cross platform (written in Python 3)</li>
+<li>Cross platform (written in Python)</li>
 <li>Well tested</li>
 <li>Well documented</li>
 <li>Provides both sensible default <a href="./configuration/">configuration</a> values and rich configuation options for power users</li>
@@ -324,5 +324,5 @@ Node for 'Alcatraz Island' created at http://localhost:8000/node/56.
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2020-12-25 01:51:37
+Build Date UTC : 2020-12-26 17:50:55
 -->
