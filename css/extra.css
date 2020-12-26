@@ -1,3 +1,6 @@
 table {
   overflow: visible !important;
 }
+code.text {
+  color: black;
+}
