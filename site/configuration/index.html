@@ -62,6 +62,12 @@
     <a class="current" href="./">Configuration</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#the-configuration-file">The configuration file</a></li>
+    
+
+    <li class="toctree-l2"><a href="#configuration-settings">Configuration settings</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -205,13 +211,15 @@
           <div role="main">
             <div class="section">
               
-                <p>Workbench uses a YAML configuration whose location is indicated in the <code>--config</code> parameter. This file defines the various options it will use to create, update, or delete Islandora content (such as which CSV file to use and what directory your images are in). The simplest configuration file would look like this:</p>
+                <h2 id="the-configuration-file">The configuration file</h2>
+<p>Workbench uses a YAML configuration whose location is indicated in the <code>--config</code> parameter. This file defines the various options it will use to create, update, or delete Islandora content (such as which CSV file to use and what directory your images are in). The simplest configuration file would look like this:</p>
 <pre><code class="yaml">task: create
 host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
 </code></pre>
 
+<h2 id="configuration-settings">Configuration settings</h2>
 <p>The settings defined in a configuration file are:</p>
 <table>
 <thead>

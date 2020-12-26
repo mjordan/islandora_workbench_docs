@@ -1,3 +1,5 @@
+## The configuration file
+
 Workbench uses a YAML configuration whose location is indicated in the `--config` parameter. This file defines the various options it will use to create, update, or delete Islandora content (such as which CSV file to use and what directory your images are in). The simplest configuration file would look like this:
 
 ```yaml
@@ -6,6 +8,8 @@ host: "http://localhost:8000"
 username: admin
 password: islandora
 ```
+
+## Configuration settings
 
 The settings defined in a configuration file are:
 

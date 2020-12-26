@@ -1,4 +1,5 @@
-> This section describes using CSV *field* templates in your configuration file. For information on CSV *file* templates, see the "Generating a template CSV file" section above.
+!!! note
+    This section describes using CSV *field* templates in your configuration file. For information on CSV *file* templates, see the "[Generating a template CSV file](/csv_file_templates/)" section.
 
 In `create` and `update` tasks, you can configure field templates that are applied to each node as if the fields were present in your CSV file. The templates are configured in the `csv_field_templates` option. An example looks like this:
 
