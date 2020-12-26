@@ -35,14 +35,6 @@
 
     
     <url>
-     <loc>/sample_data/</loc>
-     <lastmod>2020-12-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
      <loc>/preparing_data/</loc>
      <lastmod>2020-12-26</lastmod>
      <changefreq>daily</changefreq>
@@ -164,6 +156,14 @@
     
     <url>
      <loc>/output_csv/</loc>
+     <lastmod>2020-12-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/sample_data/</loc>
      <lastmod>2020-12-26</lastmod>
      <changefreq>daily</changefreq>
     </url>

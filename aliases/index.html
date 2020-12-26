@@ -70,11 +70,6 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../sample_data/">Creating nodes from the sample data</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
     <a class="" href="../preparing_data/">Preparing your data</a>
 	    </li>
           
@@ -158,6 +153,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../sample_data/">Creating nodes from the sample data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../generating_sample_content/">Generating sample Islandora content</a>
 	    </li>
           
@@ -207,13 +207,13 @@
             <div class="section">
               
                 <p>In <code>create</code> tasks, you can assign URL aliases to nodes by adding the <code>url_alias</code> field to you CSV file, like this:</p>
-<pre><code>file,title,field_description,url_alias
+<pre><code class="text">file,title,field_description,url_alias
 IMG_1410.tif,Small boats in Havana Harbour,Some are blue.,/havana_boats
 IMG_2549.jp2,Manhatten Island,Manhatten is part of New York City.,/manhatten
 </code></pre>
 
 <p>You can also assign URL aliases in <code>update</code> tasks:</p>
-<pre><code>node_id,url_alias
+<pre><code class="text">node_id,url_alias
 345,/this_is_a_cool_item
 367,/soisthisone
 </code></pre>
