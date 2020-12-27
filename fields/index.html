@@ -190,6 +190,11 @@
     <a class="" href="../workflows/">Workflows</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
+	    </li>
+          
         </ul>
       </div>
       &nbsp;
@@ -225,7 +230,7 @@
           <div role="main">
             <div class="section">
               
-                <p>In addition to content files like images, the input data used by Workbench is a CSV file. This CSV file contains the metadata that is to be added to new or existing nodes, and some additional reserved columns specific to Workbench. Field values are either strings (for string or text fields), integers (for <code>field_weight</code>, for example), <code>1</code> or <code>0</code> for binary fields, Drupal-generated IDs (term IDs taxonomy terms or node IDs for collections and parents), or structured strings (for typed relation and geolocation fields).</p>
+                <p>In addition to content files like images, the input data used by Workbench is a CSV file. This CSV file contains the metadata that is to be added to new or existing nodes, and some additional reserved columns specific to Workbench. Field values are either strings (for string or text fields) like <code>I am a string</code>, integers (for <code>field_weight</code>, for example) like <code>100</code> or <code>7281</code>, <code>1</code> or <code>0</code> for binary fields, Drupal-generated IDs (term IDs taxonomy terms or node IDs for collections and parents), or structured strings (for typed relation and geolocation fields) like <code>"49.16667,-123.93333"</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>As is standard with CSV data, field values do not need to be wrapped in double quotation marks (<code>"</code>), unless they contain an instance of the delimiter character (e.g., a comma). Spreadsheet applications such as Google Sheets and LibreOffice Calc will create valid CSV.</p>
@@ -247,15 +252,58 @@
 </ul>
 <p>Where Drupal's configuration allows, fields in your input CSV can contain single values or multiple values, as described below.</p>
 <h2 id="required-fields">Required fields</h2>
-<ul>
-<li>For the <code>create</code> task, <code>title</code>, <code>id</code> (or whatever field is identified in the <code>id_field</code> configuration option), and <code>file</code> are required. Empty values in the <code>file</code> field are allowed, in which case a node will be created but it will have no attached media.</li>
-<li>For the <code>update</code>, <code>delete</code>, and <code>add_media</code> tasks, the <code>node_id</code> field is required.</li>
-<li>For the <code>add_media</code> task, <code>file</code> is required, but for this task, <code>file</code> must contain a filename.</li>
-</ul>
+<p>The following columns in your CSV are required (depending on task):</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Required in CSV</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>create</td>
+<td>id</td>
+<td>Or the column name specified in the <code>id_field</code> configuration option</td>
+</tr>
+<tr>
+<td></td>
+<td>title</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>file</td>
+<td>Empty values in the <code>file</code> field are allowed if <code>allow_missing_files</code> is present in your configuration file, in which case a node will be created but it will have no attached media.</td>
+</tr>
+<tr>
+<td>update</td>
+<td>node_id</td>
+<td></td>
+</tr>
+<tr>
+<td>delete</td>
+<td>node_id</td>
+<td></td>
+</tr>
+<tr>
+<td>add_media</td>
+<td>node_id</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>file</td>
+<td><code>file</code> must contain a filename, file path, or URL. <code>allow_missing_files</code> does not work with the <code>add_media</code> task.</td>
+</tr>
+</tbody>
+</table>
+<p>If a required field is missing from your CSV, <code>--check</code> will tell you.</p>
 <h2 id="values-in-the-file-field">Values in the "file" field</h2>
 <p>Values in the <code>file</code> field in your CSV can be relative to the directory named in <code>input_dir</code>, abolute paths, or URLs. Examples of each:</p>
 <ul>
-<li>relative to directory named in <code>input_dir</code>: <code>myfile.png</code></li>
+<li>relative to directory named in "input_dir": <code>myfile.png</code></li>
 <li>absolute: <code>/tmp/data/myfile.png</code></li>
 <li>URL: <code>http://example.com/files/myfile.png</code></li>
 </ul>

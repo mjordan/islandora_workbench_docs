@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>The output CSV file - Islandora Workbench</title>
+  <title>Troubleshooting - Islandora Workbench</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "The output CSV file";
-    var mkdocs_page_input_path = "output_csv.md";
-    var mkdocs_page_url = "/output_csv/";
+    var mkdocs_page_name = "Troubleshooting";
+    var mkdocs_page_input_path = "troubleshooting.md";
+    var mkdocs_page_url = "/troubleshooting/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -143,12 +143,9 @@
     <a class="" href="../deleting_media/">Deleting media</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">The output CSV file</a>
-    <ul class="subnav">
-            
-    </ul>
+    <a class="" href="../output_csv/">The output CSV file</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -171,9 +168,15 @@
     <a class="" href="../workflows/">Workflows</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../troubleshooting/">Troubleshooting</a>
+    <a class="current" href="./">Troubleshooting</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#workbench-is-telling-me">Workbench is telling me...</a></li>
+    
+
+    </ul>
 	    </li>
           
         </ul>
@@ -198,10 +201,10 @@
     
       
     
-    <li>The output CSV file</li>
+    <li>Troubleshooting</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/master/docs/output_csv.md"
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/master/docs/troubleshooting.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -211,18 +214,7 @@
           <div role="main">
             <div class="section">
               
-                <p>In some instances, you may want to create stub nodes that only have a small subset of fields, and then populate the remaining fields later. To faciliate this type of workflow, Workbench provides an option to generate a simple CSV file containig a record for every newly created node. This file can then be used later in <code>update</code> tasks to add additional metadata or in <code>add_media</code> tasks to add media.</p>
-<p>You tell Workbench to generate this file by including the optional <code>output_csv</code> setting in your configuration file. If this setting is present, Workbench will write a CSV file at the specified location containing one record per node created. This CSV file contains the following fields:</p>
-<ul>
-<li><code>id</code> (or whatever column is specified in your <code>id_field</code> setting): the value in your input CSV file's ID field</li>
-<li><code>node_id</code>: the node ID for the newly created node</li>
-<li><code>uuid</code>: the new node's UUID</li>
-<li><code>status</code>: true if the node is published, False if it is unpublished</li>
-<li><code>title</code>: the node's title</li>
-</ul>
-<p>The file will also contain empty columns corresponding to all of the fields in the target content type. An example, generated from a 2-record input CSV file, looks like this (only left-most part of the spreadsheet shown):</p>
-<p><img alt="Output CSV" src="../images/output_csv.png" /></p>
-<p>This CSV file is suitable as a template for subsequent <code>update</code> tasks, since it already contains the <code>node_id</code>s for all the stub nodes plus column headers for all of the fields in those nodes. You can remove from the template any colums you do not want to include in your <code>update</code> task. You can also use the node IDs in this file as the basis for later <code>add_media</code> tasks; all you will need to do is delete the other columns and add a <code>file</code> column containing the new nodes' corresponding filenames.</p>
+                <h2 id="workbench-is-telling-me">Workbench is telling me...</h2>
               
             </div>
           </div>
@@ -230,10 +222,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../sample_data/" class="btn btn-neutral float-right" title="Creating nodes from the sample data">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../deleting_media/" class="btn btn-neutral" title="Deleting media"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../workflows/" class="btn btn-neutral" title="Workflows"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -261,10 +251,8 @@
           <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../deleting_media/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../workflows/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../sample_data/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

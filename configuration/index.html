@@ -177,6 +177,11 @@
     <a class="" href="../workflows/">Workflows</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
+	    </li>
+          
         </ul>
       </div>
       &nbsp;
@@ -213,13 +218,14 @@
             <div class="section">
               
                 <h2 id="the-configuration-file">The configuration file</h2>
-<p>Workbench uses a YAML configuration whose location is indicated in the <code>--config</code> parameter. This file defines the various options it will use to create, update, or delete Islandora content (such as which CSV file to use and what directory your images are in). The simplest configuration file would look like this:</p>
+<p>Workbench uses a YAML configuration whose location is indicated in the <code>--config</code> argument. This file defines the various options it will use to create, update, or delete Islandora content (such as which CSV file to use and what directory your images are in). The simplest configuration file would look like this:</p>
 <pre><code class="yaml">task: create
 host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
 </code></pre>
 
+<p>In this example, the <code>task</code> being performed is creating nodes (and optionally media). Other tasks are <code>create_from_files</code>, <code>update</code>, <code>delete</code>, <code>add_media</code>, and <code>delete_media</code>. Some of the configuration settings documented below are used in all tasks, while others are only used in specific tasks.</p>
 <h2 id="configuration-settings">Configuration settings</h2>
 <p>The settings defined in a configuration file are:</p>
 <table>
@@ -450,6 +456,7 @@ password: islandora
 </tr>
 </tbody>
 </table>
+<p>When you run Islandora Workbench with the <code>--check</code> argument, it will verify that all configuration options required for the current task are present, and if they aren't tell you so.</p>
               
             </div>
           </div>

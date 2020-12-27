@@ -186,6 +186,11 @@
     </ul>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
+	    </li>
+          
         </ul>
       </div>
       &nbsp;
@@ -239,7 +244,7 @@
 <p><img alt="Migrations" src="../images/workflow_migrations.png" /></p>
 <p>An advantage of migrating to Islandora in this way is that the CSV file can be cleaned or supplemented (manually or otherwise) prior to using it as Workbench's input.</p>
 <h2 id="watch-folders">Watch folders</h2>
-<p>Since Islandora workbench is a command-line tool, it can be run in a scheduled job such as Linux "cron". If CSV and file content are present when Workbench runs, Workbench will operate on them in the same way as if a person ran Workbench manually. In the diagram below, the source of the files is the daily output of someone scanning images. If these images are saved saved in the directory that is specified in Workbench's <code>input_dir</code> configuration option, and Workbench is run in a cron job using the "<a href="../creating_nodes_from_files/">create_from_files</a>" task, nodes will be created when the cron job executes (over night, for example):</p>
+<p>Since Islandora workbench is a command-line tool, it can be run in a scheduled job such as Linux "cron". If CSV and file content are present when Workbench runs, Workbench will operate on them in the same way as if a person ran Workbench manually. In the diagram below, the source of the files is the daily output of someone scanning images. If these images are saved in the directory that is specified in Workbench's <code>input_dir</code> configuration option, and Workbench is run in a cron job using the "<a href="../creating_nodes_from_files/">create_from_files</a>" task, nodes will be created when the cron job executes (over night, for example):</p>
 <p><img alt="Watch folders" src="../images/workflow_watch_folders.png" /></p>
 <p>A variation on this workflow is to combine it with the "Distributed" workflow described above:</p>
 <p><img alt="Watch folders with secondary CSV data" src="../images/workflow_distributed_watch_folder.png" /></p>
@@ -258,6 +263,8 @@
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../troubleshooting/" class="btn btn-neutral float-right" title="Troubleshooting">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../logging/" class="btn btn-neutral" title="Logging"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -290,6 +297,8 @@
       
         <span><a href="../logging/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../troubleshooting/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
