@@ -361,7 +361,6 @@ img003.png,Picture of yarn and needles,&quot;Yarn, Balls of&quot;|Knitting needl
 
 <p>By default, if you use a term name in your CSV data that doesn't match a term name that exists in the referenced taxonomy, Workbench will detect this when you use <code>--check</code> and exit. However, if you add <code>allow_adding_terms: true</code> to your configuration file for <code>create</code> and <code>update</code> tasks, Workbench will create the new term. A few of things to note:</p>
 <ul>
-<li>To create new terms, your target Drupal needs to have its "Taxonomy term" REST endpoint enabled as described in the "Requirements" section at the beginning of this README.</li>
 <li>If multiple records in your CSV contain the same new term name in the same field, the term is only created once.</li>
 <li>When Workbench checks to see if the term with the new name exists in the target vocabulary, it normalizes it and compares it with existing term names in that vocabulary, applying these normalization rules to both the new term and the existing terms:<ul>
 <li>It strips all leading and trailing whitespace.</li>
@@ -489,6 +488,10 @@ http://purl.org/coar/resource_type/c_18cc
 <td></td>
 <td>[..1672]</td>
 </tr>
+<tr>
+<td></td>
+<td>[1672..]</td>
+</tr>
 </tbody>
 </table>
 <p>Subvalues in multivalued CSV fields are validated separately, e.g. if your CSV value is <code>2004-06/2006-08|2007-01/2007-04</code>, <code>2004-06/2006-08</code> and <code>2007-01/2007-04</code> are validated separately.</p>
@@ -513,7 +516,7 @@ http://purl.org/coar/resource_type/c_18cc
 <p><code>"relators:art:http://markjordan.net</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Note that the structure required for typed relation values in the CSV file is not the same as the structure of the relations configuration depicted in the screenshot of the "Available relations" list above; the CSV values use only colons to seprate the three parts, but the field configuration within Drupal uses a colon and then a pipe (|) to structure its values.</p>
+<p>Note that the structure required for typed relation values in the CSV file is not the same as the structure of the relations configuration depicted in the screenshot of the "Available Relations" list above; the CSV values use only colons to seprate the three parts, but the field configuration within Drupal uses a colon and then a pipe (|) to structure its values.</p>
 </div>
 <p>In this example of a CSV value, <code>relators</code> is the namespace that the relation type <code>art</code> is from (the Library of Congress <a href="http://id.loc.gov/vocabulary/relators.html">Relators</a> vocabulary), and the target taxonomy term ID is <code>30</code>. In the screenshot above showing the "Linked Agent" field of a node, the value of the Relationship Type select list is "Artist (art)", and the value of the associated taxonomy term field is the person's name that has the taxonomy term ID "30" (in this case, "Jordan, Mark"):</p>
 <p>If you want to include multiple typed relation values in a single field of your CSV file (such as in "field_linked_agent"), separate the three-part values with the same subdelimiter character you use in other fields, e.g. (<code>|</code>) (or whatever you have configured as your <code>subdelimiter</code>):</p>
