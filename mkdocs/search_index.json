@@ -317,13 +317,13 @@
         },
         {
             "location": "/troubleshooting/",
-            "text": "Workbench is telling me...",
+            "text": "Workbench is failing to ingest some nodes and is leaving messages mentioning HTTP response code 422.\n\n\n\n\nNote\n\n\nIf you are encountering problems not described here, please \nopen an issue\n and help improve Islandora Workbench!\n\n\n\n\nThis is very likely caused by data in your CSV file that Workbench's \n--check\n validation is not finding. If you encounter these messages, please open an issue and share your CSV input file and configuration file.",
             "title": "Troubleshooting"
         },
         {
-            "location": "/troubleshooting/#workbench-is-telling-me",
-            "text": "",
-            "title": "Workbench is telling me..."
+            "location": "/troubleshooting/#workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-mentioning-http-response-code-422",
+            "text": "Note  If you are encountering problems not described here, please  open an issue  and help improve Islandora Workbench!   This is very likely caused by data in your CSV file that Workbench's  --check  validation is not finding. If you encounter these messages, please open an issue and share your CSV input file and configuration file.",
+            "title": "Workbench is failing to ingest some nodes and is leaving messages mentioning HTTP response code 422."
         }
     ]
 }
