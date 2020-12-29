@@ -416,8 +416,8 @@ http://purl.org/coar/resource_type/c_18cc
 <li>If the same URI is registered with more than one term, Workbench will choose one and write a warning to the log indicating which term it chose and which terms the URI is registered with. However, <code>--check</code> will detect that a URI is registered with more than one term and warn you. At that point you can edit your CSV file to use the correct term ID rather than the URI.</li>
 </ul>
 <h4 id="edtf-fields">EDTF fields</h4>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>The date types named below are a subset of the EDTF specification. If you need validatation of additional date types, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a>.</p>
 </div>
 <p>Running Islandora Workbench with <code>--check</code> will validate the following subset of <a href="https://www.loc.gov/standards/datetime/">Extended Date/Time Format (EDTF) Specification</a> date types in EDTF fields:</p>
@@ -494,9 +494,9 @@ http://purl.org/coar/resource_type/c_18cc
 <p>Subvalues in multivalued CSV fields are validated separately, e.g. if your CSV value is <code>2004-06/2006-08|2007-01/2007-04</code>, <code>2004-06/2006-08</code> and <code>2007-01/2007-04</code> are validated separately.</p>
 <h4 id="typed-relation-fields">Typed Relation fields</h4>
 <p>Unlike most field types, which take a string or an integer as their value in the CSV file, fields that have the "Typed Relation" type take structured values that need to be entered in a specific way in the CSV file. An example of this type of field is the "Linked Agent" field in the Repository Item content type created by the Islandora Defaults module.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In the following section, the word "namespace" is used to mean something slightly different than what it means in the above section. Below, "namespace" is used both to refer to a vocabulary ID in the target Drupal and an ID for the authority list of relators maintained outside of Drupal.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In the following section, the word "namespace" is used to mean something additional to what it means in the "Using term names in multi-vocabulary fields" section above. Below, "namespace" is used both to refer to a vocabulary ID in the target Drupal and an ID for the authority list of relators maintained outside of Drupal, for example by the Library of Congress.</p>
 </div>
 <p>The structure of values for this field encode a namespace (indicating the external authority list the relation is from), a relation type, and a target (which identifies what the relation refers to, such as a specific taxonomy term in the target Drupal), each separated by a colon (<code>:</code>). The first two parts, the namespace and the relation type, come from the "Available Relations" section of the field's configuration, which looks like this (using the "Linked Agent" field's configuration as an example):</p>
 <p><img alt="Relations example" src="../images/relators.png" /></p>
@@ -506,8 +506,9 @@ http://purl.org/coar/resource_type/c_18cc
 <p><code>relators:art:30</code></p>
 <p>You can also use taxonomy term names as targets:</p>
 <p><code>"relators:art:Jordan, Mark"</code></p>
-<p>If the field you are populating references multiple vocabularies, you must include a vocabulary identifer with your term name:</p>
+<p>Here's where we start to use "namespace" in two different ways. If the field you are populating references multiple vocabularies, you must include a Drupal vocabulary namespace with your term name:</p>
 <p><code>"relators:art:person:Jordan, Mark"</code></p>
+<p>(<code>relators</code> is the external namespace, and <code>person</code> is the Drupal vocabulary namespace.)</p>
 <p>You can also use HTTP URIs as typed relation targets:</p>
 <p><code>"relators:art:http://markjordan.net</code></p>
 <blockquote>
