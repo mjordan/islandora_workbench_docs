@@ -415,6 +415,78 @@ http://purl.org/coar/resource_type/c_18cc
 <li>You cannot create a new term by providing a URI like you can by providing a term name.</li>
 <li>If the same URI is registered with more than one term, Workbench will choose one and write a warning to the log indicating which term it chose and which terms the URI is registered with. However, <code>--check</code> will detect that a URI is registered with more than one term and warn you. At that point you can edit your CSV file to use the correct term ID rather than the URI.</li>
 </ul>
+<h4 id="edtf-fields">EDTF fields</h4>
+<p>Running Islandora Workbench with <code>--check</code> will validate the following <a href="https://www.loc.gov/standards/datetime/">EDTF</a> date types:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Example(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date</td>
+<td>1976-04-23</td>
+</tr>
+<tr>
+<td></td>
+<td>1976-04</td>
+</tr>
+<tr>
+<td></td>
+<td>1976</td>
+</tr>
+<tr>
+<td>Qualified date</td>
+<td>1976?</td>
+</tr>
+<tr>
+<td></td>
+<td>1976-04~</td>
+</tr>
+<tr>
+<td></td>
+<td>1976-04-24%</td>
+</tr>
+<tr>
+<td>Date and time</td>
+<td>1985-04-12T23:20:30</td>
+</tr>
+<tr>
+<td>Interval</td>
+<td>1964/2008</td>
+</tr>
+<tr>
+<td></td>
+<td>2004-06/2006-08</td>
+</tr>
+<tr>
+<td></td>
+<td>2004-06-04/2006-08-01</td>
+</tr>
+<tr>
+<td></td>
+<td>2004-06/2006-08-01</td>
+</tr>
+<tr>
+<td>Set</td>
+<td>[1667,1668,1670..1672]</td>
+</tr>
+<tr>
+<td></td>
+<td>[1672..1682]</td>
+</tr>
+<tr>
+<td></td>
+<td>[1672,1673]</td>
+</tr>
+<tr>
+<td></td>
+<td>[..1672]</td>
+</tr>
+</tbody>
+</table>
 <h4 id="typed-relation-fields">Typed Relation fields</h4>
 <p>Unlike most field types, which take a string or an integer as their value in the CSV file, fields that have the "Typed Relation" type take structured values that need to be entered in a specific way in the CSV file. An example of this type of field is the "Linked Agent" field in the Repository Item content type created by the Islandora Defaults module.</p>
 <div class="admonition note">
