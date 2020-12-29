@@ -511,9 +511,10 @@ http://purl.org/coar/resource_type/c_18cc
 <p>(<code>relators</code> is the external namespace, and <code>person</code> is the Drupal vocabulary namespace.)</p>
 <p>You can also use HTTP URIs as typed relation targets:</p>
 <p><code>"relators:art:http://markjordan.net</code></p>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Note that the structure required for typed relation values in the CSV file is not the same as the structure of the relations configuration depicted in the first screenshot above; the CSV values use only colons to seprate the three parts, but the field configuration within Drupal uses a colon and then a pipe (|) to structure its values.</p>
-</blockquote>
+</div>
 <p>In this example of a CSV value, <code>relators</code> is the namespace that the relation type <code>art</code> is from (the Library of Congress <a href="http://id.loc.gov/vocabulary/relators.html">Relators</a> vocabulary), and the target taxonomy term ID is <code>30</code>. In the screenshot above showing the "Linked Agent" field of a node, the value of the Relationship Type select list is "Artist (art)", and the value of the associated taxonomy term field is the person's name that has the taxonomy term ID "30" (in this case, "Jordan, Mark"):</p>
 <p>If you want to include multiple typed relation values in a single field of your CSV file (such as in "field_linked_agent"), separate the three-part values with the same subdelimiter character you use in other fields, e.g. (<code>|</code>) (or whatever you have configured as your <code>subdelimiter</code>):</p>
 <p><code>relators:art:30|relators:art:45</code></p>
