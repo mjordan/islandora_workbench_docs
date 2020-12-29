@@ -379,7 +379,7 @@ img003.png,Picture of yarn and needles,&quot;Yarn, Balls of&quot;|Knitting needl
 <li><code>--check</code> will identify any new terms that exceed Drupal's maxiumum allowed length for term names, 255 characters. If a term name is longer than 255 characters, Workbench will truncate it at that length, log that it has done so, and create the term.</li>
 <li>Taxonomy terms created with new nodes are not removed when you delete the nodes.</li>
 </ul>
-<h4 id="using-term-names-in-multi-vocabulary-fields">Using term names in multi-vocabulary fields</h4>
+<h5 id="using-term-names-in-multi-vocabulary-fields">Using term names in multi-vocabulary fields</h5>
 <p>While most node taxonomy fields reference only a single vocabulary, Drupal does allow fields to reference multiple vocabularies. This ability poses a problem when we use term names instead of term IDs in our CSV files: in a multi-vocabulary field, Workbench can't be sure which term name belongs in which of the multiple vocabularies referenced by that field. This applies to both existing terms and to new terms we want to add when creating node content.</p>
 <p>To avoid this problem, we need to tell Workbench which of the multple vocabularies each term name should (or does) belong to. We do this by namespacing terms with the applicable vocabulary ID.</p>
 <p>For example, let's imagine we have a node field whose name is <code>field_sample_tags</code>, and this field references two taxonomies, <code>cats</code> and <code>dogs</code>. To use the terms <code>Tuxedo</code>, <code>Tabby</code>, <code>German Shepherd</code> in the CSV when adding new nodes, we would namespace them with vocabulary IDs like this:</p>
@@ -402,7 +402,7 @@ dogs:German Shepherd
 </code></pre>
 
 <p>Note that since <code>:</code> is a special character when you use term names in multi-vocabulary CSV fields, you can't add a namespaced term that itself contains a <code>:</code>. You need to add it manually to Drupal and then use its term ID (or name, or URI) in your CSV file.</p>
-<h4 id="using-term-uris-instead-of-term-ids">Using term URIs instead of term IDs</h4>
+<h5 id="using-term-uris-instead-of-term-ids">Using term URIs instead of term IDs</h5>
 <p>Islandora Workbench lets you use URIs assigned to terms instead of term IDs. You can use a term URI in the <code>media_use_tid</code> configuration option (for example, <code>"http://pcdm.org/use#OriginalFile"</code>) and in taxonomy fields in your metadata CSV file:</p>
 <pre><code>field_model
 https://schema.org/DigitalDocument
@@ -515,7 +515,7 @@ http://purl.org/coar/resource_type/c_18cc
 <p>In this example of a CSV value, <code>relators</code> is the namespace that the relation type <code>art</code> is from (the Library of Congress <a href="http://id.loc.gov/vocabulary/relators.html">Relators</a> vocabulary), and the target taxonomy term ID is <code>30</code>. In the screenshot above showing the "Linked Agent" field of a node, the value of the Relationship Type select list is "Artist (art)", and the value of the associated taxonomy term field is the person's name that has the taxonomy term ID "30" (in this case, "Jordan, Mark"):</p>
 <p>If you want to include multiple typed relation values in a single field of your CSV file (such as in "field_linked_agent"), separate the three-part values with the same subdelimiter character you use in other fields, e.g. (<code>|</code>) (or whatever you have configured as your <code>subdelimiter</code>):</p>
 <p><code>relators:art:30|relators:art:45</code></p>
-<h4 id="adding-new-typed-relation-targets">Adding new typed relation targets</h4>
+<h5 id="adding-new-typed-relation-targets">Adding new typed relation targets</h5>
 <p>Islandora Workbench allows you to add new typed relation targets while creating and updating nodes. These targets are taxonomy terms. Your configuration file must include the <code>allow_adding_terms: true</code> option to add new targets. In general, adding new typed relation targets is just like adding new taxonomy terms as described above in the "Taxonomy fields" section.</p>
 <p>An example of a CSV value that adds a new target term is:</p>
 <p><code>"relators:art:person:Jordan, Mark"</code></p>
