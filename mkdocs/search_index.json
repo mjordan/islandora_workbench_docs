@@ -317,13 +317,18 @@
         },
         {
             "location": "/troubleshooting/",
-            "text": "Note\n\n\nIf you are encountering problems not described here, please \nopen an issue\n and help improve Islandora Workbench!\n\n\n\n\nWorkbench is failing to ingest some nodes and is leaving messages mentioning HTTP response code 422.\n\n\nThis is very likely caused by data in your CSV file that Workbench's \n--check\n validation is not finding. If you encounter these messages, please open an issue and share your CSV input file and configuration file.",
+            "text": "Note\n\n\nIf you are encountering problems not described here, please \nopen an issue\n and help improve Islandora Workbench!\n\n\n\n\nWorkbench is failing to ingest some nodes and is leaving messages mentioning HTTP response code 422.\n\n\nThis is probably caused by unexpected data in your CSV file that Workbench's \n--check\n validation is not finding. If you encounter these messages, please \nopen an issue\n and share your CSV input file and configuration file so we can track down the problem.\n\n\n--check is telling me that one the rows in my CSV file has more columns than headers\n\n\nThe most likely problem is that one of your CSV values contains a comma but is not wrapped in double quotes.",
             "title": "Troubleshooting"
         },
         {
             "location": "/troubleshooting/#workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-mentioning-http-response-code-422",
-            "text": "This is very likely caused by data in your CSV file that Workbench's  --check  validation is not finding. If you encounter these messages, please open an issue and share your CSV input file and configuration file.",
+            "text": "This is probably caused by unexpected data in your CSV file that Workbench's  --check  validation is not finding. If you encounter these messages, please  open an issue  and share your CSV input file and configuration file so we can track down the problem.",
             "title": "Workbench is failing to ingest some nodes and is leaving messages mentioning HTTP response code 422."
+        },
+        {
+            "location": "/troubleshooting/#-check-is-telling-me-that-one-the-rows-in-my-csv-file-has-more-columns-than-headers",
+            "text": "The most likely problem is that one of your CSV values contains a comma but is not wrapped in double quotes.",
+            "title": "--check is telling me that one the rows in my CSV file has more columns than headers"
         }
     ]
 }

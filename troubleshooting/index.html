@@ -176,6 +176,9 @@
     <li class="toctree-l2"><a href="#workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-mentioning-http-response-code-422">Workbench is failing to ingest some nodes and is leaving messages mentioning HTTP response code 422.</a></li>
     
 
+    <li class="toctree-l2"><a href="#-check-is-telling-me-that-one-the-rows-in-my-csv-file-has-more-columns-than-headers">--check is telling me that one the rows in my CSV file has more columns than headers</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -219,7 +222,9 @@
 <p>If you are encountering problems not described here, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a> and help improve Islandora Workbench!</p>
 </div>
 <h2 id="workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-mentioning-http-response-code-422">Workbench is failing to ingest some nodes and is leaving messages mentioning HTTP response code 422.</h2>
-<p>This is very likely caused by data in your CSV file that Workbench's <code>--check</code> validation is not finding. If you encounter these messages, please open an issue and share your CSV input file and configuration file.</p>
+<p>This is probably caused by unexpected data in your CSV file that Workbench's <code>--check</code> validation is not finding. If you encounter these messages, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a> and share your CSV input file and configuration file so we can track down the problem.</p>
+<h2 id="-check-is-telling-me-that-one-the-rows-in-my-csv-file-has-more-columns-than-headers">--check is telling me that one the rows in my CSV file has more columns than headers</h2>
+<p>The most likely problem is that one of your CSV values contains a comma but is not wrapped in double quotes. </p>
               
             </div>
           </div>
