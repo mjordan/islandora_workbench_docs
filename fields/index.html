@@ -416,6 +416,10 @@ http://purl.org/coar/resource_type/c_18cc
 <li>If the same URI is registered with more than one term, Workbench will choose one and write a warning to the log indicating which term it chose and which terms the URI is registered with. However, <code>--check</code> will detect that a URI is registered with more than one term and warn you. At that point you can edit your CSV file to use the correct term ID rather than the URI.</li>
 </ul>
 <h4 id="edtf-fields">EDTF fields</h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The date types named below are a subset of the EDTF specification. If you need validatation of additional date types, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a>.</p>
+</div>
 <p>Running Islandora Workbench with <code>--check</code> will validate the following subset of <a href="https://www.loc.gov/standards/datetime/">Extended Date/Time Format (EDTF) Specification</a> date types in EDTF fields:</p>
 <table>
 <thead>
@@ -487,10 +491,7 @@ http://purl.org/coar/resource_type/c_18cc
 </tr>
 </tbody>
 </table>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>These date types are a subset of the EDTF specification. If you need validatation of additional date types, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a>.</p>
-</div>
+<p>Subvalues in multivalued CSV fields are validated separately, e.g. if your CSV value is <code>2004-06/2006-08|2007-01/2007-04</code>, <code>2004-06/2006-08</code> and <code>2007-01/2007-04</code> are validated separately.</p>
 <h4 id="typed-relation-fields">Typed Relation fields</h4>
 <p>Unlike most field types, which take a string or an integer as their value in the CSV file, fields that have the "Typed Relation" type take structured values that need to be entered in a specific way in the CSV file. An example of this type of field is the "Linked Agent" field in the Repository Item content type created by the Islandora Defaults module.</p>
 <div class="admonition note">
