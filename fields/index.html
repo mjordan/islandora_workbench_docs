@@ -496,31 +496,34 @@ http://purl.org/coar/resource_type/c_18cc
 </table>
 <p>Subvalues in multivalued CSV fields are validated separately, e.g. if your CSV value is <code>2004-06/2006-08|2007-01/2007-04</code>, <code>2004-06/2006-08</code> and <code>2007-01/2007-04</code> are validated separately.</p>
 <h4 id="typed-relation-fields">Typed Relation fields</h4>
-<p>Unlike most field types, which take a string or an integer as their value in the CSV file, fields that have the "Typed Relation" type take structured values that need to be entered in a specific way in the CSV file. An example of this type of field is the "Linked Agent" field in the Repository Item content type created by the Islandora Defaults module.</p>
+<p>Typed relation fields contain information about the relationship (or "relation") between a taxonomy term and the node it is attached to. For example, a term from the Person vocabulary, "Mark Jordan", can be an author, illustrator, or editor of the book described in the node. "author", "illustrator", and "editor" are the "typed" relations. The Islandora Defaults module allows the relations to be managed as sets of terms from an external authority lists (for example like the <a href="https://www.loc.gov/marc/relators/relaterm.html">MARC Relators</a> list maintained by the Library of Congress). Within a Typed Relation field's configuration, the available relations look like this:</p>
+<p><img alt="Relations example" src="../images/relators.png" /></p>
+<p>In this screenshot, "relators" is a namespace for the MARC Relators authority list, the codes "acp", "adi", etc are the codes for each relator, and "Art copyist", "Art director", etc. are the human-readable label for each relator.</p>
+<p>Within the edit form of a node that has a Typed Relation field, the user interface adds a select list of the relation (the target taxonomy term here is "Jordan, Mark (30)", like this:</p>
+<p><img alt="Linked agent example" src="../images/linked_agent.png" /></p>
+<p>To be able to populate Typed Relation fields using CSV data, Islandora Workbench requires CSV values that contain the namespace, relator code, and target taxonomy term ID, each separated by a colon (<code>:</code>), like this:.</p>
+<p><code>relators:art:30</code></p>
+<p>In this example CSV value, <code>relators</code> is the namespace that the relation type <code>art</code> is from (the Library of Congress <a href="http://id.loc.gov/vocabulary/relators.html">Relators</a> vocabulary), and the target taxonomy term ID is <code>30</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that the structure required for typed relation values in the CSV file is not the same as the structure of the relations configuration depicted in the screenshot of the "Available Relations" list above.</p>
+</div>
+<p>You can also use taxonomy term names as targets, instead of term IDs:</p>
+<p><code>"relators:art:Jordan, Mark"</code></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>In the following section, the word "namespace" is used to mean something additional to what it means in the "Using term names in multi-vocabulary fields" section above. Below, "namespace" is used both to refer to a vocabulary ID in the target Drupal and an ID for the authority list of relators maintained outside of Drupal, for example by the Library of Congress.</p>
 </div>
-<p>The structure of values for this field encode a namespace (indicating the external authority list the relation is from), a relation type, and a target (which identifies what the relation refers to, such as a specific taxonomy term in the target Drupal), each separated by a colon (<code>:</code>). The first two parts, the namespace and the relation type, come from the "Available Relations" section of the field's configuration, which looks like this (using the "Linked Agent" field's configuration as an example):</p>
-<p><img alt="Relations example" src="../images/relators.png" /></p>
-<p>In the node edit form, this structure is represented as a select list of the types (the namespace is not shown) and, below that, an autocomplete field to indicate the relation target, e.g.:</p>
-<p><img alt="Linked agent example" src="../images/linked_agent.png" /></p>
-<p>To include these kind of values in a CSV field, we need to use a structured string as described above (namespace:relationtype:targetid). For example:</p>
-<p><code>relators:art:30</code></p>
-<p>You can also use taxonomy term names as targets:</p>
-<p><code>"relators:art:Jordan, Mark"</code></p>
-<p>Here's where we start to use "namespace" in two different ways. If the field you are populating references multiple vocabularies, you must include a Drupal vocabulary namespace with your term name:</p>
+<p>As we saw in the "Using term names in multi-vocabulary fields" section above, if the field that we are populating references multiple vocabularies, we need to provide a namespace to tell Drupal which vocabulary we are referring to. To add a local vocabulary namespace to our already-complex Typed Relation CSV value, we prepend it to the term name, like this:</p>
 <p><code>"relators:art:person:Jordan, Mark"</code></p>
-<p>(<code>relators</code> is the external namespace, and <code>person</code> is the Drupal vocabulary namespace.)</p>
-<p>You can also use HTTP URIs as typed relation targets:</p>
-<p><code>"relators:art:http://markjordan.net</code></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Note that the structure required for typed relation values in the CSV file is not the same as the structure of the relations configuration depicted in the screenshot of the "Available Relations" list above; the CSV values use only colons to seprate the three parts, but the field configuration within Drupal uses a colon and then a pipe (|) to structure its values.</p>
-</div>
-<p>In this example of a CSV value, <code>relators</code> is the namespace that the relation type <code>art</code> is from (the Library of Congress <a href="http://id.loc.gov/vocabulary/relators.html">Relators</a> vocabulary), and the target taxonomy term ID is <code>30</code>. In the screenshot above showing the "Linked Agent" field of a node, the value of the Relationship Type select list is "Artist (art)", and the value of the associated taxonomy term field is the person's name that has the taxonomy term ID "30" (in this case, "Jordan, Mark"):</p>
+<p>(In ths example, <code>relators</code> is the external namespace, and <code>person</code> is the local Drupal vocabulary namespace.)</p>
+<p>Running <code>--check</code> will help with some of this complexity, since it will tell you that you need to add the vocabulary namespace.</p>
+<p>The final option for popluating Typed Relation field is to use HTTP URIs as typed relation targets:</p>
+<p><code>relators:art:http://markjordan.net</code></p>
 <p>If you want to include multiple typed relation values in a single field of your CSV file (such as in "field_linked_agent"), separate the three-part values with the same subdelimiter character you use in other fields, e.g. (<code>|</code>) (or whatever you have configured as your <code>subdelimiter</code>):</p>
 <p><code>relators:art:30|relators:art:45</code></p>
+<p>or</p>
+<p><code>relators:art:person:Jordan, Mark|relators:art:45</code></p>
 <h5 id="adding-new-typed-relation-targets">Adding new typed relation targets</h5>
 <p>Islandora Workbench allows you to add new typed relation targets while creating and updating nodes. These targets are taxonomy terms. Your configuration file must include the <code>allow_adding_terms: true</code> option to add new targets. In general, adding new typed relation targets is just like adding new taxonomy terms as described above in the "Taxonomy fields" section.</p>
 <p>An example of a CSV value that adds a new target term is:</p>
