@@ -352,6 +352,7 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 <p>The subdelimiter character defaults to a pipe (<code>|</code>) but can be set in your config file using the <code>subdelimiter: ";"</code> option.</p>
 <h3 id="field-types">Field types</h3>
 <h4 id="taxonomy-fields">Taxonomy fields</h4>
+<p>Islandora Workbench lets you assign both existing and new taxonomy terms to nodes. Creating terms on demand during node creation reduces the need to prepopulate your vocabularies prior to creating nodes.</p>
 <p>In CSV columns for taxonomy fields, you can use either term IDs (integers) or term names (strings). You can even mix IDs and names in the same field:</p>
 <pre><code class="text">file,title,field_my_multivalued_taxonomy_field
 img001.png,Picture of cats and yarn,Cats|46
@@ -359,7 +360,8 @@ img002.png,Picture of dogs and sticks,Dogs|Sticks
 img003.png,Picture of yarn and needles,&quot;Yarn, Balls of&quot;|Knitting needles
 </code></pre>
 
-<p>By default, if you use a term name in your CSV data that doesn't match a term name that exists in the referenced taxonomy, Workbench will detect this when you use <code>--check</code> and exit. However, if you add <code>allow_adding_terms: true</code> to your configuration file for <code>create</code> and <code>update</code> tasks, Workbench will create the new term. A few of things to note:</p>
+<p>By default, if you use a term name in your CSV data that doesn't match a term name that exists in the referenced taxonomy, Workbench will detect this when you use <code>--check</code>, warn you, and exit. This strict default helps prevent users from accidentally adding unwanted terms through data entry error.</p>
+<p>However, if you add <code>allow_adding_terms: true</code> to your configuration file for <code>create</code> and <code>update</code> tasks, Workbench will create the new term the first time it is used in the CSV file following these rultes:</p>
 <ul>
 <li>If multiple records in your CSV contain the same new term name in the same field, the term is only created once.</li>
 <li>When Workbench checks to see if the term with the new name exists in the target vocabulary, it normalizes it and compares it with existing term names in that vocabulary, applying these normalization rules to both the new term and the existing terms:<ul>
