@@ -323,9 +323,9 @@
 <li><code>created</code>: The timestamp to use in the node's "created" attribute and in the "created" attribute of the media created with the node. Optional, but if present, it must be in format 2020-11-15T23:49:22+00:00 (the +00:00 is the difference to Greenwich time/GMT). Only available in <code>create</code> tasks. If you are creating paged/compound objects from directories, this value is applied to the parent's children (if you are creating them using the page/child-level metadata method, these fields must be in your CSV metadata).</li>
 </ul>
 <h3 id="content-type-specific-fields">Content type-specific fields</h3>
-<p>For other Drupal fields, the column headings in the CSV file must match machine names of fields that exist in the target Islandora content type. Fields' machine names are visible within the "Manage fields" section of each content type's configuration, here circled in red: </p>
+<p>For other Drupal fields, the column headings in the CSV file must match machine names of fields that exist in the target Islandora content type. Fields' machine names are visible within the "Manage fields" section of each content type's configuration, here circled in red:</p>
 <p><img alt="Field machine names" src="../images/field_machine_names.png" /></p>
-<p>These field names, plus the fields indicated in the "Required fields" section above, are the column headers in your CSV file. </p>
+<p>These field names, plus the fields indicated in the "Required fields" section above, are the column headers in your CSV file.</p>
 <h3 id="single-and-multi-valued-fields">Single and multi-valued fields</h3>
 <p>Drupal allows for fields to have a single value, a specific maximum number of values, or unlimited number of values.</p>
 <h4 id="single-valued-fields">Single-valued fields</h4>
@@ -414,6 +414,47 @@ http://purl.org/coar/resource_type/c_18cc
 <li>You cannot create a new term by providing a URI like you can by providing a term name.</li>
 <li>If the same URI is registered with more than one term, Workbench will choose one and write a warning to the log indicating which term it chose and which terms the URI is registered with. However, <code>--check</code> will detect that a URI is registered with more than one term and warn you. At that point you can edit your CSV file to use the correct term ID rather than the URI.</li>
 </ul>
+<h4 id="typed-relation-fields">Typed Relation fields</h4>
+<p>Typed relation fields contain information about the relationship (or "relation") between a taxonomy term and the node it is attached to. For example, a term from the Person vocabulary, "Mark Jordan", can be an author, illustrator, or editor of the book described in the node. "author", "illustrator", and "editor" are the "typed" relations.</p>
+<p>The Islandora Defaults module allows the relations to be sets of terms from external authority lists (for example like the <a href="https://www.loc.gov/marc/relators/relaterm.html">MARC Relators</a> list maintained by the Library of Congress). Within a Typed Relation field's configuration, the available relations look like this:</p>
+<p><img alt="Relations example" src="../images/relators.png" /></p>
+<p>In this screenshot, "relators" is a namespace for the MARC Relators authority list, the codes "acp", "adi", etc are the codes for each relator, and "Art copyist", "Art director", etc. are the human-readable label for each relator.</p>
+<p>Within the edit form of a node that has a Typed Relation field, the user interface adds a select list of the relation (the target taxonomy term here is "Jordan, Mark (30))", like this:</p>
+<p><img alt="Linked agent example" src="../images/linked_agent.png" /></p>
+<p>To be able to populate Typed Relation fields using CSV data with their three pieces of data (authority list, relation type, target term), Islandora Workbench supports CSV values that contain the cooresponding namespace, relator code, and taxonomy term ID, each separated by a colon (<code>:</code>), like this:.</p>
+<p><code>relators:art:30</code></p>
+<p>In this example CSV value, <code>relators</code> is the namespace that the relation type <code>art</code> is from (the Library of Congress <a href="http://id.loc.gov/vocabulary/relators.html">Relators</a> vocabulary), and the target taxonomy term ID is <code>30</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that the structure required for typed relation values in the CSV file is not the same as the structure of the relations configuration depicted in the screenshot of the "Available Relations" list above.</p>
+</div>
+<p>You can also use taxonomy term names as targets, instead of term IDs:</p>
+<p><code>"relators:art:Jordan, Mark"</code></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In the next few paragraphs, the word "namespace" is used to describe two different kinds of namespaces - first, a vocabulary ID in the local Drupal and second, an ID for the external authority list of relators, for example by the Library of Congress.</p>
+</div>
+<p>As we saw in the "Using term names in multi-vocabulary fields" section above, if the field that we are populating references multiple vocabularies, we need to tell Drupal which vocabulary we are referring to with a local vocabulary namespace. To add a local vocabulary namespace to our already-complex Typed Relation CSV structure, we prepend it to the term name, like this:</p>
+<p><code>"relators:art:person:Jordan, Mark"</code></p>
+<p>(In ths example, <code>relators</code> is the external authority lists's namespace, and <code>person</code> is the local Drupal vocabulary namespace.)</p>
+<p>If this seems confusing and abstruse, don't worry. Running <code>--check</code> will tell you that you need to add the Drupal vocabulary namespace.</p>
+<p>The final option for popluating Typed Relation field is to use HTTP URIs as typed relation targets:</p>
+<p><code>relators:art:http://markjordan.net</code></p>
+<p>If you want to include multiple typed relation values in a single field of your CSV file (such as in "field_linked_agent"), separate the three-part values with the same subdelimiter character you use in other fields, e.g. (<code>|</code>) (or whatever you have configured as your <code>subdelimiter</code>):</p>
+<p><code>relators:art:30|relators:art:45</code></p>
+<p>or</p>
+<p><code>relators:art:person:Jordan, Mark|relators:art:45</code></p>
+<h5 id="adding-new-typed-relation-targets">Adding new typed relation targets</h5>
+<p>Islandora Workbench allows you to add new typed relation targets while creating and updating nodes. These targets are taxonomy terms. Your configuration file must include the <code>allow_adding_terms: true</code> option to add new targets. In general, adding new typed relation targets is just like adding new taxonomy terms as described above in the "Taxonomy fields" section.</p>
+<p>An example of a CSV value that adds a new target term is:</p>
+<p><code>"relators:art:person:Jordan, Mark"</code></p>
+<p>You can also add multiple new targets:</p>
+<p><code>"relators:art:person:Annez, Melissa|relators:art:person:Jordan, Mark"</code></p>
+<p>Note that:</p>
+<ul>
+<li>For multi-vocabulary fields, new typed relator targets must be accommpanied by a vocabulary namespace (<code>person</code> in the above examples).</li>
+<li>You cannot add new relators (e.g. <code>relators:foo</code>) in your CSV file, only new target terms.</li>
+</ul>
 <h4 id="edtf-fields">EDTF fields</h4>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -495,46 +536,6 @@ http://purl.org/coar/resource_type/c_18cc
 </tbody>
 </table>
 <p>Subvalues in multivalued CSV fields are validated separately, e.g. if your CSV value is <code>2004-06/2006-08|2007-01/2007-04</code>, <code>2004-06/2006-08</code> and <code>2007-01/2007-04</code> are validated separately.</p>
-<h4 id="typed-relation-fields">Typed Relation fields</h4>
-<p>Typed relation fields contain information about the relationship (or "relation") between a taxonomy term and the node it is attached to. For example, a term from the Person vocabulary, "Mark Jordan", can be an author, illustrator, or editor of the book described in the node. "author", "illustrator", and "editor" are the "typed" relations. The Islandora Defaults module allows the relations to be managed as sets of terms from an external authority lists (for example like the <a href="https://www.loc.gov/marc/relators/relaterm.html">MARC Relators</a> list maintained by the Library of Congress). Within a Typed Relation field's configuration, the available relations look like this:</p>
-<p><img alt="Relations example" src="../images/relators.png" /></p>
-<p>In this screenshot, "relators" is a namespace for the MARC Relators authority list, the codes "acp", "adi", etc are the codes for each relator, and "Art copyist", "Art director", etc. are the human-readable label for each relator.</p>
-<p>Within the edit form of a node that has a Typed Relation field, the user interface adds a select list of the relation (the target taxonomy term here is "Jordan, Mark (30)", like this:</p>
-<p><img alt="Linked agent example" src="../images/linked_agent.png" /></p>
-<p>To be able to populate Typed Relation fields using CSV data, Islandora Workbench requires CSV values that contain the namespace, relator code, and target taxonomy term ID, each separated by a colon (<code>:</code>), like this:.</p>
-<p><code>relators:art:30</code></p>
-<p>In this example CSV value, <code>relators</code> is the namespace that the relation type <code>art</code> is from (the Library of Congress <a href="http://id.loc.gov/vocabulary/relators.html">Relators</a> vocabulary), and the target taxonomy term ID is <code>30</code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Note that the structure required for typed relation values in the CSV file is not the same as the structure of the relations configuration depicted in the screenshot of the "Available Relations" list above.</p>
-</div>
-<p>You can also use taxonomy term names as targets, instead of term IDs:</p>
-<p><code>"relators:art:Jordan, Mark"</code></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>In the following section, the word "namespace" is used to two different kinds of namespaces! Below, "namespace" is used both to refer to a vocabulary ID in the local Drupal and an ID for the authority list of relators maintained outside of Drupal, for example by the Library of Congress.</p>
-</div>
-<p>As we saw in the "Using term names in multi-vocabulary fields" section above, if the field that we are populating references multiple vocabularies, we need to provide a namespace to tell Drupal which vocabulary we are referring to. To add a local vocabulary namespace to our already-complex Typed Relation CSV value, we prepend it to the term name, like this:</p>
-<p><code>"relators:art:person:Jordan, Mark"</code></p>
-<p>(In ths example, <code>relators</code> is the external namespace, and <code>person</code> is the local Drupal vocabulary namespace.)</p>
-<p>If this seems confusing and abstruse, don't worrk. Running <code>--check</code> will tell you that you need to add the Drupal vocabulary namespace.</p>
-<p>The final option for popluating Typed Relation field is to use HTTP URIs as typed relation targets:</p>
-<p><code>relators:art:http://markjordan.net</code></p>
-<p>If you want to include multiple typed relation values in a single field of your CSV file (such as in "field_linked_agent"), separate the three-part values with the same subdelimiter character you use in other fields, e.g. (<code>|</code>) (or whatever you have configured as your <code>subdelimiter</code>):</p>
-<p><code>relators:art:30|relators:art:45</code></p>
-<p>or</p>
-<p><code>relators:art:person:Jordan, Mark|relators:art:45</code></p>
-<h5 id="adding-new-typed-relation-targets">Adding new typed relation targets</h5>
-<p>Islandora Workbench allows you to add new typed relation targets while creating and updating nodes. These targets are taxonomy terms. Your configuration file must include the <code>allow_adding_terms: true</code> option to add new targets. In general, adding new typed relation targets is just like adding new taxonomy terms as described above in the "Taxonomy fields" section.</p>
-<p>An example of a CSV value that adds a new target term is:</p>
-<p><code>"relators:art:person:Jordan, Mark"</code></p>
-<p>You can also add multiple new targets:</p>
-<p><code>"relators:art:person:Annez, Melissa|relators:art:person:Jordan, Mark"</code></p>
-<p>Note that:</p>
-<ul>
-<li>For multi-vocabulary fields, new typed relator targets must be accommpanied by a vocabulary namespace (<code>person</code> in the above examples).</li>
-<li>You cannot add new relators (e.g. <code>relators:foo</code>) in your CSV file, only new target terms.</li>
-</ul>
 <h4 id="geolocation-fields">Geolocation fields</h4>
 <p>The Geolocation field type, managed by the <a href="https://www.drupal.org/project/geolocation">Geolocation Field</a> contrib module, stores latitude and longitude coordinates in separate data elements. To add or update fields of this type, Workbench needs to provide the latitude and longitude data in these separate elements.</p>
 <p>To simplify entering geocoordinates in the CSV file, Workbench allows geocoordinates to be in <code>lat,lng</code> format, i.e., the latitude coordinate followed by a comma followed by the longitude coordinate. When Workbench reads your CSV file, it will split data on the comma into the required lat and lng parts. An example of a single geocoordinate in a field would be:</p>
