@@ -13,19 +13,20 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Checking configuration and input data";
     var mkdocs_page_input_path = "check.md";
-    var mkdocs_page_url = "/check/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -39,7 +40,7 @@
         <a href=".." class="icon icon-home"> Islandora Workbench</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -222,33 +223,61 @@
 <p><code>./workbench --config config.yml --check</code></p>
 <p>If you do this, Workbench will check the following and report any errors that require your attention before proceding:</p>
 <ul>
-<li>Whether your Drupal has the required <a href="https://github.com/mjordan/islandora_workbench_integration">Workbench Integration</a> module enabled.</li>
+<li>Configuration file<ul>
 <li>Whether your configuration file contains all required values.</li>
+</ul>
+</li>
+<li>Connection to Drupal<ul>
+<li>Whether your Drupal has the required <a href="https://github.com/mjordan/islandora_workbench_integration">Workbench Integration</a> module enabled.</li>
 <li>Whether the <code>host</code> you provided will accept the <code>username</code> and <code>password</code> you provided.</li>
+</ul>
+</li>
+<li>CSV file<ul>
+<li>Whether each row contains the same number of columns as there are column headers.</li>
 <li>Whether your CSV file contains required columns headers, including the field defined as the unique ID for each record (defaults to "id" if the <code>id_field</code> key is not in your config file)</li>
 <li>Whether your CSV column headers correspond to existing Drupal field machine names.</li>
 <li>Whether all Drupal fields that are configured to be required are present in the CSV file.</li>
-<li>Whether multivalued fields exceed their allowed number of values.</li>
+<li>Whether the columns required to create paged content are present (see "Creating paged content" below).</li>
+</ul>
+</li>
+<li>Media files<ul>
 <li>Whether the files named in the CSV file are present, or in the case of remote files, are accessible (but this check is skipped if <code>allow_missing_files: true</code> is present in your config file for "create" tasks). If <code>nodes_only</code> is true, this check is skipped.</li>
+</ul>
+</li>
+<li>Field values<ul>
+<li>Base fields<ul>
 <li>If the <code>langcode</code> field is present in your CSV, whether values in it are valid Drupal language codes.</li>
 <li>Whether values in the <code>title</code> field exceed Drupal's maximum length for titles of 255 characters (but this check is skipped if <code>validate_title_length</code> is set to <code>False</code>).</li>
-<li>Whether values in text-type fields exceed their configured maximum length.</li>
-<li>Whether each row contains the same number of columns as there are column headers.</li>
-<li>Whether the nodes refrenced in <code>field_member_of</code> (if that field is present in the CSV) exist.</li>
-<li>Whether the columns required to create paged content are present (see "Creating paged content" below).</li>
-<li>Whether the term ID (or term URI) provided for <code>media_use_tid</code> is a member of the "Islandora Media Use" vocabulary.</li>
-<li>Whether term ID and term URIs used in CSV fields correspond to existing terms.</li>
-<li>Whether values used in typed relation fields are in the required format, whether values are namespaced when they need to be, and whether the term IDs/term names/term URIs used in the values exist in the vocabularies configured for the field.</li>
-<li>Whether values used in geolocation fields are valid lat,long coordinates.</li>
-<li>Whether values used in EDTF fields are valid EDTF date/time values (subset of date/time values only; see <a href="https://mjordan.github.io/islandora_workbench_docs/fields/#field-types">documentation</a> for more detail). Also validates whether dates are valid Gregorian calendar dates.</li>
-<li>Whether the length of new terms exceeds 255 characters, which is the maximum length for a term name.</li>
-<li>Whether term names in your CSV require a vocabulary namespace.</li>
-<li>If using the pages from directories configuration:</li>
-<li>Whether page filenames contain an occurance of the sequence separator.</li>
-<li>Whether any page directories are empty.</li>
 <li>If the <code>created</code> field is present in your CSV file, whether the values in it are formatted correctly (like "2020-11-15T23:49:22+00:00") and whether the date is in the past (both of which are Drupal requirements).</li>
 <li>If the <code>uid</code> field is present in your CSV file, whether the user IDs in that field exist in the target Drupal. Note that this check does not inspect permissions or roles, only that the user ID exists.</li>
+</ul>
+</li>
 <li>Whether aliases in the <code>url_alias</code> field in your CSV already exist, and whether they start with a leading slash (<code>/</code>).</li>
+<li>Taxonomy<ul>
+<li>Whether term ID and term URIs used in CSV fields correspond to existing terms.</li>
+<li>Whether the length of new terms exceeds 255 characters, which is the maximum length for a term name.</li>
+<li>Whether the term ID (or term URI) provided for <code>media_use_tid</code> is a member of the "Islandora Media Use" vocabulary.</li>
+<li>Whether term names in your CSV require a vocabulary namespace.</li>
+</ul>
+</li>
+<li>Typed Relation fields<ul>
+<li>Whether values used in typed relation fields are in the required format</li>
+<li>Whether values need to be namespaced</li>
+<li>Whether the term IDs/term names/term URIs used in the values exist in the vocabularies configured for the field.</li>
+</ul>
+</li>
+<li>If using the pages from directories configuration (<code>paged_content_from_directories: true</code>):<ul>
+<li>Whether page filenames contain an occurance of the sequence separator.</li>
+<li>Whether any page directories are empty.</li>
+</ul>
+</li>
+<li>Whether multivalued fields exceed their allowed number of values.</li>
+<li>Whether values in text-type fields exceed their configured maximum length.</li>
+<li>Whether the nodes refrenced in <code>field_member_of</code> (if that field is present in the CSV) exist.</li>
+<li>Whether values used in geolocation fields are valid lat,long coordinates.</li>
+<li>Whether values used in EDTF fields are valid EDTF date/time values (subset of date/time values only; see <a href="https://mjordan.github.io/islandora_workbench_docs/fields/#field-types">documentation</a> for more detail). Also validates whether dates are valid Gregorian calendar dates.</li>
+</ul>
+</li>
 </ul>
 <p>If Workbench detects a configuration or input data violation, it will either stop and tell you why it stopped, or (if the violation will not cause Workbench's interaction with Drupal to fail), tell you that it found an anomoly and to check the log file for more detail.</p>
 <h2 id="typical-and-recommended-islandora-workbench-usage">Typical (and recommended) Islandora Workbench usage</h2>
@@ -280,18 +309,18 @@
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../configuration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -301,7 +330,9 @@
       
     </span>
 </div>
-    <script src="../js/theme.js"></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>
