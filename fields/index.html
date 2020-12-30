@@ -512,12 +512,12 @@ http://purl.org/coar/resource_type/c_18cc
 <p><code>"relators:art:Jordan, Mark"</code></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>In the following section, the word "namespace" is used to mean something additional to what it means in the "Using term names in multi-vocabulary fields" section above. Below, "namespace" is used both to refer to a vocabulary ID in the target Drupal and an ID for the authority list of relators maintained outside of Drupal, for example by the Library of Congress.</p>
+<p>In the following section, the word "namespace" is used to two different kinds of namespaces! Below, "namespace" is used both to refer to a vocabulary ID in the local Drupal and an ID for the authority list of relators maintained outside of Drupal, for example by the Library of Congress.</p>
 </div>
 <p>As we saw in the "Using term names in multi-vocabulary fields" section above, if the field that we are populating references multiple vocabularies, we need to provide a namespace to tell Drupal which vocabulary we are referring to. To add a local vocabulary namespace to our already-complex Typed Relation CSV value, we prepend it to the term name, like this:</p>
 <p><code>"relators:art:person:Jordan, Mark"</code></p>
 <p>(In ths example, <code>relators</code> is the external namespace, and <code>person</code> is the local Drupal vocabulary namespace.)</p>
-<p>Running <code>--check</code> will help with some of this complexity, since it will tell you that you need to add the vocabulary namespace.</p>
+<p>If this seems confusing and abstruse, don't worrk. Running <code>--check</code> will tell you that you need to add the Drupal vocabulary namespace.</p>
 <p>The final option for popluating Typed Relation field is to use HTTP URIs as typed relation targets:</p>
 <p><code>relators:art:http://markjordan.net</code></p>
 <p>If you want to include multiple typed relation values in a single field of your CSV file (such as in "field_linked_agent"), separate the three-part values with the same subdelimiter character you use in other fields, e.g. (<code>|</code>) (or whatever you have configured as your <code>subdelimiter</code>):</p>
