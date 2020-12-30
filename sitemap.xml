@@ -75,14 +75,6 @@
 
     
     <url>
-     <loc>/media_types/</loc>
-     <lastmod>2020-12-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
      <loc>/alt_text/</loc>
      <lastmod>2020-12-30</lastmod>
      <changefreq>daily</changefreq>
@@ -116,6 +108,14 @@
     
     <url>
      <loc>/rolling_back/</loc>
+     <lastmod>2020-12-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/media_types/</loc>
      <lastmod>2020-12-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
