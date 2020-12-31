@@ -13,20 +13,19 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/highlight.css">
   <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Fields";
     var mkdocs_page_input_path = "fields.md";
-    var mkdocs_page_url = null;
+    var mkdocs_page_url = "/fields/";
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -40,7 +39,7 @@
         <a href=".." class="icon icon-home"> Islandora Workbench</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
       </div>
@@ -234,11 +233,11 @@
                 <p>In addition to content files like images, the input data used by Workbench is a CSV file. This CSV file contains the metadata that is to be added to new or existing nodes, and some additional reserved columns specific to Workbench. Field values are either strings (for string or text fields) like <code>I am a string</code>, integers (for <code>field_weight</code>, for example) like <code>100</code> or <code>7281</code>, the binary values <code>1</code> or <code>0</code>, Drupal-generated IDs (term IDs taxonomy terms or node IDs for collections and parents), or structured strings (for typed relation and geolocation fields) like <code>"49.16667,-123.93333"</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>As is standard with CSV data, field values do not need to be wrapped in double quotation marks (<code>"</code>), unless they contain an instance of the delimiter character (e.g., a comma). Spreadsheet applications such as Google Sheets and LibreOffice Calc will create valid CSV.</p>
+<p>As is standard with CSV data, field values do not need to be wrapped in double quotation marks (<code>"</code>), unless they contain an instance of the delimiter character (e.g., a comma). Spreadsheet applications such as Google Sheets, LibreOffice Calc, and Excel will output valid CSV data.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Also note that you can have Islandora Workbench <a href="/csv_file_templates/">generate</a> a template CSV file for you.</p>
+<p>Also note that you can have Islandora Workbench <a href="../islandora_workbench_docs/csv_file_templates/">generate</a> a template CSV file for you.</p>
 </div>
 <p>The following types of fields can be used in your input CSV file:</p>
 <ul>
@@ -580,18 +579,18 @@ http://purl.org/coar/resource_type/c_18cc
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+	  
         </div>
       </div>
 
     </section>
-
+    
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../preparing_data/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -601,9 +600,7 @@ http://purl.org/coar/resource_type/c_18cc
       
     </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
+    <script src="../js/theme.js"></script>
 
 </body>
 </html>
