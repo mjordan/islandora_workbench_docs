@@ -10,7 +10,7 @@ Islandora Workbench is a command-line tool that allows creation, updating, and d
 
 * Allows creation of Islandora nodes and media, updating of nodes, and deletion of nodes and media from CSV files
 * Allows creation of paged/compound content
-* Can run from anywhere - it communicates with Drupal via HTTP interfaces
+* Can run from anywhere - it communicates with Drupal via HTTP interfaces faces
 * Provides robust data validation functionality
 * Supports a variety of Drupal entity field types (text, integer, term reference, typed relation, geolocation)
 * Can provide a CSV file template based on Drupal content type
