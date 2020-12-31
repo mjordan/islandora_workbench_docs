@@ -1,6 +1,6 @@
 You can delete nodes by providing a CSV file that contains a single column, `node_id`, like this:
 
-```csv
+```text
 node_id
 95
 96

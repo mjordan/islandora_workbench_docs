@@ -3,7 +3,7 @@
 
 You can generate a template CSV file by running Workbench with the `--get_csv_template` argument:
 
-`./workbench --config config.yml ----get_csv_template`
+`./workbench --config config.yml --get_csv_template`
 
 With this option, Workbench will fetch the field definitions for the content type named in your configuration's `content_type` option and save a CSV file with a column for each of the content type's fields. You can then populate this template with values you want to use in a `create` task. The template file is saved in the directory indicated in your configuration's `input_dir` option, using the filename defined in `input_csv` with `.csv_file_template` appended.
 

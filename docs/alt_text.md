@@ -2,7 +2,7 @@ Islandora image media require a value in their "Alternative text" field. This te
 
 You can assign alt text values by adding the `image_alt_text` field to you CSV file, like this:
 
-```
+```text
 file,title,field_description,image_alt_text
 IMG_1410.tif,Small boats in Havana Harbour,They are nice boats.Small boats in Havana Harbour.
 IMG_2549.jp2,Manhatten Island,It was windy that day.Picture of Manhatten Island.

@@ -1,10 +1,13 @@
-Islandora Workbench provides two ways to create paged content. The first uses a specific directory structure to define the relationship between the parent item and the pages, and the second uses page-level metadata in the CSV to establish that relationship.
+Islandora Workbench provides two ways to create paged and compound content:
+
+* using a specific subdirectory structure to define the relationship between the parent item and its children
+* using page-level metadata in the CSV to establish that relationship
 
 ### Using subdirectories
 
 Enable this method by including `paged_content_from_directories: true` in your configuration file. Use this method when you are creating books, newspaper issues, or other paged content where your pages don't have their own metadata. This method groups page-level files into subdirectories that correspond to each parent, and does not require (or allow) page-level metadata in the CSV file. Each parent (book, newspaper issue, etc.) has a row on the CSV file, e.g.:
 
-```
+```text
 id,title,field_model,field_display_hints
 book1,How to Use Islandora Workbench like a Pro,28,2
 book2,Using Islandora Workbench for Fun and Profit,28,2
@@ -44,11 +47,11 @@ Important things to note when using this method:
 
 ### With page/child-level metadata
 
-Using this method, the metadata CSV file contains a row for each parent and all child items. You should use this method when you are creating books, newspaper issues, or other paged content where each page has its own metadata, or when you are creating compound objects of any Islandora model. The files for each page are named explicitly in the `file` column rather than being in a subdirectory. To link the pages to the parent, Workbench establishes parent/child relationships between items with `parent_id` values (the pages/children) with that are the same as the `id` value of another item (the parent). For this to work, your CSV file must contain a `parent_id` field plus the standard Islandora fields `field_weight`, `field_member_of`, and `field_model` (the role of these last three fields will be explained below). The `id` field is required in all CSV files used to create content, so in this case, your CSV needs both an `id` field and a `parent_id` field.
+Using this method, the metadata CSV file contains a row for each parent and all child items. You should use this method when you are creating books, newspaper issues, or other paged or compound content where each page has its own metadata, or when you are creating compound objects of any Islandora model. The files for each page are named explicitly in the `file` column rather than being in a subdirectory. To link the pages to the parent, Workbench establishes parent/child relationships between items with `parent_id` values (the pages/children) with that are the same as the `id` value of another item (the parent). For this to work, your CSV file must contain a `parent_id` field plus the standard Islandora fields `field_weight`, `field_member_of`, and `field_model` (the role of these last three fields will be explained below). The `id` field is required in all CSV files used to create content, so in this case, your CSV needs both an `id` field and a `parent_id` field.
 
 The following example illustrates how this works. Here is the raw CSV data:
 
-```csv
+```text
 id,parent_id,field_weight,file,title,field_description,field_model,field_member_of
 001,,,,Postcard 1,The first postcard,28,197
 003,001,1,image456.jpg,Front of postcard 1,The first postcard's front,29,

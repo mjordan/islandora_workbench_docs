@@ -70,17 +70,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../sample_data/">Creating nodes from the sample data</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
     <a class="" href="../preparing_data/">Preparing your data</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../field_types/">Field types</a>
+    <a class="" href="../fields/">Fields</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -96,14 +91,6 @@
             <li class="toctree-l1">
 		
     <a class="" href="../aliases/">Assigning URL aliases</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Setting media types</a>
-    <ul class="subnav">
-            
-    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -129,6 +116,14 @@
             <li class="toctree-l1">
 		
     <a class="" href="../rolling_back/">Rolling back nodes and media</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Setting media types</a>
+    <ul class="subnav">
+            
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -158,6 +153,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../sample_data/">Creating nodes from the sample data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../generating_sample_content/">Generating sample Islandora content</a>
 	    </li>
           
@@ -169,6 +169,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="../workflows/">Workflows</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
 	    </li>
           
         </ul>
@@ -196,7 +201,7 @@
     <li>Setting media types</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/master/docs/media_types.md"
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/media_types.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -241,6 +246,7 @@
 </tr>
 </tbody>
 </table>
+<p>If a file's extension is not defined in either this default mapping, the media is assigned the "file" type.</p>
 <p>If you need to override this default mappping, you can do so in two ways:</p>
 <ol>
 <li>For all media being created, via the <code>media_type</code> (singluar) configuration option. If this is present (for example <code>media_type: document</code>), all media created by Workbench will be assigned that media type. Use this option if all of the files in your batch are to be assigned the same media type, but their extensions are not defined in the default mapping.</li>
@@ -253,7 +259,7 @@
 </ol>
 <p>Note that:</p>
 <ul>
-<li>If a file's extension is not defined in either the default mapping, or in the <code>media_type</code> or <code>media_types</code> configuration options, the media is assigned the <code>file</code> type.</li>
+<li>If a file's extension is not present in the default mapping or in the <code>media_types</code> custom mapping, the media is assigned the "file" type.</li>
 <li>If you use the <code>media_types</code> configuration option, your mapping replaces all of Workbench's default mappings. However, you may include multiple entries, e.g.:
    ```
    media_types:<ul>
@@ -271,10 +277,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../alt_text/" class="btn btn-neutral float-right" title="Adding alt text to images">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../updating_nodes/" class="btn btn-neutral float-right" title="Updating nodes">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../aliases/" class="btn btn-neutral" title="Assigning URL aliases"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../rolling_back/" class="btn btn-neutral" title="Rolling back nodes and media"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -302,10 +308,10 @@
           <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../aliases/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../rolling_back/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../alt_text/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../updating_nodes/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

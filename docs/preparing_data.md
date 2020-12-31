@@ -1,4 +1,7 @@
-Islandora Workbench allows for arranging your input data in a variety of ways. The two basic sets of data you need to preare (depending on what task you are performing) are 1) a CSV file and 2) files that will be used as Drupal media.
+Islandora Workbench allows for arranging your input data in a variety of ways. The two basic sets of data you need to preare (depending on what task you are performing) are:
+
+1. a CSV file, containing data that will populate node fields (or do other things depending on what task you are performing)
+2. files that will be used as Drupal media.
 
 ## Using an input directory
 
@@ -14,7 +17,7 @@ your_folder/
 └── metadata.csv
 ```
 
-The names of the image/PDF/video/etc. files can take any form you want since they are included in the `file` column of the CSV file. Files of any extension are allowed.
+The names of the image/PDF/video/etc. files are included in the `file` column of the CSV file. Files of any extension are allowed. Islandora Workbench reads the CSV file and iterates throught it, performing the current task for each record. In this configuration, files other than the CSV and your media files are allowed in this directory (although for some configurations, your input directory should not contain any files that are not going to be ingested).
 
 This is Islandora Workbench's default configuration. If you do not specify an `input_dir` or an `input_csv`, as illustrated in this minimal configuration file:
 
@@ -27,9 +30,21 @@ password: islandora
 
 Workbench will assume your files are in a directory named "input_data" in the same directory as the Workbench script, and that within that directory, your CSV file is named "metadata.csv".
 
+```
+workbench
+workbench_utils.py
+├── your_folder/
+   ├── image1.JPG
+   ├── pic_saturday.jpg
+   ├── image-27262.jpg
+   ├── IMG_2958.JPG
+   ├── someimage.jpg
+   └── metadata.csv
+```
+
 ## Using absolute file paths
 
-Both your input CSV file and the values in its `file` column can be absolute paths. In this configuration, your `input_csv` configuration option must specify the absolute path to your input CSV file, and all values within its `file` column may point to a file to be used as the corresponding node's media file. Relative filenames are also allowed, but they will be relative to the directory named in `input_dir`. An example configuration file for this is:
+Both your input CSV file and the values in its `file` column can be absolute paths. In this configuration, your `input_csv` configuration setting must specify the absolute path to your input CSV file, and each value within its `file` column may point to a file to be used as the corresponding node's media file. You can also mix absolute and relative filenames in the same CSV file, but all relative filenames are considered to be in the directory named in `input_dir`. An example configuration file for this is:
 
 ```yaml
 task: create
@@ -38,6 +53,28 @@ username: admin
 password: islandora
 input_csv: /tmp/input.csv
 ```
+
+And within the `file` column of the CSV, values like:
+
+```text
+id,file,title
+001,/tmp/mydata/file01.png,A very good file
+0002,/home/me/Documents/files/cat.jpg,My cat
+003,dog.png,My dog
+```
+
+## Using URLs as file paths
+
+In the `file` column, you can also use URLs to files, like this:
+
+```text
+id,file,title
+001,http://www.mysite.com/file01.png,A very good file
+0002,https://mycatssite.org/images/cat.jpg,My cat
+003,dog.png,My dog
+```
+
+[More information](/fields/#values-in-the-file-field) is available on using URLs in your `file` column.
 
 ## Using a Google Sheet as the input CSV file
 
@@ -66,7 +103,7 @@ Note that:
 * The Google spreadsheet must be publicly readable, e.g. with "Anyone on the Internet with this link can view" permission.
 * Spreadsheets work best for descriptive metadata if all cells are formatted as "Plain text". To do this, in Sheets, select all cells, then choose the menu items Format > Number > Plain text *before adding any content to the cells*.
 * The worksheet that the CSV data is taken from is the first one in the spreadsheet (i.e., the one named in the left-most tab).
-* The values in the `file` column of the spreadsheet point to files within your local `input_directory`, just like they do in a local CSV input file.
+* If the values in the `file` column of the spreadsheet are relative, they are assumed to point to files within your local `input_directory`, just like they do in a local CSV input file. However, you can also use abosolute file paths and URLs in the `file` column, as described above.
 
 ## Blank or missing "file" values
 

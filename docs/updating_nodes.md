@@ -1,8 +1,8 @@
-You can update nodes by providing a CSV file with a `node_id` column plus field data you want to update. Updates preserve any values in the fields, they don't replace the values (but see issue #47). The other column headings in the CSV file must match machine names of fields that exist in the target Islandora content type. Currently, text fields, taxonomy fields, linked node fields (e.g. "Member of" for collection nodes), and typed relation fields can be updated.
+You can update nodes by providing a CSV file with a `node_id` column plus field data you want to update. Updates preserve any values in the fields, they don't replace the values (but see [issue #47](https://github.com/mjordan/islandora_workbench/issues/47)). The other column headings in the CSV file must match machine names of fields that exist in the target Islandora content type. Currently, text fields, taxonomy fields, linked node fields (e.g. "Member of" for collection nodes), and typed relation fields can be updated following the same conventions used when creating nodes as described in the "[Fields](/islandora_workbench_docs/fields/)" documentation.
 
 For example, using the fields defined by the Islandora Defaults module for the "Repository Item" content type, your CSV file could look like this:
 
-```csv
+```text
 node_id,field_description,field_rights,field_access_terms,field_member_of
 100,This is my new title,I have changed my mind. This item is yours to keep.,27,45
 ```

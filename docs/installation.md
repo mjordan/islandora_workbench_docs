@@ -9,6 +9,8 @@
 
 ## Installation
 
+If you already have ruamel.yaml and requests installed, simply cloning Islandora Workbench from GitHub is all you need to do:
+
 * `git clone https://github.com/mjordan/islandora_workbench.git`
 
 If you don't already have the two required libraries installed, clone this repo as above, and then use `setup.py`:

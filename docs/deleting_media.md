@@ -1,6 +1,6 @@
 You can delete media and their associate files by providing a CSV file with a `media_id` column that contains the Drupal IDs of media you want to delete. For example, your CSV file could look like this:
 
-```csv
+```text
 media_id
 100
 103

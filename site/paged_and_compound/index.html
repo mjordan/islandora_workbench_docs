@@ -70,17 +70,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../sample_data/">Creating nodes from the sample data</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
     <a class="" href="../preparing_data/">Preparing your data</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../field_types/">Field types</a>
+    <a class="" href="../fields/">Fields</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -96,11 +91,6 @@
             <li class="toctree-l1">
 		
     <a class="" href="../aliases/">Assigning URL aliases</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../media_types/">Setting media types</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -139,6 +129,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../media_types/">Setting media types</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../updating_nodes/">Updating nodes</a>
 	    </li>
           
@@ -164,6 +159,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../sample_data/">Creating nodes from the sample data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../generating_sample_content/">Generating sample Islandora content</a>
 	    </li>
           
@@ -175,6 +175,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="../workflows/">Workflows</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
 	    </li>
           
         </ul>
@@ -202,7 +207,7 @@
     <li>Creating paged and compound content</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/master/docs/paged_and_compound.md"
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/paged_and_compound.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -212,10 +217,14 @@
           <div role="main">
             <div class="section">
               
-                <p>Islandora Workbench provides two ways to create paged content. The first uses a specific directory structure to define the relationship between the parent item and the pages, and the second uses page-level metadata in the CSV to establish that relationship.</p>
+                <p>Islandora Workbench provides two ways to create paged and compound content:</p>
+<ul>
+<li>using a specific subdirectory structure to define the relationship between the parent item and its children</li>
+<li>using page-level metadata in the CSV to establish that relationship</li>
+</ul>
 <h3 id="using-subdirectories">Using subdirectories</h3>
 <p>Enable this method by including <code>paged_content_from_directories: true</code> in your configuration file. Use this method when you are creating books, newspaper issues, or other paged content where your pages don't have their own metadata. This method groups page-level files into subdirectories that correspond to each parent, and does not require (or allow) page-level metadata in the CSV file. Each parent (book, newspaper issue, etc.) has a row on the CSV file, e.g.:</p>
-<pre><code>id,title,field_model,field_display_hints
+<pre><code class="text">id,title,field_model,field_display_hints
 book1,How to Use Islandora Workbench like a Pro,28,2
 book2,Using Islandora Workbench for Fun and Profit,28,2
 </code></pre>
@@ -248,9 +257,9 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 <li>The Drupal content type for page nodes is inherited from the parent, unless you specify a different content type in the <code>paged_content_page_content_type</code> setting in your configuration file.</li>
 </ul>
 <h3 id="with-pagechild-level-metadata">With page/child-level metadata</h3>
-<p>Using this method, the metadata CSV file contains a row for each parent and all child items. You should use this method when you are creating books, newspaper issues, or other paged content where each page has its own metadata, or when you are creating compound objects of any Islandora model. The files for each page are named explicitly in the <code>file</code> column rather than being in a subdirectory. To link the pages to the parent, Workbench establishes parent/child relationships between items with <code>parent_id</code> values (the pages/children) with that are the same as the <code>id</code> value of another item (the parent). For this to work, your CSV file must contain a <code>parent_id</code> field plus the standard Islandora fields <code>field_weight</code>, <code>field_member_of</code>, and <code>field_model</code> (the role of these last three fields will be explained below). The <code>id</code> field is required in all CSV files used to create content, so in this case, your CSV needs both an <code>id</code> field and a <code>parent_id</code> field.</p>
+<p>Using this method, the metadata CSV file contains a row for each parent and all child items. You should use this method when you are creating books, newspaper issues, or other paged or compound content where each page has its own metadata, or when you are creating compound objects of any Islandora model. The files for each page are named explicitly in the <code>file</code> column rather than being in a subdirectory. To link the pages to the parent, Workbench establishes parent/child relationships between items with <code>parent_id</code> values (the pages/children) with that are the same as the <code>id</code> value of another item (the parent). For this to work, your CSV file must contain a <code>parent_id</code> field plus the standard Islandora fields <code>field_weight</code>, <code>field_member_of</code>, and <code>field_model</code> (the role of these last three fields will be explained below). The <code>id</code> field is required in all CSV files used to create content, so in this case, your CSV needs both an <code>id</code> field and a <code>parent_id</code> field.</p>
 <p>The following example illustrates how this works. Here is the raw CSV data:</p>
-<pre><code class="csv">id,parent_id,field_weight,file,title,field_description,field_model,field_member_of
+<pre><code class="text">id,parent_id,field_weight,file,title,field_description,field_model,field_member_of
 001,,,,Postcard 1,The first postcard,28,197
 003,001,1,image456.jpg,Front of postcard 1,The first postcard's front,29,
 004,001,2,image389.jpg,Back of postcard 1,The first postcard's back,29,

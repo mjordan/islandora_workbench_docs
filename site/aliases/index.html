@@ -70,17 +70,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../sample_data/">Creating nodes from the sample data</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
     <a class="" href="../preparing_data/">Preparing your data</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="../field_types/">Field types</a>
+    <a class="" href="../fields/">Fields</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -99,11 +94,6 @@
     <ul class="subnav">
             
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../media_types/">Setting media types</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -133,6 +123,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../media_types/">Setting media types</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../updating_nodes/">Updating nodes</a>
 	    </li>
           
@@ -158,6 +153,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../sample_data/">Creating nodes from the sample data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../generating_sample_content/">Generating sample Islandora content</a>
 	    </li>
           
@@ -169,6 +169,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="../workflows/">Workflows</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
 	    </li>
           
         </ul>
@@ -196,7 +201,7 @@
     <li>Assigning URL aliases</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/master/docs/aliases.md"
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/aliases.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -207,13 +212,13 @@
             <div class="section">
               
                 <p>In <code>create</code> tasks, you can assign URL aliases to nodes by adding the <code>url_alias</code> field to you CSV file, like this:</p>
-<pre><code>file,title,field_description,url_alias
+<pre><code class="text">file,title,field_description,url_alias
 IMG_1410.tif,Small boats in Havana Harbour,Some are blue.,/havana_boats
 IMG_2549.jp2,Manhatten Island,Manhatten is part of New York City.,/manhatten
 </code></pre>
 
 <p>You can also assign URL aliases in <code>update</code> tasks:</p>
-<pre><code>node_id,url_alias
+<pre><code class="text">node_id,url_alias
 345,/this_is_a_cool_item
 367,/soisthisone
 </code></pre>
@@ -226,7 +231,7 @@ IMG_2549.jp2,Manhatten Island,Manhatten is part of New York City.,/manhatten
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../media_types/" class="btn btn-neutral float-right" title="Setting media types">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../alt_text/" class="btn btn-neutral float-right" title="Adding alt text to images">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../field_templates/" class="btn btn-neutral" title="CSV field templates"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -260,7 +265,7 @@ IMG_2549.jp2,Manhatten Island,Manhatten is part of New York City.,/manhatten
         <span><a href="../field_templates/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../media_types/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../alt_text/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -1,6 +1,6 @@
 You can add media to nodes by providing a CSV file with a `node_id` column plus a `file` field that contains the name of the file you want to add. For example, your CSV file could look like this:
 
-```csv
+```text
 node_id,file
 100,test.txt
 ```

@@ -41,13 +41,18 @@ model: 25
 You can also use the URIs assigned to terms in the Islandora Models vocabulary, for example:
 
 ```
+task: create_from_files
+host: "http://localhost:8000"
+username: admin
+password: islandora
+output_csv: /tmp/output.csv
 models:
  - 'http://purl.org/coar/resource_type/c_1843': ['zip', 'tar', '']
  - 'https://schema.org/DigitalDocument': ['pdf', 'doc', 'docx', 'ppt', 'pptx']
  - 'http://purl.org/coar/resource_type/c_c513': ['tif', 'tiff', 'jp2', 'png', 'gif', 'jpg', 'jpeg']
  - 'http://purl.org/coar/resource_type/c_18cc': ['mp3', 'wav', 'aac']
  - 'http://purl.org/coar/resource_type/c_12ce': ['mp4']
- ```
+```
 
 !!! note
     In the workflow described at the beginning of this section, you might want to include the `output_csv` option in the configuration file, since the resulting CSV file can be populated with metadata later and used in an `update` task to add it to the stub nodes.

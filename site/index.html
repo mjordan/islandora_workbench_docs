@@ -65,6 +65,9 @@
     <li class="toctree-l2"><a href="#license">License</a></li>
     
 
+    <li class="toctree-l2"><a href="#contributing">Contributing</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -85,17 +88,12 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="sample_data/">Creating nodes from the sample data</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
     <a class="" href="preparing_data/">Preparing your data</a>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <a class="" href="field_types/">Field types</a>
+    <a class="" href="fields/">Fields</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -111,11 +109,6 @@
             <li class="toctree-l1">
 		
     <a class="" href="aliases/">Assigning URL aliases</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="media_types/">Setting media types</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -145,6 +138,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="media_types/">Setting media types</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="updating_nodes/">Updating nodes</a>
 	    </li>
           
@@ -170,6 +168,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="sample_data/">Creating nodes from the sample data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="generating_sample_content/">Generating sample Islandora content</a>
 	    </li>
           
@@ -181,6 +184,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="workflows/">Workflows</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="troubleshooting/">Troubleshooting</a>
 	    </li>
           
         </ul>
@@ -208,7 +216,7 @@
     <li>Home</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/master/docs/index.md"
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/index.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -219,7 +227,7 @@
             <div class="section">
               
                 <h2 id="overview">Overview</h2>
-<p>Islandora Workbench is a command-line tool that allows creation, updating, and deletion of Islandora content from CSV data. Islandora Workbench is an alternative to using Drupal's built-in Migrate tools for <a href="https://github.com/Islandora/migrate_islandora_csv">ingesting Islandora content from CSV files</a>. Unlike the Migrate tools, Islandora Workbench can be run anywhere - it does not need to run on the Drupal server. Migrate, however, is much more flexible than Islandora Workbench, and can be extended using plugins in ways that Workbench cannot.</p>
+<p><a href="https://github.com/mjordan/islandora_workbench">Islandora Workbench</a> is a command-line tool that allows creation, updating, and deletion of Islandora content from CSV data. It is an alternative to using Drupal's built-in Migrate framework for <a href="https://github.com/Islandora/migrate_islandora_csv">ingesting Islandora content from CSV files</a>. Unlike the Migrate tools, Islandora Workbench can be run anywhere - it does not need to run on the Drupal server. Drupal's Migrate framework, however, is much more flexible than Islandora Workbench, and can be extended using plugins in ways that Workbench cannot.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This tool is not related in any way to the Drupal contrib module called <a href="https://www.drupal.org/project/workbench">Workbench</a>.</p>
@@ -228,7 +236,7 @@
 <ul>
 <li>Allows creation of Islandora nodes and media, updating of nodes, and deletion of nodes and media from CSV files</li>
 <li>Allows creation of paged/compound content</li>
-<li>Can run from anywhere - it communicates with Drupal via HTTP interfaces</li>
+<li>Can run from anywhere - it communicates with Drupal via HTTP</li>
 <li>Provides robust data validation functionality</li>
 <li>Supports a variety of Drupal entity field types (text, integer, term reference, typed relation, geolocation)</li>
 <li>Can provide a CSV file template based on Drupal content type</li>
@@ -240,13 +248,13 @@
 <li>Cross platform (written in Python)</li>
 <li>Well tested</li>
 <li>Well documented</li>
-<li>Provides both sensible default <a href="./configuration/">configuration</a> values and rich configuation options for power users</li>
+<li>Provides both sensible default configuration values and rich configuation options for power users</li>
 <li>A companion project under development, <a href="https://github.com/mjordan/islandora_workbench_desktop">Islandora Workbench Desktop</a>, will add a graphical user interface that enables users not familiar or comfortable with the command line to use Workbench.</li>
 </ul>
 <h2 id="usage">Usage</h2>
 <p><code>./workbench --config config.yml --check</code></p>
-<p><code>--check</code> <a href="./check/">validates</a> your configuration and input data. Typical output looks like:</p>
-<pre><code>OK, connection to Drupal at http://localhost:8000 verified.
+<p><code>--check</code> <a href="./islandora_workbench_docs/check/">validates</a> your configuration and input data. Typical output looks like:</p>
+<pre><code class="text">OK, connection to Drupal at http://localhost:8000 verified.
 OK, configuration file has all required values (did not check for optional values).
 OK, CSV file input_data/metadata.csv found.
 OK, all 5 rows in the CSV file have the same number of columns as there are headers (5).
@@ -261,7 +269,7 @@ Configuration and input data appear to be valid.
 <p>If <code>--check</code> hasn't identified any problems, you can then rerun Islandora Workbench without the <code>--check</code> option to create the nodes:</p>
 <p><code>./workbench --config config.yml</code></p>
 <p>Workbench will then create a node and attached media for each record in your input CSV file. Typical output looks like:</p>
-<pre><code>Node for 'Small boats in Havana Harbour' created at http://localhost:8000/node/52.
+<pre><code class="text">Node for 'Small boats in Havana Harbour' created at http://localhost:8000/node/52.
 +File media for IMG_1410.tif created.
 Node for 'Manhatten Island' created at http://localhost:8000/node/53.
 +File media for IMG_2549.jp2 created.
@@ -276,6 +284,8 @@ Node for 'Alcatraz Island' created at http://localhost:8000/node/56.
 <h2 id="license">License</h2>
 <p>Islandora Workbench, and this documentation, are available under the terms of the Unlicense.</p>
 <p><img alt="The Unlicense" src="https://camo.githubusercontent.com/a0f44681d578ce545f4614325d26eac4036b273d21a61de5293af355cb969bac/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6c6963656e73652d556e6c6963656e73652d626c75652e737667" /></p>
+<h2 id="contributing">Contributing</h2>
+<p>Contibutions to this documentation are welcome. If you have a suggestion, please open an issue on the Islandora Workbench GitHub repository's <a href="https://github.com/mjordan/islandora_workbench/issues">queue</a> and tag your issue "documentation".</p>
               
             </div>
           </div>
@@ -324,5 +334,5 @@ Node for 'Alcatraz Island' created at http://localhost:8000/node/56.
 
 <!--
 MkDocs version : 0.16.3
-Build Date UTC : 2020-12-26 17:50:55
+Build Date UTC : 2020-12-31 00:16:33
 -->

@@ -68,14 +68,6 @@
     <a class="" href="../check/">Checking configuration and input data</a>
 	    </li>
           
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Creating nodes from the sample data</a>
-    <ul class="subnav">
-            
-    </ul>
-	    </li>
-          
             <li class="toctree-l1">
 		
     <a class="" href="../preparing_data/">Preparing your data</a>
@@ -83,7 +75,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../field_types/">Field types</a>
+    <a class="" href="../fields/">Fields</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -99,11 +91,6 @@
             <li class="toctree-l1">
 		
     <a class="" href="../aliases/">Assigning URL aliases</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../media_types/">Setting media types</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -133,6 +120,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../media_types/">Setting media types</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../updating_nodes/">Updating nodes</a>
 	    </li>
           
@@ -156,6 +148,14 @@
     <a class="" href="../output_csv/">The output CSV file</a>
 	    </li>
           
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Creating nodes from the sample data</a>
+    <ul class="subnav">
+            
+    </ul>
+	    </li>
+          
             <li class="toctree-l1">
 		
     <a class="" href="../generating_sample_content/">Generating sample Islandora content</a>
@@ -169,6 +169,11 @@
             <li class="toctree-l1">
 		
     <a class="" href="../workflows/">Workflows</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
 	    </li>
           
         </ul>
@@ -196,7 +201,7 @@
     <li>Creating nodes from the sample data</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/master/docs/sample_data.md"
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/sample_data.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -206,8 +211,21 @@
           <div role="main">
             <div class="section">
               
-                <p>Using the sample data and configuration file, the output of <code>./workbench --config create.yml</code> should look something like:</p>
-<pre><code>Node for 'Small boats in Havana Harbour' created at http://localhost:8000/node/52.
+                <p>Islandora Workbench comes with some sample data. Running <code>./workbench --config create.yml --check</code> should result in the following output:</p>
+<pre><code class="text">OK, connection to Drupal at http://localhost:8000 verified.
+OK, configuration file has all required values (did not check for optional values).
+OK, CSV file input_data/metadata.csv found.
+OK, all 5 rows in the CSV file have the same number of columns as there are headers (5).
+OK, CSV column headers match Drupal field names.
+OK, required Drupal fields are present in the CSV file.
+OK, term IDs/names in CSV file exist in their respective taxonomies.
+OK, term IDs/names used in typed relation fields in the CSV file exist in their respective taxonomies.
+OK, files named in the CSV &quot;file&quot; column are all present.
+Configuration and input data appear to be valid.
+</code></pre>
+
+<p>Then running workbench Workbench without <code>--check</code> should result in something like:</p>
+<pre><code class="text">Node for 'Small boats in Havana Harbour' created at http://localhost:8000/node/52.
 +File media for IMG_1410.tif created.
 Node for 'Manhatten Island' created at http://localhost:8000/node/53.
 +File media for IMG_2549.jp2 created.
@@ -225,10 +243,10 @@ Node for 'Alcatraz Island' created at http://localhost:8000/node/56.
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../preparing_data/" class="btn btn-neutral float-right" title="Preparing your data">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../generating_sample_content/" class="btn btn-neutral float-right" title="Generating sample Islandora content">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../check/" class="btn btn-neutral" title="Checking configuration and input data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../output_csv/" class="btn btn-neutral" title="The output CSV file"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -256,10 +274,10 @@ Node for 'Alcatraz Island' created at http://localhost:8000/node/56.
           <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../check/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../output_csv/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../preparing_data/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../generating_sample_content/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
