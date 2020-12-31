@@ -290,7 +290,7 @@ password: islandora
 <td>log_file_path</td>
 <td></td>
 <td>workbench.log</td>
-<td>The path to the log file, absolute or relative to <code>workbench</code>. See the "<a href="../islandora_workbench_docs/logging/">Logging</a>" section for more information.</td>
+<td>The path to the log file, absolute or relative to <code>workbench</code>. See the "<a href="../logging/">Logging</a>" section for more information.</td>
 </tr>
 <tr>
 <td>id_field</td>
@@ -326,7 +326,7 @@ password: islandora
 <td>output_csv</td>
 <td></td>
 <td></td>
-<td>The full or relative path to a CSV file with one record per node created by Workbench. See "<a href="../islandora_workbench_docs/output_csv/">The output CSV file</a>" section for more information.</td>
+<td>The full or relative path to a CSV file with one record per node created by Workbench. See "<a href="../output_csv/">The output CSV file</a>" section for more information.</td>
 </tr>
 <tr>
 <td>media_use_tid</td>
@@ -338,7 +338,7 @@ password: islandora
 <td>media_type [singular]</td>
 <td></td>
 <td></td>
-<td>Overrides, for all media being created, Workbench's default definition of whether the media being created is an image, file, document, audio, or video. Used in the <code>create</code>, <code>add_media</code>, and <code>create_from_files</code> tasks. More detail provided in the "<a href="../islandora_workbench_docs/media_types/">Setting Media Types</a>" section.</td>
+<td>Overrides, for all media being created, Workbench's default definition of whether the media being created is an image, file, document, audio, or video. Used in the <code>create</code>, <code>add_media</code>, and <code>create_from_files</code> tasks. More detail provided in the "<a href="../media_types/">Setting Media Types</a>" section.</td>
 </tr>
 <tr>
 <td>media_types [plural]</td>
@@ -356,7 +356,7 @@ password: islandora
 <td>allow_adding_terms</td>
 <td></td>
 <td>false</td>
-<td>Determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "<a href="../islandora_workbench_docs/fields/#field-types">Taxonomy fields</a>" section.</td>
+<td>Determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "<a href="../fields/#field-types">Taxonomy fields</a>" section.</td>
 </tr>
 <tr>
 <td>published</td>
@@ -386,31 +386,31 @@ password: islandora
 <td>paged_content_from_directories</td>
 <td></td>
 <td>false</td>
-<td>Set to true if you are using the "Without page-level metadata" method of creating paged content. See the section "<a href="../islandora_workbench_docs/paged_and_compound/">Creating paged content</a>" for more information.</td>
+<td>Set to true if you are using the "Without page-level metadata" method of creating paged content. See the section "<a href="../paged_and_compound/">Creating paged content</a>" for more information.</td>
 </tr>
 <tr>
 <td>paged_content_sequence_seprator</td>
 <td></td>
 <td>- [hyphen]</td>
-<td>The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the "Without page-level metadata" method. See the section "<a href="../islandora_workbench_docs/paged_and_compound/">Creating paged content</a>" for more information.</td>
+<td>The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the "Without page-level metadata" method. See the section "<a href="../paged_and_compound/">Creating paged content</a>" for more information.</td>
 </tr>
 <tr>
 <td>paged_content_page_model_tid</td>
 <td></td>
 <td></td>
-<td>Required if <code>paged_content_from_directories</code> is true. The the term ID from the Islandora Models taxonomy to assign to pages. See the section "<a href="../islandora_workbench_docs/paged_and_compound/">Creating paged content</a>" for more information.</td>
+<td>Required if <code>paged_content_from_directories</code> is true. The the term ID from the Islandora Models taxonomy to assign to pages. See the section "<a href="../paged_and_compound/">Creating paged content</a>" for more information.</td>
 </tr>
 <tr>
 <td>paged_content_page_display_hints</td>
 <td></td>
 <td></td>
-<td>The term ID from the Islandora Display taxonomy to assign to pages. If not included, defaults to the value of the <code>field_display_hints</code> in the parent's record in the CSV file. See the section "<a href="../islandora_workbench_docs/paged_and_compound/">Creating paged content</a>" for more information.</td>
+<td>The term ID from the Islandora Display taxonomy to assign to pages. If not included, defaults to the value of the <code>field_display_hints</code> in the parent's record in the CSV file. See the section "<a href="../paged_and_compound/">Creating paged content</a>" for more information.</td>
 </tr>
 <tr>
 <td>paged_content_page_content_type</td>
 <td></td>
 <td></td>
-<td>Set to the machine name of the Drupal node content type for pages created using the "Without page-level metadata" method if it is different than the content type of the parent (which is specified in the content_type setting). See the section "<a href="../islandora_workbench_docs/paged_and_compound/">Creating paged content</a>" for more information.</td>
+<td>Set to the machine name of the Drupal node content type for pages created using the "Without page-level metadata" method if it is different than the content type of the parent (which is specified in the content_type setting). See the section "<a href="../paged_and_compound/">Creating paged content</a>" for more information.</td>
 </tr>
 <tr>
 <td>log_json</td>
@@ -434,13 +434,13 @@ password: islandora
 <td>bootstrap</td>
 <td></td>
 <td></td>
-<td>Absolute path to one or more scripts that execute prior to Workbench connecting to Drupal. Scripts can be in any language, and need to be executable. For an example of using this feature to run a script that generates sample Islandora content, see the "<a href="../islandora_workbench_docs/generating_sample_content/">Generating sample Islandora content</a>" section.</td>
+<td>Absolute path to one or more scripts that execute prior to Workbench connecting to Drupal. Scripts can be in any language, and need to be executable. For an example of using this feature to run a script that generates sample Islandora content, see the "<a href="../generating_sample_content/">Generating sample Islandora content</a>" section.</td>
 </tr>
 <tr>
 <td>model [singular]</td>
 <td></td>
 <td></td>
-<td>Used in the <code>create_from_files</code> task only. Defines the term ID from the the "Islandora Models" vocabulary for all nodes created using this task. Note: one of <code>model</code> or <code>models</code> is required. More detail provided in the "<a href="../islandora_workbench_docs/creating_nodes_from_files/">Creating nodes from files</a>" section.</td>
+<td>Used in the <code>create_from_files</code> task only. Defines the term ID from the the "Islandora Models" vocabulary for all nodes created using this task. Note: one of <code>model</code> or <code>models</code> is required. More detail provided in the "<a href="../creating_nodes_from_files/">Creating nodes from files</a>" section.</td>
 </tr>
 <tr>
 <td>models [plural]</td>
@@ -452,7 +452,7 @@ password: islandora
 <td>csv_field_templates</td>
 <td></td>
 <td></td>
-<td>Used in the <code>create</code> and <code>update</code> tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the "<a href="../islandora_workbench_docs/field_templates/">CSV field templates</a>" section.</td>
+<td>Used in the <code>create</code> and <code>update</code> tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the "<a href="../field_templates/">CSV field templates</a>" section.</td>
 </tr>
 </tbody>
 </table>
