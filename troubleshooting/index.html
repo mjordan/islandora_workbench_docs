@@ -13,19 +13,20 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Troubleshooting";
     var mkdocs_page_input_path = "troubleshooting.md";
-    var mkdocs_page_url = "/troubleshooting/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -39,7 +40,7 @@
         <a href=".." class="icon icon-home"> Islandora Workbench</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -173,7 +174,7 @@
     <a class="current" href="./">Troubleshooting</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-mentioning-http-response-code-422">Workbench is failing to ingest some nodes and is leaving messages mentioning HTTP response code 422.</a></li>
+    <li class="toctree-l2"><a href="#workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-in-the-log-mentioning-http-response-code-422">Workbench is failing to ingest some nodes and is leaving messages in the log mentioning HTTP response code 422.</a></li>
     
 
     <li class="toctree-l2"><a href="#-check-is-telling-me-that-one-the-rows-in-my-csv-file-has-more-columns-than-headers">--check is telling me that one the rows in my CSV file has more columns than headers</a></li>
@@ -221,7 +222,7 @@
 <p class="admonition-title">Note</p>
 <p>If you are encountering problems not described here, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a> and help improve Islandora Workbench!</p>
 </div>
-<h2 id="workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-mentioning-http-response-code-422">Workbench is failing to ingest some nodes and is leaving messages mentioning HTTP response code 422.</h2>
+<h2 id="workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-in-the-log-mentioning-http-response-code-422">Workbench is failing to ingest some nodes and is leaving messages in the log mentioning HTTP response code 422.</h2>
 <p>This is probably caused by unexpected data in your CSV file that Workbench's <code>--check</code> validation is not finding. If you encounter these messages, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a> and share your CSV input file and configuration file so we can track down the problem.</p>
 <h2 id="-check-is-telling-me-that-one-the-rows-in-my-csv-file-has-more-columns-than-headers">--check is telling me that one the rows in my CSV file has more columns than headers</h2>
 <p>The most likely problem is that one of your CSV values contains a comma but is not wrapped in double quotes. </p>
@@ -247,18 +248,18 @@
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../workflows/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -266,7 +267,9 @@
       
     </span>
 </div>
-    <script src="../js/theme.js"></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>

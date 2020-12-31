@@ -13,19 +13,20 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Updating nodes";
     var mkdocs_page_input_path = "updating_nodes.md";
-    var mkdocs_page_url = "/updating_nodes/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -39,7 +40,7 @@
         <a href=".." class="icon icon-home"> Islandora Workbench</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -211,7 +212,7 @@
           <div role="main">
             <div class="section">
               
-                <p>You can update nodes by providing a CSV file with a <code>node_id</code> column plus field data you want to update. Updates preserve any values in the fields, they don't replace the values (but see <a href="https://github.com/mjordan/islandora_workbench/issues/47">issue #47</a>). The other column headings in the CSV file must match machine names of fields that exist in the target Islandora content type. Currently, text fields, taxonomy fields, linked node fields (e.g. "Member of" for collection nodes), and typed relation fields can be updated following the same conventions used when creating nodes as described in the "<a href="../islandora_workbench_docs/fields/">Fields</a>" documentation.</p>
+                <p>You can update nodes by providing a CSV file with a <code>node_id</code> column plus field data you want to update. Updates preserve any values in the fields, they don't replace the values (but see <a href="https://github.com/mjordan/islandora_workbench/issues/47">issue #47</a>). The other column headings in the CSV file must match machine names of fields that exist in the target Islandora content type. Currently, text fields, taxonomy fields, linked node fields (e.g. "Member of" for collection nodes), and typed relation fields can be updated following the same conventions used when creating nodes as described in the "<a href="/islandora_workbench_docs/fields/">Fields</a>" documentation.</p>
 <p>For example, using the fields defined by the Islandora Defaults module for the "Repository Item" content type, your CSV file could look like this:</p>
 <pre><code class="text">node_id,field_description,field_rights,field_access_terms,field_member_of
 100,This is my new title,I have changed my mind. This item is yours to keep.,27,45
@@ -252,18 +253,18 @@ input_csv: update.csv
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../media_types/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -273,7 +274,9 @@ input_csv: update.csv
       
     </span>
 </div>
-    <script src="../js/theme.js"></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>
