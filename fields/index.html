@@ -439,7 +439,7 @@ http://purl.org/coar/resource_type/c_18cc
 </div>
 <p>As we saw in the "Using term names in multi-vocabulary fields" section above, if the field that we are populating references multiple vocabularies, we need to tell Drupal which vocabulary we are referring to with a local vocabulary namespace. To add a local vocabulary namespace to our already-complex Typed Relation CSV structure, we prepend it to the term name, like this:</p>
 <p><code>"relators:art:person:Jordan, Mark"</code></p>
-<p>(In ths example, <code>relators</code> is the external authority lists's namespace, and <code>person</code> is the local Drupal vocabulary namespace.)</p>
+<p>(In ths example, <code>relators</code> is the external authority lists's namespace, and <code>person</code> is the local Drupal vocabulary namespace, prepended to the new taxonomy term name, "Jordan, Mark".)</p>
 <p>If this seems confusing and abstruse, don't worry. Running <code>--check</code> will tell you that you need to add the Drupal vocabulary namespace to values in specific CSV columns.</p>
 <p>The final option for popluating Typed Relation field is to use HTTP URIs as typed relation targets:</p>
 <p><code>relators:art:http://markjordan.net</code></p>
