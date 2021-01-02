@@ -13,20 +13,19 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/highlight.css">
   <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Preparing your data";
     var mkdocs_page_input_path = "preparing_data.md";
-    var mkdocs_page_url = null;
+    var mkdocs_page_url = "/preparing_data/";
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -40,7 +39,7 @@
         <a href=".." class="icon icon-home"> Islandora Workbench</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
       </div>
@@ -290,7 +289,7 @@ input_csv: /tmp/input.csv
 003,dog.png,My dog
 </code></pre>
 
-<p><a href="/fields/#values-in-the-file-field">More information</a> is available on using URLs in your <code>file</code> column.</p>
+<p><a href="../fields/#values-in-the-file-field">More information</a> is available on using URLs in your <code>file</code> column.</p>
 <h2 id="using-a-google-sheet-as-the-input-csv-file">Using a Google Sheet as the input CSV file</h2>
 <p>With this option, your configuration's <code>input_csv</code> option contains the URL to a publicly readable Google Sheet. To do this, simply provide the URL to the Google spreadsheet in your configuration file's <code>input_csv</code> option, like this:</p>
 <pre><code class="yaml">task: create
@@ -317,7 +316,7 @@ input_csv: 'https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZv
 <h2 id="blank-or-missing-file-values">Blank or missing "file" values</h2>
 <p>By defualt, if the <code>file</code> value for a row is empty, Workbench's <code>--check</code> option will show an error. But, in some cases you may want to create a node but not add any media. If you add <code>allow_missing_files: true</code> to your config file for "create" tasks, you can leave the <code>file</code> cell in your CSV for that item empty.</p>
 <h2 id="creating-nodes-but-not-media">Creating nodes but not media</h2>
-<p>If you want to only create nodes and not media, you can do so by including <code>nodes_only: true</code> in your configuration file. More detail <a href="/nodes_only/">is available</a>.</p>
+<p>If you want to only create nodes and not media, you can do so by including <code>nodes_only: true</code> in your configuration file. More detail <a href="../nodes_only/">is available</a>.</p>
               
             </div>
           </div>
@@ -342,18 +341,18 @@ input_csv: 'https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZv
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+	  
         </div>
       </div>
 
     </section>
-
+    
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../check/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -363,9 +362,7 @@ input_csv: 'https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZv
       
     </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
+    <script src="../js/theme.js"></script>
 
 </body>
 </html>
