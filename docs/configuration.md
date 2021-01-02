@@ -53,5 +53,6 @@ The settings defined in a configuration file are:
 | model [singular]|  |  | Used in the `create_from_files` task only. Defines the term ID from the the "Islandora Models" vocabulary for all nodes created using this task. Note: one of `model` or `models` is required. More detail provided in the "[Creating nodes from files](/creating_nodes_from_files/)" section.|
 | models [plural] |  |  | Used in the `create_from_files` task only. Provides a mapping bewteen file extensions and terms in the "Islandora Models" vocabulary. Note: one of `model` or `models` is required. More detail provided in the "Creating nodes from files only" section.|
 | csv_field_templates |  |  | Used in the `create` and `update` tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the "[CSV field templates](/field_templates/)" section.|
+| progress_bar |  | false | Show a progress bar when running Workbench instead of row-by-row output. |
 
 When you run Islandora Workbench with the `--check` argument, it will verify that all configuration options required for the current task are present, and if they aren't tell you so.

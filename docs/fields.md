@@ -107,6 +107,8 @@ The subdelimiter character defaults to a pipe (`|`) but can be set in your confi
 
 ### Field types
 
+Drupal is very strict about not accepting malformed data via its REST interfaces (which are the way that Islandora Workbench communicates with Drupal). Therefore we need to provide data to Drupal that is consistent with field types (string, taxonomy reference, EDTF, etc.) we are populating. This applies not only to Drupal's base fields (as we saw above) but to all fields. Below are guidelines for preparing CSV data that is compatible with common field types configured in Islandora repositories.
+
 #### Taxonomy fields
 
 Islandora Workbench lets you assign both existing and new taxonomy terms to nodes. Creating terms on demand during node creation reduces the need to prepopulate your vocabularies prior to creating nodes.
@@ -224,7 +226,7 @@ As we saw in the "Using term names in multi-vocabulary fields" section above, if
 
 `"relators:art:person:Jordan, Mark"`
 
-(In ths example, `relators` is the external authority lists's namespace, and `person` is the local Drupal vocabulary namespace.)
+(In ths example, `relators` is the external authority lists's namespace, and `person` is the local Drupal vocabulary namespace, prepended to the taxonomy term name, "Jordan, Mark".)
 
 If this seems confusing and abstruse, don't worry. Running `--check` will tell you that you need to add the Drupal vocabulary namespace to values in specific CSV columns.
 
