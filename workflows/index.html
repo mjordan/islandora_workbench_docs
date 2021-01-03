@@ -231,21 +231,21 @@
 <h2 id="batch-ingest">Batch ingest</h2>
 <p>This is the most common workflow. A user prepares a CSV file and accompanying media files, and runs Workbench to ingest the content:</p>
 <p><img alt="Batch ingest" src="../images/workflow_batch_loading.png" /></p>
-<p>Note that within this basic workflow, options exist for creating nodes with <a href="/nodes_only/">no media</a>, and creating stub nodes <a href="/creating_nodes_from_files/">from files</a> (i.e., no accompanying CSV file).</p>
+<p>Note that within this basic workflow, options exist for creating nodes with <a href="/islandora_workbench_docs/nodes_only/">no media</a>, and creating stub nodes <a href="/islandora_workbench_docs/creating_nodes_from_files/">from files</a> (i.e., no accompanying CSV file).</p>
 <h2 id="distributed-batch-ingest">Distributed batch ingest</h2>
 <p>It is possible to separate the tasks of creating a node and its accompanying media. This can be done in a couple of ways:</p>
 <ul>
-<li>creating the nodes first, using the <code>nodes_only: true</code> configuration option, and <a href="/adding_media/">adding media to those nodes</a> separately</li>
-<li>creating stub nodes <a href="/creating_nodes_from_files/">directly from media files</a>, and <a href="/updating_nodes/">updating the nodes</a> separately</li>
+<li>creating the nodes first, using the <code>nodes_only: true</code> configuration option, and <a href="/islandora_workbench_docs/adding_media/">adding media to those nodes</a> separately</li>
+<li>creating stub nodes <a href="/islandora_workbench_docs/creating_nodes_from_files/">directly from media files</a>, and <a href="/islandora_workbench_docs/updating_nodes/">updating the nodes</a> separately</li>
 </ul>
 <p><img alt="Distributed batch ingest" src="../images/workflow_distributed_batch_loading.png" /></p>
-<p>In this workflow, the person creating the nodes and the person updating them later need not be the same. In both cases, Workbench can create an <a href="/output_csv/">output CSV</a> that can be used in the second half of the workflow.</p>
+<p>In this workflow, the person creating the nodes and the person updating them later need not be the same. In both cases, Workbench can create an <a href="/islandora_workbench_docs/output_csv/">output CSV</a> that can be used in the second half of the workflow.</p>
 <h2 id="migrations">Migrations</h2>
 <p>Islandora Workbench is not intended to replace Drupal's Migrate framework, but it can be used in conjunction with other tools and processes to create Islandora content using the output of a source repository platform, such as the <a href="https://github.com/mjordan/islandora_get_csv">Islandora Get CSV</a> module for Islandora 7.x. This content can then be used as input for Islandora Workbench, as illustrated here:</p>
 <p><img alt="Migrations" src="../images/workflow_migrations.png" /></p>
 <p>An advantage of migrating to Islandora in this way is that the CSV file can be cleaned or supplemented (manually or otherwise) prior to using it as Workbench's input.</p>
 <h2 id="watch-folders">Watch folders</h2>
-<p>Since Islandora workbench is a command-line tool, it can be run in a scheduled job such as Linux "cron". If CSV and file content are present when Workbench runs, Workbench will operate on them in the same way as if a person ran Workbench manually. In the diagram below, the source of the files is the daily output of someone scanning images. If these images are saved in the directory that is specified in Workbench's <code>input_dir</code> configuration option, and Workbench is run in a cron job using the "<a href="/creating_nodes_from_files/">create_from_files</a>" task, nodes will be created when the cron job executes (over night, for example):</p>
+<p>Since Islandora workbench is a command-line tool, it can be run in a scheduled job such as Linux "cron". If CSV and file content are present when Workbench runs, Workbench will operate on them in the same way as if a person ran Workbench manually. In the diagram below, the source of the files is the daily output of someone scanning images. If these images are saved in the directory that is specified in Workbench's <code>input_dir</code> configuration option, and Workbench is run in a cron job using the "<a href="/islandora_workbench_docs/creating_nodes_from_files/">create_from_files</a>" task, nodes will be created when the cron job executes (over night, for example):</p>
 <p><img alt="Watch folders" src="../images/workflow_watch_folders.png" /></p>
 <p>A variation on this workflow is to combine it with the "Distributed" workflow described above:</p>
 <p><img alt="Watch folders with secondary CSV data" src="../images/workflow_distributed_watch_folder.png" /></p>
