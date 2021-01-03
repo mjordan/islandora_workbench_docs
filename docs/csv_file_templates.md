@@ -9,12 +9,15 @@ With this option, Workbench will fetch the field definitions for the content typ
 
 The template also contains three additional rows:
 
+* human-readable label
 * sample data
 * number of values allowed (either a specific maximum number or 'unlimited')
 * the name of the section in the documentation covering the field type
 
 Here is a screenshot of this CSV file template loaded into a spreadsheet application:
 
-![Relations example](images/csv_file_template.png)
+![CSV file template](images/csv_file_template.png)
 
-Note that the first column, and all the rows other than the field names, should be deleted before you use a popluated version of this CSV file in a `create` task.
+Note that the first column, and all the rows other than the field machine names, should be deleted before you use a popluated version of this CSV file in a `create` task. Also, you can remove any columns you do not intend on populating:
+
+![CSV file template ready to use](images/csv_file_template_ready_to_use.png)

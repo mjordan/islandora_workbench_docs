@@ -3,7 +3,7 @@ In addition to content files like images, the input data used by Workbench is a 
 !!! note
     As is standard with CSV data, field values do not need to be wrapped in double quotation marks (`"`), unless they contain an instance of the delimiter character (e.g., a comma). Spreadsheet applications such as Google Sheets, LibreOffice Calc, and Excel will output valid CSV data.
 !!! note
-    Also note that you can have Islandora Workbench [generate](/islandora_workbench_docs/csv_file_templates/) a template CSV file for you.
+    Also note that you can have Islandora Workbench [generate](/csv_file_templates/) a template CSV file for you.
 
 
 The following types of fields can be used in your input CSV file:
@@ -107,9 +107,16 @@ The subdelimiter character defaults to a pipe (`|`) but can be set in your confi
 
 ### Field types
 
-Drupal is very strict about not accepting malformed data via its REST interfaces (which are the way that Islandora Workbench communicates with Drupal). Therefore we need to provide data to Drupal that is consistent with field types (string, taxonomy reference, EDTF, etc.) we are populating. This applies not only to Drupal's base fields (as we saw above) but to all fields. Below are guidelines for preparing CSV data that is compatible with common field types configured in Islandora repositories.
+Drupal is very strict about not accepting malformed data. Therefore we need to provide data to Drupal that is consistent with field types (string, taxonomy reference, EDTF, etc.) we are populating. This applies not only to Drupal's base fields (as we saw above) but to all fields. A field's type is indicated in the same place as its machine name, within the "Manage fields" section of each content type's configuration. The field types are circled in red in the screen shot below:
 
-#### Taxonomy fields
+![Field machine names](images/field_types.png)
+
+Below are guidelines for preparing CSV data that is compatible with common field types configured in Islandora repositories.
+
+#### Taxonomy reference fields
+
+!!! note
+    In the list of a content type's fields, as pictured above, Drupal uses "Entity reference" for all types of entity reference fields, of which Taxonomy references are one. The other most common kink of entity reference field is a node reference field.
 
 Islandora Workbench lets you assign both existing and new taxonomy terms to nodes. Creating terms on demand during node creation reduces the need to prepopulate your vocabularies prior to creating nodes.
 

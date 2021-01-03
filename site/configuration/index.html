@@ -13,19 +13,20 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Configuration";
     var mkdocs_page_input_path = "configuration.md";
-    var mkdocs_page_url = "/configuration/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -39,7 +40,7 @@
         <a href=".." class="icon icon-home"> Islandora Workbench</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -278,19 +279,19 @@ password: islandora
 <td>input_csv</td>
 <td></td>
 <td>metadata.csv</td>
-<td>Path to the CSV metadata file. Can be absolute, or if just the filename is provided, will be assumed to be in the directory named in <code>input_dir</code>. Can also be the URL to a Google spreadsheet (see the "<a href="../preparing_data/#using-a-google-sheet-as-the-input-csv-file">Using Google Sheets as input data</a>" section for more information).</td>
+<td>Path to the CSV metadata file. Can be absolute, or if just the filename is provided, will be assumed to be in the directory named in <code>input_dir</code>. Can also be the URL to a Google spreadsheet (see the "<a href="/preparing_data/#using-a-google-sheet-as-the-input-csv-file">Using Google Sheets as input data</a>" section for more information).</td>
 </tr>
 <tr>
 <td>google_sheets_csv_filename</td>
 <td></td>
 <td>google_sheet.csv</td>
-<td>Local CSV filename for data from a Google spreadsheet. See the "<a href="../preparing_data/#using-a-google-sheet-as-the-input-csv-file">Using Google Sheets as input data</a>" section for more information.</td>
+<td>Local CSV filename for data from a Google spreadsheet. See the "<a href="/preparing_data/#using-a-google-sheet-as-the-input-csv-file">Using Google Sheets as input data</a>" section for more information.</td>
 </tr>
 <tr>
 <td>log_file_path</td>
 <td></td>
 <td>workbench.log</td>
-<td>The path to the log file, absolute or relative to <code>workbench</code>. See the "<a href="../logging/">Logging</a>" section for more information.</td>
+<td>The path to the log file, absolute or relative to <code>workbench</code>. See the "<a href="/logging/">Logging</a>" section for more information.</td>
 </tr>
 <tr>
 <td>id_field</td>
@@ -326,7 +327,7 @@ password: islandora
 <td>output_csv</td>
 <td></td>
 <td></td>
-<td>The full or relative path to a CSV file with one record per node created by Workbench. See "<a href="../output_csv/">The output CSV file</a>" section for more information.</td>
+<td>The full or relative path to a CSV file with one record per node created by Workbench. See "<a href="/output_csv/">The output CSV file</a>" section for more information.</td>
 </tr>
 <tr>
 <td>media_use_tid</td>
@@ -338,7 +339,7 @@ password: islandora
 <td>media_type [singular]</td>
 <td></td>
 <td></td>
-<td>Overrides, for all media being created, Workbench's default definition of whether the media being created is an image, file, document, audio, or video. Used in the <code>create</code>, <code>add_media</code>, and <code>create_from_files</code> tasks. More detail provided in the "<a href="../media_types/">Setting Media Types</a>" section.</td>
+<td>Overrides, for all media being created, Workbench's default definition of whether the media being created is an image, file, document, audio, or video. Used in the <code>create</code>, <code>add_media</code>, and <code>create_from_files</code> tasks. More detail provided in the "<a href="/media_types/">Setting Media Types</a>" section.</td>
 </tr>
 <tr>
 <td>media_types [plural]</td>
@@ -356,7 +357,7 @@ password: islandora
 <td>allow_adding_terms</td>
 <td></td>
 <td>false</td>
-<td>Determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "<a href="../fields/#field-types">Taxonomy fields</a>" section.</td>
+<td>Determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "<a href="/fields/#field-types">Taxonomy fields</a>" section.</td>
 </tr>
 <tr>
 <td>published</td>
@@ -386,31 +387,31 @@ password: islandora
 <td>paged_content_from_directories</td>
 <td></td>
 <td>false</td>
-<td>Set to true if you are using the "Without page-level metadata" method of creating paged content. See the section "<a href="../paged_and_compound/">Creating paged content</a>" for more information.</td>
+<td>Set to true if you are using the "Without page-level metadata" method of creating paged content. See the section "<a href="/paged_and_compound/">Creating paged content</a>" for more information.</td>
 </tr>
 <tr>
 <td>paged_content_sequence_seprator</td>
 <td></td>
 <td>- [hyphen]</td>
-<td>The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the "Without page-level metadata" method. See the section "<a href="../paged_and_compound/">Creating paged content</a>" for more information.</td>
+<td>The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the "Without page-level metadata" method. See the section "<a href="/paged_and_compound/">Creating paged content</a>" for more information.</td>
 </tr>
 <tr>
 <td>paged_content_page_model_tid</td>
 <td></td>
 <td></td>
-<td>Required if <code>paged_content_from_directories</code> is true. The the term ID from the Islandora Models taxonomy to assign to pages. See the section "<a href="../paged_and_compound/">Creating paged content</a>" for more information.</td>
+<td>Required if <code>paged_content_from_directories</code> is true. The the term ID from the Islandora Models taxonomy to assign to pages. See the section "<a href="/paged_and_compound/">Creating paged content</a>" for more information.</td>
 </tr>
 <tr>
 <td>paged_content_page_display_hints</td>
 <td></td>
 <td></td>
-<td>The term ID from the Islandora Display taxonomy to assign to pages. If not included, defaults to the value of the <code>field_display_hints</code> in the parent's record in the CSV file. See the section "<a href="../paged_and_compound/">Creating paged content</a>" for more information.</td>
+<td>The term ID from the Islandora Display taxonomy to assign to pages. If not included, defaults to the value of the <code>field_display_hints</code> in the parent's record in the CSV file. See the section "<a href="/paged_and_compound/">Creating paged content</a>" for more information.</td>
 </tr>
 <tr>
 <td>paged_content_page_content_type</td>
 <td></td>
 <td></td>
-<td>Set to the machine name of the Drupal node content type for pages created using the "Without page-level metadata" method if it is different than the content type of the parent (which is specified in the content_type setting). See the section "<a href="../paged_and_compound/">Creating paged content</a>" for more information.</td>
+<td>Set to the machine name of the Drupal node content type for pages created using the "Without page-level metadata" method if it is different than the content type of the parent (which is specified in the content_type setting). See the section "<a href="/paged_and_compound/">Creating paged content</a>" for more information.</td>
 </tr>
 <tr>
 <td>log_json</td>
@@ -434,13 +435,13 @@ password: islandora
 <td>bootstrap</td>
 <td></td>
 <td></td>
-<td>Absolute path to one or more scripts that execute prior to Workbench connecting to Drupal. Scripts can be in any language, and need to be executable. For an example of using this feature to run a script that generates sample Islandora content, see the "<a href="../generating_sample_content/">Generating sample Islandora content</a>" section.</td>
+<td>Absolute path to one or more scripts that execute prior to Workbench connecting to Drupal. Scripts can be in any language, and need to be executable. For an example of using this feature to run a script that generates sample Islandora content, see the "<a href="/generating_sample_content/">Generating sample Islandora content</a>" section.</td>
 </tr>
 <tr>
 <td>model [singular]</td>
 <td></td>
 <td></td>
-<td>Used in the <code>create_from_files</code> task only. Defines the term ID from the the "Islandora Models" vocabulary for all nodes created using this task. Note: one of <code>model</code> or <code>models</code> is required. More detail provided in the "<a href="../creating_nodes_from_files/">Creating nodes from files</a>" section.</td>
+<td>Used in the <code>create_from_files</code> task only. Defines the term ID from the the "Islandora Models" vocabulary for all nodes created using this task. Note: one of <code>model</code> or <code>models</code> is required. More detail provided in the "<a href="/creating_nodes_from_files/">Creating nodes from files</a>" section.</td>
 </tr>
 <tr>
 <td>models [plural]</td>
@@ -452,7 +453,7 @@ password: islandora
 <td>csv_field_templates</td>
 <td></td>
 <td></td>
-<td>Used in the <code>create</code> and <code>update</code> tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the "<a href="../field_templates/">CSV field templates</a>" section.</td>
+<td>Used in the <code>create</code> and <code>update</code> tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the "<a href="/field_templates/">CSV field templates</a>" section.</td>
 </tr>
 <tr>
 <td>progress_bar</td>
@@ -487,18 +488,18 @@ password: islandora
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -508,7 +509,9 @@ password: islandora
       
     </span>
 </div>
-    <script src="../js/theme.js"></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>
