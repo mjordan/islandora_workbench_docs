@@ -3,7 +3,7 @@ In addition to content files like images, the input data used by Workbench is a 
 !!! note
     As is standard with CSV data, field values do not need to be wrapped in double quotation marks (`"`), unless they contain an instance of the delimiter character (e.g., a comma). Spreadsheet applications such as Google Sheets, LibreOffice Calc, and Excel will output valid CSV data.
 !!! note
-    Also note that you can have Islandora Workbench [generate](/csv_file_templates/) a template CSV file for you.
+    Also note that you can have Islandora Workbench [generate](/islandora_workbench_docs/csv_file_templates/) a template CSV file for you.
 
 
 The following types of fields can be used in your input CSV file:

@@ -111,4 +111,4 @@ By defualt, if the `file` value for a row is empty, Workbench's `--check` option
 
 ## Creating nodes but not media
 
-If you want to only create nodes and not media, you can do so by including `nodes_only: true` in your configuration file. More detail [is available](/nodes_only/).
+If you want to only create nodes and not media, you can do so by including `nodes_only: true` in your configuration file. More detail [is available](/islandora_workbench_docs/nodes_only/).

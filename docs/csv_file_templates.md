@@ -1,5 +1,5 @@
 !!! note
-    This section describes creating CSV *file* templates. For information on CSV *field* templates, see the "[Using CSV field templates](/field_templates/)" section.
+    This section describes creating CSV *file* templates. For information on CSV *field* templates, see the "[Using CSV field templates](/islandora_workbench_docs/field_templates/)" section.
 
 You can generate a template CSV file by running Workbench with the `--get_csv_template` argument:
 
