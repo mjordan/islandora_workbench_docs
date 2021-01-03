@@ -221,13 +221,16 @@
 <p>With this option, Workbench will fetch the field definitions for the content type named in your configuration's <code>content_type</code> option and save a CSV file with a column for each of the content type's fields. You can then populate this template with values you want to use in a <code>create</code> task. The template file is saved in the directory indicated in your configuration's <code>input_dir</code> option, using the filename defined in <code>input_csv</code> with <code>.csv_file_template</code> appended.</p>
 <p>The template also contains three additional rows:</p>
 <ul>
+<li>human-readable label</li>
+<li>whether or not the field is required in your CSV for <code>create</code> tasks</li>
 <li>sample data</li>
 <li>number of values allowed (either a specific maximum number or 'unlimited')</li>
 <li>the name of the section in the documentation covering the field type</li>
 </ul>
 <p>Here is a screenshot of this CSV file template loaded into a spreadsheet application:</p>
-<p><img alt="Relations example" src="../images/csv_file_template.png" /></p>
-<p>Note that the first column, and all the rows other than the field names, should be deleted before you use a popluated version of this CSV file in a <code>create</code> task.</p>
+<p><img alt="CSV file template" src="../images/csv_file_template.png" /></p>
+<p>Note that the first column, and all the rows other than the field machine names, should be deleted before you use a popluated version of this CSV file in a <code>create</code> task. Also, you can remove any columns you do not intend on populating:</p>
+<p><img alt="CSV file template ready to use" src="../images/csv_file_template_ready_to_use.png" /></p>
               
             </div>
           </div>
