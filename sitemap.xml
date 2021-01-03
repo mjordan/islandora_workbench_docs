@@ -1,204 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    
     <url>
-     <loc>/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/installation/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/configuration/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/check/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/preparing_data/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/fields/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/csv_file_templates/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/field_templates/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/aliases/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/alt_text/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/paged_and_compound/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/nodes_only/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/creating_nodes_from_files/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/rolling_back/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/media_types/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/updating_nodes/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/deleting_nodes/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/adding_media/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/deleting_media/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/output_csv/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/sample_data/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/generating_sample_content/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/logging/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/workflows/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>/troubleshooting/</loc>
-     <lastmod>2021-01-02</lastmod>
+     <loc>None</loc>
+     <lastmod>2021-01-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
 </urlset>
