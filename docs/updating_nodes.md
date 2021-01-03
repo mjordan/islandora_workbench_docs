@@ -21,5 +21,3 @@ input_csv: update.csv
 ```
 
 Note that you should include `validate_title_length: false` in your update configuration file, unless you are updating node titles.
-
-Testing
