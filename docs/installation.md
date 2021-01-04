@@ -14,6 +14,8 @@ If you already have the required Python libraries installed, simply cloning Isla
 
 * `git clone https://github.com/mjordan/islandora_workbench.git`
 
+This will create a directory named `islandora_workbench` where you will run the `./workbench` command.
+
 If you don't already have the required libraries installed, clone this repo as above, and then use `setup.py`:
 
 * `sudo python3 setup.py install`

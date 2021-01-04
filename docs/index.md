@@ -27,6 +27,8 @@
 
 ## Usage
 
+Within the `islandora_workbench` directory, run the following command:
+
 `./workbench --config config.yml --check`
 
 `--check` [validates](/islandora_workbench_docs/check/) your configuration and input data. Typical output looks like:
