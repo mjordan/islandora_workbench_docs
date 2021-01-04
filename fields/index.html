@@ -391,7 +391,7 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 <pre><code class="text">file,title,field_my_multivalued_taxonomy_field
 img001.png,Picture of cats and yarn,Cats|46
 img002.png,Picture of dogs and sticks,Dogs|Sticks
-img003.png,Picture of yarn and needles,&quot;Yarn, Balls of&quot;|Knitting needles
+img003.png,Picture of yarn and needles,&quot;Yarn, Balls of|Knitting needles&quot;
 </code></pre>
 
 <p>By default, if you use a term name in your CSV data that doesn't match a term name that exists in the referenced taxonomy, Workbench will detect this when you use <code>--check</code>, warn you, and exit. This strict default helps prevent users from accidentally adding unwanted terms through data entry error.</p>
@@ -403,7 +403,7 @@ img003.png,Picture of yarn and needles,&quot;Yarn, Balls of&quot;|Knitting needl
 <li>It replaces all other whitespace with a single space character.</li>
 <li>It converts all text to lower case.</li>
 <li>It removes all punctuation.</li>
-<li>After normalizing the term name using these rules, if the term name you provide in the CSV file does not match any existing term names in the vocabulary linked to the field after these normalization rules are applied, it is used to create a new taxonomy term. If it does match, Workbench populates the field in your nodes with the matching term.</li>
+<li>After normalizing the term name using the above rules, if the term name you provide in the CSV file does not match any existing term names in the vocabulary linked to the field after these normalization rules are applied, it is used to create a new taxonomy term. If it does match, Workbench populates the field in your nodes with the matching term.</li>
 </ul>
 </li>
 </ul>
@@ -457,20 +457,20 @@ http://purl.org/coar/resource_type/c_18cc
 <p>In this screenshot, "relators" is a namespace for the MARC Relators authority list, the codes "acp", "adi", etc are the codes for each relator, and "Art copyist", "Art director", etc. are the human-readable label for each relator.</p>
 <p>Within the edit form of a node that has a Typed Relation field, the user interface adds a select list of the relation (the target taxonomy term here is "Jordan, Mark (30))", like this:</p>
 <p><img alt="Linked agent example" src="../images/linked_agent.png" /></p>
-<p>To be able to populate Typed Relation fields using CSV data with the three pieces of required data (authority list, relation type, target term), Islandora Workbench supports CSV values that contain the corresponding namespace, relator code, and taxonomy term ID, each separated by a colon (<code>:</code>), like this:.</p>
+<p>To be able to populate Typed Relation fields using CSV data with the three pieces of required data (authority list, relation type, target term), Islandora Workbench supports CSV values that contain the corresponding namespace, relator code, and taxonomy term ID, each separated by a colon (<code>:</code>), like this:</p>
 <p><code>relators:art:30</code></p>
 <p>In this example CSV value, <code>relators</code> is the namespace that the relation type <code>art</code> is from (the Library of Congress <a href="http://id.loc.gov/vocabulary/relators.html">Relators</a> vocabulary), and the target taxonomy term ID is <code>30</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Note that the structure required for typed relation values in the CSV file is not the same as the structure of the relations configuration depicted in the screenshot of the "Available Relations" list above.</p>
 </div>
-<p>You can also use taxonomy term names, as opposed to term IDs, as targets:</p>
+<p>A second option for populating Typed Relation fields is to use taxonomy term names (as opposed to term IDs) as targets:</p>
 <p><code>"relators:art:Jordan, Mark"</code></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>In the next few paragraphs, the word "namespace" is used to describe two different kinds of namespaces - first, a vocabulary ID in the local Drupal and second, an ID for the external authority list of relators, for example by the Library of Congress.</p>
 </div>
-<p>As we saw in the "Using term names in multi-vocabulary fields" section above, if the field that we are populating references multiple vocabularies, we need to tell Drupal which vocabulary we are referring to with a local vocabulary namespace. To add a local vocabulary namespace to Typed Relation field CSV structure, we prepend it to the term name, like this:</p>
+<p>As we saw in the "Using term names in multi-vocabulary fields" section above, if the field that we are populating references multiple vocabularies, we need to tell Drupal which vocabulary we are referring to with a local vocabulary namespace. To add a local vocabulary namespace to Typed Relation field CSV structure, we prepend it to the term name, like this (note the addition of "person"):</p>
 <p><code>"relators:art:person:Jordan, Mark"</code></p>
 <p>(In ths example, <code>relators</code> is the external authority lists's namespace, and <code>person</code> is the local Drupal vocabulary namespace, prepended to the taxonomy term name, "Jordan, Mark".)</p>
 <p>If this seems confusing and abstruse, don't worry. Running <code>--check</code> will tell you that you need to add the Drupal vocabulary namespace to values in specific CSV columns.</p>
