@@ -250,7 +250,14 @@
           <div role="main">
             <div class="section">
               
-                <p>In addition to content files like images, the input data used by Workbench is a CSV file. This CSV file contains the metadata that is to be added to new or existing nodes, and some additional reserved columns specific to Workbench. Field values are either strings (for string or text fields) like <code>I am a string</code>, integers (for <code>field_weight</code>, for example) like <code>100</code> or <code>7281</code>, the binary values <code>1</code> or <code>0</code>, Drupal-generated IDs (term IDs taxonomy terms or node IDs for collections and parents), or structured strings (for typed relation and geolocation fields) like <code>"49.16667,-123.93333"</code>.</p>
+                <p>In addition to content files like images, the input data used by Workbench is a CSV file. This CSV file contains the metadata that is to be added to new or existing nodes, and some additional reserved columns specific to Workbench. Field values are</p>
+<ul>
+<li>strings (for string or text fields) like <code>I am a string</code></li>
+<li>integers (for <code>field_weight</code>, for example) like <code>100</code> or <code>7281</code></li>
+<li>the binary values <code>1</code> or <code>0</code></li>
+<li>Drupal-generated IDs (term IDs taxonomy terms or node IDs for collections and parents)</li>
+<li>structured strings (for typed relation and geolocation fields) like <code>"49.16667,-123.93333"</code></li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>As is standard with CSV data, field values do not need to be wrapped in double quotation marks (<code>"</code>), unless they contain an instance of the delimiter character (e.g., a comma). Spreadsheet applications such as Google Sheets, LibreOffice Calc, and Excel will output valid CSV data.</p>
@@ -379,7 +386,7 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 <p class="admonition-title">Note</p>
 <p>In the list of a content type's fields, as pictured above, Drupal uses "Entity reference" for all types of entity reference fields, of which Taxonomy references are one. The other most common kink of entity reference field is a node reference field.</p>
 </div>
-<p>Islandora Workbench lets you assign both existing and new taxonomy terms to nodes. Creating terms on demand during node creation reduces the need to prepopulate your vocabularies prior to creating nodes.</p>
+<p>Islandora Workbench lets you assign both existing and new taxonomy terms to nodes. Creating new terms on demand during node creation reduces the need to prepopulate your vocabularies prior to creating nodes.</p>
 <p>In CSV columns for taxonomy fields, you can use either term IDs (integers) or term names (strings). You can even mix IDs and names in the same field:</p>
 <pre><code class="text">file,title,field_my_multivalued_taxonomy_field
 img001.png,Picture of cats and yarn,Cats|46
@@ -396,7 +403,7 @@ img003.png,Picture of yarn and needles,&quot;Yarn, Balls of&quot;|Knitting needl
 <li>It replaces all other whitespace with a single space character.</li>
 <li>It converts all text to lower case.</li>
 <li>It removes all punctuation.</li>
-<li>If the term name you provide in the CSV file does not match any existing term names in the vocabulary linked to the field after these normalization rules are applied, it is used to create a new taxonomy term. If it does match, Workbench populates the field in your nodes with the matching term.</li>
+<li>After normalizing the term name using these rules, if the term name you provide in the CSV file does not match any existing term names in the vocabulary linked to the field after these normalization rules are applied, it is used to create a new taxonomy term. If it does match, Workbench populates the field in your nodes with the matching term.</li>
 </ul>
 </li>
 </ul>
@@ -410,7 +417,7 @@ img003.png,Picture of yarn and needles,&quot;Yarn, Balls of&quot;|Knitting needl
 <h4 id="using-term-names-in-multi-vocabulary-fields">Using term names in multi-vocabulary fields</h4>
 <p>While most node taxonomy fields reference only a single vocabulary, Drupal does allow fields to reference multiple vocabularies. This ability poses a problem when we use term names instead of term IDs in our CSV files: in a multi-vocabulary field, Workbench can't be sure which term name belongs in which of the multiple vocabularies referenced by that field. This applies to both existing terms and to new terms we want to add when creating node content.</p>
 <p>To avoid this problem, we need to tell Workbench which of the multple vocabularies each term name should (or does) belong to. We do this by namespacing terms with the applicable vocabulary ID.</p>
-<p>For example, let's imagine we have a node field whose name is <code>field_sample_tags</code>, and this field references two taxonomies, <code>cats</code> and <code>dogs</code>. To use the terms <code>Tuxedo</code>, <code>Tabby</code>, <code>German Shepherd</code> in the CSV when adding new nodes, we would namespace them with vocabulary IDs like this:</p>
+<p>For example, let's imagine we have a node field whose name is <code>field_sample_tags</code>, and this field references two vocabularies, "cats" and "dogs". To use the terms <code>Tuxedo</code>, <code>Tabby</code>, <code>German Shepherd</code> in the CSV when adding new nodes, we need to namespace them with vocabulary IDs like this:</p>
 <pre><code class="text">field_sample_tags
 cats:Tabby
 cats:Tuxedo
@@ -421,7 +428,7 @@ dogs:German Shepherd
 <pre><code class="text">cats:Tuxedo|cats:Misbehaving|dogs:German Shepherd
 </code></pre>
 
-<p>Term names containing commas (<code>,</code>) in multi-valued, multi-vocabulary fields need special treatment (no surprise there): you need to wrap the entire field in quotation marks (like you would for any other CSV value that contains a comma), and in addition, specify the namespace within each of the values:</p>
+<p>CSV values containing term names that have commas (<code>,</code>) in multi-valued, multi-vocabulary fields need to be wrapped in quotation marks (like any CSV value containing a comma), and in addition, the need to specify the namespace within each of the subvalues:</p>
 <pre><code class="text">&quot;tags:gum, Bubble|tags:candy, Hard&quot;
 </code></pre>
 
@@ -445,25 +452,25 @@ http://purl.org/coar/resource_type/c_18cc
 </ul>
 <h3 id="typed-relation-fields">Typed Relation fields</h3>
 <p>Typed relation fields contain information about the relationship (or "relation") between a taxonomy term and the node it is attached to. For example, a term from the Person vocabulary, "Jordan, Mark", can be an author, illustrator, or editor of the book described in the node. In this example, "author", "illustrator", and "editor" are the typed relations.</p>
-<p>The Controlled Access Terms module allows the relations to be sets of terms from external authority lists (for example like the <a href="https://www.loc.gov/marc/relators/relaterm.html">MARC Relators</a> list maintained by the Library of Congress). Within a Typed Relation field's configuration, the available relations look like this:</p>
+<p>The Controlled Access Terms module allows the relations to be sets of terms from external authority lists (for example like the <a href="https://www.loc.gov/marc/relators/relaterm.html">MARC Relators</a> list maintained by the Library of Congress). Within a Typed Relation field's configuration, the configured relations look like this:</p>
 <p><img alt="Relations example" src="../images/relators.png" /></p>
 <p>In this screenshot, "relators" is a namespace for the MARC Relators authority list, the codes "acp", "adi", etc are the codes for each relator, and "Art copyist", "Art director", etc. are the human-readable label for each relator.</p>
 <p>Within the edit form of a node that has a Typed Relation field, the user interface adds a select list of the relation (the target taxonomy term here is "Jordan, Mark (30))", like this:</p>
 <p><img alt="Linked agent example" src="../images/linked_agent.png" /></p>
-<p>To be able to populate Typed Relation fields using CSV data with their three pieces of data (authority list, relation type, target term), Islandora Workbench supports CSV values that contain the corresponding namespace, relator code, and taxonomy term ID, each separated by a colon (<code>:</code>), like this:.</p>
+<p>To be able to populate Typed Relation fields using CSV data with the three pieces of required data (authority list, relation type, target term), Islandora Workbench supports CSV values that contain the corresponding namespace, relator code, and taxonomy term ID, each separated by a colon (<code>:</code>), like this:.</p>
 <p><code>relators:art:30</code></p>
 <p>In this example CSV value, <code>relators</code> is the namespace that the relation type <code>art</code> is from (the Library of Congress <a href="http://id.loc.gov/vocabulary/relators.html">Relators</a> vocabulary), and the target taxonomy term ID is <code>30</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Note that the structure required for typed relation values in the CSV file is not the same as the structure of the relations configuration depicted in the screenshot of the "Available Relations" list above.</p>
 </div>
-<p>You can also use taxonomy term names as targets, instead of term IDs:</p>
+<p>You can also use taxonomy term names, as opposed to term IDs, as targets:</p>
 <p><code>"relators:art:Jordan, Mark"</code></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>In the next few paragraphs, the word "namespace" is used to describe two different kinds of namespaces - first, a vocabulary ID in the local Drupal and second, an ID for the external authority list of relators, for example by the Library of Congress.</p>
 </div>
-<p>As we saw in the "Using term names in multi-vocabulary fields" section above, if the field that we are populating references multiple vocabularies, we need to tell Drupal which vocabulary we are referring to with a local vocabulary namespace. To add a local vocabulary namespace to our already-complex Typed Relation CSV structure, we prepend it to the term name, like this:</p>
+<p>As we saw in the "Using term names in multi-vocabulary fields" section above, if the field that we are populating references multiple vocabularies, we need to tell Drupal which vocabulary we are referring to with a local vocabulary namespace. To add a local vocabulary namespace to Typed Relation field CSV structure, we prepend it to the term name, like this:</p>
 <p><code>"relators:art:person:Jordan, Mark"</code></p>
 <p>(In ths example, <code>relators</code> is the external authority lists's namespace, and <code>person</code> is the local Drupal vocabulary namespace, prepended to the taxonomy term name, "Jordan, Mark".)</p>
 <p>If this seems confusing and abstruse, don't worry. Running <code>--check</code> will tell you that you need to add the Drupal vocabulary namespace to values in specific CSV columns.</p>
@@ -474,20 +481,20 @@ http://purl.org/coar/resource_type/c_18cc
 <p>or</p>
 <p><code>relators:art:person:Jordan, Mark|relators:art:45</code></p>
 <h4 id="adding-new-typed-relation-targets">Adding new typed relation targets</h4>
-<p>Islandora Workbench allows you to add new typed relation targets while creating and updating nodes. These targets are taxonomy terms. Your configuration file must include the <code>allow_adding_terms: true</code> option to add new targets. In general, adding new typed relation targets is just like adding new taxonomy terms as described above in the "Taxonomy fields" section.</p>
+<p>Islandora Workbench allows you to add new typed relation targets while creating and updating nodes. These targets are taxonomy terms. Your configuration file must include the <code>allow_adding_terms: true</code> option to add new targets. In general, adding new typed relation targets is just like adding new taxonomy terms as described above in the "Taxonomy relation fields" section.</p>
 <p>An example of a CSV value that adds a new target term is:</p>
 <p><code>"relators:art:person:Jordan, Mark"</code></p>
 <p>You can also add multiple new targets:</p>
 <p><code>"relators:art:person:Annez, Melissa|relators:art:person:Jordan, Mark"</code></p>
 <p>Note that:</p>
 <ul>
-<li>For multi-vocabulary fields, new typed relator targets must be accommpanied by a vocabulary namespace (<code>person</code> in the above examples).</li>
+<li>For multi-vocabulary fields, new typed relator targets must be accompanied by a vocabulary namespace (<code>person</code> in the above examples).</li>
 <li>You cannot add new relators (e.g. <code>relators:foo</code>) in your CSV file, only new target terms.</li>
 </ul>
 <h3 id="edtf-fields">EDTF fields</h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The date types named below are a subset of the EDTF specification. If you need validatation of additional date types, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a>.</p>
+<p>The date types named below are a subset of the EDTF specification. If you need validatation of additional EDTF date types, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a>.</p>
 </div>
 <p>Running Islandora Workbench with <code>--check</code> will validate the following subset of <a href="https://www.loc.gov/standards/datetime/">Extended Date/Time Format (EDTF) Specification</a> date types in EDTF fields:</p>
 <table>
@@ -567,7 +574,7 @@ http://purl.org/coar/resource_type/c_18cc
 <p>Subvalues in multivalued CSV fields are validated separately, e.g. if your CSV value is <code>2004-06/2006-08|2007-01/2007-04</code>, <code>2004-06/2006-08</code> and <code>2007-01/2007-04</code> are validated separately.</p>
 <h3 id="geolocation-fields">Geolocation fields</h3>
 <p>The Geolocation field type, managed by the <a href="https://www.drupal.org/project/geolocation">Geolocation Field</a> contrib module, stores latitude and longitude coordinates in separate data elements. To add or update fields of this type, Workbench needs to provide the latitude and longitude data in these separate elements.</p>
-<p>To simplify entering geocoordinates in the CSV file, Workbench allows geocoordinates to be in <code>lat,lng</code> format, i.e., the latitude coordinate followed by a comma followed by the longitude coordinate. When Workbench reads your CSV file, it will split data on the comma into the required lat and lng parts. An example of a single geocoordinate in a field would be:</p>
+<p>To simplify entering geocoordinates in the CSV file, Workbench allows geocoordinates to be in <code>lat,long</code> format, i.e., the latitude coordinate followed by a comma followed by the longitude coordinate. When Workbench reads your CSV file, it will split data on the comma into the required lat and long parts. An example of a single geocoordinate in a field would be:</p>
 <pre><code class="text">field_coordinates
 &quot;49.16667,-123.93333&quot;
 </code></pre>
