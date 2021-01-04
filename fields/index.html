@@ -255,7 +255,7 @@
 <li>strings (for string or text fields) like <code>I am a string</code></li>
 <li>integers (for <code>field_weight</code>, for example) like <code>100</code> or <code>7281</code></li>
 <li>the binary values <code>1</code> or <code>0</code></li>
-<li>Drupal-generated IDs (term IDs taxonomy terms or node IDs for collections and parents)</li>
+<li>Drupal-generated IDs (term IDs taxonomy terms or node IDs for collections and parents), which are integers like <code>10</code> or <code>3549</code></li>
 <li>structured strings (for typed relation and geolocation fields) like <code>"49.16667,-123.93333"</code></li>
 </ul>
 <div class="admonition note">
@@ -330,7 +330,7 @@
 <h2 id="values-in-the-file-field">Values in the "file" field</h2>
 <p>Values in the <code>file</code> field in your CSV can be relative to the directory named in <code>input_dir</code>, abolute paths, or URLs. Examples of each:</p>
 <ul>
-<li>relative to directory named in "input_dir": <code>myfile.png</code></li>
+<li>relative to directory named in the <code>input_dir</code> configuration setting: <code>myfile.png</code></li>
 <li>absolute: <code>/tmp/data/myfile.png</code></li>
 <li>URL: <code>http://example.com/files/myfile.png</code></li>
 </ul>
@@ -403,7 +403,7 @@ img003.png,Picture of yarn and needles,&quot;Yarn, Balls of|Knitting needles&quo
 <li>It replaces all other whitespace with a single space character.</li>
 <li>It converts all text to lower case.</li>
 <li>It removes all punctuation.</li>
-<li>After normalizing the term name using the above rules, if the term name you provide in the CSV file does not match any existing term names in the vocabulary linked to the field after these normalization rules are applied, it is used to create a new taxonomy term. If it does match, Workbench populates the field in your nodes with the matching term.</li>
+<li>After normalizing the term name using the above four rules, if the term name you provide in the CSV file does not match any existing term names in the vocabulary linked to the field after these normalization rules are applied, it is used to create a new taxonomy term. If it does match, Workbench populates the field in your nodes with the matching term.</li>
 </ul>
 </li>
 </ul>
