@@ -132,7 +132,7 @@ In CSV columns for taxonomy fields, you can use either term IDs (integers) or te
 file,title,field_my_multivalued_taxonomy_field
 img001.png,Picture of cats and yarn,Cats|46
 img002.png,Picture of dogs and sticks,Dogs|Sticks
-img003.png,Picture of yarn and needles,"Yarn, Balls of"|Knitting needles
+img003.png,Picture of yarn and needles,"Yarn, Balls of|Knitting needles"
 ```
 By default, if you use a term name in your CSV data that doesn't match a term name that exists in the referenced taxonomy, Workbench will detect this when you use `--check`, warn you, and exit. This strict default helps prevent users from accidentally adding unwanted terms through data entry error.
 
@@ -144,7 +144,7 @@ However, if you add `allow_adding_terms: true` to your configuration file for `c
     * It replaces all other whitespace with a single space character.
     * It converts all text to lower case.
     * It removes all punctuation.
-    * After normalizing the term name using these rules, if the term name you provide in the CSV file does not match any existing term names in the vocabulary linked to the field after these normalization rules are applied, it is used to create a new taxonomy term. If it does match, Workbench populates the field in your nodes with the matching term.
+    * After normalizing the term name using the above rules, if the term name you provide in the CSV file does not match any existing term names in the vocabulary linked to the field after these normalization rules are applied, it is used to create a new taxonomy term. If it does match, Workbench populates the field in your nodes with the matching term.
 
 Adding new terms has some contraints:
 
@@ -219,7 +219,7 @@ Within the edit form of a node that has a Typed Relation field, the user interfa
 
 ![Linked agent example](images/linked_agent.png)
 
-To be able to populate Typed Relation fields using CSV data with the three pieces of required data (authority list, relation type, target term), Islandora Workbench supports CSV values that contain the corresponding namespace, relator code, and taxonomy term ID, each separated by a colon (`:`), like this:.
+To be able to populate Typed Relation fields using CSV data with the three pieces of required data (authority list, relation type, target term), Islandora Workbench supports CSV values that contain the corresponding namespace, relator code, and taxonomy term ID, each separated by a colon (`:`), like this:
 
 `relators:art:30`
 
@@ -228,14 +228,14 @@ In this example CSV value, `relators` is the namespace that the relation type `a
 !!! note
     Note that the structure required for typed relation values in the CSV file is not the same as the structure of the relations configuration depicted in the screenshot of the "Available Relations" list above.
 
-You can also use taxonomy term names, as opposed to term IDs, as targets:
+A second option for populating Typed Relation fields is to use taxonomy term names (as opposed to term IDs) as targets:
 
 `"relators:art:Jordan, Mark"`
 
 !!! warning
     In the next few paragraphs, the word "namespace" is used to describe two different kinds of namespaces - first, a vocabulary ID in the local Drupal and second, an ID for the external authority list of relators, for example by the Library of Congress.
 
-As we saw in the "Using term names in multi-vocabulary fields" section above, if the field that we are populating references multiple vocabularies, we need to tell Drupal which vocabulary we are referring to with a local vocabulary namespace. To add a local vocabulary namespace to Typed Relation field CSV structure, we prepend it to the term name, like this:
+As we saw in the "Using term names in multi-vocabulary fields" section above, if the field that we are populating references multiple vocabularies, we need to tell Drupal which vocabulary we are referring to with a local vocabulary namespace. To add a local vocabulary namespace to Typed Relation field CSV structure, we prepend it to the term name, like this (note the addition of "person"):
 
 `"relators:art:person:Jordan, Mark"`
 
