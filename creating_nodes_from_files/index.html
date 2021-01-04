@@ -212,7 +212,7 @@
           <div role="main">
             <div class="section">
               
-                <p>If you want to ingest some files without a metadata CSV you can do so using the <code>create_from_files</code>. A common application of this ability is in automated workflows where Islandora objects are created from files saved to a watch folder, and metadata is added later.</p>
+                <p>If you want to ingest some files without a metadata CSV you can do so using the <code>create_from_files</code> task. A common application of this ability is in automated workflows where Islandora objects are created from files saved to a <a href="/islandora_workbench_docs/workflows/#watch-folders">watch folder</a>, and metadata is added later.</p>
 <p>Nodes created using this task have only the following properties/fields populated:</p>
 <ul>
 <li>Content type: this is defined in the configuration file, using the <code>content_type</code> setting.</li>
@@ -236,7 +236,7 @@ models:
  - 26: ['mp4']
 </code></pre>
 
-<p><code>model</code> is conventient when all of the objects you are creating are the same Islandora Model:</p>
+<p>Using <code>model</code> is conventient when all of the objects you are creating are the same Islandora Model:</p>
 <pre><code>task: create_from_files
 host: &quot;http://localhost:8000&quot;
 username: admin
