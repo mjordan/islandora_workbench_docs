@@ -3,7 +3,7 @@ In addition to content files like images, the input data used by Workbench is a 
 * strings (for string or text fields) like `I am a string`
 * integers (for `field_weight`, for example) like `100` or `7281`
 * the binary values `1` or `0`
-* Drupal-generated IDs (term IDs taxonomy terms or node IDs for collections and parents)
+* Drupal-generated IDs (term IDs taxonomy terms or node IDs for collections and parents), which are integers like `10` or `3549`
 * structured strings (for typed relation and geolocation fields) like `"49.16667,-123.93333"`
 
 !!! note
@@ -45,7 +45,7 @@ If a required field is missing from your CSV, `--check` will tell you.
 
 Values in the `file` field in your CSV can be relative to the directory named in `input_dir`, abolute paths, or URLs. Examples of each:
 
-* relative to directory named in "input_dir": `myfile.png`
+* relative to directory named in the `input_dir` configuration setting: `myfile.png`
 * absolute: `/tmp/data/myfile.png`
 * URL: `http://example.com/files/myfile.png`
 
@@ -144,7 +144,7 @@ However, if you add `allow_adding_terms: true` to your configuration file for `c
     * It replaces all other whitespace with a single space character.
     * It converts all text to lower case.
     * It removes all punctuation.
-    * After normalizing the term name using the above rules, if the term name you provide in the CSV file does not match any existing term names in the vocabulary linked to the field after these normalization rules are applied, it is used to create a new taxonomy term. If it does match, Workbench populates the field in your nodes with the matching term.
+    * After normalizing the term name using the above four rules, if the term name you provide in the CSV file does not match any existing term names in the vocabulary linked to the field after these normalization rules are applied, it is used to create a new taxonomy term. If it does match, Workbench populates the field in your nodes with the matching term.
 
 Adding new terms has some contraints:
 
