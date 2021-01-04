@@ -65,6 +65,12 @@ Node for 'Alcatraz Island' created at http://localhost:8000/node/56.
 +Image media for IMG_5083.JPG created.
 ```
 
+If you'd rather not see all this detail, you can opt to see a progress bar instead:
+
+```
+ [==================================>      40.0%                                         ]
+```
+
 ## License
 
 Islandora Workbench, and this documentation, are available under the terms of the Unlicense.

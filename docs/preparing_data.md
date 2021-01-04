@@ -7,7 +7,7 @@ Islandora Workbench allows for arranging your input data in a variety of ways. T
 
 In this configuration, you define an input directory (identified by the `input_dir` config option) that contains a CSV file with field content (identified by the `input_csv` config option) and any accompanying media files you want to add to the newly created nodes:
 
-```
+```text
 input_data/
 ├── image1.JPG
 ├── pic_saturday.jpg
@@ -19,9 +19,9 @@ input_data/
 
 Here is the same input directory, with some explanation of how the files relate to each other: 
 
-```
+```text
 input_data/         <-- This is the directory named in the "input_dir" configuration setting.
-├── image1.JPG      <-- This and the other JPEG files are named in the CSV file's "file" column.
+├── image1.JPG      <-- This and the other JPEG files are named in the "file" column in the CSV file.
 ├── pic_saturday.jpg
 ├── image-27262.jpg
 ├── IMG_2958.JPG
@@ -41,10 +41,10 @@ username: admin
 password: islandora
 ```
 
-Workbench will assume your files are in a directory named "input_data" in the same directory as the Workbench script, and that within that directory, your CSV file is named "metadata.csv".
+Workbench will assume your files are in a directory named "input_data" in the same directory as the Workbench script, and that within that directory, your CSV file is named "metadata.csv". Workbench doesn't make any assumptions about the other files in the input directory, since they are all named explicitly in the CSV file's `file` column.
 
-```
-workbench
+```text
+workbench               <-- The "workbench" script.
 ├── input_data/
    ├── image1.JPG
    ├── pic_saturday.jpg

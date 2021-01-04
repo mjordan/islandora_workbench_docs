@@ -237,13 +237,23 @@
 </ol>
 <h2 id="using-an-input-directory">Using an input directory</h2>
 <p>In this configuration, you define an input directory (identified by the <code>input_dir</code> config option) that contains a CSV file with field content (identified by the <code>input_csv</code> config option) and any accompanying media files you want to add to the newly created nodes:</p>
-<pre><code>your_folder/
+<pre><code class="text">input_data/
 ├── image1.JPG
 ├── pic_saturday.jpg
 ├── image-27262.jpg
 ├── IMG_2958.JPG
 ├── someimage.jpg
 └── metadata.csv
+</code></pre>
+
+<p>Here is the same input directory, with some explanation of how the files relate to each other: </p>
+<pre><code class="text">input_data/         &lt;-- This is the directory named in the &quot;input_dir&quot; configuration setting.
+├── image1.JPG      &lt;-- This and the other JPEG files are named in the &quot;file&quot; column in the CSV file.
+├── pic_saturday.jpg
+├── image-27262.jpg
+├── IMG_2958.JPG
+├── someimage.jpg
+└── metadata.csv    &lt;-- This is the CSV file named in the &quot;input_csv&quot; configuration setting.
 </code></pre>
 
 <p>The names of the image/PDF/video/etc. files are included in the <code>file</code> column of the CSV file. Files of any extension are allowed. Islandora Workbench reads the CSV file and iterates throught it, performing the current task for each record. In this configuration, files other than the CSV and your media files are allowed in this directory (although for some configurations, your input directory should not contain any files that are not going to be ingested).</p>
@@ -254,10 +264,9 @@ username: admin
 password: islandora
 </code></pre>
 
-<p>Workbench will assume your files are in a directory named "input_data" in the same directory as the Workbench script, and that within that directory, your CSV file is named "metadata.csv".</p>
-<pre><code>workbench
-workbench_utils.py
-├── your_folder/
+<p>Workbench will assume your files are in a directory named "input_data" in the same directory as the Workbench script, and that within that directory, your CSV file is named "metadata.csv". Workbench doesn't make any assumptions about the other files in the input directory, since they are all named explicitly in the CSV file's <code>file</code> column.</p>
+<pre><code class="text">workbench               &lt;-- The &quot;workbench&quot; script.
+├── input_data/
    ├── image1.JPG
    ├── pic_saturday.jpg
    ├── image-27262.jpg
