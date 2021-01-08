@@ -414,6 +414,15 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 <p>Drupal is very strict about not accepting malformed data. Therefore, Islandora Workbench needs to provide data to Drupal that is consistent with field types (string, taxonomy reference, EDTF, etc.) we are populating. This applies not only to Drupal's base fields (as we saw above) but to all fields. A field's type is indicated in the same place as its machine name, within the "Manage fields" section of each content type's configuration. The field types are circled in red in the screen shot below:</p>
 <p><img alt="Field machine names" src="../images/field_types.png" /></p>
 <p>Below are guidelines for preparing CSV data that is compatible with common field types configured in Islandora repositories.</p>
+<h4 id="text-fields">Text fields</h4>
+<p>Generally speaking, any Drupal field where the user enters free text into a node add/edit form has one of the Drupal "Text" field types. Some of these may be configured to have a maximum length. Running Workbench with <code>--check</code> will produce a warning if any of the values in your CSV file surpass the configured maximum lenght of a field.</p>
+<p>Islandora Workbench supports non-Latin characters in CSV, provided the CSV file is encoded as UTF-8. For example, the following non-Latin text will be added as expected to Drupal fields:</p>
+<ul>
+<li>一九二四年六月十二日 (Traditional Chinese)</li>
+<li>सरकारी दस्तावेज़, अखबारों में छपे लेख, अकादमिक किताबें (Hindi)</li>
+<li>ᐊᑕᐅᓯᖅ ᓄᓇ, ᐅᓄᖅᑐᑦ ᓂᐲᑦ (Inuktitut)</li>
+</ul>
+<p>Note that there are some specialized forms of free text fields such as EDTF that enforce the presence of specific types of characters (see below for EDTF's requirements).</p>
 <h4 id="taxonomy-reference-fields">Taxonomy reference fields</h4>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
