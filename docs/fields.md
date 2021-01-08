@@ -1,4 +1,4 @@
-The input data used by Workbench is a CSV file. This file contains the metadata that is to be added to new or existing nodes, and some additional reserved columns specific to Workbench. Field values in this CSV file can be:
+Workbench uses a CSV file to populate Islandora objects' metadata. This file contains the field values that is to be added to new or existing nodes, and some additional reserved columns specific to Workbench. Data in this CSV file can be:
 
 * strings (for string or text fields) like `Using Islandora Workbench for Fun and Profit`
 * integers (for `field_weight`, for example) like `1` or `7281`
@@ -7,10 +7,7 @@ The input data used by Workbench is a CSV file. This file contains the metadata 
 * structured strings, for typed relation (e.g., `relators:art:30`) and geolocation fields (e.g., `"49.16667,-123.93333"`)
 
 !!! note
-    As is standard with CSV data, field values do not need to be wrapped in double quotation marks (`"`), unless they contain an instance of the delimiter character (e.g., a comma). Spreadsheet applications such as Google Sheets, LibreOffice Calc, and Excel will output valid CSV data.
-!!! note
-    Also note that you can have Islandora Workbench [generate](/islandora_workbench_docs/csv_file_templates/) a template CSV file for you.
-
+    As is standard with CSV data, field values do not need to be wrapped in double quotation marks (`"`), unless they contain an instance of the delimiter character (e.g., a comma). Data within a field can also contain line breaks. Spreadsheet applications such as Google Sheets, LibreOffice Calc, and Excel will output valid CSV data.
 
 ## Reserved CSV fields
 
@@ -77,7 +74,21 @@ These fields correspond directly to fields configured in Drupal nodes, and data 
 
 ![Field machine names](images/field_machine_names.png)
 
-These field names, plus the fields indicated in the "Required fields" section above, are the column headers in your CSV file.
+These field names, plus the fields indicated in the "Reserved CSV fields" section above, are the column headers in your CSV file, like this:
+
+```text
+file,id,title,field_model,field_description
+IMG_1410.tif,01,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
+IMG_2549.jp2,02,Manhatten Island,25,"Taken from the ferry from downtown New York to Highlands, NJ. Weather was windy."
+IMG_2940.JPG,03,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain. Simon Fraser University is visible on the top of the mountain in the distance.
+IMG_2958.JPG,04,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
+IMG_5083.JPG,05,Alcatraz Island,25,"Taken from Fisherman's Wharf, San Francisco."
+```
+
+!!! note
+    If content-type field values apply to all of the rows in your CSV file, you can avoid including them in the CSV and instead use "[CSV field templates](/islandora_workbench_docs/field_templates/)".
+
+
 
 #### Single and multi-valued fields
 
@@ -99,12 +110,12 @@ In this example, the term ID for the tag you want to assign in `field_access_ter
 For multivalued fields, you separate the values within a field with a pipe (`|`), like this:
 
 ```text
-file,title,field_my_multivalued_field
-IMG_1410.tif,Small boats in Havana Harbour,foo|bar
-IMG_2549.jp2,Manhatten Island,bif|bop|burp
+file,title,field_something
+IMG_1410.tif,Small boats in Havana Harbour,One subvalue|Another subvalue
+IMG_2549.jp2,Manhatten Island,first subvalue|second subvalue|third subvalue
 ```
 
-This works for string fields as well as reference fields, e.g.:
+This works for string fields as well as taxonomy reference fields, e.g.:
 
 ```text
 file,title,field_my_multivalued_taxonomy_field

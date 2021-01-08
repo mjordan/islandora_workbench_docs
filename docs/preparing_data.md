@@ -1,7 +1,9 @@
-Islandora Workbench allows for arranging your input data in a variety of ways. The two basic sets of data you need to preare (depending on what task you are performing) are:
+Islandora Workbench allows you to arrange your input data in a variety of ways. The two basic sets of data you need to prepare (depending on what task you are performing) are:
 
 1. a CSV file, containing data that will populate node fields (or do other things depending on what task you are performing)
 2. files that will be used as Drupal media.
+
+The options for arranging your data are detailed below.
 
 ## Using an input directory
 
@@ -30,7 +32,7 @@ input_data/         <-- This is the directory named in the "input_dir" configura
 ```
 
 
-The names of the image/PDF/video/etc. files are included in the `file` column of the CSV file. Files of any extension are allowed. Islandora Workbench reads the CSV file and iterates throught it, performing the current task for each record. In this configuration, files other than the CSV and your media files are allowed in this directory (although for some configurations, your input directory should not contain any files that are not going to be ingested).
+The names of the image/PDF/video/etc. files are included in the `file` column of the CSV file. Files with any extension that you can upload to Drupal are allowed. Islandora Workbench reads the CSV file and iterates throught it, performing the current task for each record. In this configuration, files other than the CSV and your media files are allowed in this directory (although for some configurations, your input directory should not contain any files that are not going to be ingested).
 
 This is Islandora Workbench's default configuration. If you do not specify an `input_dir` or an `input_csv`, as illustrated in this minimal configuration file:
 
@@ -41,7 +43,7 @@ username: admin
 password: islandora
 ```
 
-Workbench will assume your files are in a directory named "input_data" in the same directory as the Workbench script, and that within that directory, your CSV file is named "metadata.csv". Workbench doesn't make any assumptions about the other files in the input directory, since they are all named explicitly in the CSV file's `file` column.
+By default, Workbench will assume your files are in a directory named "input_data" in the same directory as the Workbench script, and that within that directory, your CSV file is named "metadata.csv". Workbench doesn't make any assumptions about the other files in the input directory, since they are all named explicitly in the CSV file's `file` column.
 
 ```text
 workbench               <-- The "workbench" script.
@@ -56,7 +58,7 @@ workbench               <-- The "workbench" script.
 
 ## Using absolute file paths
 
-Both your input CSV file and the values in its `file` column can be absolute paths. In this configuration, your `input_csv` configuration setting must specify the absolute path to your input CSV file, and each value within its `file` column may point to a file to be used as the corresponding node's media file. You can also mix absolute and relative filenames in the same CSV file, but all relative filenames are considered to be in the directory named in `input_dir`. An example configuration file for this is:
+Both your input CSV file and the values in its `file` column can be absolute paths. In this arrangement, your `input_csv` configuration setting must specify the absolute path to your input CSV file, and each value within its `file` column may point to a file to be used as the corresponding node's media file. You can also mix absolute and relative filenames in the same CSV file, but all relative filenames are considered to be in the directory named in `input_dir`. An example configuration file for this is:
 
 ```yaml
 task: create
