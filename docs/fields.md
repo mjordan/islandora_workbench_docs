@@ -145,6 +145,18 @@ Drupal is very strict about not accepting malformed data. Therefore, Islandora W
 
 Below are guidelines for preparing CSV data that is compatible with common field types configured in Islandora repositories.
 
+#### Text fields
+
+Generally speaking, any Drupal field where the user enters free text into a node add/edit form has one of the Drupal "Text" field types. Some of these may be configured to have a maximum length. Running Workbench with `--check` will produce a warning if any of the values in your CSV file surpass the configured maximum lenght of a field.
+
+Islandora Workbench supports non-Latin characters in CSV, provided the CSV file is encoded as UTF-8. For example, the following non-Latin text will be added as expected to Drupal fields:
+
+* 一九二四年六月十二日 (Traditional Chinese)
+* सरकारी दस्तावेज़, अखबारों में छपे लेख, अकादमिक किताबें (Hindi)
+* ᐊᑕᐅᓯᖅ ᓄᓇ, ᐅᓄᖅᑐᑦ ᓂᐲᑦ (Inuktitut)
+
+Note that there are some specialized forms of free text fields such as EDTF that enforce the presence of specific types of characters (see below for EDTF's requirements).
+
 #### Taxonomy reference fields
 
 !!! note
