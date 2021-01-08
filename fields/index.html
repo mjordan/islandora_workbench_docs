@@ -237,7 +237,7 @@
           <div role="main">
             <div class="section">
               
-                <p>The input data used by Workbench is a CSV file. This file contains the metadata that is to be added to new or existing nodes, and some additional reserved columns specific to Workbench. Field values in this CSV file can be:</p>
+                <p>Workbench uses a CSV file to populate Islandora objects' metadata. This file contains the field values that is to be added to new or existing nodes, and some additional reserved columns specific to Workbench. Data in this CSV file can be:</p>
 <ul>
 <li>strings (for string or text fields) like <code>Using Islandora Workbench for Fun and Profit</code></li>
 <li>integers (for <code>field_weight</code>, for example) like <code>1</code> or <code>7281</code></li>
@@ -247,7 +247,7 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>As is standard with CSV data, field values do not need to be wrapped in double quotation marks (<code>"</code>), unless they contain an instance of the delimiter character (e.g., a comma). Spreadsheet applications such as Google Sheets, LibreOffice Calc, and Excel will output valid CSV data.</p>
+<p>As is standard with CSV data, field values do not need to be wrapped in double quotation marks (<code>"</code>), unless they contain an instance of the delimiter character (e.g., a comma). Data within a field can also contain line breaks. Spreadsheet applications such as Google Sheets, LibreOffice Calc, and Excel will output valid CSV data.</p>
 </div>
 <h2 id="reserved-csv-fields">Reserved CSV fields</h2>
 <p>The following CSV fields are used for specific purposes and in some cases are required in your CSV file, depending on the task you are performing. Data in them does not directly populate Drupal content-type fields.</p>
