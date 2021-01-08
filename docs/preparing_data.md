@@ -19,7 +19,7 @@ input_data/
 └── metadata.csv
 ```
 
-Here is the same input directory, with some explanation of how the files relate to each other: 
+Here is the same input directory, with some explanation of how the files relate to each other:
 
 ```text
 input_data/         <-- This is the directory named in the "input_dir" configuration setting.
@@ -115,9 +115,32 @@ Note that:
 * The URL in the configuration file needs single or double quotes around it, like any other value that contains a colon.
 * You can use either the URL you copy from your browser when you are viewing the spreadsheet (which ends in "/edit#gid=0" or something similar), or the "sharing" URL you copy into your clipboard from within the "Share" dialog box (which ends in "edit?usp=sharing"). Either is OK.
 * The Google spreadsheet must be publicly readable, e.g. with "Anyone on the Internet with this link can view" permission.
-* Spreadsheets work best for descriptive metadata if all cells are formatted as "Plain text". To do this, in Sheets, select all cells, then choose the menu items Format > Number > Plain text *before adding any content to the cells*.
+* Spreadsheets work best for descriptive metadata if all cells are formatted as "Plain text". To do this in Google Sheets, select all cells, then choose the menu items Format > Number > Plain text *before adding any content to the cells*.
 * The worksheet that the CSV data is taken from is the first one in the spreadsheet (i.e., the one named in the left-most tab).
 * If the values in the `file` column of the spreadsheet are relative, they are assumed to point to files within your local `input_directory`, just like they do in a local CSV input file. However, you can also use abosolute file paths and URLs in the `file` column, as described above.
+
+## Using an Excel file as the input CSV file
+
+With this option, your configuration's `input_csv` option contains the filename of an Excel 2010 (or higher) file, like this:
+
+```yaml
+task: create
+host: "http://localhost:8000"
+username: admin
+password: islandora
+input_csv: my_file.xlsx
+```
+
+Islandora Workbench extracts the content of this file as CSV data, and uses that extracted data as its input the same way it would use a raw CSV file.
+
+Note that:
+
+* You can use an Excel file in all tasks that use a CSV file as input.
+* All of the columns required in a local CSV file are also required in the Excel spreadsheet.
+* Spreadsheets work best for descriptive metadata if all cells are formatted as "text". To do this, in Excel, select all cells, alt-click on the selected area, then choose the "Format Cells" context menu item. In the "Number" tab, choose "Text", then click on the "OK" button.
+* The worksheet that the CSV data is taken from is the one named "Sheet1", unless you specify another worksheet using the `excel_worksheet` configuration option.
+* If the values in the `file` column of the spreadsheet are relative, they are assumed to point to files within your local `input_directory`, just like they do in a local CSV input file. However, you can also use abosolute file paths and URLs in the `file` column, as described above.
+
 
 ## Blank or missing "file" values
 
