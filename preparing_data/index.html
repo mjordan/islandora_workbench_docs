@@ -342,7 +342,7 @@ input_csv: my_file.xlsx
 <li>You can use an Excel file in all tasks that use a CSV file as input.</li>
 <li>All of the columns required in a local CSV file are also required in the Excel spreadsheet.</li>
 <li>Spreadsheets work best for descriptive metadata if all cells are formatted as "text". To do this, in Excel, select all cells, alt-click on the selected area, then choose the "Format Cells" context menu item. In the "Number" tab, choose "Text", then click on the "OK" button.</li>
-<li>The worksheet that the CSV data is taken from is the one named "Sheet1".</li>
+<li>The worksheet that the CSV data is taken from is the one named "Sheet1", unless you specify another worksheet using the <code>excel_worksheet</code> configuration option.</li>
 <li>If the values in the <code>file</code> column of the spreadsheet are relative, they are assumed to point to files within your local <code>input_directory</code>, just like they do in a local CSV input file. However, you can also use abosolute file paths and URLs in the <code>file</code> column, as described above.</li>
 </ul>
 <h2 id="blank-or-missing-file-values">Blank or missing "file" values</h2>
