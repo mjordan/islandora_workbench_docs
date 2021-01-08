@@ -355,19 +355,8 @@
 </table>
 <p>If a required field is missing from your CSV, <code>--check</code> will tell you.</p>
 <h2 id="csv-fields-that-contain-drupal-field-data">CSV fields that contain Drupal field data</h2>
-<p>The following types of Drupal fields can be popualted from data in your input CSV file:</p>
-<ul>
-<li>text (plain, plain long, etc.) fields</li>
-<li>integer fields</li>
-<li>boolean fields, with values 1 or 0</li>
-<li>EDTF date fields</li>
-<li>entity reference (taxonomy and linked node) fields</li>
-<li>typed relation (taxonomy and linked node) fields</li>
-<li>geolocation fields</li>
-</ul>
-<p>Where Drupal's configuration allows, fields in your input CSV can contain single values or multiple values, as described below.</p>
-<h3 id="base-fields">Base fields</h3>
 <p>These are of two types of Drupal fields, base fields and content-type specific fields.</p>
+<h3 id="base-fields">Base fields</h3>
 <p>Base fields are basic node properties, shared by all content types. The base fields you can include in your CSV file are:</p>
 <ul>
 <li><code>title</code>: This field is required for all rows in your CSV for the <code>create</code> task. Optional for the 'update' task. Drupal limits the title's length to 255 characters, and Workbench will check that titles are less than 255 characters unless your configuration file contains <code>validate_title_length: False</code> as described above.</li>
@@ -404,6 +393,16 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 <p>Drupal strictly enforces the maximum number of values allowed in a field. If the number of values in your CSV file for a field exceed a field's configured maximum number of fields, Workbench will only populate the field to the field's configured limit.</p>
 <p>The subdelimiter character defaults to a pipe (<code>|</code>) but can be set in your config file using the <code>subdelimiter: ";"</code> option.</p>
 <h3 id="drupal-field-types">Drupal field types</h3>
+<p>The following types of Drupal fields can be popualted from data in your input CSV file:</p>
+<ul>
+<li>text (plain, plain long, etc.) fields</li>
+<li>integer fields</li>
+<li>boolean fields, with values 1 or 0</li>
+<li>EDTF date fields</li>
+<li>entity reference (taxonomy and linked node) fields</li>
+<li>typed relation (taxonomy and linked node) fields</li>
+<li>geolocation fields</li>
+</ul>
 <p>Drupal is very strict about not accepting malformed data. Therefore, Islandora Workbench needs to provide data to Drupal that is consistent with field types (string, taxonomy reference, EDTF, etc.) we are populating. This applies not only to Drupal's base fields (as we saw above) but to all fields. A field's type is indicated in the same place as its machine name, within the "Manage fields" section of each content type's configuration. The field types are circled in red in the screen shot below:</p>
 <p><img alt="Field machine names" src="../images/field_types.png" /></p>
 <p>Below are guidelines for preparing CSV data that is compatible with common field types configured in Islandora repositories.</p>
