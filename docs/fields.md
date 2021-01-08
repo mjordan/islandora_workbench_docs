@@ -1,10 +1,10 @@
-In addition to content files like images, the input data used by Workbench is a CSV file. This CSV file contains the metadata that is to be added to new or existing nodes, and some additional reserved columns specific to Workbench. Field values are
+The input data used by Workbench is a CSV file. This file contains the metadata that is to be added to new or existing nodes, and some additional reserved columns specific to Workbench. Field values in this CSV file can be:
 
-* strings (for string or text fields) like `I am a string`
-* integers (for `field_weight`, for example) like `100` or `7281`
+* strings (for string or text fields) like `Using Islandora Workbench for Fun and Profit`
+* integers (for `field_weight`, for example) like `1` or `7281`
 * the binary values `1` or `0`
-* Drupal-generated IDs (term IDs taxonomy terms or node IDs for collections and parents), which are integers like `10` or `3549`
-* structured strings (for typed relation and geolocation fields) like `"49.16667,-123.93333"`
+* Drupal-generated entity IDs (term IDs taxonomy terms or node IDs for collections and parents), which are integers like `10` or `3549`
+* structured strings, for typed relation (e.g., `relators:art:30`) and geolocation fields (e.g., `"49.16667,-123.93333"`)
 
 !!! note
     As is standard with CSV data, field values do not need to be wrapped in double quotation marks (`"`), unless they contain an instance of the delimiter character (e.g., a comma). Spreadsheet applications such as Google Sheets, LibreOffice Calc, and Excel will output valid CSV data.
@@ -12,38 +12,22 @@ In addition to content files like images, the input data used by Workbench is a 
     Also note that you can have Islandora Workbench [generate](/islandora_workbench_docs/csv_file_templates/) a template CSV file for you.
 
 
-The following types of fields can be used in your input CSV file:
+## Reserved CSV fields
 
-* base fields
-* text (plain, plain long, etc.) fields
-* integer fields
-* boolean fields, with values 1 or 0
-* EDTF date fields
-* entity reference (taxonomy and linked node) fields
-* typed relation (taxonomy and linked node) fields
-* geolocation fields
+The following CSV fields are used for specific purposes and in some cases are required in your CSV file, depending on the task you are performing. Data in them does not directly populate Drupal content-type fields.
 
-Where Drupal's configuration allows, fields in your input CSV can contain single values or multiple values, as described below.
-
-## Required fields
-
-The following columns in your CSV are required (depending on task):
-
-| Task | Required in CSV | Note |
+| CSV field name | Task(s) | Note |
 | --- | --- ||
-| create | id | Or the column name specified in the `id_field` configuration option |
-| | title ||
-| | file | Empty values in the `file` field are allowed if `allow_missing_files` is present in your configuration file, in which case a node will be created but it will have no attached media. |
-| update | node_id ||
-| delete | node_id ||
-| add_media | node_id ||
-| | file | `file` must contain a filename, file path, or URL. `allow_missing_files` does not work with the `add_media` task. |
+| id | create | This CSV field is used by Workbench for internal purposes, and is not added to the metadata of your Islandora objects. Therefore, it doesn't need to have any relationship to the item described in the rest of the fields in the CSV file. You can configure this CSV field name to be something other than `id` by using the `id_field` option in your configuration file. |
+| node_id | update, delete, add_media | The ID of the node you are updating, deleting, or adding media to. |
+| file | create, add_media | See detail in "Values in the 'file' field", below. |
+| url_alias | create, update | See detail in "[Assigning URL aliases](/islandora_workbench_docs/aliases/)". |
+| image_alt_text | create |  See detail in "[Adding alt text to images](/islandora_workbench_docs/alt_text/)".|
 
-If a required field is missing from your CSV, `--check` will tell you.
 
-## Values in the "file" field
+### Values in the "file" field
 
-Values in the `file` field in your CSV can be relative to the directory named in `input_dir`, abolute paths, or URLs. Examples of each:
+Values in the `file` field contain the location of files that are used to create Drupal Media. Workbench can create only one media per CSV record; the type of media is determined by identifying in your configuration file a value from the "Islandora Media Use" vocabulary. File locations can be relative to the directory named in `input_dir`, abolute paths, or URLs. Examples of each:
 
 * relative to directory named in the `input_dir` configuration setting: `myfile.png`
 * absolute: `/tmp/data/myfile.png`
@@ -54,10 +38,31 @@ Relative, absolute, and URL file locations can exist within the same CSV file.
 Things to note about URL paths:
 
 * Workbench downloads files identified by URLs and saves them in the directory named in `input_dir` before processing them further. It does not delete the files after they have been ingested into Islandora.
-* Files identified by URLs must be accessible to the Workbench script, which means they must not require a username/password; however, they can be protected by a firewall, ACL, etc. as long as the computer running Workbench is allowed to retrieve the files without authenticating.
+* Files identified by URLs must be accessible to the Workbench script, which means they must not require a username/password; however, they can be protected by a firewall, etc. as long as the computer running Workbench is allowed to retrieve the files without authenticating.
 * Currently Workbench requires that the URLs point directly to a file and not to a script, wrapper page, or other indirect route to the file.
 
-## Base fields
+## Required fields
+
+A small number of fields are required in your CSV, depending on the task you are performing:
+
+| Task | Required in CSV | Note |
+| --- | --- ||
+| create | id | See detail in "Reserved CSV fields", above |
+| | title | The node title. |
+| | file | Empty values in the `file` field are allowed if `allow_missing_files` is present in your configuration file, in which case a node will be created but it will have no attached media. |
+| update | node_id | The node ID of an existing node you are updating. |
+| delete | node_id | The node ID of an existing node you are deleting. |
+| add_media | node_id | The node ID of an existing node you are attaching media to. |
+| | file | Must contain a filename, file path, or URL. `allow_missing_files` does not work with the `add_media` task. |
+
+If a required field is missing from your CSV, `--check` will tell you.
+
+
+## CSV fields that contain Drupal field data
+
+These are of two types of Drupal fields, base fields and content-type specific fields.
+
+### Base fields
 
 Base fields are basic node properties, shared by all content types. The base fields you can include in your CSV file are:
 
@@ -66,19 +71,19 @@ Base fields are basic node properties, shared by all content types. The base fie
 * `uid`: The Drupal user ID to assign to the node and media created with the node. Optional. Only available in `create` tasks. If you are creating paged/compound objects from directories, this value is applied to the parent's children (if you are creating them using the page/child-level metadata method, these fields must be in your CSV metadata).
 * `created`: The timestamp to use in the node's "created" attribute and in the "created" attribute of the media created with the node. Optional, but if present, it must be in format 2020-11-15T23:49:22+00:00 (the +00:00 is the difference to Greenwich time/GMT). Only available in `create` tasks. If you are creating paged/compound objects from directories, this value is applied to the parent's children (if you are creating them using the page/child-level metadata method, these fields must be in your CSV metadata).
 
-## Content type-specific fields
+### Content type-specific fields
 
-For other Drupal fields, the column headings in the CSV file must match machine names of fields that exist in the target Islandora content type. Fields' machine names are visible within the "Manage fields" section of each content type's configuration, here circled in red:
+These fields correspond directly to fields configured in Drupal nodes, and data you provide in them populates their equivalent field in Drupal entities. The column headings in the CSV file must match machine names of fields that exist in the target node content type. Fields' machine names are visible within the "Manage fields" section of each content type's configuration, here circled in red:
 
 ![Field machine names](images/field_machine_names.png)
 
 These field names, plus the fields indicated in the "Required fields" section above, are the column headers in your CSV file.
 
-## Single and multi-valued fields
+#### Single and multi-valued fields
 
 Drupal allows for fields to have a single value, a specific maximum number of values, or unlimited number of values.
 
-### Single-valued fields
+#### Single-valued fields
 
 In your CSV file, single-valued fields simply contain the value, which, depending on the field type, can be a string or an integer. For example, using the fields defined by the Islandora Defaults module for the "Repository Item" content type, your CSV file could look like this:
 
@@ -89,7 +94,7 @@ myfile.jpg,My nice image,obj_00001,24,"A fine image, yes?",Do whatever you want 
 
 In this example, the term ID for the tag you want to assign in `field_access_terms` is 27, and the node ID of the collection you want to add the object to (in `field_member_of`) is 45.
 
-### Multivalued fields
+#### Multivalued fields
 
 For multivalued fields, you separate the values within a field with a pipe (`|`), like this:
 
@@ -111,15 +116,25 @@ Drupal strictly enforces the maximum number of values allowed in a field. If the
 
 The subdelimiter character defaults to a pipe (`|`) but can be set in your config file using the `subdelimiter: ";"` option.
 
-## Field types
+### Drupal field types
 
-Drupal is very strict about not accepting malformed data. Therefore we need to provide data to Drupal that is consistent with field types (string, taxonomy reference, EDTF, etc.) we are populating. This applies not only to Drupal's base fields (as we saw above) but to all fields. A field's type is indicated in the same place as its machine name, within the "Manage fields" section of each content type's configuration. The field types are circled in red in the screen shot below:
+The following types of Drupal fields can be popualted from data in your input CSV file:
+
+* text (plain, plain long, etc.) fields
+* integer fields
+* boolean fields, with values 1 or 0
+* EDTF date fields
+* entity reference (taxonomy and linked node) fields
+* typed relation (taxonomy and linked node) fields
+* geolocation fields
+
+Drupal is very strict about not accepting malformed data. Therefore, Islandora Workbench needs to provide data to Drupal that is consistent with field types (string, taxonomy reference, EDTF, etc.) we are populating. This applies not only to Drupal's base fields (as we saw above) but to all fields. A field's type is indicated in the same place as its machine name, within the "Manage fields" section of each content type's configuration. The field types are circled in red in the screen shot below:
 
 ![Field machine names](images/field_types.png)
 
 Below are guidelines for preparing CSV data that is compatible with common field types configured in Islandora repositories.
 
-### Taxonomy reference fields
+#### Taxonomy reference fields
 
 !!! note
     In the list of a content type's fields, as pictured above, Drupal uses "Entity reference" for all types of entity reference fields, of which Taxonomy references are one. The other most common kink of entity reference field is a node reference field.
@@ -153,7 +168,7 @@ Adding new terms has some contraints:
 * `--check` will identify any new terms that exceed Drupal's maxiumum allowed length for term names, 255 characters. If a term name is longer than 255 characters, Workbench will truncate it at that length, log that it has done so, and create the term.
 * Taxonomy terms created with new nodes are not removed when you delete the nodes.
 
-#### Using term names in multi-vocabulary fields
+##### Using term names in multi-vocabulary fields
 
 While most node taxonomy fields reference only a single vocabulary, Drupal does allow fields to reference multiple vocabularies. This ability poses a problem when we use term names instead of term IDs in our CSV files: in a multi-vocabulary field, Workbench can't be sure which term name belongs in which of the multiple vocabularies referenced by that field. This applies to both existing terms and to new terms we want to add when creating node content.
 
@@ -188,7 +203,7 @@ Error: Term names in multi-vocabulary CSV field "field_tags" require a vocabular
 
 Note that since `:` is a special character when you use term names in multi-vocabulary CSV fields, you can't add a namespaced term that itself contains a `:`. You need to add it manually to Drupal and then use its term ID (or name, or URI) in your CSV file.
 
-#### Using term URIs instead of term IDs
+##### Using term URIs instead of term IDs
 
 Islandora Workbench lets you use URIs assigned to terms instead of term IDs. You can use a term URI in the `media_use_tid` configuration option (for example, `"http://pcdm.org/use#OriginalFile"`) and in taxonomy fields in your metadata CSV file:
 
@@ -205,7 +220,7 @@ Using term URIs has some constraints:
 * You cannot create a new term by providing a URI like you can by providing a term name.
 * If the same URI is registered with more than one term, Workbench will choose one and write a warning to the log indicating which term it chose and which terms the URI is registered with. However, `--check` will detect that a URI is registered with more than one term and warn you. At that point you can edit your CSV file to use the correct term ID rather than the URI.
 
-### Typed Relation fields
+#### Typed Relation fields
 
 Typed relation fields contain information about the relationship (or "relation") between a taxonomy term and the node it is attached to. For example, a term from the Person vocabulary, "Jordan, Mark", can be an author, illustrator, or editor of the book described in the node. In this example, "author", "illustrator", and "editor" are the typed relations.
 
@@ -255,7 +270,7 @@ or
 
 `relators:art:person:Jordan, Mark|relators:art:45`
 
-#### Adding new typed relation targets
+##### Adding new typed relation targets
 
 Islandora Workbench allows you to add new typed relation targets while creating and updating nodes. These targets are taxonomy terms. Your configuration file must include the `allow_adding_terms: true` option to add new targets. In general, adding new typed relation targets is just like adding new taxonomy terms as described above in the "Taxonomy relation fields" section.
 
@@ -272,7 +287,7 @@ Note that:
 * For multi-vocabulary fields, new typed relator targets must be accompanied by a vocabulary namespace (`person` in the above examples).
 * You cannot add new relators (e.g. `relators:foo`) in your CSV file, only new target terms.
 
-### EDTF fields
+#### EDTF fields
 
 !!! note
     The date types named below are a subset of the EDTF specification. If you need validatation of additional EDTF date types, please [open an issue](https://github.com/mjordan/islandora_workbench/issues).
@@ -300,7 +315,7 @@ Running Islandora Workbench with `--check` will validate the following subset of
 
 Subvalues in multivalued CSV fields are validated separately, e.g. if your CSV value is `2004-06/2006-08|2007-01/2007-04`, `2004-06/2006-08` and `2007-01/2007-04` are validated separately.
 
-### Geolocation fields
+#### Geolocation fields
 
 The Geolocation field type, managed by the [Geolocation Field](https://www.drupal.org/project/geolocation) contrib module, stores latitude and longitude coordinates in separate data elements. To add or update fields of this type, Workbench needs to provide the latitude and longitude data in these separate elements.
 

@@ -1,4 +1,4 @@
-If you want to ingest some files without a metadata CSV you can do so using the `create_from_files`. A common application of this ability is in automated workflows where Islandora objects are created from files saved to a watch folder, and metadata is added later.
+If you want to ingest some files without a metadata CSV you can do so using the `create_from_files` task. A common application of this ability is in automated workflows where Islandora objects are created from files saved to a [watch folder](/islandora_workbench_docs/workflows/#watch-folders), and metadata is added later.
 
 Nodes created using this task have only the following properties/fields populated:
 
@@ -27,7 +27,7 @@ models:
  - 26: ['mp4']
 ```
 
-`model` is conventient when all of the objects you are creating are the same Islandora Model:
+Using `model` is conventient when all of the objects you are creating are the same Islandora Model:
 
 ```
 task: create_from_files

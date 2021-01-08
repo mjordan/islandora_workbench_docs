@@ -14,11 +14,11 @@ pages:
     - Fields: fields.md
     - CSV file templates: csv_file_templates.md
     - CSV field templates: field_templates.md
-    - Assigning URL aliases: aliases.md
-    - Adding alt text to images: alt_text.md
     - Creating paged and compound content: paged_and_compound.md
     - Creating nodes without media: nodes_only.md
     - Creating nodes from files: creating_nodes_from_files.md
+    - Assigning URL aliases: aliases.md
+    - Adding alt text to images: alt_text.md
     - Rolling back nodes and media: rolling_back.md
     - Setting media types: media_types.md
     - Updating nodes: updating_nodes.md

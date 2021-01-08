@@ -1,3 +1,6 @@
+!!! note
+    Drupal's use of Media types (image, video, document, etc.) is distinct from Islandora's use of "model", which identifies an intellectual entity as an image, video, collection, compound object, newspaper, etc.
+
 By default Workbench defines the following file extention to media type mapping:
 
 | File extensions | Media type |

@@ -10,19 +10,19 @@
 
 * Allows creation of Islandora nodes and media, updating of nodes, and deletion of nodes and media from CSV files
 * Allows creation of paged/compound content
-* Can run from anywhere - it communicates with Drupal via HTTP
+* Can run from anywhere - it does not need to be run from the Drupal server's command line
+* Provides both sensible default configuration values and rich configuation options for power users
 * Provides robust data validation functionality
 * Supports a variety of Drupal entity field types (text, integer, term reference, typed relation, geolocation)
-* Can provide a CSV file template based on Drupal content type
+* Can generate a CSV file template based on Drupal content type
 * Can use a Google Sheet instead of a local CSV file as input
 * Allows assignment of Drupal vocabulary terms using term IDs, term names, or term URIs
 * Allows creation of new taxonomy terms from CSV field data
 * Allows the assignment of URL aliases
 * Allows adding alt text to images
-* Cross platform (written in Python)
-* Well tested
+* Cross platform (Windows, Mac, and Linux)
 * Well documented
-* Provides both sensible default configuration values and rich configuation options for power users
+* Well tested
 * A companion project under development, [Islandora Workbench Desktop](https://github.com/mjordan/islandora_workbench_desktop), will add a graphical user interface that enables users not familiar or comfortable with the command line to use Workbench.
 
 ## Usage
@@ -46,6 +46,10 @@ OK, files named in the CSV "file" column are all present.
 Configuration and input data appear to be valid.
 ```
 
+If your configuration file is not in the same directory as the `workbench` script, use its absolute path, e.g.:
+
+`./workbench --config /home/mark/config.yml --check`
+
 If `--check` hasn't identified any problems, you can then rerun Islandora Workbench without the `--check` option to create the nodes:
 
 `./workbench --config config.yml`
@@ -65,7 +69,7 @@ Node for 'Alcatraz Island' created at http://localhost:8000/node/56.
 +Image media for IMG_5083.JPG created.
 ```
 
-If you'd rather not see all this detail, you can opt to see a progress bar instead:
+If you'd rather not see all this detail, you can set an option in your configuration file to see a progress bar instead:
 
 ```
  [==================================>      40.0%                                         ]
