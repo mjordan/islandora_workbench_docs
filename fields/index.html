@@ -422,7 +422,11 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 <li>सरकारी दस्तावेज़, अखबारों में छपे लेख, अकादमिक किताबें (Hindi)</li>
 <li>ᐊᑕᐅᓯᖅ ᓄᓇ, ᐅᓄᖅᑐᑦ ᓂᐲᑦ (Inuktitut)</li>
 </ul>
-<p>Note that there are some specialized forms of free text fields such as EDTF that enforce the presence of specific types of characters (see below for EDTF's requirements).</p>
+<p>Some things to note about Drupal text fields:</p>
+<ul>
+<li>Islandora Workbench populates text fields reliably with the text provided in the CSV file, but, depending on the specific field configuration in Drupal, the text may have <a href="https://www.drupal.org/node/1913724">output filters</a> applied to it while Drupal is rendering it.</li>
+<li>There are some specialized forms of free text fields such as EDTF that enforce the presence of specific types of characters (see below for EDTF's requirements).</li>
+</ul>
 <h4 id="taxonomy-reference-fields">Taxonomy reference fields</h4>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
