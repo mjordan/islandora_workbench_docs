@@ -252,7 +252,7 @@
 <p>As is standard with CSV data, field values do not need to be wrapped in double quotation marks (<code>"</code>), unless they contain an instance of the delimiter character (e.g., a comma). Data within a field can also contain line breaks. Spreadsheet applications such as Google Sheets, LibreOffice Calc, and Excel will output valid CSV data.</p>
 </div>
 <h2 id="reserved-csv-fields">Reserved CSV fields</h2>
-<p>The following CSV fields are used for specific purposes and in some cases are required in your CSV file, depending on the task you are performing. Data in them does not directly populate Drupal content-type fields.</p>
+<p>The following CSV fields are used for specific purposes and in some cases are required in your CSV file, depending on the task you are performing (see below for specific cases). Data in them does not directly populate Drupal content-type fields.</p>
 <table>
 <thead>
 <tr>
@@ -426,7 +426,7 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 </ul>
 <p>Some things to note about Drupal text fields:</p>
 <ul>
-<li>Islandora Workbench populates text fields verbatim with the text provided in the CSV file, but, depending on the specific field configuration in Drupal, the text may have <a href="https://www.drupal.org/node/1913724">output filters</a> applied to it when rendered.</li>
+<li>Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file, but, depending on a field's configuration, Drupal may apply <a href="https://www.drupal.org/node/213156">text filters</a>.</li>
 <li>Text fields may be configured to have a maximum length. Running Workbench with <code>--check</code> will produce a warning if any of the values in your CSV file surpass the configured maximum length of a field.</li>
 <li>Some specialized forms of text fields, such as EDTF, enforce or prohibit the presence of specific types of characters (see below for EDTF's requirements).</li>
 </ul>
