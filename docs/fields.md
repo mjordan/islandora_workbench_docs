@@ -11,7 +11,7 @@ Workbench uses a CSV file to populate Islandora objects' metadata. This file con
 
 ## Reserved CSV fields
 
-The following CSV fields are used for specific purposes and in some cases are required in your CSV file, depending on the task you are performing. Data in them does not directly populate Drupal content-type fields.
+The following CSV fields are used for specific purposes and in some cases are required in your CSV file, depending on the task you are performing (see below for specific cases). Data in them does not directly populate Drupal content-type fields.
 
 | CSV field name | Task(s) | Note |
 | --- | --- ||
@@ -88,11 +88,9 @@ IMG_5083.JPG,05,Alcatraz Island,25,"Taken from Fisherman's Wharf, San Francisco.
 !!! note
     If content-type field values apply to all of the rows in your CSV file, you can avoid including them in the CSV and instead use "[CSV field templates](/islandora_workbench_docs/field_templates/)".
 
+### Single and multi-valued fields
 
-
-#### Single and multi-valued fields
-
-Drupal allows for fields to have a single value, a specific maximum number of values, or unlimited number of values.
+Drupal allows for fields to have a single value, a specific maximum number of values, or unlimited number of values. In the CSV input file, each Drupal field corresponds to a single CSV field. In other words, the CSV column names must be unique, even if a Drupal field allows multiple values. Populating multivalued fields is explained below.
 
 #### Single-valued fields
 
@@ -147,15 +145,19 @@ Below are guidelines for preparing CSV data that is compatible with common field
 
 #### Text fields
 
-Generally speaking, any Drupal field where the user enters free text into a node add/edit form has one of the Drupal "Text" field types. Some of these may be configured to have a maximum length. Running Workbench with `--check` will produce a warning if any of the values in your CSV file surpass the configured maximum lenght of a field.
+Generally speaking, any Drupal field where the user enters free text into a node add/edit form is configured to be one of the Drupal "Text" field types.
 
-Islandora Workbench supports non-Latin characters in CSV, provided the CSV file is encoded as UTF-8. For example, the following non-Latin text will be added as expected to Drupal fields:
+Islandora Workbench supports non-Latin characters in CSV, provided the CSV file is encoded as ASCII or UTF-8. For example, the following non-Latin text will be added as expected to Drupal fields:
 
 * 一九二四年六月十二日 (Traditional Chinese)
 * सरकारी दस्तावेज़, अखबारों में छपे लेख, अकादमिक किताबें (Hindi)
 * ᐊᑕᐅᓯᖅ ᓄᓇ, ᐅᓄᖅᑐᑦ ᓂᐲᑦ (Inuktitut)
 
-Note that there are some specialized forms of free text fields such as EDTF that enforce the presence of specific types of characters (see below for EDTF's requirements).
+Some things to note about Drupal text fields:
+
+* Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file, but, depending on a field's configuration, Drupal may apply [text filters](https://www.drupal.org/node/213156).
+* Text fields may be configured to have a maximum length. Running Workbench with `--check` will produce a warning if any of the values in your CSV file surpass the configured maximum length of a field.
+* Some specialized forms of text fields, such as EDTF, enforce or prohibit the presence of specific types of characters (see below for EDTF's requirements).
 
 #### Taxonomy reference fields
 
@@ -291,7 +293,7 @@ If you want to include multiple typed relation values in a single field of your 
 
 or
 
-`relators:art:person:Jordan, Mark|relators:art:45`
+`"relators:art:person:Jordan, Mark|relators:art:45"`
 
 ##### Adding new typed relation targets
 

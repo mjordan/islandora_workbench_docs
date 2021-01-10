@@ -57,3 +57,9 @@ The settings defined in a configuration file are:
 | excel_worksheet |  | Sheet1 | If using an Excel file as your input CSV file, the name of the worksheet that the CSV data will be extracted from. |
 
 When you run Islandora Workbench with the `--check` argument, it will verify that all configuration options required for the current task are present, and if they aren't tell you so.
+
+## Validating the syntax of the configuration file
+
+The very first thing Workbench does when you run it is confirm that your configuration file is valid YAML. This is a syntax check, not a content check: if the file is valid YAML, Workbench then goes on to perform a long list of application-specific [checks](/islandora_workbench_docs/check].
+
+If this syntax check fails, some detail about the problem will be displayed to the user. The same information plus the entire Python stack trace is also logged to a file named `workbench.log` in the Islandora Workbench directory. This file name is Workbench's default log file name, but in this specific case (validating the config file's YAML syntax), that file name is used regardless of the log file location defined in the configuation's `log_file_path`. The reason the error isn't logged to the defined locaiton is that the location itself is defined in the configuration file, which can't be parsed.

@@ -7,11 +7,13 @@ You should always (always, [I can't stress that enough](https://www.youtube.com/
 If you do this, Workbench will check the following and report any errors that require your attention before proceding:
 
 * Configuration file
+    * Whether your configuration file is valid YAML (i.e., no YAML syntax errors).
     * Whether your configuration file contains all required values.
 * Connection to Drupal
     * Whether your Drupal has the required [Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module enabled.
     * Whether the `host` you provided will accept the `username` and `password` you provided.
 * CSV file
+    * Whether the CSV file is encoded in either ASCII or UTF-8.  
     * Whether each row contains the same number of columns as there are column headers.
     * Whether your CSV file contains required columns headers, including the field defined as the unique ID for each record (defaults to "id" if the `id_field` key is not in your config file)
     * Whether your CSV column headers correspond to existing Drupal field machine names.
