@@ -70,6 +70,9 @@
     <li class="toctree-l2"><a href="#configuration-settings">Configuration settings</a></li>
     
 
+    <li class="toctree-l2"><a href="#validating-the-syntax-of-the-configuration-file">Validating the syntax of the configuration file</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -470,6 +473,9 @@ password: islandora
 </tbody>
 </table>
 <p>When you run Islandora Workbench with the <code>--check</code> argument, it will verify that all configuration options required for the current task are present, and if they aren't tell you so.</p>
+<h2 id="validating-the-syntax-of-the-configuration-file">Validating the syntax of the configuration file</h2>
+<p>The very first thing Workbench does when you run it is confirm that your configuration file is valid YAML. This is a syntax check, not a content check: if the file is valid YAML, Workbench then goes on to perform a long list of application-specific [checks](/islandora_workbench_docs/check].</p>
+<p>If this syntax check fails, some detail about the problem will be displayed to the user. The same information plus the entire Python stack trace is also logged to a file named <code>workbench.log</code> in the Islandora Workbench directory. This file name is Workbench's default log file name, but in this specific case (validating the config file's YAML syntax), that file name is used regardless of the log file location defined in the configuation's <code>log_file_path</code>. The reason the error isn't logged to the defined locaiton is that the location itself is defined in the configuration file, which can't be parsed.</p>
               
             </div>
           </div>
