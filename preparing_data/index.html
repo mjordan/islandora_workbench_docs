@@ -261,14 +261,14 @@
 </code></pre>
 
 <p>The names of the image/PDF/video/etc. files are included in the <code>file</code> column of the CSV file. Files with any extension that you can upload to Drupal are allowed. Islandora Workbench reads the CSV file and iterates throught it, performing the current task for each record. In this configuration, files other than the CSV and your media files are allowed in this directory (although for some configurations, your input directory should not contain any files that are not going to be ingested).</p>
-<p>This is Islandora Workbench's default configuration. If you do not specify an <code>input_dir</code> or an <code>input_csv</code>, as illustrated in this minimal configuration file:</p>
+<p>This is Islandora Workbench's default configuration. If you do not specify an <code>input_dir</code> or an <code>input_csv</code>, as illustrated in following minimal configuration file, Workbench will assume your files are in a directory named "input_data" in the same directory as the Workbench script, and that within that directory, your CSV file is named "metadata.csv":</p>
 <pre><code class="yaml">task: create
 host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
 </code></pre>
 
-<p>By default, Workbench will assume your files are in a directory named "input_data" in the same directory as the Workbench script, and that within that directory, your CSV file is named "metadata.csv". Workbench doesn't make any assumptions about the other files in the input directory, since they are all named explicitly in the CSV file's <code>file</code> column.</p>
+<p>Workbench ignores the other files in the input directory, and only looks for files in that directory if the filenname alone (no directory component) is in <code>file</code> column.</p>
 <pre><code class="text">workbench               &lt;-- The &quot;workbench&quot; script.
 ├── input_data/
    ├── image1.JPG
@@ -277,6 +277,33 @@ password: islandora
    ├── IMG_2958.JPG
    ├── someimage.jpg
    └── metadata.csv
+</code></pre>
+
+<p>For example, in this configuration, in the following "metadata.csv" file, Workbench looks for "image1.JPG", "image-27626.jpg", and "someimage.jpg" at "input_data/image1.JPG", "input_data/image1.JPG", and "someimage.jpg" respectively, relative to the location of the "workbench" script:</p>
+<pre><code class="text">id,file,title
+001,image1.JPG,A very good file
+0002,image-27262.jpg,My cat
+003,someimage.jpg,My dog
+</code></pre>
+
+<p>Workbench complete igonores "pic_saturday.jpg" and "IMG_2958.JPG" because they are not named in any of the <code>file</code> columns in the "metadata.csv" file.</p>
+<p>If the configuration file specified an <code>input_dir</code> value, and/or identified a CSV file in <code>input_csv</code>,  Workbench would would use those values:</p>
+<pre><code class="yaml">task: create
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+input_dir: myfiles
+input_csv: mymetadata.csv
+</code></pre>
+
+<pre><code class="text">workbench               &lt;-- The &quot;workbench&quot; script.
+├── myfiles/
+   ├── image1.JPG
+   ├── pic_saturday.jpg
+   ├── image-27262.jpg
+   ├── IMG_2958.JPG
+   ├── someimage.jpg
+   └── mymetadata.csv
 </code></pre>
 
 <h2 id="using-absolute-file-paths">Using absolute file paths</h2>
