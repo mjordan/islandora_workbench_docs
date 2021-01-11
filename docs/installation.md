@@ -1,12 +1,13 @@
 ## Requirements
 
 * Python 3.2 or higher
-    * The [ruamel.yaml](https://yaml.readthedocs.io/en/latest/index.html) library
-    * The [Requests](https://2.python-requests.org/en/master/) library
-    * The [progress_bar](https://pypi.org/project/progress_bar/) library
-    * Python's [setuptools](https://pypi.org/project/setuptools/)
-* An [Islandora](https://islandora.ca/) repository
-* The [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module.
+* The following Python libraries:
+    * [ruamel.yaml](https://yaml.readthedocs.io/en/latest/index.html)
+    * [Requests](https://2.python-requests.org/en/master/)
+    * [progress_bar](https://pypi.org/project/progress_bar/)
+    * [openpyxl](https://pypi.org/project/openpyxl/)
+    * If you want to have these libraries automatically installed, you will need Python's [setuptools](https://pypi.org/project/setuptools/)
+* An [Islandora](https://islandora.ca/) repository with the [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module enabled.
 
 ## Installation
 

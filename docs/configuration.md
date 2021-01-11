@@ -13,7 +13,7 @@ In this example, the `task` being performed is creating nodes (and optionally me
 
 ## Configuration settings
 
-The settings defined in a configuration file are:
+The settings defined in a configuration file are documented below. Their order in the configuration file doesn't matter.
 
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
@@ -60,6 +60,6 @@ When you run Islandora Workbench with the `--check` argument, it will verify tha
 
 ## Validating the syntax of the configuration file
 
-The very first thing Workbench does when you run it is confirm that your configuration file is valid YAML. This is a syntax check, not a content check: if the file is valid YAML, Workbench then goes on to perform a long list of application-specific [checks](/islandora_workbench_docs/check].
+When you run Workbench, it confirms that your configuration file is valid YAML. This is a syntax check only, not a content check. If the file is valid YAML, Workbench then goes on to perform a long list of application-specific [checks](/islandora_workbench_docs/check).
 
-If this syntax check fails, some detail about the problem will be displayed to the user. The same information plus the entire Python stack trace is also logged to a file named `workbench.log` in the Islandora Workbench directory. This file name is Workbench's default log file name, but in this specific case (validating the config file's YAML syntax), that file name is used regardless of the log file location defined in the configuation's `log_file_path`. The reason the error isn't logged to the defined locaiton is that the location itself is defined in the configuration file, which can't be parsed.
+If this syntax check fails, some detail about the problem will be displayed to the user. The same information plus the entire Python stack trace is also logged to a file named "workbench.log" in the Islandora Workbench directory. This file name is Workbench's default log file name, but in this specific case (validating the config file's YAML syntax), that file name is used regardless of the log file location defined in the configuation's `log_file_path` option. The reason the error is logged in the default location instead of the value in the configuration file (if one is present) is that the configuration file isn't valid YAML and therefore can't be parsed.

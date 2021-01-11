@@ -22,3 +22,6 @@ It may also contain additional detail that would clutter up the console output, 
  By default, new entries are appended to this log, unless you indicate that the log file should be overwritten each time Workbench is run by providing the `log_file_mode` configuration option with a value of "w":
 
  `log_file_mode: w`
+
+!!! note
+    The only time that the default log file name is used instead of one defined in `log_file_path` is when Workbench detects that the specified configuration file is not valid YAML. In that case, Workbench can't parse the value of `log_file_path` so defaults to writing the details of the failed syntax check in `workbench.log`.
