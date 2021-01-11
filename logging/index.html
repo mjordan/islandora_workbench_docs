@@ -212,7 +212,7 @@
           <div role="main">
             <div class="section">
               
-                <p>Islandora Workbench writes a log file for all tasks to <code>workbench.log</code> in the workbench directory, unless you specify an alternative log file location using the <code>log_file_path</code> configuration option, e.g.:</p>
+                <p>Islandora Workbench writes a log file for all tasks to a file named "workbench.log" in the workbench directory, unless you specify an alternative log file location using the <code>log_file_path</code> configuration option, e.g.:</p>
 <p><code>log_file_path: /tmp/mylogfilepath.log</code></p>
 <p>The log contains information that is similar to what you see when you run Workbench, but with time stamps:</p>
 <pre><code class="text">24-Dec-20 15:05:06 - INFO - Starting configuration check for &quot;create&quot; task using config file create.yml.
@@ -232,7 +232,7 @@
 <p><code>log_file_mode: w</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The only time that the default log file name is used instead of one defined in <code>log_file_path</code> is when Workbench detects that the specified configuration file is not valid YAML. In that case, Workbench can't parse the value of <code>log_file_path</code> so defaults to writing the details of the failed syntax check in <code>workbench.log</code>.</p>
+<p>The only time that the default log file name is used instead of one defined in <code>log_file_path</code> is when Workbench detects that the specified configuration file is not valid YAML. In that case, Workbench can't parse the value of <code>log_file_path</code> so defaults to writing the details of the failed syntax check to "workbench.log".</p>
 </div>
               
             </div>
