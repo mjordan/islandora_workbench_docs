@@ -172,9 +172,9 @@ That's all you need to do. Every time Workbench runs, it fetches the CSV content
 Islandora Workbench fetches a new copy of the CSV data every time it runs (even with the `--check` option), so if you make changes to the contents of that local file, the changes will be overwritten with the data from the Google spreadsheet the next time you run Workbench. If you don't want to overwrite your local copy of the data, rename the local CSV file manually before running Workbench, and update the `input_csv` option in your configuration file to use the name of the CSV file you copied.
 
 !!! note
-    Using a Google Sheet is currently the fastest and most convenient way of managing CSV data for use with Islandora Workbench. Since Sheets saves changes in realtime, and since Workbench fetches a fresh copy of the CSV data every time you run it, it's easy to iterate by making changes to your data in Sheets, running Workbench (don't forget to use `--check` to identify any problems!), seeing the effects of your changes, [rolling back your nodes](/islandora_workbench_docs/rolling_back/), tweaking your data in Sheets, and starting a new cycle.
+    Using a Google Sheet is currently the fastest and most convenient way of managing CSV data for use with Islandora Workbench. Since Sheets saves changes in realtime, and since Workbench fetches a fresh copy of the CSV data every time you run it, it's easy to iterate by making changes to your data in Sheets, running Workbench (don't forget to use `--check` first to identify any problems!), seeing the effects of your changes in the nodes you've just created, [rolling back your nodes](/islandora_workbench_docs/rolling_back/), tweaking your data in Sheets, and starting a new cycle.
 
-    If you are focused on perfecting your metadata, you can save time by skipping the creation of media by including `nodes_only: true` in your configuration file.
+    If you are focused on refining your CSV metadata, you can save time by skipping the creation of media by including `nodes_only: true` in your configuration file.
 
 Note that:
 
