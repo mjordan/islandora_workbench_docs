@@ -5,7 +5,7 @@ In `create` and `update` tasks, you can configure field templates that are appli
 
 ```
 csv_field_templates:
- - field_rights: "The author of this work dedicate any and all copyright interest to the public domain."
+ - field_rights: "The author of this work dedicates any and all copyright interest to the public domain."
  - field_member_of: 205
  - field_model: 25
  - field_tags: 231|257

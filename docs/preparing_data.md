@@ -118,7 +118,7 @@ In this case, even though only the CSV `file` entries contain only filenames and
 
 ## Using absolute file paths
 
-We saw in the previous section that the path specified in your configuration file's `input_dir` need to be relative to the location of the `workbench` script, it can be absolute. That is also true for both the value to `input_csv` and for the values in your input CSV's `file` column. 
+We saw in the previous section that the path specified in your configuration file's `input_dir` configuration option need not be relative to the location of the `workbench` script, it can be absolute. That is also true for both the configuration value of `input_csv` and for the values in your input CSV's `file` column. 
 
 You can also mix absolute and relative filenames in the same CSV file, but all relative filenames are considered to be in the directory named in `input_dir`. An example configuration file for this is:
 
@@ -141,6 +141,9 @@ id,file,title
 ```
 
 Notice that the `file` values in the first two rows are absolute, but the `file` value in the last row is relative. Workbench will look for that file at "media_files/dog.png". 
+
+!!! note
+    In general, Workbench doesn't care if any file path used in configuration or CSV data is relative or absolute, but if it's relative, it's relative to the directory where the `workbench` script lives.
 
 ## Using URLs as file paths
 
