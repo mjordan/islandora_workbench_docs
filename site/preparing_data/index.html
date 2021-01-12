@@ -306,7 +306,7 @@ input_csv: mymetadata.csv
    └── mymetadata.csv
 </code></pre>
 
-<p>The value of <code>input_dir</code> can be absolute:</p>
+<p>The value of <code>input_dir</code> doesn't need to be relative to the <code>workbench</code> script, it can be absolute:</p>
 <pre><code class="yaml">task: create
 host: &quot;http://localhost:8000&quot;
 username: admin
@@ -329,11 +329,13 @@ input_dir: /tmp/myfiles
 
 <p>In this case, even though only the CSV <code>file</code> entries contain only filenames and no path information, Workbench looks for the image files at "/tmp/myfiles/image1.JPG", "/tmp/myfiles/image1.JPG", and "/tmp/myfiles/someimage.jpg".</p>
 <h2 id="using-absolute-file-paths">Using absolute file paths</h2>
-<p>Both your input CSV file and the values in its <code>file</code> column can be absolute paths. In this arrangement, your <code>input_csv</code> configuration setting must specify the absolute path to your input CSV file, and each value within its <code>file</code> column may point to a file to be used as the corresponding node's media file. You can also mix absolute and relative filenames in the same CSV file, but all relative filenames are considered to be in the directory named in <code>input_dir</code>. An example configuration file for this is:</p>
+<p>We saw in the previous section that the path specified in your configuration file's <code>input_dir</code> need to be relative to the location of the <code>workbench</code> script, it can be absolute. That is also true for both the value to <code>input_csv</code> and for the values in your input CSV's <code>file</code> column. </p>
+<p>You can also mix absolute and relative filenames in the same CSV file, but all relative filenames are considered to be in the directory named in <code>input_dir</code>. An example configuration file for this is:</p>
 <pre><code class="yaml">task: create
 host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
+input_data: media_files
 input_csv: /tmp/input.csv
 </code></pre>
 
@@ -344,6 +346,7 @@ input_csv: /tmp/input.csv
 003,dog.png,My dog
 </code></pre>
 
+<p>Notice that the <code>file</code> values in the first two rows are absolute, but the <code>file</code> value in the last row is relative. Workbench will look for that file at "media_files/dog.png". </p>
 <h2 id="using-urls-as-file-paths">Using URLs as file paths</h2>
 <p>In the <code>file</code> column, you can also use URLs to files, like this:</p>
 <pre><code class="text">id,file,title
@@ -363,8 +366,12 @@ input_csv: 'https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZv
 </code></pre>
 
 <p>That's all you need to do. Every time Workbench runs, it fetches the CSV content of the spreadsheet and saves it to a local file in the directory named in your <code>input_directory</code> configuration option, and from that point onward in its execution, uses the locally saved version of the spreadsheet. The default filename for this CSV file is <code>google_sheet.csv</code> but you can change it if you need to by including the <code>google_sheets_csv_filename</code> option in your configuration file, e.g., <code>google_sheets_csv_filename: my_filename.csv</code>.</p>
-<p>Islandora Workbench fetches a new copy of the CSV data every time it runs (even with the <code>--check</code> option), so if you make changes to the contents of that local file, the changes will be overwritten with the data from the Google spreadsheet the next time you run Workbench. If you don't want to overwrite your local copy of the data, rename the local CSV file manually before running Workbench, and update the <code>input_csv</code> option in your configuration file accordingly.</p>
-<p>An advantage of this constant refreshing of the CSV data is that you can delete all the rows from the Google spreadsheet, repopulate them with new data, and use the same configuration later (or, at least use the same <code>input_csv</code> URL).</p>
+<p>Islandora Workbench fetches a new copy of the CSV data every time it runs (even with the <code>--check</code> option), so if you make changes to the contents of that local file, the changes will be overwritten with the data from the Google spreadsheet the next time you run Workbench. If you don't want to overwrite your local copy of the data, rename the local CSV file manually before running Workbench, and update the <code>input_csv</code> option in your configuration file to use the name of the CSV file you copied.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using a Google Sheet is currently the fastest and most convenient way of managing CSV data for use with Islandora Workbench. Since Sheets saves changes in realtime, and since Workbench fetches a fresh copy of the CSV data every time you run it, it's easy to iterate over changes in your CSV data by making changes to your data in Sheets, running Workbench (don't forget to use <code>--check</code> to identify any problems!), seeing the effects of your changes, <a href="/islandora_workbench_docs/rolling_back/">rolling back your nodes</a>, tweak your data in Sheets, and start a new cycle.</p>
+<p>If you are focused on perfecting your metadata an not media during this iterative process, you can save even more time by skipping the creation of media by including <code>nodes_only: true</code> in your configuration file.</p>
+</div>
 <p>Note that:</p>
 <ul>
 <li>You can use a Google spreadsheet in all tasks that use a CSV file as input.</li>

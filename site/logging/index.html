@@ -232,8 +232,9 @@
 <p><code>log_file_mode: w</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The only time that the default log file name is used instead of one defined in <code>log_file_path</code> is when Workbench detects that the specified configuration file is not valid YAML. In that case, Workbench can't parse the value of <code>log_file_path</code> so defaults to writing the details of the failed syntax check to "workbench.log".</p>
+<p>The only times that the default log file name is used instead of one defined in <code>log_file_path</code> is 1) when Workbench can't find the specified configuration file and 2) when Workbench finds the configuration file but detects that the file is not valid YAML, and therefore can't understand the value of <code>log_file_path</code>.</p>
 </div>
+<p>.</p>
               
             </div>
           </div>
