@@ -9,6 +9,8 @@
     * If you want to have these libraries automatically installed, you will need Python's [setuptools](https://pypi.org/project/setuptools/)
 * An [Islandora](https://islandora.ca/) repository with the [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module enabled.
 
+Islandora Workbench has been installed and used on Linux, Mac, and Windows.
+
 ## Installation
 
 If you already have the required Python libraries installed, simply cloning Islandora Workbench from GitHub is all you need to do:
@@ -21,5 +23,4 @@ If you don't already have the required libraries installed, clone this repo as a
 
 * `sudo python3 setup.py install`
 
-Islandora Workbench has been installed and used on Linux, Mac, and Windows.
-
+After you run this, all of the required Python libraries will be installed.

@@ -15,7 +15,7 @@
 * Provides robust data validation functionality
 * Supports a variety of Drupal entity field types (text, integer, term reference, typed relation, geolocation)
 * Can generate a CSV file template based on Drupal content type
-* Can use a Google Sheet instead of a local CSV file as input
+* Can use a Google Sheet or an Excel file instead of a CSV file as input
 * Allows assignment of Drupal vocabulary terms using term IDs, term names, or term URIs
 * Allows creation of new taxonomy terms from CSV field data
 * Allows the assignment of URL aliases

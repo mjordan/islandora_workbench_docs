@@ -34,7 +34,7 @@ input_data/         <-- This is the directory named in the "input_dir" configura
 
 The names of the image/PDF/video/etc. files are included in the `file` column of the CSV file. Files with any extension that you can upload to Drupal are allowed. Islandora Workbench reads the CSV file and iterates throught it, performing the current task for each record. In this configuration, files other than the CSV and your media files are allowed in this directory (although for some configurations, your input directory should not contain any files that are not going to be ingested).
 
-This is Islandora Workbench's default configuration. If you do not specify an `input_dir` or an `input_csv`, as illustrated in this minimal configuration file:
+This is Islandora Workbench's default configuration. If you do not specify an `input_dir` or an `input_csv`, as illustrated in following minimal configuration file, Workbench will assume your files are in a directory named "input_data" in the same directory as the Workbench script, and that within that directory, your CSV file is named "metadata.csv":
 
 ```yaml
 task: create
@@ -43,10 +43,10 @@ username: admin
 password: islandora
 ```
 
-By default, Workbench will assume your files are in a directory named "input_data" in the same directory as the Workbench script, and that within that directory, your CSV file is named "metadata.csv". Workbench doesn't make any assumptions about the other files in the input directory, since they are all named explicitly in the CSV file's `file` column.
+Workbench ignores the other files in the input directory, and only looks for files in that directory if the filenname alone (no directory component) is in `file` column.
 
 ```text
-workbench               <-- The "workbench" script.
+workbench           <-- The "workbench" script.
 ├── input_data/
    ├── image1.JPG
    ├── pic_saturday.jpg
@@ -56,15 +56,78 @@ workbench               <-- The "workbench" script.
    └── metadata.csv
 ```
 
-## Using absolute file paths
+For example, in this configuration, in the following "metadata.csv" file, Workbench looks for "image1.JPG", "image-27626.jpg", and "someimage.jpg" at "input_data/image1.JPG", "input_data/image1.JPG", and "input_data/someimage.jpg" respectively, relative to the location of the "workbench" script:
 
-Both your input CSV file and the values in its `file` column can be absolute paths. In this arrangement, your `input_csv` configuration setting must specify the absolute path to your input CSV file, and each value within its `file` column may point to a file to be used as the corresponding node's media file. You can also mix absolute and relative filenames in the same CSV file, but all relative filenames are considered to be in the directory named in `input_dir`. An example configuration file for this is:
+```text
+id,file,title
+001,image1.JPG,A very good file
+0002,image-27262.jpg,My cat
+003,someimage.jpg,My dog
+```
+
+Workbench complete igonores "pic_saturday.jpg" and "IMG_2958.JPG" because they are not named in any of the `file` columns in the "metadata.csv" file.
+
+If the configuration file specified an `input_dir` value, or identified a CSV file in `input_csv`,  Workbench would use those values:
 
 ```yaml
 task: create
 host: "http://localhost:8000"
 username: admin
 password: islandora
+input_dir: myfiles
+input_csv: mymetadata.csv
+```
+
+```text
+workbench         <-- The "workbench" script.
+├── myfiles/
+   ├── image1.JPG
+   ├── pic_saturday.jpg
+   ├── image-27262.jpg
+   ├── IMG_2958.JPG
+   ├── someimage.jpg
+   └── mymetadata.csv
+```
+
+The value of `input_dir` doesn't need to be relative to the `workbench` script, it can be absolute:
+
+```yaml
+task: create
+host: "http://localhost:8000"
+username: admin
+password: islandora
+input_dir: /tmp/myfiles
+```
+
+```text
+├── /tmp/myfiles/
+   ├── image1.JPG
+   ├── image-27262.jpg
+   ├── someimage.jpg
+   └── mymetadata.csv
+```
+
+```text
+id,file,title
+001,image1.JPG,A very good file
+0002,image-27262.jpg,My cat
+003,someimage.jpg,My dog
+```
+
+In this case, even though only the CSV `file` entries contain only filenames and no path information, Workbench looks for the image files at "/tmp/myfiles/image1.JPG", "/tmp/myfiles/image1.JPG", and "/tmp/myfiles/someimage.jpg".
+
+## Using absolute file paths
+
+We saw in the previous section that the path specified in your configuration file's `input_dir` need to be relative to the location of the `workbench` script, it can be absolute. That is also true for both the value to `input_csv` and for the values in your input CSV's `file` column. 
+
+You can also mix absolute and relative filenames in the same CSV file, but all relative filenames are considered to be in the directory named in `input_dir`. An example configuration file for this is:
+
+```yaml
+task: create
+host: "http://localhost:8000"
+username: admin
+password: islandora
+input_data: media_files
 input_csv: /tmp/input.csv
 ```
 
@@ -76,6 +139,8 @@ id,file,title
 0002,/home/me/Documents/files/cat.jpg,My cat
 003,dog.png,My dog
 ```
+
+Notice that the `file` values in the first two rows are absolute, but the `file` value in the last row is relative. Workbench will look for that file at "media_files/dog.png". 
 
 ## Using URLs as file paths
 

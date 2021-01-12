@@ -1,4 +1,4 @@
-Islandora Workbench writes a log file for all tasks to `workbench.log` in the workbench directory, unless you specify an alternative log file location using the `log_file_path` configuration option, e.g.:
+Islandora Workbench writes a log file for all tasks to a file named "workbench.log" in the workbench directory, unless you specify an alternative log file location using the `log_file_path` configuration option, e.g.:
 
 `log_file_path: /tmp/mylogfilepath.log`
 
@@ -24,4 +24,5 @@ It may also contain additional detail that would clutter up the console output, 
  `log_file_mode: w`
 
 !!! note
-    The only time that the default log file name is used instead of one defined in `log_file_path` is when Workbench detects that the specified configuration file is not valid YAML. In that case, Workbench can't parse the value of `log_file_path` so defaults to writing the details of the failed syntax check in `workbench.log`.
+    The only times that the default log file name is used instead of one defined in `log_file_path` is 1) when Workbench can't find the specified configuration file and 2) when Workbench finds the configuration file but detects that the file is not valid YAML, and therefore can't understand the value of `log_file_path`.
+.
