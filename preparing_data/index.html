@@ -85,6 +85,12 @@
 
     <li class="toctree-l2"><a href="#using-a-google-sheet-as-the-input-csv-file">Using a Google Sheet as the input CSV file</a></li>
     
+        <ul>
+        
+            <li><a class="toctree-l3" href="#selecting-a-specific-worksheet-within-a-google-sheet">Selecting a specific worksheet within a Google Sheet</a></li>
+        
+        </ul>
+    
 
     <li class="toctree-l2"><a href="#using-an-excel-file-as-the-input-csv-file">Using an Excel file as the input CSV file</a></li>
     
@@ -329,7 +335,7 @@ input_dir: /tmp/myfiles
 
 <p>In this case, even though only the CSV <code>file</code> entries contain only filenames and no path information, Workbench looks for the image files at "/tmp/myfiles/image1.JPG", "/tmp/myfiles/image1.JPG", and "/tmp/myfiles/someimage.jpg".</p>
 <h2 id="using-absolute-file-paths">Using absolute file paths</h2>
-<p>We saw in the previous section that the path specified in your configuration file's <code>input_dir</code> configuration option need not be relative to the location of the <code>workbench</code> script, it can be absolute. That is also true for both the configuration value of <code>input_csv</code> and for the values in your input CSV's <code>file</code> column. </p>
+<p>We saw in the previous section that the path specified in your configuration file's <code>input_dir</code> configuration option need not be relative to the location of the <code>workbench</code> script, it can be absolute. That is also true for both the configuration value of <code>input_csv</code> and for the values in your input CSV's <code>file</code> column.</p>
 <p>You can also mix absolute and relative filenames in the same CSV file, but all relative filenames are considered to be in the directory named in <code>input_dir</code>. An example configuration file for this is:</p>
 <pre><code class="yaml">task: create
 host: &quot;http://localhost:8000&quot;
@@ -346,7 +352,7 @@ input_csv: /tmp/input.csv
 003,dog.png,My dog
 </code></pre>
 
-<p>Notice that the <code>file</code> values in the first two rows are absolute, but the <code>file</code> value in the last row is relative. Workbench will look for that file at "media_files/dog.png". </p>
+<p>Notice that the <code>file</code> values in the first two rows are absolute, but the <code>file</code> value in the last row is relative. Workbench will look for that file at "media_files/dog.png".</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In general, Workbench doesn't care if any file path used in configuration or CSV data is relative or absolute, but if it's relative, it's relative to the directory where the <code>workbench</code> script lives.</p>
@@ -380,15 +386,28 @@ input_csv: 'https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZv
 <p>Using a Google Sheet is currently the fastest and most convenient way of managing CSV data for use with Islandora Workbench. Since Sheets saves changes in realtime, and since Workbench fetches a fresh copy of the CSV data every time you run it, it's easy to iterate by making changes to your data in Sheets, running Workbench (don't forget to use <code>--check</code> first to identify any problems!), seeing the effects of your changes in the nodes you've just created, <a href="/islandora_workbench_docs/rolling_back/">rolling back your nodes</a>, tweaking your data in Sheets, and starting a new cycle.</p>
 <p>If you are focused on refining your CSV metadata, you can save time by skipping the creation of media by including <code>nodes_only: true</code> in your configuration file.</p>
 </div>
-<p>Note that:</p>
+<h3 id="selecting-a-specific-worksheet-within-a-google-sheet">Selecting a specific worksheet within a Google Sheet</h3>
+<p>Worksheets within a given Google Sheet are identified by a "gid". If a Sheet has only a single worksheet, its "gid" is "0" (zero):</p>
+<p><code>https://docs.google.com/spreadsheets/d/1RLrjb5BrlJNaasFIKrKV4l2rw/edit#gid=0</code></p>
+<p>If you add additinal worksheets, they get a randomly generated "gid", such as "1094504353". You can see this "gid" in the URL when you are in the worksheet:</p>
+<p><code>https://docs.google.com/spreadsheets/d/1RLrjb5BrlJNaasFIKrKV4l2rw/edit#gid=1094504353</code></p>
+<p>By default, Workbench extracts CSV data from the worksheet with a "gid" of "0". If you want Workbench to extract the CSV data from a specific worksheet that is not the one with a "gid" of "0", specify the "gid" in your configuration file using the <code>google_sheets_gid</code> option, like this:</p>
+<pre><code>task: create
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+input_csv: 'https://docs.google.com/spreadsheets/d/1RLrjb5BrlJNaasFIKrKV4l2rw/edit?usp=sharing'
+google_sheets_gid: 1094504353
+</code></pre>
+
+<p>Some things to note about using Google Sheets:</p>
 <ul>
-<li>You can use a Google spreadsheet in all tasks that use a CSV file as input.</li>
+<li>You can use a Google Sheet in all tasks that use a CSV file as input.</li>
 <li>All of the columns required in a local CSV file are also required in the Google spreadsheet.</li>
 <li>The URL in the configuration file needs single or double quotes around it, like any other value that contains a colon.</li>
 <li>You can use either the URL you copy from your browser when you are viewing the spreadsheet (which ends in "/edit#gid=0" or something similar), or the "sharing" URL you copy into your clipboard from within the "Share" dialog box (which ends in "edit?usp=sharing"). Either is OK.</li>
 <li>The Google spreadsheet must be publicly readable, e.g. with "Anyone on the Internet with this link can view" permission.</li>
 <li>Spreadsheets work best for descriptive metadata if all cells are formatted as "Plain text". To do this in Google Sheets, select all cells, then choose the menu items Format &gt; Number &gt; Plain text <em>before adding any content to the cells</em>.</li>
-<li>The worksheet that the CSV data is taken from is the first one in the spreadsheet (i.e., the one named in the left-most tab).</li>
 <li>If the values in the <code>file</code> column of the spreadsheet are relative, they are assumed to point to files within your local <code>input_directory</code>, just like they do in a local CSV input file. However, you can also use abosolute file paths and URLs in the <code>file</code> column, as described above.</li>
 </ul>
 <h2 id="using-an-excel-file-as-the-input-csv-file">Using an Excel file as the input CSV file</h2>
