@@ -229,10 +229,7 @@
               
                 <h2 id="overview">Overview</h2>
 <p><a href="https://github.com/mjordan/islandora_workbench">Islandora Workbench</a> is a command-line tool that allows creation, updating, and deletion of Islandora content from CSV data. It is an alternative to using Drupal's built-in Migrate framework for <a href="https://github.com/Islandora/migrate_islandora_csv">ingesting Islandora content from CSV files</a>. Unlike the Migrate tools, Islandora Workbench can be run anywhere - it does not need to run on the Drupal server. Drupal's Migrate framework, however, is much more flexible than Islandora Workbench, and can be extended using plugins in ways that Workbench cannot.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This tool is not related in any way to the Drupal contrib module called <a href="https://www.drupal.org/project/workbench">Workbench</a>.</p>
-</div>
+<p>Note that Islandora Workbench is not related in any way to the Drupal contrib module called <a href="https://www.drupal.org/project/workbench">Workbench</a>.</p>
 <h2 id="features">Features</h2>
 <ul>
 <li>Allows creation of Islandora nodes and media, updating of nodes, and deletion of nodes and media from CSV files</li>
@@ -253,8 +250,12 @@
 <li>A companion project under development, <a href="https://github.com/mjordan/islandora_workbench_desktop">Islandora Workbench Desktop</a>, will add a graphical user interface that enables users not familiar or comfortable with the command line to use Workbench.</li>
 </ul>
 <h2 id="usage">Usage</h2>
-<p>Within the <code>islandora_workbench</code> directory, run the following command:</p>
+<p>Within the <code>islandora_workbench</code> directory, run the following command, providing the name of your configuration file ("config.yml" in this example):</p>
 <p><code>./workbench --config config.yml --check</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you're on Windows, you will likely need to run Workbench by explicitly invoking Python, e.g. <code>python workbench --config config.yml --check</code> instead of using <code>./workbench</code> as illustrated above.</p>
+</div>
 <p><code>--check</code> <a href="/islandora_workbench_docs/check/">validates</a> your configuration and input data. Typical output looks like:</p>
 <pre><code class="text">OK, connection to Drupal at http://localhost:8000 verified.
 OK, configuration file has all required values (did not check for optional values).
@@ -344,5 +345,5 @@ Node for 'Alcatraz Island' created at http://localhost:8000/node/56.
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2021-01-12 19:25:48
+Build Date UTC : 2021-01-13 01:11:01
 -->
