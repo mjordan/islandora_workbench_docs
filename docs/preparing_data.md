@@ -118,7 +118,7 @@ In this case, even though only the CSV `file` entries contain only filenames and
 
 ## Using absolute file paths
 
-We saw in the previous section that the path specified in your configuration file's `input_dir` configuration option need not be relative to the location of the `workbench` script, it can be absolute. That is also true for both the configuration value of `input_csv` and for the values in your input CSV's `file` column. 
+We saw in the previous section that the path specified in your configuration file's `input_dir` configuration option need not be relative to the location of the `workbench` script, it can be absolute. That is also true for both the configuration value of `input_csv` and for the values in your input CSV's `file` column.
 
 You can also mix absolute and relative filenames in the same CSV file, but all relative filenames are considered to be in the directory named in `input_dir`. An example configuration file for this is:
 
@@ -140,7 +140,7 @@ id,file,title
 003,dog.png,My dog
 ```
 
-Notice that the `file` values in the first two rows are absolute, but the `file` value in the last row is relative. Workbench will look for that file at "media_files/dog.png". 
+Notice that the `file` values in the first two rows are absolute, but the `file` value in the last row is relative. Workbench will look for that file at "media_files/dog.png".
 
 !!! note
     In general, Workbench doesn't care if any file path used in configuration or CSV data is relative or absolute, but if it's relative, it's relative to the directory where the `workbench` script lives.
@@ -182,15 +182,35 @@ Islandora Workbench fetches a new copy of the CSV data every time it runs (even 
 
     If you are focused on refining your CSV metadata, you can save time by skipping the creation of media by including `nodes_only: true` in your configuration file.
 
-Note that:
+### Selecting a specific worksheet within a Google Sheet
 
-* You can use a Google spreadsheet in all tasks that use a CSV file as input.
+Worksheets within a given Google Sheet are identified by a "gid". If a Sheet has only a single worksheet, its "gid" is "0" (zero):
+
+`https://docs.google.com/spreadsheets/d/1RLrjb5BrlJNaasFIKrKV4l2rw/edit#gid=0`
+
+If you add additinal worksheets, they get a randomly generated "gid", such as "1094504353". You can see this "gid" in the URL when you are in the worksheet:
+
+`https://docs.google.com/spreadsheets/d/1RLrjb5BrlJNaasFIKrKV4l2rw/edit#gid=1094504353`
+
+By default, Workbench extracts CSV data from the worksheet with a "gid" of "0". If you want Workbench to extract the CSV data from a specific worksheet that is not the one with a "gid" of "0", specify the "gid" in your configuration file using the `google_sheets_gid` option, like this:
+
+```
+task: create
+host: "http://localhost:8000"
+username: admin
+password: islandora
+input_csv: 'https://docs.google.com/spreadsheets/d/1RLrjb5BrlJNaasFIKrKV4l2rw/edit?usp=sharing'
+google_sheets_gid: 1094504353
+```
+
+Some things to note about using Google Sheets:
+
+* You can use a Google Sheet in all tasks that use a CSV file as input.
 * All of the columns required in a local CSV file are also required in the Google spreadsheet.
 * The URL in the configuration file needs single or double quotes around it, like any other value that contains a colon.
 * You can use either the URL you copy from your browser when you are viewing the spreadsheet (which ends in "/edit#gid=0" or something similar), or the "sharing" URL you copy into your clipboard from within the "Share" dialog box (which ends in "edit?usp=sharing"). Either is OK.
 * The Google spreadsheet must be publicly readable, e.g. with "Anyone on the Internet with this link can view" permission.
 * Spreadsheets work best for descriptive metadata if all cells are formatted as "Plain text". To do this in Google Sheets, select all cells, then choose the menu items Format > Number > Plain text *before adding any content to the cells*.
-* The worksheet that the CSV data is taken from is the first one in the spreadsheet (i.e., the one named in the left-most tab).
 * If the values in the `file` column of the spreadsheet are relative, they are assumed to point to files within your local `input_directory`, just like they do in a local CSV input file. However, you can also use abosolute file paths and URLs in the `file` column, as described above.
 
 ## Using an Excel file as the input CSV file
