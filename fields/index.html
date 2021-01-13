@@ -302,6 +302,7 @@ If you are using a spreadsheet application, it will take care of wrapping the CS
 <li>Relative, absolute, and URL file locations can exist within the same CSV file.</li>
 <li>By default, if the <code>file</code> value for a row is empty, Workbench's <code>--check</code> option will show an error. But, in some cases you may want to create nodes but not add any media. If you add <code>allow_missing_files: true</code> to your config file for "create" tasks, you can leave the <code>file</code> column in your CSV empty.</li>
 <li>If you want do not want to create media for any of the rows in your CSV file, include <code>nodes_only: true</code> in your configuration file. More detail <a href="/islandora_workbench_docs/nodes_only/">is available</a>.</li>
+<li>Currently, <code>file</code> values can only contain characters in the ASCII or <a href="https://www.ic.unicamp.br/~stolfi/EXPORT/www/ISO-8859-1-Encoding.html">Latin-1</a> character sets (see <a href="https://github.com/mjordan/islandora_workbench/issues/192">this issue</a>). The following characters with diacritics should be safe in filenames: À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß à á â ã ä å æ ç è é ê ë ì í î ï ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ.</li>
 </ul>
 <p>Things to note about URLs as <code>file</code> values:</p>
 <ul>
