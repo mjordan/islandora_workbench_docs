@@ -300,6 +300,7 @@ If you are using a spreadsheet application, it will take care of wrapping the CS
 <p>Relative, absolute, and URL file locations can exist within the same CSV file.</p>
 <p>Things to note about URL paths:</p>
 <ul>
+<li>By default, if the <code>file</code> value for a row is empty, Workbench's <code>--check</code> option will show an error. But, in some cases you may want to create nodes but not add any media. If you add <code>allow_missing_files: true</code> to your config file for "create" tasks, you can leave the <code>file</code> column in your CSV empty.</li>
 <li>Workbench downloads files identified by URLs and saves them in the directory named in <code>input_dir</code> before processing them further. It does not delete the files after they have been ingested into Islandora.</li>
 <li>Files identified by URLs must be accessible to the Workbench script, which means they must not require a username/password; however, they can be protected by a firewall, etc. as long as the computer running Workbench is allowed to retrieve the files without authenticating.</li>
 <li>Currently Workbench requires that the URLs point directly to a file and not to a script, wrapper page, or other indirect route to the file.</li>

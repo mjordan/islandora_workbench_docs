@@ -410,7 +410,7 @@ input_csv: my_file.xlsx
 <li>If the values in the <code>file</code> column of the spreadsheet are relative, they are assumed to point to files within your local <code>input_directory</code>, just like they do in a local CSV input file. However, you can also use abosolute file paths and URLs in the <code>file</code> column, as described above.</li>
 </ul>
 <h2 id="blank-or-missing-file-values">Blank or missing "file" values</h2>
-<p>By defualt, if the <code>file</code> value for a row is empty, Workbench's <code>--check</code> option will show an error. But, in some cases you may want to create a node but not add any media. If you add <code>allow_missing_files: true</code> to your config file for "create" tasks, you can leave the <code>file</code> cell in your CSV for that item empty.</p>
+<p>By default, if the <code>file</code> value for a row is empty, Workbench's <code>--check</code> option will show an error. But, in some cases you may want to create nodes but not add any media. If you add <code>allow_missing_files: true</code> to your config file for "create" tasks, you can leave the <code>file</code> column in your CSV empty.</p>
 <h2 id="creating-nodes-but-not-media">Creating nodes but not media</h2>
 <p>If you want to only create nodes and not media, you can do so by including <code>nodes_only: true</code> in your configuration file. More detail <a href="/islandora_workbench_docs/nodes_only/">is available</a>.</p>
               
