@@ -35,6 +35,7 @@ Things to note about `file` values in general:
 * Relative, absolute, and URL file locations can exist within the same CSV file.
 * By default, if the `file` value for a row is empty, Workbench's `--check` option will show an error. But, in some cases you may want to create nodes but not add any media. If you add `allow_missing_files: true` to your config file for "create" tasks, you can leave the `file` column in your CSV empty.
 * If you want do not want to create media for any of the rows in your CSV file, include `nodes_only: true` in your configuration file. More detail [is available](/islandora_workbench_docs/nodes_only/).
+* Currently, `file` values can only contain characters in the ASCII or [Latin-1](https://www.ic.unicamp.br/~stolfi/EXPORT/www/ISO-8859-1-Encoding.html) character sets (see [this issue](https://github.com/mjordan/islandora_workbench/issues/192)). The following characters with diacritics should be safe in filenames: À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß à á â ã ä å æ ç è é ê ë ì í î ï ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ.
 
 Things to note about URLs as `file` values:
 
