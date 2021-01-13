@@ -305,6 +305,11 @@ If you are using a spreadsheet application, it will take care of wrapping the CS
 <li>Files identified by URLs must be accessible to the Workbench script, which means they must not require a username/password; however, they can be protected by a firewall, etc. as long as the computer running Workbench is allowed to retrieve the files without authenticating.</li>
 <li>Currently Workbench requires that the URLs point directly to a file and not to a script, wrapper page, or other indirect route to the file.</li>
 </ul>
+<p>Things to note about <code>file</code> values in general:</p>
+<ul>
+<li>By default, if the <code>file</code> value for a row is empty, Workbench's <code>--check</code> option will show an error. But, in some cases you may want to create nodes but not add any media. If you add <code>allow_missing_files: true</code> to your config file for "create" tasks, you can leave the <code>file</code> column in your CSV empty.</li>
+<li>If you want do not want to create media for any of the rows in your CSV file, include <code>nodes_only: true</code> in your configuration file. More detail <a href="/islandora_workbench_docs/nodes_only/">is available</a>.</li>
+</ul>
 <h2 id="required-fields">Required fields</h2>
 <p>A small number of fields are required in your CSV, depending on the task you are performing:</p>
 <table>
