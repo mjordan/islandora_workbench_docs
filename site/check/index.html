@@ -221,6 +221,10 @@
                 <h2 id="overview">Overview</h2>
 <p>You should always (always, <a href="https://www.youtube.com/watch?v=2ZgtEdFAg3s">I can't stress that enough</a>) check your configuration and input prior to creating, updating, or deleting content. You can do this by running Workbench with the <code>--check</code> option, e.g.:</p>
 <p><code>./workbench --config config.yml --check</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you're on Windows, you will likely need to run Workbench by explicitly invoking Python, e.g. <code>python workbench --config config.yml --check</code> instead of using <code>./workbench</code> as illustrated above.</p>
+</div>
 <p>If you do this, Workbench will check the following and report any errors that require your attention before proceding:</p>
 <ul>
 <li>Configuration file<ul>

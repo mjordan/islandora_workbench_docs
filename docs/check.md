@@ -4,6 +4,9 @@ You should always (always, [I can't stress that enough](https://www.youtube.com/
 
 `./workbench --config config.yml --check`
 
+!!! note
+    If you're on Windows, you will likely need to run Workbench by explicitly invoking Python, e.g. `python workbench --config config.yml --check` instead of using `./workbench` as illustrated above.
+
 If you do this, Workbench will check the following and report any errors that require your attention before proceding:
 
 * Configuration file

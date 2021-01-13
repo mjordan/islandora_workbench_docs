@@ -2,9 +2,7 @@
 
 [Islandora Workbench](https://github.com/mjordan/islandora_workbench) is a command-line tool that allows creation, updating, and deletion of Islandora content from CSV data. It is an alternative to using Drupal's built-in Migrate framework for [ingesting Islandora content from CSV files](https://github.com/Islandora/migrate_islandora_csv). Unlike the Migrate tools, Islandora Workbench can be run anywhere - it does not need to run on the Drupal server. Drupal's Migrate framework, however, is much more flexible than Islandora Workbench, and can be extended using plugins in ways that Workbench cannot.
 
-
-!!! note
-    This tool is not related in any way to the Drupal contrib module called [Workbench](https://www.drupal.org/project/workbench).
+Note that Islandora Workbench is not related in any way to the Drupal contrib module called [Workbench](https://www.drupal.org/project/workbench).
 
 ## Features
 
@@ -27,9 +25,12 @@
 
 ## Usage
 
-Within the `islandora_workbench` directory, run the following command:
+Within the `islandora_workbench` directory, run the following command, providing the name of your configuration file ("config.yml" in this example):
 
 `./workbench --config config.yml --check`
+
+!!! note
+    If you're on Windows, you will likely need to run Workbench by explicitly invoking Python, e.g. `python workbench --config config.yml --check` instead of using `./workbench` as illustrated above.
 
 `--check` [validates](/islandora_workbench_docs/check/) your configuration and input data. Typical output looks like:
 
@@ -74,6 +75,7 @@ If you'd rather not see all this detail, you can set an option in your configura
 ```
  [==================================>      40.0%                                         ]
 ```
+
 
 ## License
 

@@ -7,22 +7,22 @@ Workbench uses a CSV file to populate Islandora objects' metadata. This file con
 * structured strings, for typed relation (e.g., `relators:art:30`) and geolocation fields (e.g., `"49.16667,-123.93333"`)
 
 !!! note
-    As is standard with CSV data, field values do not need to be wrapped in double quotation marks (`"`), unless they contain an instance of the delimiter character (e.g., a comma). Data within a field can also contain line breaks. Spreadsheet applications such as Google Sheets, LibreOffice Calc, and Excel will output valid CSV data.
+    As is standard with CSV data, values do not need to be wrapped in double quotation marks (`"`) unless they contain an instance of the delimiter character (e.g., a comma) or line breaks. Spreadsheet applications such as Google Sheets, LibreOffice Calc, and Excel will output valid CSV data.
+    If you are using a spreadsheet application, it will take care of wrapping the CSV values in double quotation marks when they are necessary - you do not need to wrap the field values yourself.
 
-## Reserved CSV fields
+## Reserved CSV columns
 
-The following CSV fields are used for specific purposes and in some cases are required in your CSV file, depending on the task you are performing (see below for specific cases). Data in them does not directly populate Drupal content-type fields.
+The following CSV columns are used for specific purposes and in some cases are required in your CSV file, depending on the task you are performing (see below for specific cases). Data in them does not directly populate Drupal content-type fields.
 
 | CSV field name | Task(s) | Note |
 | --- | --- ||
 | id | create | This CSV field is used by Workbench for internal purposes, and is not added to the metadata of your Islandora objects. Therefore, it doesn't need to have any relationship to the item described in the rest of the fields in the CSV file. You can configure this CSV field name to be something other than `id` by using the `id_field` option in your configuration file. |
 | node_id | update, delete, add_media | The ID of the node you are updating, deleting, or adding media to. |
-| file | create, add_media | See detail in "Values in the 'file' field", below. |
+| file | create, add_media | See detail in "Values in the 'file' column", below. |
 | url_alias | create, update | See detail in "[Assigning URL aliases](/islandora_workbench_docs/aliases/)". |
 | image_alt_text | create |  See detail in "[Adding alt text to images](/islandora_workbench_docs/alt_text/)".|
 
-
-### Values in the "file" field
+### Values in the "file" column 
 
 Values in the `file` field contain the location of files that are used to create Drupal Media. Workbench can create only one media per CSV record; the type of media is determined by identifying in your configuration file a value from the "Islandora Media Use" vocabulary. File locations can be relative to the directory named in `input_dir`, abolute paths, or URLs. Examples of each:
 
@@ -30,17 +30,21 @@ Values in the `file` field contain the location of files that are used to create
 * absolute: `/tmp/data/myfile.png`
 * URL: `http://example.com/files/myfile.png`
 
-Relative, absolute, and URL file locations can exist within the same CSV file.
+Things to note about `file` values in general:
 
-Things to note about URL paths:
+* Relative, absolute, and URL file locations can exist within the same CSV file.
+* By default, if the `file` value for a row is empty, Workbench's `--check` option will show an error. But, in some cases you may want to create nodes but not add any media. If you add `allow_missing_files: true` to your config file for "create" tasks, you can leave the `file` column in your CSV empty.
+* If you want do not want to create media for any of the rows in your CSV file, include `nodes_only: true` in your configuration file. More detail [is available](/islandora_workbench_docs/nodes_only/).
+
+Things to note about URLs as `file` values:
 
 * Workbench downloads files identified by URLs and saves them in the directory named in `input_dir` before processing them further. It does not delete the files after they have been ingested into Islandora.
 * Files identified by URLs must be accessible to the Workbench script, which means they must not require a username/password; however, they can be protected by a firewall, etc. as long as the computer running Workbench is allowed to retrieve the files without authenticating.
 * Currently Workbench requires that the URLs point directly to a file and not to a script, wrapper page, or other indirect route to the file.
 
-## Required fields
+## Required columns
 
-A small number of fields are required in your CSV, depending on the task you are performing:
+A small number of columns are required in your CSV, depending on the task you are performing:
 
 | Task | Required in CSV | Note |
 | --- | --- ||
@@ -50,7 +54,7 @@ A small number of fields are required in your CSV, depending on the task you are
 | update | node_id | The node ID of an existing node you are updating. |
 | delete | node_id | The node ID of an existing node you are deleting. |
 | add_media | node_id | The node ID of an existing node you are attaching media to. |
-| | file | Must contain a filename, file path, or URL. `allow_missing_files` does not work with the `add_media` task. |
+| | file | Must contain a filename, file path, or URL. `allow_missing_files` only works with the `create` task. |
 
 If a required field is missing from your CSV, `--check` will tell you.
 

@@ -1,6 +1,6 @@
 ## The configuration file
 
-Workbench uses a YAML configuration whose location is indicated in the `--config` argument. This file defines the various options it will use to create, update, or delete Islandora content (such as which CSV file to use and what directory your images are in). The simplest configuration file would look like this:
+Workbench uses a YAML configuration whose location is indicated in the `--config` argument. This file defines the various options it will use to create, update, or delete Islandora content (such as which CSV file to use and what directory your images are in). The simplest configuration file needs only the following four options:
 
 ```yaml
 task: create
@@ -13,7 +13,7 @@ In this example, the `task` being performed is creating nodes (and optionally me
 
 ## Configuration settings
 
-The settings defined in a configuration file are documented below. Their order in the configuration file doesn't matter.
+The settings defined in a configuration file are documented below. The order of the options in the configuration file doesn't matter.
 
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
