@@ -106,6 +106,9 @@
         </ul>
     
 
+    <li class="toctree-l2"><a href="#commenting-out-csv-rows">Commenting out CSV rows</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -645,6 +648,28 @@ http://purl.org/coar/resource_type/c_18cc
 <li>Geocoordinate values in your CSV need to be wrapped in double quotation marks, unless the <code>delimiter</code> key in your configuration file is set to something other than a comma.</li>
 <li>If you are entering geocoordinates into a spreadsheet, a leading <code>+</code> will make the spreadsheet application think you are entering a formula. You can work around this by escaping the <code>+</code> with a backslash (<code>\</code>), e.g., <code>49.16667,-123.93333</code> should be <code>\+49.16667,-123.93333</code>, and <code>49.16667,-123.93333|49.25,-124.8</code> should be <code>\+49.16667,-123.93333|\+49.25,-124.8</code>. Workbench will strip the leading <code>\</code> before it populates the Drupal fields.</li>
 </ul>
+<h2 id="commenting-out-csv-rows">Commenting out CSV rows</h2>
+<p>You can comment out rows in your input CSV, Excel file, or Google Sheet by adding a hash mark (<code>#</code>) at the start of the value in the first column. Commented rows are skipped in Workbench's <code>--check</code> and also skipped when Workbench is run without <code>--check</code>. Commenting works in all tasks that use CSV data.</p>
+<p>For example, the third row in the following CSV file is commented out:</p>
+<pre><code class="text">file,id,title,field_model,field_description
+IMG_1410.tif,01,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
+IMG_2549.jp2,02,Manhatten Island,25,Weather was windy.
+#IMG_2940.JPG,03,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain.
+IMG_2958.JPG,04,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
+IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Francisco.&quot;
+</code></pre>
+
+<p>Since column order doesn't matter to Workbench, the following CSV is the same as the previous example:</p>
+<pre><code class="text">id,file,title,field_model,field_description
+01,IMG_1410.tif,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
+02,IMG_2549.jp2,Manhatten Island,25,Weather was windy.
+# 03,IMG_2940.JPG,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain.
+04,IMG_2958.JPG,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
+05,IMG_5083.JPG,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Francisco.&quot;
+</code></pre>
+
+<p>Commenting works the same with in Excel and Google Sheets. Here is the CSV file used above in a Google Sheet:</p>
+<p><img alt="Google Sheet with commented row" src="../images/google_sheet_commented_row.png" /></p>
               
             </div>
           </div>
