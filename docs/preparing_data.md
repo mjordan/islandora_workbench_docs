@@ -127,7 +127,7 @@ task: create
 host: "http://localhost:8000"
 username: admin
 password: islandora
-input_data: media_files
+input_dir: media_files
 input_csv: /tmp/input.csv
 ```
 

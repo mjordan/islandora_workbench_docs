@@ -22,7 +22,7 @@ The following CSV columns are used for specific purposes and in some cases are r
 | url_alias | create, update | See detail in "[Assigning URL aliases](/islandora_workbench_docs/aliases/)". |
 | image_alt_text | create |  See detail in "[Adding alt text to images](/islandora_workbench_docs/alt_text/)".|
 
-### Values in the "file" column 
+### Values in the "file" column
 
 Values in the `file` field contain the location of files that are used to create Drupal Media. Workbench can create only one media per CSV record; the type of media is determined by identifying in your configuration file a value from the "Islandora Media Use" vocabulary. File locations can be relative to the directory named in `input_dir`, abolute paths, or URLs. Examples of each:
 
@@ -368,3 +368,33 @@ Note that:
 * Geocoordinate values in your CSV need to be wrapped in double quotation marks, unless the `delimiter` key in your configuration file is set to something other than a comma.
 * If you are entering geocoordinates into a spreadsheet, a leading `+` will make the spreadsheet application think you are entering a formula. You can work around this by escaping the `+` with a backslash (`\`), e.g., `49.16667,-123.93333` should be `\+49.16667,-123.93333`, and `49.16667,-123.93333|49.25,-124.8` should be `\+49.16667,-123.93333|\+49.25,-124.8`. Workbench will strip the leading `\` before it populates the Drupal fields.
 
+
+## Commenting out CSV rows
+
+You can comment out rows in your input CSV, Excel file, or Google Sheet by adding a hash mark (`#`) at the start of the value in the first column. Commented rows are skipped in Workbench's `--check` and also skipped when Workbench is run without `--check`. Commenting works in all tasks that use CSV data.
+
+For example, the third row in the following CSV file is commented out:
+
+```text
+file,id,title,field_model,field_description
+IMG_1410.tif,01,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
+IMG_2549.jp2,02,Manhatten Island,25,Weather was windy.
+#IMG_2940.JPG,03,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain.
+IMG_2958.JPG,04,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
+IMG_5083.JPG,05,Alcatraz Island,25,"Taken from Fisherman's Wharf, San Francisco."
+```
+
+Since column order doesn't matter to Workbench, the following CSV is the same as the previous example:
+
+```text
+id,file,title,field_model,field_description
+01,IMG_1410.tif,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
+02,IMG_2549.jp2,Manhatten Island,25,Weather was windy.
+# 03,IMG_2940.JPG,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain.
+04,IMG_2958.JPG,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
+05,IMG_5083.JPG,Alcatraz Island,25,"Taken from Fisherman's Wharf, San Francisco."
+```
+
+Commenting works the same with in Excel and Google Sheets. Here is the CSV file used above in a Google Sheet:
+
+![Google Sheet with commented row](images/google_sheet_commented_row.png)

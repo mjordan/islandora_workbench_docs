@@ -59,6 +59,9 @@ The settings defined in a configuration file are documented below. The order of 
 
 When you run Islandora Workbench with the `--check` argument, it will verify that all configuration options required for the current task are present, and if they aren't tell you so.
 
+!!! note
+    Islandora Workbench automatically converts any configuration keys to lowercase, e.g., `Task` is equivalent to `task`.
+
 ## Validating the syntax of the configuration file
 
 When you run Workbench, it confirms that your configuration file is valid YAML. This is a syntax check only, not a content check. If the file is valid YAML, Workbench then goes on to perform a long list of application-specific [checks](/islandora_workbench_docs/check).
