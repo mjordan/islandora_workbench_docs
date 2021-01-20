@@ -649,7 +649,7 @@ http://purl.org/coar/resource_type/c_18cc
 <li>If you are entering geocoordinates into a spreadsheet, a leading <code>+</code> will make the spreadsheet application think you are entering a formula. You can work around this by escaping the <code>+</code> with a backslash (<code>\</code>), e.g., <code>49.16667,-123.93333</code> should be <code>\+49.16667,-123.93333</code>, and <code>49.16667,-123.93333|49.25,-124.8</code> should be <code>\+49.16667,-123.93333|\+49.25,-124.8</code>. Workbench will strip the leading <code>\</code> before it populates the Drupal fields.</li>
 </ul>
 <h2 id="commenting-out-csv-rows">Commenting out CSV rows</h2>
-<p>You can comment out rows in your input CSV, Excel file, or Google Sheet by adding a hash mark (<code>#</code>) at the start of the value in the first column. Commented rows are skipped in Workbench's <code>--check</code> and also skipped when Workbench is run without <code>--check</code>. Commenting works in all tasks that use CSV data.</p>
+<p>You can comment out rows in your input CSV, Excel file, or Google Sheet by adding a hash mark (<code>#</code>) at the start of the value in the first column. These rows are ignored both when Workbench is run with <code>--check</code> and without <code>--check</code>, and in all tasks that use CSV data.</p>
 <p>For example, the third row in the following CSV file is commented out:</p>
 <pre><code class="text">file,id,title,field_model,field_description
 IMG_1410.tif,01,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
