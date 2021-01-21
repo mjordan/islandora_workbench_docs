@@ -119,7 +119,7 @@ If this syntax check fails, some detail about the problem will be displayed to t
 
 ## Example configuration files
 
-These examples provide inline annotations explaining why the settings are included in the configuration file. Spaces are included for readability. For example, here is a simple example:
+These examples provide inline annotations explaining why the settings are included in the configuration file. Spaces are included for readability.
 
 ### Create nodes only, no media
 
@@ -158,14 +158,14 @@ password: islandora
 
 # The values in this list of field templates are applied to every row in the
 # input CSV file before the CSV file is used to populate Drupal fields. The
-# field templates are also applied during the --check in order to validate
+# field templates are also applied during the "--check" in order to validate
 # the values of the fields.
 csv_field_templates:
  - field_member_of: 205
  - field_model: 25
 ```
 
-### Create nodes and media from files only
+### Create nodes and media from files (no input CSV file)
 
 ```
 task: create_from_files
@@ -179,7 +179,7 @@ input_dir: /tmp/sample_files
 # This tells Workbench to write a CSV file containing node IDs of the
 # created nodes, plus the field names used in the target content type
 # ("islandora_object" by default).
-output_csv: /tmp/output.csv
+output_csv: /tmp/sample_files.csv
 
 # All nodes should get the "Model" value corresponding to this URI.
 model: 'https://schema.org/DigitalDocument'
