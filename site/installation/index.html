@@ -62,7 +62,10 @@
     <li class="toctree-l2"><a href="#requirements">Requirements</a></li>
     
 
-    <li class="toctree-l2"><a href="#installation">Installation</a></li>
+    <li class="toctree-l2"><a href="#installing-islandora-workbench">Installing Islandora Workbench</a></li>
+    
+
+    <li class="toctree-l2"><a href="#updating-islandora-workbench">Updating Islandora Workbench</a></li>
     
 
     </ul>
@@ -85,7 +88,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../fields/">Fields</a>
+    <a class="" href="../fields/">CSV fields and Drupal fields</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -232,17 +235,22 @@
 <li>An <a href="https://islandora.ca/">Islandora</a> repository with the <a href="https://github.com/mjordan/islandora_workbench_integration">Islandora Workbench Integration</a> module enabled.</li>
 </ul>
 <p>Islandora Workbench has been installed and used on Linux, Mac, and Windows.</p>
-<h2 id="installation">Installation</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some systems have both Python 2 and Python 3 installed. It's a good idea to check which version is used when you run <code>python</code>. To do this, run <code>python --version</code>, which will output something like "Python 2.7.17" or "Python 3.6.9". If <code>python --version</code> indicates you're running versin 2, try running <code>python3 --version</code> to see if you have version 3 installed.</p>
+</div>
+<h2 id="installing-islandora-workbench">Installing Islandora Workbench</h2>
 <p>If you already have the required Python libraries installed, simply cloning Islandora Workbench from GitHub is all you need to do:</p>
-<ul>
-<li><code>git clone https://github.com/mjordan/islandora_workbench.git</code></li>
-</ul>
+<p><code>git clone https://github.com/mjordan/islandora_workbench.git</code></p>
 <p>This will create a directory named <code>islandora_workbench</code> where you will run the <code>./workbench</code> command.</p>
 <p>If you don't already have the required libraries installed, clone this repo as above, and then use <code>setup.py</code>:</p>
-<ul>
-<li><code>sudo python3 setup.py install</code></li>
-</ul>
+<p><code>sudo python3 setup.py install</code></p>
 <p>After you run this, all of the required Python libraries will be installed.</p>
+<h2 id="updating-islandora-workbench">Updating Islandora Workbench</h2>
+<p>Since Islandora Workbench is under development, you will want to update it often. To do this, run the following <code>git</code> command:</p>
+<p><code>git pull origin main</code></p>
+<p>After you pull in the latest changes using <code>git</code>, it's a good idea to rerun the setup tools in case new Python libraries have been added since you last ran the setup tools (same command as above):</p>
+<p><code>sudo python3 setup.py install</code></p>
               
             </div>
           </div>
