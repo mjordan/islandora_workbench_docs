@@ -371,7 +371,7 @@ Note that:
 
 ## Commenting out CSV rows
 
-You can comment out rows in your input CSV, Excel file, or Google Sheet by adding a hash mark (`#`) at the start of the value in the first column. Commented rows are skipped in Workbench's `--check` and also skipped when Workbench is run without `--check`. Commenting works in all tasks that use CSV data.
+You can comment out rows in your input CSV, Excel file, or Google Sheet by adding a hash mark (`#`) as the first character of the value in the first column. Workbench ignores these rows, both when it is run with and without `--check`. Commenting out rows works in all tasks that use CSV data.
 
 For example, the third row in the following CSV file is commented out:
 
@@ -384,7 +384,7 @@ IMG_2958.JPG,04,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
 IMG_5083.JPG,05,Alcatraz Island,25,"Taken from Fisherman's Wharf, San Francisco."
 ```
 
-Since column order doesn't matter to Workbench, the following CSV is the same as the previous example:
+Since column order doesn't matter to Workbench, the same row is commented out in both the previous example and in this one:
 
 ```text
 id,file,title,field_model,field_description
@@ -398,3 +398,15 @@ id,file,title,field_model,field_description
 Commenting works the same with in Excel and Google Sheets. Here is the CSV file used above in a Google Sheet:
 
 ![Google Sheet with commented row](images/google_sheet_commented_row.png)
+
+You can also use commenting to include actual *comments* in your CSV/Google Sheet/Excel file:
+
+```text
+id,file,title,field_model,field_description
+01,IMG_1410.tif,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
+02,IMG_2549.jp2,Manhatten Island,25,Weather was windy.
+# Let's not load the following record right now.
+# 03,IMG_2940.JPG,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain.
+04,IMG_2958.JPG,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
+05,IMG_5083.JPG,Alcatraz Island,25,"Taken from Fisherman's Wharf, San Francisco."
+```
