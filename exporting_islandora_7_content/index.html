@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Updating nodes - Islandora Workbench</title>
+  <title>Exporting Islandora 7 content - Islandora Workbench</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Updating nodes";
-    var mkdocs_page_input_path = "updating_nodes.md";
+    var mkdocs_page_name = "Exporting Islandora 7 content";
+    var mkdocs_page_input_path = "exporting_islandora_7_content.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -124,12 +124,9 @@
     <a class="" href="../media_types/">Setting media types</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Updating nodes</a>
-    <ul class="subnav">
-            
-    </ul>
+    <a class="" href="../updating_nodes/">Updating nodes</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -162,9 +159,21 @@
     <a class="" href="../generating_sample_content/">Generating sample Islandora content</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../exporting_islandora_7_content/">Exporting Islandora 7 content</a>
+    <a class="current" href="./">Exporting Islandora 7 content</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#overview">Overview</a></li>
+    
+
+    <li class="toctree-l2"><a href="#configuring-which-solr-fields-to-include-in-the-csv">Configuring which Solr fields to include in the CSV</a></li>
+    
+
+    <li class="toctree-l2"><a href="#using-the-csv-as-input-for-workbench">Using the CSV as input for Workbench</a></li>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -204,10 +213,10 @@
     
       
     
-    <li>Updating nodes</li>
+    <li>Exporting Islandora 7 content</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/updating_nodes.md"
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/exporting_islandora_7_content.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -217,23 +226,28 @@
           <div role="main">
             <div class="section">
               
-                <p>You can update existing nodes by providing a CSV file with a <code>node_id</code> column plus field data you want to update. Updating preserves existing values in the nodes' fields and adds CSV data to them, it don't replace the values (but see <a href="https://github.com/mjordan/islandora_workbench/issues/47">this issue</a>). The other column headings in the CSV file must match machine names of fields that exist in the target Islandora content type. Currently, text fields, ETDF fields, taxonomy fields, linked node fields (e.g. "Member of" for collection nodes), and typed relation fields can be updated following the same conventions used when creating nodes as described in the "<a href="/islandora_workbench_docs/fields/">Fields</a>" documentation.</p>
-<p>For example, using the fields defined by the Islandora Defaults module for the "Repository Item" content type, your CSV file could look like this:</p>
-<pre><code class="text">node_id,field_description,field_rights,field_access_terms,field_member_of
-100,This is my new title,I have changed my mind. This item is yours to keep.,27,45
-</code></pre>
-
-<p>Multivalued fields are also supported in the update task. See details in the "Multivalued fields" section above.</p>
-<p>The config file for update operations looks like this (note the <code>task</code> option is 'update'):</p>
-<pre><code class="yaml">task: update
-validate_title_length: false
-host: &quot;http://localhost:8000&quot;
-username: admin
-password: islandora
-input_csv: update.csv
-</code></pre>
-
-<p>Note that you should include <code>validate_title_length: false</code> in your update configuration file, unless you are updating node titles.</p>
+                <h2 id="overview">Overview</h2>
+<p>The script <code>scripts/get_islandora_7_content.py</code> can be used to export metadata and OBJ datastreams from an Islandora 7 instance. This data can form the basis for Workbench input data that can be used to migrate from Islandora 7.x to Islandora 8.</p>
+<p>To run the script, change into the Workbench "scripts" directory and run:</p>
+<p><code>python3 get_islandora_7_content.py</code></p>
+<p>Unlike <code>workbench</code>, this script doesn't use a YAML configuration file. To configure the script, you need to open it in a text editor and change the variables in the "Configuration variables" section of the script, as appliable.</p>
+<h2 id="configuring-which-solr-fields-to-include-in-the-csv">Configuring which Solr fields to include in the CSV</h2>
+<p>Islandora 7's Solr schema contains a lot of fields, mirroring the richness of MODS (or other XML-based metadata) and the Fedora 3.x RELS-EXT properties. By default, This script fetches all the fields in the target Solr's index, which will be many more fields that you will normally want in the output CSV.</p>
+<p>The script takes the following approach to providing control over what fields end up in the CSV data it generates:</p>
+<ol>
+<li>It fetches a list of all fieldnames used in the Solr index</li>
+<li>It matches each fieldname against the regular expression pattern defined in the script's <code>field_pattern</code> variable, and if the match is successful, includes the fieldname in the CSV. For example, <code>field_pattern = 'mods_.*(_s|_ms)$'</code> will match every Solr field that starts with "mods_" and ends with either "_s" or "_ms".</li>
+<li>It matches each remaining filename against the regular expression patterns defined in the script's <code>field_pattern_do_not_want</code> variable, and if the match is successful, <em>removes</em> the fieldname from the CSV. For example, <code>field_pattern_do_not_want = '(SFU_custom_metadata|marcrelator)'</code> will remove all fieldnames that contain either the string "SFU_custom_metadata" or "marcrelator".</li>
+<li>Finally, it adds to the start of the list of remaining fieldnames every Solr fieldname defined in the <code>standard_fields</code> configuration variable. This list of fieldnames provides the opportunity to ensure than any fields that are not captured in step 2 are in the generated CSV file.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You will always want at least the Solr fields "RELS_EXT_isMemberOfCollection_uri_ms", "RELS_EXT_hasModel_uri_s", "RELS_EXT_isConstituentOf_uri_ms", and "PID" in your CSV to be included in your <code>standard_fields</code> configuration variable.</p>
+</div>
+<p>The required Workbench column "file" automatically is prepended to the list of CSV fieldnames, and is populated with the name of the OBJ datastream, replacing the <code>:</code> in the PID with an underscore. The downloaded file's extension is determined by the OBJ datastream's MIME type.</p>
+<h2 id="using-the-csv-as-input-for-workbench">Using the CSV as input for Workbench</h2>
+<p>The CSV generated by this script will almost certainly contain many more columns than you will want to ingest into Islandora 8. Therefore you will probably want to delete columns you don't need.</p>
+<p>Also, the column headings in the CSV are Solr fieldnames. You will need to replace those column headers with the equivalent fields as defined in your Drupal 8 content type. In addition, the metadata stored in Islandora 7's Solr index does not in many cases have the structure Workbench requires, so the data in the CSV will need some manual editing before it can be used to create nodes.</p>
               
             </div>
           </div>
@@ -241,10 +255,10 @@ input_csv: update.csv
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../deleting_nodes/" class="btn btn-neutral float-right" title="Deleting nodes">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../logging/" class="btn btn-neutral float-right" title="Logging">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../media_types/" class="btn btn-neutral" title="Setting media types"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../generating_sample_content/" class="btn btn-neutral" title="Generating sample Islandora content"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -272,10 +286,10 @@ input_csv: update.csv
           <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../media_types/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../generating_sample_content/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../deleting_nodes/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../logging/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
