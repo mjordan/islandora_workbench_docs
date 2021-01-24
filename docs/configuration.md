@@ -89,9 +89,12 @@ The settings defined in a configuration file are documented below, grouped into 
 
 ### Logging settings
 
+See the "[Logging](/islandora_workbench_docs/logging/)" section for more information.
+
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
-| log_file_path | | workbench.log | The path to the log file, absolute or relative to `workbench`. See the "[Logging](/islandora_workbench_docs/logging/)" section for more information. |
+| log_file_path | | workbench.log | The path to the log file, absolute or relative to `workbench`. |
+| log_file_mode | | a [append] | Set to "w" to overwrite the log file, if it exists. |
 | log_json |  | false | Whether or not to log the raw JSON POSTed, PUT, or PATCHed to Drupal. Useful for debugging. |
 
 

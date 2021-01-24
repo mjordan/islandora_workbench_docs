@@ -107,7 +107,7 @@
         
             <li><a class="toctree-l3" href="#include-some-csv-field-templates">Include some CSV field templates</a></li>
         
-            <li><a class="toctree-l3" href="#create-nodes-and-media-from-files-only">Create nodes and media from files only</a></li>
+            <li><a class="toctree-l3" href="#create-nodes-and-media-from-files-no-input-csv-file">Create nodes and media from files (no input CSV file)</a></li>
         
         </ul>
     
@@ -676,14 +676,14 @@ password: islandora
 
 # The values in this list of field templates are applied to every row in the
 # input CSV file before the CSV file is used to populate Drupal fields. The
-# field templates are also applied during the --check in order to validate
+# field templates are also applied during the &quot;--check&quot; in order to validate
 # the values of the fields.
 csv_field_templates:
  - field_member_of: 205
  - field_model: 25
 </code></pre>
 
-<h3 id="create-nodes-and-media-from-files-only">Create nodes and media from files only</h3>
+<h3 id="create-nodes-and-media-from-files-no-input-csv-file">Create nodes and media from files (no input CSV file)</h3>
 <pre><code>task: create_from_files
 host: &quot;http://localhost:8000&quot;
 username: admin
@@ -695,7 +695,7 @@ input_dir: /tmp/sample_files
 # This tells Workbench to write a CSV file containing node IDs of the
 # created nodes, plus the field names used in the target content type
 # (&quot;islandora_object&quot; by default).
-output_csv: /tmp/output.csv
+output_csv: /tmp/sample_files.csv
 
 # All nodes should get the &quot;Model&quot; value corresponding to this URI.
 model: 'https://schema.org/DigitalDocument'
