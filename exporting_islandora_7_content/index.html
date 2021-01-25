@@ -227,7 +227,8 @@
             <div class="section">
               
                 <h2 id="overview">Overview</h2>
-<p>The script <code>scripts/get_islandora_7_content.py</code> can be used to export metadata and OBJ datastreams from an Islandora 7 instance. This data can form the basis for Workbench input data that can be used to migrate from Islandora 7.x to Islandora 8.</p>
+<p>Islandora Workbench's main purpose is to load batches of content into an Islandora 8 repository. In many cases, loading content is the last step in migrating from Islandora 7 to 8. As noted in the "<a href="/islandora_workbench_docs/workflows/#migrations">Workflows</a>" documentation, Workbench can be used in the "load" phase of a typical <a href="https://en.wikipedia.org/wiki/Extract,_transform,_load">extract, transform, load</a> process.</p>
+<p>However, Workbench comes with a script <code>get_islandora_7_content.py</code>, that can be used to export (or "extract") metadata and OBJ datastreams from an Islandora 7 instance. This data can form the basis for Workbench input data.</p>
 <p>To run the script, change into the Workbench "scripts" directory and run:</p>
 <p><code>python3 get_islandora_7_content.py</code></p>
 <p>Unlike <code>workbench</code>, this script doesn't use a YAML configuration file. To configure the script, you need to open it in a text editor and change the variables in the "Configuration variables" section of the script, as appliable.</p>
