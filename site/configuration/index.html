@@ -212,6 +212,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../exporting_islandora_7_content/">Exporting Islandora 7 content</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../logging/">Logging</a>
 	    </li>
           
@@ -525,6 +530,7 @@ password: islandora
 </tbody>
 </table>
 <h3 id="paged-and-compound-content-settings">Paged and compound content settings</h3>
+<p>See the section "<a href="/islandora_workbench_docs/paged_and_compound/">Creating paged content</a>" for more information.</p>
 <table>
 <thead>
 <tr>
@@ -539,35 +545,36 @@ password: islandora
 <td>paged_content_from_directories</td>
 <td></td>
 <td>false</td>
-<td>Set to true if you are using the "Without page-level metadata" method of creating paged content. See the section "<a href="/islandora_workbench_docs/paged_and_compound/">Creating paged content</a>" for more information.</td>
+<td>Set to true if you are using the "Without page-level metadata" method of creating paged content.</td>
 </tr>
 <tr>
 <td>paged_content_sequence_seprator</td>
 <td></td>
 <td>- [hyphen]</td>
-<td>The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the "Without page-level metadata" method. See the section "<a href="/islandora_workbench_docs/paged_and_compound/">Creating paged content</a>" for more information.</td>
+<td>The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the "Without page-level metadata" method.</td>
 </tr>
 <tr>
 <td>paged_content_page_model_tid</td>
 <td></td>
 <td></td>
-<td>Required if <code>paged_content_from_directories</code> is true. The the term ID from the Islandora Models taxonomy to assign to pages. See the section "<a href="/paged_and_compound/">Creating paged content</a>" for more information.</td>
+<td>Required if <code>paged_content_from_directories</code> is true. The the term ID from the Islandora Models taxonomy to assign to pages.</td>
 </tr>
 <tr>
 <td>paged_content_page_display_hints</td>
 <td></td>
 <td></td>
-<td>The term ID from the Islandora Display taxonomy to assign to pages. If not included, defaults to the value of the <code>field_display_hints</code> in the parent's record in the CSV file. See the section "<a href="/paged_and_compound/">Creating paged content</a>" for more information.</td>
+<td>The term ID from the Islandora Display taxonomy to assign to pages. If not included, defaults to the value of the <code>field_display_hints</code> in the parent's record in the CSV file.</td>
 </tr>
 <tr>
 <td>paged_content_page_content_type</td>
 <td></td>
 <td></td>
-<td>Set to the machine name of the Drupal node content type for pages created using the "Without page-level metadata" method if it is different than the content type of the parent (which is specified in the content_type setting). See the section "<a href="/paged_and_compound/">Creating paged content</a>" for more information.</td>
+<td>Set to the machine name of the Drupal node content type for pages created using the "Without page-level metadata" method if it is different than the content type of the parent (which is specified in the content_type setting).</td>
 </tr>
 </tbody>
 </table>
 <h3 id="logging-settings">Logging settings</h3>
+<p>See the "<a href="/islandora_workbench_docs/logging/">Logging</a>" section for more information.</p>
 <table>
 <thead>
 <tr>
@@ -582,7 +589,13 @@ password: islandora
 <td>log_file_path</td>
 <td></td>
 <td>workbench.log</td>
-<td>The path to the log file, absolute or relative to <code>workbench</code>. See the "<a href="/islandora_workbench_docs/logging/">Logging</a>" section for more information.</td>
+<td>The path to the log file, absolute or relative to <code>workbench</code>.</td>
+</tr>
+<tr>
+<td>log_file_mode</td>
+<td></td>
+<td>a [append]</td>
+<td>Set to "w" to overwrite the log file, if it exists.</td>
 </tr>
 <tr>
 <td>log_json</td>

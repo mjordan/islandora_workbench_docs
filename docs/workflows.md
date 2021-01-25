@@ -21,7 +21,7 @@ In this workflow, the person creating the nodes and the person updating them lat
 
 ## Migrations
 
-Islandora Workbench is not intended to replace Drupal's Migrate framework, but it can be used in conjunction with other tools and processes to create Islandora content using the output of a source repository platform, such as the [Islandora Get CSV](https://github.com/mjordan/islandora_get_csv) module for Islandora 7.x. This content can then be used as input for Islandora Workbench, as illustrated here:
+Islandora Workbench is not intended to replace Drupal's Migrate framework, but it can be used in conjunction with other tools and processes to create Islandora content using the output of a source repository platform, such as the "[get_islandora_7_content.py](/islandora_workbench_docs/exporting_islandora_7_content/)" script that comes with Workbench or the [Islandora Get CSV](https://github.com/mjordan/islandora_get_csv) module for Islandora 7.x. This content can then be used as input for Islandora Workbench, as illustrated here:
 
 ![Migrations](images/workflow_migrations.png)
 

@@ -79,13 +79,15 @@ The settings defined in a configuration file are documented below, grouped into 
 
 ### Paged and compound content settings
 
+See the section "[Creating paged content](/islandora_workbench_docs/paged_and_compound/)" for more information.
+
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
-| paged_content_from_directories |  | false | Set to true if you are using the "Without page-level metadata" method of creating paged content. See the section "[Creating paged content](/islandora_workbench_docs/paged_and_compound/)" for more information. |
-| paged_content_sequence_seprator |  | - [hyphen]| The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the "Without page-level metadata" method. See the section "[Creating paged content](/islandora_workbench_docs/paged_and_compound/)" for more information. |
-| paged_content_page_model_tid |  | | Required if `paged_content_from_directories` is true. The the term ID from the Islandora Models taxonomy to assign to pages. See the section "[Creating paged content](/paged_and_compound/)" for more information. |
-| paged_content_page_display_hints |  | | The term ID from the Islandora Display taxonomy to assign to pages. If not included, defaults to the value of the `field_display_hints` in the parent's record in the CSV file. See the section "[Creating paged content](/paged_and_compound/)" for more information. |
-| paged_content_page_content_type |  | | Set to the machine name of the Drupal node content type for pages created using the "Without page-level metadata" method if it is different than the content type of the parent (which is specified in the content_type setting). See the section "[Creating paged content](/paged_and_compound/)" for more information. |
+| paged_content_from_directories |  | false | Set to true if you are using the "Without page-level metadata" method of creating paged content. |
+| paged_content_sequence_seprator |  | - [hyphen]| The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the "Without page-level metadata" method. |
+| paged_content_page_model_tid |  | | Required if `paged_content_from_directories` is true. The the term ID from the Islandora Models taxonomy to assign to pages. |
+| paged_content_page_display_hints |  | | The term ID from the Islandora Display taxonomy to assign to pages. If not included, defaults to the value of the `field_display_hints` in the parent's record in the CSV file. |
+| paged_content_page_content_type |  | | Set to the machine name of the Drupal node content type for pages created using the "Without page-level metadata" method if it is different than the content type of the parent (which is specified in the content_type setting). |
 
 ### Logging settings
 
