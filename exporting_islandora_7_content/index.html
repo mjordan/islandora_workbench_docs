@@ -232,17 +232,17 @@
 <p><code>python3 get_islandora_7_content.py</code></p>
 <p>Unlike <code>workbench</code>, this script doesn't use a YAML configuration file. To configure the script, you need to open it in a text editor and change the variables in the "Configuration variables" section of the script, as appliable.</p>
 <h2 id="configuring-which-solr-fields-to-include-in-the-csv">Configuring which Solr fields to include in the CSV</h2>
-<p>Islandora 7's Solr schema contains a lot of fields, mirroring the richness of MODS (or other XML-based metadata) and the Fedora 3.x RELS-EXT properties. By default, This script fetches all the fields in the target Solr's index, which will be many more fields that you will normally want in the output CSV.</p>
+<p>Islandora 7's Solr schema contains a lot of fields, mirroring the richness of MODS (or other XML-based metadata) and the Fedora 3.x RELS-EXT properties. By default, this script fetches all the fields in the Islandora 7's Solr's index, which will be many more fields that you will normally want in the output CSV.</p>
 <p>The script takes the following approach to providing control over what fields end up in the CSV data it generates:</p>
 <ol>
-<li>It fetches a list of all fieldnames used in the Solr index</li>
-<li>It matches each fieldname against the regular expression pattern defined in the script's <code>field_pattern</code> variable, and if the match is successful, includes the fieldname in the CSV. For example, <code>field_pattern = 'mods_.*(_s|_ms)$'</code> will match every Solr field that starts with "mods_" and ends with either "_s" or "_ms".</li>
-<li>It matches each remaining filename against the regular expression patterns defined in the script's <code>field_pattern_do_not_want</code> variable, and if the match is successful, <em>removes</em> the fieldname from the CSV. For example, <code>field_pattern_do_not_want = '(SFU_custom_metadata|marcrelator)'</code> will remove all fieldnames that contain either the string "SFU_custom_metadata" or "marcrelator".</li>
-<li>Finally, it adds to the start of the list of remaining fieldnames every Solr fieldname defined in the <code>standard_fields</code> configuration variable. This list of fieldnames provides the opportunity to ensure than any fields that are not captured in step 2 are in the generated CSV file.</li>
+<li>It fetches a list of all fieldnames used in the Solr index.</li>
+<li>It then matches each fieldname against the regular expression pattern defined in the script's <code>field_pattern</code> variable, and if the match is successful, includes the fieldname in the CSV. For example, <code>field_pattern = 'mods_.*(_s|_ms)$'</code> will match every Solr field that starts with "mods_" and ends with either "_s" or "_ms".</li>
+<li>Next, it matches each remaining filename against the regular expression patterns defined in the script's <code>field_pattern_do_not_want</code> variable, and if the match is successful, <em>removes</em> the fieldname from the CSV. For example, <code>field_pattern_do_not_want = '(marcrelator|isSequenceNumberOf)'</code> will remove all fieldnames that contain either the string "marcrelator" or "isSequenceNumberOf".</li>
+<li>Finally, it adds to the start of the remaining list of fieldnames every Solr fieldname defined in the <code>standard_fields</code> configuration variable. This configuration variable provides a mechanism to ensure than any fields that are not included in step 2 are present in the generated CSV file.</li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>You will always want at least the Solr fields "RELS_EXT_isMemberOfCollection_uri_ms", "RELS_EXT_hasModel_uri_s", "RELS_EXT_isConstituentOf_uri_ms", and "PID" in your CSV to be included in your <code>standard_fields</code> configuration variable.</p>
+<p>You will always want at least the Solr fields "RELS_EXT_isMemberOfCollection_uri_ms", "PID", "RELS_EXT_hasModel_uri_s", "RELS_EXT_isMemberOfCollection_uri_ms", "RELS_EXT_isConstituentOf_uri_ms", and "RELS_EXT_isPageOf_uri_ms" in your <code>standard_fields</code> configuration variable since these fields contain information on objects' relationships to each other.</p>
 </div>
 <p>The required Workbench column "file" automatically is prepended to the list of CSV fieldnames, and is populated with the name of the OBJ datastream, replacing the <code>:</code> in the PID with an underscore. The downloaded file's extension is determined by the OBJ datastream's MIME type.</p>
 <h2 id="using-the-csv-as-input-for-workbench">Using the CSV as input for Workbench</h2>
