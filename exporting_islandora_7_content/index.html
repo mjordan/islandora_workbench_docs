@@ -256,18 +256,18 @@
 <pre><code>Do not edit name                                        Rename 'sequence' (probably to
 or contents of                                          'field_weight') but do not edit
 'file'.                                                 its contents.
- |                                / Rename every column        |
- |    / Rename 'PID' to the       | in between and edit        |           
- |    | value of your 'id_field'  | their contents as          |          ¯\_(ツ)_/¯
- |    | setting but do not edit   | required.                  |               
- |    | its contents.             |                            |
- v    v                           v                            v
-------------------------------------------------------------------
-file,PID,RELS_EXT_hasModel_uri_s,mods_typeOfResource_s,..,sequence
+ |                                / Rename every column    |
+ |    / Rename 'PID' to the       | in between and edit    |           
+ |    | value of your 'id_field'  | their contents as      |             ¯\_(ツ)_/¯
+ |    | setting but do not edit   | required.              |               
+ |    | its contents.             |                        |
+ v    v                           v                        v
+---------------------------------------------------------------
+file,PID,RELS_EXT_hasModel_uri_s,mods_typeOfResource_s,sequence
 </code></pre>
 
 <p>First, the required Workbench column "file" is added to the beginning of each CSV row, and is populated with the filename of the OBJ datastream. This filename is based on the object's PID, with the the <code>:</code> replaced with an underscore, and has an extenstion determined by the OBJ datastream's MIME type.</p>
-<p>Second, "PID" is the Islandora 7.x PID of each object in the CSV file. This column header can be changed to "id" or whatever you have defined in your Workbench confiugration file's <code>id_field</code> setting.</p>
+<p>Second, "PID" is the Islandora 7.x PID of each object in the CSV file. This column header can be changed to "id" or whatever you have defined in your Workbench confiugration file's <code>id_field</code> setting. Alternatively, you can set the value of <code>id_field</code> to <code>PID</code> and not rename that CSV column.</p>
 <p>Third, a "sequence" column is added at the end of each CSV row. This is where the <code>get_islandora_7_content.py</code> script stores the sequence number of each child object/page in relation to its parent . If an Islandora 7.x object has a property in its RELS-EXT datastream <code>islandora:sSequenceNumberOfxxx</code> (where "xxx" is the object's parent), the value of that property is added to the "sequence" column at the end of each row in the CSV. For paged content, this value is taken from the <code>islandora:isSequenceNumber</code> RELS-EXT property. These values are ready for use in the "field_weight" Drupal field created by the Islandora Defaults module; you can simply rename the "sequence" column header to "field_weight" when you use the CSV as input for Islandora Workbench. Note that you don't need to configure the script to include fields that contain "isSequenceNumberOf" or "isSequenceNumber" in your CSV; in fact, because there are so many of them in a typical Islandora 7 Solr index, you will want to <em>exclude</em> them using the <code>field_pattern_do_not_want</code> configuration variable. Excluding them is safe, since the script fetches the sequence information separately from the other CSV data.</p>
               
             </div>
