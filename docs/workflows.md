@@ -26,7 +26,9 @@ Islandora Workbench is not intended to replace Drupal's Migrate framework, but i
 ![Migrations](images/workflow_migrations.png)
 
 
-`get_islandora_7_content.py` or the Islandora Get CSV module are used in the "extract" phase of the ETL workflow, and Islandora Workbench is used in the "load" phase. The advantage of migrating to Islandora in this way is that the CSV file can be cleaned or supplemented (manually or otherwise) prior to using it as Workbench's input. The specific tasks required during the "transform" phase will vary depending on the quality and consistency of metadata and other factors.
+On the left side of the diagram, `get_islandora_7_content.py` or the Islandora Get CSV module are used in the "extract" phase of the ETL workflow, and on the right side, running the user's computer, Islandora Workbench is used in the "load" phase. Before loading the content, the user would modify the extracted CSV file to confirm with Workbench's CSV content requirements.
+
+The advantage of migrating to Islandora in this way is that the CSV file can be cleaned or supplemented (manually or otherwise) prior to using it as Workbench's input. The specific tasks required during this "transform" phase will vary depending on the quality and consistency of metadata and other factors.
 
 ## Watch folders
 
