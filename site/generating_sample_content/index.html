@@ -154,17 +154,17 @@
     <a class="" href="../sample_data/">Creating nodes from the sample data</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../exporting_islandora_7_content/">Exporting Islandora 7 content</a>
+	    </li>
+          
             <li class="toctree-l1 current">
 		
     <a class="current" href="./">Generating sample Islandora content</a>
     <ul class="subnav">
             
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../exporting_islandora_7_content/">Exporting Islandora 7 content</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -217,7 +217,9 @@
           <div role="main">
             <div class="section">
               
-                <p>Running <code>python3 scripts/generate_image_files.py</code> from within the Islandora Workbench directory will generate PNG images from a list of titles. It and a sample list of titles are available Workbench's <code>scripts</code> directory. Running this script will result in a group of images whose filenames are normalized versions of the lines in the sample title file. You can then load this sample content into Islandora using the <code>create_from_files</code> task. If you want to have Workbench generate the sample content automatically, configure the <code>generate_image_files.py</code> script as a bootstrap script. See the <code>autogen_content.yml</code> configuration file for an example of how to do that.</p>
+                <p>If you want to quickly generate some sample images to load into Islandora, Workbench provides a utility script to do that.</p>
+<p>Running <code>python3 scripts/generate_image_files.py</code> from within the Islandora Workbench directory will generate PNG images from the list of titles in the <code>sample_filenames.txt</code> file. Running this script will result in a group of images whose filenames are normalized versions of the lines in the sample title file. You can then load this sample content into Islandora using the <code>create_from_files</code> task.</p>
+<p>If you want to have Workbench generate the sample content automatically, configure the <code>generate_image_files.py</code> script as a bootstrap script. See the <code>autogen_content.yml</code> configuration file for an example of how to do that.</p>
               
             </div>
           </div>
@@ -225,10 +227,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../exporting_islandora_7_content/" class="btn btn-neutral float-right" title="Exporting Islandora 7 content">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../logging/" class="btn btn-neutral float-right" title="Logging">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../sample_data/" class="btn btn-neutral" title="Creating nodes from the sample data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../exporting_islandora_7_content/" class="btn btn-neutral" title="Exporting Islandora 7 content"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -256,10 +258,10 @@
           <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../sample_data/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../exporting_islandora_7_content/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../exporting_islandora_7_content/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../logging/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
