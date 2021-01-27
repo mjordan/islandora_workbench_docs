@@ -40,17 +40,17 @@ As we can see from the example above, the column headings in the CSV are Solr fi
 However, the script adds three columns to the CSV file that do not use Solr fieldnames and whose contents you should *not* edit but that you may need to rename: `file`, `PID`, and `sequence`:
 
 ```
-Do not edit name                                        Rename 'sequence' (probably to
-or contents of                                          'field_weight') but do not edit
-'file'.                                                 its contents.
- |                                / Every other column     |
- |    / Rename 'PID' to the       | will need to be        |           
- |    | value of your 'id_field'  | deleted, renamed,      |
- |    | setting but do not edit   | or its content         |               
- |    | its contents.             | edited.                |
- v    v                           v                        v
----------------------------------------------------------------
-file,PID,RELS_EXT_hasModel_uri_s,mods_typeOfResource_s,sequence
+Do not edit name                                        Rename 'sequence' column (e.g., 
+or contents of                                          to 'field_weight') but do not
+'file' column.                                          edit its contents.
+ |                                / Every other column           |
+ |    / Rename 'PID' to the       | will need to be              |           
+ |    | value of your 'id_field'  | deleted, renamed,            |
+ |    | setting but do not edit   | or its content               |               
+ |    | column contents.          | edited.                      |
+ v    v                           v                              v
+---------------------------------------------------------------------
+file,PID,RELS_EXT_hasModel_uri_s,[...],mods_typeOfResource_s,sequence
 ```
 
 First, the required Workbench column "file" is added to the beginning of each CSV row, and is populated with the filename of the OBJ datastream. This filename is based on the object's PID, with the the `:` replaced with an underscore, and has an extenstion determined by the OBJ datastream's MIME type.
