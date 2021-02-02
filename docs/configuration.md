@@ -70,6 +70,7 @@ The settings defined in a configuration file are documented below, grouped into 
 | media_types [plural] |  | | Overrides default media type definitions on a per file extension basis. Used in the `create`, `add_media`, and `create_from_files` tasks. More detail provided in the "Setting Media Types" section. |
 | delete_media_with_nodes |  | true | When a node is deleted using a `delete` task, by default, all if its media are automatically deleted. Set this option to false to not delete all of a node's media (you do not generally want to keep the media without the node). |
 | use_node_title_for_media |  | false | For remote files, if set to `true`, name the downloaded copy using the parent node's title value. If `false`, downloaded file's name will depend on the application/website that is serving up the file. |
+| delete_tmp_upload |  | false | For remote files, if set to `true`, remote file is deleted after it is used to create media. If `false`, downloaded file will remain in your `input_dir`. |
 
 ### Islandora model settings
 
