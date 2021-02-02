@@ -11,7 +11,7 @@ pages:
     - Configuration: configuration.md
     - Checking configuration and input data: check.md
     - Preparing your data: preparing_data.md
-    - CSV fields and Drupal fields: fields.md
+    - Drupal fields and CSV fields: fields.md
     - CSV file templates: csv_file_templates.md
     - CSV field templates: field_templates.md
     - Creating paged and compound content: paged_and_compound.md
