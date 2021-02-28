@@ -426,6 +426,7 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 <li>EDTF date fields</li>
 <li>entity reference (taxonomy and linked node) fields</li>
 <li>typed relation (taxonomy and linked node) fields</li>
+<li>link fields</li>
 <li>geolocation fields</li>
 </ul>
 <p>Drupal is very strict about not accepting malformed data. Therefore, Islandora Workbench needs to provide data to Drupal that is consistent with field types (string, taxonomy reference, EDTF, etc.) we are populating. This applies not only to Drupal's base fields (as we saw above) but to all fields. A field's type is indicated in the same place as its machine name, within the "Manage fields" section of each content type's configuration. The field types are circled in red in the screen shot below:</p>
@@ -636,6 +637,27 @@ http://purl.org/coar/resource_type/c_18cc
 </tbody>
 </table>
 <p>Subvalues in multivalued CSV fields are validated separately, e.g. if your CSV value is <code>2004-06/2006-08|2007-01/2007-04</code>, <code>2004-06/2006-08</code> and <code>2007-01/2007-04</code> are validated separately.</p>
+<h4 id="link-fields">Link fields</h4>
+<p>The Link field type stores URLs (e.g. 'https://acme.com') and link text in separate data elements. To add or update fields of this type, Workbench needs to provide the URL  and link text in these separate elements.</p>
+<p>Entering URL and link text pairs in CSV values requires separating the two elements with double percent signs (<code>%%</code>), like this:</p>
+<pre><code class="text">field_related_websites
+http://acme.com%%Acme Products Inc.
+</code></pre>
+
+<p>You can include multiple pairs of URL/link text pais in one CSV field if you separate them with the subdelimiter character:</p>
+<pre><code class="text">field_related_websites
+http://acme.com%%Acme Products Inc.|http://diy-first-aid.net%%DIY First Aid
+</code></pre>
+
+<p>The URL is required, but the link text is not. If you don't have or want any link text, simply leave it and the double quotation marks off:</p>
+<pre><code class="text">field_related_websites
+http://acme.com
+</code></pre>
+
+<pre><code class="text">field_related_websites
+http://acme.com||http://diy-first-aid.net%%DIY First Aid
+</code></pre>
+
 <h4 id="geolocation-fields">Geolocation fields</h4>
 <p>The Geolocation field type, managed by the <a href="https://www.drupal.org/project/geolocation">Geolocation Field</a> contrib module, stores latitude and longitude coordinates in separate data elements. To add or update fields of this type, Workbench needs to provide the latitude and longitude data in these separate elements.</p>
 <p>To simplify entering geocoordinates in the CSV file, Workbench allows geocoordinates to be in <code>lat,long</code> format, i.e., the latitude coordinate followed by a comma followed by the longitude coordinate. When Workbench reads your CSV file, it will split data on the comma into the required lat and long parts. An example of a single geocoordinate in a field would be:</p>
