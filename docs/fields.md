@@ -3,8 +3,8 @@ Workbench uses a CSV file to populate Islandora objects' metadata. This file con
 * strings (for string or text fields) like `Using Islandora Workbench for Fun and Profit`
 * integers (for `field_weight`, for example) like `1` or `7281`
 * the binary values `1` or `0`
-* Drupal-generated entity IDs (term IDs taxonomy terms or node IDs for collections and parents), which are integers like `10` or `3549`
-* structured strings, for typed relation (e.g., `relators:art:30`) and geolocation fields (e.g., `"49.16667,-123.93333"`)
+* Existing Drupal-generated entity IDs (term IDs for taxonomy terms or node IDs for collections and parents), which are integers like `10` or `3549`
+* structured strings, for typed relation (e.g., `relators:art:30`), link fields (e.g., `https://acme.net%%Acme Products`), and geolocation fields (e.g., `"49.16667,-123.93333"`)
 
 !!! note
     As is standard with CSV data, values do not need to be wrapped in double quotation marks (`"`) unless they contain an instance of the delimiter character (e.g., a comma) or line breaks. Spreadsheet applications such as Google Sheets, LibreOffice Calc, and Excel will output valid CSV data.
@@ -68,7 +68,7 @@ These are of two types of Drupal fields, base fields and content-type specific f
 
 Base fields are basic node properties, shared by all content types. The base fields you can include in your CSV file are:
 
-* `title`: This field is required for all rows in your CSV for the `create` task. Optional for the 'update' task. Drupal limits the title's length to 255 characters, and Workbench will check that titles are less than 255 characters unless your configuration file contains `validate_title_length: False` as described above.
+* `title`: This field is required for all rows in your CSV for the `create` task. Optional for the 'update' task. Drupal limits the title's length to 255 characters, and Workbench will check that titles are less than 255 characters unless your configuration file contains `validate_title_length: false` as described above.
 * `langcode`: The language of the node. Optional. If included, use one of Drupal's language codes as values (common values are 'en', 'fr', and 'es'; the entire list can be seen [here](https://git.drupalcode.org/project/drupal/-/blob/8.8.x/core/lib/Drupal/Core/Language/LanguageManager.php#L224). If absent, Drupal sets the value to the default value for your content type.
 * `uid`: The Drupal user ID to assign to the node and media created with the node. Optional. Only available in `create` tasks. If you are creating paged/compound objects from directories, this value is applied to the parent's children (if you are creating them using the page/child-level metadata method, these fields must be in your CSV metadata).
 * `created`: The timestamp to use in the node's "created" attribute and in the "created" attribute of the media created with the node. Optional, but if present, it must be in format 2020-11-15T23:49:22+00:00 (the +00:00 is the difference to Greenwich time/GMT). Only available in `create` tasks. If you are creating paged/compound objects from directories, this value is applied to the parent's children (if you are creating them using the page/child-level metadata method, these fields must be in your CSV metadata).
@@ -140,6 +140,7 @@ The following types of Drupal fields can be popualted from data in your input CS
 * EDTF date fields
 * entity reference (taxonomy and linked node) fields
 * typed relation (taxonomy and linked node) fields
+* link fields
 * geolocation fields
 
 Drupal is very strict about not accepting malformed data. Therefore, Islandora Workbench needs to provide data to Drupal that is consistent with field types (string, taxonomy reference, EDTF, etc.) we are populating. This applies not only to Drupal's base fields (as we saw above) but to all fields. A field's type is indicated in the same place as its machine name, within the "Manage fields" section of each content type's configuration. The field types are circled in red in the screen shot below:
@@ -344,6 +345,34 @@ Running Islandora Workbench with `--check` will validate the following subset of
 |  | [1672..] |
 
 Subvalues in multivalued CSV fields are validated separately, e.g. if your CSV value is `2004-06/2006-08|2007-01/2007-04`, `2004-06/2006-08` and `2007-01/2007-04` are validated separately.
+
+#### Link fields
+
+The Link field type stores URLs (e.g. `https://acme.com`) and link text in separate data elements. To add or update fields of this type, Workbench needs to provide the URL and link text in the stucture Drupal expects. To accomplish this within a single CSV field, we separate the URL and link text pairs in CSV values with double percent signs (`%%`), like this:
+
+```text
+field_related_websites
+http://acme.com%%Acme Products Inc.
+```
+
+You can include multiple pairs of URL/link text pais in one CSV field if you separate them with the subdelimiter character:
+
+```text
+field_related_websites
+http://acme.com%%Acme Products Inc.|http://diy-first-aid.net%%DIY First Aid
+```
+
+The URL is required, but the link text is not. If you don't have or want any link text, omit it and the double quotation marks:
+
+```text
+field_related_websites
+http://acme.com
+```
+
+```text
+field_related_websites
+http://acme.com|http://diy-first-aid.net%%DIY First Aid
+```
 
 #### Geolocation fields
 

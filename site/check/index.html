@@ -85,7 +85,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../fields/">CSV fields and Drupal fields</a>
+    <a class="" href="../fields/">Drupal fields and CSV fields</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -100,7 +100,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../paged_and_compound/">Creating paged and compound content</a>
+    <a class="" href="../paged_and_compound/">Creating paged, compound, and collection content</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -155,7 +155,7 @@
           
             <li class="toctree-l1">
 		
-    <a class="" href="../output_csv/">The output CSV file</a>
+    <a class="" href="../output_csv/">Generating an output CSV file</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -258,6 +258,7 @@
 <li>Field values<ul>
 <li>Base fields<ul>
 <li>If the <code>langcode</code> field is present in your CSV, whether values in it are valid Drupal language codes.</li>
+<li>Whether your CSV file contains a  <code>title</code> field (<code>create</code> task only)</li>
 <li>Whether values in the <code>title</code> field exceed Drupal's maximum length for titles of 255 characters (but this check is skipped if <code>validate_title_length</code> is set to <code>False</code>).</li>
 <li>If the <code>created</code> field is present in your CSV file, whether the values in it are formatted correctly (like "2020-11-15T23:49:22+00:00") and whether the date is in the past (both of which are Drupal requirements).</li>
 <li>If the <code>uid</code> field is present in your CSV file, whether the user IDs in that field exist in the target Drupal. Note that this check does not inspect permissions or roles, only that the user ID exists.</li>

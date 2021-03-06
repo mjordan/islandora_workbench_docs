@@ -73,5 +73,20 @@ Some important things to note:
 * `id` can be defined as another field name using the `id_field` configuration option. If you do define a different ID field using the `id_field` option, creating the parent/child relationships will still work.
 * The values of the `id` and `parent_id` columns do not have to follow any sequential pattern. Islandora Workbench treats them as simple strings and matches them on that basis, without looking for sequential relationships of any kind between the two fields.
 * The CSV records for children items don't need to come *immediately* after the record for their parent, but they do need to come after that record. This is because Workbench creates nodes in the order their records are in the CSV file (top to bottom). As long as the parent node has already been created when a child node is created, the parent/child relationship via the child's `field_member_of` will be correct.
-* Currently, you must include values in the children's `field_weight` column. It may be possible to automatically generate values for this field (see [this issue](https://github.com/mjordan/islandora_workbench/issues/84)).
+* Currently, you must include values in the children's `field_weight` column (except when creating a collection and its members at the same time; see below). It may be possible to automatically generate values for this field (see [this issue](https://github.com/mjordan/islandora_workbench/issues/84)).
 * Currently, Islandora model values (e.g. "Paged Content", "Page") are not automatically assigned. You must include the correct "Islandora Models" taxonomy term IDs in your `field_model` column for all parent and child records, as you would for any other Islandora objects you are creating. Like for `field_weight`, it may be possible to automatically generate values for this field (see [this issue](https://github.com/mjordan/islandora_workbench/issues/85)).
+
+### Creating collections and members together
+
+Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV:
+
+```text
+id,parent_id,file,title,field_model,field_member_of,field_weight
+1,,,A collection of animal photos,24,,
+2,1,cat.jpg,Picture of a cat,25,,
+3,1,dog.jpg,Picture of a dog,25,,
+3,1,horse.jpg,Picture of a horse,25,,
+```
+
+The use of the `parent_id` and `field_member_of` fields is the same here as when creating paged or compound children. However, unlike with paged or compound objects, in this case we leave the values in `field_weight` empty, since Islandora collections don't use `field_weight` to determine order of members. Collection Views are sorted using other fields.
+
