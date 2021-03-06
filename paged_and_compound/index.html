@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Creating paged and compound content - Islandora Workbench</title>
+  <title>Creating paged, compound, and collection content - Islandora Workbench</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Creating paged and compound content";
+    var mkdocs_page_name = "Creating paged, compound, and collection content";
     var mkdocs_page_input_path = "paged_and_compound.md";
     var mkdocs_page_url = null;
   </script>
@@ -91,13 +91,16 @@
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Creating paged and compound content</a>
+    <a class="current" href="./">Creating paged, compound, and collection content</a>
     <ul class="subnav">
             
     <li class="toctree-l2"><a href="#using-subdirectories">Using subdirectories</a></li>
     
 
     <li class="toctree-l2"><a href="#with-pagechild-level-metadata">With page/child-level metadata</a></li>
+    
+
+    <li class="toctree-l2"><a href="#creating-collections-and-members-together">Creating collections and members together</a></li>
     
 
     </ul>
@@ -210,7 +213,7 @@
     
       
     
-    <li>Creating paged and compound content</li>
+    <li>Creating paged, compound, and collection content</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/paged_and_compound.md"
@@ -286,6 +289,16 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 <li>Currently, you must include values in the children's <code>field_weight</code> column. It may be possible to automatically generate values for this field (see <a href="https://github.com/mjordan/islandora_workbench/issues/84">this issue</a>).</li>
 <li>Currently, Islandora model values (e.g. "Paged Content", "Page") are not automatically assigned. You must include the correct "Islandora Models" taxonomy term IDs in your <code>field_model</code> column for all parent and child records, as you would for any other Islandora objects you are creating. Like for <code>field_weight</code>, it may be possible to automatically generate values for this field (see <a href="https://github.com/mjordan/islandora_workbench/issues/85">this issue</a>).</li>
 </ul>
+<h3 id="creating-collections-and-members-together">Creating collections and members together</h3>
+<p>Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV:</p>
+<pre><code class="text">id,parent_id,file,title,field_model,field_member_of,field_weight
+1,,,A collection of animal photos,24,,
+2,1,cat.jpg,Picture of a cat,25,,
+3,1,dog.jpg,Picture of a dog,25,,
+3,1,horse.jpg,Picture of a horse,25,,
+</code></pre>
+
+<p>The use of the <code>parent_id</code> and <code>field_member_of</code> field is the same here as when creating paged or compound children. However, unlike with paged or compound objects, in this case we leave the values in <code>field_weight</code> blank, since Islandora collections don't use <code>field_weight</code> to determine order of members. Collection Views are sorted using other fields.</p>
               
             </div>
           </div>
