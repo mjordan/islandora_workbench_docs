@@ -479,6 +479,10 @@ img003.png,Picture of yarn and needles,&quot;Yarn, Balls of|Knitting needles&quo
 <li><code>--check</code> will identify any new terms that exceed Drupal's maxiumum allowed length for term names, 255 characters. If a term name is longer than 255 characters, Workbench will truncate it at that length, log that it has done so, and create the term.</li>
 <li>Taxonomy terms created with new nodes are not removed when you delete the nodes.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you woud rather import vocabularies before referencing them using Workbench, check out the <a href="https://www.drupal.org/project/taxonomy_import">Taxonomy Import</a> contrib module.</p>
+</div>
 <h5 id="using-term-names-in-multi-vocabulary-fields">Using term names in multi-vocabulary fields</h5>
 <p>While most node taxonomy fields reference only a single vocabulary, Drupal does allow fields to reference multiple vocabularies. This ability poses a problem when we use term names instead of term IDs in our CSV files: in a multi-vocabulary field, Workbench can't be sure which term name belongs in which of the multiple vocabularies referenced by that field. This applies to both existing terms and to new terms we want to add when creating node content.</p>
 <p>To avoid this problem, we need to tell Workbench which of the multple vocabularies each term name should (or does) belong to. We do this by namespacing terms with the applicable vocabulary ID.</p>
