@@ -460,7 +460,10 @@ img003.png,Picture of yarn and needles,&quot;Yarn, Balls of|Knitting needles&quo
 </code></pre>
 
 <p>By default, if you use a term name in your CSV data that doesn't match a term name that exists in the referenced taxonomy, Workbench will detect this when you use <code>--check</code>, warn you, and exit. This strict default helps prevent users from accidentally adding unwanted terms through data entry error.</p>
-<p>However, if you add <code>allow_adding_terms: true</code> to your configuration file for <code>create</code> and <code>update</code> tasks, Workbench will create the new term the first time it is used in the CSV file following these rultes:</p>
+<p>Existing terms can be from any point in a vocabulary's hierarchy. In other words, if you have a vocabulary whose structure looks like this:</p>
+<p><img alt="Hierarchical_vocabulary" src="../images/hierarchical_vocab.png" /></p>
+<p>you can use the terms IDs, labels, or term URIs for "Automobiles", "Sports cars", or "Land Rover" in your CSV.</p>
+<p>If you add <code>allow_adding_terms: true</code> to your configuration file for <code>create</code> and <code>update</code> tasks, Workbench will create the new term the first time it is used in the CSV file following these rultes:</p>
 <ul>
 <li>If multiple records in your CSV contain the same new term name in the same field, the term is only created once.</li>
 <li>When Workbench checks to see if the term with the new name exists in the target vocabulary, it normalizes it and compares it with existing term names in that vocabulary, applying these normalization rules to both the new term and the existing terms:<ul>
@@ -472,9 +475,6 @@ img003.png,Picture of yarn and needles,&quot;Yarn, Balls of|Knitting needles&quo
 </ul>
 </li>
 </ul>
-<p>Existing terms can be from any point in a vocabulary's hierarchy. In other words, if you have a vocabulary whose structure looks like this:</p>
-<p><img alt="Hierarchical_vocabulary" src="../images/hierarchical_vocab.png" /></p>
-<p>you can use the terms IDs, labels, or term URIs for "Automobiles", "Sports cars", or "Land Rover" in your CSV.</p>
 <p>Adding new terms has some contraints:</p>
 <ul>
 <li>Creating taxonomy terms by including them in your CSV file adds new terms to the root of the applicable vocabulary. Workbench cannot create a new term that has another term as its parent (i.e. terms below the top leve of a hierarchical taxonomy). However, for existing terms, Workbench doesn't care where they are in a taxonomy's hierarchy. <a href="https://github.com/mjordan/islandora_workbench/issues/236">Issue 236</a> will provide the ability to create hierarchal terms on the fly.</li>
