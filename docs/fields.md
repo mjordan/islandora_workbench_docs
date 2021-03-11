@@ -181,7 +181,7 @@ img003.png,Picture of yarn and needles,"Yarn, Balls of|Knitting needles"
 ```
 By default, if you use a term name in your CSV data that doesn't match a term name that exists in the referenced taxonomy, Workbench will detect this when you use `--check`, warn you, and exit. This strict default helps prevent users from accidentally adding unwanted terms through data entry error.
 
-Existing terms can be from any point in a vocabulary's hierarchy. In other words, if you have a vocabulary whose structure looks like this:
+Terms can be from any point in a vocabulary's hierarchy. In other words, if you have a vocabulary whose structure looks like this:
 
 ![Hierarchical_vocabulary](images/hierarchical_vocab.png)
 
@@ -199,7 +199,7 @@ If you add `allow_adding_terms: true` to your configuration file for `create` an
 
 Adding new terms has some contraints:
 
-* Creating taxonomy terms by including them in your CSV file adds new terms to the root of the applicable vocabulary. Workbench cannot create a new term that has another term as its parent (i.e. terms below the top leve of a hierarchical taxonomy). However, for existing terms, Workbench doesn't care where they are in a taxonomy's hierarchy. [Issue 236](https://github.com/mjordan/islandora_workbench/issues/236) will provide the ability to create terms at any level of a vocabulary's hierarchy.
+* Creating taxonomy terms by including them in your CSV file adds new terms to the root of the applicable vocabulary. Workbench cannot currently create a new term that has another term as its parent (i.e. terms below the top leve of a hierarchical taxonomy). However, for existing terms, Workbench doesn't care where they are in a taxonomy's hierarchy. [Issue 236](https://github.com/mjordan/islandora_workbench/issues/236) will provide the ability to create terms at any level of a vocabulary's hierarchy.
 * Terms created in this way do not have any external URIs. If you want your terms to have external URIs, you will need to either create the terms manually or add the URIs manually after the terms are created by Islandora Workbench.
 * `--check` will identify any new terms that exceed Drupal's maxiumum allowed length for term names, 255 characters. If a term name is longer than 255 characters, Workbench will truncate it at that length, log that it has done so, and create the term.
 * Taxonomy terms created with new nodes are not removed when you delete the nodes.
