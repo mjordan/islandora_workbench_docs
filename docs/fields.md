@@ -185,7 +185,7 @@ Existing terms can be from any point in a vocabulary's hierarchy. In other words
 
 ![Hierarchical_vocabulary](images/hierarchical_vocab.png)
 
-you can use the terms IDs, labels, or term URIs for "Automobiles", "Sports cars", or "Land Rover" in your CSV.
+you can use the terms IDs, labels, or term URIs for "Automobiles", "Sports cars", or "Land Rover" in your CSV. The term (or ID or URI) is all you need; the parent term is not required.
 
 If you add `allow_adding_terms: true` to your configuration file for `create` and `update` tasks, Workbench will create the new term the first time it is used in the CSV file following these rultes:
 
