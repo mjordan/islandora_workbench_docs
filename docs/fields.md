@@ -181,11 +181,11 @@ img003.png,Picture of yarn and needles,"Yarn, Balls of|Knitting needles"
 ```
 By default, if you use a term name in your CSV data that doesn't match a term name that exists in the referenced taxonomy, Workbench will detect this when you use `--check`, warn you, and exit. This strict default helps prevent users from accidentally adding unwanted terms through data entry error.
 
-Terms can be from any point in a vocabulary's hierarchy. In other words, if you have a vocabulary whose structure looks like this:
+Terms can be from any level in a vocabulary's hierarchy. In other words, if you have a vocabulary whose structure looks like this:
 
 ![Hierarchical_vocabulary](images/hierarchical_vocab.png)
 
-you can use the terms IDs, labels, or term URIs for "Automobiles", "Sports cars", or "Land Rover" in your CSV. The term (or ID or URI) is all you need; the parent term is not required.
+you can use the terms IDs or labels for "Automobiles", "Sports cars", or "Land Rover" in your CSV. The term (or ID or URI) is all you need; no indication of the term's place in the hierarchy is required.
 
 If you add `allow_adding_terms: true` to your configuration file for `create` and `update` tasks, Workbench will create the new term the first time it is used in the CSV file following these rultes:
 
