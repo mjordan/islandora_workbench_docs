@@ -181,7 +181,13 @@ img003.png,Picture of yarn and needles,"Yarn, Balls of|Knitting needles"
 ```
 By default, if you use a term name in your CSV data that doesn't match a term name that exists in the referenced taxonomy, Workbench will detect this when you use `--check`, warn you, and exit. This strict default helps prevent users from accidentally adding unwanted terms through data entry error.
 
-However, if you add `allow_adding_terms: true` to your configuration file for `create` and `update` tasks, Workbench will create the new term the first time it is used in the CSV file following these rultes:
+Existing terms can be from any point in a vocabulary's hierarchy. In other words, if you have a vocabulary whose structure looks like this:
+
+![Hierarchical_vocabulary](images/hierarchical_vocab.png)
+
+you can use the terms IDs, labels, or term URIs for "Automobiles", "Sports cars", or "Land Rover" in your CSV.
+
+If you add `allow_adding_terms: true` to your configuration file for `create` and `update` tasks, Workbench will create the new term the first time it is used in the CSV file following these rultes:
 
 * If multiple records in your CSV contain the same new term name in the same field, the term is only created once.
 * When Workbench checks to see if the term with the new name exists in the target vocabulary, it normalizes it and compares it with existing term names in that vocabulary, applying these normalization rules to both the new term and the existing terms:
@@ -191,15 +197,9 @@ However, if you add `allow_adding_terms: true` to your configuration file for `c
     * It removes all punctuation.
     * After normalizing the term name using the above four rules, if the term name you provide in the CSV file does not match any existing term names in the vocabulary linked to the field after these normalization rules are applied, it is used to create a new taxonomy term. If it does match, Workbench populates the field in your nodes with the matching term.
 
-Existing terms can be from any point in a vocabulary's hierarchy. In other words, if you have a vocabulary whose structure looks like this:
-
-![Hierarchical_vocabulary](images/hierarchical_vocab.png)
-
-you can use the terms IDs, labels, or term URIs for "Automobiles", "Sports cars", or "Land Rover" in your CSV.
-
 Adding new terms has some contraints:
 
-* Creating taxonomy terms by including them in your CSV file adds new terms to the root of the applicable vocabulary. Workbench cannot create a new term that has another term as its parent (i.e. terms below the top leve of a hierarchical taxonomy). However, for existing terms, Workbench doesn't care where they are in a taxonomy's hierarchy. [Issue 236](https://github.com/mjordan/islandora_workbench/issues/236) will provide the ability to create hierarchal terms on the fly.
+* Creating taxonomy terms by including them in your CSV file adds new terms to the root of the applicable vocabulary. Workbench cannot create a new term that has another term as its parent (i.e. terms below the top leve of a hierarchical taxonomy). However, for existing terms, Workbench doesn't care where they are in a taxonomy's hierarchy. [Issue 236](https://github.com/mjordan/islandora_workbench/issues/236) will provide the ability to create terms at any level of a vocabulary's hierarchy.
 * Terms created in this way do not have any external URIs. If you want your terms to have external URIs, you will need to either create the terms manually or add the URIs manually after the terms are created by Islandora Workbench.
 * `--check` will identify any new terms that exceed Drupal's maxiumum allowed length for term names, 255 characters. If a term name is longer than 255 characters, Workbench will truncate it at that length, log that it has done so, and create the term.
 * Taxonomy terms created with new nodes are not removed when you delete the nodes.
