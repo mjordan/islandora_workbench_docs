@@ -15,3 +15,6 @@ node_id,url_alias
 ```
 
 No other configuration is required. URL aliases must start with a forward slash (`/`). When you run Workbench with its `--check` option, it will check whether each alias starts with this character, and whether the alias already exists.
+
+!!! note
+    This method of assigning URL aliases is useful if you have pre-existing aliases. If you want to assign URL aliases that are derived from node-specific field data (like title, date, taxonomy terms, etc.), you can use the Drupal contrib module [Pathauto](https://www.drupal.org/project/pathauto) instead.

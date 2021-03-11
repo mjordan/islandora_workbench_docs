@@ -59,7 +59,6 @@ A small number of columns are required in your CSV, depending on the task you ar
 
 If a required field is missing from your CSV, `--check` will tell you.
 
-
 ## CSV fields that contain Drupal field data
 
 These are of two types of Drupal fields, base fields and content-type specific fields.
@@ -192,12 +191,21 @@ However, if you add `allow_adding_terms: true` to your configuration file for `c
     * It removes all punctuation.
     * After normalizing the term name using the above four rules, if the term name you provide in the CSV file does not match any existing term names in the vocabulary linked to the field after these normalization rules are applied, it is used to create a new taxonomy term. If it does match, Workbench populates the field in your nodes with the matching term.
 
+Existing terms can be from any point in a vocabulary's hierarchy. In other words, if you have a vocabulary whose structure looks like this:
+
+![Hierarchical_vocabulary](images/hierarchical_vocab.png)
+
+you can use the terms IDs, labels, or term URIs for "Automobiles", "Sports cars", or "Land Rover" in your CSV.
+
 Adding new terms has some contraints:
 
-* Creating taxonomy terms by including them in your CSV file adds new terms to the root of the applicable vocabulary. Workbench cannot create a new term that has another term as its parent (i.e. terms below the top leve of a hierarchical taxonomy). However, for existing terms, Workbench doesn't care where they are in a taxonomy's hierarchy.
+* Creating taxonomy terms by including them in your CSV file adds new terms to the root of the applicable vocabulary. Workbench cannot create a new term that has another term as its parent (i.e. terms below the top leve of a hierarchical taxonomy). However, for existing terms, Workbench doesn't care where they are in a taxonomy's hierarchy. [Issue 236](https://github.com/mjordan/islandora_workbench/issues/236) will provide the ability to create hierarchal terms on the fly.
 * Terms created in this way do not have any external URIs. If you want your terms to have external URIs, you will need to either create the terms manually or add the URIs manually after the terms are created by Islandora Workbench.
 * `--check` will identify any new terms that exceed Drupal's maxiumum allowed length for term names, 255 characters. If a term name is longer than 255 characters, Workbench will truncate it at that length, log that it has done so, and create the term.
 * Taxonomy terms created with new nodes are not removed when you delete the nodes.
+
+!!! note
+    If you woud rather import vocabularies before referencing them using Workbench, check out the [Taxonomy Import](https://www.drupal.org/project/taxonomy_import) contrib module.
 
 ##### Using term names in multi-vocabulary fields
 
