@@ -449,11 +449,7 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 <h4 id="taxonomy-reference-fields">Taxonomy reference fields</h4>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In the list of a content type's fields, as pictured above, Drupal uses "Entity reference" for all types of entity reference fields, of which Taxonomy references are one. The other most common kink of entity reference field is a node reference field.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Currently, Isandora Workbench cannot create new taxonomy terms that have required fields other than the core term name field. <a href="https://github.com/mjordan/islandora_workbench/issues/111">This issue</a> addresses that limitation. As that issue documents, in order to support additional fields on taxonomy terms (both required and optional), Workbench will need a way to express complex term data in its input CSV. If you have an opinion on how this can be done, please leave a comment at that issue.  </p>
+<p>In the list of a content type's fields, as pictured above, Drupal uses "Entity reference" for all types of entity reference fields, of which Taxonomy references are one. The other most common kink of entity reference field is a node reference field.  </p>
 </div>
 <p>Islandora Workbench lets you assign both existing and new taxonomy terms to nodes. Creating new terms on demand during node creation reduces the need to prepopulate your vocabularies prior to creating nodes.</p>
 <p>In CSV columns for taxonomy fields, you can use either term IDs (integers) or term names (strings). You can even mix IDs and names in the same field:</p>
@@ -481,10 +477,12 @@ img003.png,Picture of yarn and needles,&quot;Yarn, Balls of|Knitting needles&quo
 </ul>
 <p>Adding new terms has some contraints:</p>
 <ul>
-<li>Creating taxonomy terms by including them in your CSV file adds new terms to the root of the applicable vocabulary. Workbench cannot currently create a new term that has another term as its parent (i.e. terms below the top leve of a hierarchical taxonomy). However, for existing terms, Workbench doesn't care where they are in a taxonomy's hierarchy. <a href="https://github.com/mjordan/islandora_workbench/issues/236">Issue 236</a> will provide the ability to create terms at any level of a vocabulary's hierarchy.</li>
 <li>Terms created in this way do not have any external URIs. If you want your terms to have external URIs, you will need to either create the terms manually or add the URIs manually after the terms are created by Islandora Workbench.</li>
 <li><code>--check</code> will identify any new terms that exceed Drupal's maxiumum allowed length for term names, 255 characters. If a term name is longer than 255 characters, Workbench will truncate it at that length, log that it has done so, and create the term.</li>
 <li>Taxonomy terms created with new nodes are not removed when you delete the nodes.</li>
+<li>Currently, Islandora Workbench has the following limitations:</li>
+<li>It cannot create new taxonomy terms that have required fields other than the core term name field. <a href="https://github.com/mjordan/islandora_workbench/issues/111">This issue</a> addresses that limitation. As that issue documents, in order to support additional fields on taxonomy terms (both required and optional), Workbench will need a way to express complex term data in its input CSV. If you have an opinion on how this can be done, please leave a comment at that issue.</li>
+<li>Workbench cannot currently create a new term that has another term as its parent (i.e. terms below the top leve of a hierarchical taxonomy). However, for existing terms, Workbench doesn't care where they are in a taxonomy's hierarchy. <a href="https://github.com/mjordan/islandora_workbench/issues/236">Issue 236</a> will provide the ability to create terms at any level of a vocabulary's hierarchy. Creating taxonomy terms by including them in your CSV file adds new terms to the root of the applicable vocabulary.</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
