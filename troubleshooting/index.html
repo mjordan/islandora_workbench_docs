@@ -232,7 +232,7 @@
 </div>
 <h2 id="workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-in-the-log-mentioning-http-response-code-422">Workbench is failing to ingest some nodes and is leaving messages in the log mentioning HTTP response code 422.</h2>
 <p>This is probably caused by unexpected data in your CSV file that Workbench's <code>--check</code> validation is not finding. If you encounter these messages, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a> and share any relevant entries in your Drupal log so we can track down the problem.</p>
-<p>One of the main reasons for this error is that one or more of the vocabularies being poplated in your CSV contain required fields. Currently, Islandora Workbench <a href="https://github.com/mjordan/islandora_workbench/issues/111">cannot handle</a>.</p>
+<p>One of the main reasons for this error is that one or more of the vocabularies being poplated in your CSV contain required fields, someting which Islandora Workbench <a href="https://github.com/mjordan/islandora_workbench/issues/111">cannot currently handle</a>.</p>
 <h2 id="-check-is-telling-me-that-one-the-rows-in-my-csv-file-has-more-columns-than-headers">--check is telling me that one the rows in my CSV file has more columns than headers</h2>
 <p>The most likely problem is that one of your CSV values contains a comma but is not wrapped in double quotes. </p>
 <h2 id="the-text-in-my-csv-does-not-match-how-it-looks-when-i-view-it-in-drupal">The text in my CSV does not match how it looks when I view it in Drupal</h2>
