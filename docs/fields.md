@@ -167,7 +167,7 @@ Some things to note about Drupal text fields:
 #### Taxonomy reference fields
 
 !!! note
-    In the list of a content type's fields, as pictured above, Drupal uses "Entity reference" for all types of entity reference fields, of which Taxonomy references are one. The other most common kink of entity reference field is a node reference field.
+    In the list of a content type's fields, as pictured above, Drupal uses "Entity reference" for all types of entity reference fields, of which Taxonomy references are one. The other most common kink of entity reference field is a node reference field.  
 
 Islandora Workbench lets you assign both existing and new taxonomy terms to nodes. Creating new terms on demand during node creation reduces the need to prepopulate your vocabularies prior to creating nodes.
 
@@ -199,10 +199,12 @@ If you add `allow_adding_terms: true` to your configuration file for `create` an
 
 Adding new terms has some contraints:
 
-* Creating taxonomy terms by including them in your CSV file adds new terms to the root of the applicable vocabulary. Workbench cannot currently create a new term that has another term as its parent (i.e. terms below the top leve of a hierarchical taxonomy). However, for existing terms, Workbench doesn't care where they are in a taxonomy's hierarchy. [Issue 236](https://github.com/mjordan/islandora_workbench/issues/236) will provide the ability to create terms at any level of a vocabulary's hierarchy.
 * Terms created in this way do not have any external URIs. If you want your terms to have external URIs, you will need to either create the terms manually or add the URIs manually after the terms are created by Islandora Workbench.
 * `--check` will identify any new terms that exceed Drupal's maxiumum allowed length for term names, 255 characters. If a term name is longer than 255 characters, Workbench will truncate it at that length, log that it has done so, and create the term.
 * Taxonomy terms created with new nodes are not removed when you delete the nodes.
+* Currently, Islandora Workbench has the following limitations:
+    * It cannot create new taxonomy terms that have required fields other than the core term name field. [This issue](https://github.com/mjordan/islandora_workbench/issues/111) addresses that limitation. As that issue documents, in order to support additional fields on taxonomy terms (both required and optional), Workbench will need a way to express complex term data in its input CSV. If you have an opinion on how this can be done, please leave a comment at that issue.
+    * Workbench cannot currently create a new term that has another term as its parent (i.e. terms below the top leve of a hierarchical taxonomy). However, for existing terms, Workbench doesn't care where they are in a taxonomy's hierarchy. [Issue 236](https://github.com/mjordan/islandora_workbench/issues/236) will provide the ability to create terms at any level of a vocabulary's hierarchy. Creating taxonomy terms by including them in your CSV file adds new terms to the root of the applicable vocabulary.
 
 !!! note
     If you woud rather import vocabularies before referencing them using Workbench, check out the [Taxonomy Import](https://www.drupal.org/project/taxonomy_import) contrib module.
