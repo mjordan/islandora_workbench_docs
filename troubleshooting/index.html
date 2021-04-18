@@ -187,6 +187,9 @@
     <li class="toctree-l2"><a href="#the-text-in-my-csv-does-not-match-how-it-looks-when-i-view-it-in-drupal">The text in my CSV does not match how it looks when I view it in Drupal</a></li>
     
 
+    <li class="toctree-l2"><a href="#my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use">My Islandora uses a custom media type and I need to tell Workbench what file field to use.</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -236,6 +239,22 @@
 <p>The most likely problem is that one of your CSV values contains a comma but is not wrapped in double quotes. </p>
 <h2 id="the-text-in-my-csv-does-not-match-how-it-looks-when-i-view-it-in-drupal">The text in my CSV does not match how it looks when I view it in Drupal</h2>
 <p>If a field is configured in Drupal to use <a href="https://www.drupal.org/node/213156">text filters</a>, the HTML that is displayed to the user may not be exactly the same as the content of the node add/edit form field. If you check the node add/edit form, the content of the field should match the content of the CSV field. If it does, it is likely that Drupal is apply a text filter.</p>
+<h2 id="my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use">My Islandora uses a custom media type and I need to tell Workbench what file field to use.</h2>
+<p>If you need to create a media that is not one of the standard Islandora types (Image, File, Digital Document, Video, Audio, Extracted Text, or FITS Technical metadata), you will need to include the  <code>media_file_fields</code> setting in your config file, like this:</p>
+<pre><code>media_file_fields:
+ - mycustommedia_machine_name: field_custom_file
+ - myothercustommedia_machine_name: field_other_custom_file
+</code></pre>
+
+<p>This configuration setting adds entries to the following default mapping of media types to file field names:</p>
+<pre><code>'file': 'field_media_file',
+'document': 'field_media_document',
+'image': 'field_media_image',
+'audio': 'field_media_audio_file',
+'video': 'field_media_video_file',
+'extracted_text': 'field_media_file',
+'fits_technical_metadata': 'field_media_file'
+</code></pre>
               
             </div>
           </div>

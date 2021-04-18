@@ -487,7 +487,7 @@ password: islandora
 <td>media_use_tid</td>
 <td></td>
 <td><code>http://pcdm.org/use#OriginalFile</code></td>
-<td>The term ID for the term from the "Islandora Media Use" vocabulary you want to apply to the media being created. You can provide a term URI instead of a term ID, for example <code>"http://pcdm.org/use#OriginalFile"</code>.</td>
+<td>The term ID for the term from the "Islandora Media Use" vocabulary you want to apply to the media being created. You can provide a term URI instead of a term ID, for example <code>"http://pcdm.org/use#OriginalFile"</code>. You can specify multiple values for this setting by joining them with the subdelimiter configured in the <code>subdelimiter</code> setting; for example, <code>media_use_tid: 17|18</code>.</td>
 </tr>
 <tr>
 <td>media_type [singular]</td>
@@ -518,6 +518,12 @@ password: islandora
 <td></td>
 <td>false</td>
 <td>For remote files, if set to <code>true</code>, remote file is deleted after it is used to create media. If <code>false</code>, downloaded file will remain in your <code>input_dir</code>.</td>
+</tr>
+<tr>
+<td>media_file_fields</td>
+<td></td>
+<td></td>
+<td>Defines the name of the field that refers to the file in an Islandora media.</td>
 </tr>
 </tbody>
 </table>
