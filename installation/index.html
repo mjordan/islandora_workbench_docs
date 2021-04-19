@@ -259,10 +259,10 @@
 <p>After you pull in the latest changes using <code>git</code>, it's a good idea to rerun the setup tools in case new Python libraries have been added since you last ran the setup tools (same command as above):</p>
 <p><code>sudo python3 setup.py install</code></p>
 <h2 id="note-about-drupal-91-or-earlier">Note about Drupal 9.1 or earlier</h2>
-<p>If you are running Islandora using Drupal 8.x - 9.1, Workbench cannot use Drupal's core REST endpoints for creating files and media. For Drupal 9.2, please be aware of the following two issues:</p>
+<p>In Drupal 8.x - 9.1, Workbench cannot use Drupal's core REST endpoints for creating files and media. If you are using these versions of Drupal, please be aware of the following two issues:</p>
 <ul>
-<li>Approximately 10% of media creation attempts fail. Workbench will log these failures. Additional information is available in this <a href="https://github.com/Islandora/documentation/issues/1481">issue</a>.</li>
-<li>File with a name that already exists in Islandora will overwrite the existing file, as reported in this <a href="https://github.com/Islandora/documentation/issues/1790">issue</a>.</li>
+<li>Approximately 10% of media creation attempts will likely fail. Workbench will log these failures. Additional information is available in this <a href="https://github.com/Islandora/documentation/issues/1481">issue</a>.</li>
+<li>A file with a filename that already exists in Islandora will overwrite the existing file, as reported in this <a href="https://github.com/Islandora/documentation/issues/1790">issue</a>.</li>
 </ul>
 <p>To avoid these issues, you nee to be running Drupal version 9.2 or higher.</p>
               
