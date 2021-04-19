@@ -353,6 +353,12 @@ password: islandora
 <td>true</td>
 <td>Whether or not to check if title values in the CSV exceed Drupal's maximum allowed length of 255 characters. Defaults to true. Set to false if you are using a module that lets you override Drupal's maximum title length, such as <a href="https://www.drupal.org/project/title_length">Node Title Length</a> or <a href="https://www.drupal.org/project/entity_title_length">Entity Title Length</a>. Also, if your task is <code>update</code>, you should set this to false if <code>title</code> is not one of the fields you are updating.</td>
 </tr>
+<tr>
+<td>list_missing_drupal_fields</td>
+<td></td>
+<td>false</td>
+<td>Set to <code>true</code> to tell Workbench to provide a list of fields that exist in your input CSV but that cannot be matched to Drupal field names (or reserved column names such as "file"). If <code>false</code>, Workbench will still check for CSV column headers that it can't match to Drupal fields, but will exit upon finding the first such field. This option produces a list of fields instead of exiting on detecting the first field.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="input-data-location-settings">Input data location settings</h3>
