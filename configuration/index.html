@@ -333,7 +333,7 @@ password: islandora
 <td>drupal_filesystem</td>
 <td></td>
 <td>fedora://</td>
-<td>One of 'fedora://', 'public://', or 'private://'.</td>
+<td>One of 'fedora://', 'public://', or 'private://'. Only used with Drupal 8.x - 9.1; starting with Drupal 9.2, the filesystem is automatically detected from the media's configuration.</td>
 </tr>
 <tr>
 <td>allow_adding_terms</td>
@@ -487,7 +487,7 @@ password: islandora
 <td>media_use_tid</td>
 <td></td>
 <td><code>http://pcdm.org/use#OriginalFile</code></td>
-<td>The term ID for the term from the "Islandora Media Use" vocabulary you want to apply to the media being created. You can provide a term URI instead of a term ID, for example <code>"http://pcdm.org/use#OriginalFile"</code>. You can specify multiple values for this setting by joining them with the subdelimiter configured in the <code>subdelimiter</code> setting; for example, <code>media_use_tid: 17|18</code>.</td>
+<td>The term ID for the term from the "Islandora Media Use" vocabulary you want to apply to the media being created. You can provide a term URI instead of a term ID, for example <code>"http://pcdm.org/use#OriginalFile"</code>. You can specify multiple values for this setting by joining them with the subdelimiter configured in the <code>subdelimiter</code> setting; for example, <code>media_use_tid: 17|18</code>. You can also set this at the object level by including <code>media_use_tid</code> in your CSV file; values there will override the value set in your configuration file.</td>
 </tr>
 <tr>
 <td>media_type [singular]</td>
