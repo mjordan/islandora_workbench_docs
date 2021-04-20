@@ -293,7 +293,33 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 </ul>
 <h3 id="using-a-secondary-task">Using a secondary task</h3>
 <p>You can configure Islandora Workbench to execute two tasks - a primary and a secondary task - that will result in all the objects described in both tasks being ingested at one time. By referencing the row IDs used in the primary task from the secondary tasks's CSV file, you can establish parent-child relationships. The benefit of using this method that each task has its own unique configuration file, allowing you to create children that have a different Drupal content type than their parents.</p>
+<p>When using a secondary task, the references from children's CSV data to their parent's IDs works much like it does in the "With page/child-level metadata" method, above, but the references are between CSV files. In other words, the parents and children each have their own CSV input file (and in fact, their own configuration file). In this example, the top (primary) CSV file describes the parents, and the bottom (secondary) CSV file describes the children:</p>
 <p><img alt="Secondary task CSV" src="../images/secondary_tasks.png" /></p>
+<p>As you can see, values in the <code>parent_id</code> column in the secondary CSV reference values in the <code>id</code> column in the primary CSV.</p>
+<p>You configure secondary tasks by adding the <code>secondary_tasks</code> setting to your primary configuration file, like this:</p>
+<pre><code>task: create
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+secondary_tasks: ['children.yml']
+input_csv: parents.csv
+</code></pre>
+
+<p>In the <code>secondary_tasks</code> setting, you name the configuration file of the secondary task. The secondary task's configuration file contains no indication that it's a secondary task:</p>
+<pre><code>task: create
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+input_csv: kids.csv
+</code></pre>
+
+<p>When you run Workbench, it executes the primary task first, then the secondary task. Workbench keeps track of the node IDs created in the first task, and during the execution of the second task, uses the CSV row IDs from the first task to populate the <code>field_member_of</code> values in the secondary task with the corresponding node IDs.</p>
+<p>Some things to note about secondary tasks:</p>
+<ul>
+<li>When you have a secondary task configured, running <code>--check</code> will validate both tasks' configuration and input data.</li>
+<li>As already stated, each task has its own configuration file, so you can speficy a <code>content_type</code> value in your secondary configuration file that differs from the <code>content_type</code> of the primary task.</li>
+<li>You can include more than one secondary task in your configuration. For example, <code>secondary_tasks: ['first.yml', 'second.yml']</code> will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order.</li>
+</ul>
 <h3 id="creating-collections-and-members-together">Creating collections and members together</h3>
 <p>Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV:</p>
 <pre><code class="text">id,parent_id,file,title,field_model,field_member_of,field_weight
