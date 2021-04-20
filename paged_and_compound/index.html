@@ -363,7 +363,7 @@ csv_field_templates:
 <tr>
 <td>Parent/child-level metadata in same CSV</td>
 <td>References from child's <code>parent_id</code> to parent's <code>id</code> in same CSV data</td>
-<td>Field and values required in child rows</td>
+<td>Column required; values required in child rows</td>
 <td>Allows including parent and child metadatain same CSV.</td>
 </tr>
 <tr>
@@ -374,8 +374,8 @@ csv_field_templates:
 </tr>
 <tr>
 <td>Collections and members together</td>
-<td>References from child (member) <code>parent_id</code> fields to parent (collection) <code>id</code> fields</td>
-<td>Column required in CSV but must be empty</td>
+<td>References from child (member) <code>parent_id</code> fields to parent (collection) <code>id</code> fields in same CSV data</td>
+<td>Column required in CSV but must be empty (collections do not use weight to determine sort order)</td>
 <td>Allows creation of collection and members in same Islandora Workbench job.</td>
 </tr>
 </tbody>
