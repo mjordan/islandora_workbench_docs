@@ -319,7 +319,7 @@ input_csv: kids.csv
 <ul>
 <li>Only "create" tasks can be used as the primary and secondary tasks.</li>
 <li>When you have a secondary task configured, running <code>--check</code> will validate both tasks' configuration and input data.</li>
-<li>The secondary CSV must contain the columns <code>parent_id</code>, <code>field_weight</code>, and <code>field_member_of</code>. <code>field_member_of</code> must be empty, since it is auto-populated by Workbench.</li>
+<li>The secondary CSV must contain <code>parent_id</code>, <code>field_weight</code>, and <code>field_member_of</code> columns. <code>field_member_of</code> must be empty, since it is auto-populated by Workbench.</li>
 <li>As already stated, each task has its own configuration file, so you can specify a <code>content_type</code> value in your secondary configuration file that differs from the <code>content_type</code> of the primary task.</li>
 <li>You can include more than one secondary task in your configuration. For example, <code>secondary_tasks: ['first.yml', 'second.yml']</code> will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order.</li>
 </ul>
