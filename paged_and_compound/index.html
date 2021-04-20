@@ -292,11 +292,11 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 <li>Currently, Islandora model values (e.g. "Paged Content", "Page") are not automatically assigned. You must include the correct "Islandora Models" taxonomy term IDs in your <code>field_model</code> column for all parent and child records, as you would for any other Islandora objects you are creating. Like for <code>field_weight</code>, it may be possible to automatically generate values for this field (see <a href="https://github.com/mjordan/islandora_workbench/issues/85">this issue</a>).</li>
 </ul>
 <h3 id="using-a-secondary-task">Using a secondary task</h3>
-<p>You can configure Islandora Workbench to execute two "create" tasks - a primary and a secondary - that will result in all the objects described in both CSV files being ingested during a single run of Workbench. By referencing the row IDs in the primary task's CSV file from the secondary tasks's CSV file, you can establish parent-child relationships. The benefit of using this method that each task has its own configuration file, allowing you to create children that have a different Drupal content type than their parents.</p>
-<p>The primary task's CSV describes the parent objects, and the secondary task's CSV describes the children. The two are linked via references from children's CSV <code>parent_id</code> values to their parent's <code>id</code> values, much the same way as in the "With page/child-level metadata" method described above. The difference is that the references work between CSV files. The parents and children each have their own CSV input file (and in fact, their own configuration file).</p>
-<p>In the following example, the top (primary) CSV file describes the parents, and the bottom (secondary) CSV file describes the children:</p>
+<p>You can configure Islandora Workbench to execute two "create" tasks - a primary and a secondary - that will result in all of the objects described in both CSV files being ingested during the same run of Workbench. By referencing the row IDs in the primary task's CSV file from the secondary task's CSV file, you can establish parent-child relationships. The benefit of using this method that each task has its own configuration file, allowing you to create children that have a different Drupal content type than their parents.</p>
+<p>The primary task's CSV describes the parent objects, and the secondary task's CSV describes the children. The two are linked via references from children's CSV <code>parent_id</code> values to their parent's <code>id</code> values, much the same way as in the "With page/child-level metadata" method described above. The difference is that the references span CSV files. The parents and children each have their own CSV input file (and in fact, their own configuration file).</p>
+<p>In the following example, the top CSV file (the primary) describes the parents, and the bottom CSV file (the secondary) describes the children:</p>
 <p><img alt="Secondary task CSV" src="../images/secondary_tasks.png" /></p>
-<p>As you can see, values in the <code>parent_id</code> column in the secondary CSV reference values in the <code>id</code> column in the primary CSV.</p>
+<p>As you can see, values in the <code>parent_id</code> column in the secondary CSV reference values in the <code>id</code> column in the primary CSV: <code>parent_id</code> 001 in the secondary CSV matches <code>id</code> 001 in the primary, <code>parent_id</code> 003 matches <code>id</code> 003 in the secondary, and so on.</p>
 <p>You configure secondary tasks by adding the <code>secondary_tasks</code> setting to your primary configuration file, like this:</p>
 <pre><code>task: create
 host: &quot;http://localhost:8000&quot;
@@ -319,6 +319,7 @@ input_csv: kids.csv
 <ul>
 <li>Only "create" tasks can be used as the primary and secondary tasks.</li>
 <li>When you have a secondary task configured, running <code>--check</code> will validate both tasks' configuration and input data.</li>
+<li>The secondary CSV must contain the columns <code>parent_id</code>, 'field_weight<code>, and</code>field_member_of<code>.</code>field_member_of` must be empty, since it is auto-populated by Workbench.</li>
 <li>As already stated, each task has its own configuration file, so you can specify a <code>content_type</code> value in your secondary configuration file that differs from the <code>content_type</code> of the primary task.</li>
 <li>You can include more than one secondary task in your configuration. For example, <code>secondary_tasks: ['first.yml', 'second.yml']</code> will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order.</li>
 </ul>
