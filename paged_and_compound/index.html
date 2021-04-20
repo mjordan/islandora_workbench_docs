@@ -357,25 +357,25 @@ csv_field_templates:
 <tr>
 <td>Subdirectories</td>
 <td>Directory structure</td>
-<td>Do not include in CSV; autopopulated.</td>
-<td>Use for creating paged content where paged don't have their own metadata.</td>
+<td>Do not include column in CSV; autopopulated.</td>
+<td>Useful for creating paged content where paged don't have their own metadata.</td>
 </tr>
 <tr>
 <td>Parent/child-level metadata in same CSV</td>
 <td>References from child's <code>parent_id</code> to parent's <code>id</code> in same CSV data</td>
-<td>Required in child rows</td>
-<td>Flexible; allows children to have their own metadata.</td>
+<td>Field and values required in child rows</td>
+<td>Allows including parent and child metadatain same CSV.</td>
 </tr>
 <tr>
 <td>Secondary task</td>
-<td>References from child's <code>parent_id</code> to parent's <code>id</code> across CSV files</td>
-<td>Required in secondary (child) CSV data</td>
-<td>Primary and secondary tasks have their own configuration and CSV files, which allows children to have a Drupal content type that differs from their parents' content type.</td>
+<td>References from <code>parent_id</code> in child CSV file to <code>id</code> in parent CSV file</td>
+<td>Column and values required in secondary (child) CSV data</td>
+<td>Primary and secondary tasks have their own configuration and CSV files, which allows children to have a Drupal content type that differs from their parents' content type. Allows creation of parents and children in same Workbench job.</td>
 </tr>
 <tr>
 <td>Collections and members together</td>
 <td>References from child (member) <code>parent_id</code> fields to parent (collection) <code>id</code> fields</td>
-<td>Required in CSV but must be empty</td>
+<td>Column required in CSV but must be empty</td>
 <td>Allows creation of collection and members in same Islandora Workbench job.</td>
 </tr>
 </tbody>
