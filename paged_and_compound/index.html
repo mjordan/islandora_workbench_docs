@@ -319,6 +319,7 @@ input_csv: kids.csv
 <li>When you have a secondary task configured, running <code>--check</code> will validate both tasks' configuration and input data.</li>
 <li>As already stated, each task has its own configuration file, so you can speficy a <code>content_type</code> value in your secondary configuration file that differs from the <code>content_type</code> of the primary task.</li>
 <li>You can include more than one secondary task in your configuration. For example, <code>secondary_tasks: ['first.yml', 'second.yml']</code> will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order.</li>
+<li>Only "create" tasks can be used as the primary and secondary tasks.</li>
 </ul>
 <h3 id="creating-collections-and-members-together">Creating collections and members together</h3>
 <p>Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV:</p>
