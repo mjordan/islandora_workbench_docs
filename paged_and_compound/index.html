@@ -99,6 +99,9 @@
     <li class="toctree-l2"><a href="#with-pagechild-level-metadata">With page/child-level metadata</a></li>
     
 
+    <li class="toctree-l2"><a href="#using-a-secondary-task">Using a secondary task</a></li>
+    
+
     <li class="toctree-l2"><a href="#creating-collections-and-members-together">Creating collections and members together</a></li>
     
 
@@ -288,6 +291,9 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 <li>Currently, you must include values in the children's <code>field_weight</code> column (except when creating a collection and its members at the same time; see below). It may be possible to automatically generate values for this field (see <a href="https://github.com/mjordan/islandora_workbench/issues/84">this issue</a>).</li>
 <li>Currently, Islandora model values (e.g. "Paged Content", "Page") are not automatically assigned. You must include the correct "Islandora Models" taxonomy term IDs in your <code>field_model</code> column for all parent and child records, as you would for any other Islandora objects you are creating. Like for <code>field_weight</code>, it may be possible to automatically generate values for this field (see <a href="https://github.com/mjordan/islandora_workbench/issues/85">this issue</a>).</li>
 </ul>
+<h3 id="using-a-secondary-task">Using a secondary task</h3>
+<p>You can configure Islandora Workbench to execute two tasks - a primary and a secondary task - that will result in all the objects described in both tasks being ingested at one time. By referencing the row IDs used in the primary task from the secondary tasks's CSV file, you can establish parent-child relationships. The benefit of using this method that each task has its own unique configuration file, allowing you to create children that have a different Drupal content type than their parents.</p>
+<p><img alt="Secondary task CSV" src="../images/secondary_tasks.png" /></p>
 <h3 id="creating-collections-and-members-together">Creating collections and members together</h3>
 <p>Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV:</p>
 <pre><code class="text">id,parent_id,file,title,field_model,field_member_of,field_weight
