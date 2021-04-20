@@ -13,20 +13,19 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/highlight.css">
   <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Requirements and installation";
     var mkdocs_page_input_path = "installation.md";
-    var mkdocs_page_url = null;
+    var mkdocs_page_url = "/installation/";
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -40,7 +39,7 @@
         <a href=".." class="icon icon-home"> Islandora Workbench</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
       </div>
@@ -66,6 +65,9 @@
     
 
     <li class="toctree-l2"><a href="#updating-islandora-workbench">Updating Islandora Workbench</a></li>
+    
+
+    <li class="toctree-l2"><a href="#using-drupal-91-or-earlier">Using Drupal 9.1 or earlier</a></li>
     
 
     </ul>
@@ -228,6 +230,7 @@
               
                 <h2 id="requirements">Requirements</h2>
 <ul>
+<li>An <a href="https://islandora.ca/">Islandora</a> repository using Drupal 9.2 or higher, with the <a href="https://github.com/mjordan/islandora_workbench_integration">Islandora Workbench Integration</a> module enabled. If you are using Drupal 9.1 or earlier, please refer to the "Using Drupal 9.1 or earlier" section below.</li>
 <li>Python 3.6 or higher</li>
 <li>The following Python libraries:<ul>
 <li><a href="https://yaml.readthedocs.io/en/latest/index.html">ruamel.yaml</a></li>
@@ -237,7 +240,6 @@
 <li>If you want to have these libraries automatically installed, you will need Python's <a href="https://pypi.org/project/setuptools/">setuptools</a></li>
 </ul>
 </li>
-<li>An <a href="https://islandora.ca/">Islandora</a> repository with the <a href="https://github.com/mjordan/islandora_workbench_integration">Islandora Workbench Integration</a> module enabled.</li>
 </ul>
 <p>Islandora Workbench has been installed and used on Linux, Mac, and Windows.</p>
 <div class="admonition warning">
@@ -256,6 +258,13 @@
 <p><code>git pull origin main</code></p>
 <p>After you pull in the latest changes using <code>git</code>, it's a good idea to rerun the setup tools in case new Python libraries have been added since you last ran the setup tools (same command as above):</p>
 <p><code>sudo python3 setup.py install</code></p>
+<h2 id="using-drupal-91-or-earlier">Using Drupal 9.1 or earlier</h2>
+<p>When ingesting media in Drupal versions 8.x - 9.1, Islandora Workbench has two significant limitations/bugs that you should be aware of:</p>
+<ul>
+<li>Approximately 10% of media creation attempts will likely fail. Workbench will log these failures. Additional information is available in this <a href="https://github.com/Islandora/documentation/issues/1481">issue</a>.</li>
+<li>A file with a filename that already exists in Islandora will overwrite the existing file, as reported in this <a href="https://github.com/Islandora/documentation/issues/1790">issue</a>.</li>
+</ul>
+<p>To avoid these issues, you need to be running Drupal version 9.2 or higher.</p>
               
             </div>
           </div>
@@ -280,18 +289,18 @@
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+	  
         </div>
       </div>
 
     </section>
-
+    
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -301,9 +310,7 @@
       
     </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
+    <script src="../js/theme.js"></script>
 
 </body>
 </html>

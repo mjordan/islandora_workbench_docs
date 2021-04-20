@@ -13,20 +13,19 @@
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../css/highlight.css">
   <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Creating paged, compound, and collection content";
     var mkdocs_page_input_path = "paged_and_compound.md";
-    var mkdocs_page_url = null;
+    var mkdocs_page_url = "/paged_and_compound/";
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -40,7 +39,7 @@
         <a href=".." class="icon icon-home"> Islandora Workbench</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+    <input type="text" name="q" placeholder="Search docs" />
   </form>
 </div>
       </div>
@@ -100,7 +99,13 @@
     <li class="toctree-l2"><a href="#with-pagechild-level-metadata">With page/child-level metadata</a></li>
     
 
+    <li class="toctree-l2"><a href="#using-a-secondary-task">Using a secondary task</a></li>
+    
+
     <li class="toctree-l2"><a href="#creating-collections-and-members-together">Creating collections and members together</a></li>
+    
+
+    <li class="toctree-l2"><a href="#summary">Summary</a></li>
     
 
     </ul>
@@ -226,10 +231,11 @@
           <div role="main">
             <div class="section">
               
-                <p>Islandora Workbench provides two ways to create paged and compound content:</p>
+                <p>Islandora Workbench provides three ways to create paged and compound content:</p>
 <ul>
 <li>using a specific subdirectory structure to define the relationship between the parent item and its children</li>
 <li>using page-level metadata in the CSV to establish that relationship</li>
+<li>using a secondary task.</li>
 </ul>
 <h3 id="using-subdirectories">Using subdirectories</h3>
 <p>Enable this method by including <code>paged_content_from_directories: true</code> in your configuration file. Use this method when you are creating books, newspaper issues, or other paged content where your pages don't have their own metadata. This method groups page-level files into subdirectories that correspond to each parent, and does not require (or allow) page-level metadata in the CSV file. Each parent (book, newspaper issue, etc.) has a row on the CSV file, e.g.:</p>
@@ -266,7 +272,7 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 <li>The Drupal content type for page nodes is inherited from the parent, unless you specify a different content type in the <code>paged_content_page_content_type</code> setting in your configuration file.</li>
 </ul>
 <h3 id="with-pagechild-level-metadata">With page/child-level metadata</h3>
-<p>Using this method, the metadata CSV file contains a row for each parent and all child items. You should use this method when you are creating books, newspaper issues, or other paged or compound content where each page has its own metadata, or when you are creating compound objects of any Islandora model. The files for each page are named explicitly in the <code>file</code> column rather than being in a subdirectory. To link the pages to the parent, Workbench establishes parent/child relationships between items with <code>parent_id</code> values (the pages/children) with that are the same as the <code>id</code> value of another item (the parent). For this to work, your CSV file must contain a <code>parent_id</code> field plus the standard Islandora fields <code>field_weight</code>, <code>field_member_of</code>, and <code>field_model</code> (the role of these last three fields will be explained below). The <code>id</code> field is required in all CSV files used to create content, so in this case, your CSV needs both an <code>id</code> field and a <code>parent_id</code> field.</p>
+<p>Using this method, the metadata CSV file contains a row for every item, both parents and children. You should use this method when you are creating books, newspaper issues, or other paged or compound content where each page has its own metadata, or when you are creating compound objects of any Islandora model. The files for each page are named explicitly in the <code>file</code> column rather than being in a subdirectory. To link the pages to the parent, Workbench establishes parent/child relationships between items with <code>parent_id</code> values (the pages/children) with that are the same as the <code>id</code> value of another item (the parent). For this to work, your CSV file must contain a <code>parent_id</code> field plus the standard Islandora fields <code>field_weight</code>, <code>field_member_of</code>, and <code>field_model</code> (the role of these last three fields will be explained below). The <code>id</code> field is required in all CSV files used to create content, so in this case, your CSV needs both an <code>id</code> field and a <code>parent_id</code> field.</p>
 <p>The following example illustrates how this works. Here is the raw CSV data:</p>
 <pre><code class="text">id,parent_id,field_weight,file,title,field_description,field_model,field_member_of
 001,,,,Postcard 1,The first postcard,28,197
@@ -289,8 +295,45 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 <li>Currently, you must include values in the children's <code>field_weight</code> column (except when creating a collection and its members at the same time; see below). It may be possible to automatically generate values for this field (see <a href="https://github.com/mjordan/islandora_workbench/issues/84">this issue</a>).</li>
 <li>Currently, Islandora model values (e.g. "Paged Content", "Page") are not automatically assigned. You must include the correct "Islandora Models" taxonomy term IDs in your <code>field_model</code> column for all parent and child records, as you would for any other Islandora objects you are creating. Like for <code>field_weight</code>, it may be possible to automatically generate values for this field (see <a href="https://github.com/mjordan/islandora_workbench/issues/85">this issue</a>).</li>
 </ul>
+<h3 id="using-a-secondary-task">Using a secondary task</h3>
+<p>You can configure Islandora Workbench to execute two "create" tasks - a primary and a secondary - that will result in all of the objects described in both CSV files being ingested during the same Workbench job. Parent/child relationships between items are created by referencing the row IDs in the primary task's CSV file from the secondary task's CSV file. The benefit of using this method is that each task has its own configuration file, allowing you to create children that have a different Drupal content type than their parents.</p>
+<p>The primary task's CSV describes the parent objects, and the secondary task's CSV describes the children. The two are linked via references from children CSV's <code>parent_id</code> values to their parent's <code>id</code> values, much the same way as in the "With page/child-level metadata" method described above. The difference is that the references span CSV files. The parents and children each have their own CSV input file (and in fact, their own configuration file). Each task is a standard Islandora Workbench "create" task, joined by one setting in the primary's configuration file.</p>
+<p>In the following example, the top CSV file (the primary) describes the parents, and the bottom CSV file (the secondary) describes the children:</p>
+<p><img alt="Secondary task CSV" src="../images/secondary_tasks.png" /></p>
+<p>As you can see, values in the <code>parent_id</code> column in the secondary CSV reference values in the <code>id</code> column in the primary CSV: <code>parent_id</code> 001 in the secondary CSV matches <code>id</code> 001 in the primary, <code>parent_id</code> 003 in the secondary matches <code>id</code> 003 in the primary, and so on.</p>
+<p>You configure secondary tasks by adding the <code>secondary_tasks</code> setting to your primary configuration file, like this:</p>
+<pre><code>task: create
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+# This is the setting that links the two configuration files together.
+secondary_tasks: ['children.yml']
+input_csv: parents.csv
+nodes_only: true
+</code></pre>
+
+<p>In the <code>secondary_tasks</code> setting, you name the configuration file of the secondary task. The secondary task's configuration file (in this example, named "children.yml") contains no indication that it's a secondary task:</p>
+<pre><code>task: create
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+input_csv: kids.csv
+csv_field_templates:
+ - field_model: http://purl.org/coar/resource_type/c_c513
+</code></pre>
+
+<p>When you run Workbench, it executes the primary task first, then the secondary task. Workbench keeps track of pairs of <code>id</code> + node IDs created in the primary task, and during the execution of the secondary task, uses these to populate the <code>field_member_of</code> values in the secondary task with the node IDs corresponding to the referenced primary <code>id</code> values.</p>
+<p>Some things to note about secondary tasks:</p>
+<ul>
+<li>Only "create" tasks can be used as the primary and secondary tasks.</li>
+<li>When you have a secondary task configured, running <code>--check</code> will validate both tasks' configuration and input data.</li>
+<li>The secondary CSV must contain <code>parent_id</code>, <code>field_weight</code>, and <code>field_member_of</code> columns. <code>field_member_of</code> must be empty, since it is auto-populated by Workbench using node IDs from the newly created parent objects.</li>
+<li>As already stated, each task has its own configuration file, which means that you can specify a <code>content_type</code> value in your secondary configuration file that differs from the <code>content_type</code> of the primary task.</li>
+<li>You can include more than one secondary task in your configuration. For example, <code>secondary_tasks: ['first.yml', 'second.yml']</code> will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order.</li>
+<li>The <code>nodes_only</code> setting in the example primary configuration file and the <code>csv_field_templates</code> setting in the secondary configuration file are not relevent to the primary/secondary task functionality; they're included to illustrate that the two configuration files can differ. </li>
+</ul>
 <h3 id="creating-collections-and-members-together">Creating collections and members together</h3>
-<p>Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV:</p>
+<p>Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV which shows the references from the members' <code>parent_id</code> field to the collections' <code>id</code> field:</p>
 <pre><code class="text">id,parent_id,file,title,field_model,field_member_of,field_weight
 1,,,A collection of animal photos,24,,
 2,1,cat.jpg,Picture of a cat,25,,
@@ -299,6 +342,44 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 </code></pre>
 
 <p>The use of the <code>parent_id</code> and <code>field_member_of</code> fields is the same here as when creating paged or compound children. However, unlike with paged or compound objects, in this case we leave the values in <code>field_weight</code> empty, since Islandora collections don't use <code>field_weight</code> to determine order of members. Collection Views are sorted using other fields.</p>
+<h3 id="summary">Summary</h3>
+<p>The following table summarizes the different ways Workbench can be used to create parent/child relationships between nodes:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Relationships created by</th>
+<th>field_weight</th>
+<th>Advantage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Subdirectories</td>
+<td>Directory structure</td>
+<td>Do not include column in CSV; autopopulated.</td>
+<td>Useful for creating paged content where paged don't have their own metadata.</td>
+</tr>
+<tr>
+<td>Parent/child-level metadata in same CSV</td>
+<td>References from child's <code>parent_id</code> to parent's <code>id</code> in same CSV data</td>
+<td>Column required; values required in child rows</td>
+<td>Allows including parent and child metadatain same CSV.</td>
+</tr>
+<tr>
+<td>Secondary task</td>
+<td>References from <code>parent_id</code> in child CSV file to <code>id</code> in parent CSV file</td>
+<td>Column and values required in secondary (child) CSV data</td>
+<td>Primary and secondary tasks have their own configuration and CSV files, which allows children to have a Drupal content type that differs from their parents' content type. Allows creation of parents and children in same Workbench job.</td>
+</tr>
+<tr>
+<td>Collections and members together</td>
+<td>References from child (member) <code>parent_id</code> fields to parent (collection) <code>id</code> fields in same CSV data</td>
+<td>Column required in CSV but must be empty (collections do not use weight to determine sort order)</td>
+<td>Allows creation of collection and members in same Islandora Workbench job.</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>
@@ -323,18 +404,18 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+	  
         </div>
       </div>
 
     </section>
-
+    
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../field_templates/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -344,9 +425,7 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
       
     </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
+    <script src="../js/theme.js"></script>
 
 </body>
 </html>

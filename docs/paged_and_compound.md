@@ -1,7 +1,8 @@
-Islandora Workbench provides two ways to create paged and compound content:
+Islandora Workbench provides three ways to create paged and compound content:
 
 * using a specific subdirectory structure to define the relationship between the parent item and its children
 * using page-level metadata in the CSV to establish that relationship
+* using a secondary task.
 
 ### Using subdirectories
 
@@ -47,7 +48,7 @@ Important things to note when using this method:
 
 ### With page/child-level metadata
 
-Using this method, the metadata CSV file contains a row for each parent and all child items. You should use this method when you are creating books, newspaper issues, or other paged or compound content where each page has its own metadata, or when you are creating compound objects of any Islandora model. The files for each page are named explicitly in the `file` column rather than being in a subdirectory. To link the pages to the parent, Workbench establishes parent/child relationships between items with `parent_id` values (the pages/children) with that are the same as the `id` value of another item (the parent). For this to work, your CSV file must contain a `parent_id` field plus the standard Islandora fields `field_weight`, `field_member_of`, and `field_model` (the role of these last three fields will be explained below). The `id` field is required in all CSV files used to create content, so in this case, your CSV needs both an `id` field and a `parent_id` field.
+Using this method, the metadata CSV file contains a row for every item, both parents and children. You should use this method when you are creating books, newspaper issues, or other paged or compound content where each page has its own metadata, or when you are creating compound objects of any Islandora model. The files for each page are named explicitly in the `file` column rather than being in a subdirectory. To link the pages to the parent, Workbench establishes parent/child relationships between items with `parent_id` values (the pages/children) with that are the same as the `id` value of another item (the parent). For this to work, your CSV file must contain a `parent_id` field plus the standard Islandora fields `field_weight`, `field_member_of`, and `field_model` (the role of these last three fields will be explained below). The `id` field is required in all CSV files used to create content, so in this case, your CSV needs both an `id` field and a `parent_id` field.
 
 The following example illustrates how this works. Here is the raw CSV data:
 
@@ -76,9 +77,58 @@ Some important things to note:
 * Currently, you must include values in the children's `field_weight` column (except when creating a collection and its members at the same time; see below). It may be possible to automatically generate values for this field (see [this issue](https://github.com/mjordan/islandora_workbench/issues/84)).
 * Currently, Islandora model values (e.g. "Paged Content", "Page") are not automatically assigned. You must include the correct "Islandora Models" taxonomy term IDs in your `field_model` column for all parent and child records, as you would for any other Islandora objects you are creating. Like for `field_weight`, it may be possible to automatically generate values for this field (see [this issue](https://github.com/mjordan/islandora_workbench/issues/85)).
 
+### Using a secondary task
+
+You can configure Islandora Workbench to execute two "create" tasks - a primary and a secondary - that will result in all of the objects described in both CSV files being ingested during the same Workbench job. Parent/child relationships between items are created by referencing the row IDs in the primary task's CSV file from the secondary task's CSV file. The benefit of using this method is that each task has its own configuration file, allowing you to create children that have a different Drupal content type than their parents.
+
+The primary task's CSV describes the parent objects, and the secondary task's CSV describes the children. The two are linked via references from children CSV's `parent_id` values to their parent's `id` values, much the same way as in the "With page/child-level metadata" method described above. The difference is that the references span CSV files. The parents and children each have their own CSV input file (and in fact, their own configuration file). Each task is a standard Islandora Workbench "create" task, joined by one setting in the primary's configuration file.
+
+In the following example, the top CSV file (the primary) describes the parents, and the bottom CSV file (the secondary) describes the children:
+
+![Secondary task CSV](images/secondary_tasks.png)
+
+As you can see, values in the `parent_id` column in the secondary CSV reference values in the `id` column in the primary CSV: `parent_id` 001 in the secondary CSV matches `id` 001 in the primary, `parent_id` 003 in the secondary matches `id` 003 in the primary, and so on.
+
+You configure secondary tasks by adding the `secondary_tasks` setting to your primary configuration file, like this:
+
+```
+task: create
+host: "http://localhost:8000"
+username: admin
+password: islandora
+# This is the setting that links the two configuration files together.
+secondary_tasks: ['children.yml']
+input_csv: parents.csv
+nodes_only: true
+```
+
+In the `secondary_tasks` setting, you name the configuration file of the secondary task. The secondary task's configuration file (in this example, named "children.yml") contains no indication that it's a secondary task:
+
+```
+task: create
+host: "http://localhost:8000"
+username: admin
+password: islandora
+input_csv: kids.csv
+csv_field_templates:
+ - field_model: http://purl.org/coar/resource_type/c_c513
+```
+
+When you run Workbench, it executes the primary task first, then the secondary task. Workbench keeps track of pairs of `id` + node IDs created in the primary task, and during the execution of the secondary task, uses these to populate the `field_member_of` values in the secondary task with the node IDs corresponding to the referenced primary `id` values.
+
+Some things to note about secondary tasks:
+
+* Only "create" tasks can be used as the primary and secondary tasks.
+* When you have a secondary task configured, running `--check` will validate both tasks' configuration and input data.
+* The secondary CSV must contain `parent_id`, `field_weight`, and `field_member_of` columns. `field_member_of` must be empty, since it is auto-populated by Workbench using node IDs from the newly created parent objects.
+* As already stated, each task has its own configuration file, which means that you can specify a `content_type` value in your secondary configuration file that differs from the `content_type` of the primary task.
+* You can include more than one secondary task in your configuration. For example, `secondary_tasks: ['first.yml', 'second.yml']` will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order.
+* The `nodes_only` setting in the example primary configuration file and the `csv_field_templates` setting in the secondary configuration file are not relevent to the primary/secondary task functionality; they're included to illustrate that the two configuration files can differ. 
+
+
 ### Creating collections and members together
 
-Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV:
+Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV which shows the references from the members' `parent_id` field to the collections' `id` field:
 
 ```text
 id,parent_id,file,title,field_model,field_member_of,field_weight
@@ -89,4 +139,16 @@ id,parent_id,file,title,field_model,field_member_of,field_weight
 ```
 
 The use of the `parent_id` and `field_member_of` fields is the same here as when creating paged or compound children. However, unlike with paged or compound objects, in this case we leave the values in `field_weight` empty, since Islandora collections don't use `field_weight` to determine order of members. Collection Views are sorted using other fields.
+
+### Summary
+
+The following table summarizes the different ways Workbench can be used to create parent/child relationships between nodes:
+
+| Method | Relationships created by | field_weight | Advantage |
+| --- | --- | --- | --- |
+| Subdirectories | Directory structure | Do not include column in CSV; autopopulated. | Useful for creating paged content where paged don't have their own metadata. |
+| Parent/child-level metadata in same CSV | References from child's `parent_id` to parent's `id` in same CSV data | Column required; values required in child rows | Allows including parent and child metadatain same CSV. |
+| Secondary task | References from `parent_id` in child CSV file to `id` in parent CSV file | Column and values required in secondary (child) CSV data | Primary and secondary tasks have their own configuration and CSV files, which allows children to have a Drupal content type that differs from their parents' content type. Allows creation of parents and children in same Workbench job. |
+| Collections and members together | References from child (member) `parent_id` fields to parent (collection) `id` fields in same CSV data | Column required in CSV but must be empty (collections do not use weight to determine sort order) | Allows creation of collection and members in same Islandora Workbench job. |
+
 

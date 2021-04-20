@@ -8,4 +8,4 @@ IMG_2958.JPG,04,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
 IMG_5083.JPG,05,Alcatraz Island,25,"Taken from Fisherman's Wharf, San Francisco."
 ```
 
-The value will only be applied to image media. If you do not include this field in your CSV file, Workbench will use the node's title as the alt text. Note that Workbench strips out all HTML markup within the alt text. Also note that this feature is only available in the `create` task (but see [this issue](https://github.com/mjordan/islandora_workbench/issues/166)).
+The value will only be applied to image media. If you do not include this field in your CSV file, or the field is present but empty, Workbench will use the node's title as the alt text. Note that Workbench strips out all HTML markup within the alt text. Also note that this feature is only available in the `create` task (but see [this issue](https://github.com/mjordan/islandora_workbench/issues/166)).

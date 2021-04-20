@@ -16,3 +16,25 @@ The most likely problem is that one of your CSV values contains a comma but is n
 
 If a field is configured in Drupal to use [text filters](https://www.drupal.org/node/213156), the HTML that is displayed to the user may not be exactly the same as the content of the node add/edit form field. If you check the node add/edit form, the content of the field should match the content of the CSV field. If it does, it is likely that Drupal is apply a text filter.
 
+## My Islandora uses a custom media type and I need to tell Workbench what file field to use.
+
+If you need to create a media that is not one of the standard Islandora types (Image, File, Digital Document, Video, Audio, Extracted Text, or FITS Technical metadata), you will need to include the  `media_file_fields` setting in your config file, like this:
+
+
+```
+media_file_fields:
+ - mycustommedia_machine_name: field_custom_file
+ - myothercustommedia_machine_name: field_other_custom_file
+```
+
+This configuration setting adds entries to the following default mapping of media types to file field names:
+
+```
+'file': 'field_media_file',
+'document': 'field_media_document',
+'image': 'field_media_image',
+'audio': 'field_media_audio_file',
+'video': 'field_media_video_file',
+'extracted_text': 'field_media_file',
+'fits_technical_metadata': 'field_media_file'
+```

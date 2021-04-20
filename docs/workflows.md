@@ -52,3 +52,16 @@ A combination of the "Migrations" workflow and the "Watch folder" workflow can b
 ![Migrations](images/workflow_integrations.png)
 
 The extraction of data from the source system, conversion of it into the CSV and file arrangement Workbench expects, and running of Workbench can all be scripted and executed in sequence using scheduled jobs.
+
+### Sharing the input CSV with other applications
+
+Some workflows can benefit from having Workbench share its input CSV with other scripts or applications. For example, you might use Workbench to ingest nodes into Islandora but want to use the same CSV file in a script to create metadata for loading into another application such as a library discovery layer.
+
+Islandora Workbench strictly validates the columns in the input CSV to ensure that they match Drupal field names. To accommodate CSV columns that do not correspond to Drupal field names, you can tell Workbench to ignore specific columns that are present in the CSV. To do this, list the non-Workbench column headers in the `ignore_csv_columns` configuration setting. For example, if you want to include a `date_generated` column in your CSV, include the following in your Workbench configuration file:
+
+```
+ignore_csv_columns: ['date_generated']
+```
+
+With this setting in place, Workbench will ignore the `date_generated` column in the input CSV.
+

@@ -1,5 +1,6 @@
 ## Requirements
 
+* An [Islandora](https://islandora.ca/) repository using Drupal 9.2 or higher, with the [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module enabled. If you are using Drupal 9.1 or earlier, please refer to the "Using Drupal 9.1 or earlier" section below.
 * Python 3.6 or higher
 * The following Python libraries:
     * [ruamel.yaml](https://yaml.readthedocs.io/en/latest/index.html)
@@ -7,7 +8,6 @@
     * [progress_bar](https://pypi.org/project/progress_bar/)
     * [openpyxl](https://pypi.org/project/openpyxl/)
     * If you want to have these libraries automatically installed, you will need Python's [setuptools](https://pypi.org/project/setuptools/)
-* An [Islandora](https://islandora.ca/) repository with the [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module enabled.
 
 Islandora Workbench has been installed and used on Linux, Mac, and Windows.
 
@@ -37,3 +37,12 @@ Since Islandora Workbench is under development, you will want to update it often
 After you pull in the latest changes using `git`, it's a good idea to rerun the setup tools in case new Python libraries have been added since you last ran the setup tools (same command as above):
 
 `sudo python3 setup.py install`
+
+## Using Drupal 9.1 or earlier
+
+When ingesting media in Drupal versions 8.x - 9.1, Islandora Workbench has two significant limitations/bugs that you should be aware of:
+
+* Approximately 10% of media creation attempts will likely fail. Workbench will log these failures. Additional information is available in this [issue](https://github.com/Islandora/documentation/issues/1481).
+* A file with a filename that already exists in Islandora will overwrite the existing file, as reported in this [issue](https://github.com/Islandora/documentation/issues/1790).
+
+To avoid these issues, you need to be running Drupal version 9.2 or higher.
