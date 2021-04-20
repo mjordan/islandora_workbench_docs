@@ -105,6 +105,9 @@
     <li class="toctree-l2"><a href="#creating-collections-and-members-together">Creating collections and members together</a></li>
     
 
+    <li class="toctree-l2"><a href="#summary">Summary</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -330,7 +333,7 @@ csv_field_templates:
 <li>The <code>nodes_only</code> setting in the example primary configuration file and the <code>csv_field_templates</code> setting in the secondary configuration file are not relevent to the primary/secondary task functionality; they're included to illustrate that the two configuration files can differ. </li>
 </ul>
 <h3 id="creating-collections-and-members-together">Creating collections and members together</h3>
-<p>Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV:</p>
+<p>Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV which shows the references from the members' <code>parent_id</code> field to the collections' <code>id</code> field:</p>
 <pre><code class="text">id,parent_id,file,title,field_model,field_member_of,field_weight
 1,,,A collection of animal photos,24,,
 2,1,cat.jpg,Picture of a cat,25,,
@@ -339,6 +342,44 @@ csv_field_templates:
 </code></pre>
 
 <p>The use of the <code>parent_id</code> and <code>field_member_of</code> fields is the same here as when creating paged or compound children. However, unlike with paged or compound objects, in this case we leave the values in <code>field_weight</code> empty, since Islandora collections don't use <code>field_weight</code> to determine order of members. Collection Views are sorted using other fields.</p>
+<h3 id="summary">Summary</h3>
+<p>The following table summarizes the different ways Workbench can be used to create parent/child relationships between nodes:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Relationships created by</th>
+<th>field_weight</th>
+<th>Advantage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Subdirectories</td>
+<td>Directory structure</td>
+<td>Do not include in CSV; autopopulated.</td>
+<td>Use for creating paged content where paged don't have their own metadata.</td>
+</tr>
+<tr>
+<td>Parent/child-level metadata in same CSV</td>
+<td>References from child's <code>parent_id</code> to parent's <code>id</code> in same CSV data</td>
+<td>Required in child rows</td>
+<td>Flexible; allows children to have their own metadata.</td>
+</tr>
+<tr>
+<td>Secondary task</td>
+<td>References from child's <code>parent_id</code> to parent's <code>id</code> across CSV files</td>
+<td>Required in secondary (child) CSV data</td>
+<td>Primary and secondary tasks have their own configuration and CSV files, which allows children to have a Drupal content type that differs from their parents' content type.</td>
+</tr>
+<tr>
+<td>Collections and members together</td>
+<td>References from child (member) <code>parent_id</code> fields to parent (collection) <code>id</code> fields</td>
+<td>Required in CSV but must be empty</td>
+<td>Allows creation of collection and members in same Islandora Workbench job.</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>
