@@ -342,6 +342,10 @@ csv_field_templates:
 </code></pre>
 
 <p>The use of the <code>parent_id</code> and <code>field_member_of</code> fields is the same here as when creating paged or compound children. However, unlike with paged or compound objects, in this case we leave the values in <code>field_weight</code> empty, since Islandora collections don't use <code>field_weight</code> to determine order of members. Collection Views are sorted using other fields.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Creating collection nodes and member nodes using this method assumes that collection nodes and member nodes have the same Drupal content type. If your collection objects have a Drupal content type that differs from its members' content type, you need to use the "Using a secondary task" method to ingest collections and members in the same Workbench job.</p>
+</div>
 <h3 id="summary">Summary</h3>
 <p>The following table summarizes the different ways Workbench can be used to create parent/child relationships between nodes:</p>
 <table>
