@@ -9,23 +9,22 @@
   
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Drupal fields and CSV fields - Islandora Workbench</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Drupal fields and CSV fields";
     var mkdocs_page_input_path = "fields.md";
-    var mkdocs_page_url = "/fields/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -39,7 +38,7 @@
         <a href=".." class="icon icon-home"> Islandora Workbench</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -291,12 +290,12 @@ If you are using a spreadsheet application, it will take care of wrapping the CS
 <tr>
 <td>url_alias</td>
 <td>create, update</td>
-<td>See detail in "<a href="../islandora_workbench_docs/aliases/">Assigning URL aliases</a>".</td>
+<td>See detail in "<a href="/islandora_workbench_docs/aliases/">Assigning URL aliases</a>".</td>
 </tr>
 <tr>
 <td>image_alt_text</td>
 <td>create</td>
-<td>See detail in "<a href="../islandora_workbench_docs/alt_text/">Adding alt text to images</a>".</td>
+<td>See detail in "<a href="/islandora_workbench_docs/alt_text/">Adding alt text to images</a>".</td>
 </tr>
 </tbody>
 </table>
@@ -311,7 +310,7 @@ If you are using a spreadsheet application, it will take care of wrapping the CS
 <ul>
 <li>Relative, absolute, and URL file locations can exist within the same CSV file.</li>
 <li>By default, if the <code>file</code> value for a row is empty, Workbench's <code>--check</code> option will show an error. But, in some cases you may want to create nodes but not add any media. If you add <code>allow_missing_files: true</code> to your config file for "create" tasks, you can leave the <code>file</code> column in your CSV empty.</li>
-<li>If you want do not want to create media for any of the rows in your CSV file, include <code>nodes_only: true</code> in your configuration file. More detail <a href="../islandora_workbench_docs/nodes_only/">is available</a>.</li>
+<li>If you want do not want to create media for any of the rows in your CSV file, include <code>nodes_only: true</code> in your configuration file. More detail <a href="/islandora_workbench_docs/nodes_only/">is available</a>.</li>
 <li>Currently, <code>file</code> values can only contain characters in the ASCII or <a href="https://www.ic.unicamp.br/~stolfi/EXPORT/www/ISO-8859-1-Encoding.html">Latin-1</a> character sets (see <a href="https://github.com/mjordan/islandora_workbench/issues/192">this issue</a>). The following characters with diacritics should be safe in filenames: À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß à á â ã ä å æ ç è é ê ë ì í î ï ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ.</li>
 </ul>
 <p>Things to note about URLs as <code>file</code> values:</p>
@@ -370,7 +369,7 @@ If you are using a spreadsheet application, it will take care of wrapping the CS
 </table>
 <p>If a required field is missing from your CSV, <code>--check</code> will tell you.</p>
 <h2 id="columns-you-want-workbench-to-ignore">Columns you want Workbench to ignore</h2>
-<p>In some cases you might want to include columns in your CSV that you want Workbench to ignore. More information on this option is available in the "Sharing the input CSV with other applications" section of the <a href="../workflows/#sharing-the-input-csv-with-other-applications">Workflows</a> documentation.</p>
+<p>In some cases you might want to include columns in your CSV that you want Workbench to ignore. More information on this option is available in the "Sharing the input CSV with other applications" section of the <a href="/workflows/#sharing-the-input-csv-with-other-applications">Workflows</a> documentation.</p>
 <h2 id="csv-fields-that-contain-drupal-field-data">CSV fields that contain Drupal field data</h2>
 <p>These are of two types of Drupal fields, base fields and content-type specific fields.</p>
 <h3 id="base-fields">Base fields</h3>
@@ -395,7 +394,7 @@ IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Franc
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If content-type field values apply to all of the rows in your CSV file, you can avoid including them in the CSV and instead use "<a href="../islandora_workbench_docs/field_templates/">CSV field templates</a>".</p>
+<p>If content-type field values apply to all of the rows in your CSV file, you can avoid including them in the CSV and instead use "<a href="/islandora_workbench_docs/field_templates/">CSV field templates</a>".</p>
 </div>
 <h3 id="single-and-multi-valued-fields">Single and multi-valued fields</h3>
 <p>Drupal allows for fields to have a single value, a specific maximum number of values, or unlimited number of values. In the CSV input file, each Drupal field corresponds to a single CSV field. In other words, the CSV column names must be unique, even if a Drupal field allows multiple values. Populating multivalued fields is explained below.</p>
@@ -744,18 +743,18 @@ IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Franc
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../preparing_data/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -765,7 +764,9 @@ IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Franc
       
     </span>
 </div>
-    <script src="../js/theme.js"></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>

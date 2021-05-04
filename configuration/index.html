@@ -9,23 +9,22 @@
   
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Configuration - Islandora Workbench</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   <link href="../css/extra.css" rel="stylesheet">
   
   <script>
     // Current page data
     var mkdocs_page_name = "Configuration";
     var mkdocs_page_input_path = "configuration.md";
-    var mkdocs_page_url = "/configuration/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -39,7 +38,7 @@
         <a href=".." class="icon icon-home"> Islandora Workbench</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -339,7 +338,7 @@ password: islandora
 <td>allow_adding_terms</td>
 <td></td>
 <td>false</td>
-<td>Determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "<a href="../fields/#field-types">Taxonomy reference fields</a>" section.</td>
+<td>Determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "<a href="/fields/#field-types">Taxonomy reference fields</a>" section.</td>
 </tr>
 <tr>
 <td>published</td>
@@ -382,19 +381,19 @@ password: islandora
 <td>input_csv</td>
 <td></td>
 <td>metadata.csv</td>
-<td>Path to the CSV metadata file. Can be absolute, or if just the filename is provided, will be assumed to be in the directory named in <code>input_dir</code>. Can also be the URL to a Google spreadsheet (see the "<a href="../preparing_data/#using-a-google-sheet-as-the-input-csv-file">Using Google Sheets as input data</a>" section for more information).</td>
+<td>Path to the CSV metadata file. Can be absolute, or if just the filename is provided, will be assumed to be in the directory named in <code>input_dir</code>. Can also be the URL to a Google spreadsheet (see the "<a href="/preparing_data/#using-a-google-sheet-as-the-input-csv-file">Using Google Sheets as input data</a>" section for more information).</td>
 </tr>
 <tr>
 <td>google_sheets_csv_filename</td>
 <td></td>
 <td>google_sheet.csv</td>
-<td>Local CSV filename for data from a Google spreadsheet. See the "<a href="../preparing_data/#using-a-google-sheet-as-the-input-csv-file">Using Google Sheets as input data</a>" section for more information.</td>
+<td>Local CSV filename for data from a Google spreadsheet. See the "<a href="/preparing_data/#using-a-google-sheet-as-the-input-csv-file">Using Google Sheets as input data</a>" section for more information.</td>
 </tr>
 <tr>
 <td>google_sheets_gid</td>
 <td></td>
 <td>0</td>
-<td>The "gid" of the worksheet to use in a Google Sheet. See  "<a href="../preparing_data/#using-a-google-sheet-as-the-input-csv-file">Using Google Sheets as input data</a>" section for more information.</td>
+<td>The "gid" of the worksheet to use in a Google Sheet. See  "<a href="/preparing_data/#using-a-google-sheet-as-the-input-csv-file">Using Google Sheets as input data</a>" section for more information.</td>
 </tr>
 <tr>
 <td>excel_worksheet</td>
@@ -419,7 +418,7 @@ password: islandora
 <td>output_csv</td>
 <td></td>
 <td></td>
-<td>The full or relative path to a CSV file with one record per node created by Workbench. See "<a href="../output_csv/">The output CSV file</a>" section for more information.</td>
+<td>The full or relative path to a CSV file with one record per node created by Workbench. See "<a href="/output_csv/">The output CSV file</a>" section for more information.</td>
 </tr>
 </tbody>
 </table>
@@ -456,7 +455,7 @@ password: islandora
 <td>csv_field_templates</td>
 <td></td>
 <td></td>
-<td>Used in the <code>create</code> and <code>update</code> tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the "<a href="../field_templates/">CSV field templates</a>" section.</td>
+<td>Used in the <code>create</code> and <code>update</code> tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the "<a href="/field_templates/">CSV field templates</a>" section.</td>
 </tr>
 <tr>
 <td>ignore_csv_columns</td>
@@ -529,7 +528,7 @@ password: islandora
 <td>media_file_fields</td>
 <td></td>
 <td></td>
-<td>Defines the name of the field that refers to the file in an Islandora media. For more information, see this <a href="../troubleshooting/#my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use">Troubleshooting entry</a>.</td>
+<td>Defines the name of the field that refers to the file in an Islandora media. For more information, see this <a href="/troubleshooting/#my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use">Troubleshooting entry</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -548,18 +547,18 @@ password: islandora
 <td>model [singular]</td>
 <td></td>
 <td></td>
-<td>Used in the <code>create_from_files</code> task only. Defines the term ID from the the "Islandora Models" vocabulary for all nodes created using this task. Note: one of <code>model</code> or <code>models</code> is required. More detail provided in the "<a href="../creating_nodes_from_files/">Creating nodes from files</a>" section.</td>
+<td>Used in the <code>create_from_files</code> task only. Defines the term ID from the the "Islandora Models" vocabulary for all nodes created using this task. Note: one of <code>model</code> or <code>models</code> is required. More detail provided in the "<a href="/creating_nodes_from_files/">Creating nodes from files</a>" section.</td>
 </tr>
 <tr>
 <td>models [plural]</td>
 <td></td>
 <td></td>
-<td>Used in the <code>create_from_files</code> task only. Provides a mapping bewteen file extensions and terms in the "Islandora Models" vocabulary. Note: one of <code>model</code> or <code>models</code> is required. More detail provided in the <a href="../creating_nodes_from_files/">Creating nodes from files</a>" section.</td>
+<td>Used in the <code>create_from_files</code> task only. Provides a mapping bewteen file extensions and terms in the "Islandora Models" vocabulary. Note: one of <code>model</code> or <code>models</code> is required. More detail provided in the <a href="/creating_nodes_from_files/">Creating nodes from files</a>" section.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="paged-and-compound-content-settings">Paged and compound content settings</h3>
-<p>See the section "<a href="../paged_and_compound/">Creating paged content</a>" for more information.</p>
+<p>See the section "<a href="/paged_and_compound/">Creating paged content</a>" for more information.</p>
 <table>
 <thead>
 <tr>
@@ -574,13 +573,13 @@ password: islandora
 <td>paged_content_from_directories</td>
 <td></td>
 <td>false</td>
-<td>Set to true if you are using the "<a href="../paged_and_compound/#using-subdirectories">Using subdirectories</a>" method of creating paged content.</td>
+<td>Set to true if you are using the "<a href="/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method of creating paged content.</td>
 </tr>
 <tr>
 <td>paged_content_sequence_seprator</td>
 <td></td>
 <td>- [hyphen]</td>
-<td>The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the "<a href="../paged_and_compound/#using-subdirectories">Using subdirectories</a>" method.</td>
+<td>The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the "<a href="/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method.</td>
 </tr>
 <tr>
 <td>paged_content_page_model_tid</td>
@@ -598,18 +597,18 @@ password: islandora
 <td>paged_content_page_content_type</td>
 <td></td>
 <td></td>
-<td>Set to the machine name of the Drupal node content type for pages created using the "<a href="../paged_and_compound/#using-subdirectories">Using subdirectories</a>" method if it is different than the content type of the parent (which is specified in the content_type setting).</td>
+<td>Set to the machine name of the Drupal node content type for pages created using the "<a href="/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method if it is different than the content type of the parent (which is specified in the content_type setting).</td>
 </tr>
 <tr>
 <td>secondary_tasks</td>
 <td></td>
 <td></td>
-<td>A list of configuration file names that are executed as secondary tasks after the primary task to create compound objects. See "<a href="../paged_and_compound/#using-a-secondary-task">Using a secondary task</a>" for more information.</td>
+<td>A list of configuration file names that are executed as secondary tasks after the primary task to create compound objects. See "<a href="/paged_and_compound/#using-a-secondary-task">Using a secondary task</a>" for more information.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="logging-settings">Logging settings</h3>
-<p>See the "<a href="../logging/">Logging</a>" section for more information.</p>
+<p>See the "<a href="/logging/">Logging</a>" section for more information.</p>
 <table>
 <thead>
 <tr>
@@ -673,7 +672,7 @@ password: islandora
 <td>bootstrap</td>
 <td></td>
 <td></td>
-<td>Absolute path to one or more scripts that execute prior to Workbench connecting to Drupal. Scripts can be in any language, and need to be executable. For an example of using this feature to run a script that generates sample Islandora content, see the "<a href="../generating_sample_content/">Generating sample Islandora content</a>" section.</td>
+<td>Absolute path to one or more scripts that execute prior to Workbench connecting to Drupal. Scripts can be in any language, and need to be executable. For an example of using this feature to run a script that generates sample Islandora content, see the "<a href="/generating_sample_content/">Generating sample Islandora content</a>" section.</td>
 </tr>
 <tr>
 <td>progress_bar</td>
@@ -695,7 +694,7 @@ password: islandora
 <p>Islandora Workbench automatically converts any configuration keys to lowercase, e.g., <code>Task</code> is equivalent to <code>task</code>.</p>
 </div>
 <h2 id="validating-the-syntax-of-the-configuration-file">Validating the syntax of the configuration file</h2>
-<p>When you run Workbench, it confirms that your configuration file is valid YAML. This is a syntax check only, not a content check. If the file is valid YAML, Workbench then goes on to perform a long list of application-specific <a href="../check">checks</a>.</p>
+<p>When you run Workbench, it confirms that your configuration file is valid YAML. This is a syntax check only, not a content check. If the file is valid YAML, Workbench then goes on to perform a long list of application-specific <a href="/check">checks</a>.</p>
 <p>If this syntax check fails, some detail about the problem will be displayed to the user. The same information plus the entire Python stack trace is also logged to a file named "workbench.log" in the Islandora Workbench directory. This file name is Workbench's default log file name, but in this case (validating the config file's YAML syntax), that file name is used regardless of the log file location defined in the configuation's <code>log_file_path</code> option. The reason the error is logged in the default location instead of the value in the configuration file (if one is present) is that the configuration file isn't valid YAML and therefore can't be parsed.</p>
 <h2 id="example-configuration-files">Example configuration files</h2>
 <p>These examples provide inline annotations explaining why the settings are included in the configuration file. Spaces are included for readability.</p>
@@ -778,18 +777,18 @@ model: 'https://schema.org/DigitalDocument'
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
@@ -799,7 +798,9 @@ model: 'https://schema.org/DigitalDocument'
       
     </span>
 </div>
-    <script src="../js/theme.js"></script>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
 
 </body>
 </html>
