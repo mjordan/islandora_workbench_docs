@@ -140,6 +140,9 @@ id,parent_id,file,title,field_model,field_member_of,field_weight
 
 The use of the `parent_id` and `field_member_of` fields is the same here as when creating paged or compound children. However, unlike with paged or compound objects, in this case we leave the values in `field_weight` empty, since Islandora collections don't use `field_weight` to determine order of members. Collection Views are sorted using other fields.
 
+!!! warning
+    Creating collection nodes and member nodes using this method assumes that collection nodes and member nodes have the same Drupal content type. If your collection objects have a Drupal content type that differs from their members' content type, you need to use the "Using a secondary task" method to ingest collections and members in the same Workbench job.
+
 ### Summary
 
 The following table summarizes the different ways Workbench can be used to create parent/child relationships between nodes:
