@@ -66,7 +66,7 @@
     <li class="toctree-l2"><a href="#updating-islandora-workbench">Updating Islandora Workbench</a></li>
     
 
-    <li class="toctree-l2"><a href="#using-drupal-91-or-earlier">Using Drupal 9.1 or earlier</a></li>
+    <li class="toctree-l2"><a href="#using-drupal-85-or-earlier">Using Drupal 8.5 or earlier</a></li>
     
 
     </ul>
@@ -229,7 +229,7 @@
               
                 <h2 id="requirements">Requirements</h2>
 <ul>
-<li>An <a href="https://islandora.ca/">Islandora</a> repository using Drupal 9.2 or higher, with the <a href="https://github.com/mjordan/islandora_workbench_integration">Islandora Workbench Integration</a> module enabled. If you are using Drupal 9.1 or earlier, please refer to the "Using Drupal 9.1 or earlier" section below.</li>
+<li>An <a href="https://islandora.ca/">Islandora</a> repository using Drupal 9.2 or higher, with the <a href="https://github.com/mjordan/islandora_workbench_integration">Islandora Workbench Integration</a> module enabled. If you are using Drupal 8.5 or earlier, please refer to the "Using Drupal 8.5 or earlier" section below.</li>
 <li>Python 3.6 or higher</li>
 <li>The following Python libraries:<ul>
 <li><a href="https://yaml.readthedocs.io/en/latest/index.html">ruamel.yaml</a></li>
@@ -261,13 +261,13 @@
 <p><code>sudo python3 setup.py install</code></p>
 <p>or if you originally installed Islandora Workbench using the <code>--user</code> option:</p>
 <p><code>python3 setup.py install --user</code></p>
-<h2 id="using-drupal-91-or-earlier">Using Drupal 9.1 or earlier</h2>
-<p>When ingesting media in Drupal versions 8.x - 9.1, Islandora Workbench has two significant limitations/bugs that you should be aware of:</p>
+<h2 id="using-drupal-85-or-earlier">Using Drupal 8.5 or earlier</h2>
+<p>When ingesting media in Drupal versions 8.5 and earlier, Islandora Workbench has two significant limitations/bugs that you should be aware of:</p>
 <ul>
 <li>Approximately 10% of media creation attempts will likely fail. Workbench will log these failures. Additional information is available in this <a href="https://github.com/Islandora/documentation/issues/1481">issue</a>.</li>
 <li>A file with a filename that already exists in Islandora will overwrite the existing file, as reported in this <a href="https://github.com/Islandora/documentation/issues/1790">issue</a>.</li>
 </ul>
-<p>To avoid these issues, you need to be running Drupal version 9.2 or higher.</p>
+<p>To avoid these issues, you need to be running Drupal version 8.6 or higher.</p>
               
             </div>
           </div>
