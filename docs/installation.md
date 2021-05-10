@@ -1,6 +1,6 @@
 ## Requirements
 
-* An [Islandora](https://islandora.ca/) repository using Drupal 9.2 or higher, with the [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module enabled. If you are using Drupal 9.1 or earlier, please refer to the "Using Drupal 9.1 or earlier" section below.
+* An [Islandora](https://islandora.ca/) repository using Drupal 9.2 or higher, with the [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module enabled. If you are using Drupal 8.5 or earlier, please refer to the "Using Drupal 8.5 or earlier" section below.
 * Python 3.6 or higher
 * The following Python libraries:
     * [ruamel.yaml](https://yaml.readthedocs.io/en/latest/index.html)
@@ -26,7 +26,11 @@ If you don't already have the required libraries installed, clone this repo as a
 
 `sudo python3 setup.py install`
 
-After you run this, all of the required Python libraries will be installed.
+If you would rather not install third-party libraries in your operating system's central Python location, or you do not have `sudo` priviliges on your computer, you can install them in your user directory:
+
+`python3 setup.py install --user`
+
+After you run either of these install commands, all of the required Python libraries will be installed.
 
 ## Updating Islandora Workbench
 
@@ -38,11 +42,15 @@ After you pull in the latest changes using `git`, it's a good idea to rerun the 
 
 `sudo python3 setup.py install`
 
-## Using Drupal 9.1 or earlier
+or if you originally installed Islandora Workbench using the `--user` option:
 
-When ingesting media in Drupal versions 8.x - 9.1, Islandora Workbench has two significant limitations/bugs that you should be aware of:
+`python3 setup.py install --user`
+
+## Using Drupal 8.5 or earlier
+
+When ingesting media in Drupal versions 8.5 and earlier, Islandora Workbench has two significant limitations/bugs that you should be aware of:
 
 * Approximately 10% of media creation attempts will likely fail. Workbench will log these failures. Additional information is available in this [issue](https://github.com/Islandora/documentation/issues/1481).
 * A file with a filename that already exists in Islandora will overwrite the existing file, as reported in this [issue](https://github.com/Islandora/documentation/issues/1790).
 
-To avoid these issues, you need to be running Drupal version 9.2 or higher.
+To avoid these issues, you need to be running Drupal version 8.6 or higher.
