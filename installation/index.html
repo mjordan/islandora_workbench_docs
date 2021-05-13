@@ -267,18 +267,14 @@
 <h2 id="updating-the-islandora-workbench-integration-drupal-module">Updating the Islandora Workbench Integration Drupal module</h2>
 <p>Islandora Workbench communicates with Drupal using a variety of REST endpoints and Views. The Islandora Workbench Integration module (linked above in the "Requirements" section) ensures that the target Drupal has all required REST endpoints and Views enabled. Therefore, keeping it in sync with Islandora Workbench is important.</p>
 <p>The best way to make sure the Workbench and its companion Drupal module are in sync is to always run the latest version of the Drupal module. A good way to get notified that there has been a change in Islandora Workbench that requires a corresponding change in the Integration module is to place the following script in your <code>islandora_workbench</code> gidirectory. To do this, create a file at <code>.git/hooks/post-merge</code>, and put the following shell script in it:</p>
-<pre><code class="shell">#!/bin/sh
-#
-# Git hook script that notifies you to update the Islandora Worbench Integration
-# module if the last 10 commit messsages contain the word 'module.'
-#
-# To enable this hook, place create a file in your .git/hooks directory named 'post-merge'.
-
-if git log -n3 --format=format:&quot;%s&quot; | grep -qi module; then
-    echo &quot;NOTE: Make sure you are running the latest version of the Islandora Workbench Integration module.&quot;
-fi
-</code></pre>
-
+<p><code>#!/bin/sh</code>
+<code>#</code>
+<code># Git hook script that notifies you to update the Islandora Worbench Integration</code>
+<code># module if the last 10 commit messsages contain the word 'module.'</code>
+<code>#</code>
+<code># To enable this hook, place create a file in your .git/hooks directory named 'post-merge'.</code>
+<code>`</code>if git log -n3 --format=format:"%s" | grep -qi module; then<code></code>    echo "NOTE: Make sure you are running the latest version of the Islandora Workbench Integration module."<code></code>fi`
+```</p>
 <p>Finally, make this script executable by running <code>chmod +x post-merge</code>.</p>
 <p>When you pull in updates to the Islandora Workbench git repo, this script will check the repo's log and if it finds the word "module" in the commit message of the last three commits, it will print the message "NOTE: Make sure you are running the latest version of the Islandora Workbench Integration module."</p>
 <h2 id="using-drupal-85-or-earlier">Using Drupal 8.5 or earlier</h2>
