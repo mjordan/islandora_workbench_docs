@@ -24,6 +24,7 @@ If you do this, Workbench will check the following and report any errors that re
     * Whether the columns required to create paged content are present (see "Creating paged content" below).
 * Media files
     * Whether the files named in the CSV file are present, or in the case of remote files, are accessible (but this check is skipped if `allow_missing_files: true` is present in your config file for "create" tasks). If `nodes_only` is true, this check is skipped.
+    * Whether the media types configured for specific file extensions are configured on the target Drupal. Islandora Workbench will default to the 'file' media type if it can't find another more specific media type for a file, so the most likely cause for this check to fail is that the assigned media type does not exist on the target Drupal.
 * Field values
     * Base fields
         * If the `langcode` field is present in your CSV, whether values in it are valid Drupal language codes.
