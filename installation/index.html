@@ -267,7 +267,7 @@
 <h2 id="updating-the-islandora-workbench-integration-drupal-module">Updating the Islandora Workbench Integration Drupal module</h2>
 <p>Islandora Workbench communicates with Drupal using a variety of REST endpoints and Views. The Islandora Workbench Integration module (linked above in the "Requirements" section) ensures that the target Drupal has all required REST endpoints and Views enabled. Therefore, keeping it in sync with Islandora Workbench is important.</p>
 <p>The best way to make sure the Workbench and its companion Drupal module are in sync is to always run the latest version of the Drupal module. A good way to get notified that there has been a change in Islandora Workbench that requires a corresponding change in the Integration module is to place the following script in your <code>islandora_workbench</code> gidirectory. To do this, create a file at <code>.git/hooks/post-merge</code>, and put the following shell script in it:</p>
-<pre><code class="plaintext">#!/bin/sh
+<pre><code class="shell">#!/bin/sh
 #
 # Git hook script that notifies you to update the Islandora Worbench Integration
 # module if the last 10 commit messsages contain the word 'module.'
