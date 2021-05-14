@@ -251,6 +251,7 @@
 </li>
 <li>Media files<ul>
 <li>Whether the files named in the CSV file are present, or in the case of remote files, are accessible (but this check is skipped if <code>allow_missing_files: true</code> is present in your config file for "create" tasks). If <code>nodes_only</code> is true, this check is skipped.</li>
+<li>Whether the media types configured for specific file extensions are configured on the target Drupal. Islandora Workbench will default to the 'file' media type if it can't find another more specific media type for a file, so the most likely cause for this check to fail is that the assigned media type does not exist on the target Drupal.</li>
 </ul>
 </li>
 <li>Field values<ul>

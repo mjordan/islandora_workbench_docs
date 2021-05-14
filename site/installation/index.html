@@ -66,6 +66,9 @@
     <li class="toctree-l2"><a href="#updating-islandora-workbench">Updating Islandora Workbench</a></li>
     
 
+    <li class="toctree-l2"><a href="#keeping-the-islandora-workbench-integration-drupal-module-up-to-date">Keeping the Islandora Workbench Integration Drupal module up to date</a></li>
+    
+
     <li class="toctree-l2"><a href="#using-drupal-85-or-earlier">Using Drupal 8.5 or earlier</a></li>
     
 
@@ -261,6 +264,9 @@
 <p><code>sudo python3 setup.py install</code></p>
 <p>or if you originally installed Islandora Workbench using the <code>--user</code> option:</p>
 <p><code>python3 setup.py install --user</code></p>
+<h2 id="keeping-the-islandora-workbench-integration-drupal-module-up-to-date">Keeping the Islandora Workbench Integration Drupal module up to date</h2>
+<p>Islandora Workbench communicates with Drupal using REST endpoints and Views. The Islandora Workbench Integration module (linked above in the "Requirements" section) ensures that the target Drupal has all required REST endpoints and Views enabled. Therefore, keeping it in sync with Islandora Workbench is important.</p>
+<p>Announcments indicating that updating the Drupal module will be posted in the Islandora Slack, but if you want to be notified that there has been a change in Islandora Workbench that requires a corresponding change in the Integration module, follow the instructions in the "Post-merge hook script" section of the Islandora Workbench <a href="https://github.com/mjordan/islandora_workbench">README</a>.</p>
 <h2 id="using-drupal-85-or-earlier">Using Drupal 8.5 or earlier</h2>
 <p>When ingesting media in Drupal versions 8.5 and earlier, Islandora Workbench has two significant limitations/bugs that you should be aware of:</p>
 <ul>

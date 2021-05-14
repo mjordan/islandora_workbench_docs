@@ -46,6 +46,12 @@ or if you originally installed Islandora Workbench using the `--user` option:
 
 `python3 setup.py install --user`
 
+## Keeping the Islandora Workbench Integration Drupal module up to date
+
+Islandora Workbench communicates with Drupal using REST endpoints and Views. The Islandora Workbench Integration module (linked above in the "Requirements" section) ensures that the target Drupal has all required REST endpoints and Views enabled. Therefore, keeping it in sync with Islandora Workbench is important.
+
+Announcments indicating that updating the Drupal module will be posted in the Islandora Slack, but if you want to be notified that there has been a change in Islandora Workbench that requires a corresponding change in the Integration module, follow the instructions in the "Post-merge hook script" section of the Islandora Workbench [README](https://github.com/mjordan/islandora_workbench).
+
 ## Using Drupal 8.5 or earlier
 
 When ingesting media in Drupal versions 8.5 and earlier, Islandora Workbench has two significant limitations/bugs that you should be aware of:
