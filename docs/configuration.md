@@ -105,14 +105,18 @@ See the "[Logging](/logging/)" section for more information.
 | log_file_mode | | a [append] | Set to "w" to overwrite the log file, if it exists. |
 | log_json |  | false | Whether or not to log the raw JSON POSTed, PUT, or PATCHed to Drupal. Useful for debugging. |
 
+### HTTP settings
+
+| Setting | Required | Default value | Description |
+| user_agent |  | Islandora Workbench | String to use as the User-Agent header in HTTP requests. |
+| allow_redirects |  | true | Whether or not to allow Islandora Workbench to respond to HTTP redirects. |
+| secure_ssl_only |  | true | Whether or not to require valid SSL certificates. Set to `false` if you want to ignore SSL certificates. |
 
 ### Miscellaneous settings
 
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
 | pause |  | | Defines the number of seconds to pause between each REST request to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5. |
-| user_agent |  | Islandora Workbench | String to use as the User-Agent header in HTTP requests. |
-| allow_redirects |  | true | Whether or not to allow Islandora Workbench to respond to HTTP redirects. |
 | bootstrap |  | | Absolute path to one or more scripts that execute prior to Workbench connecting to Drupal. Scripts can be in any language, and need to be executable. For an example of using this feature to run a script that generates sample Islandora content, see the "[Generating sample Islandora content](/generating_sample_content/)" section. |
 | progress_bar |  | false | Show a progress bar when running Workbench instead of row-by-row output. |
 | drupal_8 |  | false | Tells Workbench that it is communicating with a Drupal version lower than 9.2. Intended to be used in integration tests only. |
