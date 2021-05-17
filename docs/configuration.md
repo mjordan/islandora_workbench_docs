@@ -108,6 +108,7 @@ See the "[Logging](/logging/)" section for more information.
 ### HTTP settings
 
 | Setting | Required | Default value | Description |
+| --- | --- | --- | --- |
 | user_agent |  | Islandora Workbench | String to use as the User-Agent header in HTTP requests. |
 | allow_redirects |  | true | Whether or not to allow Islandora Workbench to respond to HTTP redirects. |
 | secure_ssl_only |  | true | Whether or not to require valid SSL certificates. Set to `false` if you want to ignore SSL certificates. |
