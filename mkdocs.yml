@@ -29,6 +29,7 @@ pages:
     - Creating nodes from the sample data: sample_data.md
     - Exporting Islandora 7 content: exporting_islandora_7_content.md
     - Generating sample Islandora content: generating_sample_content.md
+    - Hooks: hooks.md
     - Logging: logging.md
     - Workflows: workflows.md
     - Troubleshooting: troubleshooting.md
