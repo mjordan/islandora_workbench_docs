@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Assigning URL aliases - Islandora Workbench</title>
+  <title>Hooks - Islandora Workbench</title>
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
@@ -16,8 +16,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Assigning URL aliases";
-    var mkdocs_page_input_path = "aliases.md";
+    var mkdocs_page_name = "Hooks";
+    var mkdocs_page_input_path = "hooks.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -102,12 +102,9 @@
     <a class="" href="../creating_nodes_from_files/">Creating nodes from files</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Assigning URL aliases</a>
-    <ul class="subnav">
-            
-    </ul>
+    <a class="" href="../aliases/">Assigning URL aliases</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -165,9 +162,25 @@
     <a class="" href="../generating_sample_content/">Generating sample Islandora content</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../hooks/">Hooks</a>
+    <a class="current" href="./">Hooks</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#hooks">Hooks</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#bootstrap-scripts">Bootstrap scripts</a></li>
+        
+            <li><a class="toctree-l3" href="#csv-preprocessor-scripts">CSV preprocessor scripts</a></li>
+        
+            <li><a class="toctree-l3" href="#post-action-scripts">Post-action scripts</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -207,10 +220,10 @@
     
       
     
-    <li>Assigning URL aliases</li>
+    <li>Hooks</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/aliases.md"
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/hooks.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -220,23 +233,42 @@
           <div role="main">
             <div class="section">
               
-                <p>In <code>create</code> tasks, you can assign URL aliases to nodes by adding the <code>url_alias</code> field to you CSV file, like this:</p>
-<pre><code class="text">file,title,field_description,url_alias
-IMG_1410.tif,Small boats in Havana Harbour,Some are blue.,/havana_boats
-IMG_2549.jp2,Manhatten Island,Manhatten is part of New York City.,/manhatten
+                <h2 id="hooks">Hooks</h2>
+<p>Islandora Workbench offers three "hooks" that can be used to run scripts at specific points in the Workbench execution lifecycle. The three hooks are:</p>
+<ol>
+<li>Bootstrap</li>
+<li>CSV preprocessor</li>
+<li>Post-action</li>
+</ol>
+<h3 id="bootstrap-scripts">Bootstrap scripts</h3>
+<p>Bootstrap scripts execute prior to Workbench connecting to Drupal. Scripts can be in any language, and need to be executable. For an example of using this feature to run a script that generates sample Islandora content, see the "<a href="/islandora_workbench_docs/generating_sample_content/">Generating sample Islandora content</a>" section.</p>
+<p>To register a bootstrap script in your configuration file, add it to the <code>bootstrap</code> option, like this:</p>
+<pre><code class="yaml">bootstrap: [&quot;/home/mark/Documents/hacking/workbench/generate_image_files.py&quot;]
 </code></pre>
 
-<p>You can also assign URL aliases in <code>update</code> tasks:</p>
-<pre><code class="text">node_id,url_alias
-345,/this_is_a_cool_item
-367,/soisthisone
+<h3 id="csv-preprocessor-scripts">CSV preprocessor scripts</h3>
+<p>CSV preprocessor scripts are applied to CSV values prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocesor must split it and then reassemble it back into a string before returning it. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title).</p>
+<p>For example, you might want to convert all the values in a CSV field to sentence case. You can do this by writing a small Python script that uses the <code>capitalize()</code> method and registering it as a preprocessor. </p>
+<p>To register a preprocessor script in your configuration file, add it to the <code>preprocessors</code> option, like this:</p>
+<pre><code class="yaml">preprocessors: [&quot;/home/mark/Documents/hacking/workbench/capitalize.py&quot;]
 </code></pre>
 
-<p>No other configuration is required. URL aliases must start with a forward slash (<code>/</code>). When you run Workbench with its <code>--check</code> option, it will check whether each alias starts with this character, and whether the alias already exists.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This method of assigning URL aliases is useful if you have pre-existing aliases. If you want to assign URL aliases that are derived from node-specific field data (like title, date, taxonomy terms, etc.), you can use the Drupal contrib module <a href="https://www.drupal.org/project/pathauto">Pathauto</a> instead.</p>
-</div>
+<h3 id="post-action-scripts">Post-action scripts</h3>
+<p>Post-action scripts execute after a node is created or updated, or after a media is created.  </p>
+<p>To register post-action scripts in your configuration file, add them to either the <code>node_post_create</code>, <code>node_post_update</code>, or <code>media_post_create</code> configuration setting:</p>
+<pre><code class="yaml">node_post_create: [&quot;/home/mark/Documents/hacking/workbench/post_node_create.py&quot;]
+</code></pre>
+
+<pre><code class="yaml">node_post_update: [&quot;/home/mark/Documents/hacking/workbench/post_node_update.py&quot;]
+</code></pre>
+
+<pre><code class="yaml">media_post_create: [&quot;/home/mark/Documents/hacking/workbench/post_media_update.py&quot;]
+</code></pre>
+
+<h4 id="running-multiple-scripts-in-one-hook">Running multiple scripts in one hook</h4>
+<p>For all types of hooks, you can register multiple scripts, like this:</p>
+<pre><code class="yaml">node_post_create: [&quot;/home/mark/scripts/email_someone.py&quot;, &quot;/tmp/hit_remote_api.py&quot;]
+</code></pre>
               
             </div>
           </div>
@@ -244,10 +276,10 @@ IMG_2549.jp2,Manhatten Island,Manhatten is part of New York City.,/manhatten
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../alt_text/" class="btn btn-neutral float-right" title="Adding alt text to images">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../logging/" class="btn btn-neutral float-right" title="Logging">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../creating_nodes_from_files/" class="btn btn-neutral" title="Creating nodes from files"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../generating_sample_content/" class="btn btn-neutral" title="Generating sample Islandora content"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -275,10 +307,10 @@ IMG_2549.jp2,Manhatten Island,Manhatten is part of New York City.,/manhatten
           <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../creating_nodes_from_files/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../generating_sample_content/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../alt_text/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../logging/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
