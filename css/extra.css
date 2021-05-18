@@ -3,4 +3,6 @@ table {
 }
 code.text {
   color: black;
+  max-width: 100%;
+  white-space: normal !important;
 }
