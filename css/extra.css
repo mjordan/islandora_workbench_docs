@@ -3,7 +3,6 @@ table {
 }
 code.text {
   white-space: pre-wrap;
-  word-break: keep-all;
 }
 code.yaml {
   white-space: pre-wrap;
