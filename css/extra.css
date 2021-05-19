@@ -6,4 +6,5 @@ code.text {
 }
 code.yaml {
   white-space: pre-wrap;
+  word-break: keep-all;
 }
