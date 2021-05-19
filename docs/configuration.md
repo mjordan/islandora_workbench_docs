@@ -184,7 +184,7 @@ csv_field_templates:
 
 ### Create nodes and media from files (no input CSV file)
 
-```
+```yaml
 task: create_from_files
 host: "http://localhost:8000"
 username: admin

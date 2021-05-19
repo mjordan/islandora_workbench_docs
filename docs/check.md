@@ -18,6 +18,7 @@ If you do this, Workbench will check the following and report any errors that re
 * CSV file
     * Whether the CSV file is encoded in either ASCII or UTF-8.  
     * Whether each row contains the same number of columns as there are column headers.
+    * Whether there are any duplicate column headers.
     * Whether your CSV file contains required columns headers, including the field defined as the unique ID for each record (defaults to "id" if the `id_field` key is not in your config file)
     * Whether your CSV column headers correspond to existing Drupal field machine names.
     * Whether all Drupal fields that are configured to be required are present in the CSV file.
