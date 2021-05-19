@@ -5,3 +5,7 @@ code.text {
   color: black;
   white-space: pre-wrap;
 }
+code.yaml {
+  color: black;
+  white-space: pre-wrap;
+}
