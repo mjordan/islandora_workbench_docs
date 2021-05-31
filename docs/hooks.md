@@ -16,6 +16,8 @@ To register a bootstrap script in your configuration file, add it to the `bootst
 bootstrap: ["/home/mark/Documents/hacking/workbench/generate_image_files.py"]
 ```
 
+Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's `--config` argument.
+
 ### CSV preprocessor scripts
 
 CSV preprocessor scripts are applied to CSV values prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocesor must split it and then reassemble it back into a string before returning it. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title).
@@ -27,6 +29,11 @@ To register a preprocessor script in your configuration file, add it to the `pre
 ```yaml
 preprocessors: ["/home/mark/Documents/hacking/workbench/capitalize.py"]
 ```
+
+Each preprocessor script gets passed two arguments:
+
+1. the character used as the CSV subdelimiter (defined in the `subdelimiter` config option, which defaults to `|`)
+1. the CSV field value
 
 ### Post-action scripts
 
@@ -45,6 +52,14 @@ node_post_update: ["/home/mark/Documents/hacking/workbench/post_node_update.py"]
 ```yaml
 media_post_create: ["/home/mark/Documents/hacking/workbench/post_media_update.py"]
 ```
+
+The arguments passed to each post-action hook are:
+
+1. the path to the Workbench config file that was specified in the `--config` argument
+1. the HTTP response code returned from the action (create, update), e.g. `200` or `403`
+1. the entire HTTP response body; this will be raw JSON.
+
+These arguments are passed to post-action scripts automatically. You don't specific them when you register your scripts in your config file. The `scripts/entity_post_task_example.py` illustrates these arguments.
 
 #### Running multiple scripts in one hook
 
