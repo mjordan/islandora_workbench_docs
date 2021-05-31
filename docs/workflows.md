@@ -53,6 +53,14 @@ A combination of the "Migrations" workflow and the "Watch folder" workflow can b
 
 The extraction of data from the source system, conversion of it into the CSV and file arrangement Workbench expects, and running of Workbench can all be scripted and executed in sequence using scheduled jobs.
 
+### Using hooks
+
+Islandora Workbench enables you to execute scripts immediatley after a node is created or updated, or a media is created, via a "post-action script" [hook](/islandora_workbench_docs/hooks/). Drupal informs Workbench if an action was successful or not, and in either case, post-action hook scripts registered in the Workbench configuration file execute. These scripts can interact with external applications:
+
+![Post-action hook script](images/post_action_hook.png)
+
+Potential uses for this ability include adding new Islandora content to external processing queues, or informing upstream applications like those described in the "Integrations with other systems" section above that content they provide has been (or has not been) ingested into Islandora. As a simpler example, post-action hook scripts can be used to write custom or special-purpose log files.
+
 ### Sharing the input CSV with other applications
 
 Some workflows can benefit from having Workbench share its input CSV with other scripts or applications. For example, you might use Workbench to ingest nodes into Islandora but want to use the same CSV file in a script to create metadata for loading into another application such as a library discovery layer.

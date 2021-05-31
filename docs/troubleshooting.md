@@ -21,7 +21,7 @@ If a field is configured in Drupal to use [text filters](https://www.drupal.org/
 If you need to create a media that is not one of the standard Islandora types (Image, File, Digital Document, Video, Audio, Extracted Text, or FITS Technical metadata), you will need to include the  `media_file_fields` setting in your config file, like this:
 
 
-```
+```yaml
 media_file_fields:
  - mycustommedia_machine_name: field_custom_file
  - myothercustommedia_machine_name: field_other_custom_file
@@ -29,7 +29,7 @@ media_file_fields:
 
 This configuration setting adds entries to the following default mapping of media types to file field names:
 
-```
+```yaml
 'file': 'field_media_file',
 'document': 'field_media_document',
 'image': 'field_media_image',
