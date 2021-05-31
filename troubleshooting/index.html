@@ -245,13 +245,13 @@
 <p>If a field is configured in Drupal to use <a href="https://www.drupal.org/node/213156">text filters</a>, the HTML that is displayed to the user may not be exactly the same as the content of the node add/edit form field. If you check the node add/edit form, the content of the field should match the content of the CSV field. If it does, it is likely that Drupal is apply a text filter.</p>
 <h2 id="my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use">My Islandora uses a custom media type and I need to tell Workbench what file field to use.</h2>
 <p>If you need to create a media that is not one of the standard Islandora types (Image, File, Digital Document, Video, Audio, Extracted Text, or FITS Technical metadata), you will need to include the  <code>media_file_fields</code> setting in your config file, like this:</p>
-<pre><code>media_file_fields:
+<pre><code class="yaml">media_file_fields:
  - mycustommedia_machine_name: field_custom_file
  - myothercustommedia_machine_name: field_other_custom_file
 </code></pre>
 
 <p>This configuration setting adds entries to the following default mapping of media types to file field names:</p>
-<pre><code>'file': 'field_media_file',
+<pre><code class="yaml">'file': 'field_media_file',
 'document': 'field_media_document',
 'image': 'field_media_image',
 'audio': 'field_media_audio_file',
