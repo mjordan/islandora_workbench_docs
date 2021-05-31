@@ -246,6 +246,7 @@
 <pre><code class="yaml">bootstrap: [&quot;/home/mark/Documents/hacking/workbench/generate_image_files.py&quot;]
 </code></pre>
 
+<p>Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's <code>--config</code> argument.</p>
 <h3 id="csv-preprocessor-scripts">CSV preprocessor scripts</h3>
 <p>CSV preprocessor scripts are applied to CSV values prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocesor must split it and then reassemble it back into a string before returning it. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title).</p>
 <p>For example, you might want to convert all the values in a CSV field to sentence case. You can do this by writing a small Python script that uses the <code>capitalize()</code> method and registering it as a preprocessor. </p>
@@ -253,6 +254,11 @@
 <pre><code class="yaml">preprocessors: [&quot;/home/mark/Documents/hacking/workbench/capitalize.py&quot;]
 </code></pre>
 
+<p>Each preprocessor script gets passed two arguments:</p>
+<ol>
+<li>the character used as the CSV subdelimiter (defined in the <code>subdelimiter</code> config option, which defaults to <code>|</code>)</li>
+<li>the CSV field value</li>
+</ol>
 <h3 id="post-action-scripts">Post-action scripts</h3>
 <p>Post-action scripts execute after a node is created or updated, or after a media is created.  </p>
 <p>To register post-action scripts in your configuration file, add them to either the <code>node_post_create</code>, <code>node_post_update</code>, or <code>media_post_create</code> configuration setting:</p>
@@ -271,7 +277,7 @@
 <li>the HTTP response code returned from the action (create, update), e.g. <code>200</code> or <code>403</code></li>
 <li>the entire HTTP response body; this will be raw JSON.</li>
 </ol>
-<p>These arguments are passed to post-action scripts automatically. You don't specific them when you register your scripts in your config file.</p>
+<p>These arguments are passed to post-action scripts automatically. You don't specific them when you register your scripts in your config file. The <code>scripts/entity_post_task_example.py</code> illustrates these arguments.</p>
 <h4 id="running-multiple-scripts-in-one-hook">Running multiple scripts in one hook</h4>
 <p>For all types of hooks, you can register multiple scripts, like this:</p>
 <pre><code class="yaml">node_post_create: [&quot;/home/mark/scripts/email_someone.py&quot;, &quot;/tmp/hit_remote_api.py&quot;]
