@@ -265,6 +265,13 @@
 <pre><code class="yaml">media_post_create: [&quot;/home/mark/Documents/hacking/workbench/post_media_update.py&quot;]
 </code></pre>
 
+<p>The arguments passed to each post-action hook are:</p>
+<ol>
+<li>the path to the Workbench config file that was specified in the <code>--config</code> argument</li>
+<li>the HTTP response code returned from the action (create, update), e.g. <code>200</code> or <code>403</code></li>
+<li>the entire HTTP response body; this will be raw JSON.</li>
+</ol>
+<p>These arguments are passed to post-action scripts automatically. You don't specific them when you register your scripts in your config file.</p>
 <h4 id="running-multiple-scripts-in-one-hook">Running multiple scripts in one hook</h4>
 <p>For all types of hooks, you can register multiple scripts, like this:</p>
 <pre><code class="yaml">node_post_create: [&quot;/home/mark/scripts/email_someone.py&quot;, &quot;/tmp/hit_remote_api.py&quot;]
