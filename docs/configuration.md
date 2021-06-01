@@ -19,7 +19,7 @@ The settings defined in a configuration file are documented below, grouped into 
 
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
-| task | ✔️ | | One of 'create', 'create_from_files', update', delete', 'add_media', or 'delete_media' |
+| task | ✔️ | | One of 'create', 'create_from_files', 'update', delete', 'add_media', or 'delete_media' |
 | host | ✔️ | | The hostname, including `http://` or `https://` of your Islandora repository, and port number if not the default 80. This value must be wrapped in quotation marks. |
 | username |  ✔️ | | The username used to authenticate the requests. This Drupal user should be a member of the "Administrator" role. If you want to create nodes that are owned by a specific Drupal user, include their numeric user ID in the `uid` column in your CSV. |
 | password |  ✔️ | | The user's password. |
