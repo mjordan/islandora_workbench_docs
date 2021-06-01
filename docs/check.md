@@ -52,9 +52,7 @@ If you do this, Workbench will check the following and report any errors that re
     * Whether values used in geolocation fields are valid lat,long coordinates.
     * Whether values used in EDTF fields are valid EDTF date/time values (subset of date/time values only; see [documentation](https://mjordan.github.io/islandora_workbench_docs/fields/#field-types) for more detail). Also validates whether dates are valid Gregorian calendar dates.
 * Hook scripts
-  * Whether registered bootstrap scripts exist and are executable.
-  * Whether registered preprocessor scripts and are executable.
-  * Whether registered post-action scripts and are executable.
+    * Whether registered bootstrap, preprocessor, and post-action scripts exist and are executable.
 
 If Workbench detects a configuration or input data violation, it will either stop and tell you why it stopped, or (if the violation will not cause Workbench's interaction with Drupal to fail), tell you that it found an anomoly and to check the log file for more detail.
 
