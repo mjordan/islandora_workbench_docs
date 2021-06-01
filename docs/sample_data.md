@@ -1,4 +1,8 @@
-Islandora Workbench comes with some sample data. Running `./workbench --config create.yml --check` should result in the following output:
+Islandora Workbench comes with some sample data. Running
+
+`./workbench --config create.yml --check`
+
+will result in the following output:
 
 ```text
 OK, connection to Drupal at http://localhost:8000 verified.
@@ -13,7 +17,7 @@ OK, files named in the CSV "file" column are all present.
 Configuration and input data appear to be valid.
 ```
 
-Then running workbench Workbench without `--check` should result in something like:
+Then running workbench Workbench without `--check` will result in something like:
 
 ```text
 Node for 'Small boats in Havana Harbour' created at http://localhost:8000/node/52.

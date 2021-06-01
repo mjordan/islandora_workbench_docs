@@ -13,7 +13,7 @@ The configuration options for the `create_from_files` task are the same as the o
 
 Note that either the  `models` or `model` configuration option is required in the `create_from_files` task. Use `models` when your nodes will have different Islandora Model values. Here is a sample configuration file for this task:
 
-```
+```yaml
 task: create_from_files
 host: "http://localhost:8000"
 username: admin
@@ -29,7 +29,7 @@ models:
 
 Using `model` is conventient when all of the objects you are creating are the same Islandora Model:
 
-```
+```yaml
 task: create_from_files
 host: "http://localhost:8000"
 username: admin
@@ -40,7 +40,7 @@ model: 25
 
 You can also use the URIs assigned to terms in the Islandora Models vocabulary, for example:
 
-```
+```yaml
 task: create_from_files
 host: "http://localhost:8000"
 username: admin
