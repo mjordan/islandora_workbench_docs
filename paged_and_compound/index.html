@@ -249,7 +249,7 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 </code></pre>
 
 <p>Each parent's pages are located in a subdirectory of the input directory that is named to match the value of the <code>id</code> field of the parent item they are pages of:</p>
-<pre><code>samplebook/
+<pre><code class="text">samplebook/
 ├── book1
 │   ├── page-001.jpg
 │   ├── page-002.jpg
@@ -306,7 +306,7 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 <p><img alt="Secondary task CSV" src="../images/secondary_tasks.png" /></p>
 <p>As you can see, values in the <code>parent_id</code> column in the secondary CSV reference values in the <code>id</code> column in the primary CSV: <code>parent_id</code> 001 in the secondary CSV matches <code>id</code> 001 in the primary, <code>parent_id</code> 003 in the secondary matches <code>id</code> 003 in the primary, and so on.</p>
 <p>You configure secondary tasks by adding the <code>secondary_tasks</code> setting to your primary configuration file, like this:</p>
-<pre><code>task: create
+<pre><code class="yaml">task: create
 host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
@@ -317,7 +317,7 @@ nodes_only: true
 </code></pre>
 
 <p>In the <code>secondary_tasks</code> setting, you name the configuration file of the secondary task. The secondary task's configuration file (in this example, named "children.yml") contains no indication that it's a secondary task:</p>
-<pre><code>task: create
+<pre><code class="yaml">task: create
 host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
