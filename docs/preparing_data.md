@@ -194,7 +194,7 @@ If you add additinal worksheets, they get a randomly generated "gid", such as "1
 
 By default, Workbench extracts CSV data from the worksheet with a "gid" of "0". If you want Workbench to extract the CSV data from a specific worksheet that is not the one with a "gid" of "0", specify the "gid" in your configuration file using the `google_sheets_gid` option, like this:
 
-```
+```yaml
 task: create
 host: "http://localhost:8000"
 username: admin

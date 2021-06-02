@@ -3,7 +3,7 @@
 
 In `create` and `update` tasks, you can configure field templates that are applied to each node as if the fields were present in your CSV file. The templates are configured in the `csv_field_templates` option. An example looks like this:
 
-```
+```text
 csv_field_templates:
  - field_rights: "The author of this work dedicates any and all copyright interest to the public domain."
  - field_member_of: 205

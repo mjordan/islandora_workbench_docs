@@ -15,7 +15,7 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 ```
 Each parent's pages are located in a subdirectory of the input directory that is named to match the value of the `id` field of the parent item they are pages of:
 
-```
+```text
 samplebook/
 ├── book1
 │   ├── page-001.jpg
@@ -91,7 +91,7 @@ As you can see, values in the `parent_id` column in the secondary CSV reference 
 
 You configure secondary tasks by adding the `secondary_tasks` setting to your primary configuration file, like this:
 
-```
+```yaml
 task: create
 host: "http://localhost:8000"
 username: admin
@@ -104,7 +104,7 @@ nodes_only: true
 
 In the `secondary_tasks` setting, you name the configuration file of the secondary task. The secondary task's configuration file (in this example, named "children.yml") contains no indication that it's a secondary task:
 
-```
+```yaml
 task: create
 host: "http://localhost:8000"
 username: admin

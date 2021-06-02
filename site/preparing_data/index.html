@@ -400,7 +400,7 @@ input_csv: 'https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZv
 <p>If you add additinal worksheets, they get a randomly generated "gid", such as "1094504353". You can see this "gid" in the URL when you are in the worksheet:</p>
 <p><code>https://docs.google.com/spreadsheets/d/1RLrjb5BrlJNaasFIKrKV4l2rw/edit#gid=1094504353</code></p>
 <p>By default, Workbench extracts CSV data from the worksheet with a "gid" of "0". If you want Workbench to extract the CSV data from a specific worksheet that is not the one with a "gid" of "0", specify the "gid" in your configuration file using the <code>google_sheets_gid</code> option, like this:</p>
-<pre><code>task: create
+<pre><code class="yaml">task: create
 host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
