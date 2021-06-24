@@ -1,6 +1,6 @@
 ## Requirements
 
-* An [Islandora](https://islandora.ca/) repository using Drupal 9.2 or higher, with the [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module enabled. If you are using Drupal 8.5 or earlier, please refer to the "Using Drupal 8.5 or earlier" section below.
+* An [Islandora](https://islandora.ca/) repository using Drupal 8 or 9, with the [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module enabled. If you are using Drupal 8.5 or earlier, please refer to the "Using Drupal 8.5 or earlier" section below.
 * Python 3.6 or higher
 * The following Python libraries:
     * [ruamel.yaml](https://yaml.readthedocs.io/en/latest/index.html)
