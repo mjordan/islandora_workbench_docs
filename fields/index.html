@@ -472,7 +472,7 @@ img003.png,Picture of yarn and needles,&quot;Yarn, Balls of|Knitting needles&quo
 <p>Terms can be from any level in a vocabulary's hierarchy. In other words, if you have a vocabulary whose structure looks like this:</p>
 <p><img alt="Hierarchical_vocabulary" src="../images/hierarchical_vocab.png" /></p>
 <p>you can use the terms IDs or labels for "Automobiles", "Sports cars", or "Land Rover" in your CSV. The term name (or ID) is all you need; no indication of the term's place in the hierarchy is required.</p>
-<p>If you add <code>allow_adding_terms: true</code> to your configuration file for <code>create</code> and <code>update</code> tasks, Workbench will create the new term the first time it is used in the CSV file following these rultes:</p>
+<p>If you add <code>allow_adding_terms: true</code> to your configuration file for <code>create</code> and <code>update</code> tasks, Workbench will create the new term the first time it is used in the CSV file following these rules:</p>
 <ul>
 <li>If multiple records in your CSV contain the same new term name in the same field, the term is only created once.</li>
 <li>When Workbench checks to see if the term with the new name exists in the target vocabulary, it normalizes it and compares it with existing term names in that vocabulary, applying these normalization rules to both the new term and the existing terms:<ul>
