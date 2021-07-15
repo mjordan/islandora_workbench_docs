@@ -194,7 +194,7 @@ Terms can be from any level in a vocabulary's hierarchy. In other words, if you 
 
 you can use the terms IDs or labels for "Automobiles", "Sports cars", or "Land Rover" in your CSV. The term name (or ID) is all you need; no indication of the term's place in the hierarchy is required.
 
-If you add `allow_adding_terms: true` to your configuration file for `create` and `update` tasks, Workbench will create the new term the first time it is used in the CSV file following these rultes:
+If you add `allow_adding_terms: true` to your configuration file for `create` and `update` tasks, Workbench will create the new term the first time it is used in the CSV file following these rules:
 
 * If multiple records in your CSV contain the same new term name in the same field, the term is only created once.
 * When Workbench checks to see if the term with the new name exists in the target vocabulary, it normalizes it and compares it with existing term names in that vocabulary, applying these normalization rules to both the new term and the existing terms:
@@ -237,6 +237,11 @@ If you want to use multiple terms in a single field, you would namespace them al
 ```text
 cats:Tuxedo|cats:Misbehaving|dogs:German Shepherd
 ```
+To find the vocabulary ID (referred to above as the "namespace") to use, visit the list of your site's vocabularies at `admin/structure/taxonomy`:
+
+![Vocabulary names](images/vocabulary_names.png)
+
+Hover your pointer over the "List terms" button for each vocabulary to reveal the URL to its overview page. The ID for the vocabulary is the string between "manage" and "overview" in the URL. For example, in the URL `admin/structure/taxonomy/manage/person/overview`, the vocabulary ID is "person". This is the namespace you need to use to indicate which vocabulary to add new terms to.
 
 CSV values containing term names that have commas (`,`) in multi-valued, multi-vocabulary fields need to be wrapped in quotation marks (like any CSV value containing a comma), and in addition, the need to specify the namespace within each of the subvalues:
 
