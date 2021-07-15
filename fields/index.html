@@ -513,6 +513,9 @@ dogs:German Shepherd
 <pre><code class="text">cats:Tuxedo|cats:Misbehaving|dogs:German Shepherd
 </code></pre>
 
+<p>To find the vocabulary ID (referred to above as the "namespace") to use, visit the list of your site's vocabularies at <code>admin/structure/taxonomy</code>:</p>
+<p><img alt="Vocabulary names" src="../images/vocabulary_names.png" /></p>
+<p>Put your pointer over the "List terms" button for each vocabulary to reveal the URL to the overview page for each vocabulary. The ID for each vocabulary is the string between "manage" and "overview" in the URL. For example, in the URL <code>admin/structure/taxonomy/manage/person/overview</code>, the vocabulary ID is "person".</p>
 <p>CSV values containing term names that have commas (<code>,</code>) in multi-valued, multi-vocabulary fields need to be wrapped in quotation marks (like any CSV value containing a comma), and in addition, the need to specify the namespace within each of the subvalues:</p>
 <pre><code class="text">&quot;tags:gum, Bubble|tags:candy, Hard&quot;
 </code></pre>
