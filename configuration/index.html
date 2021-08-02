@@ -500,6 +500,24 @@ password: islandora
 <td>false</td>
 <td>Determines if empty <code>file</code> values are allowed. Used in the <code>create</code> and <code>add_media</code> tasks. If set to true, empty <code>file</code> values are allowed. For <code>create</code> tasks, a <code>true</code> value will result in nodes without attached media. For <code>add_media</code> tasks, a <code>true</code> value will skip adding a media for the empty <code>file</code> CSV value. Defaults to false (which means all file values must contain the name of a file that exists in the <code>input_data</code> directory).</td>
 </tr>
+<tr>
+<td>media_use_tid</td>
+<td></td>
+<td><code>http://pcdm.org/use#OriginalFile</code></td>
+<td>The term ID for the term from the "Islandora Media Use" vocabulary you want to apply to the media being created in <code>create</code> and <code>add_media</code> tasks. You can provide a term URI instead of a term ID, for example <code>"http://pcdm.org/use#OriginalFile"</code>. You can specify multiple values for this setting by joining them with the subdelimiter configured in the <code>subdelimiter</code> setting; for example, <code>media_use_tid: 17|18</code>. You can also set this at the object level by including <code>media_use_tid</code> in your CSV file; values there will override the value set in your configuration file.</td>
+</tr>
+<tr>
+<td>media_type [singular]</td>
+<td></td>
+<td></td>
+<td>Overrides, for all media being created, Workbench's default definition of whether the media being created is an image, file, document, audio, or video. Used in the <code>create</code>, <code>add_media</code>, and <code>create_from_files</code> tasks. More detail provided in the "<a href="/islandora_workbench_docs/media_types">Setting Media Types</a>" section.</td>
+</tr>
+<tr>
+<td>media_types [plural]</td>
+<td></td>
+<td></td>
+<td>Overrides default media type definitions on a per file extension basis. Used in the <code>create</code>, <code>add_media</code>, and <code>create_from_files</code> tasks. More detail provided in the "Setting Media Types" section.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="islandora-model-settings">Islandora model settings</h3>
