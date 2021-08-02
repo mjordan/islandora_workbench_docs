@@ -518,6 +518,36 @@ password: islandora
 <td></td>
 <td>Overrides default media type definitions on a per file extension basis. Used in the <code>create</code>, <code>add_media</code>, and <code>create_from_files</code> tasks. More detail provided in the "Setting Media Types" section.</td>
 </tr>
+<tr>
+<td>delete_media_with_nodes</td>
+<td></td>
+<td>true</td>
+<td>When a node is deleted using a <code>delete</code> task, by default, all if its media are automatically deleted. Set this option to false to not delete all of a node's media (you do not generally want to keep the media without the node).</td>
+</tr>
+<tr>
+<td>use_node_title_for_media</td>
+<td></td>
+<td>false</td>
+<td>For remote files, if set to <code>true</code>, name the downloaded copy using the parent node's title value. If <code>false</code>, downloaded file's name will depend on the application/website that is serving up the file.</td>
+</tr>
+<tr>
+<td>delete_tmp_upload</td>
+<td></td>
+<td>false</td>
+<td>For remote files, if set to <code>true</code>, remote file is deleted after it is used to create media. If <code>false</code>, downloaded file will remain in your <code>input_dir</code>.</td>
+</tr>
+<tr>
+<td>media_file_fields</td>
+<td></td>
+<td></td>
+<td>Defines the name of the field that refers to the file in an Islandora media. For more information, see this <a href="/islandora_workbench_docs/troubleshooting/#my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use">Troubleshooting entry</a>.</td>
+</tr>
+<tr>
+<td>additional_files</td>
+<td></td>
+<td></td>
+<td>Maps a set of CSV field names to media use terms IDs to create additional media (additional to the media created from the file named in the "file" column, that is) in <code>create</code> and <code>add_media</code> tasks. See "<a href="/islandora_workbench_docs/adding_multiple_media">Adding multiple media</a>" for more information.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="islandora-model-settings">Islandora model settings</h3>
