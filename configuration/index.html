@@ -197,6 +197,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../adding_multiple_media/">Adding multiple media</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../output_csv/">Generating an output CSV file</a>
 	    </li>
           
@@ -499,7 +504,7 @@ password: islandora
 <td>media_use_tid</td>
 <td></td>
 <td><code>http://pcdm.org/use#OriginalFile</code></td>
-<td>The term ID for the term from the "Islandora Media Use" vocabulary you want to apply to the media being created. You can provide a term URI instead of a term ID, for example <code>"http://pcdm.org/use#OriginalFile"</code>. You can specify multiple values for this setting by joining them with the subdelimiter configured in the <code>subdelimiter</code> setting; for example, <code>media_use_tid: 17|18</code>. You can also set this at the object level by including <code>media_use_tid</code> in your CSV file; values there will override the value set in your configuration file.</td>
+<td>The term ID for the term from the "Islandora Media Use" vocabulary you want to apply to the media being created in <code>create</code> and <code>add_media</code> tasks. You can provide a term URI instead of a term ID, for example <code>"http://pcdm.org/use#OriginalFile"</code>. You can specify multiple values for this setting by joining them with the subdelimiter configured in the <code>subdelimiter</code> setting; for example, <code>media_use_tid: 17|18</code>. You can also set this at the object level by including <code>media_use_tid</code> in your CSV file; values there will override the value set in your configuration file.</td>
 </tr>
 <tr>
 <td>media_type [singular]</td>
@@ -536,6 +541,12 @@ password: islandora
 <td></td>
 <td></td>
 <td>Defines the name of the field that refers to the file in an Islandora media. For more information, see this <a href="/islandora_workbench_docs/troubleshooting/#my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use">Troubleshooting entry</a>.</td>
+</tr>
+<tr>
+<td>additional_files</td>
+<td></td>
+<td></td>
+<td>Defines a set of CSV field names-to-media use terms IDs to add as "additional files" in <code>create</code> and <code>add_media</code> tasks.</td>
 </tr>
 </tbody>
 </table>
