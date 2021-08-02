@@ -494,6 +494,12 @@ password: islandora
 <td>false</td>
 <td>Include this option in <code>create</code> tasks, set to <code>true</code>, if you want to only create nodes and not their accompanying media. See the "Creating nodes but not media" section for more information.</td>
 </tr>
+<tr>
+<td>allow_missing_files</td>
+<td></td>
+<td>false</td>
+<td>Determines if empty <code>file</code> values are allowed. Used in the <code>create</code> and <code>add_media</code> tasks. If set to true, empty <code>file</code> values are allowed. For <code>create</code> tasks, a <code>true</code> value will result in nodes without attached media. For <code>add_media</code> tasks, a <code>true</code> value will skip adding a media for the empty <code>file</code> CSV value. Defaults to false (which means all file values must contain the name of a file that exists in the <code>input_data</code> directory).</td>
+</tr>
 </tbody>
 </table>
 <h3 id="islandora-model-settings">Islandora model settings</h3>
