@@ -5,7 +5,7 @@ node_id,file
 100,test.txt
 ```
 
-The config file for update operations looks like this (note the `task` option is 'add_media'):
+The config file for "add_media" tasks like this (note the `task` option is 'add_media'):
 
 ```yaml
 task: add_media

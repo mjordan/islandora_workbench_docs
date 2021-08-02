@@ -25,6 +25,7 @@ pages:
     - Deleting nodes: deleting_nodes.md
     - Adding media to nodes: adding_media.md
     - Deleting media: deleting_media.md
+    - Adding multiple media: adding_multiple_media.md
     - Generating an output CSV file: output_csv.md
     - Creating nodes from the sample data: sample_data.md
     - Exporting Islandora 7 content: exporting_islandora_7_content.md
