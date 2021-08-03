@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Creating nodes from files - Islandora Workbench</title>
+  <title>Fixity checking - Islandora Workbench</title>
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
@@ -16,8 +16,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Creating nodes from files";
-    var mkdocs_page_input_path = "creating_nodes_from_files.md";
+    var mkdocs_page_name = "Fixity checking";
+    var mkdocs_page_input_path = "fixity.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -97,12 +97,9 @@
     <a class="" href="../nodes_only/">Creating nodes without media</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Creating nodes from files</a>
-    <ul class="subnav">
-            
-    </ul>
+    <a class="" href="../creating_nodes_from_files/">Creating nodes from files</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -175,9 +172,12 @@
     <a class="" href="../hooks/">Hooks</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../fixity/">Fixity checking</a>
+    <a class="current" href="./">Fixity checking</a>
+    <ul class="subnav">
+            
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -217,10 +217,10 @@
     
       
     
-    <li>Creating nodes from files</li>
+    <li>Fixity checking</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/creating_nodes_from_files.md"
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/fixity.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -230,56 +230,16 @@
           <div role="main">
             <div class="section">
               
-                <p>If you want to ingest some files without a metadata CSV you can do so using the <code>create_from_files</code> task. A common application of this ability is in automated workflows where Islandora objects are created from files saved to a <a href="/islandora_workbench_docs/workflows/#watch-folders">watch folder</a>, and metadata is added later.</p>
-<p>Nodes created using this task have only the following properties/fields populated:</p>
-<ul>
-<li>Content type: this is defined in the configuration file, using the <code>content_type</code> setting.</li>
-<li>Title: this is derived from the filename minus the extension. Spaces are allowed in the filenames.</li>
-<li>Published: published by default, or overridden in the configuration file using the <code>published</code> setting.</li>
-<li>Model: defined in the configuration file using either the <code>model</code> or <code>models</code> setting.</li>
-</ul>
-<p>The media attached to the nodes is the file, with its type (image, document, audio, video, file) assigned by the <code>media_types</code> configuration setting and its Media Use tag defined in the <code>media_use_tid</code> setting.</p>
-<p>The configuration options for the <code>create_from_files</code> task are the same as the options used in the <code>create</code> task (with one exception: <code>input_csv</code> is not required). The only option specific to this task is <code>models</code>, which is a mapping from terms IDs (or term URIs) in the "Islandora Models" vocabulary to file extensions.</p>
-<p>Note that either the  <code>models</code> or <code>model</code> configuration option is required in the <code>create_from_files</code> task. Use <code>models</code> when your nodes will have different Islandora Model values. Here is a sample configuration file for this task:</p>
-<pre><code class="yaml">task: create_from_files
-host: &quot;http://localhost:8000&quot;
-username: admin
-password: islandora
-output_csv: /tmp/output.csv
-models:
- - 23: ['zip', 'tar', '']
- - 27: ['pdf', 'doc', 'docx', 'ppt', 'pptx']
- - 25: ['tif', 'tiff', 'jp2', 'png', 'gif', 'jpg', 'jpeg']
- - 22: ['mp3', 'wav', 'aac']
- - 26: ['mp4']
+                <p>Islandora Workbench supports transmission fixity auditing, which means it can ensure that files are ingested intact, without corruption. It does this by generating a checksum (a.k.a. "hash") for each file before it is ingested, and then after it is ingested, it asks Drupal for a checksum on the file using the same hash algorithm. If the two checksums are identical, you can be assured that the file was not corrupted during the ingest process.</p>
+<p>To enable this feature, include the <code>fixity_algorithm</code> option in your configuation file, specifying one of "md5", "sha1", or "sha256" hash algorithms. For example, to use the "md5" algorithm, include the following in your config file:</p>
+<pre><code class="yaml">fixity_algorithm: md5
 </code></pre>
 
-<p>Using <code>model</code> is conventient when all of the objects you are creating are the same Islandora Model:</p>
-<pre><code class="yaml">task: create_from_files
-host: &quot;http://localhost:8000&quot;
-username: admin
-password: islandora
-output_csv: /tmp/output.csv
-model: 25
-</code></pre>
-
-<p>You can also use the URIs assigned to terms in the Islandora Models vocabulary, for example:</p>
-<pre><code class="yaml">task: create_from_files
-host: &quot;http://localhost:8000&quot;
-username: admin
-password: islandora
-output_csv: /tmp/output.csv
-models:
- - 'http://purl.org/coar/resource_type/c_1843': ['zip', 'tar', '']
- - 'https://schema.org/DigitalDocument': ['pdf', 'doc', 'docx', 'ppt', 'pptx']
- - 'http://purl.org/coar/resource_type/c_c513': ['tif', 'tiff', 'jp2', 'png', 'gif', 'jpg', 'jpeg']
- - 'http://purl.org/coar/resource_type/c_18cc': ['mp3', 'wav', 'aac']
- - 'http://purl.org/coar/resource_type/c_12ce': ['mp4']
-</code></pre>
-
+<p>If you want Workbench to compare the hash it generates for a file to a known hash value (for example, one generated by a platform you are migrating from), include a "checksum" column in your CSV file for "create" tasks. If that column is present, Workbench will compare the hash it generates with the value in that column and report matches and mismatches. Note that the checksum in your CSV must have been generated using the same algorithm specified in your configuration file.</p>
+<p>Workbench will log all successful checksum comparisions, and will also log all mismatches. However, even if there is a mismatch, Workbench will continue to ingest the file and create the accompanying media.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In the workflow described at the beginning of this section, you might want to include the <code>output_csv</code> option in the configuration file, since the resulting CSV file can be populated with metadata later and used in an <code>update</code> task to add it to the stub nodes.</p>
+<p>Asking Islandora Workbench to perform transmission fixity auditing slows it down to a certain extent. This is normal.</p>
 </div>
               
             </div>
@@ -288,10 +248,10 @@ models:
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../aliases/" class="btn btn-neutral float-right" title="Assigning URL aliases">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../logging/" class="btn btn-neutral float-right" title="Logging">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../nodes_only/" class="btn btn-neutral" title="Creating nodes without media"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../hooks/" class="btn btn-neutral" title="Hooks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -319,10 +279,10 @@ models:
           <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../nodes_only/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../hooks/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../aliases/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../logging/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
