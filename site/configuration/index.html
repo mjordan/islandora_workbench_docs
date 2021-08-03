@@ -227,6 +227,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../fixity/">Fixity checking</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../logging/">Logging</a>
 	    </li>
           
@@ -547,6 +552,12 @@ password: islandora
 <td></td>
 <td></td>
 <td>Maps a set of CSV field names to media use terms IDs to create additional media (additional to the media created from the file named in the "file" column, that is) in <code>create</code> and <code>add_media</code> tasks. See "<a href="/islandora_workbench_docs/adding_multiple_media">Adding multiple media</a>" for more information.</td>
+</tr>
+<tr>
+<td>fixity_algorithm</td>
+<td></td>
+<td>None</td>
+<td>Checksum/hash algorithm to use during transmission fixity checking. Must be one of "md5", "sha1", or "sha256". See "<a href="/islandora_workbench_docs/fixity">Fixity auditing</a>" for more information.</td>
 </tr>
 </tbody>
 </table>

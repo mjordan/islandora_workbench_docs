@@ -21,6 +21,7 @@ The following CSV columns are used for specific purposes and in some cases are r
 | file | create, add_media | See detail in "Values in the 'file' column", below. |
 | url_alias | create, update | See detail in "[Assigning URL aliases](/islandora_workbench_docs/aliases/)". |
 | image_alt_text | create |  See detail in "[Adding alt text to images](/islandora_workbench_docs/alt_text/)".|
+| checksum | create |  See detail in "[Fixity checking](/islandora_workbench_docs/fixity/)".|
 
 ### Values in the "file" column
 

@@ -31,6 +31,7 @@ pages:
     - Exporting Islandora 7 content: exporting_islandora_7_content.md
     - Generating sample Islandora content: generating_sample_content.md
     - Hooks: hooks.md
+    - Fixity checking: fixity.md
     - Logging: logging.md
     - Workflows: workflows.md
     - Troubleshooting: troubleshooting.md

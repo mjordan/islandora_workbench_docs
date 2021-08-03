@@ -18,6 +18,7 @@ Note that Islandora Workbench is not related in any way to the Drupal contrib mo
 * Allows creation of new taxonomy terms from CSV field data
 * Allows the assignment of URL aliases
 * Allows adding alt text to images
+* Supports transmission fixity auditing for media files
 * Cross platform (Windows, Mac, and Linux)
 * Well documented
 * Well tested
