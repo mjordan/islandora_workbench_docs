@@ -241,7 +241,25 @@ host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
 input_csv: add_media.csv
+media_use_tid: 21
 </code></pre>
+
+<p>or, since you can use URIs instead of term IDs:</p>
+<pre><code class="yaml">task: add_media
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+input_csv: add_media.csv
+media_use_tid: &quot;http://pcdm.org/use#Transcript&quot;
+</code></pre>
+
+<p>If you want to specify a media_use_tid per row, you can include that column in your CSV:</p>
+<pre><code class="text">node_id,file,media_use_tid
+100,test.txt,21
+110,test2.txt,35
+</code></pre>
+
+<p>If you include <code>media_use_tid</code> values in your CSV file, they override the <code>media_use_tid</code> value set in your configuration file.</p>
               
             </div>
           </div>
