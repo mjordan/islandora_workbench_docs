@@ -121,9 +121,13 @@ See the "[Logging](/islandora_workbench_docs/logging/)" section for more informa
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
 | pause |  | | Defines the number of seconds to pause between each REST request to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5. |
-| bootstrap |  | | Absolute path to one or more scripts that execute prior to Workbench connecting to Drupal. Scripts can be in any language, and need to be executable. For an example of using this feature to run a script that generates sample Islandora content, see the "[Generating sample Islandora content](/islandora_workbench_docs/generating_sample_content/)" section. |
 | progress_bar |  | false | Show a progress bar when running Workbench instead of row-by-row output. |
-| drupal_8 |  | false | Tells Workbench that it is communicating with a Drupal version lower than 9.2. Intended to be used in integration tests only. |
+| bootstrap |  | | List of absolute paths to one or more scripts that execute prior to Workbench connecting to Drupal. More information is available in the "[Hooks](/islandora_workbench_docs/hooks/) documentation. |
+| preprocessors |  | | List of absolute paths to one or more scripts that are applied to CSV values prior to the values being ingested into Drupal. More information is available in the "[Hooks](/islandora_workbench_docs/hooks/) documentation. |
+| node_post_create |  | | List of absolute paths to one or more scripts that execute after a node is created. More information is available in the "[Hooks](/islandora_workbench_docs/hooks/)" documentation. |
+| node_post_update |  | | List of absolute paths to one or more scripts that execute after a node is updated. More information is available in the "[Hooks](/islandora_workbench_docs/hooks/)" documentation. |
+| media_post_create |  | | List of absolute paths to one or more scripts that execute after a media is created. More information is available in the "[Hooks](/islandora_workbench_docs/hooks/)" documentation. |
+| drupal_8 |  | false | Tells Workbench that it is communicating with a Drupal version lower than 9.2. Intended to be used in integration tests only. Users should never need to use this setting. |
 
 
 When you run Islandora Workbench with the `--check` argument, it will verify that all configuration options required for the current task are present, and if they aren't tell you so.
