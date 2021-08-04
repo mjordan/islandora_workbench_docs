@@ -258,6 +258,7 @@ main.jpg,2078,/tmp/thumbs/main_tn.jpg,/tmp/rightsdocs/036.txt
 <p class="admonition-title">Warning</p>
 <p>If you are creating Media using this feature, you should temporarily disable Contexts that would normally generate derivatives eqivalent to the additional Media you are creating. Because Islandora creates derivatives asynchonously, it is impossible to guanantee that Contexts will not overwrite additional Media created using this feature. Running <code>--check</code> will warn you of this by issuing a message like the following: "Warning: Term ID '18' registered in the 'additional_files' config option for field 'thumbnail' will assign an Islandora Media Use term that might conflict with derivative media. You should temporarily disable the Context or Action that generates those derivatives."</p>
 </div>
+<p>Note that <a href="/islandora_workbench_docs/fixity">fixity checking</a> is only available for files named in the <code>file</code> CSV column, not in the additional columns described here. See <a href="https://github.com/mjordan/islandora_workbench/issues/307">this issue</a> for more information.</p>
               
             </div>
           </div>
