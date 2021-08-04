@@ -259,12 +259,12 @@ validate_fixity_during_check: true
 <p>Some things to note:</p>
 <ul>
 <li>Fixity checking is currently only available to files named in the <code>file</code> CSV column, and not in any "<a href="/islandora_workbench_docs/adding_multiple_media/">additional files</a>" columns.</li>
+<li>For the purposes of fixity verification, md5 is sufficient. Using it is also faster than either sha1 or sha256. However, you will need to use sha1 or sha256 if your pregenerated checksums were created using those algorithms.</li>
 <li>If you are including pregenerated checksum values in your CSV file (in the <code>checksum</code> column), the checksums must have been generated using the same has algorithm indicated in your <code>fixity_algorithm</code> configuration setting: "md5", "sha1", or "sha256". If the existing checksums were generated using a different algorithm, all of your checksum comparisons will fail.</li>
 <li>Workbench logs the outcome of all checksum comparisions, whether they result in matches or mismatches.</li>
 <li>If there is a mismatch, Workbench will continue to ingest the file and create the accompanying media. For this reason, it is prudent to perform your checksum validation during the <code>--check</code> phase. If any comparisons fail, you have an opportunity to replace the files before committing to ingesting them into Drupal.</li>
-<li>Validation during <code>--check</code> happens entirely on the computer running Workbench. During `--check, Workbench does not query Drupal for the purposes of checksum validation, since the files haven't yet been ingested into Islandora at that point.</li>
+<li>Validation during <code>--check</code> happens entirely on the computer running Workbench. During <code>--check</code>, Workbench does not query Drupal for the purposes of checksum validation, since the files haven't yet been ingested into Islandora at that point.</li>
 <li>Fixity checking slows Workbench down (and also Drupal if you perform transmission fixity checks) to a certain extent, especially when files are large. This is unavoidable since calculating a file's checksum requires reading it into memory.</li>
-<li>For the purposes of fixity verification, md5 is sufficient. Using it is also faster than either sha1 or sha256. However, you will need to use sha1 or sha256 if your pregenerated checksums were created using those algorithms.</li>
 </ul>
               
             </div>
