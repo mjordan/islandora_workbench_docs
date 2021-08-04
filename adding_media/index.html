@@ -230,7 +230,7 @@
           <div role="main">
             <div class="section">
               
-                <p>You can add media to existing nodes by providing a CSV file with a <code>node_id</code> column plus a <code>file</code> field that contains the name of the file you want to add. For example, your CSV file could look like this:</p>
+                <p>You can add media to existing nodes by providing a CSV file with a <code>node_id</code> column plus a <code>file</code> field that contains the name of the file you want to add:</p>
 <pre><code class="text">node_id,file
 100,test.txt
 </code></pre>
@@ -241,10 +241,11 @@ host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
 input_csv: add_media.csv
+# media_use_tid is optional, it defaults to &quot;Original file&quot;.
 media_use_tid: 21
 </code></pre>
 
-<p>or, since you can use URIs instead of term IDs:</p>
+<p>This is the same configuration file using a term URI in <code>media_use_tid</code> rather than a term ID:</p>
 <pre><code class="yaml">task: add_media
 host: &quot;http://localhost:8000&quot;
 username: admin
@@ -253,7 +254,7 @@ input_csv: add_media.csv
 media_use_tid: &quot;http://pcdm.org/use#Transcript&quot;
 </code></pre>
 
-<p>If you want to specify a media_use_tid per row, you can include that column in your CSV:</p>
+<p>If you want to specify a media_use_tid per CSV row, you can include that column in your CSV:</p>
 <pre><code class="text">node_id,file,media_use_tid
 100,test.txt,21
 110,test2.txt,35
