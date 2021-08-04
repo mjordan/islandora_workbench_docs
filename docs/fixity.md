@@ -1,6 +1,6 @@
 ## Transmission fixity
 
-Islandora Workbench supports transmission fixity validation, which means it can detect if files are not ingested intact, in other words, that the files became corrupted during ingest. It does this by generating a checksum (a.k.a. "hash") for each file before it is ingested, and then after the file is ingested, Workbench asks Drupal for a checksum on the file using the same hash algorithm. If the two checksums are identical, the file was not corrupted during the ingest process. If they are not identical, the file became corrupted.
+Islandora Workbench supports transmission fixity validation, which means it can detect if files are not ingested into Islandora intact, in other words, that the files became corrupted during ingest. It does this by generating a checksum (a.k.a. "hash") for each file before it is ingested, and then after the file is ingested, Workbench asks Drupal for a checksum on the file using the same hash algorithm. If the two checksums are identical, the file was not corrupted during the ingest process. If they are not identical, the file became corrupted.
 
 This functionality is available within `create` and `add_media` tasks. Only files named in the `file` CSV column are checked.
 
@@ -33,3 +33,4 @@ Some things to note:
 * If there is a mismatch, Workbench will continue to ingest the file and create the accompanying media. For this reason, it is prudent to perform your checksum validation during the `--check` phase, in case any comparisons fail.
 * Validation during `--check` happens entirely on the computer running Workbench. It does not contact Drupal for checksum information (since the files haven't yet been ingested into Islandora at that point).
 * Fixity checking slows Workbench (and also Drupal if you perform transmission fixity checks) down to a certain extent, especially when files are large. This is unavoidable since calculating a file's checksum requires reading it into memory.
+* Fixity checking is currently only available to files named in the `file` CSV column, and not in any "[additional files](/islandora_workbench_docs/adding_multiple_media/)" columns.

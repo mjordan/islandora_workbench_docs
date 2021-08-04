@@ -75,8 +75,8 @@ The settings defined in a configuration file are documented below, grouped into 
 | delete_tmp_upload | | false | For remote files, if set to `true`, remote file is deleted after it is used to create media. If `false`, downloaded file will remain in your `input_dir`. |
 | media_file_fields | | | Defines the name of the field that refers to the file in an Islandora media. For more information, see this [Troubleshooting entry](/islandora_workbench_docs/troubleshooting/#my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use). |
 | additional_files | | | Maps a set of CSV field names to media use terms IDs to create additional media (additional to the media created from the file named in the "file" column, that is) in `create` and `add_media` tasks. See "[Adding multiple media](/islandora_workbench_docs/adding_multiple_media)" for more information. |
-| fixity_algorithm | | None | Checksum/hash algorithm to use during transmission fixity checking. Must be one of "md5", "sha1", or "sha256". See "[Fixity auditing](/islandora_workbench_docs/fixity)" for more information. |
-| validate_fixity_during_check | | false | Perform checksum validation during `--check`.. See "[Fixity auditing](/islandora_workbench_docs/fixity)" for more information. |
+| fixity_algorithm | | None | Checksum/hash algorithm to use during transmission fixity checking. Must be one of "md5", "sha1", or "sha256". See "[Fixity checking](/islandora_workbench_docs/fixity)" for more information. |
+| validate_fixity_during_check | | false | Perform checksum validation during `--check`. See "[Fixity checking](/islandora_workbench_docs/fixity)" for more information. |
 
 ### Islandora model settings
 
