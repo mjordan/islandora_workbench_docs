@@ -274,11 +274,11 @@
 </code></pre>
 
 <h2 id="workbench-is-slow">Workbench is slow.</h2>
-<p>Yes, it can be slow. By design it communicates with Drupal over HTTP. Parallizing this communication (so that Workbench is firing off multiple requests to Drupal simultaneously) would speed things up, at the risk of overloading Drupal.</p>
+<p>True, it can be slow. By design Workbench communicates with Drupal over HTTP. Parallizing this communication (so that Workbench is firing off multiple requests to Drupal simultaneously) would speed things up, at the risk of overloading Drupal.</p>
 <p>However, users have found that the following strategies increase Workbench's performance substantially:</p>
 <ul>
-<li>Running Workbench on the same server that Drupal is running on (e.g. using "localhost" as the value of <code>host</code> in your config file). While this runs counter to Workbench's most important design principle - that it does not require access to the server's shell - during long-running jobs such as migrations, this is the best way to speed up Workbench.</li>
-<li>Using local files. If you populate your <code>file</code> or other file path fields with filenames that start with "http", Workbench fetches each of those files and writes out a local copy before ingesting them. Providing local copies of those files in advance of running Workbench will eliminate the time it takes Workbench to fetch those files.</li>
+<li>Running Workbench on the same server that Drupal is running on (e.g. using "localhost" as the value of <code>host</code> in your config file). While this runs counter to Workbench's most important design principle - that it does not require access to the Drupal server's command line - during long-running jobs such as those that are part of migrations, this is the best way to speed up Workbench.</li>
+<li>Using local instead of remote files. If you populate your <code>file</code> or other file path fields with filenames that start with "http", Workbench downloads each of those files before ingesting them. Providing local copies of those files in advance of running Workbench will eliminate the time it takes Workbench to download them.</li>
 </ul>
               
             </div>
