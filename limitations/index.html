@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Logging - Islandora Workbench</title>
+  <title>Known limitations - Islandora Workbench</title>
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
@@ -16,8 +16,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Logging";
-    var mkdocs_page_input_path = "logging.md";
+    var mkdocs_page_name = "Known limitations";
+    var mkdocs_page_input_path = "limitations.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -177,12 +177,9 @@
     <a class="" href="../fixity/">Fixity checking</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Logging</a>
-    <ul class="subnav">
-            
-    </ul>
+    <a class="" href="../logging/">Logging</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -190,9 +187,15 @@
     <a class="" href="../workflows/">Workflows</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../limitations/">Known limitations</a>
+    <a class="current" href="./">Known limitations</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#updating-nodes-does-not-create-revisions">Updating nodes does not create revisions</a></li>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -222,10 +225,10 @@
     
       
     
-    <li>Logging</li>
+    <li>Known limitations</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/logging.md"
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/limitations.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -235,29 +238,12 @@
           <div role="main">
             <div class="section">
               
-                <p>Islandora Workbench writes a log file for all tasks to a file named "workbench.log" in the workbench directory, unless you specify an alternative log file location using the <code>log_file_path</code> configuration option, e.g.:</p>
-<p><code>log_file_path: /tmp/mylogfilepath.log</code></p>
-<p>The log contains information that is similar to what you see when you run Workbench, but with time stamps:</p>
-<pre><code class="text">24-Dec-20 15:05:06 - INFO - Starting configuration check for &quot;create&quot; task using config file create.yml.
-24-Dec-20 15:05:07 - INFO - OK, configuration file has all required values (did not check for optional values).
-24-Dec-20 15:05:07 - INFO - OK, CSV file input_data/metadata.csv found.
-24-Dec-20 15:05:07 - INFO - OK, all 5 rows in the CSV file have the same number of columns as there are headers (5).
-24-Dec-20 15:05:21 - INFO - OK, CSV column headers match Drupal field names.
-24-Dec-20 15:05:21 - INFO - OK, required Drupal fields are present in the CSV file.
-24-Dec-20 15:05:23 - INFO - OK, term IDs/names in CSV file exist in their respective taxonomies.
-24-Dec-20 15:05:23 - INFO - OK, term IDs/names used in typed relation fields in the CSV file exist in their respective taxonomies.
-24-Dec-20 15:05:23 - INFO - OK, files named in the CSV &quot;file&quot; column are all present.
-24-Dec-20 15:05:23 - INFO - Configuration checked for &quot;create&quot; task using config file create.yml, no problems found.
-</code></pre>
-
-<p>It may also contain additional detail that would clutter up the console output, for example which term is being added to a vocabulary.</p>
-<p>By default, new entries are appended to this log, unless you indicate that the log file should be overwritten each time Workbench is run by providing the <code>log_file_mode</code> configuration option with a value of "w":</p>
-<p><code>log_file_mode: w</code></p>
-<div class="admonition note">
+                <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The only times that the default log file name is used instead of one defined in <code>log_file_path</code> is 1) when Workbench can't find the specified configuration file and 2) when Workbench finds the configuration file but detects that the file is not valid YAML, and therefore can't understand the value of <code>log_file_path</code>.</p>
+<p>If you are encountering problems not described here, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a> and help improve Islandora Workbench!</p>
 </div>
-<p>.</p>
+<h2 id="updating-nodes-does-not-create-revisions">Updating nodes does not create revisions</h2>
+<p>This is limitation of Drupal (see <a href="https://github.com/Islandora/documentation/issues/1485">this issue</a>).</p>
               
             </div>
           </div>
@@ -265,10 +251,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../workflows/" class="btn btn-neutral float-right" title="Workflows">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../troubleshooting/" class="btn btn-neutral float-right" title="Troubleshooting">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../fixity/" class="btn btn-neutral" title="Fixity checking"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../workflows/" class="btn btn-neutral" title="Workflows"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -296,10 +282,10 @@
           <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../fixity/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../workflows/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../workflows/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../troubleshooting/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
