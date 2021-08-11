@@ -107,6 +107,7 @@ See the "[Logging](/islandora_workbench_docs/logging/)" section for more informa
 | log_file_path | | workbench.log | The path to the log file, absolute or relative to `workbench`. |
 | log_file_mode | | a [append] | Set to "w" to overwrite the log file, if it exists. |
 | log_json |  | false | Whether or not to log the raw JSON POSTed, PUT, or PATCHed to Drupal. Useful for debugging. |
+| log_headers |  | false | Whether or not to log the raw HTTP headers used in all requests. Useful for debugging. |
 
 ### HTTP settings
 

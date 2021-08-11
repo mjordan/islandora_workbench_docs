@@ -182,6 +182,12 @@
     <a class="current" href="./">Logging</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#appending-to-vs-overwriting-your-log-file">Appending to vs. overwriting your log file</a></li>
+    
+
+    <li class="toctree-l2"><a href="#logging-debugging-information">Logging debugging information</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -237,6 +243,11 @@
               
                 <p>Islandora Workbench writes a log file for all tasks to a file named "workbench.log" in the workbench directory, unless you specify an alternative log file location using the <code>log_file_path</code> configuration option, e.g.:</p>
 <p><code>log_file_path: /tmp/mylogfilepath.log</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The only times that the default log file name is used instead of one defined in <code>log_file_path</code> is 1) when Workbench can't find the specified configuration file and 2) when Workbench finds the configuration file but detects that the file is not valid YAML, and therefore can't understand the value of <code>log_file_path</code>.</p>
+</div>
+<p>.</p>
 <p>The log contains information that is similar to what you see when you run Workbench, but with time stamps:</p>
 <pre><code class="text">24-Dec-20 15:05:06 - INFO - Starting configuration check for &quot;create&quot; task using config file create.yml.
 24-Dec-20 15:05:07 - INFO - OK, configuration file has all required values (did not check for optional values).
@@ -251,13 +262,15 @@
 </code></pre>
 
 <p>It may also contain additional detail that would clutter up the console output, for example which term is being added to a vocabulary.</p>
+<h2 id="appending-to-vs-overwriting-your-log-file">Appending to vs. overwriting your log file</h2>
 <p>By default, new entries are appended to this log, unless you indicate that the log file should be overwritten each time Workbench is run by providing the <code>log_file_mode</code> configuration option with a value of "w":</p>
 <p><code>log_file_mode: w</code></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The only times that the default log file name is used instead of one defined in <code>log_file_path</code> is 1) when Workbench can't find the specified configuration file and 2) when Workbench finds the configuration file but detects that the file is not valid YAML, and therefore can't understand the value of <code>log_file_path</code>.</p>
-</div>
-<p>.</p>
+<h2 id="logging-debugging-information">Logging debugging information</h2>
+<p>Two options are available that write raw values used in the REST requests to Drupal. These are useful for debugging and troubleshooting purposes:</p>
+<ul>
+<li><code>log_json</code>: Logs the raw JSON that Workbench uses in POST, PUT, and PATCH requests.</li>
+<li><code>log_headers</code>: Logs the raw HTTP headers used in all requests.</li>
+</ul>
               
             </div>
           </div>

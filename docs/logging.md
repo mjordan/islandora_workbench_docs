@@ -2,6 +2,10 @@ Islandora Workbench writes a log file for all tasks to a file named "workbench.l
 
 `log_file_path: /tmp/mylogfilepath.log`
 
+!!! note
+    The only times that the default log file name is used instead of one defined in `log_file_path` is 1) when Workbench can't find the specified configuration file and 2) when Workbench finds the configuration file but detects that the file is not valid YAML, and therefore can't understand the value of `log_file_path`.
+.
+
 The log contains information that is similar to what you see when you run Workbench, but with time stamps:
 
 ```text
@@ -19,10 +23,18 @@ The log contains information that is similar to what you see when you run Workbe
 
 It may also contain additional detail that would clutter up the console output, for example which term is being added to a vocabulary.
 
+## Appending to vs. overwriting your log file
+
  By default, new entries are appended to this log, unless you indicate that the log file should be overwritten each time Workbench is run by providing the `log_file_mode` configuration option with a value of "w":
 
  `log_file_mode: w`
 
-!!! note
-    The only times that the default log file name is used instead of one defined in `log_file_path` is 1) when Workbench can't find the specified configuration file and 2) when Workbench finds the configuration file but detects that the file is not valid YAML, and therefore can't understand the value of `log_file_path`.
-.
+
+## Logging debugging information
+
+Two options are available that write raw values used in the REST requests to Drupal. These are useful for debugging and troubleshooting purposes:
+
+* `log_json`: Logs the raw JSON that Workbench uses in POST, PUT, and PATCH requests.
+* `log_headers`: Logs the raw HTTP headers used in all requests.
+
+
