@@ -200,16 +200,16 @@
     <li class="toctree-l2"><a href="#workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-in-the-log-mentioning-http-response-code-422">Workbench is failing to ingest some nodes and is leaving messages in the log mentioning HTTP response code 422.</a></li>
     
 
-    <li class="toctree-l2"><a href="#-check-is-telling-me-that-one-the-rows-in-my-csv-file-has-more-columns-than-headers">--check is telling me that one the rows in my CSV file has more columns than headers</a></li>
-    
-
-    <li class="toctree-l2"><a href="#the-text-in-my-csv-does-not-match-how-it-looks-when-i-view-it-in-drupal">The text in my CSV does not match how it looks when I view it in Drupal</a></li>
-    
-
-    <li class="toctree-l2"><a href="#my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use">My Islandora uses a custom media type and I need to tell Workbench what file field to use.</a></li>
+    <li class="toctree-l2"><a href="#-check-is-telling-me-that-one-the-rows-in-my-csv-file-has-more-columns-than-headers">--check is telling me that one the rows in my CSV file has more columns than headers.</a></li>
     
 
     <li class="toctree-l2"><a href="#workbench-is-slow">Workbench is slow.</a></li>
+    
+
+    <li class="toctree-l2"><a href="#the-text-in-my-csv-does-not-match-how-it-looks-when-i-view-it-in-drupal">The text in my CSV does not match how it looks when I view it in Drupal.</a></li>
+    
+
+    <li class="toctree-l2"><a href="#my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use">My Islandora uses a custom media type and I need to tell Workbench what file field to use.</a></li>
     
 
     </ul>
@@ -257,9 +257,15 @@
 <h2 id="workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-in-the-log-mentioning-http-response-code-422">Workbench is failing to ingest some nodes and is leaving messages in the log mentioning HTTP response code 422.</h2>
 <p>This is probably caused by unexpected data in your CSV file that Workbench's <code>--check</code> validation is not finding. If you encounter these messages, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a> and share any relevant entries in your Drupal log so we can track down the problem.</p>
 <p>One of the most common causes of this error is that one or more of the vocabularies being poplated in your CSV contain required fields other than the defult term name, someting which Islandora Workbench <a href="https://github.com/mjordan/islandora_workbench/issues/111">cannot currently handle</a>. While it is possible to have Workbench create these fields, the additional fields will need to be included in the input CSV. If you have an opinion on how that can be best done (while keeping the CSV relatively human-readable), please leave a comment on the linked Github issue.</p>
-<h2 id="-check-is-telling-me-that-one-the-rows-in-my-csv-file-has-more-columns-than-headers">--check is telling me that one the rows in my CSV file has more columns than headers</h2>
+<h2 id="-check-is-telling-me-that-one-the-rows-in-my-csv-file-has-more-columns-than-headers">--check is telling me that one the rows in my CSV file has more columns than headers.</h2>
 <p>The most likely problem is that one of your CSV values contains a comma but is not wrapped in double quotes. </p>
-<h2 id="the-text-in-my-csv-does-not-match-how-it-looks-when-i-view-it-in-drupal">The text in my CSV does not match how it looks when I view it in Drupal</h2>
+<h2 id="workbench-is-slow">Workbench is slow.</h2>
+<p>True, it can be slow. However, users have found that the following strategies increase Workbench's speed substantially:</p>
+<ul>
+<li>Running Workbench on the same server that Drupal is running on (e.g. using "localhost" as the value of <code>host</code> in your config file). While doing this negates Workbench's most important design principle - that it does not require access to the Drupal server's command line - during long-running jobs such as those that are part of migrations, this is the best way to speed up Workbench.</li>
+<li>Using local instead of remote files. If you populate your <code>file</code> or "additional files" fields with filenames that start with "http", Workbench downloads each of those files before ingesting them. Providing local copies of those files in advance of running Workbench will eliminate the time it takes Workbench to download them.</li>
+</ul>
+<h2 id="the-text-in-my-csv-does-not-match-how-it-looks-when-i-view-it-in-drupal">The text in my CSV does not match how it looks when I view it in Drupal.</h2>
 <p>If a field is configured in Drupal to use <a href="https://www.drupal.org/node/213156">text filters</a>, the HTML that is displayed to the user may not be exactly the same as the content of the node add/edit form field. If you check the node add/edit form, the content of the field should match the content of the CSV field. If it does, it is likely that Drupal is apply a text filter.</p>
 <h2 id="my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use">My Islandora uses a custom media type and I need to tell Workbench what file field to use.</h2>
 <p>If you need to create a media that is not one of the standard Islandora types (Image, File, Digital Document, Video, Audio, Extracted Text, or FITS Technical metadata), you will need to include the  <code>media_file_fields</code> setting in your config file, like this:</p>
@@ -277,13 +283,6 @@
 'extracted_text': 'field_media_file',
 'fits_technical_metadata': 'field_media_file'
 </code></pre>
-
-<h2 id="workbench-is-slow">Workbench is slow.</h2>
-<p>True, it can be slow. However, users have found that the following strategies increase Workbench's speed substantially:</p>
-<ul>
-<li>Running Workbench on the same server that Drupal is running on (e.g. using "localhost" as the value of <code>host</code> in your config file). While doing this negates Workbench's most important design principle - that it does not require access to the Drupal server's command line - during long-running jobs such as those that are part of migrations, this is the best way to speed up Workbench.</li>
-<li>Using local instead of remote files. If you populate your <code>file</code> or "additional files" fields with filenames that start with "http", Workbench downloads each of those files before ingesting them. Providing local copies of those files in advance of running Workbench will eliminate the time it takes Workbench to download them.</li>
-</ul>
               
             </div>
           </div>
