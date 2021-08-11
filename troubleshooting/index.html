@@ -212,6 +212,9 @@
     <li class="toctree-l2"><a href="#my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use">My Islandora uses a custom media type and I need to tell Workbench what file field to use.</a></li>
     
 
+    <li class="toctree-l2"><a href="#ive-pulled-in-updates-to-islandora-workbench-from-github-but-when-i-run-it-python-complains-about-not-being-able-to-find-a-library">I've pulled in updates to Islandora Workbench from Github but when I run it, Python complains about not being able to find a library.</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -283,6 +286,9 @@
 'extracted_text': 'field_media_file',
 'fits_technical_metadata': 'field_media_file'
 </code></pre>
+
+<h2 id="ive-pulled-in-updates-to-islandora-workbench-from-github-but-when-i-run-it-python-complains-about-not-being-able-to-find-a-library">I've pulled in updates to Islandora Workbench from Github but when I run it, Python complains about not being able to find a library.</h2>
+<p>This is likely due to the addition of a new Python library to Workbench. Rerunning <code>setup.py</code> will install the missing library. Details are available in the "Updating Islandora Workbench" section of the <a href="https://mjordan.github.io/islandora_workbench_docs/installation/#updating-islandora-workbench">Requirements and Installation</a> docs.</p>
               
             </div>
           </div>
