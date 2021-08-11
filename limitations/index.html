@@ -192,7 +192,16 @@
     <a class="current" href="./">Known limitations</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#non-ascii-filenames-are-normalized-to-their-ascii-equivalents">Non-ASCII filenames are normalized to their ASCII equivalents</a></li>
+    
+
     <li class="toctree-l2"><a href="#updating-nodes-does-not-create-revisions">Updating nodes does not create revisions</a></li>
+    
+
+    <li class="toctree-l2"><a href="#workbench-cannot-create-taxonomy-terms-that-have-required-fields-other-than-the-core-name-field">Workbench cannot create taxonomy terms that have required fields other than the core "name" field.</a></li>
+    
+
+    <li class="toctree-l2"><a href="#workbench-cannot-create-a-term-that-has-another-term-as-its-parent-ie-terms-below-the-top-leve-of-a-hierarchical-taxonomy">Workbench cannot create a term that has another term as its parent (i.e. terms below the top leve of a hierarchical taxonomy).</a></li>
     
 
     </ul>
@@ -242,8 +251,15 @@
 <p class="admonition-title">Note</p>
 <p>If you are encountering problems not described here, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a> and help improve Islandora Workbench!</p>
 </div>
+<h2 id="non-ascii-filenames-are-normalized-to-their-ascii-equivalents">Non-ASCII filenames are normalized to their ASCII equivalents</h2>
+<p>The HTTP client library Workbench uses, Requests, requires filenames to be encoded as <a href="https://github.com/psf/requests/issues/4218">Latin-1</a>, while Drupal requires filenames to be encoded as UTF-8. Normalizing filenames that contain diacritics or non-Latin characters to their ASCII equivalents is a compromise. See <a href="https://github.com/mjordan/islandora_workbench/issues/192">this issue</a> for more information.</p>
+<p>If Workbench normalizes a filename, it logs the original and the normalized version.</p>
 <h2 id="updating-nodes-does-not-create-revisions">Updating nodes does not create revisions</h2>
 <p>This is limitation of Drupal (see <a href="https://github.com/Islandora/documentation/issues/1485">this issue</a>).</p>
+<h2 id="workbench-cannot-create-taxonomy-terms-that-have-required-fields-other-than-the-core-name-field">Workbench cannot create taxonomy terms that have required fields other than the core "name" field.</h2>
+<p>See <a href="https://github.com/mjordan/islandora_workbench/issues/111">this issue</a> for more information.</p>
+<h2 id="workbench-cannot-create-a-term-that-has-another-term-as-its-parent-ie-terms-below-the-top-leve-of-a-hierarchical-taxonomy">Workbench cannot create a term that has another term as its parent (i.e. terms below the top leve of a hierarchical taxonomy).</h2>
+<p>See <a href="https://github.com/mjordan/islandora_workbench/issues/236">this issue</a> for more information.</p>
               
             </div>
           </div>
