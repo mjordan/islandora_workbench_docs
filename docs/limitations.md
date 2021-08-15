@@ -16,6 +16,6 @@ This is limitation of Drupal (see [this issue](https://github.com/Islandora/docu
 
 See [this issue](https://github.com/mjordan/islandora_workbench/issues/111) for more information.
 
-## Workbench cannot create a term that has another term as its parent (i.e. terms below the top leve of a hierarchical taxonomy).
+## Workbench cannot create a term that has another term as its parent (i.e. terms below the top level of a hierarchical taxonomy).
 
 See [this issue](https://github.com/mjordan/islandora_workbench/issues/236) for more information.

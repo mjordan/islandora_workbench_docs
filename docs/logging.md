@@ -4,7 +4,6 @@ Islandora Workbench writes a log file for all tasks to a file named "workbench.l
 
 !!! note
     The only times that the default log file name is used instead of one defined in `log_file_path` is 1) when Workbench can't find the specified configuration file and 2) when Workbench finds the configuration file but detects that the file is not valid YAML, and therefore can't understand the value of `log_file_path`.
-.
 
 The log contains information that is similar to what you see when you run Workbench, but with time stamps:
 

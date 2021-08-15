@@ -4,7 +4,7 @@
 
 ## Workbench is failing to ingest some nodes and is leaving messages in the log mentioning HTTP response code 422.
 
-This is probably caused by unexpected data in your CSV file that Workbench's `--check` validation is not finding. If you encounter these messages, please [open an issue](https://github.com/mjordan/islandora_workbench/issues) and share any relevant entries in your Drupal log so we can track down the problem.
+This is probably caused by unexpected data in your CSV file that Workbench's `--check` validation is not finding. If you encounter these messages, please [open an issue](https://github.com/mjordan/islandora_workbench/issues) and share any relevant entries in your Drupal log (as an admin user, go to Admin > Reports > Recent log messages) so we can track down the problem.
 
 One of the most common causes of this error is that one or more of the vocabularies being poplated in your CSV contain required fields other than the defult term name, someting which Islandora Workbench [cannot currently handle](https://github.com/mjordan/islandora_workbench/issues/111). While it is possible to have Workbench create these fields, the additional fields will need to be included in the input CSV. If you have an opinion on how that can be best done (while keeping the CSV relatively human-readable), please leave a comment on the linked Github issue.
 
@@ -46,3 +46,6 @@ This configuration setting adds entries to the following default mapping of medi
 'fits_technical_metadata': 'field_media_file'
 ```
 
+## I've pulled in updates to Islandora Workbench from Github but when I run it, Python complains about not being able to find a library.
+
+This is likely due to the addition of a new Python library to Workbench. Rerunning `setup.py` will install the missing library. Details are available in the "Updating Islandora Workbench" section of the [Requirements and Installation](https://mjordan.github.io/islandora_workbench_docs/installation/#updating-islandora-workbench) docs.
