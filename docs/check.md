@@ -66,4 +66,4 @@ It's also a good idea to check the Workbench log file after running `--check`. A
 
 Once you have used `--check` to detect all of the problems with your CSV data, committing it to Islandora will work very reliably.
 
-Also, it is good practice to check your log after each time you run Islandora Workbench, since it may contain information that is not printed to the caonsole. 
+Also, it is good practice to check your log after each time you run Islandora Workbench, since it may contain information that is not printed to the console. 
