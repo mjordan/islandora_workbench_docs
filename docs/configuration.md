@@ -209,3 +209,17 @@ output_csv: /tmp/sample_files.csv
 # All nodes should get the "Model" value corresponding to this URI.
 model: 'https://schema.org/DigitalDocument'
 ```
+
+### Ignore some columns in your input CSV file
+
+```yaml
+task: create
+host: "http://localhost:8000"
+username: admin
+password: islandora
+input_csv: input.csv
+
+# This tells Workbench to ignore the 'date_generated' and 'batch_id'
+# columns in the input.csv file.
+ignore_csv_columns: ['date_generated', 'batch_id'] 
+```

@@ -109,6 +109,8 @@
         
             <li><a class="toctree-l3" href="#create-nodes-and-media-from-files-no-input-csv-file">Create nodes and media from files (no input CSV file)</a></li>
         
+            <li><a class="toctree-l3" href="#ignore-some-columns-in-your-input-csv-file">Ignore some columns in your input CSV file</a></li>
+        
         </ul>
     
 
@@ -846,6 +848,18 @@ output_csv: /tmp/sample_files.csv
 
 # All nodes should get the &quot;Model&quot; value corresponding to this URI.
 model: 'https://schema.org/DigitalDocument'
+</code></pre>
+
+<h3 id="ignore-some-columns-in-your-input-csv-file">Ignore some columns in your input CSV file</h3>
+<pre><code class="yaml">task: create
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+input_csv: input.csv
+
+# This tells Workbench to ignore the 'date_generated' and 'batch_id'
+# columns in the input.csv file.
+ignore_csv_columns: ['date_generated', 'batch_id'] 
 </code></pre>
               
             </div>
