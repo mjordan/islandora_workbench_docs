@@ -614,7 +614,7 @@ http://purl.org/coar/resource_type/c_18cc
 <li>You cannot add new relators (e.g. <code>relators:foo</code>) in your CSV file, only new target terms.</li>
 </ul>
 <h4 id="edtf-fields">EDTF fields</h4>
-<p>Running Islandora Workbench with <code>--check</code> will validate <a href="https://www.loc.gov/standards/datetime/">Extended Date/Time Format (EDTF) Specification</a> dates (Levels 0, 1, and 2) in EDTF fields:</p>
+<p>Running Islandora Workbench with <code>--check</code> will validate <a href="https://www.loc.gov/standards/datetime/">Extended Date/Time Format (EDTF) Specification</a> dates (Levels 0, 1, and 2) in EDTF fields. Some common examples include:</p>
 <table>
 <thead>
 <tr>
@@ -632,8 +632,8 @@ http://purl.org/coar/resource_type/c_18cc
 <td>1976-04</td>
 </tr>
 <tr>
+<td>Quarter 2 (</td>
 <td></td>
-<td>1976</td>
 </tr>
 <tr>
 <td>Qualified date</td>
@@ -690,6 +690,10 @@ http://purl.org/coar/resource_type/c_18cc
 </tbody>
 </table>
 <p>Subvalues in multivalued CSV fields are validated separately, e.g. if your CSV value is <code>2004-06/2006-08|2007-01/2007-04</code>, <code>2004-06/2006-08</code> and <code>2007-01/2007-04</code> are validated separately.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>EDTF supports a very wide range of specific and general dates, and in some cases, valid dates can look counterintuitive. For example, "2001-34" is valid (it's Sub-Year Grouping meaning 2nd quarter of 2001).</p>
+</div>
 <h4 id="link-fields">Link fields</h4>
 <p>The Link field type stores URLs (e.g. <code>https://acme.com</code>) and link text in separate data elements. To add or update fields of this type, Workbench needs to provide the URL and link text in the stucture Drupal expects. To accomplish this within a single CSV field, we separate the URL and link text pairs in CSV values with double percent signs (<code>%%</code>), like this:</p>
 <pre><code class="text">field_related_websites
