@@ -352,7 +352,6 @@ Running Islandora Workbench with `--check` will validate [Extended Date/Time For
 | --- | --- |
 | Date | 1976-04-23 |
 | | 1976-04 |
-Quarter 2 (| | 1976 |
 | Qualified date | 1976? |
 | | 1976-04~ |
 | | 1976-04-24% |
