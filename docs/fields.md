@@ -346,10 +346,7 @@ Note that:
 
 #### EDTF fields
 
-!!! note
-    The date types named below are a subset of the EDTF specification. If you need validatation of additional EDTF date types, please [open an issue](https://github.com/mjordan/islandora_workbench/issues).
-
-Running Islandora Workbench with `--check` will validate the following subset of [Extended Date/Time Format (EDTF) Specification](https://www.loc.gov/standards/datetime/) date types in EDTF fields:
+Running Islandora Workbench with `--check` will validate [Extended Date/Time Format (EDTF) Specification](https://www.loc.gov/standards/datetime/) dates (Levels 0, 1, and 2) in EDTF fields:
 
 | Type | Examples |
 | --- | --- |
