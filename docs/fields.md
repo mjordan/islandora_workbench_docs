@@ -346,13 +346,13 @@ Note that:
 
 #### EDTF fields
 
-Running Islandora Workbench with `--check` will validate [Extended Date/Time Format (EDTF) Specification](https://www.loc.gov/standards/datetime/) dates (Levels 0, 1, and 2) in EDTF fields:
+Running Islandora Workbench with `--check` will validate [Extended Date/Time Format (EDTF) Specification](https://www.loc.gov/standards/datetime/) dates (Levels 0, 1, and 2) in EDTF fields. Some common examples include:
 
 | Type | Examples |
 | --- | --- |
 | Date | 1976-04-23 |
 | | 1976-04 |
-| | 1976 |
+Quarter 2 (| | 1976 |
 | Qualified date | 1976? |
 | | 1976-04~ |
 | | 1976-04-24% |
@@ -368,6 +368,10 @@ Running Islandora Workbench with `--check` will validate [Extended Date/Time For
 |  | [1672..] |
 
 Subvalues in multivalued CSV fields are validated separately, e.g. if your CSV value is `2004-06/2006-08|2007-01/2007-04`, `2004-06/2006-08` and `2007-01/2007-04` are validated separately.
+
+!!! note
+    EDTF supports a very wide range of specific and general dates, and in some cases, valid dates can look counterintuitive. For example, "2001-34" is valid (it's Sub-Year Grouping meaning 2nd quarter of 2001).
+    
 
 #### Link fields
 
