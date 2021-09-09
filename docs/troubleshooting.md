@@ -21,7 +21,7 @@ True, it can be slow. However, users have found that the following strategies in
 
 ## The text in my CSV does not match how it looks when I view it in Drupal.
 
-If a field is configured in Drupal to use [text filters](https://www.drupal.org/node/213156), the HTML that is displayed to the user may not be exactly the same as the content of the node add/edit form field. If you check the node add/edit form, the content of the field should match the content of the CSV field. If it does, it is likely that Drupal is apply a text filter.
+If a field is configured in Drupal to use [text filters](https://www.drupal.org/node/213156), the HTML that is displayed to the user may not be exactly the same as the content of the node add/edit form field. If you check the node add/edit form, the content of the field should match the content of the CSV field. If it does, it is likely that Drupal is apply a text filter. See [this issue](https://github.com/mjordan/islandora_workbench/issues/328) for more information.
 
 ## My Islandora uses a custom media type and I need to tell Workbench what file field to use.
 
@@ -49,3 +49,9 @@ This configuration setting adds entries to the following default mapping of medi
 ## I've pulled in updates to Islandora Workbench from Github but when I run it, Python complains about not being able to find a library.
 
 This is likely due to the addition of a new Python library to Workbench. Rerunning `setup.py` will install the missing library. Details are available in the "Updating Islandora Workbench" section of the [Requirements and Installation](https://mjordan.github.io/islandora_workbench_docs/installation/#updating-islandora-workbench) docs.
+
+## EDTF 'interval' values are not rendering in Islandora properly
+
+Islandora can display EDTF interval values (e.g., `2004-06/2006-08`, `193X/196X`) properly, but by default, the configuration that allows this is disabled (see [this issue](https://github.com/Islandora/documentation/issues/1889) for more information). To enable it, for each field in your Islandora content types that use EDTF fields, visit the "Manage form display" configuration for the content type, and for each field that uses the "Default EDTF widget", within the widget configuration (click on the gear), check the "Permit date intervals" option and save:
+
+![EDTF form widget configuration](images/edtf_form_widget_config.png)
