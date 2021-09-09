@@ -220,6 +220,9 @@
     <li class="toctree-l2"><a href="#ive-pulled-in-updates-to-islandora-workbench-from-github-but-when-i-run-it-python-complains-about-not-being-able-to-find-a-library">I've pulled in updates to Islandora Workbench from Github but when I run it, Python complains about not being able to find a library.</a></li>
     
 
+    <li class="toctree-l2"><a href="#edtf-interval-values-are-not-rendering-in-islandora-properly">EDTF 'interval' values are not rendering in Islandora properly</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -274,7 +277,7 @@
 <li>Using local instead of remote files. If you populate your <code>file</code> or "additional files" fields with filenames that start with "http", Workbench downloads each of those files before ingesting them. Providing local copies of those files in advance of running Workbench will eliminate the time it takes Workbench to download them.</li>
 </ul>
 <h2 id="the-text-in-my-csv-does-not-match-how-it-looks-when-i-view-it-in-drupal">The text in my CSV does not match how it looks when I view it in Drupal.</h2>
-<p>If a field is configured in Drupal to use <a href="https://www.drupal.org/node/213156">text filters</a>, the HTML that is displayed to the user may not be exactly the same as the content of the node add/edit form field. If you check the node add/edit form, the content of the field should match the content of the CSV field. If it does, it is likely that Drupal is apply a text filter.</p>
+<p>If a field is configured in Drupal to use <a href="https://www.drupal.org/node/213156">text filters</a>, the HTML that is displayed to the user may not be exactly the same as the content of the node add/edit form field. If you check the node add/edit form, the content of the field should match the content of the CSV field. If it does, it is likely that Drupal is apply a text filter. See <a href="https://github.com/mjordan/islandora_workbench/issues/328">this issue</a> for more information.</p>
 <h2 id="my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use">My Islandora uses a custom media type and I need to tell Workbench what file field to use.</h2>
 <p>If you need to create a media that is not one of the standard Islandora types (Image, File, Digital Document, Video, Audio, Extracted Text, or FITS Technical metadata), you will need to include the  <code>media_file_fields</code> setting in your config file, like this:</p>
 <pre><code class="yaml">media_file_fields:
@@ -294,6 +297,9 @@
 
 <h2 id="ive-pulled-in-updates-to-islandora-workbench-from-github-but-when-i-run-it-python-complains-about-not-being-able-to-find-a-library">I've pulled in updates to Islandora Workbench from Github but when I run it, Python complains about not being able to find a library.</h2>
 <p>This is likely due to the addition of a new Python library to Workbench. Rerunning <code>setup.py</code> will install the missing library. Details are available in the "Updating Islandora Workbench" section of the <a href="https://mjordan.github.io/islandora_workbench_docs/installation/#updating-islandora-workbench">Requirements and Installation</a> docs.</p>
+<h2 id="edtf-interval-values-are-not-rendering-in-islandora-properly">EDTF 'interval' values are not rendering in Islandora properly</h2>
+<p>Islandora can display EDTF interval values properly, but by default, the configuration that allows this is disabled (see <a href="https://github.com/Islandora/documentation/issues/1889">this issue</a> for more information). To enable it, for each field in your Islandora content types that use EDTF fields, visit the "Manage form display" configuration for the content type, and for each field that uses the "Default EDTF widget", within the widget configuration (click on the gear), check the "Permit date intervals" option and save:</p>
+<p><img alt="EDTF form widget configuration" src="../images/edtf_form_widget_config.png" /></p>
               
             </div>
           </div>
