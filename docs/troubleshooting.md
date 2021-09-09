@@ -50,8 +50,8 @@ This configuration setting adds entries to the following default mapping of medi
 
 This is likely due to the addition of a new Python library to Workbench. Rerunning `setup.py` will install the missing library. Details are available in the "Updating Islandora Workbench" section of the [Requirements and Installation](https://mjordan.github.io/islandora_workbench_docs/installation/#updating-islandora-workbench) docs.
 
-## EDTF 'interval' values are not rendering in Islandora properly
+## EDTF 'interval' values are not rendering in Islandora properly.
 
-Islandora can display EDTF interval values (e.g., `2004-06/2006-08`, `193X/196X`) properly, but by default, the configuration that allows this is disabled (see [this issue](https://github.com/Islandora/documentation/issues/1889) for more information). To enable it, for each field in your Islandora content types that use EDTF fields, visit the "Manage form display" configuration for the content type, and for each field that uses the "Default EDTF widget", within the widget configuration (click on the gear), check the "Permit date intervals" option and save:
+Islandora can display EDTF interval values (e.g., `2004-06/2006-08`, `193X/196X`) properly, but by default, the configuration that allows this is disabled (see [this issue](https://github.com/Islandora/documentation/issues/1889) for more information). To enable it, for each field in your Islandora content types that use EDTF fields, visit the "Manage form display" configuration for the content type, and for each field that uses the "Default EDTF widget", within the widget configuration (click on the gear), check the "Permit date intervals" option and click "Update":
 
 ![EDTF form widget configuration](images/edtf_form_widget_config.png)
