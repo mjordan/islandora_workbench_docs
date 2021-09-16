@@ -6,6 +6,7 @@ node_id
 96
 200
 ```
+Values in the `node_id` column can be numeric node IDs (as illustrated above), full URLs, or full URL aliases.
 
 The config file for update operations looks like this (note the `task` option is 'delete'):
 

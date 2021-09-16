@@ -4,6 +4,7 @@ You can add media to existing nodes by providing a CSV file with a `node_id` col
 node_id,file
 100,test.txt
 ```
+Values in the `node_id` column can be numeric node IDs (as illustrated above), full URLs, or full URL aliases.
 
 The config file for "add_media" tasks like this (note the `task` option is 'add_media'):
 

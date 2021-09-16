@@ -1,4 +1,4 @@
-You can update existing nodes by providing a CSV file with a `node_id` column plus field data you want to update. Updating replaces existing values in the nodes' fields, it don't append new values (but see [this issue](https://github.com/mjordan/islandora_workbench/issues/47)).
+You can update existing nodes by providing a CSV file with a `node_id` column plus field data you want to update. Updating replaces existing values in the nodes' fields, it don't append new values (but see [this issue](https://github.com/mjordan/islandora_workbench/issues/47)). Values in the `node_id` column can be numeric node IDs (e.g. `467`) or full URLs, including URL aliases.
 
 The column headings in the CSV file other than `node_id` must match machine names of fields that exist in the target Islandora content type. Only include fields that you want to update. Currently, text fields, ETDF fields, taxonomy fields, linked node fields (e.g. "Member of" for collection nodes), typed relation, link, and geolocation fields can be updated following the same conventions used when creating nodes as described in the "[Fields](/islandora_workbench_docs/fields/)" documentation.
 
