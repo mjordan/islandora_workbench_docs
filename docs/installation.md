@@ -7,6 +7,8 @@
     * [Requests](https://2.python-requests.org/en/master/)
     * [progress_bar](https://pypi.org/project/progress_bar/)
     * [openpyxl](https://pypi.org/project/openpyxl/)
+    * [unidecode](https://pypi.org/project/Unidecode/)
+    * [edtf-validate](https://pypi.org/project/edtf-validate/)
     * If you want to have these libraries automatically installed, you will need Python's [setuptools](https://pypi.org/project/setuptools/)
 
 Islandora Workbench has been installed and used on Linux, Mac, and Windows.
