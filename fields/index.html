@@ -473,12 +473,13 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 <p>Below are guidelines for preparing CSV data that is compatible with common field types configured in Islandora repositories.</p>
 <h4 id="text-fields">Text fields</h4>
 <p>Generally speaking, any Drupal field where the user enters free text into a node add/edit form is configured to be one of the Drupal "Text" field types.</p>
-<p>Islandora Workbench supports non-Latin characters in CSV, provided the CSV file is encoded as ASCII or UTF-8. For example, the following non-Latin text will be added as expected to Drupal fields:</p>
+<p>Islandora Workbench supports non-Latin characters in CSV, provided the CSV file is encoded as UTF-8. For example, the following non-Latin text will be added as expected to Drupal fields:</p>
 <ul>
 <li>一九二四年六月十二日 (Traditional Chinese)</li>
 <li>सरकारी दस्तावेज़, अखबारों में छपे लेख, अकादमिक किताबें (Hindi)</li>
 <li>ᐊᑕᐅᓯᖅ ᓄᓇ, ᐅᓄᖅᑐᑦ ᓂᐲᑦ (Inuktitut)</li>
 </ul>
+<p>However, if all of your characters are Latin (basically, the characters found on a standard US keyboard) your CSV file can be encoded as ASCII.</p>
 <p>Some things to note about Drupal text fields:</p>
 <ul>
 <li>Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file, but, depending on a field's configuration, Drupal may apply <a href="https://www.drupal.org/node/213156">text filters</a>.</li>
