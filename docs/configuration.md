@@ -45,13 +45,7 @@ The settings defined in a configuration file are documented below, grouped into 
 | google_sheets_gid |  | 0 | The "gid" of the worksheet to use in a Google Sheet. See  "[Using Google Sheets as input data](/islandora_workbench_docs/preparing_data/#using-a-google-sheet-as-the-input-csv-file)" section for more information. |
 | excel_worksheet |  | Sheet1 | If using an Excel file as your input CSV file, the name of the worksheet that the CSV data will be extracted from. |
 
-### Output CSV settings
-
-| Setting | Required | Default value | Description |
-| --- | --- | --- | --- |
-| output_csv | | | The full or relative path to a CSV file with one record per node created by Workbench. See "[The output CSV file](islandora_workbench_docs/output_csv/)" section for more information. |
-
-### CSV input file settings
+### Input CSV file settings
 
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
@@ -60,6 +54,16 @@ The settings defined in a configuration file are documented below, grouped into 
 | subdelimiter |  | &#124; [pipe]| The subdelimiter used in the CSV file to define multiple values in one field. If omitted, defaults to "&#124;". |
 | csv_field_templates |  |  | Used in the `create` and `update` tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the "[CSV field templates](/islandora_workbench_docs/field_templates/)" section.|
 | ignore_csv_columns |  |  | Used in the `create` and `update` tasks only. A list of CSV column headers that Workbench should ignore. For example, `ignore_csv_columns: [Target Collection, Ready to publish]`|
+
+### Output CSV settings
+
+See "[The output CSV file](/islandora_workbench_docs/output_csv/)" section for more information.
+
+| Setting | Required | Default value | Description |
+| --- | --- | --- | --- |
+| output_csv | | | The full or relative path to a CSV file with one record per node created by Workbench. |
+| output_csv_include_input_csv | | false | Include in the output CSV all the fields (and their values) from the input CSV. |
+
 
 ### Media settings
 
