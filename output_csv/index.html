@@ -252,6 +252,7 @@
 <p>The file will also contain empty columns corresponding to all of the fields in the target content type. An example, generated from a 2-record input CSV file, looks like this (only left-most part of the spreadsheet shown):</p>
 <p><img alt="Output CSV" src="../images/output_csv.png" /></p>
 <p>This CSV file is suitable as a template for subsequent <code>update</code> tasks, since it already contains the <code>node_id</code>s for all the stub nodes plus column headers for all of the fields in those nodes. You can remove from the template any colums you do not want to include in your <code>update</code> task. You can also use the node IDs in this file as the basis for later <code>add_media</code> tasks; all you will need to do is delete the other columns and add a <code>file</code> column containing the new nodes' corresponding filenames.</p>
+<p>If you want to include in your output CSV all of the fields (and their values) from the input CSV, add <code>output_csv_include_input_csv: true</code> to your configuration file. This option is useful if you want a CSV that contains the node ID and a field such as <code>field_identifier</code> or other fields that contain local identifiers, DOIs, file paths, etc. If you use this option, all the fields from the input CSV are added to the output CSV; you cannot configure which fields are included.</p>
               
             </div>
           </div>
