@@ -75,9 +75,9 @@
         
             <li><a class="toctree-l3" href="#input-data-location-settings">Input data location settings</a></li>
         
-            <li><a class="toctree-l3" href="#output-csv-settings">Output CSV settings</a></li>
+            <li><a class="toctree-l3" href="#input-csv-file-settings">Input CSV file settings</a></li>
         
-            <li><a class="toctree-l3" href="#csv-input-file-settings">CSV input file settings</a></li>
+            <li><a class="toctree-l3" href="#output-csv-settings">Output CSV settings</a></li>
         
             <li><a class="toctree-l3" href="#media-settings">Media settings</a></li>
         
@@ -432,33 +432,7 @@ password: islandora
 </tr>
 </tbody>
 </table>
-<h3 id="output-csv-settings">Output CSV settings</h3>
-<p>See "<a href="islandora_workbench_docs/output_csv/">The output CSV file</a>" section for more information.</p>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Required</th>
-<th>Default value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>output_csv</td>
-<td></td>
-<td></td>
-<td>The full or relative path to a CSV file with one record per node created by Workbench. See "<a href="islandora_workbench_docs/output_csv/">The output CSV file</a>" section for more information.</td>
-</tr>
-<tr>
-<td>output_csv_include_input_csv</td>
-<td></td>
-<td>false</td>
-<td>Include in the output CSV all the fields (and their values) from the input CSV.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="csv-input-file-settings">CSV input file settings</h3>
+<h3 id="input-csv-file-settings">Input CSV file settings</h3>
 <table>
 <thead>
 <tr>
@@ -498,6 +472,32 @@ password: islandora
 <td></td>
 <td></td>
 <td>Used in the <code>create</code> and <code>update</code> tasks only. A list of CSV column headers that Workbench should ignore. For example, <code>ignore_csv_columns: [Target Collection, Ready to publish]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="output-csv-settings">Output CSV settings</h3>
+<p>See "<a href="/islandora_workbench_docs/output_csv/">The output CSV file</a>" section for more information.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Required</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>output_csv</td>
+<td></td>
+<td></td>
+<td>The full or relative path to a CSV file with one record per node created by Workbench. See "<a href="islandora_workbench_docs/output_csv/">The output CSV file</a>" section for more information.</td>
+</tr>
+<tr>
+<td>output_csv_include_input_csv</td>
+<td></td>
+<td>false</td>
+<td>Include in the output CSV all the fields (and their values) from the input CSV.</td>
 </tr>
 </tbody>
 </table>
