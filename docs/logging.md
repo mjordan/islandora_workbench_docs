@@ -31,7 +31,7 @@ It may also contain additional detail that would clutter up the console output, 
 
 ## Logging debugging information
 
-Two options are available that write raw values used in the REST requests to Drupal. These are useful for debugging and troubleshooting purposes:
+Workbench doesn't provide a way to set the amount of detail in its log, but two options are available that are useful for debugging and troubleshooting. These options write raw values used in the REST requests to Drupal:
 
 * `log_json`: Logs the raw JSON that Workbench uses in POST, PUT, and PATCH requests.
 * `log_headers`: Logs the raw HTTP headers used in all requests.

@@ -52,7 +52,7 @@ or if you originally installed Islandora Workbench using the `--user` option:
 
 Islandora Workbench communicates with Drupal using REST endpoints and Views. The Islandora Workbench Integration module (linked above in the "Requirements" section) ensures that the target Drupal has all required REST endpoints and Views enabled. Therefore, keeping it in sync with Islandora Workbench is important.
 
-Announcments indicating that updating the Drupal module will be posted in the Islandora Slack, but if you want to be notified that there has been a change in Islandora Workbench that requires a corresponding change in the Integration module, follow the instructions in the "Post-merge hook script" section of the Islandora Workbench [README](https://github.com/mjordan/islandora_workbench).
+Workbench checks the version of the Integration module and tells you if you need to upgrade it. To upgrade the module, update its code via Git or Composer, and follow the instructions in the "Updates" section of its [README](https://github.com/mjordan/islandora_workbench_integration/blob/main/README.md).
 
 ## Using Drupal 8.5 or earlier
 
