@@ -201,12 +201,10 @@ you can use the terms IDs or labels for "Automobiles", "Sports cars", or "Land R
 If you add `allow_adding_terms: true` to your configuration file for `create` and `update` tasks, Workbench will create the new term the first time it is used in the CSV file following these rules:
 
 * If multiple records in your CSV contain the same new term name in the same field, the term is only created once.
-* When Workbench checks to see if the term with the new name exists in the target vocabulary, it normalizes it and compares it with existing term names in that vocabulary, applying these normalization rules to both the new term and the existing terms:
-    * It strips all leading and trailing whitespace.
-    * It replaces all other whitespace with a single space character.
-    * It converts all text to lower case.
-    * It removes all punctuation.
-    * After normalizing the term name using the above four rules, if the term name you provide in the CSV file does not match any existing term names in the vocabulary linked to the field after these normalization rules are applied, it is used to create a new taxonomy term. If it does match, Workbench populates the field in your nodes with the matching term.
+* When Workbench checks to see if the term with the new name exists in the target vocabulary, it queries Drupal for the new term name, looking for an exact match against an existing term in the specified vocabulary. Therefore it is important that term names used in your CSV are identical to existing term names. The query to find existing term names follows these two rules:
+    * Leading and trailing whitespace on term names is ignored. Internal whitespace is significant.
+    * Case is ignored.
+* If the term name you provide in the CSV file does not match an existing term name in its vocabulary, the term name from the CSV data is used to create a new term. If it does match, Workbench populates the field in your nodes with a reference to the matching term.
 
 Adding new terms has some contraints:
 
