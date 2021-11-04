@@ -125,6 +125,7 @@ See the "[Logging](/islandora_workbench_docs/logging/)" section for more informa
 
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
+| timestamp_rollback |  | false | Set to `true` to add a timestamp to the "rollback.yml" and corresponding "rollback.csv" generated in "create" and "create_from_files" tasks. See "[Rolling back](/islandora_workbench_docs/rolling_back/)" for more information. |
 | pause |  | | Defines the number of seconds to pause between each REST request to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5. |
 | progress_bar |  | false | Show a progress bar when running Workbench instead of row-by-row output. |
 | bootstrap |  | | List of absolute paths to one or more scripts that execute prior to Workbench connecting to Drupal. More information is available in the "[Hooks](/islandora_workbench_docs/hooks/) documentation. |
