@@ -15,6 +15,7 @@ If you do this, Workbench will check the following and report any errors that re
 * Connection to Drupal
     * Whether your Drupal has the required [Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module enabled.
     * Whether the `host` you provided will accept the `username` and `password` you provided.
+    * Whether the Islandora Workbench Integration module is up to date.
 * Input directory
     * Whether the directory named in the `input_dir` configuration setting exists.
 * CSV file
