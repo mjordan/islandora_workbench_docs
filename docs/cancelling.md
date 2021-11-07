@@ -49,3 +49,6 @@ Note that cancelling Workbench simply stops it from executing. It doesn't use a 
 * If it stops while creating a compound object such as a book, it might stop before the children/pages are being processed.
 
 If you cancel Workbench while it is running, you should always inspect the last object created and any of its media/children to ensure that they were all created. Use information in the log to see what was processed just prior to exiting.
+
+!!! note
+    You can also issue a `ctrl-c` while running a `--check`. This that case, Workbench just logs the action and exits.
