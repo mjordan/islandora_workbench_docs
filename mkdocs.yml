@@ -7,7 +7,7 @@ repo_url: https://github.com/mjordan/islandora_workbench_docs
 theme: readthedocs
 pages:
     - Home: index.md
-    - 'Requirements and installation': installation.md
+    - Requirements and installation: installation.md
     - Configuration: configuration.md
     - Checking configuration and input data: check.md
     - Preparing your data: preparing_data.md
@@ -33,6 +33,7 @@ pages:
     - Hooks: hooks.md
     - Fixity checking: fixity.md
     - Logging: logging.md
+    - Cancelling Workbench: cancelling.md
     - Workflows: workflows.md
     - Known limitations: limitations.md
     - Roadmap (Fall 2021): roadmap.md
