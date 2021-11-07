@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Rolling back nodes and media - Islandora Workbench</title>
+  <title>Cancelling Workbench - Islandora Workbench</title>
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
@@ -16,8 +16,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Rolling back nodes and media";
-    var mkdocs_page_input_path = "rolling_back.md";
+    var mkdocs_page_name = "Cancelling Workbench";
+    var mkdocs_page_input_path = "cancelling.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -112,12 +112,9 @@
     <a class="" href="../alt_text/">Adding alt text to images</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Rolling back nodes and media</a>
-    <ul class="subnav">
-            
-    </ul>
+    <a class="" href="../rolling_back/">Rolling back nodes and media</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -185,9 +182,15 @@
     <a class="" href="../logging/">Logging</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../cancelling/">Cancelling Workbench</a>
+    <a class="current" href="./">Cancelling Workbench</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#quitting-workbench">Quitting Workbench</a></li>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -232,10 +235,10 @@
     
       
     
-    <li>Rolling back nodes and media</li>
+    <li>Cancelling Workbench</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/rolling_back.md"
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/cancelling.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -245,9 +248,47 @@
           <div role="main">
             <div class="section">
               
-                <p>In the <code>create</code> and <code>create_from_files</code> tasks, Workbench generates a <code>rollback.yml</code> configuration file and a <code>rollback.csv</code> file in the format described in "Deleting nodes", below. These files allow you to easily roll back (i.e., delete) all the nodes and accompanying media you just created. Specifically, this configuration file defines a <code>delete</code> task. See the "<a href="/islandora_workbench_docs/deleting_nodes/">Deleting nodes</a>" section for more information.</p>
-<p>To roll back all the nodes and media you just created, run <code>./workbench --config rollback.yml</code>.</p>
-<p>By default, Workbench overwrites the rollback configuration and CSV files each time it runs, so these files only apply to the most recent <code>create</code> and <code>create_from_files</code> runs. If you add <code>timestamp_rollback: true</code> to your configuration file, a (to-the-second) timestamp will be added to the <code>rollback.yml</code> and corresponding <code>rollback.csv</code> files, for example, <code>rollback.2021_11_03_21_10_28.yml</code> and <code>rollback.2021_11_03_21_10_28.csv</code>. The name of the CSV is also written to <code>workbench.log</code>. Running <code>./workbench --config rollback.2021_11_03_21_10_28.yml</code> will delete the nodes identified in <code>input_data/rollback.2021_11_03_21_10_28.csv</code>.</p>
+                <h2 id="quitting-workbench">Quitting Workbench</h2>
+<p>You can quit Islandora Workbench manually, before it completes running. You normally wouldn't do this, but if you do need to cancel/quit a Workbench job, press ctrl-c (the standard way to exit a running script). </p>
+<p>To illustrate what happens when you do this, let's use the following simple CSV input file, which we'll use to <code>create</code> some nodes:</p>
+<pre><code>file,id,title
+IMG_1410.tif,01,Small boats in Havana Harbour
+IMG_2549.jp2,02,Manhatten Island
+IMG_2940.JPG,03,Looking across Burrard Inlet
+IMG_2958.JPG,04,Amsterdam waterfront
+IMG_5083.JPG,05,Alcatraz Island
+</code></pre>
+
+<p>We run Workbench, and after two nodes have been created, issue a ctrl-c to cancel:</p>
+<pre><code>OK, connection to Drupal at http://localhost verified.
+Node for &quot;Small boats in Havana Harbour&quot; (record 01) created at http://localhost/node/33.
+Node for &quot;Manhatten Island&quot; (record 02) created at http://localhost/node/34.
+^CExiting before entire CSV processed. See log for more info.
+</code></pre>
+
+<p><code>workbench.log</code> will contain the following entries:</p>
+<pre><code>07-Nov-21 09:39:30 - INFO - OK, connection to Drupal at http://localhost verified.
+07-Nov-21 09:39:31 - INFO - Writing rollback CSV to input_data/rollback.csv
+07-Nov-21 09:39:31 - INFO - &quot;Create&quot; task started using config file foo.yml
+07-Nov-21 09:39:39 - INFO - &quot;nodes_only&quot; option in effect. No media will be created.
+07-Nov-21 09:39:40 - INFO - Node for Small boats in Havana Harbour (record 01) created at http://localhost/node/33.
+07-Nov-21 09:39:41 - INFO - Node for Manhatten Island (record 02) created at http://localhost/node/34.
+07-Nov-21 09:39:42 - WARNING - Workbench exiting after receiving &quot;ctrl c.&quot; Consult the documentation to learn how to resume your batch.
+</code></pre>
+
+<p>The log shows that the last row in the CSV that resulted in a node being created is the row for record 02; after that row was processed, the user issued a ctrl-c to stop Workbench. To process the remaining CSV records, you can remove the rows that were processed, and run Workbench on the resulting unprocessed records:</p>
+<pre><code>file,id,title
+IMG_2940.JPG,03,Looking across Burrard Inlet
+IMG_2958.JPG,04,Amsterdam waterfront
+IMG_5083.JPG,05,Alcatraz Island
+</code></pre>
+
+<p>Note that cancelling Workbench simply stops it from executing. It doesn't use a "transaction" to ensure that all child objects or media that are being processed are also processed: </p>
+<ul>
+<li>If it stops while creating a media assocated with a node, it might stop before the media is created.</li>
+<li>If it stops while creating a compound object such as a book, it might stop before the children/pages are being processed.</li>
+</ul>
+<p>You should always inspect the last object created and any of its media/children to ensure that they were all created. Your log contains an accurate record of what the processed just prior to exiting.</p>
               
             </div>
           </div>
@@ -255,10 +296,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../media_types/" class="btn btn-neutral float-right" title="Setting media types">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../workflows/" class="btn btn-neutral float-right" title="Workflows">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../alt_text/" class="btn btn-neutral" title="Adding alt text to images"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../logging/" class="btn btn-neutral" title="Logging"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -286,10 +327,10 @@
           <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../alt_text/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../logging/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../media_types/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../workflows/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
