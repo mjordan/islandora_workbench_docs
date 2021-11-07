@@ -273,7 +273,7 @@ Node for &quot;Manhatten Island&quot; (record 02) created at http://localhost/no
 </code></pre>
 
 <p>The "documentation" you are referred to is this page!</p>
-<p>The log shows that the last row in the CSV that resulted in a node being created is the row for record 02; after that row was processed, the user issued a <code>ctrl-c</code> to stop Workbench. To process the remaining CSV records ("resume your batch"), you need to remove from the input CSV the rows that were processed, and run Workbench on the resulting unprocessed records:</p>
+<p>The log shows that the last row in the CSV that resulted in a node being created is the row for record 02; after that row was processed, the user issued a <code>ctrl-c</code> to stop Workbench. To process the remaining CSV records ("resume your batch"), you need to remove from the input CSV the rows that were processed (according to the log, the rows for record 01 and record 02), and run Workbench on the resulting unprocessed records:</p>
 <pre><code class="text">file,id,title
 IMG_2940.JPG,03,Looking across Burrard Inlet
 IMG_2958.JPG,04,Amsterdam waterfront
