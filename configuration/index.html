@@ -557,13 +557,13 @@ password: islandora
 <td>use_node_title_for_media_title</td>
 <td></td>
 <td>true</td>
-<td>If set to <code>true</code> (default), name media the same as the parent node's title value. If <code>false</code>, the filename of the media will be used as the media name.</td>
+<td>If set to <code>true</code> (default), name media the same as the parent node's title value. If <code>false</code>, the filename of the media will be used as the media name. Applies to both <code>create</code> and <code>add_media</code> tasks.</td>
 </tr>
 <tr>
 <td>use_node_title_for_media</td>
 <td></td>
 <td>false</td>
-<td>For remote files, if set to <code>true</code>, name the downloaded copy using the parent node's title value. If <code>false</code>, downloaded file's name will depend on the application/website that is serving up the file.</td>
+<td>For remote files, if set to <code>true</code>, name the downloaded copy using the parent node's title value. If <code>false</code>, downloaded file's name will depend on the application/website that is serving up the file. Applies to <code>create</code> tasks only.</td>
 </tr>
 <tr>
 <td>delete_tmp_upload</td>
