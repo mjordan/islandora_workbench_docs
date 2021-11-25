@@ -109,7 +109,7 @@ See the "[Logging](/islandora_workbench_docs/logging/)" section for more informa
 
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
-| log_file_path | | workbench.log | The path to the log file, absolute or relative to `workbench`. |
+| log_file_path | | workbench.log | The path to the log file, absolute or relative to the directory Workbench is run from. |
 | log_file_mode | | a [append] | Set to "w" to overwrite the log file, if it exists. |
 | log_json |  | false | Whether or not to log the raw JSON POSTed, PUT, or PATCHed to Drupal. Useful for debugging. |
 | log_headers |  | false | Whether or not to log the raw HTTP headers used in all requests. Useful for debugging. |
@@ -146,7 +146,7 @@ When you run Islandora Workbench with the `--check` argument, it will verify tha
 
 When you run Workbench, it confirms that your configuration file is valid YAML. This is a syntax check only, not a content check. If the file is valid YAML, Workbench then goes on to perform a long list of application-specific [checks](/islandora_workbench_docs/check).
 
-If this syntax check fails, some detail about the problem will be displayed to the user. The same information plus the entire Python stack trace is also logged to a file named "workbench.log" in the Islandora Workbench directory. This file name is Workbench's default log file name, but in this case (validating the config file's YAML syntax), that file name is used regardless of the log file location defined in the configuation's `log_file_path` option. The reason the error is logged in the default location instead of the value in the configuration file (if one is present) is that the configuration file isn't valid YAML and therefore can't be parsed.
+If this syntax check fails, some detail about the problem will be displayed to the user. The same information plus the entire Python stack trace is also logged to a file named "workbench.log" in the directory Islandora Workbench is run from. This file name is Workbench's default log file name, but in this case (validating the config file's YAML syntax), that file name is used regardless of the log file location defined in the configuation's `log_file_path` option. The reason the error is logged in the default location instead of the value in the configuration file (if one is present) is that the configuration file isn't valid YAML and therefore can't be parsed.
 
 ## Example configuration files
 
@@ -175,7 +175,7 @@ username: admin
 password: islandora
 
 # This setting tells Workbench to write its log file to the location specified
-# instead of the default "workbench.log" within the "islandora_workbench" directory.
+# instead of the default "workbench.log" within the directory Workbench is run from.
 log_file_path: /home/mark/workbench_log.txt
 ```
 

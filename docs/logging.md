@@ -1,4 +1,4 @@
-Islandora Workbench writes a log file for all tasks to a file named "workbench.log" in the workbench directory, unless you specify an alternative log file location using the `log_file_path` configuration option, e.g.:
+Islandora Workbench writes a log file for all tasks to a file named "workbench.log" in the directory Workbench is run from, unless you specify an alternative log file location using the `log_file_path` configuration option, e.g.:
 
 `log_file_path: /tmp/mylogfilepath.log`
 
