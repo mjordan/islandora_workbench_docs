@@ -303,7 +303,7 @@
 <li>the entire HTTP response body; this will be raw JSON.</li>
 </ol>
 <p>These arguments are passed to post-action scripts automatically. You don't specific them when you register your scripts in your config file. The <code>scripts/entity_post_task_example.py</code> illustrates these arguments.</p>
-<p>Your scripts can find the entity ID and other information within the (raw JSON) HTTP response body. Using the way Python decodes JSON, if the entity is a node, its nid is in <code>entity_json['nid'][0]['value']</code>; if the entity is a media, the mid is in <code>entity_json['mid'][0]['value']</code>. The exact location of the nid and mid may differ if the script is written in a language that decodes JSON diffferently.</p>
+<p>Your scripts can find the entity ID and other information within the (raw JSON) HTTP response body. Using the way Python decodes JSON as an example, if the entity is a node, its nid is in <code>entity_json['nid'][0]['value']</code>; if the entity is a media, the mid is in <code>entity_json['mid'][0]['value']</code>. The exact location of the nid and mid may differ if the script is written in a language that decodes JSON diffferently.</p>
 <h4 id="running-multiple-scripts-in-one-hook">Running multiple scripts in one hook</h4>
 <p>For all types of hooks, you can register multiple scripts, like this:</p>
 <pre><code class="yaml">node_post_create: [&quot;/home/mark/scripts/email_someone.py&quot;, &quot;/tmp/hit_remote_api.py&quot;]
