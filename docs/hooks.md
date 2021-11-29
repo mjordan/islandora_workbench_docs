@@ -61,6 +61,8 @@ The arguments passed to each post-action hook are:
 
 These arguments are passed to post-action scripts automatically. You don't specific them when you register your scripts in your config file. The `scripts/entity_post_task_example.py` illustrates these arguments.
 
+Your scripts can find the entity ID and other information within the (raw JSON) HTTP response body. Using the way Python decodes JSON as an example, if the entity is a node, its nid is in `entity_json['nid'][0]['value']`; if the entity is a media, the mid is in `entity_json['mid'][0]['value']`. The exact location of the nid and mid may differ if your script is written in a language that decodes JSON diffferently.
+
 #### Running multiple scripts in one hook
 
 For all types of hooks, you can register multiple scripts, like this:
