@@ -697,16 +697,34 @@ password: islandora
 <td>Set to "w" to overwrite the log file, if it exists.</td>
 </tr>
 <tr>
+<td>log_request_url</td>
+<td></td>
+<td>false</td>
+<td>Whether or not to log the request URL (and its method). Useful for debugging.</td>
+</tr>
+<tr>
 <td>log_json</td>
 <td></td>
 <td>false</td>
-<td>Whether or not to log the raw JSON POSTed, PUT, or PATCHed to Drupal. Useful for debugging.</td>
+<td>Whether or not to log the raw request JSON POSTed, PUT, or PATCHed to Drupal. Useful for debugging.</td>
 </tr>
 <tr>
 <td>log_headers</td>
 <td></td>
 <td>false</td>
 <td>Whether or not to log the raw HTTP headers used in all requests. Useful for debugging.</td>
+</tr>
+<tr>
+<td>log_response_status_code</td>
+<td></td>
+<td>false</td>
+<td>Whether or not to log the HTTP response code. Useful for debugging.</td>
+</tr>
+<tr>
+<td>log_response_body</td>
+<td></td>
+<td>false</td>
+<td>Whether or not to log the raw HTTP response body. Useful for debugging.</td>
 </tr>
 </tbody>
 </table>
