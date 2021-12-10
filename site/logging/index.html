@@ -275,11 +275,19 @@
 <p>By default, new entries are appended to this log, unless you indicate that the log file should be overwritten each time Workbench is run by providing the <code>log_file_mode</code> configuration option with a value of "w":</p>
 <p><code>log_file_mode: w</code></p>
 <h2 id="logging-debugging-information">Logging debugging information</h2>
-<p>Workbench doesn't provide a way to set the amount of detail in its log, but two options are available that are useful for debugging and troubleshooting. These options write raw values used in the REST requests to Drupal:</p>
+<p>Workbench doesn't provide a way to set the amount of detail in its log, but several options are available that are useful for debugging and troubleshooting. These options, when set to <code>true</code>, write raw values used in the REST requests to Drupal:</p>
 <ul>
+<li><code>log_request_url</code>: Logs the request URL and its method (GET, POST, etc.).</li>
 <li><code>log_json</code>: Logs the raw JSON that Workbench uses in POST, PUT, and PATCH requests.</li>
 <li><code>log_headers</code>: Logs the raw HTTP headers used in all requests.</li>
+<li><code>log_response_status_code</code>: Logs the HTTP response code.</li>
+<li><code>log_response_body</code>: Logs the raw HTTP response body.</li>
 </ul>
+<p>These options can be used independently of each other, but they are often more useful for debugging when used together.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Using these options, especially <code>log_json</code> and <code>log_response_body</code>, can add a lot of data to you log file.</p>
+</div>
               
             </div>
           </div>
