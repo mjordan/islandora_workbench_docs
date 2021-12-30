@@ -375,6 +375,12 @@ password: islandora
 <td>Determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "<a href="/islandora_workbench_docs/fields/#field-types">Taxonomy reference fields</a>" section.</td>
 </tr>
 <tr>
+<td>validate_term_existence</td>
+<td></td>
+<td>true</td>
+<td>If set to false, during <code>--check</code> Workbench will not query Drupal to determine if a taxonomy term exists. The structure of term values in CSV are still validated; this option only tells Workbench to not check for the term's existence in the target Drupal. Useful to speeed up the <code>--check</code> process if you know terms don't exist in the target Drupal.</td>
+</tr>
+<tr>
 <td>published</td>
 <td></td>
 <td>true</td>
@@ -756,6 +762,12 @@ password: islandora
 <td></td>
 <td>true</td>
 <td>Whether or not to require valid SSL certificates. Set to <code>false</code> if you want to ignore SSL certificates.</td>
+</tr>
+<tr>
+<td>enable_http_cache</td>
+<td></td>
+<td>true</td>
+<td>Whether or not to enable Workbench's client-side request cache. Set to <code>false</code> if you want to disable the cache during troubleshooting, etc.</td>
 </tr>
 </tbody>
 </table>
