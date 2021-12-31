@@ -290,7 +290,8 @@
 <li>For all media being created, via the <code>media_type</code> (singluar) configuration option. If this is present (for example <code>media_type: document</code>), all media created by Workbench will be assigned that media type. Use this option if all of the files in your batch are to be assigned the same media type, but their extensions are not defined in the default mapping.</li>
 <li>
 <p>On a per file extension basis, via a mapping in the <code>media_types_override</code> option in your configuration file like this one:</p>
-<p><code>media_types_override:
+<p><code>yaml
+media_types_override:
  - video: ['mp4', 'ogg']</code></p>
 <p>Use this option if each of the files in your batch are to be assigned an extension-specific media type, and their extensions are not defined in the default mapping (or are in addition to the extensions in the default mapping, as in this example).</p>
 </li>
