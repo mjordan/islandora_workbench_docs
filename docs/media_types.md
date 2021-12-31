@@ -16,23 +16,17 @@ If a file's extension is not defined in either this default mapping, the media i
 
 If you need to override this default mappping, you can do so in two ways:
 
-1. For all media being created, via the `media_type` (singluar) configuration option. If this is present (for example `media_type: document`), all media created by Workbench will be assigned that media type. Use this option if all of the files in your batch are to be assigned the same media type, but their extensions are not defined in the default mapping.
-1. On a per file extension basis, via a mapping in the `media_types` (plural) option in your configuration file like this one:
+1. If the override applies to all files named in your CSV's `file` column, use the `media_type` configuration option, for example `media_type: document`). Use this option if all of the files in your batch are to be assigned the same media type, but their extensions are not defined in the default mapping or you wish to override the default mapping.
+1. On a per file extension basis, via a mapping in the `media_types_override` option in your configuration file like this one:
 
-    ```
-    media_types:
-     - video: ['mp4', 'ogg']
-    ```
-
-    Use this option if all of the files in your batch are not to be assigned the same media type, and their extensions are not defined in the default mapping (or are in addition to the extensions in the default mapping, as in this example).
+```yaml
+media_types_override:
+  - video: ['mp4', 'ogg']
+```
+   Use the `media_types_override` option if each of the files named in your CSV's `file` column are to be assigned an extension-specific media type, and their extensions are not defined in the default mapping (or add to the extensions in the default mapping, as in this example).
 
 Note that:
 
-* If a file's extension is not present in the default mapping or in the `media_types` custom mapping, the media is assigned the "file" type.
-* If you use the `media_types` configuration option, your mapping replaces all of Workbench's default mappings. However, you may include multiple entries, e.g.:
-   ```
-   media_types:
-    - video: ['mp4', 'ogg']
-    - image: ['png', 'gif', 'jpg', 'jpeg']
-   ```
-* If both `media_type` and `media_types` are included in the config file, the mapping is ignored and the media type assigned in `media_type` is used.
+* If a file's extension is not present in the default mapping or in the `media_types_override` custom mapping, the media is assigned the "file" type.
+* If you use the `media_types_override` configuration option, your mapping replaces Workbench's default mappings for the specified file extension. This means that if you want to retain any of the default mappings for the file extension, you need to include them in the mapping, as illustrated by the presence of "mp4" in the example above.
+* If both `media_type` and `media_types_override` are included in the config file, the mapping in `media_types_override` is ignored and the media type assigned in `media_type` is used.
