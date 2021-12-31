@@ -287,14 +287,14 @@
 <p>If a file's extension is not defined in either this default mapping, the media is assigned the "file" type.</p>
 <p>If you need to override this default mappping, you can do so in two ways:</p>
 <ol>
-<li>For all media being created, via the <code>media_type</code> (singluar) configuration option. If this is present (for example <code>media_type: document</code>), all media created by Workbench will be assigned that media type. Use this option if all of the files in your batch are to be assigned the same media type, but their extensions are not defined in the default mapping.</li>
+<li>If the override applies to all files named in your CSV's <code>file</code> column, use the <code>media_type</code> configuration option. If this is present (for example <code>media_type: document</code>), all media created by Workbench will be assigned that media type. Use this option if all of the files in your batch are to be assigned the same media type, but their extensions are not defined in the default mapping.</li>
 <li>On a per file extension basis, via a mapping in the <code>media_types_override</code> option in your configuration file like this one:</li>
 </ol>
 <pre><code class="yaml">media_types_override:
   - video: ['mp4', 'ogg']
 </code></pre>
 
-<p>Use the second option if each of the files in your batch are to be assigned an extension-specific media type, and their extensions are not defined in the default mapping (or are in addition to the extensions in the default mapping, as in this example).</p>
+<p>Use the <code>media_types_override</code> option if each of the files named in your CSV's <code>file</code> column are to be assigned an extension-specific media type, and their extensions are not defined in the default mapping (or are in addition to the extensions in the default mapping, as in this example).</p>
 <p>Note that:</p>
 <ul>
 <li>If a file's extension is not present in the default mapping or in the <code>media_types_override</code> custom mapping, the media is assigned the "file" type.</li>
