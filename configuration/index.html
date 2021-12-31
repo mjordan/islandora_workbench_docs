@@ -542,16 +542,16 @@ password: islandora
 <td>The term ID for the term from the "Islandora Media Use" vocabulary you want to apply to the media being created in <code>create</code> and <code>add_media</code> tasks. You can provide a term URI instead of a term ID, for example <code>"http://pcdm.org/use#OriginalFile"</code>. You can specify multiple values for this setting by joining them with the subdelimiter configured in the <code>subdelimiter</code> setting; for example, <code>media_use_tid: 17|18</code>. You can also set this at the object level by including <code>media_use_tid</code> in your CSV file; values there will override the value set in your configuration file. If you are "<a href="/islandora_workbench_docs/adding_multiple_media/">Adding multiple media</a>", you define media use term IDs in a slightly different way.</td>
 </tr>
 <tr>
-<td>media_type [singular]</td>
+<td>media_type</td>
 <td></td>
 <td></td>
 <td>Overrides, for all media being created, Workbench's default definition of whether the media being created is an image, file, document, audio, or video. Used in the <code>create</code>, <code>add_media</code>, and <code>create_from_files</code> tasks. More detail provided in the "<a href="/islandora_workbench_docs/media_types">Setting Media Types</a>" section.</td>
 </tr>
 <tr>
-<td>media_types [plural]</td>
+<td>media_types_override</td>
 <td></td>
 <td></td>
-<td>Overrides default media type definitions on a per file extension basis. Used in the <code>create</code>, <code>add_media</code>, and <code>create_from_files</code> tasks. More detail provided in the "Setting Media Types" section.</td>
+<td>Overrides default media type definitions on a per file extension basis. Used in the <code>create</code>, <code>add_media</code>, and <code>create_from_files</code> tasks. More detail provided in the "<a href="/islandora_workbench_docs/media_types">Setting Media Types</a>" section.</td>
 </tr>
 <tr>
 <td>delete_media_with_nodes</td>
