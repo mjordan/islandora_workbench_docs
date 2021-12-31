@@ -5,6 +5,7 @@
 * The following Python libraries:
     * [ruamel.yaml](https://yaml.readthedocs.io/en/latest/index.html)
     * [Requests](https://2.python-requests.org/en/master/)
+    * [Requests-Cache](https://pypi.org/project/requests-cache/)
     * [progress_bar](https://pypi.org/project/progress_bar/)
     * [openpyxl](https://pypi.org/project/openpyxl/)
     * [unidecode](https://pypi.org/project/Unidecode/)
