@@ -1,7 +1,7 @@
 ## Requirements
 
 * An [Islandora](https://islandora.ca/) repository using Drupal 8 or 9, with the [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module enabled. If you are using Drupal 8.5 or earlier, please refer to the "Using Drupal 8.5 or earlier" section below.
-* Python 3.6 or higher
+* Python 3.7 or higher
 * The following Python libraries:
     * [ruamel.yaml](https://yaml.readthedocs.io/en/latest/index.html)
     * [Requests](https://2.python-requests.org/en/master/)
@@ -14,7 +14,7 @@
 Islandora Workbench has been installed and used on Linux, Mac, and Windows.
 
 !!! warning
-    Some systems have both Python 2 and Python 3 installed. It's a good idea to check which version is used when you run `python`. To do this, run `python --version`, which will output something like "Python 2.7.17" or "Python 3.6.9". If `python --version` indicates you're running version 2, try running `python3 --version` to see if you have version 3 installed.
+    Some systems have both Python 2 and Python 3 installed. It's a good idea to check which version is used when you run `python`. To do this, run `python --version`, which will output something like "Python 2.7.17" or "Python 3.8.10". If `python --version` indicates you're running version 2, try running `python3 --version` to see if you have version 3 installed.
 
 ## Installing Islandora Workbench
 
