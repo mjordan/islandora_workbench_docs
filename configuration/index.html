@@ -107,6 +107,8 @@
         
             <li><a class="toctree-l3" href="#include-some-csv-field-templates">Include some CSV field templates</a></li>
         
+            <li><a class="toctree-l3" href="#use-a-google-sheet-as-input-csv">Use a Google Sheet as input CSV</a></li>
+        
             <li><a class="toctree-l3" href="#create-nodes-and-media-from-files-no-input-csv-file">Create nodes and media from files (no input CSV file)</a></li>
         
             <li><a class="toctree-l3" href="#ignore-some-columns-in-your-input-csv-file">Ignore some columns in your input CSV file</a></li>
@@ -888,6 +890,17 @@ password: islandora
 csv_field_templates:
  - field_member_of: 205
  - field_model: 25
+</code></pre>
+
+<h3 id="use-a-google-sheet-as-input-csv">Use a Google Sheet as input CSV</h3>
+<pre><code class="yaml">task: create
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+input_csv: 'https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZvX18xoRBxfbgxqWc/edit
+# You only need to specify the google_sheets_gid option if the workseet in the Google Sheet
+# is not the default one. 
+google_sheets_gid: 1867618389
 </code></pre>
 
 <h3 id="create-nodes-and-media-from-files-no-input-csv-file">Create nodes and media from files (no input CSV file)</h3>
