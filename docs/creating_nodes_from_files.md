@@ -7,7 +7,7 @@ Nodes created using this task have only the following properties/fields populate
 * Published: published by default, or overridden in the configuration file using the `published` setting.
 * Model: defined in the configuration file using either the `model` or `models` setting.
 
-The media attached to the nodes is the file, with its type (image, document, audio, video, file) assigned by the `media_types` configuration setting and its Media Use tag defined in the `media_use_tid` setting.
+The media attached to the nodes is the file, with its type (image, document, audio, video, file) assigned by the `media_types_override` configuration setting and its Media Use tag defined in the `media_use_tid` setting.
 
 The configuration options for the `create_from_files` task are the same as the options used in the `create` task (with one exception: `input_csv` is not required). The only option specific to this task is `models`, which is a mapping from terms IDs (or term URIs) in the "Islandora Models" vocabulary to file extensions.
 

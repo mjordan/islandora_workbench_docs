@@ -107,9 +107,15 @@
         
             <li><a class="toctree-l3" href="#include-some-csv-field-templates">Include some CSV field templates</a></li>
         
+            <li><a class="toctree-l3" href="#use-a-google-sheet-as-input-csv">Use a Google Sheet as input CSV</a></li>
+        
             <li><a class="toctree-l3" href="#create-nodes-and-media-from-files-no-input-csv-file">Create nodes and media from files (no input CSV file)</a></li>
         
             <li><a class="toctree-l3" href="#ignore-some-columns-in-your-input-csv-file">Ignore some columns in your input CSV file</a></li>
+        
+            <li><a class="toctree-l3" href="#generating-sample-islandora-content">Generating sample Islandora content</a></li>
+        
+            <li><a class="toctree-l3" href="#running-a-post-action-script">Running a post-action script</a></li>
         
         </ul>
     
@@ -847,7 +853,7 @@ password: islandora
 <p>When you run Workbench, it confirms that your configuration file is valid YAML. This is a syntax check only, not a content check. If the file is valid YAML, Workbench then goes on to perform a long list of application-specific <a href="/islandora_workbench_docs/check">checks</a>.</p>
 <p>If this syntax check fails, some detail about the problem will be displayed to the user. The same information plus the entire Python stack trace is also logged to a file named "workbench.log" in the directory Islandora Workbench is run from. This file name is Workbench's default log file name, but in this case (validating the config file's YAML syntax), that file name is used regardless of the log file location defined in the configuation's <code>log_file_path</code> option. The reason the error is logged in the default location instead of the value in the configuration file (if one is present) is that the configuration file isn't valid YAML and therefore can't be parsed.</p>
 <h2 id="example-configuration-files">Example configuration files</h2>
-<p>These examples provide inline annotations explaining why the settings are included in the configuration file. Spaces are included for readability.</p>
+<p>These examples provide inline annotations explaining why the settings are included in the configuration file. Blank rows/lines are included for readability.</p>
 <h3 id="create-nodes-only-no-media">Create nodes only, no media</h3>
 <pre><code class="yaml">task: create
 host: &quot;http://localhost:8000&quot;
@@ -886,6 +892,17 @@ csv_field_templates:
  - field_model: 25
 </code></pre>
 
+<h3 id="use-a-google-sheet-as-input-csv">Use a Google Sheet as input CSV</h3>
+<pre><code class="yaml">task: create
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+input_csv: 'https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZvX18xoRBxfbgxqWc/edit
+# You only need to specify the google_sheets_gid option if the workseet in the Google Sheet
+# is not the default one. 
+google_sheets_gid: 1867618389
+</code></pre>
+
 <h3 id="create-nodes-and-media-from-files-no-input-csv-file">Create nodes and media from files (no input CSV file)</h3>
 <pre><code class="yaml">task: create_from_files
 host: &quot;http://localhost:8000&quot;
@@ -914,6 +931,31 @@ input_csv: input.csv
 # This tells Workbench to ignore the 'date_generated' and 'batch_id'
 # columns in the input.csv file.
 ignore_csv_columns: ['date_generated', 'batch_id'] 
+</code></pre>
+
+<h3 id="generating-sample-islandora-content">Generating sample Islandora content</h3>
+<pre><code class="yaml">task: create_from_files
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+# This directory must match the on defined in the script's 'dest_dir' variable.
+input_dir: /tmp/autogen_input
+media_use_tid: 17
+output_csv: /tmp/my_sample_content_csv.csv
+model: http://purl.org/coar/resource_type/c_c513
+# This is the script that generates the sample content.
+bootstrap:
+ - &quot;/home/mark/Documents/hacking/workbench/generate_image_files.py&quot;
+</code></pre>
+
+<h3 id="running-a-post-action-script">Running a post-action script</h3>
+<pre><code class="yaml">ask: create
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+node_post_create: ['/home/mark/hacking/islandora_workbench/scripts/entity_post_task_example.py']
+# node_post_update: ['/home/mark/hacking/islandora_workbench/scripts/entity_post_task_example.py']
+# media_post_create: ['/home/mark/hacking/islandora_workbench/scripts/entity_post_task_example.py']
 </code></pre>
               
             </div>

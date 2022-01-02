@@ -253,7 +253,7 @@
 <li>Published: published by default, or overridden in the configuration file using the <code>published</code> setting.</li>
 <li>Model: defined in the configuration file using either the <code>model</code> or <code>models</code> setting.</li>
 </ul>
-<p>The media attached to the nodes is the file, with its type (image, document, audio, video, file) assigned by the <code>media_types</code> configuration setting and its Media Use tag defined in the <code>media_use_tid</code> setting.</p>
+<p>The media attached to the nodes is the file, with its type (image, document, audio, video, file) assigned by the <code>media_types_override</code> configuration setting and its Media Use tag defined in the <code>media_use_tid</code> setting.</p>
 <p>The configuration options for the <code>create_from_files</code> task are the same as the options used in the <code>create</code> task (with one exception: <code>input_csv</code> is not required). The only option specific to this task is <code>models</code>, which is a mapping from terms IDs (or term URIs) in the "Islandora Models" vocabulary to file extensions.</p>
 <p>Note that either the  <code>models</code> or <code>model</code> configuration option is required in the <code>create_from_files</code> task. Use <code>models</code> when your nodes will have different Islandora Model values. Here is a sample configuration file for this task:</p>
 <pre><code class="yaml">task: create_from_files

@@ -155,7 +155,7 @@ If this syntax check fails, some detail about the problem will be displayed to t
 
 ## Example configuration files
 
-These examples provide inline annotations explaining why the settings are included in the configuration file. Spaces are included for readability.
+These examples provide inline annotations explaining why the settings are included in the configuration file. Blank rows/lines are included for readability.
 
 ### Create nodes only, no media
 
@@ -201,6 +201,19 @@ csv_field_templates:
  - field_model: 25
 ```
 
+### Use a Google Sheet as input CSV
+
+```yaml
+task: create
+host: "http://localhost:8000"
+username: admin
+password: islandora
+input_csv: 'https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZvX18xoRBxfbgxqWc/edit
+# You only need to specify the google_sheets_gid option if the workseet in the Google Sheet
+# is not the default one. 
+google_sheets_gid: 1867618389
+```
+
 ### Create nodes and media from files (no input CSV file)
 
 ```yaml
@@ -233,4 +246,33 @@ input_csv: input.csv
 # This tells Workbench to ignore the 'date_generated' and 'batch_id'
 # columns in the input.csv file.
 ignore_csv_columns: ['date_generated', 'batch_id'] 
+```
+
+### Generating sample Islandora content
+
+```yaml
+task: create_from_files
+host: "http://localhost:8000"
+username: admin
+password: islandora
+# This directory must match the on defined in the script's 'dest_dir' variable.
+input_dir: /tmp/autogen_input
+media_use_tid: 17
+output_csv: /tmp/my_sample_content_csv.csv
+model: http://purl.org/coar/resource_type/c_c513
+# This is the script that generates the sample content.
+bootstrap:
+ - "/home/mark/Documents/hacking/workbench/generate_image_files.py"
+```
+
+### Running a post-action script
+
+```yaml
+ask: create
+host: "http://localhost:8000"
+username: admin
+password: islandora
+node_post_create: ['/home/mark/hacking/islandora_workbench/scripts/entity_post_task_example.py']
+# node_post_update: ['/home/mark/hacking/islandora_workbench/scripts/entity_post_task_example.py']
+# media_post_create: ['/home/mark/hacking/islandora_workbench/scripts/entity_post_task_example.py']
 ```
