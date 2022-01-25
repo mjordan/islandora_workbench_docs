@@ -44,7 +44,7 @@ The values in the `media_file_fields` option are the machine name of the media t
 
 1. go to the field configuration of your media types (Admin > Structure > Media types)
 1. choose your custom media type
-1. choose the "Manage fields" operation for the media type. The URL of the Drupal page you are now at should look like `/admin/structure/media/manage/custom_media/fields`. The machine name of the media is in the second-last position in the URL. In this example, it's `custom_media`.
+1. choose the "Manage fields" operation for the media type. The URL of the Drupal page you are now at should look like `/admin/structure/media/manage/my_custom_media/fields`. The machine name of the media is in the second-last position in the URL. In this example, it's `my_custom_media`.
 1. in the list of fields, look for the one that says "File" in the "Field type" column
 1. the field machine name you want is in that row's "Machine name" column.
 
@@ -52,23 +52,23 @@ Here's an example that tells Workbench that the custom media type "Custom media"
 
 ```yaml
 media_file_fields:
- - custom_media: field_media_file
+ - my_custom_media: field_media_file
 ```
 
 Put together, the two configuration options would look like this:
 
 ```yaml
 media_types_override:
-  - custom_media: ['cus']
+  - my_custom_media: ['cus']
 media_file_fields:
- - custom_media: field_media_file
+ - my_custom_media: field_media_file
 ```
 
-In this example, your Workbench job is creating media of varying types (for example, images, videos, and documents, all using the default extension-to-media type mappings. If all the files you are adding in the Workbench job all have the same media type (in the following example, your "custom_media" type), you could use this configuration:
+In this example, your Workbench job is creating media of varying types (for example, images, videos, and documents, all using the default extension-to-media type mappings. If all the files you are adding in the Workbench job all have the same media type (in the following example, your "my_custom_media" type), you could use this configuration:
 
 ```yaml
-media_type: custom_media
+media_type: my_custom_media
 media_file_fields:
- - custom_media: field_media_file
+ - my_custom_media: field_media_file
 ```
 
