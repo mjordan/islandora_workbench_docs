@@ -305,7 +305,7 @@
 <li>If both <code>media_type</code> and <code>media_types_override</code> are included in the config file, the mapping in <code>media_types_override</code> is ignored and the media type assigned in <code>media_type</code> is used.</li>
 </ul>
 <h2 id="configuring-a-custom-media-type">Configuring a custom media type</h2>
-<p>By default Islandora ships with the following media types: audio, document, extracted text, file, FITS technical metadata, image, and video. If you want to add your own custom media type, you need to tell Workbench two things about it:</p>
+<p>By default Islandora ships with the following media types: audio, document, extracted text, file, FITS technical metadata, image, and video. If you want to add your own custom media type, you need to tell Workbench two things:</p>
 <ol>
 <li>which file extension(s) should map to the media type, and</li>
 <li>which field on the media type is used to store the file associated with the media.</li>
@@ -315,6 +315,19 @@
 <p>Next, get the machine name of the file field. In the list of fields, one will indicate "File" in the "Field type" column. The machine name you want is in that row's "Machine name" column.</p>
 <p>Here's an example that tells Workbench that the custom media type "Custom media" uses the "field_media_file" field:</p>
 <pre><code class="yaml">media_file_fields:
+ - custom_media: field_media_file
+</code></pre>
+
+<p>Put together, the two configuration options would look like this:</p>
+<pre><code class="yaml">media_types_override:
+  - custom_media: ['cus']
+media_file_fields:
+ - custom_media: field_media_file
+</code></pre>
+
+<p>In this example, your Workbench job is creating media of varying types (for example, images, videos, and documents, all using the default extension-to-media type mappings. If all the files you are adding in the Workbench job all have the same media type (in the following example, your "custom_media" type), you could use this configuration:</p>
+<pre><code class="yaml">media_type: custom_media
+media_file_fields:
  - custom_media: field_media_file
 </code></pre>
               
