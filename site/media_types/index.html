@@ -122,6 +122,9 @@
     <a class="current" href="./">Setting media types</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#configuring-a-custom-media-type">Configuring a custom media type</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -301,6 +304,19 @@
 <li>If you use the <code>media_types_override</code> configuration option, your mapping replaces Workbench's default mappings for the specified file extension. This means that if you want to retain any of the default mappings for the file extension, you need to include them in the mapping, as illustrated by the presence of "mp4" in the example above.</li>
 <li>If both <code>media_type</code> and <code>media_types_override</code> are included in the config file, the mapping in <code>media_types_override</code> is ignored and the media type assigned in <code>media_type</code> is used.</li>
 </ul>
+<h2 id="configuring-a-custom-media-type">Configuring a custom media type</h2>
+<p>By default Islandora ships with the following media types: audio, document, extracted text, file, FITS technical metadata, image, and video. If you want to add your own custom media type, you need to tell Workbench two things about it:</p>
+<ol>
+<li>which file extension(s) should map to the media type, and</li>
+<li>which field on the media type is used to store the file associated with the media.</li>
+</ol>
+<p>To satisfy the first requirement, use the <code>media_type</code> or <code>media_types_override</code> option as described above. To satisfy the second requirement, use Workbench's <code>media_file_fields</code> option. </p>
+<p>The values in this option are the machine name of the media type and the machine name of the "File" field configured for that media. To determine the machine name of your media type, go to the field configuration of your media types (Admin &gt; Structure &gt; Media types) and choose your custom media type. Then choose the "Manage fields" operation for the media type. The URL you are now at should look like <code>/admin/structure/media/manage/custom_media/fields</code>. In this example, <code>custom_media</code> is the machine name of your media.</p>
+<p>Next, get the machine name of the file field. In the list of fields, one will indicate "File" in the "Field type" column. The machine name you want is in that row's "Machine name" column.</p>
+<p>Here's an example that tells Workbench that the custom media type "Custom media" uses the "field_media_file" field:</p>
+<pre><code class="yaml">media_file_fields:
+ - custom_media: field_media_file
+</code></pre>
               
             </div>
           </div>
