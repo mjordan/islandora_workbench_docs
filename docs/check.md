@@ -48,6 +48,7 @@ If you do this, Workbench will check the following and report any errors that re
     * If using the pages from directories configuration (`paged_content_from_directories: true`):
         * Whether page filenames contain an occurance of the sequence separator.
         * Whether any page directories are empty.
+    * Whether the content type identified in the `content_type` configuration option exists.
     * Whether multivalued fields exceed their allowed number of values.
     * Whether values in text-type fields exceed their configured maximum length.
     * Whether the nodes refrenced in `field_member_of` (if that field is present in the CSV) exist.
