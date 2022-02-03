@@ -1,13 +1,13 @@
 ## Overview
 
-You should always (always, [I can't stress that enough](https://www.youtube.com/watch?v=2ZgtEdFAg3s)) check your configuration and input prior to creating, updating, or deleting content. You can do this by running Workbench with the `--check` option, e.g.:
+You should *always* check your configuration and input prior to creating, updating, or deleting content. You can do this by running Workbench with the `--check` option, e.g.:
 
 `./workbench --config config.yml --check`
 
 !!! note
     If you're on Windows, you will likely need to run Workbench by explicitly invoking Python, e.g. `python workbench --config config.yml --check` instead of using `./workbench` as illustrated above.
 
-If you do this, Workbench will check the following and report any errors that require your attention before proceding:
+If you do this, Workbench will check the following conditions and report any errors that require your attention before proceding:
 
 * Configuration file
     * Whether your configuration file is valid YAML (i.e., no YAML syntax errors).
@@ -58,6 +58,8 @@ If you do this, Workbench will check the following and report any errors that re
     * Whether registered bootstrap, preprocessor, and post-action scripts exist and are executable.
 
 If Workbench detects a configuration or input data violation, it will either stop and tell you why it stopped, or (if the violation will not cause Workbench's interaction with Drupal to fail), tell you that it found an anomoly and to check the log file for more detail.
+
+A successful outcome of running `--check` confirms that all of the conditions listed above are in place, but it does not *guarantee* a successful job. There are a lot of factors in play during ingest/update/delete interactions with Drupal that can't be checked in advance, most notably network stability, load on the Drupal server, or failure of an Islandora microservice. But in general `--check` will tell you if there's a problem that you can investigate and resolve before proceeding with your task.
 
 ## Typical (and recommended) Islandora Workbench usage
 
