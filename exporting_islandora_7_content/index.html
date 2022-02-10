@@ -255,32 +255,136 @@
             <div class="section">
               
                 <h2 id="overview">Overview</h2>
-<p>Islandora Workbench's main purpose is to load batches of content into an Islandora 8 repository. However, loading content can also be the last step in migrating from Islandora 7 to Islandora 8. As noted in the "<a href="/islandora_workbench_docs/workflows/#migrations">Workflows</a>" documentation, Workbench can be used in the "load" phase of a typical <a href="https://en.wikipedia.org/wiki/Extract,_transform,_load">extract, transform, load</a> (ETL) process.</p>
-<p>Workbench comes with a standalone script, <code>get_islandora_7_content.py</code>, that can be used to extract (a.k.a. "export") metadata and OBJ datastreams from an Islandora 7 instance. This data can form the basis for Workbench input data.</p>
+<p>Islandora Workbench's main purpose is to load batches of content into an Islandora 8 repository. However, loading
+content can also be the last step in migrating from Islandora 7 to Islandora 8. As noted in
+the "<a href="/islandora_workbench_docs/workflows/#migrations">Workflows</a>" documentation, Workbench can be used in the "load"
+phase of a typical <a href="https://en.wikipedia.org/wiki/Extract,_transform,_load">extract, transform, load</a> (ETL) process.</p>
+<p>Workbench comes with a standalone script, <code>get_islandora_7_content.py</code>, that can be used to extract (a.k.a. "export")
+metadata and OBJ datastreams from an Islandora 7 instance. This data can form the basis for Workbench input data.</p>
 <p>To run the script, change into the Workbench "scripts" directory and run:</p>
-<p><code>python3 get_islandora_7_content.py</code></p>
-<p>Unlike <code>workbench</code>, this script doesn't use a YAML configuration file. To configure the script, you need to open it in a text editor and change the variables in the "Configuration variables" section of the script, as appliable.</p>
+<p><code>python3 get_islandora_7_content.py --config &lt;my_config&gt;</code></p>
+<p>The script uses a number of configuration variables, all of which come with sensible defaults. Any of the following
+parameters can be changed in the user-supplied config file.
+<table>
+    <thead>
+    <tr>
+        <th>Parameter</th>
+        <th>Default Value</th>
+    </tr>
+    </thead>
+    <tr>
+        <td>solr_base_url</td>
+        <td>http://localhost:8080/solr</td>
+    </tr>
+    <tr>
+        <td>islandora_base_url</td>
+        <td>http://localhost:8000</td>
+    </tr>
+    <tr>
+        <td>csv_output_path</td>
+        <td>islandora7_metadata.csv'</td>
+    </tr>
+    <tr>
+        <td>obj_directory</td>
+        <td>/tmp/objs</td>
+    </tr>
+    <tr>
+        <td>log_file_path</td>
+        <td>islandora_content.log</td>
+    </tr>
+    <tr>
+        <td>fetch_files</td>
+        <td>True</td>
+    </tr>
+    <tr>
+        <td>get_file_uri</td>
+        <td>False</td>
+    </tr>
+    <tr>
+        <td>namespace</td>
+        <td><em></td>
+    </tr>
+    <tr>
+        <td>standard_fields</td>
+        <td>['PID', 'RELS_EXT_hasModel_uri_s', 'RELS_EXT_isMemberOfCollection_uri_ms',
+            'RELS_EXT_isMemberOf_uri_ms', 'RELS_EXT_isConstituentOf_uri_ms',
+            'RELS_EXT_isPageOf_uri_ms']
+        </td>
+    </tr>
+    <tr>
+        <td>field_pattern</td>
+        <td>mods_.</em>(_s|_ms)$</td>
+    </tr>
+    <tr>
+        <td>field_pattern_do_not_want</td>
+        <td>(marcrelator|isSequenceNumberOf)</td>
+    <tr>
+        <td>id_field</td>
+        <td>PID</td>
+    </tr>
+    <tr>
+        <td>id_start_number</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>datastreams</td>
+        <td>['OBJ', 'PDF']</td>
+    </tr>
+    <tr>
+        <td>debug</td>
+        <td>False</td>
+    </tr>
+</table></p>
 <h2 id="configuring-which-solr-fields-to-include-in-the-csv">Configuring which Solr fields to include in the CSV</h2>
-<p>Islandora 7's Solr schema contains a lot of fields, mirroring the richness of MODS (or other XML-based metadata) and the Fedora 3.x RELS-EXT properties. By default, this script fetches all the fields in the Islandora 7's Solr's index, which will invariably be many more fields that you will normally want in the output CSV.</p>
+<p>Islandora 7's Solr schema contains a lot of fields, mirroring the richness of MODS (or other XML-based metadata) and the
+Fedora 3.x RELS-EXT properties. By default, this script fetches all the fields in the Islandora 7's Solr's index, which
+will invariably be many more fields that you will normally want in the output CSV.</p>
 <p>The script takes the following approach to providing control over what fields end up in the CSV data it generates:</p>
 <ol>
 <li>It fetches a list of all fieldnames used in the Solr index.</li>
-<li>It then matches each fieldname against the regular expression pattern defined in the script's <code>field_pattern</code> variable, and if the match is successful, includes the fieldname in the CSV. For example, <code>field_pattern = 'mods_.*(_s|_ms)$'</code> will match every Solr field that starts with "mods_" and ends with either "_s" or "_ms".</li>
-<li>Next, it matches each remaining filename against the regular expression patterns defined in the script's <code>field_pattern_do_not_want</code> variable, and if the match is successful, <em>removes</em> the fieldname from the CSV. For example, <code>field_pattern_do_not_want = '(marcrelator|isSequenceNumberOf)'</code> will remove all fieldnames that contain either the string "marcrelator" or "isSequenceNumberOf". Note that the regular expression used in this configuration variable is not a negative pattern; in other words, if a fieldname matches this pattern, it is excluded from the field list.</li>
-<li>Finally, it adds to the start of the remaining list of fieldnames every Solr fieldname defined in the <code>standard_fields</code> configuration variable. This configuration variable provides a mechanism to ensure than any fields that are not included in step 2 are present in the generated CSV file.</li>
+<li>It then matches each fieldname against the regular expression pattern defined in the script's <code>field_pattern</code>
+   variable, and if the match is successful, includes the fieldname in the CSV. For
+   example, <code>field_pattern = 'mods_.*(_s|_ms)$'</code> will match every Solr field that starts with "mods_" and ends with
+   either "_s" or "_ms".</li>
+<li>Next, it matches each remaining filename against the regular expression patterns defined in the
+   script's <code>field_pattern_do_not_want</code> variable, and if the match is successful, <em>removes</em> the fieldname from the CSV.
+   For example, <code>field_pattern_do_not_want = '(marcrelator|isSequenceNumberOf)'</code> will remove all fieldnames that contain
+   either the string "marcrelator" or "isSequenceNumberOf". Note that the regular expression used in this configuration
+   variable is not a negative pattern; in other words, if a fieldname matches this pattern, it is excluded from the
+   field list.</li>
+<li>Finally, it adds to the start of the remaining list of fieldnames every Solr fieldname defined in
+   the <code>standard_fields</code> configuration variable. This configuration variable provides a mechanism to ensure than any
+   fields that are not included in step 2 are present in the generated CSV file.</li>
 </ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>You will always want at least the Solr fields "PID", "RELS_EXT_isMemberOfCollection_uri_ms", "RELS_EXT_hasModel_uri_s", "RELS_EXT_isMemberOfCollection_uri_ms", "RELS_EXT_isConstituentOf_uri_ms", and "RELS_EXT_isPageOf_uri_ms" in your <code>standard_fields</code> configuration variable since these fields contain information about objects' relationships to each other.</p>
+<div class="admonition warning you will always want at least the solr fields">
+<p class="admonition-title">PID", "RELS_EXT_isMemberOfCollection_uri_ms", </p>
 </div>
-<p>Even with a well-configured set of pattern variables, the column headers are ugly, and there are a lot of them. Here is a sample from a minimal Islandora 7.x:</p>
+<p>RELS_EXT_hasModel_uri_s", "RELS_EXT_isMemberOfCollection_uri_ms", "RELS_EXT_isConstituentOf_uri_ms", and "
+RELS_EXT_isPageOf_uri_ms" in your <code>standard_fields</code> configuration variable since these fields contain information about
+objects' relationships to each other.</p>
+<p>Even with a well-configured set of pattern variables, the column headers are ugly, and there are a lot of them. Here is
+a sample from a minimal Islandora 7.x:</p>
 <pre><code class="text">file,PID,RELS_EXT_hasModel_uri_s,RELS_EXT_isMemberOfCollection_uri_ms,RELS_EXT_isConstituentOf_uri_ms,RELS_EXT_isPageOf_uri_ms,mods_recordInfo_recordOrigin_ms,mods_name_personal_author_ms,mods_abstract_s,mods_name_aut_role_roleTerm_code_s,mods_name_personal_author_s,mods_typeOfResource_s,mods_subject_geographic_ms,mods_identifier_local_ms,mods_genre_ms,mods_name_photographer_role_roleTerm_code_s,mods_physicalDescription_form_all_ms,mods_physicalDescription_extent_ms,mods_subject_topic_ms,mods_name_namePart_s,mods_physicalDescription_form_authority_marcform_ms,mods_name_pht_s,mods_identifier_uuid_ms,mods_language_languageTerm_code_s,mods_physicalDescription_form_s,mods_accessCondition_use_and_reproduction_s,mods_name_personal_role_roleTerm_text_s,mods_name__role_roleTerm_code_ms,mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_ms,mods_name_aut_s,mods_originInfo_encoding_iso8601_dateIssued_s,mods_originInfo_dateIssued_ms,mods_name_photographer_namePart_s,mods_name_pht_role_roleTerm_text_ms,mods_identifier_all_ms,mods_name_namePart_ms,mods_subject_geographic_s,mods_originInfo_publisher_ms,mods_subject_descendants_all_ms,mods_titleInfo_title_all_ms,mods_name_photographer_role_roleTerm_text_ms,mods_name_role_roleTerm_text_s,mods_titleInfo_title_ms,mods_name_photographer_s,mods_originInfo_place_placeTerm_text_s,mods_name_role_roleTerm_code_ms,mods_name_pht_role_roleTerm_code_s,mods_name_pht_namePart_s,mods_name_pht_namePart_ms,mods_name_role_roleTerm_code_s,mods_genre_all_ms,mods_physicalDescription_form_authority_marcform_s,mods_name_pht_role_roleTerm_code_ms,mods_extension_display_date_ms,mods_name_photographer_namePart_ms,mods_genre_authority_bgtchm_ms,mods_name_personal_role_roleTerm_text_ms,mods_name_pht_ms,mods_name_photographer_role_roleTerm_text_s,mods_language_languageTerm_code_ms,mods_originInfo_place_placeTerm_text_ms,mods_titleInfo_title_s,mods_identifier_uuid_s,mods_language_languageTerm_code_authority_iso639-2b_s,mods_genre_s,mods_name_aut_role_roleTerm_code_ms,mods_typeOfResource_ms,mods_originInfo_encoding_iso8601_dateIssued_ms,mods_name_personal_author_role_roleTerm_text_ms,mods_abstract_ms,mods_language_languageTerm_text_s,mods_genre_authority_bgtchm_s,mods_language_languageTerm_s,mods_language_languageTerm_ms,mods_subject_topic_s,mods_name_photographer_ms,mods_name_pht_role_roleTerm_text_s,mods_recordInfo_recordOrigin_s,mods_name_aut_ms,mods_originInfo_publisher_s,mods_identifier_local_s,mods_language_languageTerm_text_ms,mods_physicalDescription_extent_s,mods_language_languageTerm_code_authority_iso639-2b_ms,mods_name__role_roleTerm_code_s,mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_s,mods_name_photographer_role_roleTerm_code_ms,mods_name_role_roleTerm_text_ms,mods_name_personal_author_role_roleTerm_text_s,mods_accessCondition_use_and_reproduction_ms,mods_physicalDescription_form_ms,sequence
 </code></pre>
 
+<p>Then script generated solr request may not, in some cases be useful or even workable. The user has the option of 
+providing their own solr query in a file and adding a second parameter when running the script 
+<code>python3 get_islandora_7_content.py --config &lt;my_config&gt; --metadata_solr_request &lt;my_request.txt&gt;</code>
+By adding filters to the solr query the user can bring back the results of single collections or content types.</p>
 <h2 id="using-the-csv-as-input-for-workbench">Using the CSV as input for Workbench</h2>
-<p>The CSV file generated by this script will almost certainly contain many more columns than you will want to ingest into Islandora 8. You will probably want to delete columns you don't need, combine the contents of several columns into one, and edit the contents of others.</p>
-<p>As we can see from the example above, the column headings in the CSV are Solr fieldnames (<code>RELS_EXT_hasModel_uri_s</code>, <code>mods_titleInfo_title_ms</code>, etc.). You will need to replace those column headers with the equivalent fields <a href="/islandora_workbench_docs/fields/">as defined in your Drupal 8 content type</a>. In addition, the metadata stored in Islandora 7's Solr index does not in many cases have the structure Workbench requires, so the data in the CSV file will need to be edited before it can be used by Workbench to create nodes. The content of Islandora 7 Solr fields is derived from MODS (or other) XML elements, and, with the exception of text-type fields, will not necessarily map cleanly to Drupal fields' data types. In other words, to use the CSV data generted by <code>get_islandora_7_content.py</code>, you will need to do some work to prepare it (or "transform" it, to use ETL language) to use it as input for Workbench.</p>
-<p>However, the script adds three columns to the CSV file that do not use Solr fieldnames and whose contents you should <em>not</em> edit but that you may need to rename: <code>file</code>, <code>PID</code>, and <code>sequence</code>:</p>
+<p>The CSV file generated by this script will almost certainly contain many more columns than you will want to ingest into
+Islandora 8. You will probably want to delete columns you don't need, combine the contents of several columns into one,
+and edit the contents of others.</p>
+<p>As we can see from the example above, the column headings in the CSV are Solr fieldnames (<code>RELS_EXT_hasModel_uri_s</code>
+, <code>mods_titleInfo_title_ms</code>, etc.). You will need to replace those column headers with the equivalent
+fields <a href="/islandora_workbench_docs/fields/">as defined in your Drupal 8 content type</a>. In addition, the metadata stored
+in Islandora 7's Solr index does not in many cases have the structure Workbench requires, so the data in the CSV file
+will need to be edited before it can be used by Workbench to create nodes. The content of Islandora 7 Solr fields is
+derived from MODS (or other) XML elements, and, with the exception of text-type fields, will not necessarily map cleanly
+to Drupal fields' data types. In other words, to use the CSV data generted by <code>get_islandora_7_content.py</code>, you will
+need to do some work to prepare it (or "transform" it, to use ETL language) to use it as input for Workbench.</p>
+<p>However, the script adds three columns to the CSV file that do not use Solr fieldnames and whose contents you should *
+not* edit but that you may need to rename: <code>file</code>, <code>PID</code>, and <code>sequence</code>:</p>
 <pre><code class="text">Do not edit name                                        Rename 'sequence' column (e.g., 
 or contents of                                          to 'field_weight') but do not
 'file' column.                                          edit its contents.
@@ -294,9 +398,23 @@ or contents of                                          to 'field_weight') but d
 file,PID,RELS_EXT_hasModel_uri_s,[...],mods_typeOfResource_s,sequence
 </code></pre>
 
-<p>First, the required Workbench column "file" is added to the beginning of each CSV row, and is populated with the filename of the OBJ datastream. This filename is based on the object's PID, with the the <code>:</code> replaced with an underscore, and has an extenstion determined by the OBJ datastream's MIME type.</p>
-<p>Second, "PID" is the Islandora 7.x PID of each object in the CSV file. This column header can be changed to "id" or whatever you have defined in your Workbench confiugration file's <code>id_field</code> setting. Alternatively, you can set the value of <code>id_field</code> to <code>PID</code> and not rename that CSV column.</p>
-<p>Third, a "sequence" column is added at the end of each CSV row. This is where the <code>get_islandora_7_content.py</code> script stores the sequence number of each child object/page in relation to its parent . If an Islandora 7.x object has a property in its RELS-EXT datastream <code>islandora:sSequenceNumberOfxxx</code> (where "xxx" is the object's parent), the value of that property is added to the "sequence" column at the end of each row in the CSV. For paged content, this value is taken from the <code>islandora:isSequenceNumber</code> RELS-EXT property. These values are ready for use in the "field_weight" Drupal field created by the Islandora Defaults module; you can simply rename the "sequence" column header to "field_weight" when you use the CSV as input for Islandora Workbench. Note that you don't need to configure the script to include fields that contain "isSequenceNumberOf" or "isSequenceNumber" in your CSV; in fact, because there are so many of them in a typical Islandora 7 Solr index, you will want to <em>exclude</em> them using the <code>field_pattern_do_not_want</code> configuration variable. Excluding them is safe, since the script fetches the sequence information separately from the other CSV data.</p>
+<p>First, the required Workbench column "file" is added to the beginning of each CSV row, and is populated with the
+filename of the OBJ datastream. This filename is based on the object's PID, with the the <code>:</code> replaced with an
+underscore, and has an extenstion determined by the OBJ datastream's MIME type.</p>
+<p>Second, "PID" is the Islandora 7.x PID of each object in the CSV file. This column header can be changed to "id" or
+whatever you have defined in your Workbench confiugration file's <code>id_field</code> setting. Alternatively, you can set the
+value of <code>id_field</code> to <code>PID</code> and not rename that CSV column.</p>
+<p>Third, a "sequence" column is added at the end of each CSV row. This is where the <code>get_islandora_7_content.py</code> script
+stores the sequence number of each child object/page in relation to its parent . If an Islandora 7.x object has a
+property in its RELS-EXT datastream <code>islandora:sSequenceNumberOfxxx</code> (where "xxx" is the object's parent), the value of
+that property is added to the "sequence" column at the end of each row in the CSV. For paged content, this value is
+taken from the <code>islandora:isSequenceNumber</code> RELS-EXT property. These values are ready for use in the "field_weight"
+Drupal field created by the Islandora Defaults module; you can simply rename the "sequence" column header to "
+field_weight" when you use the CSV as input for Islandora Workbench. Note that you don't need to configure the script to
+include fields that contain "isSequenceNumberOf" or "isSequenceNumber" in your CSV; in fact, because there are so many
+of them in a typical Islandora 7 Solr index, you will want to <em>exclude</em> them using the <code>field_pattern_do_not_want</code>
+configuration variable. Excluding them is safe, since the script fetches the sequence information separately from the
+other CSV data.</p>
               
             </div>
           </div>
