@@ -168,6 +168,9 @@
     <li class="toctree-l2"><a href="#configuring-which-solr-fields-to-include-in-the-csv">Configuring which Solr fields to include in the CSV</a></li>
     
 
+    <li class="toctree-l2"><a href="#adding-filters-to-your-solr-query-to-limit-the-objects-fetched-from-the-source-islandora">Adding filters to your Solr query to limit the objects fetched from the source Islandora</a></li>
+    
+
     <li class="toctree-l2"><a href="#using-the-csv-as-input-for-workbench">Using the CSV as input for Workbench</a></li>
     
 
@@ -270,39 +273,53 @@ parameters can be changed in the user-supplied config file.
     <tr>
         <th>Parameter</th>
         <th>Default Value</th>
+        <th>Description</th>
     </tr>
     </thead>
     <tr>
         <td>solr_base_url</td>
         <td>http://localhost:8080/solr</td>
+        <td>URL of your source Islandora 7.x Solr instance.</td>
     </tr>
     <tr>
         <td>islandora_base_url</td>
         <td>http://localhost:8000</td>
+        <td>URL of your source Islandora instance.</td>
     </tr>
     <tr>
         <td>csv_output_path</td>
         <td>islandora7_metadata.csv</td>
+        <td>Path to the CSV file containing values from Solr.</td>
     </tr>
     <tr>
         <td>obj_directory</td>
         <td>/tmp/objs</td>
+        <td>Path to the directory where datastream files will be saved.</td>
     </tr>
     <tr>
         <td>log_file_path</td>
         <td>islandora_content.log</td>
+        <td>Path to the log file.</td>
     </tr>
     <tr>
         <td>fetch_files</td>
-        <td>True</td>
+        <td>true</td>
+        <td>Whether or not to fetch and save the datastream files from the source Islandora 7.x instance.</td>
     </tr>
     <tr>
         <td>get_file_uri</td>
-        <td>False</td>
+        <td>false</td>
+        <td>Whether or not to write datastream file URLs to the CSV file instead of fetchingthe files. One of <code>get_file_uri</code> or <code>fetch_files</code> can be se  to <code>true</code>, but not both.</td>
     </tr>
     <tr>
-        <td>namespace</td>
-        <td><em></td>
+        <td>field_pattern</td>
+        <td>mods_.<em>(_s|_ms)$</td>
+        <td>A regular expression pattern to matching Solr fields to include in the CSV. </td>
+    </tr>
+    <tr>
+        <td>field_pattern_do_not_want</td>
+        <td>(marcrelator|isSequenceNumberOf)</td>
+        <td>A regular expression pattern to matching Solr fields to not include in the CSV. </td>
     </tr>
     <tr>
         <td>standard_fields</td>
@@ -310,33 +327,52 @@ parameters can be changed in the user-supplied config file.
             'RELS_EXT_isMemberOf_uri_ms', 'RELS_EXT_isConstituentOf_uri_ms',
             'RELS_EXT_isPageOf_uri_ms']
         </td>
+        <td>List of fields to Solr fields to include in the CSV not matched by the regular expression in <code>field_pattern</code>.</td>
     </tr>
-    <tr>
-        <td>field_pattern</td>
-        <td>mods_.</em>(_s|_ms)$</td>
-    </tr>
-    <tr>
-        <td>field_pattern_do_not_want</td>
-        <td>(marcrelator|isSequenceNumberOf)</td>
     <tr>
         <td>id_field</td>
         <td>PID</td>
+        <td>The Solr field that uniquely identifies each object in the source Islandora 7.x instance.</td>
     </tr>
     <tr>
         <td>id_start_number</td>
         <td>1</td>
+        <td>The number to use as the first Workbench ID within the CSV file.</td>
     </tr>
     <tr>
         <td>datastreams</td>
         <td>['OBJ', 'PDF']</td>
+        <td>List of datastream IDs to fetch from the source Islandora 7.x instance.</td>
+    </tr>
+    <tr>
+        <td>namespace</td>
+        <td></em></td>
+        <td>The namespace  of objects you want to export from the source Islandora 7.x instance.</td>
+    </tr>
+    <tr>
+        <td>collection</td>
+        <td></td>
+        <td>PID of a single collection limiting the objects to fetch from the source Islandora 7.x instance. Only matches objects that have the specified collection as their immediate parent. For recursive collection membership, add <code>ancestor_ms</code> as a <code>solr_filter</code>, as documented below.</td>
+    </tr>
+    <tr>
+        <td>content_model</td>
+        <td></td>
+        <td>PID of a single content model limiting the objects to fetch from the source Islandora 7.x instance.</td>
+    </tr>
+    <tr>
+        <td>solr_filters</td>
+        <td></td>
+        <td>key:value pairs to add as filters to the Solr query.</td>
     </tr>
     <tr>
         <td>debug</td>
         <td>False</td>
+        <td>Print debug information to the console.</td>
     </tr>
     <tr>
         <td>deep_debug</td>
         <td>False</td>
+        <td>Print additional debug information to the console.</td>
     </tr>
 </table></p>
 <h2 id="configuring-which-solr-fields-to-include-in-the-csv">Configuring which Solr fields to include in the CSV</h2>
@@ -381,6 +417,13 @@ use the <code>--metadata_solr_request</code> option, the contents of the file mu
 </code></pre>
 
 <p>The advantage of putting your Solr request in its own file is that you have complete control over the Solr query. Requests to Solr in this file should always include the "wt=csv" and "rows=1000000" parameters (the "rows" parameter should have a value that is greater than the number of objects in your repository, otherwise Solr won't return all objects). </p>
+<h2 id="adding-filters-to-your-solr-query-to-limit-the-objects-fetched-from-the-source-islandora">Adding filters to your Solr query to limit the objects fetched from the source Islandora</h2>
+<p>The <code>namespace</code>, <code>collection</code>, <code>content_model</code>, and <code>solr_filters</code> options documented above allow you to scope the set of objects exported from the source Islandora 7.x instance. The first three take simple, single values. The last option allows you to add arbitrary filters to the query sent to Solr in the form of key:value pairs, like this:</p>
+<pre><code>solr_filters:
+ - ancestor_ms: 'some:collection'
+ - fgs_state_s: 'Active'
+</code></pre>
+
 <h2 id="using-the-csv-as-input-for-workbench">Using the CSV as input for Workbench</h2>
 <p>The CSV file generated by this script will almost certainly contain many more columns than you will want to ingest into
 Islandora 8. You will probably want to delete columns you don't need, combine the contents of several columns into one,
