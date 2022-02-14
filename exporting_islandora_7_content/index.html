@@ -347,7 +347,7 @@ parameters can be changed in the user-supplied config file.
     <tr>
         <td>namespace</td>
         <td></em></td>
-        <td>The namespace  of objects you want to export from the source Islandora 7.x instance.</td>
+        <td>The namespace of objects you want to export from the source Islandora 7.x instance.</td>
     </tr>
     <tr>
         <td>collection</td>
@@ -419,7 +419,7 @@ use the <code>--metadata_solr_request</code> option, the contents of the file mu
 <p>The advantage of putting your Solr request in its own file is that you have complete control over the Solr query. Requests to Solr in this file should always include the "wt=csv" and "rows=1000000" parameters (the "rows" parameter should have a value that is greater than the number of objects in your repository, otherwise Solr won't return all objects). </p>
 <h2 id="adding-filters-to-your-solr-query-to-limit-the-objects-fetched-from-the-source-islandora">Adding filters to your Solr query to limit the objects fetched from the source Islandora</h2>
 <p>The <code>namespace</code>, <code>collection</code>, <code>content_model</code>, and <code>solr_filters</code> options documented above allow you to scope the set of objects exported from the source Islandora 7.x instance. The first three take simple, single values. The last option allows you to add arbitrary filters to the query sent to Solr in the form of key:value pairs, like this:</p>
-<pre><code>solr_filters:
+<pre><code class="text">solr_filters:
  - ancestor_ms: 'some:collection'
  - fgs_state_s: 'Active'
 </code></pre>
