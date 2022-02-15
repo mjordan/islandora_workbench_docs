@@ -36,9 +36,7 @@ Finally, even though only minimal metadata is assigned to pages using this metho
 
 Important things to note when using this method:
 
-* To use this method of creating paged content, you must include the following in your configuration file:
-   * `paged_content_sequence_seprator: true`
-   * `paged_content_page_model_tid` set to your Islandora's term ID for pages
+* To use this method of creating paged content, you must include `paged_content_page_model_tid` in your configuration file and set it to your Islandora's term ID for the "Page" term in the Islandora Models vocabulary (or to `http://id.loc.gov/ontologies/bibframe/part`).
 * The Islandora model of the parent is not set automatically. You need to include a `field_model` value for each item in your CSV file.
 * You should also include a `field_display_hints` column in your CSV. This value is applied to the parent nodes and also the page nodes, unless the `paged_content_page_display_hints` setting is present in you configuration file. However, if you normally don't set the "Display hints" field in your objects but use a Context to determine how objects display, you should not include a `field_display_hints` column in your CSV file.
 * Unlike every other Islandora Workbench configuration, the metadata CSV should not contain a `file` column.
