@@ -56,3 +56,7 @@ This is likely due to the addition of a new Python library to Workbench. Rerunni
 Islandora can display EDTF interval values (e.g., `2004-06/2006-08`, `193X/196X`) properly, but by default, the configuration that allows this is disabled (see [this issue](https://github.com/Islandora/documentation/issues/1889) for more information). To enable it, for each field in your Islandora content types that use EDTF fields, visit the "Manage form display" configuration for the content type, and for each field that uses the "Default EDTF widget", within the widget configuration (click on the gear), check the "Permit date intervals" option and click "Update":
 
 ![EDTF form widget configuration](images/edtf_form_widget_config.png)
+
+## My CSV file has a `url_alias` column, but the aliases are not being created.
+
+First thing to check is whether you are using the [Pathauto](https://www.drupal.org/project/pathauto) module. It also creates URL aliases, and since by default Drupal only allows one URL alias, in most cases, the aliases it creates will take precendence over aliases created by Workbench.
