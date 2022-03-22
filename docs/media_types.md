@@ -1,7 +1,7 @@
 !!! note
     Drupal's use of Media types (image, video, document, etc.) is distinct from Islandora's use of "model", which identifies an intellectual entity as an image, video, collection, compound object, newspaper, etc.
 
-By default Workbench defines the following file extention to media type mapping:
+By default Workbench defines the following file extension to media type mapping:
 
 | File extensions | Media type |
 | --- | --- |
@@ -14,7 +14,7 @@ By default Workbench defines the following file extention to media type mapping:
 
 If a file's extension is not defined in either this default mapping, the media is assigned the "file" type.
 
-If you need to override this default mappping, you can do so in two ways:
+If you need to override this default mapping, you can do so in two ways:
 
 1. If the override applies to all files named in your CSV's `file` column, use the `media_type` configuration option, for example `media_type: document`). Use this option if all of the files in your batch are to be assigned the same media type, but their extensions are not defined in the default mapping or you wish to override the default mapping.
 1. On a per file extension basis, via a mapping in the `media_types_override` option in your configuration file like this one:

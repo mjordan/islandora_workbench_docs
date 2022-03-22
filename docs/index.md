@@ -9,7 +9,7 @@ Note that Islandora Workbench is not related in any way to the Drupal contrib mo
 * Allows creation of Islandora nodes and media, updating of nodes, and deletion of nodes and media from CSV files
 * Allows creation of paged/compound content
 * Can run from anywhere - it does not need to be run from the Drupal server's command line
-* Provides both sensible default configuration values and rich configuation options for power users
+* Provides both sensible default configuration values and rich configuration options for power users
 * Provides robust data validation functionality
 * Supports a variety of Drupal entity field types (text, integer, term reference, typed relation, geolocation)
 * Can generate a CSV file template based on Drupal content type
@@ -86,4 +86,4 @@ Islandora Workbench, and this documentation, are available under the terms of th
 
 ## Contributing
 
-Contibutions to this documentation are welcome. If you have a suggestion, please open an issue on the Islandora Workbench GitHub repository's [queue](https://github.com/mjordan/islandora_workbench/issues) and tag your issue "documentation".
+Contributions to this documentation are welcome. If you have a suggestion, please open an issue on the Islandora Workbench GitHub repository's [queue](https://github.com/mjordan/islandora_workbench/issues) and tag your issue "documentation".

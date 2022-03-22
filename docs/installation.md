@@ -29,7 +29,7 @@ If you don't already have the required libraries installed, clone this repo as a
 
 `sudo python3 setup.py install`
 
-If you would rather not install third-party libraries in your operating system's central Python location, or you do not have `sudo` priviliges on your computer, you can install them in your user directory:
+If you would rather not install third-party libraries in your operating system's central Python location, or you do not have `sudo` privileges on your computer, you can install them in your user directory:
 
 `python3 setup.py install --user`
 

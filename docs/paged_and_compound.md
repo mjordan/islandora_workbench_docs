@@ -122,7 +122,7 @@ Some things to note about secondary tasks:
 * The secondary CSV must contain `parent_id`, `field_weight`, and `field_member_of` columns. `field_member_of` must be empty, since it is auto-populated by Workbench using node IDs from the newly created parent objects.
 * As already stated, each task has its own configuration file, which means that you can specify a `content_type` value in your secondary configuration file that differs from the `content_type` of the primary task.
 * You can include more than one secondary task in your configuration. For example, `secondary_tasks: ['first.yml', 'second.yml']` will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order.
-* The `nodes_only` setting in the example primary configuration file and the `csv_field_templates` setting in the secondary configuration file are not relevent to the primary/secondary task functionality; they're included to illustrate that the two configuration files can differ. 
+* The `nodes_only` setting in the example primary configuration file and the `csv_field_templates` setting in the secondary configuration file are not relevant to the primary/secondary task functionality; they're included to illustrate that the two configuration files can differ. 
 
 
 ### Creating collections and members together
@@ -149,7 +149,7 @@ The following table summarizes the different ways Workbench can be used to creat
 | Method | Relationships created by | field_weight | Advantage |
 | --- | --- | --- | --- |
 | Subdirectories | Directory structure | Do not include column in CSV; autopopulated. | Useful for creating paged content where paged don't have their own metadata. |
-| Parent/child-level metadata in same CSV | References from child's `parent_id` to parent's `id` in same CSV data | Column required; values required in child rows | Allows including parent and child metadatain same CSV. |
+| Parent/child-level metadata in same CSV | References from child's `parent_id` to parent's `id` in same CSV data | Column required; values required in child rows | Allows including parent and child metadata in same CSV. |
 | Secondary task | References from `parent_id` in child CSV file to `id` in parent CSV file | Column and values required in secondary (child) CSV data | Primary and secondary tasks have their own configuration and CSV files, which allows children to have a Drupal content type that differs from their parents' content type. Allows creation of parents and children in same Workbench job. |
 | Collections and members together | References from child (member) `parent_id` fields to parent (collection) `id` fields in same CSV data | Column required in CSV but must be empty (collections do not use weight to determine sort order) | Allows creation of collection and members in same Islandora Workbench job. |
 

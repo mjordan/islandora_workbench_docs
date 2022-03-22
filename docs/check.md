@@ -7,7 +7,7 @@ You should *always* check your configuration and input prior to creating, updati
 !!! note
     If you're on Windows, you will likely need to run Workbench by explicitly invoking Python, e.g. `python workbench --config config.yml --check` instead of using `./workbench` as illustrated above.
 
-If you do this, Workbench will check the following conditions and report any errors that require your attention before proceding:
+If you do this, Workbench will check the following conditions and report any errors that require your attention before proceeding:
 
 * Configuration file
     * Whether your configuration file is valid YAML (i.e., no YAML syntax errors).
@@ -46,18 +46,18 @@ If you do this, Workbench will check the following conditions and report any err
         * Whether values need to be namespaced
         * Whether the term IDs/term names/term URIs used in the values exist in the vocabularies configured for the field.
     * If using the pages from directories configuration (`paged_content_from_directories: true`):
-        * Whether page filenames contain an occurance of the sequence separator.
+        * Whether page filenames contain an occurrence of the sequence separator.
         * Whether any page directories are empty.
     * Whether the content type identified in the `content_type` configuration option exists.
     * Whether multivalued fields exceed their allowed number of values.
     * Whether values in text-type fields exceed their configured maximum length.
-    * Whether the nodes refrenced in `field_member_of` (if that field is present in the CSV) exist.
+    * Whether the nodes referenced in `field_member_of` (if that field is present in the CSV) exist.
     * Whether values used in geolocation fields are valid lat,long coordinates.
     * Whether values used in EDTF fields are valid EDTF date/time values (subset of date/time values only; see [documentation](https://mjordan.github.io/islandora_workbench_docs/fields/#field-types) for more detail). Also validates whether dates are valid Gregorian calendar dates.
 * Hook scripts
     * Whether registered bootstrap, preprocessor, and post-action scripts exist and are executable.
 
-If Workbench detects a configuration or input data violation, it will either stop and tell you why it stopped, or (if the violation will not cause Workbench's interaction with Drupal to fail), tell you that it found an anomoly and to check the log file for more detail.
+If Workbench detects a configuration or input data violation, it will either stop and tell you why it stopped, or (if the violation will not cause Workbench's interaction with Drupal to fail), tell you that it found an anomaly and to check the log file for more detail.
 
 A successful outcome of running `--check` confirms that all of the conditions listed above are in place, but it does not *guarantee* a successful job. There are a lot of factors in play during ingest/update/delete interactions with Drupal that can't be checked in advance, most notably network stability, load on the Drupal server, or failure of an Islandora microservice. But in general `--check` will tell you if there's a problem that you can investigate and resolve before proceeding with your task.
 
