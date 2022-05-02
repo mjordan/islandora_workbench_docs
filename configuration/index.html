@@ -542,6 +542,12 @@ password: islandora
 <td>Determines if empty <code>file</code> values are allowed. Used in the <code>create</code> and <code>add_media</code> tasks. If set to true, empty <code>file</code> values are allowed. For <code>create</code> tasks, a <code>true</code> value will result in nodes without attached media. For <code>add_media</code> tasks, a <code>true</code> value will skip adding a media for the empty <code>file</code> CSV value. Defaults to false (which means all file values must contain the name of a file that exists in the <code>input_data</code> directory).</td>
 </tr>
 <tr>
+<td>exit_on_first_missing_file_during_check</td>
+<td></td>
+<td>true</td>
+<td>If set to true (the default) Workbench will exit during <code>--check</code> when it encounters the first missing or empty CSV "file" value. If set to false, Workbench will check all "file" values and exit if it finds any. In other words, if you want Workbench to check for the existence of all files during <code>--check</code> before exiting, set this value to false.</td>
+</tr>
+<tr>
 <td>media_use_tid</td>
 <td></td>
 <td><code>http://pcdm.org/use#OriginalFile</code></td>
