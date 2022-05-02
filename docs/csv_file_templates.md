@@ -19,6 +19,6 @@ Here is a screenshot of this CSV file template loaded into a spreadsheet applica
 
 ![CSV file template](images/csv_file_template.png)
 
-Note that the first column, and all the rows other than the field machine names, should be deleted before you use a popluated version of this CSV file in a `create` task. Also, you can remove any columns you do not intend on populating:
+Note that the first column, and all the rows other than the field machine names, should be deleted before you use a populated version of this CSV file in a `create` task. Also, you can remove any columns you do not intend on populating:
 
 ![CSV file template ready to use](images/csv_file_template_ready_to_use.png)

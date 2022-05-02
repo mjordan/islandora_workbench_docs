@@ -13,7 +13,7 @@ In this example, the `task` being performed is creating nodes (and optionally me
 
 ## Configuration settings
 
-The settings defined in a configuration file are documented below, grouped into broad funcational categories for easier reference. The order of the options in the configuration file doesn't matter, and settings do not need to be grouped together in any specific way in the configuration file.
+The settings defined in a configuration file are documented below, grouped into broad functional categories for easier reference. The order of the options in the configuration file doesn't matter, and settings do not need to be grouped together in any specific way in the configuration file.
 
 ### Required settings
 
@@ -89,7 +89,7 @@ See "[The output CSV file](/islandora_workbench_docs/output_csv/)" section for m
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
 | model [singular]|  |  | Used in the `create_from_files` task only. Defines the term ID from the the "Islandora Models" vocabulary for all nodes created using this task. Note: one of `model` or `models` is required. More detail provided in the "[Creating nodes from files](/islandora_workbench_docs/creating_nodes_from_files/)" section.|
-| models [plural] |  |  | Used in the `create_from_files` task only. Provides a mapping bewteen file extensions and terms in the "Islandora Models" vocabulary. Note: one of `model` or `models` is required. More detail provided in the [Creating nodes from files](/islandora_workbench_docs/creating_nodes_from_files/)" section.|
+| models [plural] |  |  | Used in the `create_from_files` task only. Provides a mapping between file extensions and terms in the "Islandora Models" vocabulary. Note: one of `model` or `models` is required. More detail provided in the [Creating nodes from files](/islandora_workbench_docs/creating_nodes_from_files/)" section.|
 
 ### Paged and compound content settings
 
@@ -151,7 +151,7 @@ When you run Islandora Workbench with the `--check` argument, it will verify tha
 
 When you run Workbench, it confirms that your configuration file is valid YAML. This is a syntax check only, not a content check. If the file is valid YAML, Workbench then goes on to perform a long list of application-specific [checks](/islandora_workbench_docs/check).
 
-If this syntax check fails, some detail about the problem will be displayed to the user. The same information plus the entire Python stack trace is also logged to a file named "workbench.log" in the directory Islandora Workbench is run from. This file name is Workbench's default log file name, but in this case (validating the config file's YAML syntax), that file name is used regardless of the log file location defined in the configuation's `log_file_path` option. The reason the error is logged in the default location instead of the value in the configuration file (if one is present) is that the configuration file isn't valid YAML and therefore can't be parsed.
+If this syntax check fails, some detail about the problem will be displayed to the user. The same information plus the entire Python stack trace is also logged to a file named "workbench.log" in the directory Islandora Workbench is run from. This file name is Workbench's default log file name, but in this case (validating the config file's YAML syntax), that file name is used regardless of the log file location defined in the configuration's `log_file_path` option. The reason the error is logged in the default location instead of the value in the configuration file (if one is present) is that the configuration file isn't valid YAML and therefore can't be parsed.
 
 ## Example configuration files
 

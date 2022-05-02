@@ -27,7 +27,7 @@ models:
  - 26: ['mp4']
 ```
 
-Using `model` is conventient when all of the objects you are creating are the same Islandora Model:
+Using `model` is convenient when all of the objects you are creating are the same Islandora Model:
 
 ```yaml
 task: create_from_files

@@ -6,7 +6,7 @@
 
 This is probably caused by unexpected data in your CSV file that Workbench's `--check` validation is not finding. If you encounter these messages, please [open an issue](https://github.com/mjordan/islandora_workbench/issues) and share any relevant entries in your Drupal log (as an admin user, go to Admin > Reports > Recent log messages) so we can track down the problem.
 
-One of the most common causes of this error is that one or more of the vocabularies being poplated in your CSV contain required fields other than the defult term name, someting which Islandora Workbench [cannot currently handle](https://github.com/mjordan/islandora_workbench/issues/111). While it is possible to have Workbench create these fields, the additional fields will need to be included in the input CSV. If you have an opinion on how that can be best done (while keeping the CSV relatively human-readable), please leave a comment on the linked Github issue.
+One of the most common causes of this error is that one or more of the vocabularies being populated in your CSV contain required fields other than the default term name, something which Islandora Workbench [cannot currently handle](https://github.com/mjordan/islandora_workbench/issues/111). While it is possible to have Workbench create these fields, the additional fields will need to be included in the input CSV. If you have an opinion on how that can be best done (while keeping the CSV relatively human-readable), please leave a comment on the linked Github issue.
 
 ## --check is telling me that one the rows in my CSV file has more columns than headers.
 
@@ -59,4 +59,4 @@ Islandora can display EDTF interval values (e.g., `2004-06/2006-08`, `193X/196X`
 
 ## My CSV file has a `url_alias` column, but the aliases are not being created.
 
-First thing to check is whether you are using the [Pathauto](https://www.drupal.org/project/pathauto) module. It also creates URL aliases, and since by default Drupal only allows one URL alias, in most cases, the aliases it creates will take precendence over aliases created by Workbench.
+First thing to check is whether you are using the [Pathauto](https://www.drupal.org/project/pathauto) module. It also creates URL aliases, and since by default Drupal only allows one URL alias, in most cases, the aliases it creates will take precedence over aliases created by Workbench.

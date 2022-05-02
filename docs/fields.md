@@ -26,7 +26,7 @@ The following CSV columns are used for specific purposes and in some cases are r
 
 ### Values in the "file" column
 
-Values in the `file` field contain the location of files that are used to create Drupal Media. Workbench can create only one media per CSV record; the type of media is determined by identifying in your configuration file a value from the "Islandora Media Use" vocabulary. File locations can be relative to the directory named in `input_dir`, abolute paths, or URLs. Examples of each:
+Values in the `file` field contain the location of files that are used to create Drupal Media. Workbench can create only one media per CSV record; the type of media is determined by identifying in your configuration file a value from the "Islandora Media Use" vocabulary. File locations can be relative to the directory named in `input_dir`, absolute paths, or URLs. Examples of each:
 
 * relative to directory named in the `input_dir` configuration setting: `myfile.png`
 * absolute: `/tmp/data/myfile.png`
@@ -37,7 +37,7 @@ Things to note about `file` values in general:
 * Relative, absolute, and URL file locations can exist within the same CSV file.
 * By default, if the `file` value for a row is empty, Workbench's `--check` option will show an error. But, in some cases you may want to create nodes but not add any media. If you add `allow_missing_files: true` to your config file for "create" tasks, you can leave the `file` column in your CSV empty.
 * If you want do not want to create media for any of the rows in your CSV file, include `nodes_only: true` in your configuration file. More detail [is available](/islandora_workbench_docs/nodes_only/).
-* `file` values that contain non-ASCII characters are nomalized to their ASCII equivalents. See [this issue](https://github.com/mjordan/islandora_workbench/issues/192) for more information.
+* `file` values that contain non-ASCII characters are normalized to their ASCII equivalents. See [this issue](https://github.com/mjordan/islandora_workbench/issues/192) for more information.
 
 Things to note about URLs as `file` values:
 
@@ -140,7 +140,7 @@ The subdelimiter character defaults to a pipe (`|`) but can be set in your confi
 
 ### Drupal field types
 
-The following types of Drupal fields can be popualted from data in your input CSV file:
+The following types of Drupal fields can be populated from data in your input CSV file:
 
 * text (plain, plain long, etc.) fields
 * integer fields
@@ -206,25 +206,25 @@ If you add `allow_adding_terms: true` to your configuration file for `create` an
     * Case is ignored.
 * If the term name you provide in the CSV file does not match an existing term name in its vocabulary, the term name from the CSV data is used to create a new term. If it does match, Workbench populates the field in your nodes with a reference to the matching term.
 
-Adding new terms has some contraints:
+Adding new terms has some constraints:
 
 * Terms created in this way do not have any external URIs. If you want your terms to have external URIs, you will need to either create the terms manually or add the URIs manually after the terms are created by Islandora Workbench.
 * Workbench cannot distinguish between identical term names within the same vocabulary. This means you cannot create two different terms that have the same term name (for example, two terms in the Person vocabulary that are identical but refer to two different people). The workaround for this is to create one of the terms before using Workbench and use the term ID instead of the term string.
     * Related to this, if the same term name exists multiple times in the same vocabulary (again using the example of two Person terms that describe two different people) you should be aware that when you use these identical term names within the same vocabulary in your CSV, Workbench will always choose the first one it encounters when it converts from term names to term IDs while populating your nodes. The workaround for this is to use the term ID for one (or both) of the identical terms, or to use URIs for one (or both) of the identical terms.
-* `--check` will identify any new terms that exceed Drupal's maxiumum allowed length for term names, 255 characters. If a term name is longer than 255 characters, Workbench will truncate it at that length, log that it has done so, and create the term.
+* `--check` will identify any new terms that exceed Drupal's maximum allowed length for term names, 255 characters. If a term name is longer than 255 characters, Workbench will truncate it at that length, log that it has done so, and create the term.
 * Taxonomy terms created with new nodes are not removed when you delete the nodes.
 * Currently, Islandora Workbench has the following limitations:
     * It cannot create new taxonomy terms that have required fields other than the core term name field. [This issue](https://github.com/mjordan/islandora_workbench/issues/111) addresses that limitation. As that issue documents, in order to support additional fields on taxonomy terms (both required and optional), Workbench will need a way to express complex term data in its input CSV. If you have an opinion on how this can be done, please leave a comment at that issue.
-    * Workbench cannot currently create a new term that has another term as its parent (i.e. terms below the top leve of a hierarchical taxonomy). However, for existing terms, Workbench doesn't care where they are in a taxonomy's hierarchy. [Issue 236](https://github.com/mjordan/islandora_workbench/issues/236) will provide the ability to create terms at any level of a vocabulary's hierarchy. Creating taxonomy terms by including them in your CSV file adds new terms to the root of the applicable vocabulary.
+    * Workbench cannot currently create a new term that has another term as its parent (i.e. terms below the top level of a hierarchical taxonomy). However, for existing terms, Workbench doesn't care where they are in a taxonomy's hierarchy. [Issue 236](https://github.com/mjordan/islandora_workbench/issues/236) will provide the ability to create terms at any level of a vocabulary's hierarchy. Creating taxonomy terms by including them in your CSV file adds new terms to the root of the applicable vocabulary.
 
 !!! note
-    If you woud rather import vocabularies before referencing them using Workbench, check out the [Taxonomy Import](https://www.drupal.org/project/taxonomy_import) contrib module.
+    If you would rather import vocabularies before referencing them using Workbench, check out the [Taxonomy Import](https://www.drupal.org/project/taxonomy_import) contrib module.
 
 ##### Using term names in multi-vocabulary fields
 
 While most node taxonomy fields reference only a single vocabulary, Drupal does allow fields to reference multiple vocabularies. This ability poses a problem when we use term names instead of term IDs in our CSV files: in a multi-vocabulary field, Workbench can't be sure which term name belongs in which of the multiple vocabularies referenced by that field. This applies to both existing terms and to new terms we want to add when creating node content.
 
-To avoid this problem, we need to tell Workbench which of the multple vocabularies each term name should (or does) belong to. We do this by namespacing terms with the applicable vocabulary ID.
+To avoid this problem, we need to tell Workbench which of the multiple vocabularies each term name should (or does) belong to. We do this by namespacing terms with the applicable vocabulary ID.
 
 For example, let's imagine we have a node field whose name is `field_sample_tags`, and this field references two vocabularies, "cats" and "dogs". To use the terms `Tuxedo`, `Tabby`, `German Shepherd` in the CSV when adding new nodes, we need to namespace them with vocabulary IDs like this:
 
@@ -311,11 +311,11 @@ As we saw in the "Using term names in multi-vocabulary fields" section above, if
 
 `"relators:art:person:Jordan, Mark"`
 
-(In ths example, `relators` is the external authority lists's namespace, and `person` is the local Drupal vocabulary namespace, prepended to the taxonomy term name, "Jordan, Mark".)
+(In this example, `relators` is the external authority lists's namespace, and `person` is the local Drupal vocabulary namespace, prepended to the taxonomy term name, "Jordan, Mark".)
 
 If this seems confusing and abstruse, don't worry. Running `--check` will tell you that you need to add the Drupal vocabulary namespace to values in specific CSV columns.
 
-The final option for popluating Typed Relation field is to use HTTP URIs as typed relation targets:
+The final option for populating Typed Relation field is to use HTTP URIs as typed relation targets:
 
 `relators:art:http://markjordan.net`
 
@@ -374,14 +374,14 @@ Subvalues in multivalued CSV fields are validated separately, e.g. if your CSV v
 
 #### Link fields
 
-The Link field type stores URLs (e.g. `https://acme.com`) and link text in separate data elements. To add or update fields of this type, Workbench needs to provide the URL and link text in the stucture Drupal expects. To accomplish this within a single CSV field, we separate the URL and link text pairs in CSV values with double percent signs (`%%`), like this:
+The Link field type stores URLs (e.g. `https://acme.com`) and link text in separate data elements. To add or update fields of this type, Workbench needs to provide the URL and link text in the structure Drupal expects. To accomplish this within a single CSV field, we separate the URL and link text pairs in CSV values with double percent signs (`%%`), like this:
 
 ```text
 field_related_websites
 http://acme.com%%Acme Products Inc.
 ```
 
-You can include multiple pairs of URL/link text pais in one CSV field if you separate them with the subdelimiter character:
+You can include multiple pairs of URL/link text pairs in one CSV field if you separate them with the subdelimiter character:
 
 ```text
 field_related_websites

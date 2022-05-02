@@ -58,7 +58,7 @@ The extraction of data from the source system, conversion of it into the CSV and
 
 ### Using hooks
 
-Islandora Workbench enables you to execute scripts immediatley after a node is created or updated, or a media is created, via a "post-action script" [hook](/islandora_workbench_docs/hooks/). Drupal informs Workbench if an action was successful or not, and in either case, post-action hook scripts registered in the Workbench configuration file execute. These scripts can interact with external applications:
+Islandora Workbench enables you to execute scripts immediately after a node is created or updated, or a media is created, via a "post-action script" [hook](/islandora_workbench_docs/hooks/). Drupal informs Workbench if an action was successful or not, and in either case, post-action hook scripts registered in the Workbench configuration file execute. These scripts can interact with external applications:
 
 ![Post-action hook script](images/post_action_hook.png)
 

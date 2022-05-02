@@ -32,7 +32,7 @@ input_data/         <-- This is the directory named in the "input_dir" configura
 ```
 
 
-The names of the image/PDF/video/etc. files are included in the `file` column of the CSV file. Files with any extension that you can upload to Drupal are allowed. Islandora Workbench reads the CSV file and iterates throught it, performing the current task for each record. In this configuration, files other than the CSV and your media files are allowed in this directory (although for some configurations, your input directory should not contain any files that are not going to be ingested).
+The names of the image/PDF/video/etc. files are included in the `file` column of the CSV file. Files with any extension that you can upload to Drupal are allowed. Islandora Workbench reads the CSV file and iterates through it, performing the current task for each record. In this configuration, files other than the CSV and your media files are allowed in this directory (although for some configurations, your input directory should not contain any files that are not going to be ingested).
 
 This is Islandora Workbench's default configuration. If you do not specify an `input_dir` or an `input_csv`, as illustrated in following minimal configuration file, Workbench will assume your files are in a directory named "input_data" in the same directory as the Workbench script, and that within that directory, your CSV file is named "metadata.csv":
 
@@ -43,7 +43,7 @@ username: admin
 password: islandora
 ```
 
-Workbench ignores the other files in the input directory, and only looks for files in that directory if the filenname alone (no directory component) is in `file` column.
+Workbench ignores the other files in the input directory, and only looks for files in that directory if the filename alone (no directory component) is in `file` column.
 
 ```text
 workbench           <-- The "workbench" script.
@@ -65,7 +65,7 @@ id,file,title
 003,someimage.jpg,My dog
 ```
 
-Workbench complete igonores "pic_saturday.jpg" and "IMG_2958.JPG" because they are not named in any of the `file` columns in the "metadata.csv" file.
+Workbench complete ignores "pic_saturday.jpg" and "IMG_2958.JPG" because they are not named in any of the `file` columns in the "metadata.csv" file.
 
 If the configuration file specified an `input_dir` value, or identified a CSV file in `input_csv`,  Workbench would use those values:
 
@@ -188,7 +188,7 @@ Worksheets within a given Google Sheet are identified by a "gid". If a Sheet has
 
 `https://docs.google.com/spreadsheets/d/1RLrjb5BrlJNaasFIKrKV4l2rw/edit#gid=0`
 
-If you add additinal worksheets, they get a randomly generated "gid", such as "1094504353". You can see this "gid" in the URL when you are in the worksheet:
+If you add additional worksheets, they get a randomly generated "gid", such as "1094504353". You can see this "gid" in the URL when you are in the worksheet:
 
 `https://docs.google.com/spreadsheets/d/1RLrjb5BrlJNaasFIKrKV4l2rw/edit#gid=1094504353`
 
@@ -211,7 +211,7 @@ Some things to note about using Google Sheets:
 * You can use either the URL you copy from your browser when you are viewing the spreadsheet (which ends in "/edit#gid=0" or something similar), or the "sharing" URL you copy into your clipboard from within the "Share" dialog box (which ends in "edit?usp=sharing"). Either is OK.
 * The Google spreadsheet must be publicly readable, e.g. with "Anyone on the Internet with this link can view" permission.
 * Spreadsheets work best for descriptive metadata if all cells are formatted as "Plain text". To do this in Google Sheets, select all cells, then choose the menu items Format > Number > Plain text *before adding any content to the cells*.
-* If the values in the `file` column of the spreadsheet are relative, they are assumed to point to files within your local `input_directory`, just like they do in a local CSV input file. However, you can also use abosolute file paths and URLs in the `file` column, as described above.
+* If the values in the `file` column of the spreadsheet are relative, they are assumed to point to files within your local `input_directory`, just like they do in a local CSV input file. However, you can also use absolute file paths and URLs in the `file` column, as described above.
 
 ## Using an Excel file as the input CSV file
 
@@ -233,7 +233,7 @@ Note that:
 * All of the columns required in a local CSV file are also required in the Excel spreadsheet.
 * Spreadsheets work best for descriptive metadata if all cells are formatted as "text". To do this, in Excel, select all cells, alt-click on the selected area, then choose the "Format Cells" context menu item. In the "Number" tab, choose "Text", then click on the "OK" button.
 * The worksheet that the CSV data is taken from is the one named "Sheet1", unless you specify another worksheet using the `excel_worksheet` configuration option.
-* If the values in the `file` column of the spreadsheet are relative, they are assumed to point to files within your local `input_directory`, just like they do in a local CSV input file. However, you can also use abosolute file paths and URLs in the `file` column, as described above.
+* If the values in the `file` column of the spreadsheet are relative, they are assumed to point to files within your local `input_directory`, just like they do in a local CSV input file. However, you can also use absolute file paths and URLs in the `file` column, as described above.
 
 
 ## Blank or missing "file" values
