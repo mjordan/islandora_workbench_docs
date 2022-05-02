@@ -358,7 +358,7 @@ csv_field_templates:
 <li>The secondary CSV must contain <code>parent_id</code>, <code>field_weight</code>, and <code>field_member_of</code> columns. <code>field_member_of</code> must be empty, since it is auto-populated by Workbench using node IDs from the newly created parent objects.</li>
 <li>As already stated, each task has its own configuration file, which means that you can specify a <code>content_type</code> value in your secondary configuration file that differs from the <code>content_type</code> of the primary task.</li>
 <li>You can include more than one secondary task in your configuration. For example, <code>secondary_tasks: ['first.yml', 'second.yml']</code> will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order.</li>
-<li>The <code>nodes_only</code> setting in the example primary configuration file and the <code>csv_field_templates</code> setting in the secondary configuration file are not relevent to the primary/secondary task functionality; they're included to illustrate that the two configuration files can differ. </li>
+<li>The <code>nodes_only</code> setting in the example primary configuration file and the <code>csv_field_templates</code> setting in the secondary configuration file are not relevant to the primary/secondary task functionality; they're included to illustrate that the two configuration files can differ. </li>
 </ul>
 <h3 id="creating-collections-and-members-together">Creating collections and members together</h3>
 <p>Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV which shows the references from the members' <code>parent_id</code> field to the collections' <code>id</code> field:</p>
@@ -396,7 +396,7 @@ csv_field_templates:
 <td>Parent/child-level metadata in same CSV</td>
 <td>References from child's <code>parent_id</code> to parent's <code>id</code> in same CSV data</td>
 <td>Column required; values required in child rows</td>
-<td>Allows including parent and child metadatain same CSV.</td>
+<td>Allows including parent and child metadata in same CSV.</td>
 </tr>
 <tr>
 <td>Secondary task</td>

@@ -252,7 +252,7 @@
 <p class="admonition-title">Note</p>
 <p>Drupal's use of Media types (image, video, document, etc.) is distinct from Islandora's use of "model", which identifies an intellectual entity as an image, video, collection, compound object, newspaper, etc.</p>
 </div>
-<p>By default Workbench defines the following file extention to media type mapping:</p>
+<p>By default Workbench defines the following file extension to media type mapping:</p>
 <table>
 <thead>
 <tr>
@@ -288,7 +288,7 @@
 </tbody>
 </table>
 <p>If a file's extension is not defined in either this default mapping, the media is assigned the "file" type.</p>
-<p>If you need to override this default mappping, you can do so in two ways:</p>
+<p>If you need to override this default mapping, you can do so in two ways:</p>
 <ol>
 <li>If the override applies to all files named in your CSV's <code>file</code> column, use the <code>media_type</code> configuration option, for example <code>media_type: document</code>). Use this option if all of the files in your batch are to be assigned the same media type, but their extensions are not defined in the default mapping or you wish to override the default mapping.</li>
 <li>On a per file extension basis, via a mapping in the <code>media_types_override</code> option in your configuration file like this one:</li>

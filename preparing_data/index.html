@@ -299,7 +299,7 @@
 └── metadata.csv    &lt;-- This is the CSV file named in the &quot;input_csv&quot; configuration setting.
 </code></pre>
 
-<p>The names of the image/PDF/video/etc. files are included in the <code>file</code> column of the CSV file. Files with any extension that you can upload to Drupal are allowed. Islandora Workbench reads the CSV file and iterates throught it, performing the current task for each record. In this configuration, files other than the CSV and your media files are allowed in this directory (although for some configurations, your input directory should not contain any files that are not going to be ingested).</p>
+<p>The names of the image/PDF/video/etc. files are included in the <code>file</code> column of the CSV file. Files with any extension that you can upload to Drupal are allowed. Islandora Workbench reads the CSV file and iterates through it, performing the current task for each record. In this configuration, files other than the CSV and your media files are allowed in this directory (although for some configurations, your input directory should not contain any files that are not going to be ingested).</p>
 <p>This is Islandora Workbench's default configuration. If you do not specify an <code>input_dir</code> or an <code>input_csv</code>, as illustrated in following minimal configuration file, Workbench will assume your files are in a directory named "input_data" in the same directory as the Workbench script, and that within that directory, your CSV file is named "metadata.csv":</p>
 <pre><code class="yaml">task: create
 host: &quot;http://localhost:8000&quot;
@@ -307,7 +307,7 @@ username: admin
 password: islandora
 </code></pre>
 
-<p>Workbench ignores the other files in the input directory, and only looks for files in that directory if the filenname alone (no directory component) is in <code>file</code> column.</p>
+<p>Workbench ignores the other files in the input directory, and only looks for files in that directory if the filename alone (no directory component) is in <code>file</code> column.</p>
 <pre><code class="text">workbench           &lt;-- The &quot;workbench&quot; script.
 ├── input_data/
    ├── image1.JPG
@@ -325,7 +325,7 @@ password: islandora
 003,someimage.jpg,My dog
 </code></pre>
 
-<p>Workbench complete igonores "pic_saturday.jpg" and "IMG_2958.JPG" because they are not named in any of the <code>file</code> columns in the "metadata.csv" file.</p>
+<p>Workbench complete ignores "pic_saturday.jpg" and "IMG_2958.JPG" because they are not named in any of the <code>file</code> columns in the "metadata.csv" file.</p>
 <p>If the configuration file specified an <code>input_dir</code> value, or identified a CSV file in <code>input_csv</code>,  Workbench would use those values:</p>
 <pre><code class="yaml">task: create
 host: &quot;http://localhost:8000&quot;
@@ -422,7 +422,7 @@ input_csv: 'https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZv
 <h3 id="selecting-a-specific-worksheet-within-a-google-sheet">Selecting a specific worksheet within a Google Sheet</h3>
 <p>Worksheets within a given Google Sheet are identified by a "gid". If a Sheet has only a single worksheet, its "gid" is "0" (zero):</p>
 <p><code>https://docs.google.com/spreadsheets/d/1RLrjb5BrlJNaasFIKrKV4l2rw/edit#gid=0</code></p>
-<p>If you add additinal worksheets, they get a randomly generated "gid", such as "1094504353". You can see this "gid" in the URL when you are in the worksheet:</p>
+<p>If you add additional worksheets, they get a randomly generated "gid", such as "1094504353". You can see this "gid" in the URL when you are in the worksheet:</p>
 <p><code>https://docs.google.com/spreadsheets/d/1RLrjb5BrlJNaasFIKrKV4l2rw/edit#gid=1094504353</code></p>
 <p>By default, Workbench extracts CSV data from the worksheet with a "gid" of "0". If you want Workbench to extract the CSV data from a specific worksheet that is not the one with a "gid" of "0", specify the "gid" in your configuration file using the <code>google_sheets_gid</code> option, like this:</p>
 <pre><code class="yaml">task: create
@@ -441,7 +441,7 @@ google_sheets_gid: 1094504353
 <li>You can use either the URL you copy from your browser when you are viewing the spreadsheet (which ends in "/edit#gid=0" or something similar), or the "sharing" URL you copy into your clipboard from within the "Share" dialog box (which ends in "edit?usp=sharing"). Either is OK.</li>
 <li>The Google spreadsheet must be publicly readable, e.g. with "Anyone on the Internet with this link can view" permission.</li>
 <li>Spreadsheets work best for descriptive metadata if all cells are formatted as "Plain text". To do this in Google Sheets, select all cells, then choose the menu items Format &gt; Number &gt; Plain text <em>before adding any content to the cells</em>.</li>
-<li>If the values in the <code>file</code> column of the spreadsheet are relative, they are assumed to point to files within your local <code>input_directory</code>, just like they do in a local CSV input file. However, you can also use abosolute file paths and URLs in the <code>file</code> column, as described above.</li>
+<li>If the values in the <code>file</code> column of the spreadsheet are relative, they are assumed to point to files within your local <code>input_directory</code>, just like they do in a local CSV input file. However, you can also use absolute file paths and URLs in the <code>file</code> column, as described above.</li>
 </ul>
 <h2 id="using-an-excel-file-as-the-input-csv-file">Using an Excel file as the input CSV file</h2>
 <p>With this option, your configuration's <code>input_csv</code> option contains the filename of an Excel 2010 (or higher) file, like this:</p>
@@ -459,7 +459,7 @@ input_csv: my_file.xlsx
 <li>All of the columns required in a local CSV file are also required in the Excel spreadsheet.</li>
 <li>Spreadsheets work best for descriptive metadata if all cells are formatted as "text". To do this, in Excel, select all cells, alt-click on the selected area, then choose the "Format Cells" context menu item. In the "Number" tab, choose "Text", then click on the "OK" button.</li>
 <li>The worksheet that the CSV data is taken from is the one named "Sheet1", unless you specify another worksheet using the <code>excel_worksheet</code> configuration option.</li>
-<li>If the values in the <code>file</code> column of the spreadsheet are relative, they are assumed to point to files within your local <code>input_directory</code>, just like they do in a local CSV input file. However, you can also use abosolute file paths and URLs in the <code>file</code> column, as described above.</li>
+<li>If the values in the <code>file</code> column of the spreadsheet are relative, they are assumed to point to files within your local <code>input_directory</code>, just like they do in a local CSV input file. However, you can also use absolute file paths and URLs in the <code>file</code> column, as described above.</li>
 </ul>
 <h2 id="blank-or-missing-file-values">Blank or missing "file" values</h2>
 <p>By default, if the <code>file</code> value for a row is empty, Workbench's <code>--check</code> option will show an error. But, in some cases you may want to create nodes but not add any media. If you add <code>allow_missing_files: true</code> to your config file for "create" tasks, you can leave the <code>file</code> column in your CSV empty.</p>
