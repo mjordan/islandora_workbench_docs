@@ -350,6 +350,7 @@ If you are using a spreadsheet application, it will take care of wrapping the CS
 <ul>
 <li>Relative, absolute, and URL file locations can exist within the same CSV file.</li>
 <li>By default, if the <code>file</code> value for a row is empty, Workbench's <code>--check</code> option will show an error. But, in some cases you may want to create nodes but not add any media. If you add <code>allow_missing_files: true</code> to your config file for "create" tasks, you can leave the <code>file</code> column in your CSV empty.</li>
+<li>By default, during <code>--check</code>, Workbench will exit when it first encounters a missing file (or an empty <code>file</code> value). If you would prefer that Workbench checked for the existence of all files before exiting, include <code>exit_on_first_missing_file_during_check: false</code> in your configuration.</li>
 <li>If you want do not want to create media for any of the rows in your CSV file, include <code>nodes_only: true</code> in your configuration file. More detail <a href="/islandora_workbench_docs/nodes_only/">is available</a>.</li>
 <li><code>file</code> values that contain non-ASCII characters are normalized to their ASCII equivalents. See <a href="https://github.com/mjordan/islandora_workbench/issues/192">this issue</a> for more information.</li>
 </ul>
