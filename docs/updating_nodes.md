@@ -9,8 +9,6 @@ node_id,field_description,field_rights,field_access_terms,field_member_of
 100,This is my new title,I have changed my mind. This item is yours to keep.,27,45
 ```
 
-Multivalued fields are also supported in the update task. See details in the "Multivalued fields" section above.
-
 The config file for update operations looks like this (note the `task` option is 'update'):
 
 ```yaml

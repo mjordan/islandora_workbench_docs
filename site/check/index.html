@@ -258,7 +258,7 @@
 <p class="admonition-title">Note</p>
 <p>If you're on Windows, you will likely need to run Workbench by explicitly invoking Python, e.g. <code>python workbench --config config.yml --check</code> instead of using <code>./workbench</code> as illustrated above.</p>
 </div>
-<p>If you do this, Workbench will check the following conditions and report any errors that require your attention before proceding:</p>
+<p>If you do this, Workbench will check the following conditions and report any errors that require your attention before proceeding:</p>
 <ul>
 <li>Configuration file<ul>
 <li>Whether your configuration file is valid YAML (i.e., no YAML syntax errors).</li>
@@ -313,14 +313,14 @@
 </ul>
 </li>
 <li>If using the pages from directories configuration (<code>paged_content_from_directories: true</code>):<ul>
-<li>Whether page filenames contain an occurance of the sequence separator.</li>
+<li>Whether page filenames contain an occurrence of the sequence separator.</li>
 <li>Whether any page directories are empty.</li>
 </ul>
 </li>
 <li>Whether the content type identified in the <code>content_type</code> configuration option exists.</li>
 <li>Whether multivalued fields exceed their allowed number of values.</li>
 <li>Whether values in text-type fields exceed their configured maximum length.</li>
-<li>Whether the nodes refrenced in <code>field_member_of</code> (if that field is present in the CSV) exist.</li>
+<li>Whether the nodes referenced in <code>field_member_of</code> (if that field is present in the CSV) exist.</li>
 <li>Whether values used in geolocation fields are valid lat,long coordinates.</li>
 <li>Whether values used in EDTF fields are valid EDTF date/time values (subset of date/time values only; see <a href="https://mjordan.github.io/islandora_workbench_docs/fields/#field-types">documentation</a> for more detail). Also validates whether dates are valid Gregorian calendar dates.</li>
 </ul>
@@ -330,7 +330,7 @@
 </ul>
 </li>
 </ul>
-<p>If Workbench detects a configuration or input data violation, it will either stop and tell you why it stopped, or (if the violation will not cause Workbench's interaction with Drupal to fail), tell you that it found an anomoly and to check the log file for more detail.</p>
+<p>If Workbench detects a configuration or input data violation, it will either stop and tell you why it stopped, or (if the violation will not cause Workbench's interaction with Drupal to fail), tell you that it found an anomaly and to check the log file for more detail.</p>
 <p>A successful outcome of running <code>--check</code> confirms that all of the conditions listed above are in place, but it does not <em>guarantee</em> a successful job. There are a lot of factors in play during ingest/update/delete interactions with Drupal that can't be checked in advance, most notably network stability, load on the Drupal server, or failure of an Islandora microservice. But in general <code>--check</code> will tell you if there's a problem that you can investigate and resolve before proceeding with your task.</p>
 <h2 id="typical-and-recommended-islandora-workbench-usage">Typical (and recommended) Islandora Workbench usage</h2>
 <p>You will probably need to run Workbench using <code>--check</code> a few times before you will be ready to run it without <code>--check</code> and commit your data to Islandora. For example, you may need to correct errors in taxonomy term IDs or names, fix errors in media filenames, or wrap values in your CSV files in quotation marks.</p>

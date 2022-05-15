@@ -313,7 +313,7 @@ password: islandora
 
 <p>In this example, the <code>task</code> being performed is creating nodes (and optionally media). Other tasks are <code>create_from_files</code>, <code>update</code>, <code>delete</code>, <code>add_media</code>, and <code>delete_media</code>. Some of the configuration settings documented below are used in all tasks, while others are only used in specific tasks.</p>
 <h2 id="configuration-settings">Configuration settings</h2>
-<p>The settings defined in a configuration file are documented below, grouped into broad funcational categories for easier reference. The order of the options in the configuration file doesn't matter, and settings do not need to be grouped together in any specific way in the configuration file.</p>
+<p>The settings defined in a configuration file are documented below, grouped into broad functional categories for easier reference. The order of the options in the configuration file doesn't matter, and settings do not need to be grouped together in any specific way in the configuration file.</p>
 <h3 id="required-settings">Required settings</h3>
 <table>
 <thead>
@@ -542,6 +542,12 @@ password: islandora
 <td>Determines if empty <code>file</code> values are allowed. Used in the <code>create</code> and <code>add_media</code> tasks. If set to true, empty <code>file</code> values are allowed. For <code>create</code> tasks, a <code>true</code> value will result in nodes without attached media. For <code>add_media</code> tasks, a <code>true</code> value will skip adding a media for the empty <code>file</code> CSV value. Defaults to false (which means all file values must contain the name of a file that exists in the <code>input_data</code> directory).</td>
 </tr>
 <tr>
+<td>exit_on_first_missing_file_during_check</td>
+<td></td>
+<td>true</td>
+<td>If set to <code>true</code> (the default) Workbench will exit during <code>--check</code> when it encounters the first missing or empty CSV <code>file</code> value. If set to <code>false</code>, Workbench will check all <code>file</code> values and exit when it finds the first missing file. In other words, if you want Workbench to check for the existence of all media files during <code>--check</code> before exiting, set this value to <code>false</code>.</td>
+</tr>
+<tr>
 <td>media_use_tid</td>
 <td></td>
 <td><code>http://pcdm.org/use#OriginalFile</code></td>
@@ -563,7 +569,7 @@ password: islandora
 <td>media_file_fields</td>
 <td></td>
 <td></td>
-<td>Defines the name of the media field that references media's file (i.e., the field on the Media type). Usually used with custom media types and accompanied by either the <code>media_type</code> or <code>media_types_override</code> option. For more information, see the <a href="/islandora_workbench_docs/media_types">Setting Media Types</a> section.</td>
+<td>Defines the name of the media field that references media's file (i.e., the field on the Media type). Usually used with custom media types and accompanied by either the <code>media_type</code> or <code>media_types_override</code> option. For more information, see the "<a href="/islandora_workbench_docs/media_types">Setting Media Types</a>" section.</td>
 </tr>
 <tr>
 <td>delete_media_with_nodes</td>
@@ -630,7 +636,7 @@ password: islandora
 <td>models [plural]</td>
 <td></td>
 <td></td>
-<td>Used in the <code>create_from_files</code> task only. Provides a mapping bewteen file extensions and terms in the "Islandora Models" vocabulary. Note: one of <code>model</code> or <code>models</code> is required. More detail provided in the <a href="/islandora_workbench_docs/creating_nodes_from_files/">Creating nodes from files</a>" section.</td>
+<td>Used in the <code>create_from_files</code> task only. Provides a mapping between file extensions and terms in the "Islandora Models" vocabulary. Note: one of <code>model</code> or <code>models</code> is required. More detail provided in the <a href="/islandora_workbench_docs/creating_nodes_from_files/">Creating nodes from files</a>" section.</td>
 </tr>
 </tbody>
 </table>
@@ -851,7 +857,7 @@ password: islandora
 </div>
 <h2 id="validating-the-syntax-of-the-configuration-file">Validating the syntax of the configuration file</h2>
 <p>When you run Workbench, it confirms that your configuration file is valid YAML. This is a syntax check only, not a content check. If the file is valid YAML, Workbench then goes on to perform a long list of application-specific <a href="/islandora_workbench_docs/check">checks</a>.</p>
-<p>If this syntax check fails, some detail about the problem will be displayed to the user. The same information plus the entire Python stack trace is also logged to a file named "workbench.log" in the directory Islandora Workbench is run from. This file name is Workbench's default log file name, but in this case (validating the config file's YAML syntax), that file name is used regardless of the log file location defined in the configuation's <code>log_file_path</code> option. The reason the error is logged in the default location instead of the value in the configuration file (if one is present) is that the configuration file isn't valid YAML and therefore can't be parsed.</p>
+<p>If this syntax check fails, some detail about the problem will be displayed to the user. The same information plus the entire Python stack trace is also logged to a file named "workbench.log" in the directory Islandora Workbench is run from. This file name is Workbench's default log file name, but in this case (validating the config file's YAML syntax), that file name is used regardless of the log file location defined in the configuration's <code>log_file_path</code> option. The reason the error is logged in the default location instead of the value in the configuration file (if one is present) is that the configuration file isn't valid YAML and therefore can't be parsed.</p>
 <h2 id="example-configuration-files">Example configuration files</h2>
 <p>These examples provide inline annotations explaining why the settings are included in the configuration file. Blank rows/lines are included for readability.</p>
 <h3 id="create-nodes-only-no-media">Create nodes only, no media</h3>
