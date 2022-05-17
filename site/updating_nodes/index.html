@@ -261,7 +261,14 @@ password: islandora
 input_csv: update.csv
 </code></pre>
 
-<p>Note that you should include <code>validate_title_length: false</code> in your update configuration file, unless you are updating node titles.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You should include <code>validate_title_length: false</code> in your update configuration file, unless you are updating node titles.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a node you are updating doesn't have a field named in your input CSV, Workbench will skip updating the node and add a log entry to that effect.</p>
+</div>
               
             </div>
           </div>
