@@ -148,7 +148,7 @@ The following types of Drupal fields can be populated from data in your input CS
 * boolean fields, with values 1 or 0
 * EDTF date fields
 * entity reference (taxonomy and linked node) fields
-* typed relation (taxonomy and linked node) fields
+* typed relation (taxonomy) fields
 * link fields
 * geolocation fields
 
@@ -281,6 +281,9 @@ Using term URIs has some constraints:
 #### Typed Relation fields
 
 Typed relation fields contain information about the relationship (or "relation") between a taxonomy term and the node it is attached to. For example, a term from the Person vocabulary, "Jordan, Mark", can be an author, illustrator, or editor of the book described in the node. In this example, "author", "illustrator", and "editor" are the typed relations.
+
+!!! note
+    Although Islandora supports Typed Relation fields that allow adding relations to other nodes, currently Workbench only supports adding relations to taxonomies.
 
 The Controlled Access Terms module allows the relations to be sets of terms from external authority lists (for example like the [MARC Relators](https://www.loc.gov/marc/relators/relaterm.html) list maintained by the Library of Congress). Within a Typed Relation field's configuration, the configured relations look like this:
 
