@@ -470,7 +470,7 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 <li>boolean fields, with values 1 or 0</li>
 <li>EDTF date fields</li>
 <li>entity reference (taxonomy and linked node) fields</li>
-<li>typed relation (taxonomy and linked node) fields</li>
+<li>typed relation (taxonomy) fields</li>
 <li>link fields</li>
 <li>geolocation fields</li>
 </ul>
@@ -579,6 +579,10 @@ http://purl.org/coar/resource_type/c_18cc
 </ul>
 <h4 id="typed-relation-fields">Typed Relation fields</h4>
 <p>Typed relation fields contain information about the relationship (or "relation") between a taxonomy term and the node it is attached to. For example, a term from the Person vocabulary, "Jordan, Mark", can be an author, illustrator, or editor of the book described in the node. In this example, "author", "illustrator", and "editor" are the typed relations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although Islandora supports Typed Relation fields that allow adding relations to other nodes, currently Workbench only supports adding relations to taxonomies.</p>
+</div>
 <p>The Controlled Access Terms module allows the relations to be sets of terms from external authority lists (for example like the <a href="https://www.loc.gov/marc/relators/relaterm.html">MARC Relators</a> list maintained by the Library of Congress). Within a Typed Relation field's configuration, the configured relations look like this:</p>
 <p><img alt="Relations example" src="../images/relators.png" /></p>
 <p>In this screenshot, "relators" is a namespace for the MARC Relators authority list, the codes "acp", "adi", etc are the codes for each relator, and "Art copyist", "Art director", etc. are the human-readable label for each relator.</p>
