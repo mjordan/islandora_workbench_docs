@@ -7,7 +7,7 @@ media_id
 104
 ```
 
-The config file for update operations looks like this (note the `task` option is 'delete_media'):
+The config file looks like this (note the `task` option is 'delete_media'):
 
 ```yaml
 task: delete_media
