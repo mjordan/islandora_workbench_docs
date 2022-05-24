@@ -267,9 +267,19 @@ password: islandora
 input_csv: update.csv
 </code></pre>
 
+<p>If you want to append the values in the CSV to values that already exist in the target nodes, add the <code>update_mode</code> configuration option:</p>
+<pre><code class="yaml">task: update
+validate_title_length: false
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+input_csv: update.csv
+update_mode: append
+</code></pre>
+
 <p>Some things to note:</p>
 <ul>
-<li>The <code>update_mode</code> applies to all updates in a job, it does not apply to specific rows in the input CSV.</li>
+<li>The <code>update_mode</code> applies to all rows in your CSV; it cannot be specified for particular rows.</li>
 <li>Updates apply to entire fields. Workbench cannot replace individual values in field.</li>
 <li>Values in the <code>node_id</code> column can be numeric node IDs (e.g. <code>467</code>) or full URLs, including URL aliases.</li>
 <li>You should include <code>validate_title_length: false</code> in your update configuration file, unless you are updating node titles.</li>
