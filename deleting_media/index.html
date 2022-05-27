@@ -268,8 +268,8 @@ input_csv: delete_media.csv
 </code></pre>
 
 <h3 id="deleting-media-using-node-ids">Deleting media using node IDs</h3>
-<p>If you want to delete media from specific nodes without having to specify the media IDs (using the method described above), you can use the <code>delete_media_by_node</code> task. This task take a list of node IDs as its input, like this:</p>
-<pre><code>node_id
+<p>If you want to delete media from specific nodes without having to know the media IDs as described above, you can use the <code>delete_media_by_node</code> task. This task takes a list of node IDs as input, like this:</p>
+<pre><code class="text">node_id
 345
 367
 246
@@ -285,9 +285,11 @@ input_csv: delete_all_node_media.csv
 </code></pre>
 
 <p>This configuration will delete all media attached to nodes 345, 367, and 246. </p>
-<p>By default, all media attached to the specified nodes are deleted. A "delete_media_by_node" configuration file can include a <code>delete_media_by_node_media_use_tids</code> option that lets you specify Islandora Media Use term IDs that a media must have to be deleted:</p>
+<p>By default, all media attached to the specified nodes are deleted. A "delete_media_by_node" configuration file can include a <code>delete_media_by_node_media_use_tids</code> option that lets you specify a list of Islandora Media Use term IDs that a media must have to be deleted:</p>
 <pre><code class="yaml">delete_media_by_node_media_use_tids: [17, 1]
 </code></pre>
+
+<p>Before using this option, consult your Islandora's Islandora Media Use vocabulary page at <code>/admin/structure/taxonomy/manage/islandora_media_use/overview</code> to get the term IDs you need to use.</p>
               
             </div>
           </div>
