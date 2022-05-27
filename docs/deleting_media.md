@@ -1,3 +1,5 @@
+### Deleting media using media IDs
+
 You can delete media and their associate files by providing a CSV file with a `media_id` column that contains the Drupal IDs of media you want to delete. For example, your CSV file could look like this:
 
 ```text
@@ -16,3 +18,35 @@ username: admin
 password: islandora
 input_csv: delete_media.csv
 ```
+
+### Deleting media using node IDs
+
+If you want to delete media from specific nodes without having to know the media IDs as described above, you can use the `delete_media_by_node` task. This task takes a list of node IDs as input, like this:
+
+```text
+node_id
+345
+367
+246
+```
+
+The configuration file for this task looks like this:
+
+```yaml
+task: delete_media_by_node
+host: "http://localhost:8000"
+username: admin
+password: islandora
+input_dir: input_data
+input_csv: delete_node_media.csv
+```
+
+This configuration will delete all media attached to nodes 345, 367, and 246. 
+
+By default, all media attached to the specified nodes are deleted. A "delete_media_by_node" configuration file can include a `delete_media_by_node_media_use_tids` option that lets you specify a list of Islandora Media Use term IDs that a media must have to be deleted:
+
+```yaml 
+delete_media_by_node_media_use_tids: [17, 1]
+```
+
+Before using this option, consult your Islandora's Islandora Media Use vocabulary page at `/admin/structure/taxonomy/manage/islandora_media_use/overview` to get the term IDs you need to use.

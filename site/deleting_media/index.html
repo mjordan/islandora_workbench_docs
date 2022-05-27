@@ -142,6 +142,12 @@
     <a class="current" href="./">Deleting media</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#deleting-media-using-media-ids">Deleting media using media IDs</a></li>
+    
+
+    <li class="toctree-l2"><a href="#deleting-media-using-node-ids">Deleting media using node IDs</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -245,7 +251,8 @@
           <div role="main">
             <div class="section">
               
-                <p>You can delete media and their associate files by providing a CSV file with a <code>media_id</code> column that contains the Drupal IDs of media you want to delete. For example, your CSV file could look like this:</p>
+                <h3 id="deleting-media-using-media-ids">Deleting media using media IDs</h3>
+<p>You can delete media and their associate files by providing a CSV file with a <code>media_id</code> column that contains the Drupal IDs of media you want to delete. For example, your CSV file could look like this:</p>
 <pre><code class="text">media_id
 100
 103
@@ -259,6 +266,30 @@ username: admin
 password: islandora
 input_csv: delete_media.csv
 </code></pre>
+
+<h3 id="deleting-media-using-node-ids">Deleting media using node IDs</h3>
+<p>If you want to delete media from specific nodes without having to know the media IDs as described above, you can use the <code>delete_media_by_node</code> task. This task takes a list of node IDs as input, like this:</p>
+<pre><code class="text">node_id
+345
+367
+246
+</code></pre>
+
+<p>The configuration file for this task looks like this:</p>
+<pre><code class="yaml">task: delete_media_by_node
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+input_dir: input_data
+input_csv: delete_node_media.csv
+</code></pre>
+
+<p>This configuration will delete all media attached to nodes 345, 367, and 246. </p>
+<p>By default, all media attached to the specified nodes are deleted. A "delete_media_by_node" configuration file can include a <code>delete_media_by_node_media_use_tids</code> option that lets you specify a list of Islandora Media Use term IDs that a media must have to be deleted:</p>
+<pre><code class="yaml">delete_media_by_node_media_use_tids: [17, 1]
+</code></pre>
+
+<p>Before using this option, consult your Islandora's Islandora Media Use vocabulary page at <code>/admin/structure/taxonomy/manage/islandora_media_use/overview</code> to get the term IDs you need to use.</p>
               
             </div>
           </div>
