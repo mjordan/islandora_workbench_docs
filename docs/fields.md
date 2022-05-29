@@ -17,7 +17,7 @@ The following CSV columns are used for specific purposes and in some cases are r
 | CSV field name | Task(s) | Note |
 | --- | --- ||
 | id | create | This CSV field is used by Workbench for internal purposes, and is not added to the metadata of your Islandora objects. Therefore, it doesn't need to have any relationship to the item described in the rest of the fields in the CSV file. You can configure this CSV field name to be something other than `id` by using the `id_field` option in your configuration file. Note that if the specified field contains multiple values, (e.g. `0001|spec-86389`), the entire field value will be used as the internal Workbench identifier. |
-| node_id | update, delete, add_media | The ID of the node you are updating, deleting, or adding media to. Full URLs (including URL aliases) are also allowed in this CSV field. |
+| node_id | update, delete, add_media, export_csv, delete_media_by_node | The ID of the node you are updating, deleting, or adding media to. Full URLs (including URL aliases) are also allowed in this CSV field. |
 | file | create, add_media | See detail in "Values in the 'file' column", below. |
 | media_use_tid | create, add_media | Tells Workbench which terms from the Islandora Media Use vocabulary to assign to media created in `create` and `add_media` tasks. This can be set for all new media in the configuration file; only include it in your CSV if you want row-level control over this value. More detail is available in the "[Configuration](/islandora_workbench_docs/configuration/#media-settings)" docs for `media_use_tid`. |
 | url_alias | create, update | See detail in "[Assigning URL aliases](/islandora_workbench_docs/aliases/)". |
@@ -182,7 +182,7 @@ Some things to note about Drupal text fields:
 #### Taxonomy reference fields
 
 !!! note
-    In the list of a content type's fields, as pictured above, Drupal uses "Entity reference" for all types of entity reference fields, of which Taxonomy references are one. The other most common kink of entity reference field is a node reference field.  
+    In the list of a content type's fields, as pictured above, Drupal uses "Entity reference" for all types of entity reference fields, of which Taxonomy references are one. The other most common kink of entity reference field is a node reference field.
 
 Islandora Workbench lets you assign both existing and new taxonomy terms to nodes. Creating new terms on demand during node creation reduces the need to prepopulate your vocabularies prior to creating nodes.
 
@@ -377,7 +377,7 @@ Subvalues in multivalued CSV fields are validated separately, e.g. if your CSV v
 
 !!! note
     EDTF supports a very wide range of specific and general dates, and in some cases, valid dates can look counterintuitive. For example, "2001-34" is valid (it's Sub-Year Grouping meaning 2nd quarter of 2001).
-    
+
 
 #### Link fields
 

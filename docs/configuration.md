@@ -19,7 +19,7 @@ The settings defined in a configuration file are documented below, grouped into 
 
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
-| task | ✔️ | | One of 'create', 'create_from_files', 'update', delete', 'add_media', 'delete_media', or 'delete_media_by_node'. |
+| task | ✔️ | | One of 'create', 'create_from_files', 'update', delete', 'add_media', 'delete_media', 'export_csv', or 'delete_media_by_node'. |
 | host | ✔️ | | The hostname, including `http://` or `https://` of your Islandora repository, and port number if not the default 80. This value must be wrapped in quotation marks. |
 | username |  ✔️ | | The username used to authenticate the requests. This Drupal user should be a member of the "Administrator" role. If you want to create nodes that are owned by a specific Drupal user, include their numeric user ID in the `uid` column in your CSV. |
 | password |  ✔️ | | The user's password. |
@@ -65,6 +65,7 @@ See "[The output CSV file](/islandora_workbench_docs/output_csv/)" section for m
 | --- | --- | --- | --- |
 | output_csv | | | The full or relative path to a CSV file with one record per node created by Workbench. |
 | output_csv_include_input_csv | | false | Include in the output CSV all the fields (and their values) from the input CSV. |
+| export_csv_term_mode | | tid | Used in "export_csv" tasks to indicate whether vocabulary term IDs or names are included in the output CSV file. Set to "tid" (the default) to include term IDs, or set to "name" to include term names. See "[Exporting field data into a CSV file](/islandora_workbench_docs/output_csv/#exporting-field-data-into-a-csv-file)" for more information. |
 
 
 ### Media settings
@@ -213,7 +214,7 @@ username: admin
 password: islandora
 input_csv: 'https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZvX18xoRBxfbgxqWc/edit
 # You only need to specify the google_sheets_gid option if the workseet in the Google Sheet
-# is not the default one. 
+# is not the default one.
 google_sheets_gid: 1867618389
 ```
 
@@ -248,7 +249,7 @@ input_csv: input.csv
 
 # This tells Workbench to ignore the 'date_generated' and 'batch_id'
 # columns in the input.csv file.
-ignore_csv_columns: ['date_generated', 'batch_id'] 
+ignore_csv_columns: ['date_generated', 'batch_id']
 ```
 
 ### Generating sample Islandora content

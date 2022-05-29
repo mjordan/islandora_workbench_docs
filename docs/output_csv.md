@@ -49,4 +49,39 @@ If you want to include in your output CSV all of the fields (and their values) f
 
 ### Exporting field data into a CSV file
 
-In development. See [this Github issue](https://github.com/mjordan/islandora_workbench/issues/425).
+A `export_csv` task generates a CSV file that contains one row for each node identified in the input CSV file. The cells of the CSV are populated with data that is consistent with the structures that Workbench uses in `update` tasks. Using this CSV file, you can:
+
+* see in one place all of the field values for nodes, which might be useful during quality assurance after a `create` task
+* modify the data and use it as input for an `update` task using the `update_mode: replace` configuration option.
+
+The CSV file contains some of the extra columns and rows included in the CSV file template, described above (specifically, human-readable field label and number of values allowed). To use the file as input for an `update` task, simply delete the extraneous column and rows.
+
+A sample configuration file for an `export_csv` task is:
+
+```yaml
+task: export_csv
+host: "http://localhost:8000"
+username: admin
+password: islandora
+input_csv: nodes_to_export.csv
+export_csv_term_mode: name
+content_type: my_custom_content_type
+```
+
+The file identified by `input_file` has only one column, "node_id":
+
+```text
+node_id
+7653
+7732
+7653
+```
+
+Some things to note:
+
+* The output CSV file name is the name of the input CSV file (containing node IDs) with ".csv_file_with_field_values" appended to the name. The file is saved in the directory identified by the `input_dir` configuration option.
+* You can include either vocabulary term IDs or term names (with accompanying vocabulary namespaces) in the CSV. By default, term IDs are included; to include term names instead, include `export_csv_term_mode: name` in you configuration file.
+* A single `export_csv` job can only export nodes that have the content type identified in your Workbench configuration. By default, this is "islandora_object". If you include node IDs in your input file for nodes that have a different content type, Workbench will skip exporting their data and log the fact that it has done so.
+
+!!! warning
+    Using the `export_csv_term_mode: name` option will slow down the export, since Workbench must query Drupal to get the name of each term.

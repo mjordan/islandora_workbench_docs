@@ -285,7 +285,39 @@
 <p>This CSV file is suitable as a template for subsequent <code>update</code> tasks, since it already contains the <code>node_id</code>s for all the stub nodes plus column headers for all of the fields in those nodes. You can remove from the template any columns you do not want to include in your <code>update</code> task. You can also use the node IDs in this file as the basis for later <code>add_media</code> tasks; all you will need to do is delete the other columns and add a <code>file</code> column containing the new nodes' corresponding filenames.</p>
 <p>If you want to include in your output CSV all of the fields (and their values) from the input CSV, add <code>output_csv_include_input_csv: true</code> to your configuration file. This option is useful if you want a CSV that contains the node ID and a field such as <code>field_identifier</code> or other fields that contain local identifiers, DOIs, file paths, etc. If you use this option, all the fields from the input CSV are added to the output CSV; you cannot configure which fields are included.</p>
 <h3 id="exporting-field-data-into-a-csv-file">Exporting field data into a CSV file</h3>
-<p>In development. See <a href="https://github.com/mjordan/islandora_workbench/issues/425">this Github issue</a>.</p>
+<p>A <code>export_csv</code> task generates a CSV file that contains one row for each node identified in the input CSV file. The cells of the CSV are populated with data that is consistent with the structures that Workbench uses in <code>update</code> tasks. Using this CSV file, you can:</p>
+<ul>
+<li>see in one place all of the field values for nodes, which might be useful during quality assurance after a <code>create</code> task</li>
+<li>modify the data and use it as input for an <code>update</code> task using the <code>update_mode: replace</code> configuration option.</li>
+</ul>
+<p>The CSV file contains some of the extra columns and rows included in the CSV file template, described above (specifically, human-readable field label and number of values allowed). To use the file as input for an <code>update</code> task, simply delete the extraneous column and rows.</p>
+<p>A sample configuration file for an <code>export_csv</code> task is:</p>
+<pre><code class="yaml">task: export_csv
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+input_csv: nodes_to_export.csv
+export_csv_term_mode: name
+content_type: my_custom_content_type
+</code></pre>
+
+<p>The file identified by <code>input_file</code> has only one column, "node_id":</p>
+<pre><code class="text">node_id
+7653
+7732
+7653
+</code></pre>
+
+<p>Some things to note:</p>
+<ul>
+<li>The output CSV file name is the name of the input CSV file (containing node IDs) with ".csv_file_with_field_values" appended to the name. The file is saved in the directory identified by the <code>input_dir</code> configuration option.</li>
+<li>You can include either vocabulary term IDs or term names (with accompanying vocabulary namespaces) in the CSV. By default, term IDs are included; to include term names instead, include <code>export_csv_term_mode: name</code> in you configuration file.</li>
+<li>A single <code>export_csv</code> job can only export nodes that have the content type identified in your Workbench configuration. By default, this is "islandora_object". If you include node IDs in your input file for nodes that have a different content type, Workbench will skip exporting their data and log the fact that it has done so.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Using the <code>export_csv_term_mode: name</code> option will slow down the export, since Workbench must query Drupal to get the name of each term.</p>
+</div>
               
             </div>
           </div>
