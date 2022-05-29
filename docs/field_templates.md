@@ -1,5 +1,5 @@
 !!! note
-    This section describes using CSV *field* templates in your configuration file. For information on CSV *file* templates, see the "[Generating a template CSV file](/islandora_workbench_docs/csv_file_templates/)" section.
+    This section describes using CSV *field* templates in your configuration file. For information on CSV *file* templates, see the "[CSV file templates](/islandora_workbench_docs/output_csv/)" section.
 
 In `create` and `update` tasks, you can configure field templates that are applied to each node as if the fields were present in your CSV file. The templates are configured in the `csv_field_templates` option. An example looks like this:
 
