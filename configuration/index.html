@@ -324,7 +324,7 @@ password: islandora
 <td>task</td>
 <td>✔️</td>
 <td></td>
-<td>One of 'create', 'create_from_files', 'update', delete', 'add_media', 'delete_media', or 'delete_media_by_node'.</td>
+<td>One of 'create', 'create_from_files', 'update', delete', 'add_media', 'delete_media', 'export_csv', or 'delete_media_by_node'.</td>
 </tr>
 <tr>
 <td>host</td>
@@ -516,6 +516,12 @@ password: islandora
 <td></td>
 <td>false</td>
 <td>Include in the output CSV all the fields (and their values) from the input CSV.</td>
+</tr>
+<tr>
+<td>export_csv_term_mode</td>
+<td></td>
+<td>tid</td>
+<td>Used in "export_csv" tasks to indicate whether vocabulary term IDs or names are included in the output CSV file. Set to "tid" (the default) to include term IDs, or set to "name" to include term names. See "<a href="/islandora_workbench_docs/output_csv/#exporting-field-data-into-a-csv-file">Exporting field data into a CSV file</a>" for more information.</td>
 </tr>
 </tbody>
 </table>
@@ -912,7 +918,7 @@ username: admin
 password: islandora
 input_csv: 'https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZvX18xoRBxfbgxqWc/edit
 # You only need to specify the google_sheets_gid option if the workseet in the Google Sheet
-# is not the default one. 
+# is not the default one.
 google_sheets_gid: 1867618389
 </code></pre>
 
@@ -943,7 +949,7 @@ input_csv: input.csv
 
 # This tells Workbench to ignore the 'date_generated' and 'batch_id'
 # columns in the input.csv file.
-ignore_csv_columns: ['date_generated', 'batch_id'] 
+ignore_csv_columns: ['date_generated', 'batch_id']
 </code></pre>
 
 <h3 id="generating-sample-islandora-content">Generating sample Islandora content</h3>
