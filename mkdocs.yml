@@ -12,7 +12,6 @@ pages:
     - Checking configuration and input data: check.md
     - Preparing your data: preparing_data.md
     - Drupal fields and CSV fields: fields.md
-    - CSV file templates: csv_file_templates.md
     - CSV field templates: field_templates.md
     - Creating paged, compound, and collection content: paged_and_compound.md
     - Creating nodes without media: nodes_only.md
@@ -26,7 +25,7 @@ pages:
     - Adding media to nodes: adding_media.md
     - Deleting media: deleting_media.md
     - Adding multiple media: adding_multiple_media.md
-    - Generating an output CSV file: output_csv.md
+    - Generating output CSV files: output_csv.md
     - Creating nodes from the sample data: sample_data.md
     - Exporting Islandora 7 content: exporting_islandora_7_content.md
     - Generating sample Islandora content: generating_sample_content.md

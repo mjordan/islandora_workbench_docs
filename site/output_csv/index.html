@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Generating an output CSV file - Islandora Workbench</title>
+  <title>Generating output CSV files - Islandora Workbench</title>
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
@@ -16,7 +16,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Generating an output CSV file";
+    var mkdocs_page_name = "Generating output CSV files";
     var mkdocs_page_input_path = "output_csv.md";
     var mkdocs_page_url = null;
   </script>
@@ -75,11 +75,6 @@
             <li class="toctree-l1">
 		
     <a class="" href="../fields/">Drupal fields and CSV fields</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../csv_file_templates/">CSV file templates</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -149,9 +144,18 @@
           
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Generating an output CSV file</a>
+    <a class="current" href="./">Generating output CSV files</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#csv-file-templates">CSV file templates</a></li>
+    
+
+    <li class="toctree-l2"><a href="#creating-a-csv-file-containing-a-row-for-every-new-node">Creating a CSV file containing a row for every new node</a></li>
+    
+
+    <li class="toctree-l2"><a href="#exporting-field-data-into-a-csv-file">Exporting field data into a CSV file</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -232,7 +236,7 @@
     
       
     
-    <li>Generating an output CSV file</li>
+    <li>Generating output CSV files</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/output_csv.md"
@@ -245,7 +249,29 @@
           <div role="main">
             <div class="section">
               
-                <p>In some instances, you may want to create stub nodes that only have a small subset of fields, and then populate the remaining fields later. To facilitate this type of workflow, Workbench provides an option to generate a simple CSV file containing a record for every newly created node. This file can then be used later in <code>update</code> tasks to add additional metadata or in <code>add_media</code> tasks to add media.</p>
+                <p>Islandora Workbench can generate several different CSV files you might find useful.</p>
+<h3 id="csv-file-templates">CSV file templates</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This documentation describes creating CSV <em>file</em> templates. For information on CSV <em>field</em> templates, see the "<a href="/islandora_workbench_docs/field_templates/">Using CSV field templates</a>" section.</p>
+</div>
+<p>You can generate a template CSV file by running Workbench with the <code>--get_csv_template</code> argument:</p>
+<p><code>./workbench --config config.yml --get_csv_template</code></p>
+<p>With this option, Workbench will fetch the field definitions for the content type named in your configuration's <code>content_type</code> option and save a CSV file with a column for each of the content type's fields. You can then populate this template with values you want to use in a <code>create</code> or <code>update</code> task. The template file is saved in the directory indicated in your configuration's <code>input_dir</code> option, using the filename defined in <code>input_csv</code> with <code>.csv_file_template</code> appended.</p>
+<p>The template also contains three additional rows:</p>
+<ul>
+<li>human-readable label</li>
+<li>whether or not the field is required in your CSV for <code>create</code> tasks</li>
+<li>sample data</li>
+<li>number of values allowed (either a specific maximum number or 'unlimited')</li>
+<li>the name of the section in the documentation covering the field type</li>
+</ul>
+<p>Here is a screenshot of this CSV file template loaded into a spreadsheet application:</p>
+<p><img alt="CSV file template" src="../images/csv_file_template.png" /></p>
+<p>Note that the first column, and all the rows other than the field machine names, should be deleted before you use a populated version of this CSV file in a <code>create</code> task. Also, you can remove any columns you do not intend on populating:</p>
+<p><img alt="CSV file template ready to use" src="../images/csv_file_template_ready_to_use.png" /></p>
+<h3 id="creating-a-csv-file-containing-a-row-for-every-new-node">Creating a CSV file containing a row for every new node</h3>
+<p>In some instances, you may want to create stub nodes that only have a small subset of fields, and then populate the remaining fields later. To facilitate this type of workflow, Workbench provides an option to generate a simple CSV file containing a record for every newly created node. This file can then be used later in <code>update</code> tasks to add additional metadata or in <code>add_media</code> tasks to add media.</p>
 <p>You tell Workbench to generate this file by including the optional <code>output_csv</code> setting in your configuration file. If this setting is present, Workbench will write a CSV file at the specified location containing one record per node created. This CSV file contains the following fields:</p>
 <ul>
 <li><code>id</code> (or whatever column is specified in your <code>id_field</code> setting): the value in your input CSV file's ID field</li>
@@ -258,6 +284,8 @@
 <p><img alt="Output CSV" src="../images/output_csv.png" /></p>
 <p>This CSV file is suitable as a template for subsequent <code>update</code> tasks, since it already contains the <code>node_id</code>s for all the stub nodes plus column headers for all of the fields in those nodes. You can remove from the template any columns you do not want to include in your <code>update</code> task. You can also use the node IDs in this file as the basis for later <code>add_media</code> tasks; all you will need to do is delete the other columns and add a <code>file</code> column containing the new nodes' corresponding filenames.</p>
 <p>If you want to include in your output CSV all of the fields (and their values) from the input CSV, add <code>output_csv_include_input_csv: true</code> to your configuration file. This option is useful if you want a CSV that contains the node ID and a field such as <code>field_identifier</code> or other fields that contain local identifiers, DOIs, file paths, etc. If you use this option, all the fields from the input CSV are added to the output CSV; you cannot configure which fields are included.</p>
+<h3 id="exporting-field-data-into-a-csv-file">Exporting field data into a CSV file</h3>
+<p>In development. See <a href="https://github.com/mjordan/islandora_workbench/issues/425">this Github issue</a>.</p>
               
             </div>
           </div>
