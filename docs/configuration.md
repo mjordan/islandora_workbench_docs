@@ -66,6 +66,8 @@ See "[The output CSV file](/islandora_workbench_docs/output_csv/)" section for m
 | output_csv | | | The full or relative path to a CSV file with one record per node created by Workbench. |
 | output_csv_include_input_csv | | false | Include in the output CSV all the fields (and their values) from the input CSV. |
 | export_csv_term_mode | | tid | Used in "export_csv" tasks to indicate whether vocabulary term IDs or names are included in the output CSV file. Set to "tid" (the default) to include term IDs, or set to "name" to include term names. See "[Exporting field data into a CSV file](/islandora_workbench_docs/output_csv/#exporting-field-data-into-a-csv-file)" for more information. |
+| export_csv_field_list | | [] (empty list) | List of fields to include in exported CSV data. If empty, all fields will be included.  See "[Exporting field data into a CSV file](/islandora_workbench_docs/output_csv/#exporting-field-data-into-a-csv-file)" for more information. |
+| export_csv_file_path | | | The path to the exported CSV file. If left empty (the default), the file will be named after the value of the `input_csv` with ".csv_file_with_field_values" appended and saved in the directory identifed in `input_dir`. |
 
 
 ### Media settings

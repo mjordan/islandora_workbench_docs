@@ -523,6 +523,18 @@ password: islandora
 <td>tid</td>
 <td>Used in "export_csv" tasks to indicate whether vocabulary term IDs or names are included in the output CSV file. Set to "tid" (the default) to include term IDs, or set to "name" to include term names. See "<a href="/islandora_workbench_docs/output_csv/#exporting-field-data-into-a-csv-file">Exporting field data into a CSV file</a>" for more information.</td>
 </tr>
+<tr>
+<td>export_csv_field_list</td>
+<td></td>
+<td>[] (empty list)</td>
+<td>List of fields to include in exported CSV data. If empty, all fields will be included.  See "<a href="/islandora_workbench_docs/output_csv/#exporting-field-data-into-a-csv-file">Exporting field data into a CSV file</a>" for more information.</td>
+</tr>
+<tr>
+<td>export_csv_file_path</td>
+<td></td>
+<td></td>
+<td>The path to the exported CSV file. If left empty (the default), the file will be named after the value of the <code>input_csv</code> with ".csv_file_with_field_values" appended and saved in the directory identifed in <code>input_dir</code>.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="media-settings">Media settings</h3>

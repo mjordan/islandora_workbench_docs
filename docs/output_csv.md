@@ -66,6 +66,8 @@ password: islandora
 input_csv: nodes_to_export.csv
 export_csv_term_mode: name
 content_type: my_custom_content_type
+# If export_csv_field_list is not present, all fields will be exported.
+export_csv_field_list: ['title', 'field_description']
 ```
 
 The file identified by `input_file` has only one column, "node_id":
@@ -79,9 +81,11 @@ node_id
 
 Some things to note:
 
-* The output CSV file name is the name of the input CSV file (containing node IDs) with ".csv_file_with_field_values" appended. For example, if you `export_csv` configuration file defines the `input_csv` as "my_export_nodes.csv", the CSV file created by the task will be named "my_export_nodes.csv.csv_file_with_field_values". The file is saved in the directory identified by the `input_dir` configuration option.
+* The output includes data from nodes only, not media.
+* Unless a file path is specificed in the `export_csv_file_path` configuration option, the output CSV file name is the name of the input CSV file (containing node IDs) with ".csv_file_with_field_values" appended. For example, if you `export_csv` configuration file defines the `input_csv` as "my_export_nodes.csv", the CSV file created by the task will be named "my_export_nodes.csv.csv_file_with_field_values". The file is saved in the directory identified by the `input_dir` configuration option.
 * You can include either vocabulary term IDs or term names (with accompanying vocabulary namespaces) in the CSV. By default, term IDs are included; to include term names instead, include `export_csv_term_mode: name` in you configuration file.
 * A single `export_csv` job can only export nodes that have the content type identified in your Workbench configuration. By default, this is "islandora_object". If you include node IDs in your input file for nodes that have a different content type, Workbench will skip exporting their data and log the fact that it has done so.
+* If you don't want to export all the fields on a content type, you can list the fields you want to export in the `export_csv_field_list` configuration option. 
 
 !!! warning
     Using the `export_csv_term_mode: name` option will slow down the export, since Workbench must query Drupal to get the name of each term.
