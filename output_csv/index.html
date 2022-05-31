@@ -150,10 +150,10 @@
     <li class="toctree-l2"><a href="#csv-file-templates">CSV file templates</a></li>
     
 
-    <li class="toctree-l2"><a href="#creating-a-csv-file-containing-a-row-for-every-newly-created-node">Creating a CSV file containing a row for every newly created node</a></li>
+    <li class="toctree-l2"><a href="#csv-file-containing-a-row-for-every-newly-created-node">CSV file containing a row for every newly created node</a></li>
     
 
-    <li class="toctree-l2"><a href="#exporting-field-data-into-a-csv-file">Exporting field data into a CSV file</a></li>
+    <li class="toctree-l2"><a href="#csv-file-containing-field-data-for-existing-nodes">CSV file containing field data for existing nodes</a></li>
     
 
     </ul>
@@ -253,7 +253,7 @@
 <h3 id="csv-file-templates">CSV file templates</h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This documentation describes creating CSV <em>file</em> templates. For information on CSV <em>field</em> templates, see the "<a href="/islandora_workbench_docs/field_templates/">Using CSV field templates</a>" section.</p>
+<p>This section describes creating CSV <em>file</em> templates. For information on CSV <em>field</em> templates, see the "<a href="/islandora_workbench_docs/field_templates/">Using CSV field templates</a>" section.</p>
 </div>
 <p>You can generate a template CSV file by running Workbench with the <code>--get_csv_template</code> argument:</p>
 <p><code>./workbench --config config.yml --get_csv_template</code></p>
@@ -268,9 +268,9 @@
 </ul>
 <p>Here is a screenshot of this CSV file template loaded into a spreadsheet application:</p>
 <p><img alt="CSV file template" src="../images/csv_file_template.png" /></p>
-<p>Note that the first column, and all the rows other than the field machine names, should be deleted before you use a populated version of this CSV file in a <code>create</code> task. Also, you can remove any columns you do not intend on populating:</p>
+<p>Note that the first column, and all the rows other than the field machine names, should be deleted before you use a populated version of this CSV file in a <code>create</code> task. Also, you can remove any columns you do not intend on populating during the <code>create</code> task:</p>
 <p><img alt="CSV file template ready to use" src="../images/csv_file_template_ready_to_use.png" /></p>
-<h3 id="creating-a-csv-file-containing-a-row-for-every-newly-created-node">Creating a CSV file containing a row for every newly created node</h3>
+<h3 id="csv-file-containing-a-row-for-every-newly-created-node">CSV file containing a row for every newly created node</h3>
 <p>In some situations, you may want to create stub nodes that only have a small subset of fields, and then populate the remaining fields later. To facilitate this type of workflow, Workbench provides an option to generate a simple CSV file containing a record for every node created during a <code>create</code> task. This file can then be used later in <code>update</code> tasks to add additional metadata or in <code>add_media</code> tasks to add media.</p>
 <p>You tell Workbench to generate this file by including the optional <code>output_csv</code> setting in your <code>create</code> task configuration file. If this setting is present, Workbench will write a CSV file at the specified location containing one record per node created. This CSV file contains the following fields:</p>
 <ul>
@@ -284,7 +284,7 @@
 <p><img alt="Output CSV" src="../images/output_csv.png" /></p>
 <p>This CSV file is suitable as a template for subsequent <code>update</code> tasks, since it already contains the <code>node_id</code>s for all the stub nodes plus column headers for all of the fields in those nodes. You can remove from the template any columns you do not want to include in your <code>update</code> task. You can also use the node IDs in this file as the basis for later <code>add_media</code> tasks; all you will need to do is delete the other columns and add a <code>file</code> column containing the new nodes' corresponding filenames.</p>
 <p>If you want to include in your output CSV all of the fields (and their values) from the input CSV, add <code>output_csv_include_input_csv: true</code> to your configuration file. This option is useful if you want a CSV that contains the node ID and a field such as <code>field_identifier</code> or other fields that contain local identifiers, DOIs, file paths, etc. If you use this option, all the fields from the input CSV are added to the output CSV; you cannot configure which fields are included.</p>
-<h3 id="exporting-field-data-into-a-csv-file">Exporting field data into a CSV file</h3>
+<h3 id="csv-file-containing-field-data-for-existing-nodes">CSV file containing field data for existing nodes</h3>
 <p>The <code>export_csv</code> task generates a CSV file that contains one row for each node identified in the input CSV file. The cells of the CSV are populated with data that is consistent with the structures that Workbench uses in <code>update</code> tasks. Using this CSV file, you can:</p>
 <ul>
 <li>see in one place all of the field values for nodes, which might be useful during quality assurance after a <code>create</code> task</li>
