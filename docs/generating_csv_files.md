@@ -3,7 +3,7 @@ Islandora Workbench can generate several different CSV files you might find usef
 ### CSV file templates
 
 !!! note
-    This documentation describes creating CSV *file* templates. For information on CSV *field* templates, see the "[Using CSV field templates](/islandora_workbench_docs/field_templates/)" section.
+    This section describes creating CSV *file* templates. For information on CSV *field* templates, see the "[Using CSV field templates](/islandora_workbench_docs/field_templates/)" section.
 
 You can generate a template CSV file by running Workbench with the `--get_csv_template` argument:
 
@@ -23,11 +23,11 @@ Here is a screenshot of this CSV file template loaded into a spreadsheet applica
 
 ![CSV file template](images/csv_file_template.png)
 
-Note that the first column, and all the rows other than the field machine names, should be deleted before you use a populated version of this CSV file in a `create` task. Also, you can remove any columns you do not intend on populating:
+Note that the first column, and all the rows other than the field machine names, should be deleted before you use a populated version of this CSV file in a `create` task. Also, you can remove any columns you do not intend on populating during the `create` task:
 
 ![CSV file template ready to use](images/csv_file_template_ready_to_use.png)
 
-### Creating a CSV file containing a row for every newly created node
+### CSV file containing a row for every newly created node
 
 In some situations, you may want to create stub nodes that only have a small subset of fields, and then populate the remaining fields later. To facilitate this type of workflow, Workbench provides an option to generate a simple CSV file containing a record for every node created during a `create` task. This file can then be used later in `update` tasks to add additional metadata or in `add_media` tasks to add media.
 
@@ -47,7 +47,7 @@ This CSV file is suitable as a template for subsequent `update` tasks, since it 
 
 If you want to include in your output CSV all of the fields (and their values) from the input CSV, add `output_csv_include_input_csv: true` to your configuration file. This option is useful if you want a CSV that contains the node ID and a field such as `field_identifier` or other fields that contain local identifiers, DOIs, file paths, etc. If you use this option, all the fields from the input CSV are added to the output CSV; you cannot configure which fields are included.
 
-### Exporting field data into a CSV file
+### CSV file containing field data for existing nodes
 
 The `export_csv` task generates a CSV file that contains one row for each node identified in the input CSV file. The cells of the CSV are populated with data that is consistent with the structures that Workbench uses in `update` tasks. Using this CSV file, you can:
 
