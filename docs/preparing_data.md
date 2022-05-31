@@ -1,6 +1,6 @@
 Islandora Workbench allows you to arrange your input data in a variety of ways. The two basic sets of data you need to prepare (depending on what task you are performing) are:
 
-1. a CSV file, containing data that will populate node fields (or do other things depending on what task you are performing)
+1. a CSV file, containing data that will populate node fields (or do other things depending on what task you are performing), described [here](/islandora_workbench_docs/fields/)
 2. files that will be used as Drupal media.
 
 The options for arranging your data are detailed below.
