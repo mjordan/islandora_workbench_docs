@@ -150,7 +150,7 @@
     <li class="toctree-l2"><a href="#csv-file-templates">CSV file templates</a></li>
     
 
-    <li class="toctree-l2"><a href="#creating-a-csv-file-containing-a-row-for-every-new-node">Creating a CSV file containing a row for every new node</a></li>
+    <li class="toctree-l2"><a href="#creating-a-csv-file-containing-a-row-for-every-newly-created-node">Creating a CSV file containing a row for every newly created node</a></li>
     
 
     <li class="toctree-l2"><a href="#exporting-field-data-into-a-csv-file">Exporting field data into a CSV file</a></li>
@@ -270,9 +270,9 @@
 <p><img alt="CSV file template" src="../images/csv_file_template.png" /></p>
 <p>Note that the first column, and all the rows other than the field machine names, should be deleted before you use a populated version of this CSV file in a <code>create</code> task. Also, you can remove any columns you do not intend on populating:</p>
 <p><img alt="CSV file template ready to use" src="../images/csv_file_template_ready_to_use.png" /></p>
-<h3 id="creating-a-csv-file-containing-a-row-for-every-new-node">Creating a CSV file containing a row for every new node</h3>
-<p>In some instances, you may want to create stub nodes that only have a small subset of fields, and then populate the remaining fields later. To facilitate this type of workflow, Workbench provides an option to generate a simple CSV file containing a record for every newly created node. This file can then be used later in <code>update</code> tasks to add additional metadata or in <code>add_media</code> tasks to add media.</p>
-<p>You tell Workbench to generate this file by including the optional <code>output_csv</code> setting in your configuration file. If this setting is present, Workbench will write a CSV file at the specified location containing one record per node created. This CSV file contains the following fields:</p>
+<h3 id="creating-a-csv-file-containing-a-row-for-every-newly-created-node">Creating a CSV file containing a row for every newly created node</h3>
+<p>In some situations, you may want to create stub nodes that only have a small subset of fields, and then populate the remaining fields later. To facilitate this type of workflow, Workbench provides an option to generate a simple CSV file containing a record for every node created during a <code>create</code> task. This file can then be used later in <code>update</code> tasks to add additional metadata or in <code>add_media</code> tasks to add media.</p>
+<p>You tell Workbench to generate this file by including the optional <code>output_csv</code> setting in your <code>create</code> task configuration file. If this setting is present, Workbench will write a CSV file at the specified location containing one record per node created. This CSV file contains the following fields:</p>
 <ul>
 <li><code>id</code> (or whatever column is specified in your <code>id_field</code> setting): the value in your input CSV file's ID field</li>
 <li><code>node_id</code>: the node ID for the newly created node</li>
@@ -290,7 +290,7 @@
 <li>see in one place all of the field values for nodes, which might be useful during quality assurance after a <code>create</code> task</li>
 <li>modify the data and use it as input for an <code>update</code> task using the <code>update_mode: replace</code> configuration option.</li>
 </ul>
-<p>The CSV file contains some of the extra columns and rows included in the CSV file template, described above (specifically, human-readable field label and number of values allowed). To use the file as input for an <code>update</code> task, simply delete the extraneous column and rows.</p>
+<p>The CSV file contains two of the extra rows included in the CSV file template, described above (specifically, the human-readable field label and number of values allowed), and the left-most "REMOVE THIS COLUM (KEEP THIS ROW)" column. To use the file as input for an <code>update</code> task, simply delete the extraneous column and rows.</p>
 <p>A sample configuration file for an <code>export_csv</code> task is:</p>
 <pre><code class="yaml">task: export_csv
 host: &quot;http://localhost:8000&quot;
@@ -301,6 +301,8 @@ export_csv_term_mode: name
 content_type: my_custom_content_type
 # If export_csv_field_list is not present, all fields will be exported.
 export_csv_field_list: ['title', 'field_description']
+# Specifying the output path is optional; see below for more information.
+export_csv_file_path
 </code></pre>
 
 <p>The file identified by <code>input_file</code> has only one column, "node_id":</p>
@@ -316,11 +318,11 @@ export_csv_field_list: ['title', 'field_description']
 <li>Unless a file path is specificed in the <code>export_csv_file_path</code> configuration option, the output CSV file name is the name of the input CSV file (containing node IDs) with ".csv_file_with_field_values" appended. For example, if you <code>export_csv</code> configuration file defines the <code>input_csv</code> as "my_export_nodes.csv", the CSV file created by the task will be named "my_export_nodes.csv.csv_file_with_field_values". The file is saved in the directory identified by the <code>input_dir</code> configuration option.</li>
 <li>You can include either vocabulary term IDs or term names (with accompanying vocabulary namespaces) in the CSV. By default, term IDs are included; to include term names instead, include <code>export_csv_term_mode: name</code> in you configuration file.</li>
 <li>A single <code>export_csv</code> job can only export nodes that have the content type identified in your Workbench configuration. By default, this is "islandora_object". If you include node IDs in your input file for nodes that have a different content type, Workbench will skip exporting their data and log the fact that it has done so.</li>
-<li>If you don't want to export all the fields on a content type, you can list the fields you want to export in the <code>export_csv_field_list</code> configuration option. </li>
+<li>If you don't want to export all the fields on a content type, you can list the fields you want to export in the <code>export_csv_field_list</code> configuration option.</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Using the <code>export_csv_term_mode: name</code> option will slow down the export, since Workbench must query Drupal to get the name of each term.</p>
+<p>Using the <code>export_csv_term_mode: name</code> option will slow down the export, since Workbench must query Drupal to get the name of each term. The more taxonomy or typed relation fields in your content type, the slower the export will be with <code>export_csv_term_mode</code> set to "name".</p>
 </div>
               
             </div>
