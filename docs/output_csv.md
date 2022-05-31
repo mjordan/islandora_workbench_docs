@@ -27,11 +27,11 @@ Note that the first column, and all the rows other than the field machine names,
 
 ![CSV file template ready to use](images/csv_file_template_ready_to_use.png)
 
-### Creating a CSV file containing a row for every new node
+### Creating a CSV file containing a row for every newly created node
 
-In some instances, you may want to create stub nodes that only have a small subset of fields, and then populate the remaining fields later. To facilitate this type of workflow, Workbench provides an option to generate a simple CSV file containing a record for every newly created node. This file can then be used later in `update` tasks to add additional metadata or in `add_media` tasks to add media.
+In some situations, you may want to create stub nodes that only have a small subset of fields, and then populate the remaining fields later. To facilitate this type of workflow, Workbench provides an option to generate a simple CSV file containing a record for every node created during a `create` task. This file can then be used later in `update` tasks to add additional metadata or in `add_media` tasks to add media.
 
- You tell Workbench to generate this file by including the optional `output_csv` setting in your configuration file. If this setting is present, Workbench will write a CSV file at the specified location containing one record per node created. This CSV file contains the following fields:
+ You tell Workbench to generate this file by including the optional `output_csv` setting in your `create` task configuration file. If this setting is present, Workbench will write a CSV file at the specified location containing one record per node created. This CSV file contains the following fields:
 
  * `id` (or whatever column is specified in your `id_field` setting): the value in your input CSV file's ID field
  * `node_id`: the node ID for the newly created node
@@ -54,7 +54,7 @@ The `export_csv` task generates a CSV file that contains one row for each node i
 * see in one place all of the field values for nodes, which might be useful during quality assurance after a `create` task
 * modify the data and use it as input for an `update` task using the `update_mode: replace` configuration option.
 
-The CSV file contains some of the extra columns and rows included in the CSV file template, described above (specifically, human-readable field label and number of values allowed). To use the file as input for an `update` task, simply delete the extraneous column and rows.
+The CSV file contains two of the extra rows included in the CSV file template, described above (specifically, the human-readable field label and number of values allowed), and the left-most "REMOVE THIS COLUM (KEEP THIS ROW)" column. To use the file as input for an `update` task, simply delete the extraneous column and rows.
 
 A sample configuration file for an `export_csv` task is:
 
@@ -68,6 +68,8 @@ export_csv_term_mode: name
 content_type: my_custom_content_type
 # If export_csv_field_list is not present, all fields will be exported.
 export_csv_field_list: ['title', 'field_description']
+# Specifying the output path is optional; see below for more information.
+export_csv_file_path: output.csv
 ```
 
 The file identified by `input_file` has only one column, "node_id":
@@ -85,7 +87,7 @@ Some things to note:
 * Unless a file path is specificed in the `export_csv_file_path` configuration option, the output CSV file name is the name of the input CSV file (containing node IDs) with ".csv_file_with_field_values" appended. For example, if you `export_csv` configuration file defines the `input_csv` as "my_export_nodes.csv", the CSV file created by the task will be named "my_export_nodes.csv.csv_file_with_field_values". The file is saved in the directory identified by the `input_dir` configuration option.
 * You can include either vocabulary term IDs or term names (with accompanying vocabulary namespaces) in the CSV. By default, term IDs are included; to include term names instead, include `export_csv_term_mode: name` in you configuration file.
 * A single `export_csv` job can only export nodes that have the content type identified in your Workbench configuration. By default, this is "islandora_object". If you include node IDs in your input file for nodes that have a different content type, Workbench will skip exporting their data and log the fact that it has done so.
-* If you don't want to export all the fields on a content type, you can list the fields you want to export in the `export_csv_field_list` configuration option. 
+* If you don't want to export all the fields on a content type, you can list the fields you want to export in the `export_csv_field_list` configuration option.
 
 !!! warning
-    Using the `export_csv_term_mode: name` option will slow down the export, since Workbench must query Drupal to get the name of each term.
+    Using the `export_csv_term_mode: name` option will slow down the export, since Workbench must query Drupal to get the name of each term. The more taxonomy or typed relation fields in your content type, the slower the export will be with `export_csv_term_mode` set to "name".
