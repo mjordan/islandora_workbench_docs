@@ -279,7 +279,7 @@ Porche,Sports cars
 Land Rover,SUVs
 </code></pre>
 
-<p>One important aspect of creating a hierarchical vocabulary is that all parents must exist before their children. That means that within your CSV file, the rows for terms used as parents should be placed earlier than the rows for their children.</p>
+<p>One important aspect of creating a hierarchical vocabulary is that all parents must exist before their children. That means that within your CSV file, the rows for terms used as parents should be placed earlier than the rows for their children. If a term is named as a parent but doesn't exist (or doesn't yet exist), Workbench will create the child term and write a warning in the log indicating that the parent didn't exist at the time of creating the child. </p>
 <p>You can include the <code>parent</code> column in your CSV along with Drupal field names. Workbench will not only create the hierarchy, it will also add the field data to the terms:</p>
 <pre><code class="text">term_name,parent,field_external_uri
 Automobiles,,
