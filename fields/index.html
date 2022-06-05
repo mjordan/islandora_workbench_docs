@@ -699,7 +699,7 @@ http://purl.org/coar/resource_type/c_18cc
 <p>EDTF supports a very wide range of specific and general dates, and in some cases, valid dates can look counterintuitive. For example, "2001-34" is valid (it's Sub-Year Grouping meaning 2nd quarter of 2001).</p>
 </div>
 <h4 id="link-fields">Link fields</h4>
-<p>The Link field type stores URLs (e.g. <code>https://acme.com</code>) and link text in separate data elements. To add or update fields of this type, Workbench needs to provide the URL and link text in the structure Drupal expects. To accomplish this within a single CSV field, we separate the URL and link text pairs in CSV values with double percent signs (<code>%%</code>), like this:</p>
+<p>The link field type stores URLs (e.g. <code>https://acme.com</code>) and link text in separate data elements. To add or update fields of this type, Workbench needs to provide the URL and link text in the structure Drupal expects. To accomplish this within a single CSV field, we separate the URL and link text pairs in CSV values with double percent signs (<code>%%</code>), like this:</p>
 <pre><code class="text">field_related_websites
 http://acme.com%%Acme Products Inc.
 </code></pre>
@@ -716,6 +716,27 @@ http://acme.com
 
 <pre><code class="text">field_related_websites
 http://acme.com|http://diy-first-aid.net%%DIY First Aid
+</code></pre>
+
+<h4 id="authority-link-fields">Authority link fields</h4>
+<p>The aurhority link field type stores abbreviations for authority sources (i.e., controlled vocabularies), authority URIs (e.g. <code>http://viaf.org/viaf/153525475</code>) and link text in separate data elements. Authority link fields are most commonly used on taxonomy terms, not nodes.</p>
+<p>To add or update fields of this type, Workbench needs to provide the authority source abbreviation, URI and link text in the structure Drupal expects. To accomplish this within a single CSV field, we separate the three parts in CSV values with double percent signs (<code>%%</code>), like this:</p>
+<pre><code class="text">field_authority_vocabs
+viaf%%http://viaf.org/viaf/10646807%%VIAF Record
+</code></pre>
+
+<p>You can include multiple pairs of URL/link text pairs in one CSV field if you separate them with the subdelimiter character:</p>
+<pre><code class="text">field_authority_vocabs
+viaf%%http://viaf.org/viaf/10646807%%VIAF Record|other%%https://github.com/mjordan%%Github
+</code></pre>
+
+<p>The authority source abbreviation and the URI are required, but the link text is not. If you don't have or want any link text, omit it:</p>
+<pre><code class="text">field_authority_vocabs
+viaf%%http://viaf.org/viaf/10646807
+</code></pre>
+
+<pre><code class="text">field_authority_vocabs
+viaf%%http://viaf.org/viaf/10646807|other%%https://github.com/mjordan%%Github
 </code></pre>
 
 <h4 id="geolocation-fields">Geolocation fields</h4>
