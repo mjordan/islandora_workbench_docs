@@ -256,12 +256,21 @@ vocab_id: myvocabulary
 
 <p>The <code>vocab_id</code> config option is required. It contains the machine name of the vocabulary you are loading the terms into. </p>
 <p>The CSV file identified in the <code>input_csv</code> option has one required column, <code>term_name</code>, which contains each term's name. (Other reserved but optional columns, <code>parent</code>, <code>weight</code>, and <code>description</code>, are described below.) You can add additional columns that correspond to a vocabulary's field names, just like you do when you assemble your CSV for <code>create</code> tasks.</p>
+<pre><code class="text">term_name
+Automobiles
+Sports cars
+SUVs
+Jaguar
+Porche
+Land Rover
+</code></pre>
+
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Unlike Input CSV files used during <code>create</code> tasks, input CSV files for <code>create_terms</code> tasks do not have an "id" column. Instead, <code>term_name</code> is the column whose values are the unique identifier for each term. Workbench assumes that term names are unique within a vocabulary. If the terms in the <code>term_name</code> column aren't unique, Workbench only creates the term the first time it encounters it in the CSV file. </p>
 </div>
 <h3 id="term-weight-and-description">Term weight and description</h3>
-<p>Two other reserved CSV column headers are <code>weight</code> and <code>description</code>. All terms in Drupal have these two fields.</p>
+<p>Two other reserved CSV column headers are <code>weight</code> and <code>description</code>. All Drupal taxonomy terms have these two fields.</p>
 <ul>
 <li><code>weight</code> is used to sort the terms in the vocabulary overview page in relation to their parent term (or the vocabulary root if a term has no parent). Values in the <code>weight</code> field are integers. The lower the weight, the earlier the term sorts. For example, a value of "0" (zero) sorts the term at the top in relation to its parent, and a value of "100" sorts the term much lower.</li>
 <li><code>description</code> is, as the name suggests, a field that contains a description of the term.</li>
