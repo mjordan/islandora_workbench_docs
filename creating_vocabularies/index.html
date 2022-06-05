@@ -243,7 +243,7 @@
 <li>you are working with a vocabulary that is hierarchical.</li>
 <li>you want to use Workbench to load vocabulary terms but you want them to exist before (or separate from) the nodes that a <code>create</code> task creates.</li>
 </ul>
-<p>If you want to create terms at the same time you are using a <code>create</code> task to create the nodes the terms are attached to, and if the terms you are creating don't have any additional fields or hierarchical relationships to other terms, you can still create terms as described in as described in "<a href="/islandora_workbench_docs/fields">Drupal fields and CSV fields</a>."</p>
+<p>If you want to create terms at the same time you are using a <code>create</code> task to create the nodes the terms are attached to, and if the terms you are creating don't have any additional fields or hierarchical relationships to other terms, you can still create terms as described in as described in the "Taxonomy reference fields" section of "<a href="/islandora_workbench_docs/fields">Drupal fields and CSV fields</a>."</p>
 <h3 id="vocabularies-with-fields">Vocabularies with fields</h3>
 <p>To load a vocabulary, you use a <code>create_terms</code> task. A typical <code>create_terms</code> configuration file looks like this:</p>
 <pre><code class="yaml">task: create_terms
@@ -265,11 +265,11 @@ vocab_id: myvocabulary
 
 </code></pre>
 
-<p>Optional fields don't need to be included in our CSV if you are not populating them, but required fields do need to be present, and populated.</p>
+<p>Optional fields don't need to be included in our CSV if you are not populating them, but required fields do need to be present, and populated. Running <code>--check</code> on a <code>create_terms</code> task will flag any required fields that are missing from your input CSV file.</p>
 <h3 id="hierarchical-vocabularies">Hierarchical vocabularies</h3>
-<p>A term that is a parent must occur in the CSV before any of its children.</p>
-<p><code>parent</code> column in your CSV</p>
+<p>If you want to create a vocabulary that is hierarchical, like this:</p>
 <p><img alt="Hierarchical_vocabulary" src="../images/hierarchical_vocab.png" /></p>
+<p>you can add a <code>parent</code> column to your CSV and in it, include the term name of the term you want as the parent. For example, the above sample vocabulary was created using this CSV input file:</p>
 <pre><code class="text">term_name,parent
 Automobiles,
 Sports cars,Automobiles
@@ -279,11 +279,13 @@ Porche,Sports cars
 Land Rover,SUVs
 </code></pre>
 
-<pre><code class="text">term_name,parent,field_extra_info
+<p>One important aspect of creating a hierarchical vocabulary is that all parents must exist before their children. That means that within your CSV file, the rows for terms used as parents should be placed earlier than the rows for their children.</p>
+<p>You can include the <code>parent</code> column in your CSV along with Drupal field names. Workbench will not only create the hierarchy, it will also add the field data to the terms:</p>
+<pre><code class="text">term_name,parent,field_external_uri
 Automobiles,,
-Sports cars,Automobiles,Sports cars' extra info
-SUVs,Automobiles,SUV's extra info
-Jaguar,Sports cars,Jaguar's extra info
+Sports cars,Automobiles,https://en.wikipedia.org/wiki/Sports_car
+SUVs,Automobiles,https://en.wikipedia.org/wiki/Sport_utility_vehicle
+Jaguar,Sports cars,
 Porche,Sports cars,
 Land Rover,SUVs,
 </code></pre>
