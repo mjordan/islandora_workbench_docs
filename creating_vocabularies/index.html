@@ -269,7 +269,7 @@ Land Rover
 <p class="admonition-title">Note</p>
 <p>Unlike Input CSV files used during <code>create</code> tasks, input CSV files for <code>create_terms</code> tasks do not have an "id" column. Instead, <code>term_name</code> is the column whose values are the unique identifier for each term. Workbench assumes that term names are unique within a vocabulary. If the terms in the <code>term_name</code> column aren't unique, Workbench only creates the term the first time it encounters it in the CSV file. </p>
 </div>
-<p>Some reserved but optional columns, <code>parent</code>, <code>weight</code>, and <code>description</code>, are described below. You can also add columns that correspond to a vocabulary's field names, just like you do when you assemble your CSV for <code>create</code> tasks, as described in the "Vocabularies with custom fields" section below.</p>
+<p>Two reserved but optional columns, <code>weight</code>, and <code>description</code>, are described next. You can also add columns that correspond to a vocabulary's field names, just like you do when you assemble your CSV for <code>create</code> tasks, as described in the "Vocabularies with custom fields" section below. A third reserved column header, <code>parent</code> is described in the "Hierarchical vocabularies` section.</p>
 <h3 id="term-weight-and-description">Term weight and description</h3>
 <p>Two other reserved CSV column headers are <code>weight</code> and <code>description</code>. All Drupal taxonomy terms have these two fields.</p>
 <ul>
