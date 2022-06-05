@@ -255,7 +255,7 @@ vocab_id: myvocabulary
 </code></pre>
 
 <p>The <code>vocab_id</code> config option is required. It contains the machine name of the vocabulary you are loading the terms into. </p>
-<p>The CSV file identified in the <code>input_csv</code> option has one required column, <code>term_name</code>, which contains each term's name. (Other reserved but optional columns, <code>parent</code>, <code>weight</code>, and <code>description, are described below.) You can add additional columns that correspond to a vocabulary's field names, just like you do when you assemble your CSV for</code>create` tasks.</p>
+<p>The CSV file identified in the <code>input_csv</code> option has one required column, <code>term_name</code>, which contains each term's name. (Other reserved but optional columns, <code>parent</code>, <code>weight</code>, and <code>description</code>, are described below.) You can add additional columns that correspond to a vocabulary's field names, just like you do when you assemble your CSV for <code>create</code> tasks.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Unlike Input CSV files used during <code>create</code> tasks, input CSV files for <code>create_terms</code> tasks do not have an "id" column. Instead, <code>term_name</code> is the column whose values are the unique identifier for each term. Workbench assumes that term names are unique within a vocabulary. If the terms in the <code>term_name</code> column aren't unique, Workbench only creates the term the first time it encounters it in the CSV file. </p>
