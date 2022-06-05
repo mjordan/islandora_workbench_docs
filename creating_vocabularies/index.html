@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Creating vocabularies - Islandora Workbench</title>
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Creating vocabularies";
+    var mkdocs_page_input_path = "creating_vocabularies.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Islandora Workbench</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../installation/">Requirements and installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../configuration/">Configuration</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../check/">Checking configuration and input data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../preparing_data/">Preparing your data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fields/">Drupal fields and CSV fields</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../field_templates/">CSV field templates</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../paged_and_compound/">Creating paged, compound, and collection content</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nodes_only/">Creating nodes without media</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../creating_nodes_from_files/">Creating nodes from files</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aliases/">Assigning URL aliases</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../alt_text/">Adding alt text to images</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rolling_back/">Rolling back nodes and media</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../media_types/">Setting media types</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../updating_nodes/">Updating nodes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deleting_nodes/">Deleting nodes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../adding_media/">Adding media to nodes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deleting_media/">Deleting media</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../adding_multiple_media/">Adding multiple media</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../generating_csv_files/">Generating CSV files</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sample_data/">Creating nodes from the sample data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../exporting_islandora_7_content/">Exporting Islandora 7 content</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../generating_sample_content/">Generating sample Islandora content</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../hooks/">Hooks</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fixity/">Fixity checking</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../logging/">Logging</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cancelling/">Cancelling Workbench</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../workflows/">Workflows</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../limitations/">Known limitations</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../roadmap/">Roadmap (Fall 2021)</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Islandora Workbench</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Creating vocabularies</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/creating_vocabularies.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Islandora Workbench lets you load vocabularies from CSV files. This ability is separate from creating vocabulary terms at the same time as creating the nodes in <code>create</code> or <code>update</code> tasks, as described in "<a href="/islandora_workbench_docs/fields">Drupal fields and CSV fields</a>" documentation. You should load a vocabulary using the options described here if any of these situations applies to you:</p>
+<ul>
+<li>you are working with a vocabulary that has fields in additiont term name.</li>
+<li>you are working with a vocabulary that is hierarchical.</li>
+<li>you want to use Workbench to load vocabulary terms but you want them to exist before (or separate from) the nodes that a <code>create</code> task creates.</li>
+</ul>
+<p>If you want to create terms at the same time you are using a <code>create</code> task to create the nodes the terms are attached to, and if the terms you are creating don't have any additional fields or hierarchical relationships to other terms, you can still create terms as described in as described in "<a href="/islandora_workbench_docs/fields">Drupal fields and CSV fields</a>."</p>
+<h3 id="vocabularies-with-fields">Vocabularies with fields</h3>
+<p>To load a vocabulary, you use a <code>create_terms</code> task. A typical <code>create_terms</code> configuration file looks like this:</p>
+<pre><code class="yaml">task: create_terms
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+input_csv: my_term_data.csv
+vocab_id: myvocabulary
+</code></pre>
+
+<p>The <code>vocab_id</code> config option is required. It contains the machine name of the vocabulary you are loading the terms into. </p>
+<p>The CSV file identified in the <code>input_csv</code> option is similar to the one used in <code>create</code> tasks. The only required column is <code>term_name</code>, which contains the term name. Another reserved column, <code>parent</code>, is described below in the "Hierarchical vocabularies" section. You can add additional columns that correspond to a vocabulary's field names, just like you do when you assemble your CSV for <code>create</code> tasks (although the columns in <code>create</code> input CSV name fields on a content type).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Input CSV files for <code>create_terms</code> tasks do not have an "id" column. Instead, <code>term_name</code> is the column whose values are the unique identifier for each term. Workbench assumes that term names are unique within a vocabulary. If the terms in the <code>term_name</code> column aren't unique, Workbench only creates the term the first time it encounters it in the CSV file. </p>
+</div>
+<p>An example CSV for a vocabulary that has two additional fields, "field_example" and "field_second_example", my input CSV's column headers would look like this:</p>
+<pre><code class="text">term_name,field_example,field_second_example
+
+</code></pre>
+
+<p>Optional fields don't need to be included in our CSV if you are not populating them, but required fields do need to be present, and populated.</p>
+<h3 id="hierarchical-vocabularies">Hierarchical vocabularies</h3>
+<p>A term that is a parent must occur in the CSV before any of its children.</p>
+<p><code>parent</code> column in your CSV</p>
+<p><img alt="Hierarchical_vocabulary" src="../images/hierarchical_vocab.png" /></p>
+<pre><code class="text">term_name,parent
+Automobiles,
+Sports cars,Automobiles
+SUVs,Automobiles
+Jaguar,Sports cars
+Porche,Sports cars
+Land Rover,SUVs
+</code></pre>
+
+<pre><code class="text">term_name,parent,field_extra_info
+Automobiles,,
+Sports cars,Automobiles,Sports cars' extra info
+SUVs,Automobiles,SUV's extra info
+Jaguar,Sports cars,Jaguar's extra info
+Porche,Sports cars,
+Land Rover,SUVs,
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
