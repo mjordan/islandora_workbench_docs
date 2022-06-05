@@ -381,7 +381,7 @@ Subvalues in multivalued CSV fields are validated separately, e.g. if your CSV v
 
 #### Link fields
 
-The Link field type stores URLs (e.g. `https://acme.com`) and link text in separate data elements. To add or update fields of this type, Workbench needs to provide the URL and link text in the structure Drupal expects. To accomplish this within a single CSV field, we separate the URL and link text pairs in CSV values with double percent signs (`%%`), like this:
+The link field type stores URLs (e.g. `https://acme.com`) and link text in separate data elements. To add or update fields of this type, Workbench needs to provide the URL and link text in the structure Drupal expects. To accomplish this within a single CSV field, we separate the URL and link text pairs in CSV values with double percent signs (`%%`), like this:
 
 ```text
 field_related_websites
@@ -405,6 +405,36 @@ http://acme.com
 ```text
 field_related_websites
 http://acme.com|http://diy-first-aid.net%%DIY First Aid
+```
+
+#### Authority link fields
+
+The aurhority link field type stores abbreviations for authority sources (i.e., controlled vocabularies), authority URIs (e.g. `http://viaf.org/viaf/153525475`) and link text in separate data elements. Authority link fields are most commonly used on taxonomy terms, but can be used on nodes as well.
+
+To add or update fields of this type, Workbench needs to provide the authority source abbreviation, URI and link text in the structure Drupal expects. To accomplish this within a single CSV field, we separate the three parts in CSV values with double percent signs (`%%`), like this:
+
+```text
+field_authority_vocabs
+viaf%%http://viaf.org/viaf/10646807%%VIAF Record
+```
+
+You can include multiple pairs of URL/link text pairs in one CSV field if you separate them with the subdelimiter character:
+
+```text
+field_authority_vocabs
+viaf%%http://viaf.org/viaf/10646807%%VIAF Record|other%%https://github.com/mjordan%%Github
+```
+
+The authority source abbreviation and the URI are required, but the link text is not. If you don't have or want any link text, omit it:
+
+```text
+field_authority_vocabs
+viaf%%http://viaf.org/viaf/10646807
+```
+
+```text
+field_authority_vocabs
+viaf%%http://viaf.org/viaf/10646807|other%%https://github.com/mjordan%%Github
 ```
 
 #### Geolocation fields

@@ -4,9 +4,18 @@ Islandora Workbench lets you load vocabularies from CSV files. This ability is s
 * you are working with a vocabulary that is hierarchical.
 * you want to use Workbench to load vocabulary terms but you want them to exist before (or separate from) the nodes that a `create` task creates.
 
-If you want to create terms at the same time you are using a `create` task to create the nodes the terms are attached to, and if the terms you are creating don't have any additional fields or hierarchical relationships to other terms, you can still create terms as described in as described in the "Taxonomy reference fields" section of "[Drupal fields and CSV fields](/islandora_workbench_docs/fields)."
+If you want to create terms at the same time you are using a `create` task to create the nodes the terms are attached to, and if the terms you are creating don't have any additional fields or hierarchical relationships to other terms, you can create terms as described in as described in the "Taxonomy reference fields" section of "[Drupal fields and CSV fields](/islandora_workbench_docs/fields)."
 
-### Vocabularies with fields
+### Term weight and description
+
+Two other reserved CSV column headers are `weight` and `description`. All terms in Drupal have these two fields.
+
+* `weight` is used to sort the terms in the vocabulary overview page in relation to their parent term (or the vocabulary root if a term has no parent). Values in the `weight` field are integers. The lower the weight, the earlier the term sorts. For example, a value of "0" (zero) sorts the term at the top in relation to its parent, and a value of "100" sorts the term much lower.
+* `description` is, as the name suggests, a field that contains a description of the term.
+
+Both `weight` and `description` are optional columns in your CSV.
+
+### Vocabularies with custom fields
 
 To load a vocabulary, you use a `create_terms` task. A typical `create_terms` configuration file looks like this:
 
@@ -26,11 +35,10 @@ The CSV file identified in the `input_csv` option has one required column, `term
 !!! note
     Unlike Input CSV files used during `create` tasks, input CSV files for `create_terms` tasks do not have an "id" column. Instead, `term_name` is the column whose values are the unique identifier for each term. Workbench assumes that term names are unique within a vocabulary. If the terms in the `term_name` column aren't unique, Workbench only creates the term the first time it encounters it in the CSV file. 
 
-An example CSV for a vocabulary that has two additional fields, "field_example" and "field_second_example", my input CSV's column headers would look like this:
+An example CSV for a vocabulary that has two additional fields, "field_example" and "field_second_example", in addtion to the optional "description" column would look like this:
 
 ```text
-term_name,field_example,field_second_example
-
+term_name,field_example,field_second_example,description
 ```
 
 Optional fields don't need to be included in our CSV if you are not populating them, but required fields do need to be present, and populated. Running `--check` on a `create_terms` task will flag any required fields that are missing from your input CSV file.
@@ -59,11 +67,11 @@ One important aspect of creating a hierarchical vocabulary is that all parents m
 You can include the `parent` column in your CSV along with Drupal field names. Workbench will not only create the hierarchy, it will also add the field data to the terms:
 
 ```text
-term_name,parent,field_external_uri
-Automobiles,,
-Sports cars,Automobiles,https://en.wikipedia.org/wiki/Sports_car
-SUVs,Automobiles,https://en.wikipedia.org/wiki/Sport_utility_vehicle
-Jaguar,Sports cars,
-Porche,Sports cars,
-Land Rover,SUVs,
+term_name,parent,description,field_external_uri
+Automobiles,,,
+Sports cars,Automobiles,"Sports cars focus on performance, handling, and driver experience.",https://en.wikipedia.org/wiki/Sports_car
+SUVs,Automobiles,"SUVs, or Sports Utility Vehicles, are the most popular type of automobile.",https://en.wikipedia.org/wiki/Sport_utility_vehicle
+Jaguar,Sports cars,,
+Porche,Sports cars,,
+Land Rover,SUVs,,
 ```
