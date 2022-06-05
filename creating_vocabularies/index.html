@@ -243,16 +243,9 @@
 <li>you are working with a vocabulary that is hierarchical.</li>
 <li>you want to use Workbench to load vocabulary terms but you want them to exist before (or separate from) the nodes that a <code>create</code> task creates.</li>
 </ul>
-<p>If you want to create terms at the same time you are using a <code>create</code> task to create the nodes the terms are attached to, and if the terms you are creating don't have any additional fields or hierarchical relationships to other terms, you can create terms as described in as described in the "Taxonomy reference fields" section of "<a href="/islandora_workbench_docs/fields">Drupal fields and CSV fields</a>."</p>
-<h3 id="term-weight-and-description">Term weight and description</h3>
-<p>Two other reserved CSV column headers are <code>weight</code> and <code>description</code>. All terms in Drupal have these two fields.</p>
-<ul>
-<li><code>weight</code> is used to sort the terms in the vocabulary overview page in relation to their parent term (or the vocabulary root if a term has no parent). Values in the <code>weight</code> field are integers. The lower the weight, the earlier the term sorts. For example, a value of "0" (zero) sorts the term at the top in relation to its parent, and a value of "100" sorts the term much lower.</li>
-<li><code>description</code> is, as the name suggests, a field that contains a description of the term.</li>
-</ul>
-<p>Both <code>weight</code> and <code>description</code> are optional columns in your CSV.</p>
-<h3 id="vocabularies-with-custom-fields">Vocabularies with custom fields</h3>
-<p>To load a vocabulary, you use a <code>create_terms</code> task. A typical <code>create_terms</code> configuration file looks like this:</p>
+<p>If you want to create terms at the same time you are using a <code>create</code> task to create the nodes the terms are attached to, and if the terms you are creating don't have any additional fields or hierarchical relationships to other terms, you don't need to use the task described here. You can use the method you can create terms as described in as described in the "Taxonomy reference fields" section of "<a href="/islandora_workbench_docs/fields">Drupal fields and CSV fields</a>."</p>
+<h3 id="the-configuration-and-input-csv-files">The configuration and input CSV files</h3>
+<p>To load terms into a vocabulary, you use a <code>create_terms</code> task. A typical <code>create_terms</code> configuration file looks like this:</p>
 <pre><code class="yaml">task: create_terms
 host: &quot;http://localhost:8000&quot;
 username: admin
@@ -262,16 +255,30 @@ vocab_id: myvocabulary
 </code></pre>
 
 <p>The <code>vocab_id</code> config option is required. It contains the machine name of the vocabulary you are loading the terms into. </p>
-<p>The CSV file identified in the <code>input_csv</code> option has one required column, <code>term_name</code>, which contains each term's name. (Another reserved but optional column, <code>parent</code>, is described below in the "Hierarchical vocabularies" section.) You can add additional columns that correspond to a vocabulary's field names, just like you do when you assemble your CSV for <code>create</code> tasks.</p>
+<p>The CSV file identified in the <code>input_csv</code> option has one required column, <code>term_name</code>, which contains each term's name. (Other reserved but optional columns, <code>parent</code>, <code>weight</code>, and <code>description, are described below.) You can add additional columns that correspond to a vocabulary's field names, just like you do when you assemble your CSV for</code>create` tasks.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Unlike Input CSV files used during <code>create</code> tasks, input CSV files for <code>create_terms</code> tasks do not have an "id" column. Instead, <code>term_name</code> is the column whose values are the unique identifier for each term. Workbench assumes that term names are unique within a vocabulary. If the terms in the <code>term_name</code> column aren't unique, Workbench only creates the term the first time it encounters it in the CSV file. </p>
 </div>
-<p>An example CSV for a vocabulary that has two additional fields, "field_example" and "field_second_example", in addtion to the optional "description" column would look like this:</p>
+<h3 id="term-weight-and-description">Term weight and description</h3>
+<p>Two other reserved CSV column headers are <code>weight</code> and <code>description</code>. All terms in Drupal have these two fields.</p>
+<ul>
+<li><code>weight</code> is used to sort the terms in the vocabulary overview page in relation to their parent term (or the vocabulary root if a term has no parent). Values in the <code>weight</code> field are integers. The lower the weight, the earlier the term sorts. For example, a value of "0" (zero) sorts the term at the top in relation to its parent, and a value of "100" sorts the term much lower.</li>
+<li><code>description</code> is, as the name suggests, a field that contains a description of the term.</li>
+</ul>
+<p>Both <code>weight</code> and <code>description</code> are optional columns in your CSV.</p>
+<h3 id="vocabularies-with-custom-fields">Vocabularies with custom fields</h3>
+<p>Example column headers in a CSV file for use in <code>create_terms</code> tasks that has two additional fields, "field_example" and "field_second_example", in addtion to the optional "description" column would look like this:</p>
 <pre><code class="text">term_name,field_example,field_second_example,description
 </code></pre>
 
-<p>Optional fields don't need to be included in our CSV if you are not populating them, but required fields do need to be present, and populated. Running <code>--check</code> on a <code>create_terms</code> task will flag any required fields that are missing from your input CSV file.</p>
+<p>Here is a sample CSV input file with headers (for "description" and "field_external_uri" fields) and two records:</p>
+<pre><code class="text">term_name,description,field_external_uri
+Program file,Testing adding taxonomy terms (Program file),http://id.loc.gov/vocabulary/mfiletype/program
+Data set,Testing adding taxonomy terms (Data set),https://www.wikidata.org/wiki/Q1172284
+</code></pre>
+
+<p>Optional fields don't need to be included in our CSV if you are not populating them, but fields that are configured as required in the vocabulary settings do need to be present, and populated (just like required fields on content types in <code>create</code> tasks). Running <code>--check</code> on a <code>create_terms</code> task will flag any required fields that are missing from your input CSV file.</p>
 <h3 id="hierarchical-vocabularies">Hierarchical vocabularies</h3>
 <p>If you want to create a vocabulary that is hierarchical, like this:</p>
 <p><img alt="Hierarchical_vocabulary" src="../images/hierarchical_vocab.png" /></p>
