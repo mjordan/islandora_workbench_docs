@@ -243,8 +243,11 @@
 <li>you are working with a vocabulary that is hierarchical.</li>
 <li>you want to use Workbench to load vocabulary terms but you want them to exist before (or separate from) the nodes that a <code>create</code> task creates.</li>
 </ul>
-<p>If you want to create terms at the same time you are using a <code>create</code> task to create the nodes the terms are attached to, and if the terms you are creating don't have any additional fields or hierarchical relationships to other terms, you can still create terms as described in as described in the "Taxonomy reference fields" section of "<a href="/islandora_workbench_docs/fields">Drupal fields and CSV fields</a>."</p>
-<h3 id="vocabularies-with-fields">Vocabularies with fields</h3>
+<p>If you want to create terms at the same time you are using a <code>create</code> task to create the nodes the terms are attached to, and if the terms you are creating don't have any additional fields or hierarchical relationships to other terms, you can create terms as described in as described in the "Taxonomy reference fields" section of "<a href="/islandora_workbench_docs/fields">Drupal fields and CSV fields</a>."</p>
+<h3 id="term-weight-and-description">Term weight and description</h3>
+<p>Two other reserved CSV column headers are <code>weight</code> and <code>description</code>. All terms in Drupal have these two fields. "weight" is used to sort the terms in the vocabulary over page in relation to their parent term (or the vocabulary root if a term has no parent), and "description" is what it sounds like, a field that holds a description of the term. Both <code>weight</code> and <code>description</code> are optional columns in your CSV.</p>
+<p>Values in the <code>weight</code> field are integers. The lower the weight, the earlier the term sorts. For example, a value of "0" (zero) sorts the term at the top in relation to its parent, and a value of "100" sorts the term much lower.</p>
+<h3 id="vocabularies-with-custom-fields">Vocabularies with custom fields</h3>
 <p>To load a vocabulary, you use a <code>create_terms</code> task. A typical <code>create_terms</code> configuration file looks like this:</p>
 <pre><code class="yaml">task: create_terms
 host: &quot;http://localhost:8000&quot;
@@ -260,9 +263,8 @@ vocab_id: myvocabulary
 <p class="admonition-title">Note</p>
 <p>Unlike Input CSV files used during <code>create</code> tasks, input CSV files for <code>create_terms</code> tasks do not have an "id" column. Instead, <code>term_name</code> is the column whose values are the unique identifier for each term. Workbench assumes that term names are unique within a vocabulary. If the terms in the <code>term_name</code> column aren't unique, Workbench only creates the term the first time it encounters it in the CSV file. </p>
 </div>
-<p>An example CSV for a vocabulary that has two additional fields, "field_example" and "field_second_example", my input CSV's column headers would look like this:</p>
-<pre><code class="text">term_name,field_example,field_second_example
-
+<p>An example CSV for a vocabulary that has two additional fields, "field_example" and "field_second_example", in addtion to the optional "description" column would look like this:</p>
+<pre><code class="text">term_name,field_example,field_second_example,description
 </code></pre>
 
 <p>Optional fields don't need to be included in our CSV if you are not populating them, but required fields do need to be present, and populated. Running <code>--check</code> on a <code>create_terms</code> task will flag any required fields that are missing from your input CSV file.</p>
@@ -281,13 +283,13 @@ Land Rover,SUVs
 
 <p>One important aspect of creating a hierarchical vocabulary is that all parents must exist before their children. That means that within your CSV file, the rows for terms used as parents should be placed earlier than the rows for their children. If a term is named as a parent but doesn't exist (or doesn't exist yet because it came after the child term in the CSV), Workbench will create the child term and write a warning in the log indicating that the parent didn't exist at the time of creating the child. </p>
 <p>You can include the <code>parent</code> column in your CSV along with Drupal field names. Workbench will not only create the hierarchy, it will also add the field data to the terms:</p>
-<pre><code class="text">term_name,parent,field_external_uri
-Automobiles,,
-Sports cars,Automobiles,https://en.wikipedia.org/wiki/Sports_car
-SUVs,Automobiles,https://en.wikipedia.org/wiki/Sport_utility_vehicle
-Jaguar,Sports cars,
-Porche,Sports cars,
-Land Rover,SUVs,
+<pre><code class="text">term_name,parent,description,field_external_uri
+Automobiles,,,
+Sports cars,Automobiles,&quot;Sports cars focus on performance, handling, and driver experience.&quot;,https://en.wikipedia.org/wiki/Sports_car
+SUVs,Automobiles,&quot;SUVs, or Sports Utility Vehicles, are the most popular type of automobile.&quot;,https://en.wikipedia.org/wiki/Sport_utility_vehicle
+Jaguar,Sports cars,,
+Porche,Sports cars,,
+Land Rover,SUVs,,
 </code></pre>
               
             </div>
