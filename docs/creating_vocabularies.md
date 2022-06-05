@@ -1,4 +1,4 @@
-Islandora Workbench lets you creatw vocabulary terms from CSV files. This ability is separate from creating vocabulary terms at the same time as creating the nodes in `create` or `update` tasks, as described in "[Drupal fields and CSV fields](/islandora_workbench_docs/fields)" documentation. You should load a vocabulary using the options described here if any of these situations applies to you:
+Islandora Workbench lets you create vocabulary terms from CSV files. This ability is separate from creating vocabulary terms at the same time as creating the nodes in `create` or `update` tasks, as described in "[Drupal fields and CSV fields](/islandora_workbench_docs/fields)" documentation. You should load a vocabulary using the options described here if any of these situations applies to you:
 
 * you are working with a vocabulary that has fields in addition to term name.
 * you are working with a vocabulary that is hierarchical.
