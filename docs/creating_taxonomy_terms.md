@@ -1,10 +1,10 @@
-Islandora Workbench lets you create vocabulary terms from CSV files. This ability is separate from creating vocabulary terms while creating the nodes in a `create` task, as described in the "[Fields (Drupal and CSV)](/islandora_workbench_docs/fields)" documentation. You should create vocabulary terms using the options described here if any of these situations applies to you:
+Islandora Workbench lets you create vocabulary terms from CSV files. This ability is separate from creating vocabulary terms while creating the nodes in a `create` task, as described in the "[Field data (Drupal and CSV)](/islandora_workbench_docs/fields)" documentation. You should create vocabulary terms using the options described here if any of these situations applies to you:
 
 * you are working with a vocabulary that has fields in addition to term name
 * you are working with a vocabulary that is hierarchical
 * you want terms to exist before you create nodes using a `create` task.
 
-If you want to create terms during a `create` task, and if the terms you are creating don't have any additional fields or hierarchical relationships to other terms, then you don't need to use the task described here. You can use the method you can create terms as described in as described in the "Taxonomy reference fields" section of "[Fields (Drupal and CSV)](/islandora_workbench_docs/fields)."
+If you want to create terms during a `create` task, and if the terms you are creating don't have any additional fields or hierarchical relationships to other terms, then you don't need to use the task described here. You can use the method you can create terms as described in as described in the "Taxonomy reference fields" section of "[Field data (Drupal and CSV)](/islandora_workbench_docs/fields)."
 
 ### The configuration and input CSV files
 
