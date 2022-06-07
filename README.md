@@ -14,4 +14,4 @@ This documentation is managed by MkDocs. Please ensure that all Markdown is comp
 
 ## License
 
-[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
+[![License: CC BYSA 4.0](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](https://creativecommons.org/licenses/by-sa/4.0/)

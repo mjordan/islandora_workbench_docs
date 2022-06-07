@@ -16,6 +16,7 @@ pages:
     - Creating paged, compound, and collection content: paged_and_compound.md
     - Creating nodes without media: nodes_only.md
     - Creating nodes from files: creating_nodes_from_files.md
+    - Creating taxonomy terms: creating_taxonomy_terms.md
     - Assigning URL aliases: aliases.md
     - Adding alt text to images: alt_text.md
     - Rolling back nodes and media: rolling_back.md

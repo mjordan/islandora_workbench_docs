@@ -44,3 +44,4 @@ Some things to note:
 * Values in the `node_id` column can be numeric node IDs (e.g. `467`) or full URLs, including URL aliases.
 * You should include `validate_title_length: false` in your update configuration file, unless you are updating node titles.
 * If a node you are updating doesn't have a field named in your input CSV, Workbench will skip updating the node and add a log entry to that effect.
+* For `update` tasks where the `update_mode` is "delete", it doesn't matter if the column(s) in the input CSV are blank or contain values - the values in the corresponding Drupal fields are deleted in both cases.
