@@ -23,6 +23,7 @@ The following CSV columns are used for specific purposes and in some cases are r
 | url_alias | create, update | See detail in "[Assigning URL aliases](/islandora_workbench_docs/aliases/)". |
 | image_alt_text | create |  See detail in "[Adding alt text to images](/islandora_workbench_docs/alt_text/)".|
 | checksum | create |  See detail in "[Fixity checking](/islandora_workbench_docs/fixity/)".|
+| term_name | create_terms |  See detail in "[Creating taxonomy terms](/islandora_workbench_docs/creating_taxonomy_terms/)".|
 
 ### Values in the "file" column
 
