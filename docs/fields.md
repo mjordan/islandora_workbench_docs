@@ -410,7 +410,7 @@ http://acme.com|http://diy-first-aid.net%%DIY First Aid
 
 #### Authority link fields
 
-The aurhority link field type stores abbreviations for authority sources (i.e., controlled vocabularies), authority URIs (e.g. `http://viaf.org/viaf/153525475`) and link text in separate data elements. Authority link fields are most commonly used on taxonomy terms, but can be used on nodes as well.
+The aurhority link field type stores abbreviations for authority sources (i.e., external controlled vocabularies such as national name authorities), authority URIs (e.g. `http://viaf.org/viaf/153525475`) and link text in separate data elements. Authority link fields are most commonly used on taxonomy terms, but can be used on nodes as well.
 
 To add or update fields of this type, Workbench needs to provide the authority source abbreviation, URI and link text in the structure Drupal expects. To accomplish this within a single CSV field, we separate the three parts in CSV values with double percent signs (`%%`), like this:
 
@@ -419,7 +419,7 @@ field_authority_vocabs
 viaf%%http://viaf.org/viaf/10646807%%VIAF Record
 ```
 
-You can include multiple pairs of URL/link text pairs in one CSV field if you separate them with the subdelimiter character:
+You can include multiple triplets of source abbreviation/URL/link text in one CSV field if you separate them with the subdelimiter character:
 
 ```text
 field_authority_vocabs
