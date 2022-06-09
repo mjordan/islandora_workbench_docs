@@ -6,7 +6,7 @@
 
 This is probably caused by unexpected data in your CSV file that Workbench's `--check` validation is not finding. If you encounter these messages, please [open an issue](https://github.com/mjordan/islandora_workbench/issues) and share any relevant entries in your Drupal log (as an admin user, go to Admin > Reports > Recent log messages) so we can track down the problem.
 
-One of the most common causes of this error is that one or more of the vocabularies being populated in your CSV contain required fields other than the default term name, something which Islandora Workbench [cannot currently handle](https://github.com/mjordan/islandora_workbench/issues/111). While it is possible to have Workbench create these fields, the additional fields will need to be included in the input CSV. If you have an opinion on how that can be best done (while keeping the CSV relatively human-readable), please leave a comment on the linked Github issue.
+One of the most common causes of this error is that one or more of the vocabularies being populated in your `create` task CSV contain required fields other than the default term name. It is possible to have Workbench create these fields, but you must do so as a separate `create_terms` task. See "[Creating taxonomy terms](/islandora_workbench_docs/creating_taxonomy_terms)" for more information.
 
 ## --check is telling me that one the rows in my CSV file has more columns than headers.
 
