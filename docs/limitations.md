@@ -12,10 +12,3 @@ If Workbench normalizes a filename, it logs the original and the normalized vers
 
 This is limitation of Drupal (see [this issue](https://github.com/Islandora/documentation/issues/1485)).
 
-## Workbench cannot create taxonomy terms that have required fields other than the core "name" field.
-
-See [this issue](https://github.com/mjordan/islandora_workbench/issues/111) for more information.
-
-## Workbench cannot create a term that has another term as its parent (i.e. terms below the top level of a hierarchical taxonomy).
-
-See [this issue](https://github.com/mjordan/islandora_workbench/issues/236) for more information.
