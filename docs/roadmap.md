@@ -1,7 +1,7 @@
 Islandora Workbench development priorities for Fall 2021 are:
 
-1. ability to create taxonomy terms with fields ([issue](https://github.com/mjordan/islandora_workbench/issues/111))
-1. ability to create hierarchical taxonomy terms ([issue](https://github.com/mjordan/islandora_workbench/issues/236))
+1. ~ability to create taxonomy terms with fields ([issue](https://github.com/mjordan/islandora_workbench/issues/111))~ Done.
+1. ~ability to create hierarchical taxonomy terms ([issue](https://github.com/mjordan/islandora_workbench/issues/236))~ Done.
 1. ability to add/update remote video and audio ([issue](https://github.com/mjordan/islandora_workbench/issues/252))
 1. ability to add/update multilingual field data ([issue](https://github.com/mjordan/islandora_workbench/issues/259))
 1. ability to add/update a non-base Drupal title field ([issue](https://github.com/mjordan/islandora_workbench/issues/295))
