@@ -27,29 +27,31 @@ If you already have the required Python libraries installed, simply cloning Isla
 
 This will create a directory named `islandora_workbench` where you will run the `./workbench` command.
 
-If you don't already have the required libraries installed, clone this repo as above, and then use `setup.py`:
+### Installing required Python libraries in your user's environment
 
-`sudo python3 setup.py install`
-
-If you would rather not install third-party libraries in your operating system's central Python location, or you do not have `sudo` privileges on your computer, you can install them in your user directory:
+If you want to install third-party libraries in your user environment, change into the `islandora_workbench` directory and run the following command:
 
 `python3 setup.py install --user`
 
-After you run either of these install commands, all of the required Python libraries will be installed.
+### Installing required Python libraries in your computer's central Python environment
+
+If you want to install the required Python libraries into your computer's central Python environment, omit the `--user` (note: you must have administrator privileges on the computer to do this):
+
+`sudo python3 setup.py install`
 
 ## Updating Islandora Workbench
 
-Since Islandora Workbench is under development, you will want to update it often. To do this, run the following `git` command:
+Since Islandora Workbench is under development, you will want to update it often. To do this, within the `islandora_workbench` directory, run the following `git` command:
 
 `git pull origin main`
 
 After you pull in the latest changes using `git`, it's a good idea to rerun the setup tools in case new Python libraries have been added since you last ran the setup tools (same command as above):
 
-`sudo python3 setup.py install`
+`sudo python3 setup.py install --user`
 
-or if you originally installed Islandora Workbench using the `--user` option:
+or if you originally installed the required Python libraries centrally, withoug the `--user` option (again, you will need administrator privileges on the machine):
 
-`python3 setup.py install --user`
+`python3 setup.py install`
 
 ## Keeping the Islandora Workbench Integration Drupal module up to date
 
