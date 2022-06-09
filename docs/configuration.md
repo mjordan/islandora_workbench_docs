@@ -19,7 +19,7 @@ The settings defined in a configuration file are documented below, grouped into 
 
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
-| task | ✔️ | | One of 'create', 'create_from_files', 'update', delete', 'add_media', 'delete_media', 'export_csv', or 'delete_media_by_node'. |
+| task | ✔️ | | One of 'create', 'create_from_files', 'update', delete', 'add_media', 'delete_media', 'export_csv', 'create_terms', or 'delete_media_by_node'. |
 | host | ✔️ | | The hostname, including `http://` or `https://` of your Islandora repository, and port number if not the default 80. This value must be wrapped in quotation marks. |
 | username |  ✔️ | | The username used to authenticate the requests. This Drupal user should be a member of the "Administrator" role. If you want to create nodes that are owned by a specific Drupal user, include their numeric user ID in the `uid` column in your CSV. |
 | password |  ✔️ | | The user's password. |
@@ -30,7 +30,8 @@ The settings defined in a configuration file are documented below, grouped into 
 | --- | --- | --- | --- |
 | content_type |  | islandora_object | The machine name of the Drupal node content type you are creating or updating. |
 | drupal_filesystem | | fedora:// | One of 'fedora://', 'public://', or 'private://' (the wrapping quotation marks are required). Only used with Drupal 8.x - 9.1; starting with Drupal 9.2, the filesystem is automatically detected from the media's configuration. |
-| allow_adding_terms |  | false | Determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "[Taxonomy reference fields](/islandora_workbench_docs/fields/#field-types)" section. |
+| allow_adding_terms |  | false | In `create` and `update` tasks, determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "[Taxonomy reference fields](/islandora_workbench_docs/fields/#field-types)" section. Note: this setting is not required in `create_terms` tasks. |
+| vocab_id | ✔️ in `create_terms` tasks. | | Identifies the vocabulary you are adding terms to in `create_tersm` tasks. See more information in the "[Creating taxonomy terms](/islandora_workbench_docs/creating_taxonomy_terms)" section. |
 | update_mode |  | replace | Determines if Workbench will `replace`, `append` (add to) , or `delete` field values during `update` tasks. See more information in the "[Updating nodes](/islandora_workbench_docs/updating_nodes)" section. |
 | validate_terms_exist |  | true | If set to false, during `--check` Workbench will not query Drupal to determine if taxonomy terms exist. The structure of term values in CSV are still validated; this option only tells Workbench to not check for each term's existence in the target Drupal. Useful to speed up the `--check` process if you know terms don't exist in the target Drupal. |
 | published | | true | Whether nodes are published or not. Applies to `create` task only. Set to false if you want the nodes to be unpublished. Note that whether or not a node is published can also be set at a node level in the CSV file in the status base field, as described in the "Base Fields" section. Values in the CSV override the value of published set here. |
