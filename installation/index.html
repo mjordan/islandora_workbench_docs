@@ -62,6 +62,14 @@
 
     <li class="toctree-l2"><a href="#installing-islandora-workbench">Installing Islandora Workbench</a></li>
     
+        <ul>
+        
+            <li><a class="toctree-l3" href="#installing-required-python-libraries-in-your-users-environment">Installing required Python libraries in your user's environment</a></li>
+        
+            <li><a class="toctree-l3" href="#installing-required-python-libraries-in-your-computers-central-python-environment">Installing required Python libraries in your computer's central Python environment</a></li>
+        
+        </ul>
+    
 
     <li class="toctree-l2"><a href="#updating-islandora-workbench">Updating Islandora Workbench</a></li>
     
@@ -287,18 +295,19 @@
 <p>If you already have the required Python libraries installed, simply cloning Islandora Workbench from GitHub is all you need to do:</p>
 <p><code>git clone https://github.com/mjordan/islandora_workbench.git</code></p>
 <p>This will create a directory named <code>islandora_workbench</code> where you will run the <code>./workbench</code> command.</p>
-<p>If you don't already have the required libraries installed, clone this repo as above, and then use <code>setup.py</code>:</p>
-<p><code>sudo python3 setup.py install</code></p>
-<p>If you would rather not install third-party libraries in your operating system's central Python location, or you do not have <code>sudo</code> privileges on your computer, you can install them in your user directory:</p>
+<h3 id="installing-required-python-libraries-in-your-users-environment">Installing required Python libraries in your user's environment</h3>
+<p>If you want to install third-party libraries in your user environment, change into the <code>islandora_workbench</code> directory and run the following command:</p>
 <p><code>python3 setup.py install --user</code></p>
-<p>After you run either of these install commands, all of the required Python libraries will be installed.</p>
+<h3 id="installing-required-python-libraries-in-your-computers-central-python-environment">Installing required Python libraries in your computer's central Python environment</h3>
+<p>If you want to install the required Python libraries into your computer's central Python environment, omit the <code>--user</code> (note: you must have administrator privileges on the computer to do this):</p>
+<p><code>sudo python3 setup.py install</code></p>
 <h2 id="updating-islandora-workbench">Updating Islandora Workbench</h2>
-<p>Since Islandora Workbench is under development, you will want to update it often. To do this, run the following <code>git</code> command:</p>
+<p>Since Islandora Workbench is under development, you will want to update it often. To do this, within the <code>islandora_workbench</code> directory, run the following <code>git</code> command:</p>
 <p><code>git pull origin main</code></p>
 <p>After you pull in the latest changes using <code>git</code>, it's a good idea to rerun the setup tools in case new Python libraries have been added since you last ran the setup tools (same command as above):</p>
-<p><code>sudo python3 setup.py install</code></p>
-<p>or if you originally installed Islandora Workbench using the <code>--user</code> option:</p>
-<p><code>python3 setup.py install --user</code></p>
+<p><code>sudo python3 setup.py install --user</code></p>
+<p>or if you originally installed the required Python libraries centrally, withoug the <code>--user</code> option (again, you will need administrator privileges on the machine):</p>
+<p><code>python3 setup.py install</code></p>
 <h2 id="keeping-the-islandora-workbench-integration-drupal-module-up-to-date">Keeping the Islandora Workbench Integration Drupal module up to date</h2>
 <p>Islandora Workbench communicates with Drupal using REST endpoints and Views. The Islandora Workbench Integration module (linked above in the "Requirements" section) ensures that the target Drupal has all required REST endpoints and Views enabled. Therefore, keeping it in sync with Islandora Workbench is important.</p>
 <p>Workbench checks the version of the Integration module and tells you if you need to upgrade it. To upgrade the module, update its code via Git or Composer, and follow the instructions in the "Updates" section of its <a href="https://github.com/mjordan/islandora_workbench_integration/blob/main/README.md">README</a>.</p>

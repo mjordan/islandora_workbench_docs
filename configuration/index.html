@@ -329,7 +329,7 @@ password: islandora
 <td>task</td>
 <td>✔️</td>
 <td></td>
-<td>One of 'create', 'create_from_files', 'update', delete', 'add_media', 'delete_media', 'export_csv', or 'delete_media_by_node'.</td>
+<td>One of 'create', 'create_from_files', 'update', delete', 'add_media', 'delete_media', 'export_csv', 'create_terms', or 'delete_media_by_node'.</td>
 </tr>
 <tr>
 <td>host</td>
@@ -378,7 +378,13 @@ password: islandora
 <td>allow_adding_terms</td>
 <td></td>
 <td>false</td>
-<td>Determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "<a href="/islandora_workbench_docs/fields/#field-types">Taxonomy reference fields</a>" section.</td>
+<td>In <code>create</code> and <code>update</code> tasks, determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "<a href="/islandora_workbench_docs/fields/#field-types">Taxonomy reference fields</a>" section. Note: this setting is not required in <code>create_terms</code> tasks.</td>
+</tr>
+<tr>
+<td>vocab_id</td>
+<td>✔️ in <code>create_terms</code> tasks.</td>
+<td></td>
+<td>Identifies the vocabulary you are adding terms to in <code>create_tersm</code> tasks. See more information in the "<a href="/islandora_workbench_docs/creating_taxonomy_terms">Creating taxonomy terms</a>" section.</td>
 </tr>
 <tr>
 <td>update_mode</td>
