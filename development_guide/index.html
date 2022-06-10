@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Creating nodes without media - Islandora Workbench</title>
+  <title>Development guide - Islandora Workbench</title>
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
@@ -16,8 +16,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Creating nodes without media";
-    var mkdocs_page_input_path = "nodes_only.md";
+    var mkdocs_page_name = "Development guide";
+    var mkdocs_page_input_path = "development_guide.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -87,12 +87,9 @@
     <a class="" href="../paged_and_compound/">Creating paged, compound, and collection content</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">Creating nodes without media</a>
-    <ul class="subnav">
-            
-    </ul>
+    <a class="" href="../nodes_only/">Creating nodes without media</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -210,9 +207,18 @@
     <a class="" href="../troubleshooting/">Troubleshooting</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../development_guide/">Development guide</a>
+    <a class="current" href="./">Development guide</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#general">General</a></li>
+    
+
+    <li class="toctree-l2"><a href="#adding-a-new-drupal-field-type">Adding a new Drupal field type</a></li>
+    
+
+    </ul>
 	    </li>
           
         </ul>
@@ -237,10 +243,10 @@
     
       
     
-    <li>Creating nodes without media</li>
+    <li>Development guide</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/nodes_only.md"
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/development_guide.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -250,15 +256,31 @@
           <div role="main">
             <div class="section">
               
-                <p>During a <code>create</code> task, if you want to create nodes but not any accompanying media, for example if you are testing your metadata values or creating collection nodes, you can include the <code>nodes_only: true</code> option in your configuration file:</p>
-<pre><code class="yaml">task: create
-host: &quot;http://localhost:8000&quot;
-username: admin
-password: islandora
-nodes_only: true
-</code></pre>
-
-<p>If this is present, Islandora Workbench will only create nodes and will skip all media creation. During <code>--check</code>, it will ignore anything in your CSV's <code>files</code> field (in fact, your CSV doesn't even need a <code>file</code> column). If <code>nodes_only</code> is <code>true</code>, your configuration file for the <code>create</code> task doesn't need a <code>media_use_tid</code>, <code>drupal_filesystem</code>, or <code>media_type</code>/<code>media_types_override</code> option.</p>
+                <p>This documentation is aimed at developers who want to contribute to Islandora Workbench.</p>
+<h2 id="general">General</h2>
+<p>Bug reports, improvements, feature requests, and PRs welcome. Before you open a pull request, please open an issue.</p>
+<p>If you open a PR, please check your code with pycodestyle:</p>
+<p><code>pycodestyle --show-source --show-pep8 --ignore=E402,W504 --max-line-length=200 .</code> (or replace the <code>.</code> with a specific filename).</p>
+<p>Also provide tests where applicable. Tests in Workbench fall into two categories:</p>
+<ul>
+<li>Unit tests (that do not require Islandora) which are all in <code>tests/unit_tests.py</code> and can be run with <code>python3 tests/unit_tests.py</code></li>
+<li>Unit tests on Workbench's Drupal fields handlers (these also does not require Islandora) are in <code>tests/field_tests.py</code> and can be run with <code>python3 tests/field_tests.py</code></li>
+<li><code>field_tests.py</code> contains tests for field classes defined in <code>workbench_fields.py</code>. They are unit tests that do not need a live Islandora to run.</li>
+<li>Integration tests that require a live Islandora instance running at <code>http://localhost:8000</code>, which are in <code>tests/islandora_tests.py</code>, <code>tests/islandora_tests_check.py</code>,  <code>tests/islandora_tests_hooks.py</code>, and <code>tests/islandora_tests_paged_content.py</code> can be run with <code>python3 tests/islandora_tests.py</code>, etc.</li>
+<li>The <a href="https://github.com/Islandora-Devops/islandora-playbook">Islandora Playbook</a> is recommended way to deploy the Islandora used in these tests. Note that if an Islandora integration test fails, nodes and taxonomy terms created by the test before it fails may not be removed from Islandora.</li>
+<li>Some integration and field tests output text that beings with "Error:." This is normal, it's the text that Workbench outputs when it finds something wrong (which is probably what the test is testing). Successful test (whether they test for success or failure) runs will exit with "OK". If you can figure out how to suppress this output, please visit <a href="https://github.com/mjordan/islandora_workbench/issues/160">this issue</a>.</li>
+<li>If you want to run the tests within a specific class in one of these files, include the class name like this: <code>python3 tests/unit_tests.py TestCompareStings</code></li>
+</ul>
+<h2 id="adding-a-new-drupal-field-type">Adding a new Drupal field type</h2>
+<p>Eventually, handlers for new Drupal field types will need to be added to Workbench. Currently, the only types supported are:</p>
+<ul>
+<li>strings (for string or text fields) like <code>Using Islandora Workbench for Fun and Profit</code></li>
+<li>integers (for <code>field_weight</code>, for example) like <code>1</code> or <code>7281</code></li>
+<li>the binary values <code>1</code> or <code>0</code></li>
+<li>Existing Drupal-generated entity IDs (term IDs for taxonomy terms or node IDs for collections and parents), which are integers like <code>10</code> or <code>3549</code></li>
+<li>structured strings, for typed relation (e.g., <code>relators:art:30</code>), link fields (e.g., <code>https://acme.net%%Acme Products</code>), geolocation fields (e.g., <code>"49.16667,-123.93333"</code>), and athority link data (e.g., <code>viaf%%http://viaf.org/viaf/10646807%%VIAF Record</code>)</li>
+</ul>
+<p>Details on how to add new field types are comeing soon!</p>
               
             </div>
           </div>
@@ -266,10 +288,8 @@ nodes_only: true
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../creating_nodes_from_files/" class="btn btn-neutral float-right" title="Creating nodes from files">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../paged_and_compound/" class="btn btn-neutral" title="Creating paged, compound, and collection content"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../troubleshooting/" class="btn btn-neutral" title="Troubleshooting"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -297,10 +317,8 @@ nodes_only: true
           <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../paged_and_compound/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../troubleshooting/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../creating_nodes_from_files/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
