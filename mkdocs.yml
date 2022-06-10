@@ -38,6 +38,7 @@ pages:
     - Known limitations: limitations.md
     - Roadmap (Fall 2021): roadmap.md
     - Troubleshooting: troubleshooting.md
+    - Development guide: development_guide.md
 markdown_extensions:
   - admonition
 extra_css:

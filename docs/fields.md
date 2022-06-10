@@ -4,7 +4,7 @@ Workbench uses a CSV file to populate Islandora objects' metadata. This file con
 * integers (for `field_weight`, for example) like `1` or `7281`
 * the binary values `1` or `0`
 * Existing Drupal-generated entity IDs (term IDs for taxonomy terms or node IDs for collections and parents), which are integers like `10` or `3549`
-* structured strings, for typed relation (e.g., `relators:art:30`), link fields (e.g., `https://acme.net%%Acme Products`), and geolocation fields (e.g., `"49.16667,-123.93333"`)
+* structured strings, for typed relation (e.g., `relators:art:30`), link fields (e.g., `https://acme.net%%Acme Products`), geolocation fields (e.g., `"49.16667,-123.93333"`), and athority link data (e.g., `viaf%%http://viaf.org/viaf/10646807%%VIAF Record`)
 
 !!! note
     As is standard with CSV data, values do not need to be wrapped in double quotation marks (`"`) unless they contain an instance of the delimiter character (e.g., a comma) or line breaks. Spreadsheet applications such as Google Sheets, LibreOffice Calc, and Excel will output valid CSV data.
