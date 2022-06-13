@@ -352,7 +352,7 @@ password: islandora
 <td>password</td>
 <td>✔️</td>
 <td></td>
-<td>The user's password.</td>
+<td>The user's password. You can also set the password in your <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable. If you do this, omit the <code>password</code> option in your configuration file.</td>
 </tr>
 </tbody>
 </table>
@@ -780,6 +780,12 @@ password: islandora
 <td>Whether or not to log the HTTP response code. Useful for debugging.</td>
 </tr>
 <tr>
+<td>log_response_time</td>
+<td></td>
+<td>false</td>
+<td>Whether or not to log the response time of each request that is slower than the average response time for the last 20 HTTP requests Workbench makes to the Drupal server. Useful for debugging.</td>
+</tr>
+<tr>
 <td>log_response_body</td>
 <td></td>
 <td>false</td>
@@ -845,7 +851,19 @@ password: islandora
 <td>pause</td>
 <td></td>
 <td></td>
-<td>Defines the number of seconds to pause between each REST request to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5.</td>
+<td>Defines the number of seconds to pause between all 'POST', 'PUT', 'PATCH', 'DELETE' requests to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5.</td>
+</tr>
+<tr>
+<td>adaptive_pause</td>
+<td></td>
+<td></td>
+<td>Enables "adaptive pause" and defines the number of seconds to pause between each REST request to Drupal. Works like "pause" but only takes effect when the Drupal server's response to the most recent request is lower (determined by the "adaptive_pause_threshold" value) than the average response time for the last 20 requests.</td>
+</tr>
+<tr>
+<td>adaptive_pause_threshold</td>
+<td></td>
+<td>2</td>
+<td>A weighting, relative to the average response times of the last 20 requests, of how much slower the Drupal server's response to the most recent Workbench request must be in order for adaptive pausing to take effect for the next request. For example, if set to "1", adaptive pausing will happen when the response time is equal to the average of the last 20 response times; if set to "2", adaptive pausing will take effect if the last requests's response time is double the average. If a request if paused by adaptive pausing, Workbench will enable "log_response_time" for the requests.</td>
 </tr>
 <tr>
 <td>progress_bar</td>
