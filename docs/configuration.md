@@ -22,7 +22,7 @@ The settings defined in a configuration file are documented below, grouped into 
 | task | ✔️ | | One of 'create', 'create_from_files', 'update', delete', 'add_media', 'delete_media', 'export_csv', 'create_terms', or 'delete_media_by_node'. |
 | host | ✔️ | | The hostname, including `http://` or `https://` of your Islandora repository, and port number if not the default 80. This value must be wrapped in quotation marks. |
 | username |  ✔️ | | The username used to authenticate the requests. This Drupal user should be a member of the "Administrator" role. If you want to create nodes that are owned by a specific Drupal user, include their numeric user ID in the `uid` column in your CSV. |
-| password |  ✔️ | | The user's password. |
+| password |  ✔️ | | The user's password. You can also set the password in your `ISLANDORA_WORKBENCH_PASSWORD` environment variable. If you do this, omit the `password` option in your configuration file. |
 
 ### Drupal settings
 
@@ -123,6 +123,7 @@ See the "[Logging](/islandora_workbench_docs/logging/)" section for more informa
 | log_json |  | false | Whether or not to log the raw request JSON POSTed, PUT, or PATCHed to Drupal. Useful for debugging. |
 | log_headers |  | false | Whether or not to log the raw HTTP headers used in all requests. Useful for debugging. |
 | log_response_status_code |  | false | Whether or not to log the HTTP response code. Useful for debugging. |
+| log_response_time |  | false | Whether or not to log the response time of each request that is slower than the average response time for the last 20 HTTP requests Workbench makes to the Drupal server. Useful for debugging. |
 | log_response_body |  | false | Whether or not to log the raw HTTP response body. Useful for debugging. |
 
 ### HTTP settings
@@ -139,7 +140,9 @@ See the "[Logging](/islandora_workbench_docs/logging/)" section for more informa
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
 | timestamp_rollback |  | false | Set to `true` to add a timestamp to the "rollback.yml" and corresponding "rollback.csv" generated in "create" and "create_from_files" tasks. See "[Rolling back](/islandora_workbench_docs/rolling_back/)" for more information. |
-| pause |  | | Defines the number of seconds to pause between each REST request to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5. |
+| pause |  | | Defines the number of seconds to pause between all 'POST', 'PUT', 'PATCH', 'DELETE' requests to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5. |
+| adaptive_pause |  | | Defines the number of seconds to pause between each REST request to Drupal. Works like "pause" but only takes effect when the Drupal server's response to the most recent request is slower (determined by the "adaptive_pause_threshold" value) than the average response time for the last 20 requests. |
+| adaptive_pause_threshold |  | 2 | A weighting of the response time for the most recent request, relative to the average response times of the last 20 requests. This weighting determines how much slower the Drupal server's response to the most recent Workbench request must be in order for adaptive pausing to take effect for the next request. For example, if set to "1", adaptive pausing will happen when the response time is equal to the average of the last 20 response times; if set to "2", adaptive pausing will take effect if the last requests's response time is double the average. If a request if paused by adaptive pausing, Workbench will enable "log_response_time" for the requests. |
 | progress_bar |  | false | Show a progress bar when running Workbench instead of row-by-row output. |
 | bootstrap |  | | List of absolute paths to one or more scripts that execute prior to Workbench connecting to Drupal. More information is available in the "[Hooks](/islandora_workbench_docs/hooks/) documentation. |
 | preprocessors |  | | List of absolute paths to one or more scripts that are applied to CSV values prior to the values being ingested into Drupal. More information is available in the "[Hooks](/islandora_workbench_docs/hooks/) documentation. |

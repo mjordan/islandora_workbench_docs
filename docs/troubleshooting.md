@@ -10,7 +10,7 @@ One of the most common causes of this error is that one or more of the vocabular
 
 ## --check is telling me that one the rows in my CSV file has more columns than headers.
 
-The most likely problem is that one of your CSV values contains a comma but is not wrapped in double quotes. 
+The most likely problem is that one of your CSV values contains a comma but is not wrapped in double quotes.
 
 ## Workbench is slow.
 
@@ -19,6 +19,12 @@ True, it can be slow. However, users have found that the following strategies in
 * Running Workbench on the same server that Drupal is running on (e.g. using "localhost" as the value of `host` in your config file). While doing this negates Workbench's most important design principle - that it does not require access to the Drupal server's command line - during long-running jobs such as those that are part of migrations, this is the best way to speed up Workbench.
 * Using local instead of remote files. If you populate your `file` or "additional files" fields with filenames that start with "http", Workbench downloads each of those files before ingesting them. Providing local copies of those files in advance of running Workbench will eliminate the time it takes Workbench to download them.
 * Avoid confirming taxonomy terms' existence during `--check`. If you add `validate_terms_exist: false` to your configuration file, Workbench will not query Drupal for each taxonomy term during `--check`. This option is suitable if you know that the terms don't exist in the target Drupal. Note that this option only speeds up `--check`; it does not have any effect when creating new nodes.
+
+## Workbench crashes or slows down my Drupal server.
+
+If Islandora Workbench is putting too much strain on your Drupal server, you should try enabling the `pause` configuration option. If that works, replace it with the `adaptive_pause` option and see if that also works. The former option pauses between all communication requests between Workbench and Drupal, while the latter pauses only if the server's response time for the last request is longer than the average of the last 20 requests.
+
+Note that both of these settings will slow Workbench down, which is their purpose. However, `adaptive_pause` should have less impact on overall speed since it only pauses between requests if it detects the server is getting slower over time. If you use `adaptive_pause`, you can also tune the `adaptive_pause_threshold` option by incrementing the value by .5 intervals (for example, from the default of 2 to 2.5, then 3, etc.) to see if doing so reduces strain on your Drupal server while keeping overall speed acceptable. You can also lower the value of `adaptive_pause` incrementally to balance strain with overall speed.
 
 ## The text in my CSV does not match how it looks when I view it in Drupal.
 

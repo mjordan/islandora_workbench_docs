@@ -21,21 +21,26 @@ Islandora Workbench has been installed and used on Linux, Mac, and Windows.
 
 ## Installing Islandora Workbench
 
-If you already have the required Python libraries installed, simply cloning Islandora Workbench from GitHub is all you need to do:
+Installation involves two steps:
+
+1. cloning the Islandora Workbench Github repo
+1. running `setup.py` to install the required Python libraries (listed above)
+
+### Step 1: cloning the Islandora Workbench Github repo
+
+In a terminal, run:
 
 `git clone https://github.com/mjordan/islandora_workbench.git`
 
 This will create a directory named `islandora_workbench` where you will run the `./workbench` command.
 
-### Installing required Python libraries in your user's environment
+### Step 2: running setup.py to install the required Python libraries
 
-If you want to install third-party libraries in your user environment, change into the `islandora_workbench` directory and run the following command:
+For most people, the preferred place to install Python libraries is in your user directory. To do this, change into the "islandora_workbench" directory created by cloning the repo, and run the following command:
 
 `python3 setup.py install --user`
 
-### Installing required Python libraries in your computer's central Python environment
-
-If you want to install the required Python libraries into your computer's central Python environment, omit the `--user` (note: you must have administrator privileges on the computer to do this):
+A less common mehtod is to install the required Python libraries into your computer's central Python environment. To do this, omit the `--user` (note: you must have administrator privileges on the computer to do this):
 
 `sudo python3 setup.py install`
 

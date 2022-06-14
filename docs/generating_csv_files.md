@@ -91,3 +91,48 @@ Some things to note:
 
 !!! warning
     Using the `export_csv_term_mode: name` option will slow down the export, since Workbench must query Drupal to get the name of each term. The more taxonomy or typed relation fields in your content type, the slower the export will be with `export_csv_term_mode` set to "name".
+
+### Using a Drupal View to identify content to export as CSV
+
+You can use a new or existing View to tell Workbench what nodes to export into CSV, and what fields you want in the CSV. This is done using a `get_data_from_view` task. A sample configuration file looks like this:
+
+```yaml
+task: get_data_from_view
+host: "http://localhost:8000/"
+view_path: '/workbench-export-test'
+username: admin
+password: islandora
+content_type: my_custom_content_type
+data_from_view_file_path: /tmp/islandora_export.csv
+# If export_csv_field_list is not present, all fields will be exported.
+# node_id and title are always included.
+export_csv_field_list: ['field_description', 'field_extent']
+```
+
+The `view_path` setting should contain the value of the "Path" option in the Views configuration page's "Path settings" section. The `data_from_view_file_path` is the location where you want your CSV file saved.
+
+In the View configuration page:
+
+1. Add a "REST export" display.
+1. Under "Format" > "Serializer" > "Settings", choose "json".
+1. In the View "Fields" settings, leave "The selected style or row format does not use fields" as is (see explanation below).
+1. Under "Path", add a path where your REST export will be accessible to Workbench. As noted above, this value is also what you should use in the `view_path` setting in your Workbench configuration file.
+1. Under "Pager" > "Items to display", choose "Paged output, mini pager". In "Pager options" choose 10 items to display.
+1. Under "Path settings" > "Access", choose "Permission" and "View published content". Under "Authentication", choose "basic_auth".
+
+Here is a screenshot illustrating these settings:
+
+![Sample REST export display](images/REST_export_display.png)
+
+To test your REST export, in your browser, join your Drupal hostname and the "Path" defined in your View configuration. Using the values in the configuration file above, that would be `http://localhost:8000/workbench-export-test`. You should see raw JSON (or formatted JSON if your browser renders JSON to be human readable) that lists the nodes in your View.
+
+!!! warning
+    If your View includes nodes that you do not want to be seen by anonymous users, of if it contains unpublished nodes, adjust the access permissions settings appropriately.
+
+Some things to note:
+
+* REST export Views displays don't use fields in the same way that other Views displays do. In fact, Drupal says within the Views user interface that for REST export displays, "The selected style or row format does not use fields." Instead, these displays export the entire node in JSON format. Workbench iterates through all fields on the node JSON that start with `field_` and includes those fields, plus `node_id` and `title`, in the output CSV.
+* If you don't want to export all the fields on a content type, you can list the fields you want to export in the `export_csv_field_list` configuration option.
+* Only content from nodes that have the content type identified in the `content_type` configuration setting will be written to the CSV file.
+* If you want to export term names instead of term IDs, include `export_csv_term_mode: name` in your configuration file.
+
