@@ -857,13 +857,13 @@ password: islandora
 <td>adaptive_pause</td>
 <td></td>
 <td></td>
-<td>Defines the number of seconds to pause between each REST request to Drupal. Works like "pause" but only takes effect when the Drupal server's response to the most recent request is slower (determined by the "adaptive_pause_threshold" value) than the average response time for the last 20 requests.</td>
+<td>Defines the number of seconds to pause between each REST request to Drupal. Works like "pause" but only takes effect when the Drupal server's response to the most recent request is slower (determined by the "adaptive_pause_threshold" value) than the average response time for the last 20 requests. If a request if paused by adaptive pausing, Workbench will log the response time for the next request.</td>
 </tr>
 <tr>
 <td>adaptive_pause_threshold</td>
 <td></td>
 <td>2</td>
-<td>A weighting of the response time for the most recent request, relative to the average response times of the last 20 requests. This weighting determines how much slower the Drupal server's response to the most recent Workbench request must be in order for adaptive pausing to take effect for the next request. For example, if set to "1", adaptive pausing will happen when the response time is equal to the average of the last 20 response times; if set to "2", adaptive pausing will take effect if the last requests's response time is double the average. If a request if paused by adaptive pausing, Workbench will enable "log_response_time" for the requests.</td>
+<td>A weighting of the response time for the most recent request, relative to the average response times of the last 20 requests. This weighting determines how much slower the Drupal server's response to the most recent Workbench request must be in order for adaptive pausing to take effect for the next request. For example, if set to "1", adaptive pausing will happen when the response time is equal to the average of the last 20 response times; if set to "2", adaptive pausing will take effect if the last requests's response time is double the average.</td>
 </tr>
 <tr>
 <td>progress_bar</td>
