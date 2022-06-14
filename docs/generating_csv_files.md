@@ -118,7 +118,7 @@ In the View configuration page:
 1. In the View "Fields" settings, leave "The selected style or row format does not use fields" as is (see explanation below).
 1. Under "Path", add a path where your REST export will be accessible to Workbench. As noted above, this value is also what you should use in the `view_path` setting in your Workbench configuration file.
 1. Under "Pager" > "Items to display", choose "Paged output, mini pager". In "Pager options" choose 10 items to display.
-1. Under "Path settings" > "Access", choose "Permission" and "View published content". Under "Authentication", choose "basic_auth".
+1. Under "Path settings" > "Access", choose "Permission" and "View published content". Under "Authentication", choose "basic_auth" and "cookie".
 
 Here is a screenshot illustrating these settings:
 
