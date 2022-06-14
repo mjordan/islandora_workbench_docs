@@ -64,9 +64,9 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#installing-required-python-libraries-in-your-users-environment">Installing required Python libraries in your user's environment</a></li>
+            <li><a class="toctree-l3" href="#step-1-cloning-the-islandora-workbench-github-repo">Step 1: cloning the Islandora Workbench Github repo</a></li>
         
-            <li><a class="toctree-l3" href="#installing-required-python-libraries-in-your-computers-central-python-environment">Installing required Python libraries in your computer's central Python environment</a></li>
+            <li><a class="toctree-l3" href="#step-2-running-setuppy-to-install-the-required-python-libraries">Step 2: running setup.py to install the required Python libraries</a></li>
         
         </ul>
     
@@ -297,14 +297,19 @@
 <p>Some systems have both Python 2 and Python 3 installed. It's a good idea to check which version is used when you run <code>python</code>. To do this, run <code>python --version</code>, which will output something like "Python 2.7.17" or "Python 3.8.10". If <code>python --version</code> indicates you're running version 2, try running <code>python3 --version</code> to see if you have version 3 installed.</p>
 </div>
 <h2 id="installing-islandora-workbench">Installing Islandora Workbench</h2>
-<p>If you already have the required Python libraries installed, simply cloning Islandora Workbench from GitHub is all you need to do:</p>
+<p>Installation involves two steps:</p>
+<ol>
+<li>cloning the Islandora Workbench Github repo</li>
+<li>running <code>setup.py</code> to install the required Python libraries (listed above)</li>
+</ol>
+<h3 id="step-1-cloning-the-islandora-workbench-github-repo">Step 1: cloning the Islandora Workbench Github repo</h3>
+<p>In a terminal, run:</p>
 <p><code>git clone https://github.com/mjordan/islandora_workbench.git</code></p>
 <p>This will create a directory named <code>islandora_workbench</code> where you will run the <code>./workbench</code> command.</p>
-<h3 id="installing-required-python-libraries-in-your-users-environment">Installing required Python libraries in your user's environment</h3>
-<p>If you want to install third-party libraries in your user environment, change into the <code>islandora_workbench</code> directory and run the following command:</p>
+<h3 id="step-2-running-setuppy-to-install-the-required-python-libraries">Step 2: running setup.py to install the required Python libraries</h3>
+<p>Usually, the preferred place to install Python libraries is in your user directory. To do this, change into the "islandora_workbench" directory created by cloning the repo, and run the following command:</p>
 <p><code>python3 setup.py install --user</code></p>
-<h3 id="installing-required-python-libraries-in-your-computers-central-python-environment">Installing required Python libraries in your computer's central Python environment</h3>
-<p>If you want to install the required Python libraries into your computer's central Python environment, omit the <code>--user</code> (note: you must have administrator privileges on the computer to do this):</p>
+<p>To install the required Python libraries into your computer's central Python environment, omit the <code>--user</code> (note: you must have administrator privileges on the computer to do this):</p>
 <p><code>sudo python3 setup.py install</code></p>
 <h2 id="updating-islandora-workbench">Updating Islandora Workbench</h2>
 <p>Since Islandora Workbench is under development, you will want to update it often. To do this, within the <code>islandora_workbench</code> directory, run the following <code>git</code> command:</p>
