@@ -344,6 +344,7 @@ host: &quot;http://localhost:8000/&quot;
 view_path: '/427test'
 username: admin
 password: islandora
+content_type: my_custom_content_type
 data_from_view_file_path: /tmp/427.csv
 # If export_csv_field_list is not present, all fields will be exported.
 # node_id and title are always included.
@@ -360,7 +361,9 @@ export_csv_field_list: ['field_description', 'field_extent']
 <li>Under "Pager" &gt; "Items to display", choose "Paged output, mini pager". In "Pager options" choose 10 items to display.</li>
 <li>Under "Path settings" &gt; "Access", choose "Permission" and "View published content". Under "Authentication", choose "basic_auth".</li>
 </ol>
-<p>To test your REST export, in your browser, go to the URL. You should see raw JSON (or formatted JSON if your browser renders JSON to be human readable) that lists the nodes in your View.</p>
+<p>Here is a screenshot illustrating these settings:</p>
+<p><img alt="Sample REST export display" src="../images/REST_export_display.png" /></p>
+<p>To test your REST export, in your browser, go to the "Path" URL defined in your View configuration. You should see raw JSON (or formatted JSON if your browser renders JSON to be human readable) that lists the nodes in your View.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If your View includes nodes that you do not want to be seen by anonymous users, of if it contains unpublished nodes, adjust the access permissions settings appropriately.</p>
@@ -369,6 +372,8 @@ export_csv_field_list: ['field_description', 'field_extent']
 <ul>
 <li>REST export Views displays don't use fields in the same way that other Views displays do. In fact, Drupal says within the Views user interface that for REST export displays, "The selected style or row format does not use fields." Instead, these displays export the entire node in JSON format. Workbench iterates through all fields on the node JSON that start with <code>field_</code> and includes those fields, plus <code>node_id</code> and <code>title</code>, in the output CSV.</li>
 <li>If you don't want to export all the fields on a content type, you can list the fields you want to export in the <code>export_csv_field_list</code> configuration option.</li>
+<li>Only content from nodes that have the content type identified in the <code>content_type</code> configuration setting will be written to the CSV file.</li>
+<li>If you want to export term names instead of term IDs, include <code>export_csv_term_mode: name</code> in your configuration file.</li>
 </ul>
               
             </div>
