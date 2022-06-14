@@ -341,11 +341,11 @@ export_csv_file_path: output.csv
 <p>You can use a new or existing View to tell Workbench what nodes to export into CSV, and what fields you want in the CSV. This is done using a <code>get_data_from_view</code> task. A sample configuration file looks like this:</p>
 <pre><code class="yaml">task: get_data_from_view
 host: &quot;http://localhost:8000/&quot;
-view_path: '/427test'
+view_path: '/workbench-export-test'
 username: admin
 password: islandora
 content_type: my_custom_content_type
-data_from_view_file_path: /tmp/427.csv
+data_from_view_file_path: /tmp/islandora_export.csv
 # If export_csv_field_list is not present, all fields will be exported.
 # node_id and title are always included.
 export_csv_field_list: ['field_description', 'field_extent']
@@ -357,13 +357,13 @@ export_csv_field_list: ['field_description', 'field_extent']
 <li>Add a "REST export" display.</li>
 <li>Under "Format" &gt; "Serializer" &gt; "Settings", choose "json".</li>
 <li>In the View "Fields" settings, leave "The selected style or row format does not use fields" as is (see explanation below).</li>
-<li>Under "Path", add a path where your REST export will be accessible to Workbench. The URL for REST export you will use in the <code>input_csv</code> configuration setting will be the value of this path appended to your Drupal's hostname. For example, if the "Path" value you have chose is <code>my-rest-export</code>, and your Drupal's hostname is <code>http://example.org</code>, the value of your <code>view_path</code> setting should be <code>/my-rest-export</code>.</li>
+<li>Under "Path", add a path where your REST export will be accessible to Workbench. As noted above, this value is also what you should use in the <code>view_path</code> setting in your Workbench configuration file.</li>
 <li>Under "Pager" &gt; "Items to display", choose "Paged output, mini pager". In "Pager options" choose 10 items to display.</li>
 <li>Under "Path settings" &gt; "Access", choose "Permission" and "View published content". Under "Authentication", choose "basic_auth".</li>
 </ol>
 <p>Here is a screenshot illustrating these settings:</p>
 <p><img alt="Sample REST export display" src="../images/REST_export_display.png" /></p>
-<p>To test your REST export, in your browser, go to the "Path" URL defined in your View configuration. You should see raw JSON (or formatted JSON if your browser renders JSON to be human readable) that lists the nodes in your View.</p>
+<p>To test your REST export, in your browser, join your Drupal hostname and the "Path" defined in your View configuration. Using the values in the configuration file above, that would be <code>http://localhost:8000/workbench-export-test</code>. You should see raw JSON (or formatted JSON if your browser renders JSON to be human readable) that lists the nodes in your View.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If your View includes nodes that you do not want to be seen by anonymous users, of if it contains unpublished nodes, adjust the access permissions settings appropriately.</p>
