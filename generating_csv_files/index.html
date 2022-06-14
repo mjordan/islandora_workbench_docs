@@ -338,7 +338,7 @@ export_csv_file_path: output.csv
 <p>Using the <code>export_csv_term_mode: name</code> option will slow down the export, since Workbench must query Drupal to get the name of each term. The more taxonomy or typed relation fields in your content type, the slower the export will be with <code>export_csv_term_mode</code> set to "name".</p>
 </div>
 <h3 id="using-a-drupal-view-to-identify-content-to-export-as-csv">Using a Drupal View to identify content to export as CSV</h3>
-<p>You can use a new or existing View to tell Workbench what nodes to export into CSV, and what fields you want in the CSV. This is done using a <code>get_data_from_view</code> task. A sample configuration file looks like this:</p>
+<p>You can use a new or existing View to tell Workbench what nodes to export into CSV. This is done using a <code>get_data_from_view</code> task. A sample configuration file looks like this:</p>
 <pre><code class="yaml">task: get_data_from_view
 host: &quot;http://localhost:8000/&quot;
 view_path: '/workbench-export-test'
