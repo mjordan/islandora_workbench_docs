@@ -94,7 +94,7 @@ Some things to note:
 
 ### Using a Drupal View to identify content to export as CSV
 
-You can use a new or existing View to tell Workbench what nodes to export into CSV, and what fields you want in the CSV. This is done using a `get_data_from_view` task. A sample configuration file looks like this:
+You can use a new or existing View to tell Workbench what nodes to export into CSV. This is done using a `get_data_from_view` task. A sample configuration file looks like this:
 
 ```yaml
 task: get_data_from_view
