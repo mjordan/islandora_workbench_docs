@@ -134,5 +134,5 @@ Some things to note:
 * REST export Views displays don't use fields in the same way that other Views displays do. In fact, Drupal says within the Views user interface that for REST export displays, "The selected style or row format does not use fields." Instead, these displays export the entire node in JSON format. Workbench iterates through all fields on the node JSON that start with `field_` and includes those fields, plus `node_id` and `title`, in the output CSV.
 * If you don't want to export all the fields on a content type, you can list the fields you want to export in the `export_csv_field_list` configuration option.
 * Only content from nodes that have the content type identified in the `content_type` configuration setting will be written to the CSV file.
-* If you want to export term names instead of term IDs, include `export_csv_term_mode: name` in your configuration file.
+* If you want to export term names instead of term IDs, include `export_csv_term_mode: name` in your configuration file. The warning about this option slowing down the export applies to this task and the `export_csv` task.
 
