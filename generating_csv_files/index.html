@@ -316,11 +316,6 @@ content_type: my_custom_content_type
 export_csv_field_list: ['title', 'field_description']
 # Specifying the output path is optional; see below for more information.
 export_csv_file_path: output.csv
-# Identify any URL parameters configured for the View. Note that values in the
-# 'view_parameters' configuration setting are literal paramater/operator/value strings,
-# not YAML key: value pairs.
-view_parameters:
- - 'title_contains=Debate'
 </code></pre>
 
 <p>The file identified by <code>input_file</code> has only one column, "node_id":</p>
@@ -354,6 +349,11 @@ data_from_view_file_path: /tmp/islandora_export.csv
 # If export_csv_field_list is not present, all fields will be exported.
 # node_id and title are always included.
 export_csv_field_list: ['field_description', 'field_extent']
+# Identify any URL parameters configured for the View. Note that values in the
+# 'view_parameters' configuration setting are literal paramater/operator/value strings,
+# not YAML key: value pairs.
+view_parameters:
+ - 'title_contains=Debate'
 </code></pre>
 
 <p>The <code>view_path</code> setting should contain the value of the "Path" option in the Views configuration page's "Path settings" section. The <code>data_from_view_file_path</code> is the location where you want your CSV file saved.</p>
