@@ -510,7 +510,7 @@ password: islandora
 </tbody>
 </table>
 <h3 id="output-csv-settings">Output CSV settings</h3>
-<p>See "<a href="/islandora_workbench_docs/output_csv/">The output CSV file</a>" section for more information.</p>
+<p>See "<a href="/islandora_workbench_docs/generating_csv_files/">The output CSV file</a>" section for more information.</p>
 <table>
 <thead>
 <tr>
@@ -537,13 +537,19 @@ password: islandora
 <td>export_csv_term_mode</td>
 <td></td>
 <td>tid</td>
-<td>Used in "export_csv" tasks to indicate whether vocabulary term IDs or names are included in the output CSV file. Set to "tid" (the default) to include term IDs, or set to "name" to include term names. See "<a href="/islandora_workbench_docs/output_csv/#exporting-field-data-into-a-csv-file">Exporting field data into a CSV file</a>" for more information.</td>
+<td>Used in "export_csv" tasks to indicate whether vocabulary term IDs or names are included in the output CSV file. Set to "tid" (the default) to include term IDs, or set to "name" to include term names. See "<a href="/islandora_workbench_docs/generating_csv_files/#exporting-field-data-into-a-csv-file">Exporting field data into a CSV file</a>" for more information.</td>
 </tr>
 <tr>
 <td>export_csv_field_list</td>
 <td></td>
 <td>[] (empty list)</td>
-<td>List of fields to include in exported CSV data. If empty, all fields will be included.  See "<a href="/islandora_workbench_docs/output_csv/#exporting-field-data-into-a-csv-file">Exporting field data into a CSV file</a>" for more information.</td>
+<td>List of fields to include in exported CSV data. If empty, all fields will be included.  See "<a href="/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv">Using a Drupal View to identify content to export as CSV</a>" for more information.</td>
+</tr>
+<tr>
+<td>view_parameters</td>
+<td></td>
+<td></td>
+<td>List of URL parameter/value strings to include in requests to a View. See "<a href="/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv">Using a Drupal View to identify content to export as CSV</a>" for more information.</td>
 </tr>
 <tr>
 <td>export_csv_file_path</td>

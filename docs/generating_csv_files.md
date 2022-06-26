@@ -107,6 +107,11 @@ data_from_view_file_path: /tmp/islandora_export.csv
 # If export_csv_field_list is not present, all fields will be exported.
 # node_id and title are always included.
 export_csv_field_list: ['field_description', 'field_extent']
+# Identify any URL parameters configured for the View (e.g., an exposed filter).
+# Note that values in the 'view_parameters' configuration setting are literal
+# paramater/operator/value strings,not YAML key: value pairs.
+view_parameters:
+ - 'title_contains=Debate'
 ```
 
 The `view_path` setting should contain the value of the "Path" option in the Views configuration page's "Path settings" section. The `data_from_view_file_path` is the location where you want your CSV file saved.
