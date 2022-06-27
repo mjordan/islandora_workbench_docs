@@ -265,7 +265,6 @@
 
 <p>The config file for update operations looks like this (note the <code>task</code> option is 'update'):</p>
 <pre><code class="yaml">task: update
-validate_title_length: false
 host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
@@ -274,7 +273,6 @@ input_csv: update.csv
 
 <p>If you want to append the values in the CSV to values that already exist in the target nodes, add the <code>update_mode</code> configuration option:</p>
 <pre><code class="yaml">task: update
-validate_title_length: false
 host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
@@ -287,7 +285,6 @@ update_mode: append
 <li>The <code>update_mode</code> applies to all rows in your CSV; it cannot be specified for particular rows.</li>
 <li>Updates apply to entire fields. Workbench cannot replace individual values in field.</li>
 <li>Values in the <code>node_id</code> column can be numeric node IDs (e.g. <code>467</code>) or full URLs, including URL aliases.</li>
-<li>You should include <code>validate_title_length: false</code> in your update configuration file, unless you are updating node titles.</li>
 <li>If a node you are updating doesn't have a field named in your input CSV, Workbench will skip updating the node and add a log entry to that effect.</li>
 <li>For <code>update</code> tasks where the <code>update_mode</code> is "delete", it doesn't matter if the column(s) in the input CSV are blank or contain values - the values in the corresponding Drupal fields are deleted in both cases.</li>
 </ul>

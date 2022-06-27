@@ -32,7 +32,7 @@ If you do this, Workbench will check the following conditions and report any err
     * Base fields
         * If the `langcode` field is present in your CSV, whether values in it are valid Drupal language codes.
         * Whether your CSV file contains a  `title` field (`create` task only)
-        * Whether values in the `title` field exceed Drupal's maximum length for titles of 255 characters (but this check is skipped if `validate_title_length` is set to `False`).
+        * Whether values in the `title` field exceed Drupal's maximum length for titles of 255 characters, or whatever the value of the `max_node_title_length` configuration setting is.
         * If the `created` field is present in your CSV file, whether the values in it are formatted correctly (like "2020-11-15T23:49:22+00:00") and whether the date is in the past (both of which are Drupal requirements).
         * If the `uid` field is present in your CSV file, whether the user IDs in that field exist in the target Drupal. Note that this check does not inspect permissions or roles, only that the user ID exists.
     * Whether aliases in the `url_alias` field in your CSV already exist, and whether they start with a leading slash (`/`).

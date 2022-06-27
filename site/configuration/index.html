@@ -410,10 +410,10 @@ password: islandora
 <td>Whether nodes are published or not. Applies to <code>create</code> task only. Set to false if you want the nodes to be unpublished. Note that whether or not a node is published can also be set at a node level in the CSV file in the status base field, as described in the "Base Fields" section. Values in the CSV override the value of published set here.</td>
 </tr>
 <tr>
-<td>validate_title_length</td>
+<td>max_node_title_length</td>
 <td></td>
-<td>true</td>
-<td>Whether or not to check if title values in the CSV exceed Drupal's maximum allowed length of 255 characters. Defaults to true. Set to false if you are using a module that lets you override Drupal's maximum title length, such as <a href="https://www.drupal.org/project/title_length">Node Title Length</a> or <a href="https://www.drupal.org/project/entity_title_length">Entity Title Length</a>. Also, if your task is <code>update</code>, you should set this to false if <code>title</code> is not one of the fields you are updating.</td>
+<td>255</td>
+<td>Set to the number of allowed characters for node titles if your Drupal uses <a href="https://www.drupal.org/project/title_length">Node Title Length</a>. If unsure what your the maximum length of the node titles your site allows, check the length of the "title" column in your Drupal database's "node_field_data" table.</td>
 </tr>
 <tr>
 <td>list_missing_drupal_fields</td>
