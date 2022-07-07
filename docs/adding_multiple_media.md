@@ -8,6 +8,9 @@ additional_files:
  - rightsdocs: 280
 ```
 
+!!! note
+    The syntax of the `additional_files` entries is important. Be sure to include a space after the dash at the start of each entry, like `- rightsdocs`, not `-rightsdocs`.
+
 The accompanying `create` CSV would look like this:
 
 ```text
