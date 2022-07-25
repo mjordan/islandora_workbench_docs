@@ -64,6 +64,14 @@ Islandora Workbench communicates with Drupal using REST endpoints and Views. The
 
 Workbench checks the version of the Integration module and tells you if you need to upgrade it. To upgrade the module, update its code via Git or Composer, and follow the instructions in the "Updates" section of its [README](https://github.com/mjordan/islandora_workbench_integration/blob/main/README.md).
 
+## Configuring Drupal's media URLs
+
+Islandora Workbench uses the default form of media URLs. You should not need to do anything to allow this, since the admin setting in `admin/config/media/media-settings` (under "Security") that determines what form of media URLs your site uses defaults to the correct setting (unchecked):
+
+![Field machine names](images/standalone_media_url_setting.png)
+
+If your site needs to have this option checked (so it does support URLs like `/media/{id}`, leave a comment at [this issue](https://github.com/mjordan/islandora_workbench/issues/446).
+
 ## Using Drupal 8.5 or earlier
 
 When ingesting media in Drupal versions 8.5 and earlier, Islandora Workbench has two significant limitations/bugs that you should be aware of:
