@@ -70,7 +70,7 @@ Islandora Workbench uses the default form of media URLs. You should not need to 
 
 ![Field machine names](images/standalone_media_url_setting.png)
 
-If your site needs to have this option checked (so it does support URLs like `/media/{id}`, leave a comment at [this issue](https://github.com/mjordan/islandora_workbench/issues/446).
+If your site needs to have this option checked (so it does support URLs like `/media/{id}`), leave a comment at [this issue](https://github.com/mjordan/islandora_workbench/issues/446).
 
 ## Using Drupal 8.5 or earlier
 
