@@ -77,6 +77,9 @@
     <li class="toctree-l2"><a href="#keeping-the-islandora-workbench-integration-drupal-module-up-to-date">Keeping the Islandora Workbench Integration Drupal module up to date</a></li>
     
 
+    <li class="toctree-l2"><a href="#configuring-drupals-media-urls">Configuring Drupal's media URLs</a></li>
+    
+
     <li class="toctree-l2"><a href="#using-drupal-85-or-earlier">Using Drupal 8.5 or earlier</a></li>
     
 
@@ -321,6 +324,10 @@
 <h2 id="keeping-the-islandora-workbench-integration-drupal-module-up-to-date">Keeping the Islandora Workbench Integration Drupal module up to date</h2>
 <p>Islandora Workbench communicates with Drupal using REST endpoints and Views. The Islandora Workbench Integration module (linked above in the "Requirements" section) ensures that the target Drupal has all required REST endpoints and Views enabled. Therefore, keeping it in sync with Islandora Workbench is important.</p>
 <p>Workbench checks the version of the Integration module and tells you if you need to upgrade it. To upgrade the module, update its code via Git or Composer, and follow the instructions in the "Updates" section of its <a href="https://github.com/mjordan/islandora_workbench_integration/blob/main/README.md">README</a>.</p>
+<h2 id="configuring-drupals-media-urls">Configuring Drupal's media URLs</h2>
+<p>Islandora Workbench uses the default form of media URLs. You should not need to do anything to allow this, since the admin setting in <code>admin/config/media/media-settings</code> (under "Security") that determines what form of media URLs your site uses defaults to the correct setting (unchecked):</p>
+<p><img alt="Field machine names" src="../images/standalone_media_url_setting.png" /></p>
+<p>If your site needs to have this option checked (so it does support URLs like <code>/media/{id}</code>, leave a comment at <a href="https://github.com/mjordan/islandora_workbench/issues/446">this issue</a>.</p>
 <h2 id="using-drupal-85-or-earlier">Using Drupal 8.5 or earlier</h2>
 <p>When ingesting media in Drupal versions 8.5 and earlier, Islandora Workbench has two significant limitations/bugs that you should be aware of:</p>
 <ul>
