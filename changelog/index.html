@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Using ids from a view - Islandora Workbench</title>
+  <title>Change log - Islandora Workbench</title>
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
@@ -16,8 +16,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Using ids from a view";
-    var mkdocs_page_input_path = "using_ids_from_a_view.md";
+    var mkdocs_page_name = "Change log";
+    var mkdocs_page_input_path = "changelog.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -207,9 +207,21 @@
     <a class="" href="../troubleshooting/">Troubleshooting</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../changelog/">Change log</a>
+    <a class="current" href="./">Change log</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#change-log">Change log</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#main-branch-no-tagrelease">main branch (no tag/release)</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -239,10 +251,10 @@
     
       
     
-    <li>Using ids from a view</li>
+    <li>Change log</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/using_ids_from_a_view.md"
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/changelog.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -252,35 +264,26 @@
           <div role="main">
             <div class="section">
               
-                <p>You can use a new or existing View to generate a list of node IDs that Workbench can use in <code>update</code>, <code>delete</code>, <code>add_media</code>, <code>export_csv</code>, and <code>delete_media_by_node</code> tasks instead of an input file. This is done using a <code>get_data_from_view</code> task. A sample configuration file looks like this:</p>
-<pre><code class="yaml">task: get_data_from_view
-host: &quot;http://localhost:8000/&quot;
-view_path: '/427test'
-username: admin
-password: islandora
-data_from_view_file_path: /tmp/427.csv
-</code></pre>
-
-<p>The <code>view_path</code> setting should contain the value of the "Path" option in the Views configuration page's "Path settings" section. The <code>data_from_view_file_path</code> is the location where you want your CSV file saved.</p>
-<p>In the View configuration page:</p>
-<ol>
-<li>Add a "REST export" display.</li>
-<li>Under "Format" &gt; "Serializer" &gt; "Settings", choose "json".</li>
-<li>In the View "Fields" settings, leave "The selected style or row format does not use fields" as is (see explanation below).</li>
-<li>Under "Path", add a path where your REST export will be accessible to Workbench. The URL for REST export you will use in the <code>input_csv</code> configuration setting will be the value of this path appended to your Drupal's hostname. For example, if the "Path" value you have chose is <code>my-rest-export</code>, and your Drupal's hostname is <code>http://example.org</code>, the value of your <code>view_path</code> setting should be <code>/my-rest-export</code>.</li>
-<li>Under "Pager" &gt; "Items to display", choose "Paged output, mini pager". In "Pager options" choose 10 items to display.</li>
-<li>Under "Path settings" &gt; "Access", choose "Permission" and "View published content". Under "Authentication", choose "basic_auth".</li>
-</ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If your View includes nodes that you do not want to be seen by anonymous users, of if it contains unpublished nodes, adjust the access permissions settings appropriately.</p>
-</div>
-<p>REST export Views displays don't use fields in the same way that other Views displays do. In fact, Drupal says within the Views user interface that for REST export displays, "The selected style or row format does not use fields." Instead, these displays export the entire node in JSON format. Workbench iterates through all fields on the node JSON that start with <code>field_</code> and includes those fields, plus <code>node_id</code> and <code>title</code>, in the output CSV.</p>
-<p>To test your REST export, in your browser, go to the URL. You should see raw JSON (or formatted JSON if your browser renders JSON to be human readable) that lists the nodes in your View.</p>
+                <h2 id="change-log">Change log</h2>
+<h3 id="main-branch-no-tagrelease">main branch (no tag/release)</h3>
+<ul>
+<li>July 27, 2022 (commit 029cb6d51e43a7226f12597fe379076e537a91c4): Shifted to using Drupal's default media URIs (issue <a href="https://github.com/mjordan/islandora_workbench/issues/446">446</a>).</li>
+<li>July 26, 2022 (commit 8dcf85a28a8aebe91020027fcaced4142aeb2f2e): Fixed setup.py on macOS/Homebrew (isue <a href="https://github.com/mjordan/islandora_workbench/pull/448">448</a>). </li>
+<li>July 26, 2022 (commit 09e9f531487b76a4096ac2c37e0e933908856e90): Changed license in setup.py to "MIT". </li>
+</ul>
               
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../development_guide/" class="btn btn-neutral float-right" title="Development guide">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../troubleshooting/" class="btn btn-neutral" title="Troubleshooting"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -306,6 +309,10 @@ data_from_view_file_path: /tmp/427.csv
           <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
+        <span><a href="../troubleshooting/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../development_guide/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
