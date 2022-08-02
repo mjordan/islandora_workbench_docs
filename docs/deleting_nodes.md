@@ -27,3 +27,7 @@ Node http://localhost:8000/node/89 deleted.
 + Media http://localhost:8000/media/335 deleted.
 ```
 Note that taxonomy terms created with new nodes are not removed when you delete the nodes.
+
+!!! note
+    Drupal does not allow a user to delete or modify media files unless the user originally created (or is the owner) of the file. This means that if you created a media using "user1" in your Workbench configuration file, only "user1" can delete or modify those files. For `delete` tasks, the value of `username` will need to be the same as the username used to create the original media attached to nodes. If the username defined in a `delete` task is not the same as the Drupal user who owns the files, Drupal will return a `403` response, which you will see in your Workbench logs.
+
