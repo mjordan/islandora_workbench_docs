@@ -16,3 +16,7 @@ This is limitation of Drupal (see [this issue](https://github.com/Islandora/docu
 
 [Issue](https://github.com/mjordan/islandora_workbench/issues/450).
 
+## Workbench can't create/update Paragraphs
+
+There is a bug in Paragraphs' REST interface ([issue](https://github.com/mjordan/islandora_workbench/issues/292)).
+
