@@ -234,6 +234,9 @@
     <li class="toctree-l2"><a href="#my-csv-file-has-a-url_alias-column-but-the-aliases-are-not-being-created">My CSV file has a url_alias column, but the aliases are not being created.</a></li>
     
 
+    <li class="toctree-l2"><a href="#im-installing-workbench-on-windows-and-its-failing-because-microsoft-visual-c-is-not-installed">I'm installing Workbench on Windows and it's failing because Microsoft Visual C++ is not installed</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -327,6 +330,10 @@
 <p><img alt="EDTF form widget configuration" src="../images/edtf_form_widget_config.png" /></p>
 <h2 id="my-csv-file-has-a-url_alias-column-but-the-aliases-are-not-being-created">My CSV file has a <code>url_alias</code> column, but the aliases are not being created.</h2>
 <p>First thing to check is whether you are using the <a href="https://www.drupal.org/project/pathauto">Pathauto</a> module. It also creates URL aliases, and since by default Drupal only allows one URL alias, in most cases, the aliases it creates will take precedence over aliases created by Workbench.</p>
+<h2 id="im-installing-workbench-on-windows-and-its-failing-because-microsoft-visual-c-is-not-installed">I'm installing Workbench on Windows and it's failing because Microsoft Visual C++ is not installed</h2>
+<p>On Windows, the "iteration_utilities" library that Workbench uses requires Microsoft Visual C++ 14.0 or higher. Often, this is already installed, in which case <code>setup.py</code> will execute successfully. However, if you see the following error when running Workbench's <code>setup.py</code>:</p>
+<p><code>Setup script exited with error: Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visualstudio.microsoft.com/visual-cpp-build-tools/</code></p>
+<p>you will need to visit that site, download the "Build Tools" and install them.</p>
               
             </div>
           </div>
