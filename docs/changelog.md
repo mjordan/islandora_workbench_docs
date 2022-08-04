@@ -9,6 +9,7 @@
 
 ### Documentation
 
-* August 3, 2022: Updated the "[Limitations](/islandora_workbench_docs/limitations/)" page.
+* August 3, 2022: Added entry to "[Troubleshooting](/islandora_workbench_docs/troubleshooting/)" page about missing Microsoft Visual C++ error when installing Workbench on Windows.
+* August 3, 2022: Updated the "[Limitations](/islandora_workbench_docs/limitations/)" page with entry about Paragraphs.
 * August 2, 2022: Added note about ownership requirements on files to "[Deleting nodes](/islandora_workbench_docs/deleting_nodes/)"; was previously only on "Deleting media".
 * July 28, 2022: Updated `password` entry in the "[Congfiguration](/islandora_workbench_docs/configuration/)" docs to mention the new password prompt feature.

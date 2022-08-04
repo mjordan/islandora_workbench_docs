@@ -132,7 +132,7 @@ Here is a screenshot illustrating these settings:
 To test your REST export, in your browser, join your Drupal hostname and the "Path" defined in your View configuration. Using the values in the configuration file above, that would be `http://localhost:8000/workbench-export-test`. You should see raw JSON (or formatted JSON if your browser renders JSON to be human readable) that lists the nodes in your View.
 
 !!! warning
-    If your View includes nodes that you do not want to be seen by anonymous users, of if it contains unpublished nodes, adjust the access permissions settings appropriately.
+    If your View includes nodes that you do not want to be seen by anonymous users, or if it contains unpublished nodes, adjust the access permissions settings appropriately, and ensure that the user identified in your Workbench configuration file has sufficien permissions.
 
 Some things to note:
 
