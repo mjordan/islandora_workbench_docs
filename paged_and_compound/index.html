@@ -360,6 +360,10 @@ csv_field_templates:
  - field_model: http://purl.org/coar/resource_type/c_c513
 </code></pre>
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>nodes_only</code> setting in the example primary configuration file and the <code>csv_field_templates</code> setting in the secondary configuration file are not relevant to the primary/secondary task functionality; they're included to illustrate that the two configuration files can differ.</p>
+</div>
 <p>When you run Workbench, it executes the primary task first, then the secondary task. Workbench keeps track of pairs of <code>id</code> + node IDs created in the primary task, and during the execution of the secondary task, uses these to populate the <code>field_member_of</code> values in the secondary task with the node IDs corresponding to the referenced primary <code>id</code> values.</p>
 <p>Some things to note about secondary tasks:</p>
 <ul>
@@ -368,7 +372,6 @@ csv_field_templates:
 <li>The secondary CSV must contain <code>parent_id</code>, <code>field_weight</code>, and <code>field_member_of</code> columns. <code>field_member_of</code> must be empty, since it is auto-populated by Workbench using node IDs from the newly created parent objects.</li>
 <li>As already stated, each task has its own configuration file, which means that you can specify a <code>content_type</code> value in your secondary configuration file that differs from the <code>content_type</code> of the primary task.</li>
 <li>You can include more than one secondary task in your configuration. For example, <code>secondary_tasks: ['first.yml', 'second.yml']</code> will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order.</li>
-<li>The <code>nodes_only</code> setting in the example primary configuration file and the <code>csv_field_templates</code> setting in the secondary configuration file are not relevant to the primary/secondary task functionality; they're included to illustrate that the two configuration files can differ. </li>
 </ul>
 <h3 id="creating-collections-and-members-together">Creating collections and members together</h3>
 <p>Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV which shows the references from the members' <code>parent_id</code> field to the collections' <code>id</code> field:</p>
