@@ -113,6 +113,9 @@ csv_field_templates:
  - field_model: http://purl.org/coar/resource_type/c_c513
 ```
 
+!!! note
+    The `nodes_only` setting in the above example primary configuration file and the `csv_field_templates` setting in the secondary configuration file are not relevant to the primary/secondary task functionality; they're included to illustrate that the two configuration files can differ.
+
 When you run Workbench, it executes the primary task first, then the secondary task. Workbench keeps track of pairs of `id` + node IDs created in the primary task, and during the execution of the secondary task, uses these to populate the `field_member_of` values in the secondary task with the node IDs corresponding to the referenced primary `id` values.
 
 Some things to note about secondary tasks:
@@ -122,7 +125,6 @@ Some things to note about secondary tasks:
 * The secondary CSV must contain `parent_id`, `field_weight`, and `field_member_of` columns. `field_member_of` must be empty, since it is auto-populated by Workbench using node IDs from the newly created parent objects.
 * As already stated, each task has its own configuration file, which means that you can specify a `content_type` value in your secondary configuration file that differs from the `content_type` of the primary task.
 * You can include more than one secondary task in your configuration. For example, `secondary_tasks: ['first.yml', 'second.yml']` will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order.
-* The `nodes_only` setting in the example primary configuration file and the `csv_field_templates` setting in the secondary configuration file are not relevant to the primary/secondary task functionality; they're included to illustrate that the two configuration files can differ. 
 
 
 ### Creating collections and members together
