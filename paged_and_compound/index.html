@@ -362,7 +362,7 @@ csv_field_templates:
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The <code>nodes_only</code> setting in the example primary configuration file and the <code>csv_field_templates</code> setting in the secondary configuration file are not relevant to the primary/secondary task functionality; they're included to illustrate that the two configuration files can differ.</p>
+<p>The <code>nodes_only</code> setting in the above example primary configuration file and the <code>csv_field_templates</code> setting in the secondary configuration file are not relevant to the primary/secondary task functionality; they're included to illustrate that the two configuration files can differ.</p>
 </div>
 <p>When you run Workbench, it executes the primary task first, then the secondary task. Workbench keeps track of pairs of <code>id</code> + node IDs created in the primary task, and during the execution of the secondary task, uses these to populate the <code>field_member_of</code> values in the secondary task with the node IDs corresponding to the referenced primary <code>id</code> values.</p>
 <p>Some things to note about secondary tasks:</p>
