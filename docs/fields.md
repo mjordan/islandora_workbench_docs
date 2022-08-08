@@ -65,7 +65,7 @@ If a required field is missing from your CSV, `--check` will tell you.
 
 ## Columns you want Workbench to ignore
 
-In some cases you might want to include columns in your CSV that you want Workbench to ignore. More information on this option is available in the "Sharing the input CSV with other applications" section of the [Workflows](/workflows/#sharing-the-input-csv-with-other-applications) documentation.
+In some cases you might want to include columns in your CSV that you want Workbench to ignore. More information on this option is available in the "Sharing the input CSV with other applications" section of the [Workflows](/islandora_workbench_docs/workflows/#sharing-the-input-csv-with-other-applications) documentation.
 
 
 ## CSV fields that contain Drupal field data

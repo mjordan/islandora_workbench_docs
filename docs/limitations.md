@@ -20,3 +20,7 @@ This is limitation of Drupal (see [this issue](https://github.com/Islandora/docu
 
 There is a bug in Paragraphs' REST interface ([issue](https://github.com/mjordan/islandora_workbench/issues/292)).
 
+## Workbench doesn't support taxonomy reference fields that use the "Filter by an entity reference View" reference type
+
+Only taxonomy reference fields that use the "Default" reference type are currently supported. However, [work is being done](https://github.com/mjordan/islandora_workbench/issues/452) to support both types of entity reference.
+
