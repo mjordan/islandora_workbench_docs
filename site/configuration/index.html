@@ -639,7 +639,7 @@ password: islandora
 <td>delete_tmp_upload</td>
 <td></td>
 <td>false</td>
-<td>For remote files, if set to <code>true</code>, remote file is deleted after it is used to create media. If <code>false</code>, downloaded file will remain in your <code>input_dir</code>.</td>
+<td>For remote files, if set to <code>true</code>, remote file is deleted after it is used to create media. If <code>false</code>, downloaded file will remain in your <code>input_dir</code>. If the file cannot be deleted (e.g. a virus scanner is scanning it), it will remain and an error message will be added to the log file.</td>
 </tr>
 <tr>
 <td>additional_files</td>
