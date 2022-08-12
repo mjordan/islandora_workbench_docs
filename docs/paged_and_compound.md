@@ -122,9 +122,10 @@ Some things to note about secondary tasks:
 
 * Only "create" tasks can be used as the primary and secondary tasks.
 * When you have a secondary task configured, running `--check` will validate both tasks' configuration and input data.
-* The secondary CSV must contain `parent_id`, `field_weight`, and `field_member_of` columns. `field_member_of` must be empty, since it is auto-populated by Workbench using node IDs from the newly created parent objects.
+* The secondary CSV must contain `parent_id` and `field_member_of` columns. `field_member_of` must be empty, since it is auto-populated by Workbench using node IDs from the newly created parent objects. If you want to assign an order to the child objects within each parent object, include `field_weight` with the appropiate values (1, 2, 3, etc., the lower numbers being earlier/higher in sort order).
+* If a row in the secondary task CSV does not have a `parent_id` that matches an `id` of a row in the primary CSV, or if there is a matching row in the primary CSV and Workbench failed to create the described node, Workbench will skip creating the child and add an entry to the log indicating it did so.
 * As already stated, each task has its own configuration file, which means that you can specify a `content_type` value in your secondary configuration file that differs from the `content_type` of the primary task.
-* You can include more than one secondary task in your configuration. For example, `secondary_tasks: ['first.yml', 'second.yml']` will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order.
+* You can include more than one secondary task in your configuration. For example, `secondary_tasks: ['first.yml', 'second.yml']` will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order. You would use multiple secondary tasks if you wanted to add children of different content types to the parent nodes.
 
 
 ### Creating collections and members together
@@ -152,7 +153,7 @@ The following table summarizes the different ways Workbench can be used to creat
 | --- | --- | --- | --- |
 | Subdirectories | Directory structure | Do not include column in CSV; autopopulated. | Useful for creating paged content where paged don't have their own metadata. |
 | Parent/child-level metadata in same CSV | References from child's `parent_id` to parent's `id` in same CSV data | Column required; values required in child rows | Allows including parent and child metadata in same CSV. |
-| Secondary task | References from `parent_id` in child CSV file to `id` in parent CSV file | Column and values required in secondary (child) CSV data | Primary and secondary tasks have their own configuration and CSV files, which allows children to have a Drupal content type that differs from their parents' content type. Allows creation of parents and children in same Workbench job. |
+| Secondary task | References from `parent_id` in child CSV file to `id` in parent CSV file | Column and values recommended in secondary (child) CSV data | Primary and secondary tasks have their own configuration and CSV files, which allows children to have a Drupal content type that differs from their parents' content type. Allows creation of parents and children in same Workbench job. |
 | Collections and members together | References from child (member) `parent_id` fields to parent (collection) `id` fields in same CSV data | Column required in CSV but must be empty (collections do not use weight to determine sort order) | Allows creation of collection and members in same Islandora Workbench job. |
 
 
