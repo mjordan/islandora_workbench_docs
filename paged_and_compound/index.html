@@ -369,7 +369,8 @@ csv_field_templates:
 <ul>
 <li>Only "create" tasks can be used as the primary and secondary tasks.</li>
 <li>When you have a secondary task configured, running <code>--check</code> will validate both tasks' configuration and input data.</li>
-<li>The secondary CSV must contain <code>parent_id</code>, <code>field_weight</code>, and <code>field_member_of</code> columns. <code>field_member_of</code> must be empty, since it is auto-populated by Workbench using node IDs from the newly created parent objects.</li>
+<li>The secondary CSV must contain <code>parent_id</code> and <code>field_member_of</code> columns. <code>field_member_of</code> must be empty, since it is auto-populated by Workbench using node IDs from the newly created parent objects. If you want to assign an order to the child objects within each parent object, include <code>field_weight</code> with the appropiate values (1, 2, 3, etc., the lower numbers being earlier in sort order).</li>
+<li>If a row in the secondary task CSV does not have a <code>parent_id</code> that matches an <code>id</code> of a row in the primary CSV, or if there is a parent and it was not created during the primary execution of Workbench, it will not be created. It will be skipped.</li>
 <li>As already stated, each task has its own configuration file, which means that you can specify a <code>content_type</code> value in your secondary configuration file that differs from the <code>content_type</code> of the primary task.</li>
 <li>You can include more than one secondary task in your configuration. For example, <code>secondary_tasks: ['first.yml', 'second.yml']</code> will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order.</li>
 </ul>
