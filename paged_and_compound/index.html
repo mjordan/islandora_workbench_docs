@@ -372,7 +372,7 @@ csv_field_templates:
 <li>The secondary CSV must contain <code>parent_id</code> and <code>field_member_of</code> columns. <code>field_member_of</code> must be empty, since it is auto-populated by Workbench using node IDs from the newly created parent objects. If you want to assign an order to the child objects within each parent object, include <code>field_weight</code> with the appropiate values (1, 2, 3, etc., the lower numbers being earlier/higher in sort order).</li>
 <li>If a row in the secondary task CSV does not have a <code>parent_id</code> that matches an <code>id</code> of a row in the primary CSV, or if there is a matching row in the primary CSV and Workbench failed to create the described node, Workbench will skip creating the child and add an entry to the log indicating it did so.</li>
 <li>As already stated, each task has its own configuration file, which means that you can specify a <code>content_type</code> value in your secondary configuration file that differs from the <code>content_type</code> of the primary task.</li>
-<li>You can include more than one secondary task in your configuration. For example, <code>secondary_tasks: ['first.yml', 'second.yml']</code> will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order.</li>
+<li>You can include more than one secondary task in your configuration. For example, <code>secondary_tasks: ['first.yml', 'second.yml']</code> will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order. You would use multiple secondary tasks if you wanted to add children of different content types to the parent nodes.</li>
 </ul>
 <h3 id="creating-collections-and-members-together">Creating collections and members together</h3>
 <p>Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV which shows the references from the members' <code>parent_id</code> field to the collections' <code>id</code> field:</p>
@@ -415,7 +415,7 @@ csv_field_templates:
 <tr>
 <td>Secondary task</td>
 <td>References from <code>parent_id</code> in child CSV file to <code>id</code> in parent CSV file</td>
-<td>Column and values required in secondary (child) CSV data</td>
+<td>Column and values recommended in secondary (child) CSV data</td>
 <td>Primary and secondary tasks have their own configuration and CSV files, which allows children to have a Drupal content type that differs from their parents' content type. Allows creation of parents and children in same Workbench job.</td>
 </tr>
 <tr>
