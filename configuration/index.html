@@ -426,6 +426,12 @@ password: islandora
 <td>false</td>
 <td>Set to <code>true</code> to tell Workbench to provide a list of fields that exist in your input CSV but that cannot be matched to Drupal field names (or reserved column names such as "file"). If <code>false</code>, Workbench will still check for CSV column headers that it can't match to Drupal fields, but will exit upon finding the first such field. This option produces a list of fields instead of exiting on detecting the first field.</td>
 </tr>
+<tr>
+<td>standalone_media_url</td>
+<td></td>
+<td>false</td>
+<td>Set to <code>true</code> if your Drupal instance has the "Standalone media URL" option at <code>/admin/config/media/media-settings</code> checked. The Drupal default is to have this unchecked, so you only need to use this Workbench option if you have changed Drupal's default.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="input-data-location-settings">Input data location settings</h3>
