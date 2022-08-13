@@ -281,7 +281,7 @@
 <pre><code class="yaml">bootstrap: [&quot;/home/mark/Documents/hacking/workbench/generate_image_files.py&quot;]
 </code></pre>
 
-<p>Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's <code>--config</code> argument.</p>
+<p>Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's <code>--config</code> argument. </p>
 <p>Shutdown scripts work the same way as bootstrap scripts but they execute after Workbench has finished connecting to Drupal. A common situation where a shutdown script is useful is to check the Workbench log for failures, and if any are detected, to email someone. To register a shutdown script, add it to the <code>shutdown</code> option:</p>
 <pre><code class="yaml">shutdown: [&quot;/home/mark/Documents/hacking/workbench/shutdown_example.py&quot;]
 </code></pre>
@@ -291,6 +291,7 @@
 shutdown: [&quot;/home/mark/Documents/hacking/workbench/shutdown_example_1.py&quot;, &quot;/home/mark/Documents/hacking/workbench/shutdown_example_2.py&quot;]
 </code></pre>
 
+<p><code>--check</code> will check for the existence of bootstrap and shutdown scripts, and that they are executable, but does not execute them. The scripts are only executed when Workbench is run without <code>--check</code>.</p>
 <p>Very basic example bootstrap and shutdown scripts can be found in the <code>scripts</code> folder.</p>
 <h3 id="csv-preprocessor-scripts">CSV preprocessor scripts</h3>
 <p>CSV preprocessor scripts are applied to CSV values prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocesor must split it and then reassemble it back into a string before returning it. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title).</p>
