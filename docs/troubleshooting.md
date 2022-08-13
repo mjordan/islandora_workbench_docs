@@ -74,3 +74,9 @@ On Windows, the "iteration_utilities" library that Workbench uses requires Micro
 > Setup script exited with error: Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visualstudio.microsoft.com/visual-cpp-build-tools/
 
 you will need to visit that site, download the "Build Tools" and install them.
+
+## My Drupal has the "Standalone media URL" option at `/admin/config/media/media-settings` checked, and I'm using Workbench's `standalone_media_url: true` option in my config, but I'm still getting lots of errors.
+
+Bue sure to clear Drupal's cache every time you change the "Standalone media URL" option.
+
+

@@ -2,6 +2,7 @@
 
 ### main branch (no tag/release)
 
+* August 13, 2022 (commit b821533): Provided configuration option `standalone_media_url: true` for sites who have Drupal's "Standalone media URL" option enabled (issue [466](https://github.com/mjordan/islandora_workbench/issues/466)).
 * August 11, 2022 (commit df0a609): Fixed bug where items in secondary task CSV were created even if they didn't have a parent in the primary CSV, or if their parent was not created (issue [458](https://github.com/mjordan/islandora_workbench/issues/458)). They are now skipped.
 * July 28, 2022 (commit 3d1753a): Added option to prompt user for password (issue [449](https://github.com/mjordan/islandora_workbench/issues/449); fixed 'version' in setup.py).
 * July 27, 2022 (commit 029cb6d): Shifted to using Drupal's default media URIs (issue [446](https://github.com/mjordan/islandora_workbench/issues/446)).
@@ -10,6 +11,7 @@
 
 ### Documentation
 
+* August 13, 2022: Updated `standalone_media_url` entry in the "[Congfiguration](/islandora_workbench_docs/configuration/)" docs, and added brief entry to the ."[Troubleshooting](/islandora_workbench_docs/troubleshooting/)" page about clearning Drupal's cache.
 * August 11, 2022: Added text to "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task)" page to clarify what happens when a row in the secondary CSV does not have a matching row in the primary CSV.
 * August 8, 2022: Added entry to "[Limitations](/islandora_workbench_docs/limitations/)" page about support for "Filter by an entity reference View" fields.
 * August 3, 2022: Added entry to "[Troubleshooting](/islandora_workbench_docs/troubleshooting/)" page about missing Microsoft Visual C++ error when installing Workbench on Windows.
