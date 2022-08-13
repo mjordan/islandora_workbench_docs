@@ -6,7 +6,7 @@ Islandora Workbench offers three "hooks" that can be used to run scripts at spec
 1. CSV preprocessor
 1. Post-action
 
-### Bootstrap scripts
+### Bootstrap and shutdown scripts
 
 Bootstrap scripts execute prior to Workbench connecting to Drupal. Scripts can be in any language, and need to be executable. For an example of using this feature to run a script that generates sample Islandora content, see the "[Generating sample Islandora content](/islandora_workbench_docs/generating_sample_content/)" section.
 
@@ -16,7 +16,24 @@ To register a bootstrap script in your configuration file, add it to the `bootst
 bootstrap: ["/home/mark/Documents/hacking/workbench/generate_image_files.py"]
 ```
 
-Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's `--config` argument.
+Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's `--config` argument. 
+
+Shutdown scripts work the same way as bootstrap scripts but they execute after Workbench has finished connecting to Drupal. A common situation where a shutdown script is useful is to check the Workbench log for failures, and if any are detected, to email someone. To register a shutdown script, add it to the `shutdown` option:
+
+```yaml
+shutdown: ["/home/mark/Documents/hacking/workbench/shutdown_example.py"]
+```
+
+If you specify multiple bootstrap or shutdown scripts, they are executed in the order in which they are listed:
+
+```yaml
+bootstrap: ["/home/mark/Documents/hacking/workbench/bootstrap_example_1.py", "/home/mark/Documents/hacking/workbench/bootstrap_example_2.py"]
+shutdown: ["/home/mark/Documents/hacking/workbench/shutdown_example_1.py", "/home/mark/Documents/hacking/workbench/shutdown_example_2.py"]
+```
+
+`--check` will check for the existence of bootstrap and shutdown scripts, and that they are executable, but does not execute them. The scripts are only executed when Workbench is run without `--check`.
+
+Very basic example bootstrap and shutdown scripts can be found in the `scripts` folder.
 
 ### CSV preprocessor scripts
 
