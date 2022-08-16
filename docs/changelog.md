@@ -2,6 +2,7 @@
 
 ### main branch (no tag/release)
 
+* August 16, 2022 (commit 4270d13): Fixed bug that would not delete media with no files (issue [460](https://github.com/mjordan/islandora_workbench/issues/460)).
 * August 13, 2022 (commit 1b7b801): Added ability to run shutdown scripts (issue [459](https://github.com/mjordan/islandora_workbench/issues/459)).
 * August 12, 2022 (commit b821533): Provided configuration option `standalone_media_url: true` for sites who have Drupal's "Standalone media URL" option enabled (issue [466](https://github.com/mjordan/islandora_workbench/issues/466)).
 * August 11, 2022 (commit df0a609): Fixed bug where items in secondary task CSV were created even if they didn't have a parent in the primary CSV, or if their parent was not created (issue [458](https://github.com/mjordan/islandora_workbench/issues/458)). They are now skipped.
