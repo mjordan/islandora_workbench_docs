@@ -66,11 +66,16 @@ Workbench checks the version of the Integration module and tells you if you need
 
 ## Configuring Drupal's media URLs
 
-Islandora Workbench uses the default form of media URLs. You should not need to do anything to allow this, since the admin setting in `admin/config/media/media-settings` (under "Security") that determines what form of media URLs your site uses defaults to the correct setting (unchecked):
+Islandora Workbench uses Drupal's default form of media URLs. You should not need to do anything to allow this, since the admin setting in `admin/config/media/media-settings` (under "Security") that determines what form of media URLs your site uses defaults to the correct setting (unchecked):
 
 ![Field machine names](images/standalone_media_url_setting.png)
 
-If your site needs to have this option checked (so it does support URLs like `/media/{id}`), leave a comment at [this issue](https://github.com/mjordan/islandora_workbench/issues/446).
+If your site needs to have this option checked (so it supports URLs like `/media/{id}`), you will need to add the following entry to your configuration file:
+
+`standalone_media_url: true`
+
+!!! note
+    If you change the checkbox in Drupal's media settings admin page, be sure you clear your Drupal cache to make the new media URLs work.
 
 ## Using Drupal 8.5 or earlier
 

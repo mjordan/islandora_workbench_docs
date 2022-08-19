@@ -77,6 +77,6 @@ you will need to visit that site, download the "Build Tools" and install them.
 
 ## My Drupal has the "Standalone media URL" option at `/admin/config/media/media-settings` checked, and I'm using Workbench's `standalone_media_url: true` option in my config, but I'm still getting lots of errors.
 
-Bue sure to clear Drupal's cache every time you change the "Standalone media URL" option.
+Bue sure to clear Drupal's cache every time you change the "Standalone media URL" option. More information can be found [here](/islandora_workbench_docs/installation/#configuring-drupals-media-urls).
 
 

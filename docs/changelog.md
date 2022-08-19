@@ -13,8 +13,8 @@
 
 ### Documentation
 
+* August 18, 2022: Updated `standalone_media_url` entry in the "[Congfiguration](/islandora_workbench_docs/configuration/)" docs, and added brief entry to the "[Troubleshooting](/islandora_workbench_docs/troubleshooting/)" page about clearning Drupal's cache.
 * August 13, 2022: Updated "[Congfiguration](/islandora_workbench_docs/configuration/)" and "[Hooks](/islandora_workbench_docs/hooks/)" page to describe shutdown scripts. 
-* August 12, 2022: Updated `standalone_media_url` entry in the "[Congfiguration](/islandora_workbench_docs/configuration/)" docs, and added brief entry to the "[Troubleshooting](/islandora_workbench_docs/troubleshooting/)" page about clearning Drupal's cache.
 * August 11, 2022: Added text to "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task)" page to clarify what happens when a row in the secondary CSV does not have a matching row in the primary CSV.
 * August 8, 2022: Added entry to "[Limitations](/islandora_workbench_docs/limitations/)" page about support for "Filter by an entity reference View" fields.
 * August 3, 2022: Added entry to "[Troubleshooting](/islandora_workbench_docs/troubleshooting/)" page about missing Microsoft Visual C++ error when installing Workbench on Windows.
