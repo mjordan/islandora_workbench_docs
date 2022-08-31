@@ -275,6 +275,7 @@
 <li>CSV preprocessor</li>
 <li>Post-action</li>
 </ol>
+<p>All hook scripts must be executable by the user running Workbench.</p>
 <h3 id="bootstrap-and-shutdown-scripts">Bootstrap and shutdown scripts</h3>
 <p>Bootstrap scripts execute prior to Workbench connecting to Drupal. Scripts can be in any language, and need to be executable. For an example of using this feature to run a script that generates sample Islandora content, see the "<a href="/islandora_workbench_docs/generating_sample_content/">Generating sample Islandora content</a>" section.</p>
 <p>To register a bootstrap script in your configuration file, add it to the <code>bootstrap</code> option, like this:</p>
@@ -284,11 +285,6 @@
 <p>Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's <code>--config</code> argument. </p>
 <p>Shutdown scripts work the same way as bootstrap scripts but they execute after Workbench has finished connecting to Drupal. A common situation where a shutdown script is useful is to check the Workbench log for failures, and if any are detected, to email someone. To register a shutdown script, add it to the <code>shutdown</code> option:</p>
 <pre><code class="yaml">shutdown: [&quot;/home/mark/Documents/hacking/workbench/shutdown_example.py&quot;]
-</code></pre>
-
-<p>If you specify multiple bootstrap or shutdown scripts, they are executed in the order in which they are listed:</p>
-<pre><code class="yaml">bootstrap: [&quot;/home/mark/Documents/hacking/workbench/bootstrap_example_1.py&quot;, &quot;/home/mark/Documents/hacking/workbench/bootstrap_example_2.py&quot;]
-shutdown: [&quot;/home/mark/Documents/hacking/workbench/shutdown_example_1.py&quot;, &quot;/home/mark/Documents/hacking/workbench/shutdown_example_2.py&quot;]
 </code></pre>
 
 <p><code>--check</code> will check for the existence of bootstrap and shutdown scripts, and that they are executable, but does not execute them. The scripts are only executed when Workbench is run without <code>--check</code>.</p>
@@ -327,8 +323,12 @@ shutdown: [&quot;/home/mark/Documents/hacking/workbench/shutdown_example_1.py&qu
 <p>Your scripts can find the entity ID and other information within the (raw JSON) HTTP response body. Using the way Python decodes JSON as an example, if the entity is a node, its nid is in <code>entity_json['nid'][0]['value']</code>; if the entity is a media, the mid is in <code>entity_json['mid'][0]['value']</code>. The exact location of the nid and mid may differ if your script is written in a language that decodes JSON differently.</p>
 <h4 id="running-multiple-scripts-in-one-hook">Running multiple scripts in one hook</h4>
 <p>For all types of hooks, you can register multiple scripts, like this:</p>
-<pre><code class="yaml">node_post_create: [&quot;/home/mark/scripts/email_someone.py&quot;, &quot;/tmp/hit_remote_api.py&quot;]
+<pre><code class="yaml">bootstrap: [&quot;/home/mark/Documents/hacking/workbench/bootstrap_example_1.py&quot;, &quot;/home/mark/Documents/hacking/workbench/bootstrap_example_2.py&quot;]
+shutdown: [&quot;/home/mark/Documents/hacking/workbench/shutdown_example_1.py&quot;, &quot;/home/mark/Documents/hacking/workbench/shutdown_example_2.py&quot;]
+node_post_create: [&quot;/home/mark/scripts/email_someone.py&quot;, &quot;/tmp/hit_remote_api.py&quot;]
 </code></pre>
+
+<p>They are executed in the order in which they are listed.</p>
               
             </div>
           </div>
