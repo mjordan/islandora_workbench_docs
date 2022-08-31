@@ -73,7 +73,7 @@ media_post_create: ["/home/mark/Documents/hacking/workbench/post_media_update.py
 The arguments passed to each post-action hook are:
 
 1. the path to the Workbench config file that was specified in the `--config` argument
-1. the HTTP response code returned from the action (create, update), e.g. `200` or `403`
+1. the HTTP response code returned from the action (create, update), e.g. `201` or `403`. Note that this response code is a string, not an integer.
 1. the entire HTTP response body; this will be raw JSON.
 
 These arguments are passed to post-action scripts automatically. You don't specific them when you register your scripts in your config file. The `scripts/entity_post_task_example.py` illustrates these arguments.
