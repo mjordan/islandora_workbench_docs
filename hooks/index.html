@@ -275,9 +275,9 @@
 <li>CSV preprocessor</li>
 <li>Post-action</li>
 </ol>
-<p>All hook scripts must be executable by the user running Workbench.</p>
+<p>Hook scripts can be in any language, and need to be executable by the user running Workbench.</p>
 <h3 id="bootstrap-and-shutdown-scripts">Bootstrap and shutdown scripts</h3>
-<p>Bootstrap scripts execute prior to Workbench connecting to Drupal. Scripts can be in any language, and need to be executable. For an example of using this feature to run a script that generates sample Islandora content, see the "<a href="/islandora_workbench_docs/generating_sample_content/">Generating sample Islandora content</a>" section.</p>
+<p>Bootstrap scripts execute prior to Workbench connecting to Drupal. For an example of using this feature to run a script that generates sample Islandora content, see the "<a href="/islandora_workbench_docs/generating_sample_content/">Generating sample Islandora content</a>" section.</p>
 <p>To register a bootstrap script in your configuration file, add it to the <code>bootstrap</code> option, like this:</p>
 <pre><code class="yaml">bootstrap: [&quot;/home/mark/Documents/hacking/workbench/generate_image_files.py&quot;]
 </code></pre>
@@ -290,10 +290,10 @@
 <p><code>--check</code> will check for the existence of bootstrap and shutdown scripts, and that they are executable, but does not execute them. The scripts are only executed when Workbench is run without <code>--check</code>.</p>
 <p>Very basic example bootstrap and shutdown scripts can be found in the <code>scripts</code> folder.</p>
 <h3 id="csv-preprocessor-scripts">CSV preprocessor scripts</h3>
-<p>CSV preprocessor scripts are applied to CSV values prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocesor must split it and then reassemble it back into a string before returning it. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title).</p>
+<p>CSV preprocessor scripts are applied to CSV values prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocesor must split it and then reassemble it back into a string before printint it to STDOUT. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title).</p>
 <p>For example, you might want to convert all the values in a CSV field to sentence case. You can do this by writing a small Python script that uses the <code>capitalize()</code> method and registering it as a preprocessor. </p>
 <p>To register a preprocessor script in your configuration file, add it to the <code>preprocessors</code> option, like this:</p>
-<pre><code class="yaml">preprocessors: [&quot;/home/mark/Documents/hacking/workbench/capitalize.py&quot;]
+<pre><code class="yaml">preprocessors: [&quot;/home/mark/Documents/hacking/workbench/scripts/samplepreprocessor.py&quot;]
 </code></pre>
 
 <p>Each preprocessor script gets passed two arguments:</p>
