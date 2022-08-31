@@ -320,7 +320,7 @@ shutdown: [&quot;/home/mark/Documents/hacking/workbench/shutdown_example_1.py&qu
 <p>The arguments passed to each post-action hook are:</p>
 <ol>
 <li>the path to the Workbench config file that was specified in the <code>--config</code> argument</li>
-<li>the HTTP response code returned from the action (create, update), e.g. <code>200</code> or <code>403</code></li>
+<li>the HTTP response code returned from the action (create, update), e.g. <code>201</code> or <code>403</code>. Note that this response code is a string, not an integer.</li>
 <li>the entire HTTP response body; this will be raw JSON.</li>
 </ol>
 <p>These arguments are passed to post-action scripts automatically. You don't specific them when you register your scripts in your config file. The <code>scripts/entity_post_task_example.py</code> illustrates these arguments.</p>
