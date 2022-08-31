@@ -282,7 +282,7 @@
 <pre><code class="yaml">bootstrap: [&quot;/home/mark/Documents/hacking/workbench/generate_image_files.py&quot;]
 </code></pre>
 
-<p>Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's <code>--config</code> argument. </p>
+<p>Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's <code>--config</code> argument. For example, if you are running Workbench with a config file called <code>create.yml</code>, <code>create.yml</code> will be passed as the argumement to your bootstrap script. </p>
 <p>Shutdown scripts work the same way as bootstrap scripts but they execute after Workbench has finished connecting to Drupal. A common situation where a shutdown script is useful is to check the Workbench log for failures, and if any are detected, to email someone. To register a shutdown script, add it to the <code>shutdown</code> option:</p>
 <pre><code class="yaml">shutdown: [&quot;/home/mark/Documents/hacking/workbench/shutdown_example.py&quot;]
 </code></pre>
