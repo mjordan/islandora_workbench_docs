@@ -6,9 +6,11 @@ Islandora Workbench offers three "hooks" that can be used to run scripts at spec
 1. CSV preprocessor
 1. Post-action
 
+Hook scripts can be in any language, and need to be executable by the user running Workbench.
+
 ### Bootstrap and shutdown scripts
 
-Bootstrap scripts execute prior to Workbench connecting to Drupal. Scripts can be in any language, and need to be executable. For an example of using this feature to run a script that generates sample Islandora content, see the "[Generating sample Islandora content](/islandora_workbench_docs/generating_sample_content/)" section.
+Bootstrap scripts execute prior to Workbench connecting to Drupal. For an example of using this feature to run a script that generates sample Islandora content, see the "[Generating sample Islandora content](/islandora_workbench_docs/generating_sample_content/)" section.
 
 To register a bootstrap script in your configuration file, add it to the `bootstrap` option, like this:
 
@@ -16,19 +18,12 @@ To register a bootstrap script in your configuration file, add it to the `bootst
 bootstrap: ["/home/mark/Documents/hacking/workbench/generate_image_files.py"]
 ```
 
-Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's `--config` argument. 
+Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's `--config` argument. For example, if you are running Workbench with a config file called `create.yml`, `create.yml` will be passed as the argumement to your bootstrap script. 
 
 Shutdown scripts work the same way as bootstrap scripts but they execute after Workbench has finished connecting to Drupal. A common situation where a shutdown script is useful is to check the Workbench log for failures, and if any are detected, to email someone. To register a shutdown script, add it to the `shutdown` option:
 
 ```yaml
 shutdown: ["/home/mark/Documents/hacking/workbench/shutdown_example.py"]
-```
-
-If you specify multiple bootstrap or shutdown scripts, they are executed in the order in which they are listed:
-
-```yaml
-bootstrap: ["/home/mark/Documents/hacking/workbench/bootstrap_example_1.py", "/home/mark/Documents/hacking/workbench/bootstrap_example_2.py"]
-shutdown: ["/home/mark/Documents/hacking/workbench/shutdown_example_1.py", "/home/mark/Documents/hacking/workbench/shutdown_example_2.py"]
 ```
 
 `--check` will check for the existence of bootstrap and shutdown scripts, and that they are executable, but does not execute them. The scripts are only executed when Workbench is run without `--check`.
@@ -37,14 +32,14 @@ Very basic example bootstrap and shutdown scripts can be found in the `scripts` 
 
 ### CSV preprocessor scripts
 
-CSV preprocessor scripts are applied to CSV values prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocesor must split it and then reassemble it back into a string before returning it. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title).
+CSV preprocessor scripts are applied to CSV values prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocesor must split it and then reassemble it back into a string before printint it to STDOUT. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title). If you are interested in seeing preprocessor scripts act on binary data such as images, see this [issue](https://github.com/mjordan/islandora_workbench/issues/45).
 
 For example, you might want to convert all the values in a CSV field to sentence case. You can do this by writing a small Python script that uses the `capitalize()` method and registering it as a preprocessor. 
 
 To register a preprocessor script in your configuration file, add it to the `preprocessors` option, like this:
 
 ```yaml
-preprocessors: ["/home/mark/Documents/hacking/workbench/capitalize.py"]
+preprocessors: ["/home/mark/Documents/hacking/workbench/scripts/samplepreprocessor.py"]
 ```
 
 Each preprocessor script gets passed two arguments:
@@ -78,12 +73,16 @@ The arguments passed to each post-action hook are:
 
 These arguments are passed to post-action scripts automatically. You don't specific them when you register your scripts in your config file. The `scripts/entity_post_task_example.py` illustrates these arguments.
 
-Your scripts can find the entity ID and other information within the (raw JSON) HTTP response body. Using the way Python decodes JSON as an example, if the entity is a node, its nid is in `entity_json['nid'][0]['value']`; if the entity is a media, the mid is in `entity_json['mid'][0]['value']`. The exact location of the nid and mid may differ if your script is written in a language that decodes JSON differently.
+Your scripts can find the entity ID and other information within the (raw JSON) HTTP response body. Using the way Python decodes JSON as an example, if the entity is a node, its nid is in `entity_json['nid'][0]['value']`; if the entity is a media, the mid is in `entity_json['mid'][0]['value']`. The exact location of the nid and mid may differ if your script is written in a language that decodes JSON differently than Python (used in this example) does.
 
 #### Running multiple scripts in one hook
 
 For all types of hooks, you can register multiple scripts, like this:
 
 ```yaml
+bootstrap: ["/home/mark/Documents/hacking/workbench/bootstrap_example_1.py", "/home/mark/Documents/hacking/workbench/bootstrap_example_2.py"]
+shutdown: ["/home/mark/Documents/hacking/workbench/shutdown_example_1.py", "/home/mark/Documents/hacking/workbench/shutdown_example_2.py"]
 node_post_create: ["/home/mark/scripts/email_someone.py", "/tmp/hit_remote_api.py"]
 ```
+
+They are executed in the order in which they are listed.
