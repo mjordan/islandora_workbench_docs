@@ -276,6 +276,7 @@
 <li>Post-action</li>
 </ol>
 <p>Hook scripts can be in any language, and need to be executable by the user running Workbench.</p>
+<p>Execution of hook scripts is logged, including the scripts' exit code if it not <code>0</code> (i.e., successful).</p>
 <h3 id="bootstrap-and-shutdown-scripts">Bootstrap and shutdown scripts</h3>
 <p>Bootstrap scripts execute prior to Workbench connecting to Drupal. For an example of using this feature to run a script that generates sample Islandora content, see the "<a href="/islandora_workbench_docs/generating_sample_content/">Generating sample Islandora content</a>" section.</p>
 <p>To register a bootstrap script in your configuration file, add it to the <code>bootstrap</code> option, like this:</p>
