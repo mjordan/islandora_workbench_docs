@@ -1,4 +1,4 @@
-In the `create` and `create_from_files` tasks, Workbench generates a `rollback.yml` configuration file and a `rollback.csv` file in the format described in "Deleting nodes", below. These files allow you to easily roll back (i.e., delete) all the nodes and accompanying media you just created. Specifically, this configuration file defines a `delete` task. See the "[Deleting nodes](/islandora_workbench_docs/deleting_nodes/)" section for more information.
+In the `create` and `create_from_files` tasks, Workbench generates a `rollback.yml` configuration file and a `rollback.csv` file in the format described in "Deleting nodes" documentation. These files allow you to easily roll back (i.e., delete) all the nodes and accompanying media you just created. Specifically, this configuration file defines a `delete` task. See the "[Deleting nodes](/islandora_workbench_docs/deleting_nodes/)" section for more information.
 
 To roll back all the nodes and media you just created, run `./workbench --config rollback.yml`.
 
