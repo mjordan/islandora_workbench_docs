@@ -8,6 +8,8 @@ Islandora Workbench offers three "hooks" that can be used to run scripts at spec
 
 Hook scripts can be in any language, and need to be executable by the user running Workbench.
 
+Execution (whether successful or not) of hook scripts is logged, including the scripts' exit code.
+
 ### Bootstrap and shutdown scripts
 
 Bootstrap scripts execute prior to Workbench connecting to Drupal. For an example of using this feature to run a script that generates sample Islandora content, see the "[Generating sample Islandora content](/islandora_workbench_docs/generating_sample_content/)" section.

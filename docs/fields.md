@@ -282,6 +282,11 @@ Using term URIs has some constraints:
 * You cannot create a new term by providing a URI like you can by providing a term name.
 * If the same URI is registered with more than one term, Workbench will choose one and write a warning to the log indicating which term it chose and which terms the URI is registered with. However, `--check` will detect that a URI is registered with more than one term and warn you. At that point you can edit your CSV file to use the correct term ID rather than the URI.
 
+#### Entity Reference Views fields
+
+Under development. See [this Github issue](https://github.com/mjordan/islandora_workbench/issues/452) for updates on supporting this field configuration.
+
+
 #### Typed Relation fields
 
 Typed relation fields contain information about the relationship (or "relation") between a taxonomy term and the node it is attached to. For example, a term from the Person vocabulary, "Jordan, Mark", can be an author, illustrator, or editor of the book described in the node. In this example, "author", "illustrator", and "editor" are the typed relations.
