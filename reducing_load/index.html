@@ -287,7 +287,7 @@
 <pre><code class="yaml">pause: 2
 </code></pre>
 
-<p>Using <code>pause</code> will help decrease load-induced errors, but it is inefficient because Workbench pauses between all requests, even ones that are not putting stress on Drupal. A useful strategy for refining Workbench's load-reduction capabilities is to try <code>pause</code> first, and if it reduces errors, then disable <code>pause</code> and try <code>adaptive_pause</code> instead.</p>
+<p>Using <code>pause</code> will help decrease load-induced errors, but it is inefficient because it causes Workbench to pause between all requests, even ones that are not putting stress on Drupal. A useful strategy for refining Workbench's load-reduction capabilities is to try <code>pause</code> first, and if it reduces errors, then disable <code>pause</code> and try <code>adaptive_pause</code> instead.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code>pause</code> and <code>adaptive_pause</code> are mutually exclusive. If you include one in your configuration files, you should not include the other.</p>
@@ -304,7 +304,7 @@
 adaptive_pause_threshold: 2.5 
 </code></pre>
 
-<p>In this example, adaptive pausing only kicks in if the response time for the most recent request is 2.5 times the average of the response time for the last 20 requests. You can increment <code>adaptive_pause_threshold</code>'s value by .5 (e.g., 2.5, 3, 3.5, etc.) until you find a sweet spot that balances reliability with overall execution time. You can also lower or increase the value of <code>adaptive_pause</code> incrementally by intervals of .5 to further refine the balance.</p>
+<p>In this example, adaptive pausing only kicks in if the response time for the most recent request is 2.5 times the average of the response time for the last 20 requests. You can increment <code>adaptive_pause_threshold</code>'s value by .5 (e.g., 2.5, 3, 3.5, etc.) until you find a sweet spot that balances reliability with overall execution time. You can also decrease or increase the value of <code>adaptive_pause</code> incrementally by intervals of .5 to further refine the balance.</p>
 <p>The number of previous requests used to determine the average response time is hard-coded to 20. There is no configuration option to change that number.</p>
 <h3 id="logging-drupals-response-time">Logging Drupal's response time</h3>
 <p>If a request if paused by adaptive pausing, Workbench will automatically log the response time for the next request, indicating that <code>adaptive_pause</code> has temporarily halted execution. If you want to log Drupal's response time regardless of whether <code>adaptive_pause</code> had kicked in or not, add <code>log_response_time: true</code> to your configuration file. All logging of response time includes variation from the average of the last 20 response times.</p>
