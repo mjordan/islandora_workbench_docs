@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Reducing load - Islandora Workbench</title>
+  <title>Reducing Workbench's impact on Drupal - Islandora Workbench</title>
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
@@ -16,7 +16,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Reducing load";
+    var mkdocs_page_name = "Reducing Workbench's impact on Drupal";
     var mkdocs_page_input_path = "reducing_load.md";
     var mkdocs_page_url = null;
   </script>
@@ -192,6 +192,29 @@
     <a class="" href="../workflows/">Workflows</a>
 	    </li>
           
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Reducing Workbench's impact on Drupal</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#reducing-workbenchs-impact-on-drupal">Reducing Workbench's impact on Drupal</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#basic-pause">Basic pause</a></li>
+        
+            <li><a class="toctree-l3" href="#adaptive-pause">Adaptive pause</a></li>
+        
+            <li><a class="toctree-l3" href="#logging-drupals-response-time">Logging Drupal's response time</a></li>
+        
+            <li><a class="toctree-l3" href="#caching">Caching</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
             <li class="toctree-l1">
 		
     <a class="" href="../limitations/">Known limitations</a>
@@ -239,7 +262,7 @@
     
       
     
-    <li>Reducing load</li>
+    <li>Reducing Workbench's impact on Drupal</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/reducing_load.md"
@@ -256,30 +279,25 @@
 <p>Workbench can put a substantial stress on Drupal. In some cases, this stress can lead to instability and errors. Workbench offers two main ways to reduce this stress.</p>
 <p>The first is by telling Workbench to pause between each REST request it makes to Drupal. There are two types of pause, 1) basic pause and 2 "adaptive" pause.</p>
 <h3 id="basic-pause">Basic pause</h3>
-<p>Using the <code>pause</code> configuration setting will tell Workbench to pause execution before every 'POST', 'PUT', 'PATCH', and 'DELETE' request.  </p>
+<p>The <code>pause</code> configuration setting tells Workbench to temporarily halt execution before every 'POST', 'PUT', 'PATCH', and 'DELETE' request, providing Drupal with extra time to perform the corresponding actions. To enable <code>pause</code>, include the setting in your configuration file, providing the number of seconds to wait between requests:</p>
 <pre><code class="yaml">pause: 2
 </code></pre>
 
-<p>This will likely help decreae load-induced errors, but it is inefficient since some of the pausing between requests may not be necessary. </p>
+<p>Using <code>pause</code> will help decrease load-induced errors, but it is inefficient because Workbench pauses between all requests, even ones that are not putting stress on Drupal.</p>
 <h3 id="adaptive-pause">Adaptive pause</h3>
-<p>Adaptive pause only pauses execution between requests if Workbench detects that Drupal is slowing down. It does does this by comparing Drupal's respones time for the last request to the average response time of the 20 previous requests. If the response time for the last request reaches a specific threshold, Workbench's adaptive pause will kick in and temporarily halt execution to allow Drupal to catch up.</p>
-<p>The threshold that needs to be met is configured using the <code>adaptive_pause_threshold</code> option. This setting's default value is 2, which means that the adaptive pause will kick in if the response time for the last request Workbench makes to Drupal is 2 times (double) the average of the last 20 requests. The number of seconds that Workbench will pause is determined by the <code>adaptive_pause</code> setting.</p>
-<p>You enable adaptive pausing by adding the <code>adaptive_pause</code> setting to your configuration file, giving it a number of seconds to pause (e.g., <code>adaptive_pause: 3</code>). Since <code>adaptive_pause_threshold</code> has a default value (2) but <code>adaptive_pause</code> does not, you would only ever use <code>adaptive_pause_threshold</code> if you want to override the default value. Therefore, both of these configurations are valid:</p>
-<pre><code class="yaml"># Pause for 3 seconds between requests if Drupal's
-# response time to the last request is 2 times slower
-# than the average of the last 20 requests.
-adaptive_pause: 3
+<p>Adaptive pause only halts execution between requests if Workbench detects that Drupal is slowing down. It does does this by comparing Drupal's response time for the most recent request to the average response time of the 20 previous requests. If the response time for the most recent request reaches a specific threshold, Workbench's adaptive pause will kick in and temporarily halt execution to allow Drupal to catch up.</p>
+<p>The threshold that needs to be met is configured using the <code>adaptive_pause_threshold</code> setting. This setting's default value is 2, which means that the adaptive pause will kick in if the response time for the most recent request Workbench makes to Drupal is 2 times (double) the average of the last 20 requests. The number of seconds that Workbench will pause is determined by the <code>adaptive_pause</code> setting.</p>
+<p>You enable adaptive pausing by adding the <code>adaptive_pause</code> setting to your configuration file, giving it a number of seconds to pause (e.g., <code>adaptive_pause: 3</code>). Since <code>adaptive_pause_threshold</code> has a default value (2) but <code>adaptive_pause</code> does not, you should only use <code>adaptive_pause_threshold</code> if you want to override the default value. Therefore, both of the following configurations are valid. The first enables <code>adaptive_pause</code> telling it to pause for 3 seconds between requests if Drupal's response time to the last request is 2 times slower than the average of the last 20 requests (using the default value of 2 <code>adaptive_pause_threshold</code>): </p>
+<pre><code class="yaml">adaptive_pause: 3
 </code></pre>
 
-<p>and</p>
-<pre><code class="yaml"># Pause for 2 seconds between requests if Drupal's
-# response time to the last request is 3 times slower
-# than the average of the last 20 requests.
-adaptive_pause: 2
+<p>In the following example, we override <code>adaptive_pause_threshold</code>'s default by including the setting in the configuration:</p>
+<pre><code class="yaml">adaptive_pause: 2
 adaptive_pause_threshold: 3
 </code></pre>
 
-<p>It might take trial and error to determine the optimal combination of these two settings for your Drupal server. A third configuration setting, <code>log_response_time: true</code>, will log the response time for every request Workbench makes to Drupal. Including this setting in your configuration will add a lot of entries to your Workbench log, but the data might help you get a sense for the effects that log_response_time <code>adaptive_pause</code> and <code>adaptive_pause_threshold</code> are having on your Drupal server.</p>
+<h3 id="logging-drupals-response-time">Logging Drupal's response time</h3>
+<p>If a request if paused by adaptive pausing, Workbench will automatically log the response time for the next request, indicating that <code>adaptive_pause</code> has temporarily halted execution. If you want to log Drupal's response time regardless of whether <code>adaptive_pause</code> had kicked in or not, add <code>log_response_time: true</code> to your configuration file.</p>
 <h3 id="caching">Caching</h3>
 <p>The second way that Workbench reduces stress on Drupal is by caching HTTP responses. By default, this caching is enabled for some types of requests Workbench makes to Drupal, such as requests for field configurations or for checks for the existence of taxonomy terms. This both reduces the load on Drupal and speeds up Workbench considerably. You should never have to disable this caching, but if you do (for example, if you are asked to during troubleshooting), you can do so by including the following setting in your configuration file:</p>
 <pre><code class="yaml">enable_http_cache: false
@@ -288,6 +306,15 @@ adaptive_pause_threshold: 3
             </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../limitations/" class="btn btn-neutral float-right" title="Known limitations">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../workflows/" class="btn btn-neutral" title="Workflows"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -313,6 +340,10 @@ adaptive_pause_threshold: 3
           <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
+        <span><a href="../workflows/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../limitations/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

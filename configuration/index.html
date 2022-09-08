@@ -255,6 +255,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../reducing_load/">Reducing Workbench's impact on Drupal</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../limitations/">Known limitations</a>
 	    </li>
           
@@ -868,13 +873,13 @@ password: islandora
 <td>pause</td>
 <td></td>
 <td></td>
-<td>Defines the number of seconds to pause between all 'POST', 'PUT', 'PATCH', 'DELETE' requests to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5.</td>
+<td>Defines the number of seconds to pause between all 'POST', 'PUT', 'PATCH', 'DELETE' requests to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5. More information is available in the "<a href="/islandora_workbench_docs/reducing_load/">Reducing Workbench's impact on Drupal</a> documentation.</td>
 </tr>
 <tr>
 <td>adaptive_pause</td>
 <td></td>
 <td></td>
-<td>Defines the number of seconds to pause between each REST request to Drupal. Works like "pause" but only takes effect when the Drupal server's response to the most recent request is slower (determined by the "adaptive_pause_threshold" value) than the average response time for the last 20 requests. If a request if paused by adaptive pausing, Workbench will log the response time for the next request.</td>
+<td>Defines the number of seconds to pause between each REST request to Drupal. Works like "pause" but only takes effect when the Drupal server's response to the most recent request is slower (determined by the "adaptive_pause_threshold" value) than the average response time for the last 20 requests. More information is available in the "<a href="/islandora_workbench_docs/reducing_load/">Reducing Workbench's impact on Drupal</a> documentation.</td>
 </tr>
 <tr>
 <td>adaptive_pause_threshold</td>
