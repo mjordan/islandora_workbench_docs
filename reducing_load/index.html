@@ -260,20 +260,27 @@
 <pre><code class="yaml">pause: 2
 </code></pre>
 
+<p>This will likely help decreae load-induced errors, but it is inefficient since some of the pausing between requests may not be necessary. </p>
 <h3 id="adaptive-pause">Adaptive pause</h3>
-<p>Adaptive pause only pauses execution between requests if Workbench detects that Drupal is slowing down. It does does this by monitoring Drupal's average response time (to be specific, the average of the last 20 HTTP responses). If descrease in Drupal's response time reaches a specific threshold, Workbench's adaptive pause will kick in and temporarily halt execution to allow Drupal to catch up. </p>
+<p>Adaptive pause only pauses execution between requests if Workbench detects that Drupal is slowing down. It does does this by monitoring Drupal's average response time (to be specific, the average of the last 20 HTTP responses). If a descrease in Drupal's response time reaches a specific threshold, Workbench's adaptive pause will kick in and temporarily halt execution to allow Drupal to catch up.</p>
 <p>The threshold that needs to be met is configured using the <code>adaptive_pause_threshold</code> option. This setting's default value is 2, which means that the adaptive pause will kick in if the response time for the last request Workbench makes to Drupal is 2 times (double) the average of the last 20 requests. The number of seconds that Workbench will pause is determined by the <code>adaptive_pause</code> setting. Since <code>adaptive_pause_threshold</code> has a default value (2) but <code>adaptive_pause</code> does not, you would only ever use <code>adaptive_pause_threshold</code> if you want to override the default value. Therefore, both of these configurations are valid:</p>
-<pre><code class="yaml">adaptive_pause: 3
+<pre><code class="yaml"># Pause for 3 seconds between requests if Drupal's
+# response time to the last request is 2 times slower
+# than the average of the last 20 requests.
+adaptive_pause: 3
 </code></pre>
 
 <p>and</p>
-<pre><code class="yaml">adaptive_pause: 2
-adaptive_pause_threshold: 4
+<pre><code class="yaml"># Pause for 2 seconds between requests if Drupal's
+# response time to the last request is 3 times slower
+# than the average of the last 20 requests.
+adaptive_pause: 2
+adaptive_pause_threshold: 3
 </code></pre>
 
 <p>It might take trial and error to determine the optimal combination of these two settings for your Drupal server. A third configuration setting, <code>log_response_time: true</code>, will log the response time for every request Workbench makes to Drupal. Including this setting in your configuration will add a lot of entries to your Workbench log, but the data might help you get a sense for the effects that log_response_time <code>adaptive_pause</code> and <code>adaptive_pause_threshold</code> are having on your Drupal server.</p>
 <h3 id="caching">Caching</h3>
-<p>The second way that Workbench reduces stress on Drupal is by caching. By default, Workbench caches results to some types of requests is makes to Drupal, such as requests for field configurations or for checks for the existence of taxonomy terms. This speeds up Workbench considerably. You should never have to disable this caching, but if you do (for example, if you are asked to during troubleshooting), you can do so by including the following setting in your configuration file:</p>
+<p>The second way that Workbench reduces stress on Drupal is by caching HTTP responses. By default, this caching is enabled for some types of requests Workbench makes to Drupal, such as requests for field configurations or for checks for the existence of taxonomy terms. This both reduces the load on Drupal and speeds up Workbench considerably. You should never have to disable this caching, but if you do (for example, if you are asked to during troubleshooting), you can do so by including the following setting in your configuration file:</p>
 <pre><code class="yaml">enable_http_cache: false
 </code></pre>
               
