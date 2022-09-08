@@ -35,6 +35,7 @@ pages:
     - Logging: logging.md
     - Cancelling Workbench: cancelling.md
     - Workflows: workflows.md
+    - Reducing Workbench's impact on Drupal: reducing_load.md
     - Known limitations: limitations.md
     - Roadmap (Fall 2021): roadmap.md
     - Troubleshooting: troubleshooting.md
