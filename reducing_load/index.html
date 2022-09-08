@@ -278,12 +278,16 @@
                 <h2 id="reducing-workbenchs-impact-on-drupal">Reducing Workbench's impact on Drupal</h2>
 <p>Workbench can put substantial stress on Drupal. In some cases, this stress can lead to instability and errors. Workbench offers two main ways to reduce this stress.</p>
 <p>The first is by telling Workbench to pause between each REST request it makes to Drupal. There are two types of pause, 1) basic pause and 2) "adaptive" pause.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both types of pausing will slow down Workbench's overall execution time since they reduce speed to improve stability and reliability.</p>
+</div>
 <h3 id="basic-pause">Basic pause</h3>
 <p>The <code>pause</code> configuration setting tells Workbench to temporarily halt execution before every 'POST', 'PUT', 'PATCH', and 'DELETE' request, providing Drupal with extra time to perform the corresponding actions. To enable <code>pause</code>, include the setting in your configuration file, indicating the number of seconds to wait between requests:</p>
 <pre><code class="yaml">pause: 2
 </code></pre>
 
-<p>Using <code>pause</code> will help decrease load-induced errors, but it is inefficient because Workbench pauses between all requests, even ones that are not putting stress on Drupal.</p>
+<p>Using <code>pause</code> will help decrease load-induced errors, but it is inefficient because Workbench pauses between all requests, even ones that are not putting stress on Drupal. A useful strategy for refining Workbench's load-reduction capabilities is to try <code>pause</code> first, and if it reduces errors, then disable <code>pause</code> and try <code>adaptive_pause</code> instead.</p>
 <h3 id="adaptive-pause">Adaptive pause</h3>
 <p>Adaptive pause only halts execution between requests if Workbench detects that Drupal is slowing down. It does does this by comparing Drupal's response time for the most recent request to the average response time of the 20 previous requests. If the response time for the most recent request reaches a specific threshold, Workbench's adaptive pause will kick in and temporarily halt execution to allow Drupal to catch up.</p>
 <p>The threshold that needs to be met is configured using the <code>adaptive_pause_threshold</code> setting. This setting's default value is 2, which means that the adaptive pause will kick in if the response time for the most recent request Workbench makes to Drupal is 2 times (double) the average of the last 20 requests.</p>
@@ -293,10 +297,10 @@
 
 <p>In the following example, we override <code>adaptive_pause_threshold</code>'s default by including the setting in the configuration:</p>
 <pre><code class="yaml">adaptive_pause: 2
-adaptive_pause_threshold: 3
+adaptive_pause_threshold: 2.5 
 </code></pre>
 
-<p>In this example, adaptive pausing only kicks in if the response time for the most recent request is 3 times the average of the response time for the last 20 requests.</p>
+<p>In this example, adaptive pausing only kicks in if the response time for the most recent request is 2.5 times the average of the response time for the last 20 requests. You can increment <code>adaptive_pause_threshold</code>'s value by .5 (e.g., 2.5, 3, 3.5, etc.) until you find a sweet spot that balances reliability with overall execution time. You can also lower or increase the value of <code>adaptive_pause</code> incrementally by intervals of .5 to further refine the balance.</p>
 <h3 id="logging-drupals-response-time">Logging Drupal's response time</h3>
 <p>If a request if paused by adaptive pausing, Workbench will automatically log the response time for the next request, indicating that <code>adaptive_pause</code> has temporarily halted execution. If you want to log Drupal's response time regardless of whether <code>adaptive_pause</code> had kicked in or not, add <code>log_response_time: true</code> to your configuration file.</p>
 <h3 id="caching">Caching</h3>
