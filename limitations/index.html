@@ -214,6 +214,9 @@
     <li class="toctree-l2"><a href="#workbench-cant-createupdate-paragraphs">Workbench can't create/update Paragraphs</a></li>
     
 
+    <li class="toctree-l2"><a href="#html-markup-in-csv-field-values-is-not-rendered">HTML markup in CSV field values is not rendered</a></li>
+    
+
     <li class="toctree-l2"><a href="#workbench-doesnt-support-taxonomy-reference-fields-that-use-the-filter-by-an-entity-reference-view-reference-type">Workbench doesn't support taxonomy reference fields that use the "Filter by an entity reference View" reference type</a></li>
     
 
@@ -288,6 +291,8 @@
 <p><a href="https://github.com/mjordan/islandora_workbench/issues/450">Issue</a>.</p>
 <h2 id="workbench-cant-createupdate-paragraphs">Workbench can't create/update Paragraphs</h2>
 <p>There is a bug in Paragraphs' REST interface (<a href="https://github.com/mjordan/islandora_workbench/issues/292">issue</a>).</p>
+<h2 id="html-markup-in-csv-field-values-is-not-rendered">HTML markup in CSV field values is not rendered</h2>
+<p>Currently, if you include HTML markup in Workbench's CSV input data, that markup is not rendered when users view the resulting node. This is true even if the node's field is correctly configured to accept Drupal's text formats like "basic_html" and "full_html". See issue <a href="https://github.com/mjordan/islandora_workbench/issues/367">#367</a> for more information.</p>
 <h2 id="workbench-doesnt-support-taxonomy-reference-fields-that-use-the-filter-by-an-entity-reference-view-reference-type">Workbench doesn't support taxonomy reference fields that use the "Filter by an entity reference View" reference type</h2>
 <p>Only taxonomy reference fields that use the "Default" reference type are currently supported. However, <a href="https://github.com/mjordan/islandora_workbench/issues/452">work is being done</a> to support both types of entity reference.</p>
               
