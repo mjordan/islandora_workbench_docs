@@ -283,7 +283,7 @@
 <p>Both types of pausing will slow down Workbench's overall execution time since they reduce speed to improve stability and reliability.</p>
 </div>
 <h3 id="basic-pause">Basic pause</h3>
-<p>The <code>pause</code> configuration setting tells Workbench to temporarily halt execution before every 'POST', 'PUT', 'PATCH', and 'DELETE' request, thereby spreading load caused by the actions over a longer period of time. To enable <code>pause</code>, include the setting in your configuration file, indicating the number of seconds to wait between requests:</p>
+<p>The <code>pause</code> configuration setting tells Workbench to temporarily halt execution before every 'POST', 'PUT', 'PATCH', and 'DELETE' request, thereby spreading load caused by the requests over a longer period of time. To enable <code>pause</code>, include the setting in your configuration file, indicating the number of seconds to wait between requests:</p>
 <pre><code class="yaml">pause: 2
 </code></pre>
 
