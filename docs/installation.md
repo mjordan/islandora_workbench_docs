@@ -85,3 +85,19 @@ When ingesting media in Drupal versions 8.5 and earlier, Islandora Workbench has
 * A file with a filename that already exists in Islandora will overwrite the existing file, as reported in this [issue](https://github.com/Islandora/documentation/issues/1790).
 
 To avoid these issues, you need to be running Drupal version 8.6 or higher.
+
+## Password managment
+
+Islandora Workbench requires user credentials that have administrator-level permissions in the target Drupal. Therefore you should exercise caution when managing those credentials.
+
+Workbench configuration files must contain a `username` setting, but you can provide the corresponding password in three ways:
+
+1. in the `password` setting in your YAML configuration file
+1. in the `ISLANDORA_WORKBENCH_PASSWORD` environment variable 
+1. in response to a prompt when you run Workbench.
+
+If the `password` setting is present in your configuration files, Workbench will use its value as the user password and will ignore the other two methods of providing a password. If the `password` setting is absent, Workbench will look for the `ISLANDORA_WORKBENCH_PASSWORD` environment variable and if it is present, use its value. If both the `password` setting and the `ISLANDORA_WORKBENCH_PASSWORD` environment variable are absent, Workbench will prompt the user for a password before proceeding.
+
+!!! warning
+    If you put the password in configuration files, you should not leave the files in directories that are widely readable, send them in emails or share them in Slack, commit the configuration files to public Git repositories, etc.
+

@@ -1,5 +1,3 @@
-## Change log
-
 ### main branch (no tag/release)
 
 * September 1, 2022 (commit 6aad517): All hook scripts now log their exit codes (issue [464](https://github.com/mjordan/islandora_workbench/issues/464)).
@@ -14,7 +12,7 @@
 
 ### Documentation
 
-* September 15, 2022: Added entry to "[Limitations](/islandora_workbench_docs/limitations/)" page about lack of support for HTML markup.
+* September 15, 2022: Added entry to "[Limitations](/islandora_workbench_docs/limitations/)" page about lack of support for HTML markup. Also added a section on "Password management" to "[Requirements and installation](/islandora_workbench_docs/installation/)".
 * September 8, 2022: Added documentation on "[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/)."
 * August 30, 2022: Updated "[Hooks](/islandora_workbench_docs/hooks/)" docs to clarify that the HTTP response code passed to post-entity-create scripts is a string, not an integer.
 * August 18, 2022: Updated `standalone_media_url` entry in the "[Congfiguration](/islandora_workbench_docs/configuration/)" docs, and added brief entry to the "[Troubleshooting](/islandora_workbench_docs/troubleshooting/)" page about clearning Drupal's cache.
