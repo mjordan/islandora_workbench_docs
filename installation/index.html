@@ -357,11 +357,11 @@
 <p>Islandora Workbench requires the use of user credentials that have administrator-level permissions in the target Drupal. Therefore you should exercise caution when managing those credentials.</p>
 <p>You can supply the username and password for this user in three ways:</p>
 <ol>
-<li>In the <code>password</code> setting in your plain-text YAML configuration file. If this setting is present in your configuration file, the next two methods are ignored.</li>
-<li>In the <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable. </li>
-<li>In response to a prompt when you run Workbench.</li>
+<li>in the <code>password</code> setting in your plain-text YAML configuration file</li>
+<li>in the <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable </li>
+<li>in response to a prompt when you run Workbench.</li>
 </ol>
-<p>If the <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable is present (and the <code>password</code> setting is absent from your configuration file), Workbench will use its value as the user password. If the <code>password</code> setting is absent from your configuration file, and the <code>ISLANDORA_WORKBENCH_PASSWORD</code> does not exist, Workbench will prompt the user for a password before proceeding.</p>
+<p>If the <code>password</code> setting is present in your configuration files, Workbench will use its value as the user password and will ignore the other two methods of providing a password. If the <code>password</code> setting is absent, Workbench will look for the <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable and if it is present, use its value. If both the <code>password</code> setting and the <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable are absent, Workbench will prompt the user for a password before proceeding.</p>
               
             </div>
           </div>
