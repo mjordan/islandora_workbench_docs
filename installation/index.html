@@ -354,14 +354,18 @@
 </ul>
 <p>To avoid these issues, you need to be running Drupal version 8.6 or higher.</p>
 <h2 id="security">Security</h2>
-<p>Islandora Workbench requires the use of user credentials that have administrator-level permissions in the target Drupal. Therefore you should exercise caution when managing those credentials.</p>
+<p>Islandora Workbench requires user credentials that have administrator-level permissions in the target Drupal. Therefore you should exercise caution when managing those credentials.</p>
 <p>You can supply the username and password for this user in three ways:</p>
 <ol>
-<li>in the <code>password</code> setting in your plain-text YAML configuration file</li>
+<li>in the <code>password</code> setting in your YAML configuration file</li>
 <li>in the <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable </li>
 <li>in response to a prompt when you run Workbench.</li>
 </ol>
 <p>If the <code>password</code> setting is present in your configuration files, Workbench will use its value as the user password and will ignore the other two methods of providing a password. If the <code>password</code> setting is absent, Workbench will look for the <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable and if it is present, use its value. If both the <code>password</code> setting and the <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable are absent, Workbench will prompt the user for a password before proceeding.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you put the password in configuration files, you should not leave the files in directories that are widely readable, send them in emails or share them in Slack, commit the configuration files to public Git repositories, etc.</p>
+</div>
               
             </div>
           </div>
