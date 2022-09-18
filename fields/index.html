@@ -107,9 +107,6 @@
         </ul>
     
 
-    <li class="toctree-l2"><a href="#skipping-csv-rows">Skipping CSV rows</a></li>
-    
-
     </ul>
 	    </li>
           
@@ -788,8 +785,6 @@ viaf%%http://viaf.org/viaf/10646807|other%%https://github.com/mjordan%%Github
 <li>Geocoordinate values in your CSV need to be wrapped in double quotation marks, unless the <code>delimiter</code> key in your configuration file is set to something other than a comma.</li>
 <li>If you are entering geocoordinates into a spreadsheet, a leading <code>+</code> will make the spreadsheet application think you are entering a formula. You can work around this by escaping the <code>+</code> with a backslash (<code>\</code>), e.g., <code>49.16667,-123.93333</code> should be <code>\+49.16667,-123.93333</code>, and <code>49.16667,-123.93333|49.25,-124.8</code> should be <code>\+49.16667,-123.93333|\+49.25,-124.8</code>. Workbench will strip the leading <code>\</code> before it populates the Drupal fields.</li>
 </ul>
-<h2 id="skipping-csv-rows">Skipping CSV rows</h2>
-<p>You can comment out rows in your input CSV, Excel file (or Google Sheet or Excel file) and you can also tell Workbench to only process a specific set of rows. More informatoin is available at "(Ignoring CSV rows and columns)[/islandora_workbench_docs/ignoring_csv_rows_and_columns]." </p>
               
             </div>
           </div>
