@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Ignoring csv rows and columns - Islandora Workbench</title>
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../css/extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Ignoring csv rows and columns";
+    var mkdocs_page_input_path = "ignoring_csv_rows_and_columns.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Islandora Workbench</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../installation/">Requirements and installation</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../configuration/">Configuration</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../check/">Checking configuration and input data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../preparing_data/">Preparing your data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fields/">Field data (Drupal and CSV)</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../field_templates/">CSV field templates</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../paged_and_compound/">Creating paged, compound, and collection content</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../nodes_only/">Creating nodes without media</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../creating_nodes_from_files/">Creating nodes from files</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../creating_taxonomy_terms/">Creating taxonomy terms</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aliases/">Assigning URL aliases</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../alt_text/">Adding alt text to images</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../rolling_back/">Rolling back nodes and media</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../media_types/">Setting media types</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../updating_nodes/">Updating nodes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deleting_nodes/">Deleting nodes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../adding_media/">Adding media to nodes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../deleting_media/">Deleting media</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../adding_multiple_media/">Adding multiple media</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../generating_csv_files/">Generating CSV files</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../sample_data/">Creating nodes from the sample data</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../exporting_islandora_7_content/">Exporting Islandora 7 content</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../generating_sample_content/">Generating sample Islandora content</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../hooks/">Hooks</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../fixity/">Fixity checking</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../logging/">Logging</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../cancelling/">Cancelling Workbench</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../workflows/">Workflows</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../reducing_load/">Reducing Workbench's impact on Drupal</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../limitations/">Known limitations</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../roadmap/">Roadmap (Fall 2021)</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../changelog/">Change log</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../development_guide/">Development guide</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Islandora Workbench</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Ignoring csv rows and columns</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/ignoring_csv_rows_and_columns.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="commenting-out-csv-rows">Commenting out CSV rows</h2>
+<p>You can comment out rows in your input CSV, Excel file, or Google Sheet by adding a hash mark (<code>#</code>) as the first character of the value in the first column. Workbench ignores these rows, both when it is run with and without <code>--check</code>. Commenting out rows works in all tasks that use CSV data.</p>
+<p>For example, the third row in the following CSV file is commented out:</p>
+<pre><code class="text">file,id,title,field_model,field_description
+IMG_1410.tif,01,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
+IMG_2549.jp2,02,Manhatten Island,25,Weather was windy.
+#IMG_2940.JPG,03,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain.
+IMG_2958.JPG,04,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
+IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Francisco.&quot;
+</code></pre>
+
+<p>Since column order doesn't matter to Workbench, the same row is commented out in both the previous example and in this one:</p>
+<pre><code class="text">id,file,title,field_model,field_description
+01,IMG_1410.tif,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
+02,IMG_2549.jp2,Manhatten Island,25,Weather was windy.
+# 03,IMG_2940.JPG,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain.
+04,IMG_2958.JPG,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
+05,IMG_5083.JPG,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Francisco.&quot;
+</code></pre>
+
+<p>Commenting works the same with in Excel and Google Sheets. Here is the CSV file used above in a Google Sheet:</p>
+<p><img alt="Google Sheet with commented row" src="../images/google_sheet_commented_row.png" /></p>
+<p>You can also use commenting to include actual <em>comments</em> in your CSV/Google Sheet/Excel file:</p>
+<pre><code class="text">id,file,title,field_model,field_description
+01,IMG_1410.tif,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
+02,IMG_2549.jp2,Manhatten Island,25,Weather was windy.
+# Let's not load the following record right now.
+# 03,IMG_2940.JPG,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain.
+04,IMG_2958.JPG,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
+05,IMG_5083.JPG,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Francisco.&quot;
+</code></pre>
+
+<h2 id="using-csv-row-ranges">Using CSV row ranges</h2>
+<p>The <code>csv_start_row</code> and <code>csv_stop_row</code> configuration settings allow you to tell Workbench to only use a specific subset of input CSV records. Each setting takes as its value a row number (ignoring the header row). For example, row number 2 is the second row of data after the CSV header row. Both settings are optional and can be used in any task. Here are some example configurations:</p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>csv_start_row: 10</code></td>
+<td>Process CSV rows 10 to the end of the CSV file.</td>
+</tr>
+<tr>
+<td><code>csv_start_row: 10</code></td>
+<td>Process only CSV rows 10-15</td>
+</tr>
+<tr>
+<td><code>csv_stop_row: 15</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>csv_stop_row: 20</code></td>
+<td>Process CSV from the start of the file to row 20.</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
