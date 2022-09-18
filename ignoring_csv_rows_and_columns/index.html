@@ -290,8 +290,7 @@ IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Franc
 </code></pre>
 
 <h2 id="using-csv-row-ranges">Using CSV row ranges</h2>
-<p>The <code>csv_start_row</code> and <code>csv_stop_row</code> configuration settings allow you to tell Workbench to only process a specific subset of input CSV records. These settings apply during <code>--check</code> and normal tasks, and also apply when using text CSV, Google Sheets, or Excel input files. Each setting takes as its value a row number (ignoring the header row). For example, row number 2 is the second row of data after the CSV header row.</p>
-<p>Both settings are optional and can be used in any task. Below are some example configurations.</p>
+<p>The <code>csv_start_row</code> and <code>csv_stop_row</code> configuration settings allow you to tell Workbench to only process a specific subset of input CSV records. Both settings are optional and can be used in any task, and apply when using text CSV, Google Sheets, or Excel input files. Each setting takes as its value a row number (ignoring the header row). For example, row number 2 is the second row of data after the CSV header row. Below are some example configurations.</p>
 <p>Process CSV rows 10 to the end of the CSV file (ignoring rows 1-9):</p>
 <p><code>csv_start_row: 10</code></p>
 <p>Process only CSV rows 10-15 (ignoring all other rows):</p>
