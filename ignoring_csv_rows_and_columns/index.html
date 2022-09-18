@@ -291,19 +291,19 @@ IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Franc
 
 <h2 id="using-csv-row-ranges">Using CSV row ranges</h2>
 <p>The <code>csv_start_row</code> and <code>csv_stop_row</code> configuration settings allow you to tell Workbench to only use a specific subset of input CSV records. Each setting takes as its value a row number (ignoring the header row). For example, row number 2 is the second row of data after the CSV header row. Both settings are optional and can be used in any task. Below are some example configurations.</p>
-<p>Process CSV rows 10 to the end of the CSV file:</p>
+<p>Process CSV rows 10 to the end of the CSV file (ignoring rows 1-9):</p>
 <p><code>csv_start_row: 10</code></p>
 <p>Process only CSV rows 10-15 (ignoring all other rows):</p>
 <p><code>csv_start_row: 10</code><br />
 <code>csv_stop_row: 15</code> </p>
-<p>Process CSV from the start of the file to row 20:</p>
+<p>Process CSV from the start of the file to row 20 (ignoring rows 21 and higher):</p>
 <p><code>csv_stop_row: 20</code> </p>
 <h2 id="ignoring-csv-columns">Ignoring CSV columns</h2>
 <p>Islandora Workbench strictly validates the columns in the input CSV to ensure that they match Drupal field names and reserved Workbench column names. To accommodate CSV columns that do not correspond to either of those types, or to eliminate a column during testing or troubleshooting, you can tell Workbench to ignore specific columns that are present in the CSV. To do this, list the column headers in the <code>ignore_csv_columns</code> configuration setting. For example, if you want to include a <code>date_generated</code> column in your CSV (which is neither a Workbench reserved column or a Driupal field name), include the following in your Workbench configuration file:</p>
 <pre><code>ignore_csv_columns: ['date_generated']
 </code></pre>
 
-<p>If you want to ignore the "data_generated" column and the "field_description" column, your configuration would look like this:</p>
+<p>If you want Workbench to ignore the "data_generated" column and the "field_description" column, your configuration would look like this:</p>
 <pre><code>ignore_csv_columns: ['date_generated', 'field_description']
 </code></pre>
               
