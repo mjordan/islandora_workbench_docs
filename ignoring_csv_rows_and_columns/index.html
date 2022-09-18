@@ -290,7 +290,7 @@ IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Franc
 </code></pre>
 
 <h2 id="using-csv-row-ranges">Using CSV row ranges</h2>
-<p>The <code>csv_start_row</code> and <code>csv_stop_row</code> configuration settings allow you to tell Workbench to only use a specific subset of input CSV records. Each setting takes as its value a row number (ignoring the header row). For example, row number 2 is the second row of data after the CSV header row. Both settings are optional and can be used in any task. Below are some example configurations.</p>
+<p>The <code>csv_start_row</code> and <code>csv_stop_row</code> configuration settings allow you to tell Workbench to only process a specific subset of input CSV records. These settings apply during <code>--check</code> and normal tasks. Each setting takes as its value a row number (ignoring the header row). For example, row number 2 is the second row of data after the CSV header row. Both settings are optional and can be used in any task. Below are some example configurations.</p>
 <p>Process CSV rows 10 to the end of the CSV file (ignoring rows 1-9):</p>
 <p><code>csv_start_row: 10</code></p>
 <p>Process only CSV rows 10-15 (ignoring all other rows):</p>
@@ -298,7 +298,7 @@ IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Franc
 <code>csv_stop_row: 15</code> </p>
 <p>Process CSV from the start of the file to row 20 (ignoring rows 21 and higher):</p>
 <p><code>csv_stop_row: 20</code> </p>
-<p>If you only want to process a single row, use its position in the CSV for both <code>csv_start_row</code> or <code>csv_stop_row</code>:</p>
+<p>If you only want to process a single row, use its position in the CSV for both <code>csv_start_row</code> or <code>csv_stop_row</code> (for example, to only process row 100):</p>
 <p><code>csv_start_row: 100</code><br />
 <code>csv_stop_row: 100</code> </p>
 <div class="admonition note">
