@@ -619,6 +619,12 @@ password: islandora
 <td>exit_on_first_missing_file_during_check</td>
 <td></td>
 <td>true</td>
+<td>Use <code>strict_check</code> instead. Will be removed as a configuration setting November 1, 2022.</td>
+</tr>
+<tr>
+<td>strict_check</td>
+<td></td>
+<td>true</td>
 <td>If set to <code>true</code> (the default) Workbench will exit during <code>--check</code> when it encounters the first missing or empty CSV <code>file</code> value. If set to <code>false</code>, Workbench will check all <code>file</code> values and exit when it finds the first missing file. In other words, if you want Workbench to check for the existence of all media files during <code>--check</code> before exiting, set this value to <code>false</code>.</td>
 </tr>
 <tr>
