@@ -74,5 +74,5 @@ Islandora Workbench strictly validates the columns in the input CSV to ensure th
 ignore_csv_columns: ['date_generated']
 ```
 
-With this setting in place, Workbench will ignore the `date_generated` column in the input CSV.
+With this setting in place, Workbench will ignore the `date_generated` column in the input CSV. More information on this feature [is availalable](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#ignoring-csv-columns).
 

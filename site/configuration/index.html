@@ -140,6 +140,11 @@
           
             <li class="toctree-l1">
 		
+    <a class="" href="../ignoring_csv_rows_and_columns/">Ignoring CSV rows and columns</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
     <a class="" href="../field_templates/">CSV field templates</a>
 	    </li>
           
@@ -523,6 +528,18 @@ password: islandora
 <td></td>
 <td>Used in the <code>create</code> and <code>update</code> tasks only. A list of CSV column headers that Workbench should ignore. For example, <code>ignore_csv_columns: [Target Collection, Ready to publish]</code></td>
 </tr>
+<tr>
+<td>csv_start_row</td>
+<td></td>
+<td></td>
+<td>Used in all tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) before the designated row number. <a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges">More information</a> is available.</td>
+</tr>
+<tr>
+<td>csv_stop_row</td>
+<td></td>
+<td></td>
+<td>Used in all tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) after the designated row number. <a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges">More information</a> is available.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="output-csv-settings">Output CSV settings</h3>
@@ -600,6 +617,12 @@ password: islandora
 </tr>
 <tr>
 <td>exit_on_first_missing_file_during_check</td>
+<td></td>
+<td>true</td>
+<td>Use <code>strict_check</code> instead. Will be removed as a configuration setting November 1, 2022.</td>
+</tr>
+<tr>
+<td>strict_check</td>
 <td></td>
 <td>true</td>
 <td>If set to <code>true</code> (the default) Workbench will exit during <code>--check</code> when it encounters the first missing or empty CSV <code>file</code> value. If set to <code>false</code>, Workbench will check all <code>file</code> values and exit when it finds the first missing file. In other words, if you want Workbench to check for the existence of all media files during <code>--check</code> before exiting, set this value to <code>false</code>.</td>

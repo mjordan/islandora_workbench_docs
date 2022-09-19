@@ -1,5 +1,7 @@
 ### main branch (no tag/release)
 
+* September 19, 2022 (commit 51c0f79): Replaced `exit_on_first_missing_file_during_check` configuration option with `strict_check` (issue [470](https://github.com/mjordan/islandora_workbench/issues/470)). `exit_on_first_missing_file_during_check` will be available until Nov. 1, 2022, at which time `strict_check` will be the only option allowed.
+* September 18, 2022 (commit 00f50d6): Added ability to tell Workench to only process a subset of CSV records (issue [468](https://github.com/mjordan/islandora_workbench/issues/468)).
 * September 1, 2022 (commit 6aad517): All hook scripts now log their exit codes (issue [464](https://github.com/mjordan/islandora_workbench/issues/464)).
 * August 16, 2022 (commit 4270d13): Fixed bug that would not delete media with no files (issue [460](https://github.com/mjordan/islandora_workbench/issues/460)).
 * August 13, 2022 (commit 1b7b801): Added ability to run shutdown scripts (issue [459](https://github.com/mjordan/islandora_workbench/issues/459)).
@@ -12,6 +14,8 @@
 
 ### Documentation
 
+* September 19, 2022: Updated references to `exit_on_first_missing_file_during_check` to use `strict_check`. Configuration settings entry advises `exit_on_first_missing_file_during_check` will be removed Nov. 1, 2022.
+* September 18, 2022: Added entry "[Ignoring CSV rows and columns](/islandora_workbench_docs/ignoring_csv_rows_and_columns)."
 * September 15, 2022: Added entry to "[Limitations](/islandora_workbench_docs/limitations/)" page about lack of support for HTML markup. Also added a section on "Password management" to "[Requirements and installation](/islandora_workbench_docs/installation/)".
 * September 8, 2022: Added documentation on "[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/)."
 * August 30, 2022: Updated "[Hooks](/islandora_workbench_docs/hooks/)" docs to clarify that the HTTP response code passed to post-entity-create scripts is a string, not an integer.

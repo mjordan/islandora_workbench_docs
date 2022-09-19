@@ -12,6 +12,7 @@ pages:
     - Checking configuration and input data: check.md
     - Preparing your data: preparing_data.md
     - Field data (Drupal and CSV): fields.md
+    - Ignoring CSV rows and columns: ignoring_csv_rows_and_columns.md
     - CSV field templates: field_templates.md
     - Creating paged, compound, and collection content: paged_and_compound.md
     - Creating nodes without media: nodes_only.md

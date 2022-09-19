@@ -37,7 +37,7 @@ Things to note about `file` values in general:
 
 * Relative, absolute, and URL file locations can exist within the same CSV file.
 * By default, if the `file` value for a row is empty, Workbench's `--check` option will show an error. But, in some cases you may want to create nodes but not add any media. If you add `allow_missing_files: true` to your config file for "create" tasks, you can leave the `file` column in your CSV empty.
-* By default, during `--check`, Workbench will exit when it first encounters a missing file (or an empty `file` value). If you would prefer that Workbench checked for the existence of all files before exiting, include `exit_on_first_missing_file_during_check: false` in your configuration.
+* By default, during `--check`, Workbench will exit when it first encounters a missing file (or an empty `file` value). If you would prefer that Workbench checked for the existence of all files before exiting, include `strict_check: false` in your configuration.
 * If you want do not want to create media for any of the rows in your CSV file, include `nodes_only: true` in your configuration file. More detail [is available](/islandora_workbench_docs/nodes_only/).
 * `file` values that contain non-ASCII characters are normalized to their ASCII equivalents. See [this issue](https://github.com/mjordan/islandora_workbench/issues/192) for more information.
 
@@ -465,46 +465,3 @@ Note that:
 
 * Geocoordinate values in your CSV need to be wrapped in double quotation marks, unless the `delimiter` key in your configuration file is set to something other than a comma.
 * If you are entering geocoordinates into a spreadsheet, a leading `+` will make the spreadsheet application think you are entering a formula. You can work around this by escaping the `+` with a backslash (`\`), e.g., `49.16667,-123.93333` should be `\+49.16667,-123.93333`, and `49.16667,-123.93333|49.25,-124.8` should be `\+49.16667,-123.93333|\+49.25,-124.8`. Workbench will strip the leading `\` before it populates the Drupal fields.
-
-
-## Commenting out CSV rows
-
-You can comment out rows in your input CSV, Excel file, or Google Sheet by adding a hash mark (`#`) as the first character of the value in the first column. Workbench ignores these rows, both when it is run with and without `--check`. Commenting out rows works in all tasks that use CSV data.
-
-For example, the third row in the following CSV file is commented out:
-
-```text
-file,id,title,field_model,field_description
-IMG_1410.tif,01,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
-IMG_2549.jp2,02,Manhatten Island,25,Weather was windy.
-#IMG_2940.JPG,03,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain.
-IMG_2958.JPG,04,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
-IMG_5083.JPG,05,Alcatraz Island,25,"Taken from Fisherman's Wharf, San Francisco."
-```
-
-Since column order doesn't matter to Workbench, the same row is commented out in both the previous example and in this one:
-
-```text
-id,file,title,field_model,field_description
-01,IMG_1410.tif,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
-02,IMG_2549.jp2,Manhatten Island,25,Weather was windy.
-# 03,IMG_2940.JPG,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain.
-04,IMG_2958.JPG,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
-05,IMG_5083.JPG,Alcatraz Island,25,"Taken from Fisherman's Wharf, San Francisco."
-```
-
-Commenting works the same with in Excel and Google Sheets. Here is the CSV file used above in a Google Sheet:
-
-![Google Sheet with commented row](images/google_sheet_commented_row.png)
-
-You can also use commenting to include actual *comments* in your CSV/Google Sheet/Excel file:
-
-```text
-id,file,title,field_model,field_description
-01,IMG_1410.tif,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
-02,IMG_2549.jp2,Manhatten Island,25,Weather was windy.
-# Let's not load the following record right now.
-# 03,IMG_2940.JPG,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain.
-04,IMG_2958.JPG,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
-05,IMG_5083.JPG,Alcatraz Island,25,"Taken from Fisherman's Wharf, San Francisco."
-```
