@@ -363,7 +363,7 @@ csv_field_templates:
 </code></pre>
 
 <h3 id="use-of-spaces-and-other-syntactical-features">Use of spaces and other syntactical features</h3>
-<p>Configuration setting names should start a new line and not have any leading spaces. The exception is illustrated in the values of the <code>csv_field_templates</code> setting in the above examples, where the setting's value is a list of other values. In this case the members of the list start with a dash and a space (<code>-</code>). The trailing space in these values is significant. (However, the leading space is insignificant, and used for appearance only.) For example, this snippet is valid:</p>
+<p>Configuration setting names should start a new line and not have any leading spaces. The exception is illustrated in the values of the <code>csv_field_templates</code> setting in the above examples, where the setting's value is a list of other values. In this case the members of the list start with a dash and a space (<code>-</code>). The trailing space in these values is significant. (However, the leading space before the dash is insignificant, and is used for appearance only.) For example, this snippet is valid:</p>
 <pre><code class="yaml">csv_field_templates:
  - field_linked_agent: relators:aut:person:Jordan, Mark
  - field_model: 25
@@ -379,7 +379,7 @@ csv_field_templates:
 <pre><code class="yaml">export_csv_field_list: ['field_description', 'field_extent']
 </code></pre>
 
-<p>Strictly speaking, YAML lists can be represented as either a series of entries on their own lines that start with <code>-</code> or as entries enclosed in <code>[</code> and <code>]</code>. It's best to follow the examples provided throughout the documentation.</p>
+<p>Strictly speaking, YAML lists can be represented as either a series of entries on their own lines that start with <code>-</code> or as entries enclosed in <code>[</code> and <code>]</code>. It's best to follow the examples provided throughout the Workbench documentation.</p>
 <h3 id="required-settings">Required settings</h3>
 <table>
 <thead>
