@@ -69,7 +69,11 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#required-settings">Required settings</a></li>
+            <li><a class="toctree-l3" href="#use-of-quotation-marks">Use of quotation marks</a></li>
+        
+            <li><a class="toctree-l3" href="#use-of-spaces-and-other-syntactical-features">Use of spaces and other syntactical features</a></li>
+        
+            <li><a class="toctree-l3" href="#required-configuration-settings">Required configuration settings</a></li>
         
             <li><a class="toctree-l3" href="#drupal-settings">Drupal settings</a></li>
         
@@ -333,8 +337,50 @@ password: islandora
 
 <p>In this example, the <code>task</code> being performed is creating nodes (and optionally media). Other tasks are <code>create_from_files</code>, <code>update</code>, <code>delete</code>, <code>add_media</code>, and <code>delete_media</code>. Some of the configuration settings documented below are used in all tasks, while others are only used in specific tasks.</p>
 <h2 id="configuration-settings">Configuration settings</h2>
-<p>The settings defined in a configuration file are documented below, grouped into broad functional categories for easier reference. The order of the options in the configuration file doesn't matter, and settings do not need to be grouped together in any specific way in the configuration file.</p>
-<h3 id="required-settings">Required settings</h3>
+<p>The settings defined in a configuration file are documented in the tables below, grouped into broad functional categories for easier reference. The order of the options in the configuration file doesn't matter, and settings do not need to be grouped together in any specific way in the configuration file.</p>
+<h3 id="use-of-quotation-marks">Use of quotation marks</h3>
+<p>Note that you do not need to use quotation marks around values in your configuration file. You may wrap values in quotation marks if you wish, and many examples in this documentation do that (especially the <code>host</code> setting), but the only values that should not be wrapped in quotation marks are those that take <code>true</code> or <code>false</code> as values because in YAML, and many other commputer/markup languages,<code>"true"</code> is a string (in this case, an English word that can mean many things) and <code>true</code> is a reserved symbol that can mean one thing and one thing only, the boolean opposite of <code>false</code> (I'm sorry for this explanation, I can't describe the distinction in any other way without writing a primer on symbolic logic).</p>
+<p>For example, the following is a valid configuration file:</p>
+<pre><code class="yaml">task: create
+host: http://localhost:8000
+username: admin
+password: islandora
+nodes_only: true
+csv_field_templates:
+ - field_linked_agent: relators:aut:person:Jordan, Mark
+ - field_model: 25
+</code></pre>
+
+<p>But the following version is not valid, since there are quotes around <code>"true"</code> in the <code>nodes_only</code> setting:</p>
+<pre><code class="yaml">task: create
+host: http://localhost:8000
+username: admin
+password: islandora
+nodes_only: &quot;true&quot;
+csv_field_templates:
+ - field_linked_agent: relators:aut:person:Jordan, Mark
+ - field_model: 25
+</code></pre>
+
+<h3 id="use-of-spaces-and-other-syntactical-features">Use of spaces and other syntactical features</h3>
+<p>Configuration setting names should start a new line and not have any leading spaces. The exception is illustrated in the values of the <code>csv_field_templates</code> setting in the above examples, where the setting's value is a list of other values. In this case the members of the list start with a dash and a space (<code>-</code>). The trailing space in these values is significant. (However, the leading space before the dash is insignificant, and is used for appearance only.) For example, this snippet is valid:</p>
+<pre><code class="yaml">csv_field_templates:
+ - field_linked_agent: relators:aut:person:Jordan, Mark
+ - field_model: 25
+</code></pre>
+
+<p>whereas this one is not:</p>
+<pre><code class="yaml">csv_field_templates:
+ -field_linked_agent: relators:aut:person:Jordan, Mark
+ -field_model: 25
+</code></pre>
+
+<p>Some setting values are represented in Workbench documentation using square brackets, like this one:</p>
+<pre><code class="yaml">export_csv_field_list: ['field_description', 'field_extent']
+</code></pre>
+
+<p>Strictly speaking, YAML lists can be represented as either a series of entries on their own lines that start with <code>-</code> or as entries enclosed in <code>[</code> and <code>]</code>. It's best to follow the examples provided throughout the Workbench documentation.</p>
+<h3 id="required-configuration-settings">Required configuration settings</h3>
 <table>
 <thead>
 <tr>

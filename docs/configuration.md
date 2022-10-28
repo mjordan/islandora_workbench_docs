@@ -13,9 +13,65 @@ In this example, the `task` being performed is creating nodes (and optionally me
 
 ## Configuration settings
 
-The settings defined in a configuration file are documented below, grouped into broad functional categories for easier reference. The order of the options in the configuration file doesn't matter, and settings do not need to be grouped together in any specific way in the configuration file.
+The settings defined in a configuration file are documented in the tables below, grouped into broad functional categories for easier reference. The order of the options in the configuration file doesn't matter, and settings do not need to be grouped together in any specific way in the configuration file.
 
-### Required settings
+### Use of quotation marks
+
+Note that you do not need to use quotation marks around values in your configuration file. You may wrap values in quotation marks if you wish, and many examples in this documentation do that (especially the `host` setting), but the only values that should not be wrapped in quotation marks are those that take `true` or `false` as values because in YAML, and many other commputer/markup languages,`"true"` is a string (in this case, an English word that can mean many things) and `true` is a reserved symbol that can mean one thing and one thing only, the boolean opposite of `false` (I'm sorry for this explanation, I can't describe the distinction in any other way without writing a primer on symbolic logic).
+
+For example, the following is a valid configuration file:
+
+```yaml
+task: create
+host: http://localhost:8000
+username: admin
+password: islandora
+nodes_only: true
+csv_field_templates:
+ - field_linked_agent: relators:aut:person:Jordan, Mark
+ - field_model: 25
+```
+
+But the following version is not valid, since there are quotes around `"true"` in the `nodes_only` setting:
+
+```yaml
+task: create
+host: http://localhost:8000
+username: admin
+password: islandora
+nodes_only: "true"
+csv_field_templates:
+ - field_linked_agent: relators:aut:person:Jordan, Mark
+ - field_model: 25
+```
+
+### Use of spaces and other syntactical features
+
+Configuration setting names should start a new line and not have any leading spaces. The exception is illustrated in the values of the `csv_field_templates` setting in the above examples, where the setting's value is a list of other values. In this case the members of the list start with a dash and a space (`- `). The trailing space in these values is significant. (However, the leading space before the dash is insignificant, and is used for appearance only.) For example, this snippet is valid:
+
+```yaml
+csv_field_templates:
+ - field_linked_agent: relators:aut:person:Jordan, Mark
+ - field_model: 25
+```
+
+whereas this one is not:
+
+```yaml
+csv_field_templates:
+ -field_linked_agent: relators:aut:person:Jordan, Mark
+ -field_model: 25
+```
+
+Some setting values are represented in Workbench documentation using square brackets, like this one:
+
+```yaml
+export_csv_field_list: ['field_description', 'field_extent']
+```
+
+Strictly speaking, YAML lists can be represented as either a series of entries on their own lines that start with `- ` or as entries enclosed in `[` and `]`. It's best to follow the examples provided throughout the Workbench documentation.
+
+### Required configuration settings
 
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
