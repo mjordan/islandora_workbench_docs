@@ -338,15 +338,16 @@ password: islandora
 <p class="admonition-title">Note</p>
 <p>You do not need to use quotation marks around values in your configuration file. You may wrap values in quotation marks if you wish, and many examples in this documentation do that (especially the <code>host</code> setting), but keep in mind that for configuration settings that take <code>true</code> or <code>false</code> as values, you should <em>not</em> wrap those value in quotation marks, because in YAML, and many other machine-readable languages,<code>"true"</code> is a string and <code>true</code> is a reserved boolean symbol that is the opposite of <code>false</code> (I'm sorry, I can't explain that in any other way without writing a symbolic logic textbook).</p>
 <p>For example, the following is a valid configuration file:</p>
-<p><code>yaml
-task: create
+</div>
+<pre><code class="yaml">task: create
 host: http://localhost:8000
 username: admin
 password: islandora
 nodes_only: true
 csv_field_templates:
- - field_linked_agent: relators:aut:person:Jordan, Mark</code></p>
-</div>
+ - field_linked_agent: relators:aut:person:Jordan, Mark
+</code></pre>
+
 <h3 id="required-settings">Required settings</h3>
 <table>
 <thead>
