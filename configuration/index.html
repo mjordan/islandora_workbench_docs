@@ -71,7 +71,7 @@
         
             <li><a class="toctree-l3" href="#use-of-quotation-marks">Use of quotation marks</a></li>
         
-            <li><a class="toctree-l3" href="#use-of-indentation-and-other-syntactical-features">Use of indentation and other syntactical features</a></li>
+            <li><a class="toctree-l3" href="#use-of-spaces-and-other-syntactical-features">Use of spaces and other syntactical features</a></li>
         
             <li><a class="toctree-l3" href="#required-settings">Required settings</a></li>
         
@@ -362,21 +362,23 @@ csv_field_templates:
  - field_model: 25
 </code></pre>
 
-<h3 id="use-of-indentation-and-other-syntactical-features">Use of indentation and other syntactical features</h3>
-<p>Configuration setting names should start a new line and not have any leading spaces. The exception is illustrated in the values of the <code>csv_field_templates</code> setting in the above examples, where the setting's value is a list of other values. In this case the members of the list start with a dash and a space (<code>-</code>). The trailing space in these values is significant. For example, this snippet is valid:</p>
-<pre><code>csv_field_templates:
+<h3 id="use-of-spaces-and-other-syntactical-features">Use of spaces and other syntactical features</h3>
+<p>Configuration setting names should start a new line and not have any leading spaces. The exception is illustrated in the values of the <code>csv_field_templates</code> setting in the above examples, where the setting's value is a list of other values. In this case the members of the list start with a dash and a space (<code>-</code>). The trailing space in these values is significant. (However, the leading space is insignificant, and used for appearance only.) For example, this snippet is valid:</p>
+<pre><code class="yaml">csv_field_templates:
  - field_linked_agent: relators:aut:person:Jordan, Mark
  - field_model: 25
 </code></pre>
 
 <p>whereas this one is not:</p>
-<pre><code>csv_field_templates:
+<pre><code class="yaml">csv_field_templates:
  -field_linked_agent: relators:aut:person:Jordan, Mark
  -field_model: 25
 </code></pre>
 
 <p>Some setting values are represented in Workbench documentation using square brackets, like this one:</p>
-<p><code>export_csv_field_list: ['field_description', 'field_extent']</code></p>
+<pre><code class="yaml">export_csv_field_list: ['field_description', 'field_extent']
+</code></pre>
+
 <p>Strictly speaking, YAML lists can be represented as either a series of entries on their own lines that start with <code>-</code> or as entries enclosed in <code>[</code> and <code>]</code>. It's best to follow the examples provided throughout the documentation.</p>
 <h3 id="required-settings">Required settings</h3>
 <table>
