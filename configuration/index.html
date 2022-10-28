@@ -334,18 +334,17 @@ password: islandora
 <p>In this example, the <code>task</code> being performed is creating nodes (and optionally media). Other tasks are <code>create_from_files</code>, <code>update</code>, <code>delete</code>, <code>add_media</code>, and <code>delete_media</code>. Some of the configuration settings documented below are used in all tasks, while others are only used in specific tasks.</p>
 <h2 id="configuration-settings">Configuration settings</h2>
 <p>The settings defined in a configuration file are documented below, grouped into broad functional categories for easier reference. The order of the options in the configuration file doesn't matter, and settings do not need to be grouped together in any specific way in the configuration file.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You do not need to use quotation marks around values in your configuration file. For example, the following is a valid configuration file:</p>
-<p><code>task: create
+<p>Note that you do not need to use quotation marks around values in your configuration file. For example, the following is a valid configuration file:</p>
+<pre><code>task: create
 host: http://localhost:8000
 username: admin
 password: islandora
 nodes_only: true
 csv_field_templates:
- - field_linked_agent: relators:aut:person:Jordan, Mark</code></p>
+ - field_linked_agent: relators:aut:person:Jordan, Mark
+</code></pre>
+
 <p>You may wrap values in quotation marks if you wish, and many examples in this documentation do that (especially the <code>host</code> setting), but keep in mind that for configuration settings that take <code>true</code> or <code>false</code> as values, you should <em>not</em> wrap those value in quotation marks, because <code>true</code> and <code>"true"</code> are distinct values in YAML. </p>
-</div>
 <h3 id="required-settings">Required settings</h3>
 <table>
 <thead>
