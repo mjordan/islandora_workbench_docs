@@ -1,299 +1,217 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Field data (Drupal and CSV) - Islandora Workbench</title>
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  <link href="../css/extra.css" rel="stylesheet">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Field data (Drupal and CSV)";
-    var mkdocs_page_input_path = "fields.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Field data (Drupal and CSV) - Islandora Workbench</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Field data (Drupal and CSV)";
+        var mkdocs_page_input_path = "fields.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Islandora Workbench</a>
-        <div role="search">
+          <a href=".." class="icon icon-home"> Islandora Workbench
+        </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../installation/">Requirements and installation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../configuration/">Configuration</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../check/">Checking configuration and input data</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../preparing_data/">Preparing your data</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Field data (Drupal and CSV)</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#reserved-csv-columns">Reserved CSV columns</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#values-in-the-file-column">Values in the "file" column</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l2"><a href="#required-columns">Required columns</a></li>
-    
-
-    <li class="toctree-l2"><a href="#columns-you-want-workbench-to-ignore">Columns you want Workbench to ignore</a></li>
-    
-
-    <li class="toctree-l2"><a href="#csv-fields-that-contain-drupal-field-data">CSV fields that contain Drupal field data</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#base-fields">Base fields</a></li>
-        
-            <li><a class="toctree-l3" href="#content-type-specific-fields">Content type-specific fields</a></li>
-        
-            <li><a class="toctree-l3" href="#single-and-multi-valued-fields">Single and multi-valued fields</a></li>
-        
-            <li><a class="toctree-l3" href="#drupal-field-types">Drupal field types</a></li>
-        
-        </ul>
-    
-
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Requirements and installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../check/">Checking configuration and input data</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../preparing_data/">Preparing your data</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Field data (Drupal and CSV)</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#values-in-the-file-column">Values in the "file" column</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ignoring_csv_rows_and_columns/">Ignoring CSV rows and columns</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../field_templates/">CSV field templates</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../paged_and_compound/">Creating paged, compound, and collection content</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../nodes_only/">Creating nodes without media</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../creating_nodes_from_files/">Creating nodes from files</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../creating_taxonomy_terms/">Creating taxonomy terms</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../aliases/">Assigning URL aliases</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../alt_text/">Adding alt text to images</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../rolling_back/">Rolling back nodes and media</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../media_types/">Setting media types</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../updating_nodes/">Updating nodes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../deleting_nodes/">Deleting nodes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../adding_media/">Adding media to nodes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../deleting_media/">Deleting media</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../adding_multiple_media/">Adding multiple media</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../generating_csv_files/">Generating CSV files</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../sample_data/">Creating nodes from the sample data</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../exporting_islandora_7_content/">Exporting Islandora 7 content</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../generating_sample_content/">Generating sample Islandora content</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../hooks/">Hooks</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../fixity/">Fixity checking</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../logging/">Logging</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cancelling/">Cancelling Workbench</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../workflows/">Workflows</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../reducing_load/">Reducing Workbench's impact on Drupal</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../limitations/">Known limitations</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../roadmap/">Roadmap (Fall 2021)</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../troubleshooting/">Troubleshooting</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../changelog/">Change log</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../development_guide/">Development guide</a>
-	    </li>
-          
-        </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ignoring_csv_rows_and_columns/">Ignoring CSV rows and columns</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../field_templates/">CSV field templates</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../paged_and_compound/">Creating paged, compound, and collection content</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../nodes_only/">Creating nodes without media</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../creating_nodes_from_files/">Creating nodes from files</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../creating_taxonomy_terms/">Creating taxonomy terms</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aliases/">Assigning URL aliases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../alt_text/">Adding alt text to images</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../rolling_back/">Rolling back nodes and media</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../media_types/">Setting media types</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../updating_nodes/">Updating nodes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../deleting_nodes/">Deleting nodes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../adding_media/">Adding media to nodes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../deleting_media/">Deleting media</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../adding_multiple_media/">Adding multiple media</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../generating_csv_files/">Generating CSV files</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../sample_data/">Creating nodes from the sample data</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../exporting_islandora_7_content/">Exporting Islandora 7 content</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../generating_sample_content/">Generating sample Islandora content</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hooks/">Hooks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../fixity/">Fixity checking</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../logging/">Logging</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cancelling/">Cancelling Workbench</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../workflows/">Workflows</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reducing_load/">Reducing Workbench's impact on Drupal</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../limitations/">Known limitations</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../roadmap/">Roadmap (Fall 2021)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../changelog/">Change log</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../development_guide/">Development guide</a>
+                </li>
+              </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Islandora Workbench</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Islandora Workbench</a>
+        
       </nav>
-
-      
       <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Field data (Drupal and CSV)</li>
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Field data (Drupal and CSV)</li>
     <li class="wy-breadcrumbs-aside">
-      
-        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/fields.md"
-          class="icon icon-github"> Edit on GitHub</a>
-      
+          <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/fields.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
-            <div class="section">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
               
                 <p>Workbench uses a CSV file to populate Islandora objects' metadata. This file contains the field values that is to be added to new or existing nodes, and some additional reserved columns specific to Workbench. Data in this CSV file can be:</p>
 <ul>
@@ -448,14 +366,13 @@ If you are using a spreadsheet application, it will take care of wrapping the CS
 <p>These fields correspond directly to fields configured in Drupal nodes, and data you provide in them populates their equivalent field in Drupal entities. The column headings in the CSV file must match machine names of fields that exist in the target node content type. Fields' machine names are visible within the "Manage fields" section of each content type's configuration, here circled in red:</p>
 <p><img alt="Field machine names" src="../images/field_machine_names.png" /></p>
 <p>These field names, plus the fields indicated in the "Reserved CSV fields" section above, are the column headers in your CSV file, like this:</p>
-<pre><code class="text">file,id,title,field_model,field_description
+<pre><code class="language-text">file,id,title,field_model,field_description
 IMG_1410.tif,01,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
 IMG_2549.jp2,02,Manhatten Island,25,&quot;Taken from the ferry from downtown New York to Highlands, NJ. Weather was windy.&quot;
 IMG_2940.JPG,03,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain. Simon Fraser University is visible on the top of the mountain in the distance.
 IMG_2958.JPG,04,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
 IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Francisco.&quot;
 </code></pre>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If content-type field values apply to all of the rows in your CSV file, you can avoid including them in the CSV and instead use "<a href="/islandora_workbench_docs/field_templates/">CSV field templates</a>".</p>
@@ -464,24 +381,21 @@ IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Franc
 <p>Drupal allows for fields to have a single value, a specific maximum number of values, or unlimited number of values. In the CSV input file, each Drupal field corresponds to a single CSV field. In other words, the CSV column names must be unique, even if a Drupal field allows multiple values. Populating multivalued fields is explained below.</p>
 <h4 id="single-valued-fields">Single-valued fields</h4>
 <p>In your CSV file, single-valued fields simply contain the value, which, depending on the field type, can be a string or an integer. For example, using the fields defined by the Islandora Defaults module for the "Repository Item" content type, your CSV file could look like this:</p>
-<pre><code class="text">file,title,id,field_model,field_description,field_rights,field_extent,field_access_terms,field_member_of
+<pre><code class="language-text">file,title,id,field_model,field_description,field_rights,field_extent,field_access_terms,field_member_of
 myfile.jpg,My nice image,obj_00001,24,&quot;A fine image, yes?&quot;,Do whatever you want with it.,There's only one image.,27,45
 </code></pre>
-
 <p>In this example, the term ID for the tag you want to assign in <code>field_access_terms</code> is 27, and the node ID of the collection you want to add the object to (in <code>field_member_of</code>) is 45.</p>
 <h4 id="multivalued-fields">Multivalued fields</h4>
 <p>For multivalued fields, you separate the values within a field with a pipe (<code>|</code>), like this:</p>
-<pre><code class="text">file,title,field_something
+<pre><code class="language-text">file,title,field_something
 IMG_1410.tif,Small boats in Havana Harbour,One subvalue|Another subvalue
 IMG_2549.jp2,Manhatten Island,first subvalue|second subvalue|third subvalue
 </code></pre>
-
 <p>This works for string fields as well as taxonomy reference fields, e.g.:</p>
-<pre><code class="text">file,title,field_my_multivalued_taxonomy_field
+<pre><code class="language-text">file,title,field_my_multivalued_taxonomy_field
 IMG_1410.tif,Small boats in Havana Harbour,35|46
 IMG_2549.jp2,Manhatten Island,34|56|28
 </code></pre>
-
 <p>Drupal strictly enforces the maximum number of values allowed in a field. If the number of values in your CSV file for a field exceed a field's configured maximum number of fields, Workbench will only populate the field to the field's configured limit.</p>
 <p>The subdelimiter character defaults to a pipe (<code>|</code>) but can be set in your config file using the <code>subdelimiter: ";"</code> option.</p>
 <div class="admonition note">
@@ -525,12 +439,11 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 </div>
 <p>Islandora Workbench lets you assign both existing and new taxonomy terms to nodes. Creating new terms on demand during node creation reduces the need to prepopulate your vocabularies prior to creating nodes.</p>
 <p>In CSV columns for taxonomy fields, you can use either term IDs (integers) or term names (strings). You can even mix IDs and names in the same field:</p>
-<pre><code class="text">file,title,field_my_multivalued_taxonomy_field
+<pre><code class="language-text">file,title,field_my_multivalued_taxonomy_field
 img001.png,Picture of cats and yarn,Cats|46
 img002.png,Picture of dogs and sticks,Dogs|Sticks
 img003.png,Picture of yarn and needles,&quot;Yarn, Balls of|Knitting needles&quot;
 </code></pre>
-
 <p>By default, if you use a term name in your CSV data that doesn't match a term name that exists in the referenced taxonomy, Workbench will detect this when you use <code>--check</code>, warn you, and exit. This strict default is intended to prevent users from accidentally adding unwanted terms through data entry error.</p>
 <p>Terms can be from any level in a vocabulary's hierarchy. In other words, if you have a vocabulary whose structure looks like this:</p>
 <p><img alt="Hierarchical_vocabulary" src="../images/hierarchical_vocab.png" /></p>
@@ -568,27 +481,23 @@ img003.png,Picture of yarn and needles,&quot;Yarn, Balls of|Knitting needles&quo
 <p>While most node taxonomy fields reference only a single vocabulary, Drupal does allow fields to reference multiple vocabularies. This ability poses a problem when we use term names instead of term IDs in our CSV files: in a multi-vocabulary field, Workbench can't be sure which term name belongs in which of the multiple vocabularies referenced by that field. This applies to both existing terms and to new terms we want to add when creating node content.</p>
 <p>To avoid this problem, we need to tell Workbench which of the multiple vocabularies each term name should (or does) belong to. We do this by namespacing terms with the applicable vocabulary ID.</p>
 <p>For example, let's imagine we have a node field whose name is <code>field_sample_tags</code>, and this field references two vocabularies, "cats" and "dogs". To use the terms <code>Tuxedo</code>, <code>Tabby</code>, <code>German Shepherd</code> in the CSV when adding new nodes, we need to namespace them with vocabulary IDs like this:</p>
-<pre><code class="text">field_sample_tags
+<pre><code class="language-text">field_sample_tags
 cats:Tabby
 cats:Tuxedo
 dogs:German Shepherd
 </code></pre>
-
 <p>If you want to use multiple terms in a single field, you would namespace them all:</p>
-<pre><code class="text">cats:Tuxedo|cats:Misbehaving|dogs:German Shepherd
+<pre><code class="language-text">cats:Tuxedo|cats:Misbehaving|dogs:German Shepherd
 </code></pre>
-
 <p>To find the vocabulary ID (referred to above as the "namespace") to use, visit the list of your site's vocabularies at <code>admin/structure/taxonomy</code>:</p>
 <p><img alt="Vocabulary names" src="../images/vocabulary_names.png" /></p>
 <p>Hover your pointer over the "List terms" button for each vocabulary to reveal the URL to its overview page. The ID for the vocabulary is the string between "manage" and "overview" in the URL. For example, in the URL <code>admin/structure/taxonomy/manage/person/overview</code>, the vocabulary ID is "person". This is the namespace you need to use to indicate which vocabulary to add new terms to.</p>
 <p>CSV values containing term names that have commas (<code>,</code>) in multi-valued, multi-vocabulary fields need to be wrapped in quotation marks (like any CSV value containing a comma), and in addition, the need to specify the namespace within each of the subvalues:</p>
-<pre><code class="text">&quot;tags:gum, Bubble|tags:candy, Hard&quot;
+<pre><code class="language-text">&quot;tags:gum, Bubble|tags:candy, Hard&quot;
 </code></pre>
-
 <p>Using these conventions, Workbench will be certain which vocabulary the term names belong to. Workbench will remind you during its <code>--check</code> operation that you need to namespace terms. It determines 1) if the field references multiple vocabularies, and then checks to see 2) if the field's values in the CSV are term IDs or term names. If you use term names in multi-vocabulary fields, and the term names aren't namespaced, Workbench will warn you:</p>
 <pre><code>Error: Term names in multi-vocabulary CSV field &quot;field_tags&quot; require a vocabulary namespace; value &quot;Dogs&quot; in row 4 does not have one.
 </code></pre>
-
 <p>Note that since <code>:</code> is a special character when you use term names in multi-vocabulary CSV fields, you can't add a namespaced term that itself contains a <code>:</code>. You need to add it manually to Drupal and then use its term ID (or name, or URI) in your CSV file.</p>
 <h5 id="using-term-uris-instead-of-term-ids">Using term URIs instead of term IDs</h5>
 <p>Islandora Workbench lets you use URIs assigned to terms instead of term IDs. You can use a term URI in the <code>media_use_tid</code> configuration option (for example, <code>"http://pcdm.org/use#OriginalFile"</code>) and in taxonomy fields in your metadata CSV file:</p>
@@ -596,7 +505,6 @@ dogs:German Shepherd
 https://schema.org/DigitalDocument
 http://purl.org/coar/resource_type/c_18cc
 </code></pre>
-
 <p>During <code>--check</code>, Workbench will validate that URIs correspond to existing taxonomy terms.</p>
 <p>Using term URIs has some constraints:</p>
 <ul>
@@ -729,57 +637,47 @@ http://purl.org/coar/resource_type/c_18cc
 </div>
 <h4 id="link-fields">Link fields</h4>
 <p>The link field type stores URLs (e.g. <code>https://acme.com</code>) and link text in separate data elements. To add or update fields of this type, Workbench needs to provide the URL and link text in the structure Drupal expects. To accomplish this within a single CSV field, we separate the URL and link text pairs in CSV values with double percent signs (<code>%%</code>), like this:</p>
-<pre><code class="text">field_related_websites
+<pre><code class="language-text">field_related_websites
 http://acme.com%%Acme Products Inc.
 </code></pre>
-
 <p>You can include multiple pairs of URL/link text pairs in one CSV field if you separate them with the subdelimiter character:</p>
-<pre><code class="text">field_related_websites
+<pre><code class="language-text">field_related_websites
 http://acme.com%%Acme Products Inc.|http://diy-first-aid.net%%DIY First Aid
 </code></pre>
-
 <p>The URL is required, but the link text is not. If you don't have or want any link text, omit it and the double quotation marks:</p>
-<pre><code class="text">field_related_websites
+<pre><code class="language-text">field_related_websites
 http://acme.com
 </code></pre>
-
-<pre><code class="text">field_related_websites
+<pre><code class="language-text">field_related_websites
 http://acme.com|http://diy-first-aid.net%%DIY First Aid
 </code></pre>
-
 <h4 id="authority-link-fields">Authority link fields</h4>
 <p>The aurhority link field type stores abbreviations for authority sources (i.e., external controlled vocabularies such as national name authorities), authority URIs (e.g. <code>http://viaf.org/viaf/153525475</code>) and link text in separate data elements. Authority link fields are most commonly used on taxonomy terms, but can be used on nodes as well.</p>
 <p>To add or update fields of this type, Workbench needs to provide the authority source abbreviation, URI and link text in the structure Drupal expects. To accomplish this within a single CSV field, we separate the three parts in CSV values with double percent signs (<code>%%</code>), like this:</p>
-<pre><code class="text">field_authority_vocabs
+<pre><code class="language-text">field_authority_vocabs
 viaf%%http://viaf.org/viaf/10646807%%VIAF Record
 </code></pre>
-
 <p>You can include multiple triplets of source abbreviation/URL/link text in one CSV field if you separate them with the subdelimiter character:</p>
-<pre><code class="text">field_authority_vocabs
+<pre><code class="language-text">field_authority_vocabs
 viaf%%http://viaf.org/viaf/10646807%%VIAF Record|other%%https://github.com/mjordan%%Github
 </code></pre>
-
 <p>The authority source abbreviation and the URI are required, but the link text is not. If you don't have or want any link text, omit it:</p>
-<pre><code class="text">field_authority_vocabs
+<pre><code class="language-text">field_authority_vocabs
 viaf%%http://viaf.org/viaf/10646807
 </code></pre>
-
-<pre><code class="text">field_authority_vocabs
+<pre><code class="language-text">field_authority_vocabs
 viaf%%http://viaf.org/viaf/10646807|other%%https://github.com/mjordan%%Github
 </code></pre>
-
 <h4 id="geolocation-fields">Geolocation fields</h4>
 <p>The Geolocation field type, managed by the <a href="https://www.drupal.org/project/geolocation">Geolocation Field</a> contrib module, stores latitude and longitude coordinates in separate data elements. To add or update fields of this type, Workbench needs to provide the latitude and longitude data in these separate elements.</p>
 <p>To simplify entering geocoordinates in the CSV file, Workbench allows geocoordinates to be in <code>lat,long</code> format, i.e., the latitude coordinate followed by a comma followed by the longitude coordinate. When Workbench reads your CSV file, it will split data on the comma into the required lat and long parts. An example of a single geocoordinate in a field would be:</p>
-<pre><code class="text">field_coordinates
+<pre><code class="language-text">field_coordinates
 &quot;49.16667,-123.93333&quot;
 </code></pre>
-
 <p>You can include multiple pairs of geocoordinates in one CSV field if you separate them with the subdelimiter character:</p>
-<pre><code class="text">field_coordinates
+<pre><code class="language-text">field_coordinates
 &quot;49.16667,-123.93333|49.25,-124.8&quot;
 </code></pre>
-
 <p>Note that:</p>
 <ul>
 <li>Geocoordinate values in your CSV need to be wrapped in double quotation marks, unless the <code>delimiter</code> key in your configuration file is set to something other than a comma.</li>
@@ -787,29 +685,21 @@ viaf%%http://viaf.org/viaf/10646807|other%%https://github.com/mjordan%%Github
 </ul>
               
             </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../preparing_data/" class="btn btn-neutral float-left" title="Preparing your data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../ignoring_csv_rows_and_columns/" class="btn btn-neutral float-right" title="Ignoring CSV rows and columns">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../preparing_data/" class="btn btn-neutral" title="Preparing your data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-    
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+          
         </div>
       </div>
 
@@ -817,22 +707,30 @@ viaf%%http://viaf.org/viaf/10646807|other%%https://github.com/mjordan%%Github
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-          <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
-      
-      
-        <span><a href="../preparing_data/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../ignoring_csv_rows_and_columns/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../preparing_data/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ignoring_csv_rows_and_columns/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

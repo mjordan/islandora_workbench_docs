@@ -1,281 +1,215 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Generating CSV files - Islandora Workbench</title>
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  <link href="../css/extra.css" rel="stylesheet">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Generating CSV files";
-    var mkdocs_page_input_path = "generating_csv_files.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Generating CSV files - Islandora Workbench</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Generating CSV files";
+        var mkdocs_page_input_path = "generating_csv_files.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Islandora Workbench</a>
-        <div role="search">
+          <a href=".." class="icon icon-home"> Islandora Workbench
+        </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../installation/">Requirements and installation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../configuration/">Configuration</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../check/">Checking configuration and input data</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../preparing_data/">Preparing your data</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../fields/">Field data (Drupal and CSV)</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ignoring_csv_rows_and_columns/">Ignoring CSV rows and columns</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../field_templates/">CSV field templates</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../paged_and_compound/">Creating paged, compound, and collection content</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../nodes_only/">Creating nodes without media</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../creating_nodes_from_files/">Creating nodes from files</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../creating_taxonomy_terms/">Creating taxonomy terms</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../aliases/">Assigning URL aliases</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../alt_text/">Adding alt text to images</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../rolling_back/">Rolling back nodes and media</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../media_types/">Setting media types</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../updating_nodes/">Updating nodes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../deleting_nodes/">Deleting nodes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../adding_media/">Adding media to nodes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../deleting_media/">Deleting media</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../adding_multiple_media/">Adding multiple media</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Generating CSV files</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#csv-file-templates">CSV file templates</a></li>
-    
-
-    <li class="toctree-l2"><a href="#csv-file-containing-a-row-for-every-newly-created-node">CSV file containing a row for every newly created node</a></li>
-    
-
-    <li class="toctree-l2"><a href="#csv-file-containing-field-data-for-existing-nodes">CSV file containing field data for existing nodes</a></li>
-    
-
-    <li class="toctree-l2"><a href="#using-a-drupal-view-to-identify-content-to-export-as-csv">Using a Drupal View to identify content to export as CSV</a></li>
-    
-
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Requirements and installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../check/">Checking configuration and input data</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../preparing_data/">Preparing your data</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../fields/">Field data (Drupal and CSV)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ignoring_csv_rows_and_columns/">Ignoring CSV rows and columns</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../field_templates/">CSV field templates</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../paged_and_compound/">Creating paged, compound, and collection content</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../nodes_only/">Creating nodes without media</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../creating_nodes_from_files/">Creating nodes from files</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../creating_taxonomy_terms/">Creating taxonomy terms</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aliases/">Assigning URL aliases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../alt_text/">Adding alt text to images</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../rolling_back/">Rolling back nodes and media</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../media_types/">Setting media types</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../updating_nodes/">Updating nodes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../deleting_nodes/">Deleting nodes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../adding_media/">Adding media to nodes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../deleting_media/">Deleting media</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../adding_multiple_media/">Adding multiple media</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Generating CSV files</a>
+    <ul class="current">
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../sample_data/">Creating nodes from the sample data</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../exporting_islandora_7_content/">Exporting Islandora 7 content</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../generating_sample_content/">Generating sample Islandora content</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../hooks/">Hooks</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../fixity/">Fixity checking</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../logging/">Logging</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cancelling/">Cancelling Workbench</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../workflows/">Workflows</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../reducing_load/">Reducing Workbench's impact on Drupal</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../limitations/">Known limitations</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../roadmap/">Roadmap (Fall 2021)</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../troubleshooting/">Troubleshooting</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../changelog/">Change log</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../development_guide/">Development guide</a>
-	    </li>
-          
-        </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../sample_data/">Creating nodes from the sample data</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../exporting_islandora_7_content/">Exporting Islandora 7 content</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../generating_sample_content/">Generating sample Islandora content</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hooks/">Hooks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../fixity/">Fixity checking</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../logging/">Logging</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cancelling/">Cancelling Workbench</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../workflows/">Workflows</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reducing_load/">Reducing Workbench's impact on Drupal</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../limitations/">Known limitations</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../roadmap/">Roadmap (Fall 2021)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../changelog/">Change log</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../development_guide/">Development guide</a>
+                </li>
+              </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Islandora Workbench</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Islandora Workbench</a>
+        
       </nav>
-
-      
       <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Generating CSV files</li>
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Generating CSV files</li>
     <li class="wy-breadcrumbs-aside">
-      
-        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/generating_csv_files.md"
-          class="icon icon-github"> Edit on GitHub</a>
-      
+          <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/generating_csv_files.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
-            <div class="section">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
               
                 <p>Islandora Workbench can generate several different CSV files you might find useful.</p>
 <h3 id="csv-file-templates">CSV file templates</h3>
@@ -320,7 +254,7 @@
 </ul>
 <p>The CSV file contains two of the extra rows included in the CSV file template, described above (specifically, the human-readable field label and number of values allowed), and the left-most "REMOVE THIS COLUM (KEEP THIS ROW)" column. To use the file as input for an <code>update</code> task, simply delete the extraneous column and rows.</p>
 <p>A sample configuration file for an <code>export_csv</code> task is:</p>
-<pre><code class="yaml">task: export_csv
+<pre><code class="language-yaml">task: export_csv
 host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
@@ -332,14 +266,12 @@ export_csv_field_list: ['title', 'field_description']
 # Specifying the output path is optional; see below for more information.
 export_csv_file_path: output.csv
 </code></pre>
-
 <p>The file identified by <code>input_file</code> has only one column, "node_id":</p>
-<pre><code class="text">node_id
+<pre><code class="language-text">node_id
 7653
 7732
 7653
 </code></pre>
-
 <p>Some things to note:</p>
 <ul>
 <li>The output includes data from nodes only, not media.</li>
@@ -354,7 +286,7 @@ export_csv_file_path: output.csv
 </div>
 <h3 id="using-a-drupal-view-to-identify-content-to-export-as-csv">Using a Drupal View to identify content to export as CSV</h3>
 <p>You can use a new or existing View to tell Workbench what nodes to export into CSV. This is done using a <code>get_data_from_view</code> task. A sample configuration file looks like this:</p>
-<pre><code class="yaml">task: get_data_from_view
+<pre><code class="language-yaml">task: get_data_from_view
 host: &quot;http://localhost:8000/&quot;
 view_path: '/workbench-export-test'
 username: admin
@@ -370,7 +302,6 @@ export_csv_field_list: ['field_description', 'field_extent']
 view_parameters:
  - 'title_contains=Debate'
 </code></pre>
-
 <p>The <code>view_path</code> setting should contain the value of the "Path" option in the Views configuration page's "Path settings" section. The <code>data_from_view_file_path</code> is the location where you want your CSV file saved.</p>
 <p>In the View configuration page:</p>
 <ol>
@@ -397,29 +328,21 @@ view_parameters:
 </ul>
               
             </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../adding_multiple_media/" class="btn btn-neutral float-left" title="Adding multiple media"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../sample_data/" class="btn btn-neutral float-right" title="Creating nodes from the sample data">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../adding_multiple_media/" class="btn btn-neutral" title="Adding multiple media"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-    
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+          
         </div>
       </div>
 
@@ -427,22 +350,30 @@ view_parameters:
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-          <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
-      
-      
-        <span><a href="../adding_multiple_media/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../sample_data/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../adding_multiple_media/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../sample_data/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
