@@ -52,11 +52,11 @@ Since Islandora Workbench is under development, you will want to update it often
 
 After you pull in the latest changes using `git`, it's a good idea to rerun the setup tools in case new Python libraries have been added since you last ran the setup tools (same command as above):
 
-`sudo python3 setup.py install --user`
+`python3 setup.py install --user`
 
 or if you originally installed the required Python libraries centrally, withoug the `--user` option (again, you will need administrator privileges on the machine):
 
-`python3 setup.py install`
+`sudo python3 setup.py install`
 
 ## Keeping the Islandora Workbench Integration Drupal module up to date
 
