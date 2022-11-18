@@ -312,7 +312,7 @@ csv_field_templates:
 </ul>
 <h4 id="specifying-paths-to-the-python-interpreter-and-to-the-workbench-script">Specifying paths to the python interpreter and to the workbench script</h4>
 <p>When using secondary tasks, there are a couple of situations where you may need to tell Workbench where the python interpreter is located, and where the "workbench" script is located.</p>
-<p>The first is when you use a secondary task within a scheduled job (such as running Workbench via Linux's cron). Depending on how you configure this cron job, you will likely need to tell Workbench what the absolute paths to the python interpreter is and what the path to the workbench script is. This is because, unless your cronjob changes into Workbench's working directory, Workbench will be looking in the wrong directory for the secondary task. The two config options you should use are:</p>
+<p>The first is when you use a secondary task within a scheduled job (such as running Workbench via Linux's cron). Depending on how you configure the cron job, you will likely need to tell Workbench what the absolute paths to the python interpreter is and what the path to the workbench script is. This is because, unless your cronjob changes into Workbench's working directory, Workbench will be looking in the wrong directory for the secondary task. The two config options you should use are:</p>
 <ul>
 <li><code>path_to_python</code></li>
 <li><code>path_to_workbench_script</code></li>
@@ -322,7 +322,7 @@ csv_field_templates:
 path_to_python: '/usr/bin/python'
 path_to_workbench_script: '/home/mark/islandora_workbench/workbench'
 </code></pre>
-<p>The second situation is when using a secondary task when running Workbench in Windows and "python.exe" is not in the PATH of the user running the scheduled job. Specifying the absolute path to python.exe will ensure that Workbench can execture the secondary task properly, like this:</p>
+<p>The second situation is when using a secondary task when running Workbench in Windows and "python.exe" is not in the PATH of the user running the scheduled job. Specifying the absolute path to "python.exe" will ensure that Workbench can execture the secondary task properly, like this:</p>
 <pre><code class="language-yaml">secondary_tasks: ['children.yml']
 path_to_python: 'c:/program files/python39/python.exe'
 path_to_workbench_script: 'd:/users/mark/islandora_workbench/workbench'
