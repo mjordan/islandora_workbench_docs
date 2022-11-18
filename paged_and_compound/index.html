@@ -310,6 +310,23 @@ csv_field_templates:
 <li>As already stated, each task has its own configuration file, which means that you can specify a <code>content_type</code> value in your secondary configuration file that differs from the <code>content_type</code> of the primary task.</li>
 <li>You can include more than one secondary task in your configuration. For example, <code>secondary_tasks: ['first.yml', 'second.yml']</code> will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order. You would use multiple secondary tasks if you wanted to add children of different content types to the parent nodes.</li>
 </ul>
+<h4 id="specifying-paths-to-the-python-interpreter-and-to-the-workbench-script">Specifying paths to the python interpreter and to the workbench script</h4>
+<p>When using secondary tasks, there are a couple of situations where you may need to tell Workbench where the python interpreter is located, and where the "workbench" script is located.</p>
+<p>The first is when you use a secondary task within a scheduled job (such as running Workbench via Linux's cron). Depending on how you configure this cron job, you will likely need to tell Workbench what the absolute paths to the python interpreter is and what the path to the workbench script is. This is because, unless your cronjob changes into Workbench's working directory, Workbench will be looking in the wrong directory for the secondary task. The two config options you should use are:</p>
+<ul>
+<li><code>path_to_python</code></li>
+<li><code>path_to_workbench_script</code></li>
+</ul>
+<p>An example of using these settings is:</p>
+<pre><code class="language-yaml">secondary_tasks: ['children.yml']
+path_to_python: '/usr/bin/python'
+path_to_workbench_script: '/home/mark/islandora_workbench/workbench'
+</code></pre>
+<p>The second situation is when using a secondary task when running Workbench in Windows and "python.exe" is not in the PATH of the user running the scheduled job. Specifying the absolute path to python.exe will ensure that Workbench can execture the secondary task properly, like this:</p>
+<pre><code class="language-yaml">secondary_tasks: ['children.yml']
+path_to_python: 'c:/program files/python39/python.exe'
+path_to_workbench_script: 'd:/users/mark/islandora_workbench/workbench'
+</code></pre>
 <h3 id="creating-collections-and-members-together">Creating collections and members together</h3>
 <p>Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV which shows the references from the members' <code>parent_id</code> field to the collections' <code>id</code> field:</p>
 <pre><code class="language-text">id,parent_id,file,title,field_model,field_member_of,field_weight
