@@ -1,284 +1,215 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Creating paged, compound, and collection content - Islandora Workbench</title>
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  <link href="../css/extra.css" rel="stylesheet">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Creating paged, compound, and collection content";
-    var mkdocs_page_input_path = "paged_and_compound.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Creating paged, compound, and collection content - Islandora Workbench</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Creating paged, compound, and collection content";
+        var mkdocs_page_input_path = "paged_and_compound.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Islandora Workbench</a>
-        <div role="search">
+          <a href=".." class="icon icon-home"> Islandora Workbench
+        </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../installation/">Requirements and installation</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../configuration/">Configuration</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../check/">Checking configuration and input data</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../preparing_data/">Preparing your data</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../fields/">Field data (Drupal and CSV)</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../ignoring_csv_rows_and_columns/">Ignoring CSV rows and columns</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../field_templates/">CSV field templates</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Creating paged, compound, and collection content</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#using-subdirectories">Using subdirectories</a></li>
-    
-
-    <li class="toctree-l2"><a href="#with-pagechild-level-metadata">With page/child-level metadata</a></li>
-    
-
-    <li class="toctree-l2"><a href="#using-a-secondary-task">Using a secondary task</a></li>
-    
-
-    <li class="toctree-l2"><a href="#creating-collections-and-members-together">Creating collections and members together</a></li>
-    
-
-    <li class="toctree-l2"><a href="#summary">Summary</a></li>
-    
-
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../installation/">Requirements and installation</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../configuration/">Configuration</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../check/">Checking configuration and input data</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../preparing_data/">Preparing your data</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../fields/">Field data (Drupal and CSV)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ignoring_csv_rows_and_columns/">Ignoring CSV rows and columns</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../field_templates/">CSV field templates</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Creating paged, compound, and collection content</a>
+    <ul class="current">
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../nodes_only/">Creating nodes without media</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../creating_nodes_from_files/">Creating nodes from files</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../creating_taxonomy_terms/">Creating taxonomy terms</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../aliases/">Assigning URL aliases</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../alt_text/">Adding alt text to images</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../rolling_back/">Rolling back nodes and media</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../media_types/">Setting media types</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../updating_nodes/">Updating nodes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../deleting_nodes/">Deleting nodes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../adding_media/">Adding media to nodes</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../deleting_media/">Deleting media</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../adding_multiple_media/">Adding multiple media</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../generating_csv_files/">Generating CSV files</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../sample_data/">Creating nodes from the sample data</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../exporting_islandora_7_content/">Exporting Islandora 7 content</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../generating_sample_content/">Generating sample Islandora content</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../hooks/">Hooks</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../fixity/">Fixity checking</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../logging/">Logging</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../cancelling/">Cancelling Workbench</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../workflows/">Workflows</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../reducing_load/">Reducing Workbench's impact on Drupal</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../limitations/">Known limitations</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../roadmap/">Roadmap (Fall 2021)</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../troubleshooting/">Troubleshooting</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../changelog/">Change log</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../development_guide/">Development guide</a>
-	    </li>
-          
-        </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../nodes_only/">Creating nodes without media</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../creating_nodes_from_files/">Creating nodes from files</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../creating_taxonomy_terms/">Creating taxonomy terms</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../aliases/">Assigning URL aliases</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../alt_text/">Adding alt text to images</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../rolling_back/">Rolling back nodes and media</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../media_types/">Setting media types</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../updating_nodes/">Updating nodes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../deleting_nodes/">Deleting nodes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../adding_media/">Adding media to nodes</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../deleting_media/">Deleting media</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../adding_multiple_media/">Adding multiple media</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../generating_csv_files/">Generating CSV files</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../sample_data/">Creating nodes from the sample data</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../exporting_islandora_7_content/">Exporting Islandora 7 content</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../generating_sample_content/">Generating sample Islandora content</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../hooks/">Hooks</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../fixity/">Fixity checking</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../logging/">Logging</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../cancelling/">Cancelling Workbench</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../workflows/">Workflows</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../reducing_load/">Reducing Workbench's impact on Drupal</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../limitations/">Known limitations</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../roadmap/">Roadmap (Fall 2021)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../changelog/">Change log</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../development_guide/">Development guide</a>
+                </li>
+              </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Islandora Workbench</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Islandora Workbench</a>
+        
       </nav>
-
-      
       <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Creating paged, compound, and collection content</li>
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>Creating paged, compound, and collection content</li>
     <li class="wy-breadcrumbs-aside">
-      
-        <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/paged_and_compound.md"
-          class="icon icon-github"> Edit on GitHub</a>
-      
+          <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/paged_and_compound.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
-            <div class="section">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
               
                 <p>Islandora Workbench provides three ways to create paged and compound content:</p>
 <ul>
@@ -288,13 +219,12 @@
 </ul>
 <h3 id="using-subdirectories">Using subdirectories</h3>
 <p>Enable this method by including <code>paged_content_from_directories: true</code> in your configuration file. Use this method when you are creating books, newspaper issues, or other paged content where your pages don't have their own metadata. This method groups page-level files into subdirectories that correspond to each parent, and does not require (or allow) page-level metadata in the CSV file. Each parent (book, newspaper issue, etc.) has a row on the CSV file, e.g.:</p>
-<pre><code class="text">id,title,field_model,field_display_hints
+<pre><code class="language-text">id,title,field_model,field_display_hints
 book1,How to Use Islandora Workbench like a Pro,28,2
 book2,Using Islandora Workbench for Fun and Profit,28,2
 </code></pre>
-
 <p>Each parent's pages are located in a subdirectory of the input directory that is named to match the value of the <code>id</code> field of the parent item they are pages of:</p>
-<pre><code class="text">samplebook/
+<pre><code class="language-text">samplebook/
 ├── book1
 │   ├── page-001.jpg
 │   ├── page-002.jpg
@@ -305,7 +235,6 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 │   └── page-003.jpg
 └── metadata.csv
 </code></pre>
-
 <p>The page filenames have significance. The sequence of the page is determined by the last segment of each filename before the extension, and is separated from the rest of the filename by a dash (<code>-</code>), although you can use another character by setting the <code>paged_content_sequence_separator</code> option in your configuration file. For example, using the filenames for "book1" above, the sequence of "page-001.jpg" is "001". Dashes (or whatever your separator character is) can exist elsewhere in filenames, since Workbench will always use the string after the <em>last</em> dash as the sequence number; for example, the sequence of "isbn-1843341778-001.jpg" for "book2" is also "001". Workbench takes this sequence number, strips of any leader zeros, and uses it to populate the <code>field_weight</code> in the page nodes, so "001" becomes a weight value of 1, "002" becomes a weight value of 2, and so on.</p>
 <p>Titles for pages are generated automatically using the pattern <code>parent_title</code> + <code>, page</code> + <code>sequence_number</code>, where "parent title" is inherited from the page's parent node and "sequence number" is the page's sequence. For example, if a page's parent has the title "How to Write a Book" and its sequence number is 450, its automatically generated title will be "How to Write a Book, page 450".</p>
 <p>Finally, even though only minimal metadata is assigned to pages using this method (i.e., the automatically generated title and Islandora model), you can add additional metadata to pages using a separate <code>update</code> task.</p>
@@ -321,7 +250,7 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 <h3 id="with-pagechild-level-metadata">With page/child-level metadata</h3>
 <p>Using this method, the metadata CSV file contains a row for every item, both parents and children. You should use this method when you are creating books, newspaper issues, or other paged or compound content where each page has its own metadata, or when you are creating compound objects of any Islandora model. The file for each page/child is named explicitly in the page/child's <code>file</code> column rather than being in a subdirectory. To link the pages to the parent, Workbench establishes parent/child relationships between items with <code>parent_id</code> values (the pages/children) with that are the same as the <code>id</code> value of another item (the parent). For this to work, your CSV file must contain a <code>parent_id</code> field plus the standard Islandora fields <code>field_weight</code>, <code>field_member_of</code>, and <code>field_model</code> (the role of these last three fields will be explained below). The <code>id</code> field is required in all CSV files used to create content, so in this case, your CSV needs both an <code>id</code> field and a <code>parent_id</code> field.</p>
 <p>The following example illustrates how this works. Here is the raw CSV data:</p>
-<pre><code class="text">id,parent_id,field_weight,file,title,field_description,field_model,field_member_of
+<pre><code class="language-text">id,parent_id,field_weight,file,title,field_description,field_model,field_member_of
 001,,,,Postcard 1,The first postcard,28,197
 003,001,1,image456.jpg,Front of postcard 1,The first postcard's front,29,
 004,001,2,image389.jpg,Back of postcard 1,The first postcard's back,29,
@@ -329,7 +258,6 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 006,002,1,image2828.jpg,Front of postcard 2,The second postcard's front,29,
 007,002,2,image777.jpg,Back of postcard 2,The second postcard's back,29,
 </code></pre>
-
 <p>The empty cells make this CSV difficult to read. Here is the same data in a spreadsheet:</p>
 <p><img alt="Paged content CSV" src="../images/paged_csv.png" /></p>
 <p>The data contains rows for two postcards (rows with <code>id</code> values "001" and "002") plus a back and front for each (the remaining four rows). The <code>parent_id</code> value for items with <code>id</code> values "003" and "004" is the same as the <code>id</code> value for item "001", which will tell Workbench to make both of those items children of item "001"; the <code>parent_id</code> value for items with <code>id</code> values "006" and "007" is the same as the <code>id</code> value for item "002", which will tell Workbench to make both of those items children of the item "002". We can't populate  <code>field_member_of</code> for the child pages in our CSV because we won't have node IDs for the parents until they are created as part of the same batch as the children.</p>
@@ -350,7 +278,7 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 <p><img alt="Secondary task CSV" src="../images/secondary_tasks.png" /></p>
 <p>As you can see, values in the <code>parent_id</code> column in the secondary CSV reference values in the <code>id</code> column in the primary CSV: <code>parent_id</code> 001 in the secondary CSV matches <code>id</code> 001 in the primary, <code>parent_id</code> 003 in the secondary matches <code>id</code> 003 in the primary, and so on.</p>
 <p>You configure secondary tasks by adding the <code>secondary_tasks</code> setting to your primary configuration file, like this:</p>
-<pre><code class="yaml">task: create
+<pre><code class="language-yaml">task: create
 host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
@@ -359,9 +287,8 @@ secondary_tasks: ['children.yml']
 input_csv: parents.csv
 nodes_only: true
 </code></pre>
-
 <p>In the <code>secondary_tasks</code> setting, you name the configuration file of the secondary task. The secondary task's configuration file (in this example, named "children.yml") contains no indication that it's a secondary task:</p>
-<pre><code class="yaml">task: create
+<pre><code class="language-yaml">task: create
 host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
@@ -369,7 +296,6 @@ input_csv: kids.csv
 csv_field_templates:
  - field_model: http://purl.org/coar/resource_type/c_c513
 </code></pre>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code>nodes_only</code> setting in the above example primary configuration file and the <code>csv_field_templates</code> setting in the secondary configuration file are not relevant to the primary/secondary task functionality; they're included to illustrate that the two configuration files can differ.</p>
@@ -384,15 +310,31 @@ csv_field_templates:
 <li>As already stated, each task has its own configuration file, which means that you can specify a <code>content_type</code> value in your secondary configuration file that differs from the <code>content_type</code> of the primary task.</li>
 <li>You can include more than one secondary task in your configuration. For example, <code>secondary_tasks: ['first.yml', 'second.yml']</code> will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order. You would use multiple secondary tasks if you wanted to add children of different content types to the parent nodes.</li>
 </ul>
+<h4 id="specifying-paths-to-the-python-interpreter-and-to-the-workbench-script">Specifying paths to the python interpreter and to the workbench script</h4>
+<p>When using secondary tasks, there are a couple of situations where you may need to tell Workbench where the python interpreter is located, and where the "workbench" script is located.</p>
+<p>The first is when you use a secondary task within a scheduled job (such as running Workbench via Linux's cron). Depending on how you configure the cron job, you will likely need to tell Workbench what the absolute paths to the python interpreter is and what the path to the workbench script is. This is because, unless your cronjob changes into Workbench's working directory, Workbench will be looking in the wrong directory for the secondary task. The two config options you should use are:</p>
+<ul>
+<li><code>path_to_python</code></li>
+<li><code>path_to_workbench_script</code></li>
+</ul>
+<p>An example of using these settings is:</p>
+<pre><code class="language-yaml">secondary_tasks: ['children.yml']
+path_to_python: '/usr/bin/python'
+path_to_workbench_script: '/home/mark/islandora_workbench/workbench'
+</code></pre>
+<p>The second situation is when using a secondary task when running Workbench in Windows and "python.exe" is not in the PATH of the user running the scheduled job. Specifying the absolute path to "python.exe" will ensure that Workbench can execture the secondary task properly, like this:</p>
+<pre><code class="language-yaml">secondary_tasks: ['children.yml']
+path_to_python: 'c:/program files/python39/python.exe'
+path_to_workbench_script: 'd:/users/mark/islandora_workbench/workbench'
+</code></pre>
 <h3 id="creating-collections-and-members-together">Creating collections and members together</h3>
 <p>Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV which shows the references from the members' <code>parent_id</code> field to the collections' <code>id</code> field:</p>
-<pre><code class="text">id,parent_id,file,title,field_model,field_member_of,field_weight
+<pre><code class="language-text">id,parent_id,file,title,field_model,field_member_of,field_weight
 1,,,A collection of animal photos,24,,
 2,1,cat.jpg,Picture of a cat,25,,
 3,1,dog.jpg,Picture of a dog,25,,
 3,1,horse.jpg,Picture of a horse,25,,
 </code></pre>
-
 <p>The use of the <code>parent_id</code> and <code>field_member_of</code> fields is the same here as when creating paged or compound children. However, unlike with paged or compound objects, in this case we leave the values in <code>field_weight</code> empty, since Islandora collections don't use <code>field_weight</code> to determine order of members. Collection Views are sorted using other fields.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -438,29 +380,21 @@ csv_field_templates:
 </table>
               
             </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../field_templates/" class="btn btn-neutral float-left" title="CSV field templates"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../nodes_only/" class="btn btn-neutral float-right" title="Creating nodes without media">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../field_templates/" class="btn btn-neutral" title="CSV field templates"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-    
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-      
+          
         </div>
       </div>
 
@@ -468,22 +402,30 @@ csv_field_templates:
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-          <a href="https://github.com/mjordan/islandora_workbench_docs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
-      
-      
-        <span><a href="../field_templates/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../nodes_only/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/mjordan/islandora_workbench_docs" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../field_templates/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../nodes_only/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

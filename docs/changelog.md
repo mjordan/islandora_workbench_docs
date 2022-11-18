@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* November 16, 2022 (commit 07a74b2): Added new config options `path_to_python` and `path_to_workbench_script` (issue [483](https://github.com/mjordan/islandora_workbench/issues/483)).
 * November 9, 2022 (commit 7c3e072): Fixed misspelling of "preprocessed" in code and temporary filenames (issue [482](https://github.com/mjordan/islandora_workbench/issues/482)).
 * November 1, 2022 (commit 7c3e072): Workbench now exits when run withouth `--check` and there are no records in the input CSV (issue [481](https://github.com/mjordan/islandora_workbench/issues/481)).
 * September 19, 2022 (commit 51c0f79): Replaced `exit_on_first_missing_file_during_check` configuration option with `strict_check` (issue [470](https://github.com/mjordan/islandora_workbench/issues/470)). `exit_on_first_missing_file_during_check` will be available until Nov. 1, 2022, at which time `strict_check` will be the only option allowed.
@@ -16,7 +17,8 @@
 
 ### Documentation
 
-* October 28, 2022: Updated Updated "[Congfiguration](/islandora_workbench_docs/configuration/)" docs to provide details on YAML (configuration file) syntax.
+* November 17, 2022: Added new config options `path_to_python` and `path_to_workbench_script` to "[Congfiguration](/islandora_workbench_docs/configuration/)" docs.
+* October 28, 2022: Updated "[Congfiguration](/islandora_workbench_docs/configuration/)" docs to provide details on YAML (configuration file) syntax.
 * September 19, 2022: Updated references to `exit_on_first_missing_file_during_check` to use `strict_check`. Configuration settings entry advises `exit_on_first_missing_file_during_check` will be removed Nov. 1, 2022.
 * September 18, 2022: Added entry "[Ignoring CSV rows and columns](/islandora_workbench_docs/ignoring_csv_rows_and_columns)."
 * September 15, 2022: Added entry to "[Limitations](/islandora_workbench_docs/limitations/)" page about lack of support for HTML markup. Also added a section on "Password management" to "[Requirements and installation](/islandora_workbench_docs/installation/)".

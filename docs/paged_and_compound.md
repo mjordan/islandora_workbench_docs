@@ -127,6 +127,30 @@ Some things to note about secondary tasks:
 * As already stated, each task has its own configuration file, which means that you can specify a `content_type` value in your secondary configuration file that differs from the `content_type` of the primary task.
 * You can include more than one secondary task in your configuration. For example, `secondary_tasks: ['first.yml', 'second.yml']` will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order. You would use multiple secondary tasks if you wanted to add children of different content types to the parent nodes.
 
+#### Specifying paths to the python interpreter and to the workbench script
+
+When using secondary tasks, there are a couple of situations where you may need to tell Workbench where the python interpreter is located, and where the "workbench" script is located.
+
+The first is when you use a secondary task within a scheduled job (such as running Workbench via Linux's cron). Depending on how you configure the cron job, you will likely need to tell Workbench what the absolute paths to the python interpreter is and what the path to the workbench script is. This is because, unless your cronjob changes into Workbench's working directory, Workbench will be looking in the wrong directory for the secondary task. The two config options you should use are:
+
+* `path_to_python`
+* `path_to_workbench_script`
+
+An example of using these settings is:
+
+```yaml
+secondary_tasks: ['children.yml']
+path_to_python: '/usr/bin/python'
+path_to_workbench_script: '/home/mark/islandora_workbench/workbench'
+```
+
+The second situation is when using a secondary task when running Workbench in Windows and "python.exe" is not in the PATH of the user running the scheduled job. Specifying the absolute path to "python.exe" will ensure that Workbench can execture the secondary task properly, like this:
+
+```yaml
+secondary_tasks: ['children.yml']
+path_to_python: 'c:/program files/python39/python.exe'
+path_to_workbench_script: 'd:/users/mark/islandora_workbench/workbench'
+```
 
 ### Creating collections and members together
 
