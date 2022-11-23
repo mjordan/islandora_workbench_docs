@@ -1,5 +1,7 @@
 ### main branch (no tag/release)
 
+* November 22, 2022 (commit 74a83cf): Added more detailed logging on node, media, and file creation (isue [480](https://github.com/mjordan/islandora_workbench/issues/480)).
+* November 22, 2022 (commit f2a8a65): Added @DonRichards Dockerfile (PR [233](https://github.com/mjordan/islandora_workbench/pull/233)).
 * November 16, 2022 (commit 07a74b2): Added new config options `path_to_python` and `path_to_workbench_script` (issue [483](https://github.com/mjordan/islandora_workbench/issues/483)).
 * November 9, 2022 (commit 7c3e072): Fixed misspelling of "preprocessed" in code and temporary filenames (issue [482](https://github.com/mjordan/islandora_workbench/issues/482)).
 * November 1, 2022 (commit 7c3e072): Workbench now exits when run withouth `--check` and there are no records in the input CSV (issue [481](https://github.com/mjordan/islandora_workbench/issues/481)).
