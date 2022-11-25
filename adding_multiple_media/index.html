@@ -232,12 +232,16 @@ main.jpg,2078,/tmp/thumbs/main_tn.jpg,/tmp/rightsdocs/036.txt
  - thumbnail: 20
  - rightsdocs: 280|465
 </code></pre>
-<p>Also note that if you don't want to leave the reserved <code>file</code> column empty when adding additional media, you will need to add the <code>allow_missing_files: true</code> option to your configuration file.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If you are creating Media using this feature, you should temporarily disable Contexts that would normally generate derivatives equivalent to the additional Media you are creating. Do this at <code>admin/structure/context</code> by choosing "Disable" in the "Operations" list for each applicable Context, and be sure to re-enable them after running Workbench. Because Islandora creates derivatives asynchronously, it is impossible to guarantee that Contexts will not overwrite additional Media created using this feature. Running <code>--check</code> will warn you of this by issuing a message like the following: "Warning: Term ID '18' registered in the 'additional_files' config option for field 'thumbnail' will assign an Islandora Media Use term that might conflict with derivative media. You should temporarily disable the Context or Action that generates those derivatives."</p>
 </div>
-<p>Note that <a href="/islandora_workbench_docs/fixity">fixity checking</a> is only available for files named in the <code>file</code> CSV column, not in the additional columns described here. See <a href="https://github.com/mjordan/islandora_workbench/issues/307">this issue</a> for more information.</p>
+<p>A few notes:</p>
+<ul>
+<li>If you want the reserved <code>file</code> column to be empty when adding additional media, you will need to add the <code>allow_missing_files: true</code> option to your configuration file.</li>
+<li><a href="/islandora_workbench_docs/fixity">Fixity checking</a> is only available for files named in the <code>file</code> CSV column, not in the additional columns described here. See <a href="https://github.com/mjordan/islandora_workbench/issues/307">this issue</a> for more information.</li>
+<li>If you create an "Extracted Text" media, the contents of the specified text file will be added to the media's 'field_edited_text' field.</li>
+</ul>
               
             </div>
           </div><footer>
