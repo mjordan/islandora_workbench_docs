@@ -118,11 +118,11 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../deleting_media/">Deleting media</a>
+                <li class="toctree-l1"><a class="reference internal" href="../adding_multiple_media/">Adding multiple media</a>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../adding_multiple_media/">Adding multiple media</a>
+                <li class="toctree-l1"><a class="reference internal" href="../deleting_media/">Deleting media</a>
                 </li>
               </ul>
               <ul>
@@ -248,13 +248,17 @@
 <p><img alt="Migrations" src="../images/workflow_integrations.png" /></p>
 <p>The extraction of data from the source system, conversion of it into the CSV and file arrangement Workbench expects, and running of Workbench can all be scripted and executed in sequence using scheduled jobs.</p>
 <h3 id="using-hooks">Using hooks</h3>
-<p>Islandora Workbench enables you to execute scripts immediately after a node is created or updated, or a media is created, via a "post-action script" <a href="/islandora_workbench_docs/hooks/">hook</a>. Drupal informs Workbench if an action was successful or not, and in either case, post-action hook scripts registered in the Workbench configuration file execute. These scripts can interact with external applications:</p>
+<p>Islandora Workbench provides several "<a href="/islandora_workbench_docs/hooks/">hooks</a>" that allow you to execute external scripts at specific times. For example, the "post-action script" enables you to execute scripts immediately after a node is created or updated, or a media is created. Drupal informs Workbench if an action was successful or not, and in either case, post-action hook scripts registered in the Workbench configuration file execute. These scripts can interact with external applications:</p>
 <p><img alt="Post-action hook script" src="../images/post_action_hook.png" /></p>
 <p>Potential uses for this ability include adding new Islandora content to external processing queues, or informing upstream applications like those described in the "Integrations with other systems" section above that content they provide has been (or has not been) ingested into Islandora. As a simpler example, post-action hook scripts can be used to write custom or special-purpose log files.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Schedulers such as Linux <code>cron</code> usually require that all file paths are absolute, unless the scheduler changes its current working directory when running a job. When running Islandora Workbench in a scheduled job, all paths to files and directories included in configuration files should be absolute, not relative to Workbench. If a scheduled job is not executing the way you expect, the first thing you should check is whether all paths to files and directories are expressed as absolute paths, not relative paths.</p>
+</div>
 <h3 id="sharing-the-input-csv-with-other-applications">Sharing the input CSV with other applications</h3>
 <p>Some workflows can benefit from having Workbench share its input CSV with other scripts or applications. For example, you might use Workbench to ingest nodes into Islandora but want to use the same CSV file in a script to create metadata for loading into another application such as a library discovery layer.</p>
-<p>Islandora Workbench strictly validates the columns in the input CSV to ensure that they match Drupal field names. To accommodate CSV columns that do not correspond to Drupal field names, you can tell Workbench to ignore specific columns that are present in the CSV. To do this, list the non-Workbench column headers in the <code>ignore_csv_columns</code> configuration setting. For example, if you want to include a <code>date_generated</code> column in your CSV, include the following in your Workbench configuration file:</p>
-<pre><code>ignore_csv_columns: ['date_generated']
+<p>Islandora Workbench strictly validates the columns in the input CSV to ensure that they match Drupal field names. To accommodate CSV columns that do not correspond to Drupal field names, you can tell Workbench to ignore specific columns that are present in the CSV. To do this, list the non-Workbench column headers in the <code>ignore_csv_columns</code> configuration setting. For example, if you want to include a <code>date_generated</code> and a <code>qa by</code> column in your CSV, include the following in your Workbench configuration file:</p>
+<pre><code>ignore_csv_columns: ['date_generated', 'qa by']
 </code></pre>
 <p>With this setting in place, Workbench will ignore the <code>date_generated</code> column in the input CSV. More information on this feature <a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/#ignoring-csv-columns">is availalable</a>.</p>
               
