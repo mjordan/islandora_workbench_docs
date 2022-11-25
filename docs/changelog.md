@@ -1,6 +1,7 @@
 ### main branch (no tag/release)
 
-* November 22, 2022 (commit 74a83cf): Added more detailed logging on node, media, and file creation (isue [480](https://github.com/mjordan/islandora_workbench/issues/480)).
+* November 24, 2022 (commit 3fe5c28): Extracted text media now have their "field_edited_text" field automatically populated with the contents of the specified text file (issue [407](https://github.com/mjordan/islandora_workbench/issues/407)).
+* November 22, 2022 (commit 74a83cf): Added more detailed logging on node, media, and file creation (issue [480](https://github.com/mjordan/islandora_workbench/issues/480)).
 * November 22, 2022 (commit f2a8a65): Added @DonRichards Dockerfile (PR [233](https://github.com/mjordan/islandora_workbench/pull/233)).
 * November 16, 2022 (commit 07a74b2): Added new config options `path_to_python` and `path_to_workbench_script` (issue [483](https://github.com/mjordan/islandora_workbench/issues/483)).
 * November 9, 2022 (commit 7c3e072): Fixed misspelling of "preprocessed" in code and temporary filenames (issue [482](https://github.com/mjordan/islandora_workbench/issues/482)).
@@ -19,6 +20,7 @@
 
 ### Documentation
 
+* November 24, 2022: Added note to "[Adding media to nodes](/islandora_workbench_docs/adding_media/)" and "[Adding multiple media](/islandora_workbench_docs/adding_multiple_media/)" about extracted text media.
 * November 17, 2022: Added new config options `path_to_python` and `path_to_workbench_script` to "[Congfiguration](/islandora_workbench_docs/configuration/)" docs.
 * October 28, 2022: Updated "[Congfiguration](/islandora_workbench_docs/configuration/)" docs to provide details on YAML (configuration file) syntax.
 * September 19, 2022: Updated references to `exit_on_first_missing_file_during_check` to use `strict_check`. Configuration settings entry advises `exit_on_first_missing_file_during_check` will be removed Nov. 1, 2022.

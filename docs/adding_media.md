@@ -38,3 +38,6 @@ node_id,file,media_use_tid
 ```
 
 If you include `media_use_tid` values in your CSV file, they override the `media_use_tid` value set in your configuration file.
+
+!!! note
+    If you create an "Extracted Text" media, the contents of the specified text file will be added to the media's 'field_edited_text' field.
