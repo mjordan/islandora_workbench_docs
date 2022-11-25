@@ -264,6 +264,7 @@
 <p>Bue sure to clear Drupal's cache every time you change the "Standalone media URL" option. More information can be found <a href="/islandora_workbench_docs/installation/#configuring-drupals-media-urls">here</a>.</p>
 <h2 id="im-having-trouble-getting-workbench-to-work-in-a-cronjob">I'm having trouble getting Workbench to work in a cronjob</h2>
 <p>The most common problem you will encounter when running Islandora Workbench in a cronjob is that Workbench can't find its configuration file, or input/output directories. The easiest way to avoid this is to use absolute file paths everywhere, including as the value of Workbench's <code>--config</code> parameter, in configuration files, and in <code>file</code> and <code>additional_files</code> columns in your input CSV files.</p>
+<p>In some cases, particularly if you are using a secondary task to create pages or child items, you many need to use the <code>path_to_python</code> and <code>path_to_workbench_script</code> configuration settings.</p>
               
             </div>
           </div><footer>
