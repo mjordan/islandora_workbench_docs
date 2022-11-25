@@ -262,6 +262,8 @@
 <p>you will need to visit that site, download the "Build Tools" and install them.</p>
 <h2 id="my-drupal-has-the-standalone-media-url-option-at-adminconfigmediamedia-settings-checked-and-im-using-workbenchs-standalone_media_url-true-option-in-my-config-but-im-still-getting-lots-of-errors">My Drupal has the "Standalone media URL" option at <code>/admin/config/media/media-settings</code> checked, and I'm using Workbench's <code>standalone_media_url: true</code> option in my config, but I'm still getting lots of errors.</h2>
 <p>Bue sure to clear Drupal's cache every time you change the "Standalone media URL" option. More information can be found <a href="/islandora_workbench_docs/installation/#configuring-drupals-media-urls">here</a>.</p>
+<h2 id="im-having-trouble-getting-workbench-to-work-in-a-cronjob">I'm having trouble getting Workbench to work in a cronjob</h2>
+<p>The most common problem you will encounter when running Islandora Workbench in a cronjob is that Workbench can't find its configuration file, or input/output directories. The easiest way to avoid this is to use absolute file paths everywhere, including as the value of Workbench's <code>--config</code> parameter, in configuration files, and in <code>file</code> and <code>additional_files</code> columns in your input CSV files.</p>
               
             </div>
           </div><footer>
