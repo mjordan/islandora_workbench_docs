@@ -25,8 +25,8 @@ nav:
     - Updating nodes: updating_nodes.md
     - Deleting nodes: deleting_nodes.md
     - Adding media to nodes: adding_media.md
-    - Deleting media: deleting_media.md
     - Adding multiple media: adding_multiple_media.md
+    - Deleting media: deleting_media.md
     - Generating CSV files: generating_csv_files.md
     - Creating nodes from the sample data: sample_data.md
     - Exporting Islandora 7 content: exporting_islandora_7_content.md

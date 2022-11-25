@@ -80,3 +80,8 @@ you will need to visit that site, download the "Build Tools" and install them.
 Bue sure to clear Drupal's cache every time you change the "Standalone media URL" option. More information can be found [here](/islandora_workbench_docs/installation/#configuring-drupals-media-urls).
 
 
+## I'm having trouble getting Workbench to work in a cronjob
+
+The most common problem you will encounter when running Islandora Workbench in a cronjob is that Workbench can't find its configuration file, or input/output directories. The easiest way to avoid this is to use absolute file paths everywhere, including as the value of Workbench's `--config` parameter, in configuration files, and in `file` and `additional_files` columns in your input CSV files.
+
+In some cases, particularly if you are using a secondary task to create pages or child items, you many need to use the `path_to_python` and `path_to_workbench_script` configuration settings.
