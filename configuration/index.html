@@ -1271,7 +1271,7 @@ csv_field_templates:
 <td>password</td>
 <td></td>
 <td></td>
-<td>The user's password. You can also set the password in your <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable. If you do this, omit the <code>password</code> option in your configuration file. If 'password' is not defined in either your configuration file or in the environment variable, Workbench will prompt for a password.</td>
+<td>The user's password. You can also set the password in your <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable. If you do this, omit the <code>password</code> option in your configuration file. If a password is not available in either your configuration file or in the environment variable, Workbench will prompt for a password.</td>
 </tr>
 </tbody>
 </table>
@@ -1296,7 +1296,7 @@ csv_field_templates:
 <td>drupal_filesystem</td>
 <td></td>
 <td>fedora://</td>
-<td>One of 'fedora://', 'public://', or 'private://' (the wrapping quotation marks are required). Only used with Drupal 8.x - 9.1; starting with Drupal 9.2, the filesystem is automatically detected from the media's configuration.</td>
+<td>One of 'fedora://', 'public://', or 'private://' (the wrapping quotation marks are required). Only used with Drupal 8.x - 9.1; starting with Drupal 9.2, the filesystem is automatically detected from the media's configuration. Will eventually be deprecated.</td>
 </tr>
 <tr>
 <td>allow_adding_terms</td>
