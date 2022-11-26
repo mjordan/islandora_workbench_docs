@@ -788,7 +788,12 @@
 IMG_2958.JPG,04,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
 IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Francisco.&quot;
 </code></pre>
-<p>The value will only be applied to image media. If you do not include this field in your CSV file, or the field is present but empty, Workbench will use the node's title as the alt text. Note that Workbench strips out all HTML markup within the alt text. Also note that this feature is only available in the <code>create</code> task (but see <a href="https://github.com/mjordan/islandora_workbench/issues/166">this issue</a>).</p>
+<p>The value will only be applied to image media. If you do not include this field in your CSV file, or the field is present but empty, Workbench will use the node's title as the alt text. </p>
+<p>A couple notes:</p>
+<ul>
+<li>Assigning alt text to images is only available in <code>create</code> tasks (but see <a href="https://github.com/mjordan/islandora_workbench/issues/166">this issue</a>).</li>
+<li>Workbench strips out all HTML markup within the alt text to prevent potential cross-site scripting vulnerabilities.</li>
+</ul>
 
 
 
