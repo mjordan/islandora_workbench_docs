@@ -34,7 +34,7 @@ Very basic example bootstrap and shutdown scripts can be found in the `scripts` 
 
 ### CSV preprocessor scripts
 
-CSV preprocessor scripts are applied to CSV values prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocesor must split it and then reassemble it back into a string before printint it to STDOUT. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title). If you are interested in seeing preprocessor scripts act on binary data such as images, see this [issue](https://github.com/mjordan/islandora_workbench/issues/45).
+CSV preprocessor scripts are applied to CSV values prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocesor must split it and then reassemble it back into a string. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title). If you are interested in seeing preprocessor scripts act on binary data such as images, see this [issue](https://github.com/mjordan/islandora_workbench/issues/45).
 
 For example, you might want to convert all the values in a CSV field to sentence case. You can do this by writing a small Python script that uses the `capitalize()` method and registering it as a preprocessor. 
 
