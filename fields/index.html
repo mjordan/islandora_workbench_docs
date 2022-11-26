@@ -1264,7 +1264,7 @@ If you are using a spreadsheet application, it will take care of wrapping the CS
 </tbody>
 </table>
 <h3 id="values-in-the-file-column">Values in the "file" column</h3>
-<p>Values in the <code>file</code> field contain the location of files that are used to create Drupal Media. Workbench can create only one media per CSV record; the type of media is determined by identifying in your configuration file a value from the "Islandora Media Use" vocabulary. File locations can be relative to the directory named in <code>input_dir</code>, absolute paths, or URLs. Examples of each:</p>
+<p>Values in the <code>file</code> field contain the location of files that are used to create Drupal Media. By default, Workbench pushes up to Drupal only one file, and creates only one media per CSV record. However, it is possible to push up <a href="/islandora_workbench_docs/adding_multiple_media/">multiple files</a> (and create multiple media). File locations can be relative to the directory named in <code>input_dir</code>, absolute paths, or URLs. Examples of each:</p>
 <ul>
 <li>relative to directory named in the <code>input_dir</code> configuration setting: <code>myfile.png</code></li>
 <li>absolute: <code>/tmp/data/myfile.png</code></li>
