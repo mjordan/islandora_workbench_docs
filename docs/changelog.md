@@ -20,6 +20,7 @@
 
 ### Documentation
 
+* November 26, 2022: Changed documentation theme from readthedocs to material.
 * November 24, 2022: Added note to "[Adding media to nodes](/islandora_workbench_docs/adding_media/)" and "[Adding multiple media](/islandora_workbench_docs/adding_multiple_media/)" about extracted text media; added a note about using absolute file paths in scheduled jobs to the "[Workflows](/islandora_workbench_docs/workflows/)" and "[Troubleshooting](/islandora_workbench_docs/troubleshooting/)"; removed the "required" ✔️ from the `password` configuration setting entry in the table in "[Configuration](/islandora_workbench_docs/configuration/)".
 * November 17, 2022: Added new config options `path_to_python` and `path_to_workbench_script` to "[Congfiguration](/islandora_workbench_docs/configuration/)" docs.
 * October 28, 2022: Updated "[Congfiguration](/islandora_workbench_docs/configuration/)" docs to provide details on YAML (configuration file) syntax.

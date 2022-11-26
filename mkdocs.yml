@@ -4,7 +4,7 @@ docs_dir: docs
 site_description: Documentation for Islandora Workbench
 dev_addr: 'localhost:8111'
 repo_url: https://github.com/mjordan/islandora_workbench_docs
-theme: readthedocs
+theme: material
 nav:
     - Home: index.md
     - Requirements and installation: installation.md
