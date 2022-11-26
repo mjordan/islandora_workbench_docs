@@ -78,14 +78,14 @@ Strictly speaking, YAML lists can be represented as either a series of entries o
 | task | ✔️ | | One of 'create', 'create_from_files', 'update', delete', 'add_media', 'delete_media', 'export_csv', 'create_terms', or 'delete_media_by_node'. |
 | host | ✔️ | | The hostname, including `http://` or `https://` of your Islandora repository, and port number if not the default 80. This value must be wrapped in quotation marks. |
 | username |  ✔️ | | The username used to authenticate the requests. This Drupal user should be a member of the "Administrator" role. If you want to create nodes that are owned by a specific Drupal user, include their numeric user ID in the `uid` column in your CSV. |
-| password |  | | The user's password. You can also set the password in your `ISLANDORA_WORKBENCH_PASSWORD` environment variable. If you do this, omit the `password` option in your configuration file. If 'password' is not defined in either your configuration file or in the environment variable, Workbench will prompt for a password.|
+| password |  | | The user's password. You can also set the password in your `ISLANDORA_WORKBENCH_PASSWORD` environment variable. If you do this, omit the `password` option in your configuration file. If a password is not available in either your configuration file or in the environment variable, Workbench will prompt for a password.|
 
 ### Drupal settings
 
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
 | content_type |  | islandora_object | The machine name of the Drupal node content type you are creating or updating. |
-| drupal_filesystem | | fedora:// | One of 'fedora://', 'public://', or 'private://' (the wrapping quotation marks are required). Only used with Drupal 8.x - 9.1; starting with Drupal 9.2, the filesystem is automatically detected from the media's configuration. |
+| drupal_filesystem | | fedora:// | One of 'fedora://', 'public://', or 'private://' (the wrapping quotation marks are required). Only used with Drupal 8.x - 9.1; starting with Drupal 9.2, the filesystem is automatically detected from the media's configuration. Will eventually be deprecated. |
 | allow_adding_terms |  | false | In `create` and `update` tasks, determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "[Taxonomy reference fields](/islandora_workbench_docs/fields/#field-types)" section. Note: this setting is not required in `create_terms` tasks. |
 | vocab_id | ✔️ in `create_terms` tasks. | | Identifies the vocabulary you are adding terms to in `create_tersm` tasks. See more information in the "[Creating taxonomy terms](/islandora_workbench_docs/creating_taxonomy_terms)" section. |
 | update_mode |  | replace | Determines if Workbench will `replace`, `append` (add to) , or `delete` field values during `update` tasks. See more information in the "[Updating nodes](/islandora_workbench_docs/updating_nodes)" section. |
