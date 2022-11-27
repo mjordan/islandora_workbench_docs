@@ -903,8 +903,8 @@
 <p>Workbench can put substantial stress on Drupal. In some cases, this stress can lead to instability and errors. Workbench offers two main ways to reduce this stress. Both types of pausing will slow down Workbench's overall execution time since they reduce speed to improve stability and reliability.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>The options described below modify Workbench's interaction with Drupal. They do not have a direct impact on the load experienced by the various microservices Islandora uses to index data in its triplestore, extract full text for indexing, generating thumbnails, etc. However, since Drupal is the "controller" for these microservices, reducing the number of Workbench requests on Drupal shouold also (at least indirectly) reduce the load experienced by Islandora's microservices. </p>
+</div>
 <p>The first way to reduce stress on Drupal is by telling Workbench to pause between each request it makes. There are two types of pause, 1) basic pause and 2) adaptive pause.</p>
 <h3 id="basic-pause">Basic pause</h3>
 <p>The <code>pause</code> configuration setting tells Workbench to temporarily halt execution before every 'POST', 'PUT', 'PATCH', and 'DELETE' request, thereby spreading load caused by the requests over a longer period of time. To enable <code>pause</code>, include the setting in your configuration file, indicating the number of seconds to wait between requests:</p>
