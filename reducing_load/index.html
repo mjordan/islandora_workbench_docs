@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#basic-pause" class="md-skip">
+        <a href="#pausing" class="md-skip">
           Skip to content
         </a>
       
@@ -689,16 +689,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pausing" class="md-nav__link">
+    Pausing
+  </a>
+  
+    <nav class="md-nav" aria-label="Pausing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#basic-pause" class="md-nav__link">
     Basic pause
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#adaptive-pause" class="md-nav__link">
     Adaptive pause
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -824,16 +837,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#pausing" class="md-nav__link">
+    Pausing
+  </a>
+  
+    <nav class="md-nav" aria-label="Pausing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#basic-pause" class="md-nav__link">
     Basic pause
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#adaptive-pause" class="md-nav__link">
     Adaptive pause
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -876,11 +902,16 @@
 <p>Workbench can put substantial stress on Drupal. In some cases, this stress can lead to instability and errors.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The options described below modify Workbench's interaction with Drupal. They do not have a direct impact on the load experienced by the microservices Islandora uses to do things like indexing node metadata in its triplestore, extract full text for indexing, and generating thumbnails. However, since Drupal is the "controller" for these microservices, reducing the number of Workbench requests to Drupal will also indirectly reduce the load experienced by Islandora's microservices. </p>
+<p>The options described below modify Workbench's interaction with Drupal. They do not have a direct impact on the load experienced by the microservices Islandora uses to do things like indexing node metadata in its triplestore, extracting full text for indexing, and generating thumbnails. However, since Drupal is the "controller" for these microservices, reducing the number of Workbench requests to Drupal will also indirectly reduce the load experienced by Islandora's microservices. </p>
 </div>
-<p>Workbench offers two main ways to reduce this stress: pausing Workbench between its requests to Drupal, and caching Workbench's requests to Drupal.</p>
+<p>Workbench provides two ways to reduce this stress:</p>
+<ul>
+<li>pausing between Workbench's requests to Drupal, andx</li>
+<li>caching Workbench's requests to Drupal.</li>
+</ul>
 <p>The first way to reduce stress on Drupal is by telling Workbench to pause between each request it makes. There are two types of pause, 1) basic pause and 2) adaptive pause. Both types of pausing will slow down Workbench's overall execution time since they reduce speed to improve stability and reliability.</p>
-<h3 id="basic-pause">Basic pause</h3>
+<h3 id="pausing">Pausing</h3>
+<h4 id="basic-pause">Basic pause</h4>
 <p>The <code>pause</code> configuration setting tells Workbench to temporarily halt execution before every 'POST', 'PUT', 'PATCH', and 'DELETE' request, thereby spreading load caused by the requests over a longer period of time. To enable <code>pause</code>, include the setting in your configuration file, indicating the number of seconds to wait between requests:</p>
 <pre><code class="language-yaml">pause: 2
 </code></pre>
@@ -889,7 +920,7 @@
 <p class="admonition-title">Note</p>
 <p><code>pause</code> and <code>adaptive_pause</code> are mutually exclusive. If you include one in your configuration files, you should not include the other.</p>
 </div>
-<h3 id="adaptive-pause">Adaptive pause</h3>
+<h4 id="adaptive-pause">Adaptive pause</h4>
 <p>Adaptive pause only halts execution between requests if Workbench detects that Drupal is slowing down. It does this by comparing Drupal's response time for the most recent request to the average response time of the 20 previous requests made by Islandora Workbench. If the response time for the most recent request reaches a specific threshold, Workbench's adaptive pause will kick in and temporarily halt execution to allow Drupal to catch up. The number of previous requests used to determine the average response time, 20, cannot be changed with a configuration setting.</p>
 <p>The threshold that needs to be met is configured using the <code>adaptive_pause_threshold</code> setting. This setting's default value is 2, which means that the adaptive pause will kick in if the response time for the most recent request Workbench makes to Drupal is 2 times (double) the average of Workbench's last 20 requests. The amount of time that Workbench will pause is determined by the value of <code>adaptive_pause</code>, which, like the value for <code>pause</code>, is a number of seconds (e.g., <code>adaptive_pause: 3</code>). You enable adaptive pausing by adding the <code>adaptive_pause</code> setting to your configuration file.</p>
 <p>Here are a couple of examples. Keep in mind that <code>adaptive_pause_threshold</code> has a default value (2), but <code>adaptive_pause</code> does not have a default value. The first example enables <code>adaptive_pause</code> using the default value for <code>adaptive_pause_threshold</code>, telling it to pause for 3 seconds between requests if Drupal's response time to the last request is 2 times slower (<code>adaptive_pause_threshold</code>'s default value) than the average of the last 20 requests:</p>
