@@ -909,13 +909,13 @@
 <li>pausing between Workbench's requests to Drupal, and</li>
 <li>caching Workbench's requests to Drupal.</li>
 </ul>
-<p>The first way to reduce stress on Drupal is by telling Workbench to pause between each request it makes. There are two types of pause, 1) basic pause and 2) adaptive pause. Both types of pausing will slow down Workbench's overall execution time since they reduce speed to improve stability and reliability.</p>
+<p>The first way to reduce stress on Drupal is by telling Workbench to pause between each request it makes. There are two types of pausing, 1) basic and 2) adaptive. Both types of pausing improve stability and reliability by slowing down Workbench's overall execution time.</p>
 <h3 id="pausing">Pausing</h3>
 <h4 id="basic-pause">Basic pause</h4>
-<p>The <code>pause</code> configuration setting tells Workbench to temporarily halt execution before every 'POST', 'PUT', 'PATCH', and 'DELETE' request, thereby spreading load caused by the requests over a longer period of time. To enable <code>pause</code>, include the setting in your configuration file, indicating the number of seconds to wait between requests:</p>
+<p>The <code>pause</code> configuration setting tells Workbench to temporarily halt execution before every request, thereby spreading load caused by the requests over a longer period of time. To enable <code>pause</code>, include the setting in your configuration file, indicating the number of seconds to wait between requests:</p>
 <pre><code class="language-yaml">pause: 2
 </code></pre>
-<p>Using <code>pause</code> will help decrease load-induced errors, but it is inefficient because it causes Workbench to pause between <em>all</em> requests, even ones that are not putting stress on Drupal. A useful strategy for refining Workbench's load-reduction capabilities is to try <code>pause</code> first, and if it reduces errors, then disable <code>pause</code> and try <code>adaptive_pause</code> instead.</p>
+<p>Using <code>pause</code> will help decrease load-induced errors, but it is inefficient because it causes Workbench to pause between <em>all</em> requests, even ones that are not putting stress on Drupal. A useful strategy for refining Workbench's load-reduction capabilities is to try <code>pause</code> first, and if it reduces errors, then disable <code>pause</code> and try <code>adaptive_pause</code> instead. <code>pause</code> will confirm that Workbench is adding load to Drupal, but <code>adaptive_pause</code> will tell Workbench to pause only when it detects its requests are putting load on Drupal.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code>pause</code> and <code>adaptive_pause</code> are mutually exclusive. If you include one in your configuration files, you should not include the other.</p>
