@@ -934,11 +934,11 @@ adaptive_pause_threshold: 2.5
 <p>Since <code>adaptive_pause</code> doesn't have a default value, you need to define its value in your configuration file. Because of this, using <code>adaptive_pause_threshold</code> on its own in a configuration, e.g.:</p>
 <pre><code class="language-yaml">adaptive_pause_threshold: 3
 </code></pre>
-<p>doesn't do anything. In other words, you can use <code>adaptive_pause</code> on its own, or you can use <code>adaptive_pause</code> and <code>adaptive_pause_threshold</code> together, but you should not use <code>adaptive_pause_threshold</code> on its own.</p>
+<p>doesn't do anything because <code>adaptive_pause</code> has no value. In other words, you can use <code>adaptive_pause</code> on its own, or you can use <code>adaptive_pause</code> and <code>adaptive_pause_threshold</code> together, but you should not use <code>adaptive_pause_threshold</code> on its own.</p>
 <h4 id="logging-drupals-response-time">Logging Drupal's response time</h4>
 <p>If a request if paused by adaptive pausing, Workbench will automatically log the response time for the next request, indicating that <code>adaptive_pause</code> has temporarily halted execution. If you want to log Drupal's response time regardless of whether <code>adaptive_pause</code> had kicked in or not, add <code>log_response_time: true</code> to your configuration file. All logging of response time includes variation from the average of the last 20 response times.</p>
 <h3 id="caching">Caching</h3>
-<p>The second way that Workbench reduces stress on Drupal is by caching HTTP requests, thereby reducing the overall number of requests. This caching both reduces the load on Drupal and speeds up Workbench considerably.</p>
+<p>The second way that Workbench reduces stress on Drupal is by caching its outbound HTTP requests, thereby reducing the overall number of requests. This caching both reduces the load on Drupal and speeds up Workbench considerably.</p>
 <p>By default, this caching is enabled for requests that Workbench makes more than once and that are expected to have the same response each time, such as requests for field configurations or for checks for the existence of taxonomy terms. Note that you should not normally have to disable this caching, but if you do (for example, if you are asked to during troubleshooting), you can do so by including the following setting in your configuration file:</p>
 <pre><code class="language-yaml">enable_http_cache: false
 </code></pre>
