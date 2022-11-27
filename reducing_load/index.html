@@ -900,7 +900,7 @@
   <h1>Reducing Workbench's impact on Drupal</h1>
 
 <h2 id="reducing-workbenchs-impact-on-drupal">Reducing Workbench's impact on Drupal</h2>
-<p>Workbench can put substantial stress on Drupal. In some cases, this stress can lead to instability and errors. Workbench offers two main ways to reduce this stress.</p>
+<p>Workbench can put substantial stress on Drupal. In some cases, this stress can lead to instability and errors. Workbench offers two main ways to reduce this stress. Note that the options described below only directly impact Workbench's interaction with Drupal. They do not have a direct impact on the load experienced by the various microservices Islandora uses to index data in its triplestore, extract full text for indexing, or generating thumbnails. However, since Drupal is the "controller" for these microservices, reducing the number of requests initiated by Islandora Workbench will have a secondary effect on the load experienced by Islandora's microservices.</p>
 <p>The first is by telling Workbench to pause between each request it makes to Drupal. There are two types of pause, 1) basic pause and 2) adaptive pause.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
