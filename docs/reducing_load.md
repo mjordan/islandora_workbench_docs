@@ -1,13 +1,18 @@
 Workbench can put substantial stress on Drupal. In some cases, this stress can lead to instability and errors.
 
 !!! note
-    The options described below modify Workbench's interaction with Drupal. They do not have a direct impact on the load experienced by the various microservices Islandora uses to index data in its triplestore, extract full text for indexing, generating thumbnails, etc. However, since Drupal is the "controller" for these microservices, reducing the number of Workbench requests on Drupal will also indirectly reduce the load experienced by Islandora's microservices. 
+    The options described below modify Workbench's interaction with Drupal. They do not have a direct impact on the load experienced by the microservices Islandora uses to do things like indexing node metadata in its triplestore, extracting full text for indexing, and generating thumbnails. However, since Drupal is the "controller" for these microservices, reducing the number of Workbench requests to Drupal will also indirectly reduce the load experienced by Islandora's microservices. 
 
-Workbench offers two main ways to reduce this stress: pausing Workbench between its requests to Drupal, and caching Workbench's requests to Drupal.
+Workbench provides two ways to reduce this stress:
+
+* pausing between Workbench's requests to Drupal, and
+* caching Workbench's requests to Drupal.
 
 The first way to reduce stress on Drupal is by telling Workbench to pause between each request it makes. There are two types of pause, 1) basic pause and 2) adaptive pause. Both types of pausing will slow down Workbench's overall execution time since they reduce speed to improve stability and reliability.
 
-### Basic pause
+### Pausing
+
+#### Basic pause
 
 The `pause` configuration setting tells Workbench to temporarily halt execution before every 'POST', 'PUT', 'PATCH', and 'DELETE' request, thereby spreading load caused by the requests over a longer period of time. To enable `pause`, include the setting in your configuration file, indicating the number of seconds to wait between requests:
 
@@ -20,7 +25,7 @@ Using `pause` will help decrease load-induced errors, but it is inefficient beca
 !!! note
     `pause` and `adaptive_pause` are mutually exclusive. If you include one in your configuration files, you should not include the other.
 
-### Adaptive pause
+#### Adaptive pause
 
 Adaptive pause only halts execution between requests if Workbench detects that Drupal is slowing down. It does this by comparing Drupal's response time for the most recent request to the average response time of the 20 previous requests made by Islandora Workbench. If the response time for the most recent request reaches a specific threshold, Workbench's adaptive pause will kick in and temporarily halt execution to allow Drupal to catch up. The number of previous requests used to determine the average response time, 20, cannot be changed with a configuration setting.
 
@@ -47,17 +52,17 @@ Since `adaptive_pause` doesn't have a default value, you need to define its valu
 adaptive_pause_threshold: 3
 ```
 
-doesn't do anything. In other words, you can use `adaptive_pause` on its own, or you can use `adaptive_pause` and `adaptive_pause_threshold` together, but you should not use `adaptive_pause_threshold` on its own.
+doesn't do anything because `adaptive_pause` has no value. In other words, you can use `adaptive_pause` on its own, or you can use `adaptive_pause` and `adaptive_pause_threshold` together, but it's pointless to use `adaptive_pause_threshold` on its own.
 
-### Logging Drupal's response time
+#### Logging Drupal's response time
 
 If a request if paused by adaptive pausing, Workbench will automatically log the response time for the next request, indicating that `adaptive_pause` has temporarily halted execution. If you want to log Drupal's response time regardless of whether `adaptive_pause` had kicked in or not, add `log_response_time: true` to your configuration file. All logging of response time includes variation from the average of the last 20 response times.
 
 ### Caching
 
-The second way that Workbench reduces stress on Drupal is by caching HTTP requests. By default, this caching is enabled for requests that Workbench makes more than once and that are expected to have the same response each time, such as requests for field configurations or for checks for the existence of taxonomy terms.
+The second way that Workbench reduces stress on Drupal is by caching its outbound HTTP requests, thereby reducing the overall number of requests. This caching both reduces the load on Drupal and speeds up Workbench considerably.
 
-This caching both reduces the load on Drupal and speeds up Workbench considerably. Note that you should not normally have to disable this caching, but if you do (for example, if you are asked to during troubleshooting), you can do so by including the following setting in your configuration file:
+By default, this caching is enabled for requests that Workbench makes more than once and that are expected to have the same response each time, such as requests for field configurations or for checks for the existence of taxonomy terms. Note that you should not normally have to disable this caching, but if you do (for example, if you are asked to during troubleshooting), you can do so by including the following setting in your configuration file:
 
 ```yaml
 enable_http_cache: false
