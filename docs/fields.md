@@ -1,10 +1,10 @@
 Workbench uses a CSV file to populate Islandora objects' metadata. This file contains the field values that is to be added to new or existing nodes, and some additional reserved columns specific to Workbench. Data in this CSV file can be:
 
 * strings (for string or text fields) like `Using Islandora Workbench for Fun and Profit`
-* integers (for `field_weight`, for example) like `1` or `7281`
+* integers like `1` or `7281`
 * the binary values `1` or `0`
 * Existing Drupal-generated entity IDs (term IDs for taxonomy terms or node IDs for collections and parents), which are integers like `10` or `3549`
-* structured strings, for typed relation (e.g., `relators:art:30`), link fields (e.g., `https://acme.net%%Acme Products`), geolocation fields (e.g., `"49.16667,-123.93333"`), and athority link data (e.g., `viaf%%http://viaf.org/viaf/10646807%%VIAF Record`)
+* Workbench-specific structured strings for typed relation (e.g., `relators:art:30`), link fields (e.g., `https://acme.net%%Acme Products`), geolocation fields (e.g., `"49.16667,-123.93333"`), and athority link data (e.g., `viaf%%http://viaf.org/viaf/10646807%%VIAF Record`)
 
 !!! note
     As is standard with CSV data, values do not need to be wrapped in double quotation marks (`"`) unless they contain an instance of the delimiter character (e.g., a comma) or line breaks. Spreadsheet applications such as Google Sheets, LibreOffice Calc, and Excel will output valid CSV data.
@@ -27,7 +27,9 @@ The following CSV columns are used for specific purposes and in some cases are r
 
 ### Values in the "file" column
 
-Values in the `file` field contain the location of files that are used to create Drupal Media. Workbench can create only one media per CSV record; the type of media is determined by identifying in your configuration file a value from the "Islandora Media Use" vocabulary. File locations can be relative to the directory named in `input_dir`, absolute paths, or URLs. Examples of each:
+Values in the reserved `file` CSV field contain the location of files that are used to create Drupal Media. By default, Workbench pushes up to Drupal only one file, and creates only one resulting media per CSV record. However, it is possible to push up [multiple files](/islandora_workbench_docs/adding_multiple_media/) per CSV record (and create all of their corresponding media).
+
+File locations in the `file` field can be relative to the directory named in `input_dir`, absolute paths, or URLs. Examples of each:
 
 * relative to directory named in the `input_dir` configuration setting: `myfile.png`
 * absolute: `/tmp/data/myfile.png`
@@ -35,7 +37,7 @@ Values in the `file` field contain the location of files that are used to create
 
 Things to note about `file` values in general:
 
-* Relative, absolute, and URL file locations can exist within the same CSV file.
+* Relative, absolute, and URL file locations can exist within the same CSV file, or even within the same CSV value.
 * By default, if the `file` value for a row is empty, Workbench's `--check` option will show an error. But, in some cases you may want to create nodes but not add any media. If you add `allow_missing_files: true` to your config file for "create" tasks, you can leave the `file` column in your CSV empty.
 * By default, during `--check`, Workbench will exit when it first encounters a missing file (or an empty `file` value). If you would prefer that Workbench checked for the existence of all files before exiting, include `strict_check: false` in your configuration.
 * If you want do not want to create media for any of the rows in your CSV file, include `nodes_only: true` in your configuration file. More detail [is available](/islandora_workbench_docs/nodes_only/).

@@ -17,7 +17,7 @@ The settings defined in a configuration file are documented in the tables below,
 
 ### Use of quotation marks
 
-Note that you do not need to use quotation marks around values in your configuration file. You may wrap values in quotation marks if you wish, and many examples in this documentation do that (especially the `host` setting), but the only values that should not be wrapped in quotation marks are those that take `true` or `false` as values because in YAML, and many other commputer/markup languages,`"true"` is a string (in this case, an English word that can mean many things) and `true` is a reserved symbol that can mean one thing and one thing only, the boolean opposite of `false` (I'm sorry for this explanation, I can't describe the distinction in any other way without writing a primer on symbolic logic).
+Generally speaking, you do not need to use quotation marks around values in your configuration file. You may wrap values in quotation marks if you wish, and many examples in this documentation do that (especially the `host` setting), but the only values that should not be wrapped in quotation marks are those that take `true` or `false` as values because in YAML, and many other commputer/markup languages,`"true"` is a string (in this case, an English word that can mean many things) and `true` is a reserved symbol that can mean one thing and one thing only, the boolean opposite of `false` (I'm sorry for this explanation, I can't describe the distinction in any other way without writing a primer on symbolic logic).
 
 For example, the following is a valid configuration file:
 
