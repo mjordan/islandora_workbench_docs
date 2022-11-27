@@ -1,11 +1,11 @@
-## Reducing Workbench's impact on Drupal
-
-Workbench can put substantial stress on Drupal. In some cases, this stress can lead to instability and errors. Workbench offers two main ways to reduce this stress.
-
-The first is by telling Workbench to pause between each request it makes to Drupal. There are two types of pause, 1) basic pause and 2) adaptive pause.
+Workbench can put substantial stress on Drupal. In some cases, this stress can lead to instability and errors.
 
 !!! note
-    Both types of pausing will slow down Workbench's overall execution time since they reduce speed to improve stability and reliability.
+    The options described below modify Workbench's interaction with Drupal. They do not have a direct impact on the load experienced by the various microservices Islandora uses to index data in its triplestore, extract full text for indexing, generating thumbnails, etc. However, since Drupal is the "controller" for these microservices, reducing the number of Workbench requests on Drupal will also indirectly reduce the load experienced by Islandora's microservices. 
+
+Workbench offers two main ways to reduce this stress: pausing Workbench between its requests to Drupal, and caching Workbench's requests to Drupal.
+
+The first way to reduce stress on Drupal is by telling Workbench to pause between each request it makes. There are two types of pause, 1) basic pause and 2) adaptive pause. Both types of pausing will slow down Workbench's overall execution time since they reduce speed to improve stability and reliability.
 
 ### Basic pause
 
@@ -22,11 +22,11 @@ Using `pause` will help decrease load-induced errors, but it is inefficient beca
 
 ### Adaptive pause
 
-Adaptive pause only halts execution between requests if Workbench detects that Drupal is slowing down. It does this by comparing Drupal's response time for the most recent request to the average response time of the 20 previous requests. If the response time for the most recent request reaches a specific threshold, Workbench's adaptive pause will kick in and temporarily halt execution to allow Drupal to catch up.
+Adaptive pause only halts execution between requests if Workbench detects that Drupal is slowing down. It does this by comparing Drupal's response time for the most recent request to the average response time of the 20 previous requests made by Islandora Workbench. If the response time for the most recent request reaches a specific threshold, Workbench's adaptive pause will kick in and temporarily halt execution to allow Drupal to catch up. The number of previous requests used to determine the average response time, 20, cannot be changed with a configuration setting.
 
-The threshold that needs to be met is configured using the `adaptive_pause_threshold` setting. This setting's default value is 2, which means that the adaptive pause will kick in if the response time for the most recent request Workbench makes to Drupal is 2 times (double) the average of the last 20 requests.
+The threshold that needs to be met is configured using the `adaptive_pause_threshold` setting. This setting's default value is 2, which means that the adaptive pause will kick in if the response time for the most recent request Workbench makes to Drupal is 2 times (double) the average of Workbench's last 20 requests. The amount of time that Workbench will pause is determined by the value of `adaptive_pause`, which, like the value for `pause`, is a number of seconds (e.g., `adaptive_pause: 3`). You enable adaptive pausing by adding the `adaptive_pause` setting to your configuration file.
 
-The amount of time that Workbench will pause is determined by the value of `adaptive_pause`, which, like the value for `pause`, is a number of seconds (e.g., `adaptive_pause: 3`). You enable adaptive pausing by adding the `adaptive_pause` setting to your configuration file. Since `adaptive_pause_threshold` has a default value (2) but `adaptive_pause` does not, you should only use `adaptive_pause_threshold` if you want to override the default value. Therefore, both of the following configurations are valid. The first enables `adaptive_pause` telling it to pause for 3 seconds between requests if Drupal's response time to the last request is 2 times slower than the average of the last 20 requests (using the default value of 2 `adaptive_pause_threshold`): 
+Here are a couple of examples. Keep in mind that `adaptive_pause_threshold` has a default value (2), but `adaptive_pause` does not have a default value. The first example enables `adaptive_pause` using the default value for `adaptive_pause_threshold`, telling it to pause for 3 seconds between requests if Drupal's response time to the last request is 2 times slower (`adaptive_pause_threshold`'s default value) than the average of the last 20 requests:
 
 ```yaml
 adaptive_pause: 3
@@ -39,9 +39,15 @@ adaptive_pause: 2
 adaptive_pause_threshold: 2.5 
 ```
 
-In this example, adaptive pausing only kicks in if the response time for the most recent request is 2.5 times the average of the response time for the last 20 requests. You can increment `adaptive_pause_threshold`'s value by .5 (e.g., 2.5, 3, 3.5, etc.) until you find a sweet spot that balances reliability with overall execution time. You can also decrease or increase the value of `adaptive_pause` incrementally by intervals of .5 to further refine the balance.
+In this example, adaptive pausing kicks in only if the response time for the most recent request is 2.5 times the average of the response time for the last 20 requests. You can increment `adaptive_pause_threshold`'s value by .5 (e.g., 2.5, 3, 3.5, etc.) until you find a sweet spot that balances reliability with overall execution time. You can also decrease or increase the value of `adaptive_pause` incrementally by intervals of .5 to further refine the balance - increasing `adaptive_pause`'s value lessens Workbench's impact on Drupal at the expense of speed, and decreasing its value increases speed but also impact on Drupal.
 
-The number of previous requests used to determine the average response time is hard-coded to 20. There is no configuration option to change that number.
+Since `adaptive_pause` doesn't have a default value, you need to define its value in your configuration file. Because of this, using `adaptive_pause_threshold` on its own in a configuration, e.g.:
+
+```yaml
+adaptive_pause_threshold: 3
+```
+
+doesn't do anything. In other words, you can use `adaptive_pause` on its own, or you can use `adaptive_pause` and `adaptive_pause_threshold` together, but you should not use `adaptive_pause_threshold` on its own.
 
 ### Logging Drupal's response time
 
