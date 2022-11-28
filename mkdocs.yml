@@ -35,6 +35,7 @@ nav:
     - Fixity checking: fixity.md
     - Logging: logging.md
     - Cancelling Workbench: cancelling.md
+    - Quick delete: quick_delete.md
     - Workflows: workflows.md
     - Reducing Workbench's impact on Drupal: reducing_load.md
     - Known limitations: limitations.md

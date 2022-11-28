@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* November 28, 2022 (commit 46cfc34): Added quick delete option for nodes and media (issue [488](https://github.com/mjordan/islandora_workbench/issues/488)).
 * November 24, 2022 (commit 3fe5c28): Extracted text media now have their "field_edited_text" field automatically populated with the contents of the specified text file (issue [407](https://github.com/mjordan/islandora_workbench/issues/407)).
 * November 22, 2022 (commit 74a83cf): Added more detailed logging on node, media, and file creation (issue [480](https://github.com/mjordan/islandora_workbench/issues/480)).
 * November 22, 2022 (commit f2a8a65): Added @DonRichards Dockerfile (PR [233](https://github.com/mjordan/islandora_workbench/pull/233)).
@@ -20,6 +21,7 @@
 
 ### Documentation
 
+* November 28, 2022: Added "[Quick delete](/islandora_workbench_docs/quick_delete/)" docs.
 * November 26, 2022: Changed documentation theme from readthedocs to material; some edits for clarity to the docs for ["file" field values](/islandora_workbench_docs/fields/#values-in-the-file-column); some edits for clarity to the docs for "[adaptive pause](/islandora_workbench_docs/reducing_load/#adaptive-pause)."
 * November 24, 2022: Added note to "[Adding media to nodes](/islandora_workbench_docs/adding_media/)" and "[Adding multiple media](/islandora_workbench_docs/adding_multiple_media/)" about extracted text media; added a note about using absolute file paths in scheduled jobs to the "[Workflows](/islandora_workbench_docs/workflows/)" and "[Troubleshooting](/islandora_workbench_docs/troubleshooting/)"; removed the "required" ✔️ from the `password` configuration setting entry in the table in "[Configuration](/islandora_workbench_docs/configuration/)".
 * November 17, 2022: Added new config options `path_to_python` and `path_to_workbench_script` to "[Congfiguration](/islandora_workbench_docs/configuration/)" docs.
