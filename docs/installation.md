@@ -70,7 +70,7 @@ Islandora Workbench uses Drupal's default form of media URLs. You should not nee
 
 ![Field machine names](images/standalone_media_url_setting.png)
 
-If your site needs to have this option checked (so it supports URLs like `/media/{id}`), you will need to add the following entry to your configuration file:
+If your site needs to have this option checked (so it supports URLs like `/media/{id}`), you will need to add the following entry to all configuration files for tasks that create or delete media:
 
 `standalone_media_url: true`
 
