@@ -15,7 +15,7 @@
     
     
       
-        <title>Updating nodes - Islandora Workbench</title>
+        <title>Quick delete - Islandora Workbench</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Updating nodes
+              Quick delete
             
           </span>
         </div>
@@ -442,19 +442,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../updating_nodes/" class="md-nav__link">
         Updating nodes
       </a>
-      
     </li>
   
 
@@ -645,11 +637,19 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../quick_delete/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Quick delete
       </a>
+      
     </li>
   
 
@@ -789,48 +789,24 @@
                 
                   
 
-  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/updating_nodes.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/quick_delete.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-  <h1>Updating nodes</h1>
+  <h1>Quick delete</h1>
 
-<p>You can update existing nodes by providing a CSV file with a <code>node_id</code> column plus field data you want to update. The type of update is determined by the value of the <code>update_mode</code> configuration option:</p>
+<p>You can delete individual nodes and media by using the <code>--quick_delete_node</code> and <code>--quick_delete_media</code> command-line options, respectively. In both cases, you need to provide the full URL (or URL alias) of the node or media you are deleting. For example:</p>
 <ul>
-<li><code>replace</code> (the default) will replace all existing values in a field with the values in the input CSV.</li>
-<li><code>append</code> will add values in the input CSV to any existing values in a field.</li>
-<li><code>delete</code> will delete all values in a field.</li>
+<li><code>./workbench --config anyconfig.yml --quick_delete_node http://localhost:8000/node/393</code></li>
+<li><code>./workbench --config anyconfig.yml --quick_delete_media http://localhost:8000/media/552/edit</code></li>
 </ul>
-<p>Islandora Workbench will never allow a field to contain more values than the field's configuration allows. Attempts to update a field with more values than the maximum number allowed will result in the surplus values being ignored during the "update" task. If Workbench does this, it will write an entry to the log indicating it has done so.</p>
-<p>The column headings in the CSV file other than <code>node_id</code> must match machine names of fields that exist in the target Islandora content type. Only include fields that you want to update. Currently, text fields, ETDF fields, taxonomy fields, linked node fields (e.g. "Member of" for collection nodes), typed relation, link, and geolocation fields can be updated following the same conventions used when creating nodes as described in the "<a href="/islandora_workbench_docs/fields/">Fields</a>" documentation.</p>
-<p>For example, using the fields defined by the Islandora Defaults module for the "Repository Item" content type, your CSV file could look like this:</p>
-<pre><code class="language-text">node_id,field_description,field_rights,field_access_terms,field_member_of
-100,This is my new title,I have changed my mind. This item is yours to keep.,27,45
-</code></pre>
-<p>The config file for update operations looks like this (note the <code>task</code> option is 'update'):</p>
-<pre><code class="language-yaml">task: update
-host: &quot;http://localhost:8000&quot;
-username: admin
-password: islandora
-input_csv: update.csv
-</code></pre>
-<p>If you want to append the values in the CSV to values that already exist in the target nodes, add the <code>update_mode</code> configuration option:</p>
-<pre><code class="language-yaml">task: update
-host: &quot;http://localhost:8000&quot;
-username: admin
-password: islandora
-input_csv: update.csv
-update_mode: append
-</code></pre>
-<p>Some things to note:</p>
+<p>In the case of the <code>--quick_delete_node</code> option, all associated media and files are also deleted; in the case of the <code>--quick_delete_media</code> option, all associated files are deleted (but see the exception below).</p>
+<p>You can use any valid Workbench configuration file regardless of the <code>task</code> setting, since the only settings the quick delete tool requires are <code>username</code> and <code>password</code>. All other configuration settings are ignored with the exception of:</p>
 <ul>
-<li>The <code>update_mode</code> applies to all rows in your CSV; it cannot be specified for particular rows.</li>
-<li>Updates apply to entire fields. Workbench cannot replace individual values in field.</li>
-<li>Values in the <code>node_id</code> column can be numeric node IDs (e.g. <code>467</code>) or full URLs, including URL aliases.</li>
-<li>If a node you are updating doesn't have a field named in your input CSV, Workbench will skip updating the node and add a log entry to that effect.</li>
-<li>For <code>update</code> tasks where the <code>update_mode</code> is "delete", it doesn't matter if the column(s) in the input CSV are blank or contain values - the values in the corresponding Drupal fields are deleted in both cases.</li>
+<li><code>delete_media_with_nodes</code>. If you want to not delete a node's media when using the <code>--quick_delete_node</code> option, your configuration file should include <code>delete_media_with_nodes: false</code>.</li>
+<li><code>standalone_media_url</code>. If your Drupal instance has the "Standalone media URL" option at /admin/config/media/media-settings unchecked (the default), you will need to include <code>/edit</code> at the end of media URLs. Workbench will tell you if you include or exclude the <code>/edit</code> incorrectly. If your Drupal has this option checked, you will need to include <code>standalone_media_url: true</code> in your configuration file. In this case, you should not include the <code>/edit</code> at the end of the media URL.</li>
 </ul>
 
 
@@ -852,7 +828,7 @@ update_mode: append
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../media_types/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Setting media types" rel="prev">
+        <a href="../cancelling/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Cancelling Workbench" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -861,20 +837,20 @@ update_mode: append
               <span class="md-footer__direction">
                 Previous
               </span>
-              Setting media types
+              Cancelling Workbench
             </div>
           </div>
         </a>
       
       
         
-        <a href="../deleting_nodes/" class="md-footer__link md-footer__link--next" aria-label="Next: Deleting nodes" rel="next">
+        <a href="../workflows/" class="md-footer__link md-footer__link--next" aria-label="Next: Workflows" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Deleting nodes
+              Workflows
             </div>
           </div>
           <div class="md-footer__button md-icon">
