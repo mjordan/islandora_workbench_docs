@@ -42,6 +42,7 @@ Things to note about `file` values in general:
 * By default, during `--check`, Workbench will exit when it first encounters a missing file (or an empty `file` value). If you would prefer that Workbench checked for the existence of all files before exiting, include `strict_check: false` in your configuration.
 * If you want do not want to create media for any of the rows in your CSV file, include `nodes_only: true` in your configuration file. More detail [is available](/islandora_workbench_docs/nodes_only/).
 * `file` values that contain non-ASCII characters are normalized to their ASCII equivalents. See [this issue](https://github.com/mjordan/islandora_workbench/issues/192) for more information.
+* The Drupal filesystem where files are stored is determined by each media type's file field configuration. It is not possible to override that configuration.
 
 Things to note about URLs as `file` values:
 

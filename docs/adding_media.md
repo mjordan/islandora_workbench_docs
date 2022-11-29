@@ -41,3 +41,7 @@ If you include `media_use_tid` values in your CSV file, they override the `media
 
 !!! note
     If you create an "Extracted Text" media, the contents of the specified text file will be added to the media's 'field_edited_text' field, allowing it to be indexed in Solr.
+
+!!! note
+    The Drupal filesystem where files are stored is determined by each media type's file field configuration. It is not possible to override that configuration.
+
