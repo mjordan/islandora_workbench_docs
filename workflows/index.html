@@ -1075,7 +1075,7 @@
 </code></pre>
 <p>With this setting in place, Workbench will ignore the <code>date_generated</code> column in the input CSV. More information on this feature <a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/#ignoring-csv-columns">is availalable</a>.</p>
 <h3 id="case-study">Case study</h3>
-<p>Simon Fraser University Library uses Islandora Workbench to automate the transfer of theses from its bespoke <a href="thesis registration application">https://theses.lib.sfu.ca</a> (called, unimaginatively, the TRS) to <a href="https://summit.sfu.ca">Summit</a>, its institutional research respository. This transfer happens through a series of scheduled tasks that run every evening. </p>
+<p>Simon Fraser University Library uses Islandora Workbench to automate the transfer of theses from its locally developed thesis registration application (called, unsurprisingly, the <a href="https://theses.lib.sfu.ca">Thesis Registration System</a>, or TRS) to <a href="https://summit.sfu.ca">Summit</a>, its institutional research respository. This transfer happens through a series of scheduled tasks that run every evening. </p>
 <p>The diagram below depicts the automated workflow, and below the diagram each step is explained.</p>
 <p><img alt="TRS-to-Summit-automation-overview" src="../images/TRS-to-Summit-automation.png" /></p>
 <h4 id="step-1-fetch-the-days-theses-from-the-trs">Step 1: Fetch the day's theses from the TRS</h4>
@@ -1086,7 +1086,7 @@
 <h4 id="step-4-update-the-trs">Step 4: Update the TRS</h4>
 <p>If a thesis (and any supplemental files, if present) have been successfully added to Summit, Workbench uses a <a href="/islandora_workbench_docs/hooks/#post-action-scripts">post-node-create hook</a> to run a script that updates the TRS in two ways:</p>
 <ol>
-<li>it adds the thesis' Summit URL to the thesis metadata, and</li>
+<li>it adds the thesis' Summit URL to the thesis record in the TRS, and</li>
 <li>it updates the student's user record in the TRS to prevent the student from logging into the TRS.</li>
 </ol>
 
