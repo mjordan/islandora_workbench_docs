@@ -1073,7 +1073,7 @@
 <h2 id="integrations-with-other-systems">Integrations with other systems</h2>
 <p>A combination of the "Migrations" workflow and the "Watch folder" workflow can be used to automate the periodic movement of content from a source system (in the diagram below, Open Journal Systems or Archivematica) into Islandora:</p>
 <p><img alt="Migrations" src="../images/workflow_integrations.png" /></p>
-<p>The extraction of data from the source system, conversion of it into the CSV and file arrangement Workbench expects, and running of Workbench can all be scripted and executed in sequence using scheduled jobs.</p>
+<p>The extraction of data from the source system, conversion of it into the CSV and file arrangement Workbench expects, and running of Workbench can all be scripted and executed in sequence using scheduled jobs. The case study below provides a full example of this workflow.</p>
 <h3 id="using-hooks">Using hooks</h3>
 <p>Islandora Workbench provides several "<a href="/islandora_workbench_docs/hooks/">hooks</a>" that allow you to execute external scripts at specific times. For example, the "post-action script" enables you to execute scripts immediately after a node is created or updated, or a media is created. Drupal informs Workbench if an action was successful or not, and in either case, post-action hook scripts registered in the Workbench configuration file execute. These scripts can interact with external applications:</p>
 <p><img alt="Post-action hook script" src="../images/post_action_hook.png" /></p>
