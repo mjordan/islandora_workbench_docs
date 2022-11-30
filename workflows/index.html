@@ -1101,7 +1101,11 @@
 <h4 id="step-3-run-islandora-workbench">Step 3: Run Islandora Workbench</h4>
 <p>With the thesis CSV created in step 2 in place (and the accompanying supplemental file CSV, if there are any supplemental files in the day's batch), a scheduled job executes Islandora Workbench. The main Workbench configuration file looks like this:</p>
 <pre><code class="language-yaml"></code></pre>
-<p>Any supplemental files for a thesis are created as children nodes, with the thesis node containing the PDF media as the parent. Here is an <a href="https://summit.sfu.ca/item/35389">example in Summit</a> that has two supplemental video files. These child nodes are created using a Workbench <a href="/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task">secondary task</a>. The input CSV for this secondary task looks like this:</p>
+<p>The input CSV looks like this:</p>
+<pre><code class="language-csv"></code></pre>
+<p>Any supplemental files for a thesis are created as children nodes, with the thesis node containing the PDF media as the parent. Here is an <a href="https://summit.sfu.ca/item/35389">example in Summit</a> that has two supplemental video files. These child nodes are created using a Workbench <a href="/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task">secondary task</a>. The configuration file for this secondary task looks like this:</p>
+<pre><code class="language-yaml"></code></pre>
+<p>The input CSV for this secondary task looks like this:</p>
 <pre><code class="language-csv">place1,place2
 place1,place2
 </code></pre>
