@@ -774,6 +774,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#not-depicted-in-the-diagram" class="md-nav__link">
+    Not depicted in the diagram
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -992,6 +999,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#not-depicted-in-the-diagram" class="md-nav__link">
+    Not depicted in the diagram
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1076,7 +1090,7 @@
 <p>With this setting in place, Workbench will ignore the <code>date_generated</code> column in the input CSV. More information on this feature <a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/#ignoring-csv-columns">is availalable</a>.</p>
 <h3 id="case-study">Case study</h3>
 <p>Simon Fraser University Library uses Islandora Workbench to automate the transfer of theses from its locally developed thesis registration application (called, unsurprisingly, the <a href="https://theses.lib.sfu.ca">Thesis Registration System</a>, or TRS) to <a href="https://summit.sfu.ca">Summit</a>, its institutional research respository. This transfer happens through a series of scheduled tasks that run every evening. </p>
-<p>The diagram below depicts the automated workflow, and below the diagram each step is explained.</p>
+<p>The diagram below depicts the automated workflow, with an explanation of each step in the workflow below the diagram.</p>
 <p><img alt="TRS-to-Summit-automation-overview" src="../images/TRS-to-Summit-automation.png" /></p>
 <h4 id="step-1-fetch-the-days-theses-from-the-trs">Step 1: Fetch the day's theses from the TRS</h4>
 <p>The first scheduled task fetches a list of all the theses approved by SFU Library Thesis Office staff during that day. This list is provided by a REST API on the TRS. Every thesis that has been approved and does not have in its metadata a URL in Summit is in the daily list. (The fact that a thesis doesn't have a Summit URL in its TRS metadata yet will come up again in Step 4; we'll come back to that later.)</p>
@@ -1089,6 +1103,11 @@
 <li>it adds the thesis' Summit URL to the thesis record in the TRS, and</li>
 <li>it updates the student's user record in the TRS to prevent the student from logging into the TRS.</li>
 </ol>
+<h4 id="not-depicted-in-the-diagram">Not depicted in the diagram</h4>
+<ul>
+<li>After Workbench has completed executing, a final daily job runs that parses out entries from the Workbench log and the log written by the TRS daily script, and emails those entries to the Summit administrator to warn them of any errors that may have occurred.</li>
+<li>There is an additional monthly scheduled job (that runs on the first day of each month) that generates MARC records for each thesis added to Summit in the previous month. Before it finishes executing, this script emails the resulting MARC communications file to the Library's metadata staff, who load it into the Library's catalogue.</li>
+</ul>
 
 
 
