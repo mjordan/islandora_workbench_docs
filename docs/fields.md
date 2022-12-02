@@ -141,7 +141,7 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 
 Drupal strictly enforces the maximum number of values allowed in a field. If the number of values in your CSV file for a field exceed a field's configured maximum number of fields, Workbench will only populate the field to the field's configured limit.
 
-The subdelimiter character defaults to a pipe (`|`) but can be set in your config file using the `subdelimiter: ";"` option.
+The subdelimiter character defaults to a pipe (`|`) but can be set in your config file using the `subdelimiter` configuration setting.
 
 !!! note
     Workbench will remove duplicate values in CSV fields. For example, if you accidently use `first subvalue|second subvalue|second subvalue` in your CSV, Workbench will filter out the superflous `second subvalue`. This applies to both `create` and `update` tasks, and within `update` tasks, replacing values and appending values to existing ones. Workbench deduplicates CVS values silently: it doesn't log the fact that it is doing it.
