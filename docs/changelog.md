@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* December 5, 2022 (commit 0dbd459): Fixed bug in file closing when running `--check` during "get_data_from_view" tasks on Windows (issue [490](https://github.com/mjordan/islandora_workbench/issues/490)).
 * November 28, 2022 (commit 46cfc34): Added quick delete option for nodes and media (issue [488](https://github.com/mjordan/islandora_workbench/issues/488)).
 * November 24, 2022 (commit 3fe5c28): Extracted text media now have their "field_edited_text" field automatically populated with the contents of the specified text file (issue [407](https://github.com/mjordan/islandora_workbench/issues/407)).
 * November 22, 2022 (commit 74a83cf): Added more detailed logging on node, media, and file creation (issue [480](https://github.com/mjordan/islandora_workbench/issues/480)).
