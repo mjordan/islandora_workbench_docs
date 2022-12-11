@@ -103,7 +103,7 @@ view_path: '/workbench-export-test'
 username: admin
 password: islandora
 content_type: my_custom_content_type
-data_from_view_file_path: /tmp/islandora_export.csv
+export_csv_file_path: /tmp/islandora_export.csv
 # If export_csv_field_list is not present, all fields will be exported.
 # node_id and title are always included.
 export_csv_field_list: ['field_description', 'field_extent']
@@ -114,7 +114,7 @@ view_parameters:
  - 'title_contains=Debate'
 ```
 
-The `view_path` setting should contain the value of the "Path" option in the Views configuration page's "Path settings" section. The `data_from_view_file_path` is the location where you want your CSV file saved.
+The `view_path` setting should contain the value of the "Path" option in the Views configuration page's "Path settings" section. The `export_csv_file_path` is the location where you want your CSV file saved.
 
 In the View configuration page:
 
@@ -141,3 +141,11 @@ Some things to note:
 * Only content from nodes that have the content type identified in the `content_type` configuration setting will be written to the CSV file.
 * If you want to export term names instead of term IDs, include `export_csv_term_mode: name` in your configuration file. The warning about this option slowing down the export applies to this task and the `export_csv` task.
 
+### Exporting image, video, etc. files along with CSV data
+
+In `export_csv` and `get_data_from_view` tasks, you can optionally export media files. To do this, add the following settings to your configuration file:
+
+* `export_file_directory`: Required. This is the path to the directory where Workbench will save the exported files.
+* `export_file_media_use_term_id`: Optional. This setting tells Workbench which Islandora Media Use term to use to identify the file to export. Defaults to `https://pcdm.org/use#OriginalFile` (for Original File). Can be either a term ID or a term URI.
+
+Note that currently only a single file per node can be exported.

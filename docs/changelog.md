@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* December 11, 2022 (commit 24b70fd): Added ability to export files along with CSV data (issue [492](https://github.com/mjordan/islandora_workbench/issues/492)).
 * December 5, 2022 (commit 0dbd459): Fixed bug in file closing when running `--check` during "get_data_from_view" tasks on Windows (issue [490](https://github.com/mjordan/islandora_workbench/issues/490)).
 * November 28, 2022 (commit 46cfc34): Added quick delete option for nodes and media (issue [488](https://github.com/mjordan/islandora_workbench/issues/488)).
 * November 24, 2022 (commit 3fe5c28): Extracted text media now have their "field_edited_text" field automatically populated with the contents of the specified text file (issue [407](https://github.com/mjordan/islandora_workbench/issues/407)).
@@ -22,6 +23,7 @@
 
 ### Documentation
 
+* December 11, 2022: Updated "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/)" and "[Output CSV settings](/islandora_workbench_docs/configuration/#output-csv-settings)" Configuration docs to include new ability to export files along with CSV data.
 * November 28, 2022: Added "[Quick delete](/islandora_workbench_docs/quick_delete/)" docs; added clarification to "[Configuring Drupal's media URLs](/islandora_workbench_docs/installation/#configuring-drupals-media-urls)" that `standalone_media_url: true` must be in all config files for tasks that interact with media; added note to "[Adding media to nodes](/islandora_workbench_docs/adding_media/)" and "[Values in the 'file' column](/islandora_workbench_docs/fields/#values-in-the-file-column)" clarifying that it is not possible to override the filesystem a media's file field is configured to use.
 * November 26, 2022: Changed documentation theme from readthedocs to material; some edits for clarity to the docs for ["file" field values](/islandora_workbench_docs/fields/#values-in-the-file-column); some edits for clarity to the docs for "[adaptive pause](/islandora_workbench_docs/reducing_load/#adaptive-pause)."
 * November 24, 2022: Added note to "[Adding media to nodes](/islandora_workbench_docs/adding_media/)" and "[Adding multiple media](/islandora_workbench_docs/adding_multiple_media/)" about extracted text media; added a note about using absolute file paths in scheduled jobs to the "[Workflows](/islandora_workbench_docs/workflows/)" and "[Troubleshooting](/islandora_workbench_docs/troubleshooting/)"; removed the "required" ✔️ from the `password` configuration setting entry in the table in "[Configuration](/islandora_workbench_docs/configuration/)".
