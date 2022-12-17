@@ -130,7 +130,7 @@ See "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/)" se
 | view_parameters | | | List of URL parameter/value strings to include in requests to a View. See "[Using a Drupal View to identify content to export as CSV](/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv)" for more information. |
 | export_csv_file_path | ✔️ in `get_data_from_view` tasks. | | Used in the "export_csv" and "get_data_from_view" tasks. The path to the exported CSV file. Required in the "get_data_from_view" task; in the "export_csv" task, if left empty (the default), the file will be named after the value of the `input_csv` with ".csv_file_with_field_values" appended and saved in the directory identifed in `input_dir`. |
 | export_file_directory | | | Used in the "export_csv" and "get_data_from_view" tasks. The path to the directory where files corresponding to the data in the CSV output file will be written. |
-| export_file_media_use_term_id | | `https://pcdm.org/use#OriginalFile` | Used in the "export_csv" and "get_data_from_view" tasks. The term ID or URI from the Islandora Media Use vocabulary that identifies the file you want to export. |
+| export_file_media_use_term_id | | `http://pcdm.org/use#OriginalFile` | Used in the "export_csv" and "get_data_from_view" tasks. The term ID or URI from the Islandora Media Use vocabulary that identifies the file you want to export. |
 
 
 ### Media settings

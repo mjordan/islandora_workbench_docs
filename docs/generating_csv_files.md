@@ -146,6 +146,6 @@ Some things to note:
 In `export_csv` and `get_data_from_view` tasks, you can optionally export media files. To do this, add the following settings to your configuration file:
 
 * `export_file_directory`: Required. This is the path to the directory where Workbench will save the exported files.
-* `export_file_media_use_term_id`: Optional. This setting tells Workbench which Islandora Media Use term to use to identify the file to export. Defaults to `https://pcdm.org/use#OriginalFile` (for Original File). Can be either a term ID or a term URI.
+* `export_file_media_use_term_id`: Optional. This setting tells Workbench which Islandora Media Use term to use to identify the file to export. Defaults to `http://pcdm.org/use#OriginalFile` (for Original File). Can be either a term ID or a term URI.
 
-Note that currently only a single file per node can be exported.
+Note that currently only a single file per node can be exported, and that files need to be accessible to the anonymous Drupal user to be exported.
