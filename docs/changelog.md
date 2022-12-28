@@ -23,6 +23,7 @@
 
 ### Documentation
 
+* December 28, 2022: Added cross reference between "[CSV field templates](/islandora_workbench_docs/field_templates/)" and "[Ignoring CSV rows and columns](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#ignoring-csv-columns)".
 * December 17, 2022: Corrected URI for `http://pcdm.org/use#OriginalFile` on "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/)" and "[Configuration](/islandora_workbench_docs/configuration/)."
 * December 11, 2022: Updated "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/)" and "[Output CSV settings](/islandora_workbench_docs/configuration/#output-csv-settings)" Configuration docs to include new ability to export files along with CSV data. Note: the `data_from_view_file_path` setting in "get_data_from_view" tasks has been replaced with `export_csv_file_path`.
 * November 28, 2022: Added "[Quick delete](/islandora_workbench_docs/quick_delete/)" docs; added clarification to "[Configuring Drupal's media URLs](/islandora_workbench_docs/installation/#configuring-drupals-media-urls)" that `standalone_media_url: true` must be in all config files for tasks that interact with media; added note to "[Adding media to nodes](/islandora_workbench_docs/adding_media/)" and "[Values in the 'file' column](/islandora_workbench_docs/fields/#values-in-the-file-column)" clarifying that it is not possible to override the filesystem a media's file field is configured to use.

@@ -81,3 +81,6 @@ If you want Workbench to ignore the "data_generated" column and the "field_descr
 ignore_csv_columns: ['date_generated', 'field_description']
 ```
 
+Note that if a column name is listed in the `csv_field_templates` [setting](/islandora_workbench_docs/field_templates/), the value for the column defined in the template is used. In other words, the values in the CSV are ignored, but the field in Drupal is still populated using the value from the field template.
+
+

@@ -13,4 +13,4 @@ csv_field_templates:
 
 Values in CSV field templates are structured the same as field values in your CSV (e.g., in the example above, `field_tags` is multivalued), and are validated against Drupal's configuration in the same way that values present in your CSV are validated.
 
-If a column with the field name used in a template is present in the CSV file, Workbench ignores the template and uses the data in the CSV file.
+If a column with the field name used in a template is present in the CSV file, Workbench ignores the template and uses the data in the CSV file. If a column listed in the `ignore_csv_columns` [setting](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#ignoring-csv-columns), the value from the template is used.
