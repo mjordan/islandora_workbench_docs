@@ -5,6 +5,9 @@ Islandora Workbench allows you to arrange your input data in a variety of ways. 
 
 The options for arranging your data are detailed below.
 
+!!! note
+    Some of Workbench's functionality depends on a specific directory structure not described here, for example "[Creating nodes from files](/islandora_workbench_docs/creating_nodes_from_files/)" and "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/)." However, the information on this page applies to the vast majority of Workbench usage.    
+
 ## Using an input directory
 
 In this configuration, you define an input directory (identified by the `input_dir` config option) that contains a CSV file with field content (identified by the `input_csv` config option) and any accompanying media files you want to add to the newly created nodes:
