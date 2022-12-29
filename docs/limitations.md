@@ -18,7 +18,7 @@ More information is available at this [issue](https://github.com/mjordan/islando
 
 ## Workbench can't create/update Paragraphs
 
-Work is underway to add this functionality. See this ([issue](https://github.com/mjordan/islandora_workbench/issues/292)) for latest status.
+Work is underway to add this functionality. See this [issue](https://github.com/mjordan/islandora_workbench/issues/292) for latest status.
 
 
 ## HTML markup in CSV field values is not rendered
