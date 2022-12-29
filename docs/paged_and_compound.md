@@ -1,6 +1,6 @@
 Islandora Workbench provides three ways to create paged and compound content:
 
-* using a specific subdirectory structure to define the relationship between the parent item and its children
+* using a subdirectory structure to define the relationship between the parent item and its children
 * using page-level metadata in the CSV to establish that relationship
 * using a secondary task.
 
@@ -39,7 +39,7 @@ Important things to note when using this method:
 * To use this method of creating paged content, you must include `paged_content_page_model_tid` in your configuration file and set it to your Islandora's term ID for the "Page" term in the Islandora Models vocabulary (or to `http://id.loc.gov/ontologies/bibframe/part`).
 * The Islandora model of the parent is not set automatically. You need to include a `field_model` value for each item in your CSV file.
 * You should also include a `field_display_hints` column in your CSV. This value is applied to the parent nodes and also the page nodes, unless the `paged_content_page_display_hints` setting is present in you configuration file. However, if you normally don't set the "Display hints" field in your objects but use a Context to determine how objects display, you should not include a `field_display_hints` column in your CSV file.
-* Unlike every other Islandora Workbench configuration, the metadata CSV should not contain a `file` column.
+* Unlike every other Islandora Workbench "create" configuration, the metadata CSV should not contain a `file` column.
 * `id` can be defined as another field name using the `id_field` configuration option. If you do define a different ID field using the `id_field` option, creating the parent/paged item relationships will still work.
 * The Drupal content type for page nodes is inherited from the parent, unless you specify a different content type in the `paged_content_page_content_type` setting in your configuration file.
 

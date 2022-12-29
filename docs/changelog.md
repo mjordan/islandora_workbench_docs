@@ -24,7 +24,7 @@
 
 ### Documentation
 
-* December 29, 2022: Minor corrections to "[Known limitations](/islandora_workbench_docs/limitations/)" and "[Workflows](/islandora_workbench_docs/workflows/)."
+* December 29, 2022: Minor corrections to "[Known limitations](/islandora_workbench_docs/limitations/)", "[Workflows](/islandora_workbench_docs/workflows/)", and "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/)."
 * December 28, 2022: Added cross reference between "[CSV field templates](/islandora_workbench_docs/field_templates/)" and "[Ignoring CSV rows and columns](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#ignoring-csv-columns)".
 * December 17, 2022: Corrected URI for `http://pcdm.org/use#OriginalFile` on "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/)" and "[Configuration](/islandora_workbench_docs/configuration/)."
 * December 11, 2022: Updated "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/)" and "[Output CSV settings](/islandora_workbench_docs/configuration/#output-csv-settings)" Configuration docs to include new ability to export files along with CSV data. Note: the `data_from_view_file_path` setting in "get_data_from_view" tasks has been replaced with `export_csv_file_path`.
