@@ -1092,7 +1092,7 @@
 <p>Simon Fraser University Library uses Islandora Workbench to automate the transfer of theses from its locally developed thesis registration application (called, unsurprisingly, the <a href="https://theses.lib.sfu.ca">Thesis Registration System</a>, or TRS) to <a href="https://summit.sfu.ca">Summit</a>, the SFU institutional research respository. This transfer happens through a series of scheduled tasks that run every evening. </p>
 <p>This diagram depicts the automated workflow, with an explanation of each step below the diagram. This case study is an example of the "<a href="/islandora_workbench_docs/workflows/#integrations-with-other-systems">Integration with other systems</a>" workflow described above.</p>
 <p><img alt="TRS-to-Summit-automation-overview" src="../images/TRS-to-Summit-automation.png" /></p>
-<p>Each step is a separate cron job. The jobs run an hour apart - step 1 runs at 7:00 PM, step 2 runs at 8:00 PM, step 3 at 9:00 PM, and step 4 at 10:00 PM.</p>
+<p>Steps 1 and 2 do not involve Workbench directly and run as separate cron jobs an hour apart - step 1 runs at 7:00 PM, step 2 runs at 8:00 PM. Steps 3 and 4 are combined into a single Workbench "create" task which is run as a cron job at 9:00 PM.</p>
 <h4 id="step-1-fetch-the-days-theses-from-the-trs">Step 1: Fetch the day's theses from the TRS</h4>
 <p>The first scheduled task runs a script that fetches a list of all the theses approved by the SFU Library <a href="https://www.lib.sfu.ca/help/publish/thesis">Thesis Office</a> staff during that day. Every thesis that has been approved and does not have in its metadata a URL in Summit is in the daily list. (The fact that a thesis doesn't have a Summit URL in its TRS metadata yet will come up again in Step 4; we'll come back to that later.)</p>
 <p>After retrieving the list of theses, the script retrieves the metadata for each thesis (as a JSON file), the thesis PDF file, and, if they are present, any supplemental data files such as Excel, CSV, or video files attached to the thesis. All the data for each thesis is written to a temporary directory, where it becomes input to the script described in Step 2.</p>
@@ -1101,12 +1101,12 @@
 <h4 id="step-3-run-islandora-workbench">Step 3: Run Islandora Workbench</h4>
 <p>With the thesis CSV created in step 2 in place (and the accompanying supplemental file CSV, if there are any supplemental files in the day's batch), a scheduled job executes Islandora Workbench. The main Workbench configuration file looks like this:</p>
 <pre><code class="language-yaml"></code></pre>
-<p>The input CSV looks like this:</p>
+<p>The input CSV, which describes the theses, looks like this:</p>
 <pre><code class="language-csv">[example to come]
 </code></pre>
 <p>Supplemental files for a thesis are created as child nodes, with the thesis node containing the PDF media as the parent. Here is an <a href="https://summit.sfu.ca/item/35389">example in Summit</a> that has two supplemental video files. These child nodes are created using a Workbench <a href="/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task">secondary task</a>. The configuration file for this secondary task looks like this:</p>
 <pre><code class="language-yaml"></code></pre>
-<p>The input CSV for this secondary task looks like this:</p>
+<p>The input CSV for this secondary task, which describes the supplemental files, looks like this:</p>
 <pre><code class="language-csv">[example to come]
 </code></pre>
 <h4 id="step-4-update-the-trs">Step 4: Update the TRS</h4>
