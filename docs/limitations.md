@@ -14,11 +14,11 @@ This is limitation of Drupal (see [this issue](https://github.com/Islandora/docu
 
 ## Password prompt always fails first time, and prompts a second time (which works)
 
-[Issue](https://github.com/mjordan/islandora_workbench/issues/450).
+More information is available at this [issue](https://github.com/mjordan/islandora_workbench/issues/450).
 
 ## Workbench can't create/update Paragraphs
 
-There is a bug in Paragraphs' REST interface ([issue](https://github.com/mjordan/islandora_workbench/issues/292)).
+Work is underway to add this functionality. See this ([issue](https://github.com/mjordan/islandora_workbench/issues/292)) for latest status.
 
 
 ## HTML markup in CSV field values is not rendered

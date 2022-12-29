@@ -87,7 +87,7 @@ This diagram depicts the automated workflow, with an explanation of each step be
 
 ![TRS-to-Summit-automation-overview](images/TRS-to-Summit-automation.png)
 
-Each step is a separate cron job. The jobs run an hour apart - step 1 runs at 7:00 PM, step 2 runs at 8:00 PM, step 3 at 9:00 PM, and step 4 at 10:00 PM.
+Steps 1 and 2 do not involve Workbench directly and run as separate cron jobs an hour apart - step 1 runs at 7:00 PM, step 2 runs at 8:00 PM. Steps 3 and 4 are combined into a single Workbench "create" task which is run as a cron job at 9:00 PM.
 
 #### Step 1: Fetch the day's theses from the TRS
 
@@ -106,7 +106,7 @@ With the thesis CSV created in step 2 in place (and the accompanying supplementa
 ```yaml
 ```
 
-The input CSV looks like this:
+The input CSV, which describes the theses, looks like this:
 
 ```csv
 [example to come]
@@ -117,7 +117,7 @@ Supplemental files for a thesis are created as child nodes, with the thesis node
 ```yaml
 ```
 
-The input CSV for this secondary task looks like this:
+The input CSV for this secondary task, which describes the supplemental files, looks like this:
 
 ```csv
 [example to come]

@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* December 28, 2022 (commit e4e6e49): Fixed bug where running Workbench if using a Google Sheet or Excel file as input without first running `--check` caused a "file not found" error (issue [496](https://github.com/mjordan/islandora_workbench/issues/496)). Thanks to @ruebot for discovering this bug.
 * December 11, 2022 (commit 24b70fd): Added ability to export files along with CSV data (issue [492](https://github.com/mjordan/islandora_workbench/issues/492)).
 * December 5, 2022 (commit 0dbd459): Fixed bug in file closing when running `--check` during "get_data_from_view" tasks on Windows (issue [490](https://github.com/mjordan/islandora_workbench/issues/490)).
 * November 28, 2022 (commit 46cfc34): Added quick delete option for nodes and media (issue [488](https://github.com/mjordan/islandora_workbench/issues/488)).
@@ -23,6 +24,7 @@
 
 ### Documentation
 
+* December 29, 2022: Minor corrections to "[Known limitations](/islandora_workbench_docs/limitations/)" and "[Workflows](/islandora_workbench_docs/workflows/)."
 * December 28, 2022: Added cross reference between "[CSV field templates](/islandora_workbench_docs/field_templates/)" and "[Ignoring CSV rows and columns](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#ignoring-csv-columns)".
 * December 17, 2022: Corrected URI for `http://pcdm.org/use#OriginalFile` on "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/)" and "[Configuration](/islandora_workbench_docs/configuration/)."
 * December 11, 2022: Updated "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/)" and "[Output CSV settings](/islandora_workbench_docs/configuration/#output-csv-settings)" Configuration docs to include new ability to export files along with CSV data. Note: the `data_from_view_file_path` setting in "get_data_from_view" tasks has been replaced with `export_csv_file_path`.
