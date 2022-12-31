@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* December 31, 2022: Better cleanup when using remote files - @ajstanley's fix for issue [497](https://github.com/mjordan/islandora_workbench/issues/497) (commit a0412af), resolved issue [499](https://github.com/mjordan/islandora_workbench/issues/497) (commit b8f74c8).
 * December 28, 2022 (commit e4e6e49): Fixed bug where running Workbench using a Google Sheet or Excel file as input without first running `--check` caused a "file not found" error (issue [496](https://github.com/mjordan/islandora_workbench/issues/496)). Thanks to @ruebot for discovering this bug.
 * December 11, 2022 (commit 24b70fd): Added ability to export files along with CSV data (issue [492](https://github.com/mjordan/islandora_workbench/issues/492)).
 * December 5, 2022 (commit 0dbd459): Fixed bug in file closing when running `--check` during "get_data_from_view" tasks on Windows (issue [490](https://github.com/mjordan/islandora_workbench/issues/490)).
