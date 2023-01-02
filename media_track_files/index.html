@@ -790,12 +790,13 @@
   <h1>Media track files</h1>
 
 <p>Video and audio media can have accompanying track files. These files can be added in "create" tasks by including a column in your CSV file that contains the information Islandora Workbench needs to create these files.</p>
-<p>The header for this column takes the form <code>media:video:field_track</code>: the string "media" followed by a colon, which is then followed by a media type (generally either "video" or "audio"), which is then followed by the machine name of the field on the media that holds the track file (in a standard Islandora configuration, this is "field_track" for both video and audio). If you have a custom setup and need to override these defaults, you can do so using the `` configuration setting:</p>
+<p>The header for this column takes the form <code>media:video:field_track</code>: the string "media" followed by a colon, which is then followed by a media type (by default either "video" or "audio"), which is then followed by the machine name of the field on the media that holds the track file (in a standard Islandora configuration, this is "field_track" for both video and audio). If you have a custom setup and need to override these defaults, you can do so using the <code>media_track_file_fields</code> configuration setting:</p>
 <pre><code class="language-yaml">media_track_file_fields:
  audio: field_my_custom_track_file_field
  mycustommmedia: field_another_custom_track_file_field
 </code></pre>
-<p>But you only need to use this configuration setting if you have a custom media type, or you have configured your Islandora so that audio or video uses a nonstandard track file field. Note that this setting replaces the default values of <code>video: field_track</code> and <code>audio: field_track</code>, so if you wanted to retain those values and add your own, your configuration file would need to contain something like this:</p>
+<p>In this case, your column header would look like <code>media:mycustommmedia:field_another_custom_track_file_field</code>.</p>
+<p>You only need to use this configuration setting if you have a custom media type, or you have configured your Islandora so that audio or video uses a nonstandard track file field. Note that this setting replaces the default values of <code>video: field_track</code> and <code>audio: field_track</code>, so if you wanted to retain those values and add your own, your configuration file would need to contain something like this:</p>
 <pre><code class="language-yaml">media_track_file_fields:
  audio: field_my_custom_track_file_field
  video: field_track
@@ -813,7 +814,7 @@
 <p>Since a colon is used to separate the parts of the track data, you can't use a colon in the label. A label value like "Transcipt: The Making Of" will invalidate the entire track data for that CSV row, and Workbench will skip creating it. If you need to have a colon in your track label, you will need to update the label value manually in the video or audio media's add/edit form.</p>
 </div>
 <p>Note that you can mix CSV entries that contain track file information with those that do not (as with the image row above), and also omit the track data for video and audio files that don't have an accompanying track file.</p>
-<p>You can also add multiple track files for a single video or audio file:</p>
+<p>You can also add multiple track files for a single video or audio file in the same way you add mutliple values for any field:</p>
 <pre><code>id,field_model,title,file,media:video:field_track
 003,Video,Second video,second.mp4,Transcript:subtitles:en:/path/to/video003/vtt/file.vtt|Transcript:subtitles:en:/path/to/another/track_file.vtt
 </code></pre>
