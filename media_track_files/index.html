@@ -790,6 +790,10 @@
   <h1>Media track files</h1>
 
 <p>Video and audio media can have accompanying track files. These files can be added in "create" tasks by including a column in your CSV file that contains the information Islandora Workbench needs to create these files.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to create media track files as described below, you must configure the "File" media type's "field_media_file" field to accept files with the ".vtt" extension. To do this, visit <code>/admin/structure/media/manage/file/fields/media.file.field_media_file</code> and add "vtt" to the list of allowed file extensions.</p>
+</div>
 <p>The header for this column takes the form <code>media:video:field_track</code>: the string "media" followed by a colon, which is then followed by a media type (by default either "video" or "audio"), which is then followed by the machine name of the field on the media that holds the track file (in a standard Islandora configuration, this is "field_track" for both video and audio). If you have a custom setup and need to override these defaults, you can do so using the <code>media_track_file_fields</code> configuration setting:</p>
 <pre><code class="language-yaml">media_track_file_fields:
  audio: field_my_custom_track_file_field
