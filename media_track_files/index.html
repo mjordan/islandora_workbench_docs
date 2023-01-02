@@ -817,6 +817,10 @@
 <pre><code>id,field_model,title,file,media:video:field_track
 003,Video,Second video,second.mp4,Transcript:subtitles:en:/path/to/video003/vtt/file.vtt|Transcript:subtitles:en:/path/to/another/track_file.vtt
 </code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you add multiple track files to a single video or audio, only the first one listed in the CSV data for that entry will be configured as the "Default" track.</p>
+</div>
 <p>If your CSV has entries for both audio and video files, you will need to include separate track columns, one for each media type:</p>
 <pre><code>id,field_model,title,file,media:video:field_track,media:audio:field_track
 001,Video,First video,first.mp4,Transcript:subtitles:en:/path/to/video001/vtt/file.vtt,
