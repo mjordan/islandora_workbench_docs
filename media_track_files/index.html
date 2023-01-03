@@ -794,7 +794,7 @@
 <p class="admonition-title">Note</p>
 <p>In order to create media track files as described below, you must configure the "File" media type's "field_media_file" field to accept files with the ".vtt" extension. To do this, visit <code>/admin/structure/media/manage/file/fields/media.file.field_media_file</code> and add "vtt" to the list of allowed file extensions.</p>
 </div>
-<p>The header for this column takes the form <code>media:video:field_track</code>: the string "media" followed by a colon, which is then followed by a media type (by default either "video" or "audio"), which is then followed by the machine name of the field on the media that holds the track file (in a standard Islandora configuration, this is "field_track" for both video and audio). If you have a custom setup and need to override these defaults, you can do so using the <code>media_track_file_fields</code> configuration setting:</p>
+<p>The header for this column looks like <code>media:video:field_track</code> - the string "media" followed by a colon, which is then followed by a media type (in a standard Islandora configuration, either "video" or "audio"), which is then followed by the machine name of the field on the media that holds the track file (in a standard Islandora configuration, this is "field_track" for both video and audio). If you have a custom setup and need to override these defaults, you can do so using the <code>media_track_file_fields</code> configuration setting:</p>
 <pre><code class="language-yaml">media_track_file_fields:
  audio: field_my_custom_track_file_field
  mycustommmedia: field_another_custom_track_file_field
@@ -816,8 +816,9 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Since a colon is used to separate the parts of the track data, you can't use a colon in the label. A label value like "Transcipt: The Making Of" will invalidate the entire track data for that CSV row, and Workbench will skip creating it. If you need to have a colon in your track label, you will need to update the label value manually in the video or audio media's add/edit form.</p>
+<p>On Windows, you can use absolute file paths that contain colons, such as <code>c:\Users\mark\Documents\my_vtt_file.vtt</code>.</p>
 </div>
-<p>Note that you can mix CSV entries that contain track file information with those that do not (as with the image row above), and also omit the track data for video and audio files that don't have an accompanying track file.</p>
+<p>You can mix CSV entries that contain track file information with those that do not (as with the image row above), and also omit the track data for video and audio files that don't have an accompanying track file.</p>
 <p>You can also add multiple track files for a single video or audio file in the same way you add mutliple values for any field:</p>
 <pre><code>id,field_model,title,file,media:video:field_track
 003,Video,Second video,second.mp4,Transcript:subtitles:en:/path/to/video003/vtt/file.vtt|Transcript:subtitles:en:/path/to/another/track_file.vtt
