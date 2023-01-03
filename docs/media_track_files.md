@@ -1,0 +1,67 @@
+Video and audio media can have accompanying track files. These files can be added in "create" tasks by including a column in your CSV file that contains the information Islandora Workbench needs to create these files.
+
+!!! note
+    In order to create media track files as described below, you must configure the "File" media type's "field_media_file" field to accept files with the ".vtt" extension. To do this, visit `/admin/structure/media/manage/file/fields/media.file.field_media_file` and add "vtt" to the list of allowed file extensions.
+
+The header for this column looks like `media:video:field_track` - the string "media" followed by a colon, which is then followed by a media type (in a standard Islandora configuration, either "video" or "audio"), which is then followed by another colon and the machine name of the field on the media that holds the track file (in a standard Islandora configuration, this is "field_track" for both video and audio). If you have a custom setup and need to override these defaults, you can do so using the `media_track_file_fields` configuration setting:
+
+```yaml
+media_track_file_fields:
+ audio: field_my_custom_track_file_field
+ mycustommmedia: field_another_custom_track_file_field
+```
+
+In this case, your column header would look like `media:mycustommmedia:field_another_custom_track_file_field`.
+
+You only need to use this configuration setting if you have a custom media type, or you have configured your Islandora so that audio or video uses a nonstandard track file field. Note that this setting replaces the default values of `video: field_track` and `audio: field_track`, so if you wanted to retain those values and add your own, your configuration file would need to contain something like this:
+
+```yaml
+media_track_file_fields:
+ audio: field_my_custom_track_file_field
+ video: field_track
+ mycustommmediatype: field_another_custom_track_file_field
+```
+
+In the track column in your input CSV, you specifiy, in the following order and separated by colons,
+
+- the label for the track,
+- its "kind" ("subtitles", "descriptions", "metadata", "captions", or "chapters"),
+- the language code for the track ("en", "fr", "es", etc.), and
+- the absolute path to the track file, which must have the extension ".vtt" (the extension may be in upper or lower case).
+
+Here is an example CSV file that creates track files for accompanying video files:
+
+```
+id,field_model,title,file,media:video:field_track
+001,Video,First video,first.mp4,Transcript:subtitles:en:/path/to/video001/vtt/file.vtt
+002,Image,An image,test.png,
+003,Video,Second video,second.mp4,Transcript:subtitles:en:/path/to/video003/vtt/file.vtt
+004,Video,Third video,third.mp4,
+```
+
+!!! warning
+    Since a colon is used to separate the parts of the track data, you can't use a colon in the label. A label value like "Transcipt: The Making Of" will invalidate the entire track data for that CSV row, and Workbench will skip creating it. If you need to have a colon in your track label, you will need to update the label value manually in the video or audio media's add/edit form.
+
+    However, if you are running Workbench on Windows, you can use absolute file paths that contain colons, such as `c:\Users\mark\Documents\my_vtt_file.vtt`.
+
+You can mix CSV entries that contain track file information with those that do not (as with row 002 above, which is for an image), and also omit the track data for video and audio files that don't have an accompanying track file.
+
+You can also add multiple track files for a single video or audio file in the same way you add mutliple values in any field:
+
+```
+id,field_model,title,file,media:video:field_track
+003,Video,Second video,second.mp4,Transcript:subtitles:en:/path/to/video003/vtt/file.vtt|Transcript:subtitles:en:/path/to/another/track_file.vtt
+```
+
+!!! note
+    If you add multiple track files to a single video or audio, only the first one listed in the CSV data for that entry will be configured as the "Default" track.
+
+If your CSV has entries for both audio and video files, you will need to include separate track columns, one for each media type:
+
+```
+id,field_model,title,file,media:video:field_track,media:audio:field_track
+001,Video,First video,first.mp4,Transcript:subtitles:en:/path/to/video001/vtt/file.vtt,
+002,Image,An image,test.png,,
+003,Video,Second video,second.mp4,Transcript:subtitles:en:/path/to/video003/vtt/file.vtt,
+004,Audio,An audio,,Transcript:subtitles:en:/path/to/audio004/vtt/file.vtt
+```
