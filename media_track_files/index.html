@@ -806,12 +806,12 @@
  video: field_track
  mycustommmediatype: field_another_custom_track_file_field
 </code></pre>
-<p>In the track column in your input CSV, you specifiy, in the following order and separated by colons (<code>:</code>),</p>
+<p>In the track column in your input CSV, you specifiy, in the following order and separated by colons,</p>
 <ul>
 <li>the label for the track,</li>
 <li>its "kind" ('subtitles', 'descriptions', 'metadata', 'captions', or 'chapters'),</li>
-<li>the language code for the track, and</li>
-<li>the absolute path to the track file. The track file must have the extension ".vtt".</li>
+<li>the language code for the track ('en', 'fr', 'es', etc.), and</li>
+<li>the absolute path to the track file, which must have the extension ".vtt" (lower or upper case doesn't matter).</li>
 </ul>
 <p>Here is an example CSV file that creates track files for accompanying video files:</p>
 <pre><code>id,field_model,title,file,media:video:field_track
