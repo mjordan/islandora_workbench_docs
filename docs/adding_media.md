@@ -29,7 +29,7 @@ input_csv: add_media.csv
 media_use_tid: "http://pcdm.org/use#Transcript"
 ```
 
-If you want to specify a media_use_tid per CSV row, you can include that column in your CSV:
+If you want to specify a media_use_tid per CSV row, you can include that column in your CSV (in either "add_media" or "create" tasks):
 
 ```text
 node_id,file,media_use_tid
