@@ -5,6 +5,8 @@ Since track files are part of the media's service file, you can only add track f
 !!! note
     In order to create media track files as described below, you must configure the "File" media type's "field_media_file" field to accept files with the ".vtt" extension. To do this, visit `/admin/structure/media/manage/file/fields/media.file.field_media_file` and add "vtt" to the list of allowed file extensions.
 
+    You must also ensure that captions are enabled in the respective media display configuations. To do this for video, visit `/admin/structure/media/manage/video/display` and select "Video with Captions" in the "Video file" entry. For audion, visit `/admin/structure/media/manage/audio/display` and select "Audio with Captions" in the "Audio file" entry.
+
 The header for this column looks like `media:video:field_track` - the string "media" followed by a colon, which is then followed by a media type (in a standard Islandora configuration, either "video" or "audio"), which is then followed by another colon and the machine name of the field on the media that holds the track file (in a standard Islandora configuration, this is "field_track" for both video and audio). If you have a custom setup and need to override these defaults, you can do so using the `media_track_file_fields` configuration setting:
 
 ```yaml
