@@ -29,3 +29,10 @@ Currently, if you include HTML markup in Workbench's CSV input data, that markup
 
 Only taxonomy reference fields that use the "Default" reference type are currently supported. However, [work is being done](https://github.com/mjordan/islandora_workbench/issues/452) to support both types of entity reference.
 
+As a work around, you can do the following:
+
+* use term IDs instead of term names or URIs in your input CSV *and*
+* include `require_entity_reference_views: false` in your configuration file.
+
+Note that Workbench will not validate values in fields that are configured to use this type of reference.
+

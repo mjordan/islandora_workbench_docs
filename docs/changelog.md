@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* January 6, 2023: Fixed issue [502](https://github.com/mjordan/islandora_workbench/issues/502) (commit f4e4c8d).
 * December 31, 2022: Better cleanup when using remote files - @ajstanley's fix for issue [497](https://github.com/mjordan/islandora_workbench/issues/497) (commit a0412af), resolved issue [499](https://github.com/mjordan/islandora_workbench/issues/497) (commit b8f74c8).
 * December 28, 2022 (commit e4e6e49): Fixed bug where running Workbench using a Google Sheet or Excel file as input without first running `--check` caused a "file not found" error (issue [496](https://github.com/mjordan/islandora_workbench/issues/496)). Thanks to @ruebot for discovering this bug.
 * December 11, 2022 (commit 24b70fd): Added ability to export files along with CSV data (issue [492](https://github.com/mjordan/islandora_workbench/issues/492)).
@@ -25,6 +26,7 @@
 
 ### Documentation
 
+* January 8, 2023: Updated "[Known limitations](/islandora_workbench_docs/limitations/)" with a work around for unsupported "Filter by an entity reference View" fields; added examples of valid Windows paths to "[Values in the 'file' column](/islandora_workbench_docs/fields/#values-in-the-file-column)."
 * December 29, 2022: Minor corrections to "[Known limitations](/islandora_workbench_docs/limitations/)", "[Workflows](/islandora_workbench_docs/workflows/)", "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/)," and "[Preparing your data](/islandora_workbench_docs/preparing_data/)."
 * December 28, 2022: Added cross reference between "[CSV field templates](/islandora_workbench_docs/field_templates/)" and "[Ignoring CSV rows and columns](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#ignoring-csv-columns)".
 * December 17, 2022: Corrected URI for `http://pcdm.org/use#OriginalFile` on "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/)" and "[Configuration](/islandora_workbench_docs/configuration/)."
