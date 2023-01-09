@@ -938,7 +938,7 @@
 <li>use term IDs instead of term names or URIs in your input CSV <em>and</em></li>
 <li>include <code>require_entity_reference_views: false</code> in your configuration file.</li>
 </ul>
-<p>Note that Workbench will not validate values in fields that are configured to use this type of reference.</p>
+<p>Note that Workbench will not validate values in fields that are configured to use this type of reference. Also, term IDs that are not in the View results will result in the node not being created (Drupal will return a 422 response).</p>
 
 
 
