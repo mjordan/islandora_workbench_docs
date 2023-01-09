@@ -933,6 +933,12 @@
 <p>Currently, if you include HTML markup in Workbench's CSV input data, that markup is not rendered when users view the resulting node. This is true even if the node's field is correctly configured to accept Drupal's text formats like "basic_html" and "full_html". See issue <a href="https://github.com/mjordan/islandora_workbench/issues/367">#367</a> for more information.</p>
 <h2 id="workbench-doesnt-support-taxonomy-reference-fields-that-use-the-filter-by-an-entity-reference-view-reference-type">Workbench doesn't support taxonomy reference fields that use the "Filter by an entity reference View" reference type</h2>
 <p>Only taxonomy reference fields that use the "Default" reference type are currently supported. However, <a href="https://github.com/mjordan/islandora_workbench/issues/452">work is being done</a> to support both types of entity reference.</p>
+<p>As a work around, you can do the following:</p>
+<ul>
+<li>use term IDs instead of term names or URIs in your input CSV <em>and</em></li>
+<li>include <code>require_entity_reference_views: false</code> in your configuration file.</li>
+</ul>
+<p>Note that Workbench will not validate values in fields that are configured to use this type of reference.</p>
 
 
 
