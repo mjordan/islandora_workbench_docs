@@ -149,7 +149,7 @@ Notice that the `file` values in the first two rows are absolute, but the `file`
     In general, Workbench doesn't care if any file path used in configuration or CSV data is relative or absolute, but if it's relative, it's relative to the directory where the `workbench` script lives.
 
 !!! note
-    Most of the example paths used in this documentation are Linux paths. In general, paths on Mac computers look and work the same way. On Windows, absolute paths like `C:\Users\Mark\Downloads\myfile.pdf` work fine. Windows paths like this also work in Workbench configuration files.
+    Most of the example paths used in this documentation are Linux paths. In general, paths on Mac computers look and work the same way. On Windows, absolute paths like `C:\Users\Mark\Downloads\myfile.pdf` and UNC paths like `\\some.windows.file.share.org\share_name\files\myfile.png` work fine. These paths also work in Workbench configuration files in settings such as `input_dir`.
 
 ## Using URLs as file paths
 

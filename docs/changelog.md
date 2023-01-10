@@ -1,7 +1,7 @@
 ### main branch (no tag/release)
 
-* January 9, 2023 (commit a3931df): Added ability to create [media track files](https://github.com/mjordan/islandora_workbench/issues/373); fixed some integration tests.
-* January 6, 2023: Fixed issue [502](https://github.com/mjordan/islandora_workbench/issues/502) (commit f4e4c8d).
+* January 9, 2023 (commit a3931df): Added ability to create media track files (issue [373](https://github.com/mjordan/islandora_workbench/issues/373)); fixed some integration tests.
+* January 6, 2023 (commit f4e4c8d): Fixed issue [502](https://github.com/mjordan/islandora_workbench/issues/502).
 * December 31, 2022: Better cleanup when using remote files - @ajstanley's fix for issue [497](https://github.com/mjordan/islandora_workbench/issues/497) (commit a0412af), resolved issue [499](https://github.com/mjordan/islandora_workbench/issues/497) (commit b8f74c8).
 * December 28, 2022 (commit e4e6e49): Fixed bug where running Workbench using a Google Sheet or Excel file as input without first running `--check` caused a "file not found" error (issue [496](https://github.com/mjordan/islandora_workbench/issues/496)). Thanks to @ruebot for discovering this bug.
 * December 11, 2022 (commit 24b70fd): Added ability to export files along with CSV data (issue [492](https://github.com/mjordan/islandora_workbench/issues/492)).
