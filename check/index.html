@@ -911,7 +911,7 @@
 <li>Media files<ul>
 <li>Whether the files named in the CSV file are present, or in the case of remote files, are accessible (but this check is skipped if <code>allow_missing_files: true</code> is present in your config file for "create" tasks). If <code>nodes_only</code> is true, this check is skipped.</li>
 <li>Whether the media types configured for specific file extensions are configured on the target Drupal. Islandora Workbench will default to the 'file' media type if it can't find another more specific media type for a file, so the most likely cause for this check to fail is that the assigned media type does not exist on the target Drupal.</li>
-<li>If creating <a href="/islandora_workbench_docs/media_track_files/">media track files</a>, --check will tell you if your media_use_tid value (either in the media_use_tid configuration setting or in row-level values in your CSV) does not include "Service File" taxonomy term.</li>
+<li>If creating <a href="/islandora_workbench_docs/media_track_files/">media track files</a>, <code>--check</code> will tell you if your media_use_tid value (either in the media_use_tid configuration setting or in row-level values in your CSV) does not include the "Service File" taxonomy term.</li>
 </ul>
 </li>
 <li>Field values<ul>
