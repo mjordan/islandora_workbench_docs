@@ -850,7 +850,7 @@
 <p>Since a colon is used to separate the parts of the track data, you can't use a colon in the label. A label value like "Transcipt: The Making Of" will invalidate the entire track data for that CSV row, and Workbench will skip creating it. If you need to have a colon in your track label, you will need to update the label value manually in the video or audio media's add/edit form.</p>
 <p>However, if you are running Workbench on Windows, you can use absolute file paths that contain colons, such as <code>c:\Users\mark\Documents\my_vtt_file.vtt</code>.</p>
 </div>
-<p>You can mix CSV entries that contain track file information with those that do not (as with row 002 above, which is for an image), and also omit the track data for video and audio files that don't have an accompanying track file.</p>
+<p>You can mix CSV entries that contain track file information with those that do not (as with row 002 above, which is for an image), and also omit the track data for video and audio files that don't have an accompanying track file. If there is no value in the media track column, Workbench will not apptempt to create a media track file.</p>
 <p>You can also add multiple track files for a single video or audio file in the same way you add mutliple values in any field:</p>
 <pre><code>id,field_model,title,file,media:video:field_track
 003,Video,Second video,second.mp4,Transcript:subtitles:en:/path/to/video003/vtt/file.vtt|Transcript:subtitles:en:/path/to/another/track_file.vtt
