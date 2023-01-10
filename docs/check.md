@@ -28,6 +28,7 @@ If you do this, Workbench will check the following conditions and report any err
 * Media files
     * Whether the files named in the CSV file are present, or in the case of remote files, are accessible (but this check is skipped if `allow_missing_files: true` is present in your config file for "create" tasks). If `nodes_only` is true, this check is skipped.
     * Whether the media types configured for specific file extensions are configured on the target Drupal. Islandora Workbench will default to the 'file' media type if it can't find another more specific media type for a file, so the most likely cause for this check to fail is that the assigned media type does not exist on the target Drupal.
+    * If creating [media track files](/islandora_workbench_docs/media_track_files/), --check will tell you if your media_use_tid value (either in the media_use_tid configuration setting or in row-level values in your CSV) does not include "Service File" taxonomy term.
 * Field values
     * Base fields
         * If the `langcode` field is present in your CSV, whether values in it are valid Drupal language codes.
