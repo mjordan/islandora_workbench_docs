@@ -937,8 +937,8 @@
 <li>which file extension(s) should map to the new media type, and</li>
 <li>which field on the new media type is used to store the file associated with the media.</li>
 </ol>
-<p>To satisfy the first requirement, use the <code>media_type</code> or <code>media_types_override</code> option as described above. To satisfy the second requirement, use Workbench's <code>media_bundle_file_fields</code> option. </p>
-<p>The values in the <code>media_bundle_file_fields</code> option are the machine name of the media type and the machine name of the "File" field configured for that media. To determine the machine name of your media type,</p>
+<p>To satisfy the first requirement, use the <code>media_type</code> or <code>media_types_override</code> option as described above. To satisfy the second requirement, use Workbench's <code>media_type_file_fields</code> option. </p>
+<p>The values in the <code>media_type_file_fields</code> option are the machine name of the media type and the machine name of the "File" field configured for that media. To determine the machine name of your media type,</p>
 <ol>
 <li>go to the field configuration of your media types (Admin &gt; Structure &gt; Media types)</li>
 <li>choose your custom media type</li>
@@ -947,18 +947,18 @@
 <li>the field machine name you want is in that row's "Machine name" column.</li>
 </ol>
 <p>Here's an example that tells Workbench that the custom media type "Custom media" uses the "field_media_file" field:</p>
-<pre><code class="language-yaml">media_bundle_file_fields:
+<pre><code class="language-yaml">media_type_file_fields:
  - my_custom_media: field_media_file
 </code></pre>
 <p>Put together, the two configuration options would look like this:</p>
 <pre><code class="language-yaml">media_types_override:
   - my_custom_media: ['cus']
-media_bundle_file_fields:
+media_type_file_fields:
  - my_custom_media: field_media_file
 </code></pre>
 <p>In this example, your Workbench job is creating media of varying types (for example, images, videos, and documents, all using the default extension-to-media type mappings. If all the files you are adding in the Workbench job all have the same media type (in the following example, your "my_custom_media" type), you could use this configuration:</p>
 <pre><code class="language-yaml">media_type: my_custom_media
-media_bundle_file_fields:
+media_type_file_fields:
  - my_custom_media: field_media_file
 </code></pre>
 
