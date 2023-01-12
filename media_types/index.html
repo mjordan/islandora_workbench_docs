@@ -928,7 +928,7 @@
 <p>Note that:</p>
 <ul>
 <li>If a file's extension is not present in the default mapping or in the <code>media_types_override</code> custom mapping, the media is assigned the "file" type.</li>
-<li>If you use the <code>media_types_override</code> configuration option, your mapping replaces Workbench's default mappings for the specified file extension. This means that if you want to retain any of the default mappings for the file extension, you need to include them in the mapping, as illustrated by the presence of "mp4" in the example above.</li>
+<li>If you use the <code>media_types_override</code> configuration option, your mapping <em>replaces</em> Workbench's default mappings for the specified file extension. This means that if you want to retain any of the default mappings for the file extension, you need to include them in the mapping, as illustrated by the presence of "mp4" in the example above.</li>
 <li>If both <code>media_type</code> and <code>media_types_override</code> are included in the config file, the mapping in <code>media_types_override</code> is ignored and the media type assigned in <code>media_type</code> is used.</li>
 </ul>
 <h2 id="configuring-a-custom-media-type">Configuring a custom media type</h2>
