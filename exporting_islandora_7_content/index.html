@@ -1111,6 +1111,15 @@ include fields that contain "isSequenceNumberOf" or "isSequenceNumber" in your C
 of them in a typical Islandora 7 Solr index, you will want to <em>exclude</em> them using the <code>field_pattern_do_not_want</code>
 configuration variable. Excluding them is safe, since the script fetches the sequence information separately from the
 other CSV data.</p>
+<p>A fourth column in your Workbench CSV, <code>field_member_of</code>, is not added automatically. It contains the PID of the parent object, whether it is a collection, the top level object (parent) in a compound object, book object that has pages, etc. If an Islandora object has a value that should be in the <code>field_member_of</code> column, it will be in one or more (usually just one) of the folowing columns in the CSV created by the <code>get_islandora_7_content.py</code> script:</p>
+<ul>
+<li>isMemberOfCollection</li>
+<li>isPageOf</li>
+<li>isSequenceNumberOfXXX (where XXX is the PID of the parent item)</li>
+<li>isConstituentOf</li>
+</ul>
+<p>All of these collumns should be present in your CSV, but it is possible that some may not be, for example if your Islandora 7 repository did not have a module enabled that uses one of those RELS-EXT properties.</p>
+<p>In general, the CSV that you need to end up with to ingest content into Islandora 2 using Workbench needs to have a structure similar to that described in the "With page/child-level metadata" section of the Workbench documentation for "<a href="https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#with-pagechild-level-metadata">Creating paged, compound, and collection content</a>." You should review the points in the "Some important things to note" section of that documentation.</p>
 
 
 
