@@ -27,6 +27,7 @@ If you do this, Workbench will check the following conditions and report any err
     * Whether the columns required to create paged content are present (see "Creating paged content" below).
 * Media files
     * Whether the files named in the CSV file are present, or in the case of remote files, are accessible (but this check is skipped if `allow_missing_files: true` is present in your config file for "create" tasks). If `nodes_only` is true, this check is skipped.
+    * Whether files in the `file` CSV column have extensions that are registered with the media's file field in Drupal. Note that validation of file extensions does not yet apply to files named using the `additional_files` configuration or for remote files (see [this issue](https://github.com/mjordan/islandora_workbench/issues/126) for more info).
     * Whether the media types configured for specific file extensions are configured on the target Drupal. Islandora Workbench will default to the 'file' media type if it can't find another more specific media type for a file, so the most likely cause for this check to fail is that the assigned media type does not exist on the target Drupal.
     * If creating [media track files](/islandora_workbench_docs/media_track_files/), `--check` will tell you if your media_use_tid value (either in the media_use_tid configuration setting or in row-level values in your CSV) does not include the "Service File" taxonomy term.
 * Field values
@@ -46,6 +47,8 @@ If you do this, Workbench will check the following conditions and report any err
         * Whether values used in typed relation fields are in the required format
         * Whether values need to be namespaced
         * Whether the term IDs/term names/term URIs used in the values exist in the vocabularies configured for the field.
+    * "List" text fields
+        * Whether values in CSV fields of this Drupal field type are in the field's configured "Allowed values list".
     * If using the pages from directories configuration (`paged_content_from_directories: true`):
         * Whether page filenames contain an occurrence of the sequence separator.
         * Whether any page directories are empty.

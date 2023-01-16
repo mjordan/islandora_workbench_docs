@@ -1,3 +1,5 @@
+## Overriding Workbench's default extension to media type mappings
+
 !!! note
     Drupal's use of Media types (image, video, document, etc.) is distinct from Islandora's use of "model", which identifies an intellectual entity as an image, video, collection, compound object, newspaper, etc.
 
@@ -28,7 +30,7 @@ media_types_override:
 Note that:
 
 * If a file's extension is not present in the default mapping or in the `media_types_override` custom mapping, the media is assigned the "file" type.
-* If you use the `media_types_override` configuration option, your mapping replaces Workbench's default mappings for the specified file extension. This means that if you want to retain any of the default mappings for the file extension, you need to include them in the mapping, as illustrated by the presence of "mp4" in the example above.
+* If you use the `media_types_override` configuration option, your mapping *replaces* Workbench's default mappings for the specified file extension. This means that if you want to retain any of the default mappings for the file extension, you need to include them in the mapping, as illustrated by the presence of "mp4" in the example above.
 * If both `media_type` and `media_types_override` are included in the config file, the mapping in `media_types_override` is ignored and the media type assigned in `media_type` is used.
 
 ## Configuring a custom media type
@@ -38,9 +40,9 @@ Islandora ships with a set of default media types, including audio, document, ex
 1. which file extension(s) should map to the new media type, and
 1. which field on the new media type is used to store the file associated with the media.
 
-To satisfy the first requirement, use the `media_type` or `media_types_override` option as described above. To satisfy the second requirement, use Workbench's `media_file_fields` option. 
+To satisfy the first requirement, use the `media_type` or `media_types_override` option as described above. To satisfy the second requirement, use Workbench's `media_type_file_fields` option. 
 
-The values in the `media_file_fields` option are the machine name of the media type and the machine name of the "File" field configured for that media. To determine the machine name of your media type,
+The values in the `media_type_file_fields` option are the machine name of the media type and the machine name of the "File" field configured for that media. To determine the machine name of your media type,
 
 1. go to the field configuration of your media types (Admin > Structure > Media types)
 1. choose your custom media type
@@ -51,7 +53,7 @@ The values in the `media_file_fields` option are the machine name of the media t
 Here's an example that tells Workbench that the custom media type "Custom media" uses the "field_media_file" field:
 
 ```yaml
-media_file_fields:
+media_type_file_fields:
  - my_custom_media: field_media_file
 ```
 
@@ -60,7 +62,7 @@ Put together, the two configuration options would look like this:
 ```yaml
 media_types_override:
   - my_custom_media: ['cus']
-media_file_fields:
+media_type_file_fields:
  - my_custom_media: field_media_file
 ```
 
@@ -68,7 +70,7 @@ In this example, your Workbench job is creating media of varying types (for exam
 
 ```yaml
 media_type: my_custom_media
-media_file_fields:
+media_type_file_fields:
  - my_custom_media: field_media_file
 ```
 

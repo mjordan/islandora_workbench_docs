@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* January 15, 2023 (commit ba149d6d): Added validation of extensions for files named in the CSV `file` column (issue [126](https://github.com/mjordan/islandora_workbench/issues/126)); (commit 82dd02c) added validation of CSV values for "List (text)" type fields [509](https://github.com/mjordan/islandora_workbench/issues/509).
 * January 9, 2023 (commit a3931df): Added ability to create media track files (issue [373](https://github.com/mjordan/islandora_workbench/issues/373)); fixed some integration tests.
 * January 6, 2023 (commit f4e4c8d): Fixed issue [502](https://github.com/mjordan/islandora_workbench/issues/502).
 * December 31, 2022: Better cleanup when using remote files - @ajstanley's fix for issue [497](https://github.com/mjordan/islandora_workbench/issues/497) (commit a0412af), resolved issue [499](https://github.com/mjordan/islandora_workbench/issues/497) (commit b8f74c8).
@@ -27,6 +28,7 @@
 
 ### Documentation
 
+* January 15, 2023: Updated "[Checking configuration and input data](/islandora_workbench_docs/check/)." 
 * January 9, 2023: Added docs for creating "[Media track files](/islandora_workbench_docs/media_track_files/)." 
 * January 8, 2023: Updated "[Known limitations](/islandora_workbench_docs/limitations/)" with a work around for unsupported "Filter by an entity reference View" fields; added examples of valid Windows paths to "[Values in the 'file' column](/islandora_workbench_docs/fields/#values-in-the-file-column)."
 * December 29, 2022: Minor corrections to "[Known limitations](/islandora_workbench_docs/limitations/)", "[Workflows](/islandora_workbench_docs/workflows/)", "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/)," and "[Preparing your data](/islandora_workbench_docs/preparing_data/)."

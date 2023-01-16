@@ -21,7 +21,7 @@ nav:
     - Assigning URL aliases: aliases.md
     - Adding alt text to images: alt_text.md
     - Rolling back nodes and media: rolling_back.md
-    - Setting media types: media_types.md
+    - Configuring media types: media_types.md
     - Updating nodes: updating_nodes.md
     - Deleting nodes: deleting_nodes.md
     - Adding media to nodes: adding_media.md
