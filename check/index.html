@@ -910,6 +910,7 @@
 </li>
 <li>Media files<ul>
 <li>Whether the files named in the CSV file are present, or in the case of remote files, are accessible (but this check is skipped if <code>allow_missing_files: true</code> is present in your config file for "create" tasks). If <code>nodes_only</code> is true, this check is skipped.</li>
+<li>Whether files in the <code>file</code> CSV column have extensions that are registered with the media's file field. Note that validation of file extensions does not yet apply to files named using the <code>additional_files</code> configuration (see <a href="https://github.com/mjordan/islandora_workbench/issues/126">this issue</a> for more info).</li>
 <li>Whether the media types configured for specific file extensions are configured on the target Drupal. Islandora Workbench will default to the 'file' media type if it can't find another more specific media type for a file, so the most likely cause for this check to fail is that the assigned media type does not exist on the target Drupal.</li>
 <li>If creating <a href="/islandora_workbench_docs/media_track_files/">media track files</a>, <code>--check</code> will tell you if your media_use_tid value (either in the media_use_tid configuration setting or in row-level values in your CSV) does not include the "Service File" taxonomy term.</li>
 </ul>
@@ -935,6 +936,10 @@
 <li>Whether values used in typed relation fields are in the required format</li>
 <li>Whether values need to be namespaced</li>
 <li>Whether the term IDs/term names/term URIs used in the values exist in the vocabularies configured for the field.</li>
+</ul>
+</li>
+<li>"List" text fields<ul>
+<li>Whether values in CSV fields of this Drupal field type are in the field's configured "Allowed values list".</li>
 </ul>
 </li>
 <li>If using the pages from directories configuration (<code>paged_content_from_directories: true</code>):<ul>
