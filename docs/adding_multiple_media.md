@@ -38,7 +38,7 @@ additional_files:
 
 A few notes:
 
-* If you want the reserved `file` column to be empty when adding additional media, you will need to add the `allow_missing_files: true` option to your configuration file.
+* If the `additional_files` columns are empty in any rows, or if the reserved `file` column is empty because all file-related columns are listed in additional_files, you will need to add the `allow_missing_files: true` option to your configuration file.
 * [Fixity checking](/islandora_workbench_docs/fixity) is only available for files named in the `file` CSV column, not in the additional columns described here. See [this issue](https://github.com/mjordan/islandora_workbench/issues/307) for more information.
 * If you create an "Extracted Text" media, the contents of the specified text file will be added to the media's "field_edited_text" field, allowing it to be indexed in Solr.
 
