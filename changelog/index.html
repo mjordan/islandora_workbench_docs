@@ -877,6 +877,9 @@
 
 <h3 id="main-branch-no-tagrelease">main branch (no tag/release)</h3>
 <ul>
+<li>January 19, 2023 (commit b97b563): Fixed bug <a href="https://github.com/mjordan/islandora_workbench/issues/522">522</a> and (commit 76d8c44) bug <a href="https://github.com/mjordan/islandora_workbench/issues/523">523</a>; changed log level from <code>ERROR</code> to <code>WARNING</code> when there are missing files and the <code>allow_missing_files</code> config option is set to true.</li>
+<li>January 18, 2023 (commit 727145f): Added <code>validate_parent_node_exists</code> config option (issue <a href="https://github.com/mjordan/islandora_workbench/issues/521">521</a>).</li>
+<li>January 17, 2023 (commit a4a5008): Added better trimming of trailing slash in the <code>host</code> config option (issue <a href="https://github.com/mjordan/islandora_workbench/issues/519">519</a>); (commit 1763fe6) fixed bug when "field_member_of" contained multiple values <a href="https://github.com/mjordan/islandora_workbench/issues/520">520</a>.</li>
 <li>January 15, 2023 (commit ba149d6d): Added validation of extensions for files named in the CSV <code>file</code> column (issue <a href="https://github.com/mjordan/islandora_workbench/issues/126">126</a>); (commit 82dd02c) added validation of CSV values for "List (text)" type fields <a href="https://github.com/mjordan/islandora_workbench/issues/509">509</a>.</li>
 <li>January 9, 2023 (commit a3931df): Added ability to create media track files (issue <a href="https://github.com/mjordan/islandora_workbench/issues/373">373</a>); fixed some integration tests.</li>
 <li>January 6, 2023 (commit f4e4c8d): Fixed issue <a href="https://github.com/mjordan/islandora_workbench/issues/502">502</a>.</li>
@@ -905,6 +908,7 @@
 </ul>
 <h3 id="documentation">Documentation</h3>
 <ul>
+<li>January 22, 2023: Several clarifications and corrections, including @rosiel's correction of how to use <code>allow_missing_files</code> and <code>additional_files</code> together; added some <a href="/islandora_workbench_docs/paged_and_compound/#with-pagechild-level-metadata">examples of planning large compound/paged content ingests</a>.</li>
 <li>January 16, 2023: Updated "<a href="/islandora_workbench_docs/exporting_islandora_7_content/">Exporting Islandora 7 content</a>." </li>
 <li>January 15, 2023: Updated "<a href="/islandora_workbench_docs/check/">Checking configuration and input data</a>." </li>
 <li>January 9, 2023: Added docs for creating "<a href="/islandora_workbench_docs/media_track_files/">Media track files</a>." </li>

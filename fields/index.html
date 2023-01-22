@@ -1528,7 +1528,12 @@ http://purl.org/coar/resource_type/c_18cc
 <li>If the same URI is registered with more than one term, Workbench will choose one and write a warning to the log indicating which term it chose and which terms the URI is registered with. However, <code>--check</code> will detect that a URI is registered with more than one term and warn you. At that point you can edit your CSV file to use the correct term ID rather than the URI.</li>
 </ul>
 <h4 id="entity-reference-views-fields">Entity Reference Views fields</h4>
-<p>Under development. See <a href="https://github.com/mjordan/islandora_workbench/issues/452">this Github issue</a> for updates on supporting this field configuration.</p>
+<p>Islandora Workbench full supports taxonomy reference fields that use the "Default" reference type, but only partially supports "Views: Filter by an entity reference View" taxonomy reference fields. To populate this type of entity reference in "create" and "update" tasks, you must do the following:</p>
+<ul>
+<li>use term IDs instead of term names or URIs in your input CSV <em>and</em></li>
+<li>include <code>require_entity_reference_views: false</code> in your configuration file.</li>
+</ul>
+<p>Note that Workbench will not validate values in fields that are configured to use this type of reference. Term IDs that are not in the View results will result in the node not being created (Drupal will return a 422 response).</p>
 <h4 id="typed-relation-fields">Typed Relation fields</h4>
 <p>Typed relation fields contain information about the relationship (or "relation") between a taxonomy term and the node it is attached to. For example, a term from the Person vocabulary, "Jordan, Mark", can be an author, illustrator, or editor of the book described in the node. In this example, "author", "illustrator", and "editor" are the typed relations.</p>
 <div class="admonition note">
