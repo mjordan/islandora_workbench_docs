@@ -287,7 +287,12 @@ Using term URIs has some constraints:
 
 #### Entity Reference Views fields
 
-Under development. See [this Github issue](https://github.com/mjordan/islandora_workbench/issues/452) for updates on supporting this field configuration.
+Islandora Workbench full supports taxonomy reference fields that use the "Default" reference type, but only partially supports "Views: Filter by an entity reference View" taxonomy reference fields. To populate this type of entity reference in "create" and "update" tasks, you must do the following:
+
+* use term IDs instead of term names or URIs in your input CSV *and*
+* include `require_entity_reference_views: false` in your configuration file.
+
+Note that Workbench will not validate values in fields that are configured to use this type of reference. Term IDs that are not in the View results will result in the node not being created (Drupal will return a 422 response).
 
 
 #### Typed Relation fields

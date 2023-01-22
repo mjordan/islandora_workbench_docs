@@ -1,5 +1,8 @@
 ### main branch (no tag/release)
 
+* January 19, 2023 (commit b97b563): Fixed bug [522](https://github.com/mjordan/islandora_workbench/issues/522) and (commit 76d8c44) bug [523](https://github.com/mjordan/islandora_workbench/issues/523); changed log level from `ERROR` to `WARNING` when there are missing files and the `allow_missing_files` config option is set to true.
+* January 18, 2023 (commit 727145f): Added `validate_parent_node_exists` config option (issue [521](https://github.com/mjordan/islandora_workbench/issues/521)).
+* January 17, 2023 (commit a4a5008): Added better trimming of trailing slash in the `host` config option (issue [519](https://github.com/mjordan/islandora_workbench/issues/519)); (commit 1763fe6) fixed bug when "field_member_of" contained multiple values [520](https://github.com/mjordan/islandora_workbench/issues/520).
 * January 15, 2023 (commit ba149d6d): Added validation of extensions for files named in the CSV `file` column (issue [126](https://github.com/mjordan/islandora_workbench/issues/126)); (commit 82dd02c) added validation of CSV values for "List (text)" type fields [509](https://github.com/mjordan/islandora_workbench/issues/509).
 * January 9, 2023 (commit a3931df): Added ability to create media track files (issue [373](https://github.com/mjordan/islandora_workbench/issues/373)); fixed some integration tests.
 * January 6, 2023 (commit f4e4c8d): Fixed issue [502](https://github.com/mjordan/islandora_workbench/issues/502).
@@ -28,6 +31,8 @@
 
 ### Documentation
 
+* January 22, 2023: Several clarifications and corrections, including @rosiel's correction of how to use `allow_missing_files` and `additional_files` together; added some [examples of planning large compound/paged content ingests](/islandora_workbench_docs/paged_and_compound/#with-pagechild-level-metadata).
+* January 16, 2023: Updated "[Exporting Islandora 7 content](/islandora_workbench_docs/exporting_islandora_7_content/)." 
 * January 15, 2023: Updated "[Checking configuration and input data](/islandora_workbench_docs/check/)." 
 * January 9, 2023: Added docs for creating "[Media track files](/islandora_workbench_docs/media_track_files/)." 
 * January 8, 2023: Updated "[Known limitations](/islandora_workbench_docs/limitations/)" with a work around for unsupported "Filter by an entity reference View" fields; added examples of valid Windows paths to "[Values in the 'file' column](/islandora_workbench_docs/fields/#values-in-the-file-column)."

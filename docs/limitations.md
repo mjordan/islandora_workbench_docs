@@ -27,9 +27,7 @@ Currently, if you include HTML markup in Workbench's CSV input data, that markup
 
 ## Workbench doesn't support taxonomy reference fields that use the "Filter by an entity reference View" reference type
 
-Only taxonomy reference fields that use the "Default" reference type are currently supported. However, [work is being done](https://github.com/mjordan/islandora_workbench/issues/452) to support both types of entity reference.
-
-As a work around, you can do the following:
+Only taxonomy reference fields that use the "Default" reference type are currently supported. As a work around, to populate a "Filter by an entity reference View" field, you can do the following:
 
 * use term IDs instead of term names or URIs in your input CSV *and*
 * include `require_entity_reference_views: false` in your configuration file.
