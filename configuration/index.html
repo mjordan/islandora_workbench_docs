@@ -1353,6 +1353,12 @@ csv_field_templates:
 <td>If set to false, during <code>--check</code> Workbench will not query Drupal to determine if taxonomy terms exist. The structure of term values in CSV are still validated; this option only tells Workbench to not check for each term's existence in the target Drupal. Useful to speed up the <code>--check</code> process if you know terms don't exist in the target Drupal.</td>
 </tr>
 <tr>
+<td>validate_parent_node_exists</td>
+<td></td>
+<td>true</td>
+<td>If set to false, during <code>--check</code> Workbench will not query Drupal to determine if nodes whose node IDs are in <code>field_member_of</code> exist. This option only tells Workbench to not check for each node's existence in the target Drupal. Useful to speed up the <code>--check</code> process if you know terms already exist in the target Drupal.</td>
+</tr>
+<tr>
 <td>published</td>
 <td></td>
 <td>true</td>
