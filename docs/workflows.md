@@ -81,7 +81,7 @@ With this setting in place, Workbench will ignore the `date_generated` column in
 
 ### Case study
 
-Simon Fraser University Library uses Islandora Workbench to automate the transfer of theses from its locally developed thesis registration application (called, unsurprisingly, the [Thesis Registration System](https://theses.lib.sfu.ca), or TRS) to [Summit](https://summit.sfu.ca), the SFU institutional research respository. This transfer happens through a series of scheduled tasks that run every evening. 
+Simon Fraser University Library uses Islandora Workbench to automate the transfer of theses from its locally developed thesis registration application (called, unsurprisingly, the [Thesis Registration System](https://theses.lib.sfu.ca), or TRS) to [Summit](https://summit.sfu.ca), the SFU institutional research respository. This transfer happens through a series of scheduled tasks that run every evening.
 
 This diagram depicts the automated workflow, with an explanation of each step below the diagram. This case study is an example of the "[Integration with other systems](/islandora_workbench_docs/workflows/#integrations-with-other-systems)" workflow described above.
 
@@ -104,23 +104,61 @@ The script executed in this step converts the thesis data into a Workbench input
 With the thesis CSV created in step 2 in place (and the accompanying supplemental file CSV, if there are any supplemental files in the day's batch), a scheduled job executes Islandora Workbench. The main Workbench configuration file looks like this:
 
 ```yaml
+task: create
+host: https://summit.sfu.ca
+username: xxxxxxxxxxxxxxxx
+password: xxxxxxxxxxxxxxxx
+content_type: sfu_thesis
+allow_adding_terms: true
+require_entity_reference_views: false
+subdelimiter: '%%%'
+media_types_override:
+ - video: ['mp4', 'mov', 'mpv']
+ - file: ['zip', 'xls', 'xlsx']
+input_dir: /home/utilityuser/islandora_workbench/input_data
+input_csv: /home/utilityuser/summit_data/tmp/theses_daily.csv
+secondary_tasks: ['/home/utilityuser/islandora_workbench/supplemental_files_secondary_task.yml']
+log_file_path: /home/zlocal/islandora_workbench/theses_daily.log
+node_post_create: ['/home/utilityuser/islandora_workbench/patch_summit.py']
+path_to_python: /opt/rh/rh-python38/root/usr/bin/python
+path_to_workbench_script: /home/utilityuser/islandora_workbench/workbench
 ```
 
-The input CSV, which describes the theses, looks like this:
+The input CSV, which describes the theses (and is named in the `input_csv` setting in the above config file), looks like this (a single CSV row shown here):
 
 ```csv
-[example to come]
+id,file,title,field_sfu_abstract,field_linked_agent,field_sfu_rights_ref,field_edtf_date_created,field_sfu_department,field_identifier,field_tags,field_language,field_member_of,field_sfu_permissions,field_sfu_thesis_advisor,field_sfu_thesis_type,field_resource_type,field_extent,field_display_hints,field_model
+6603,/home/utilityuser/summit_data/tmp/etd21603/etd21603.pdf,"Additively manufactured digital microfluidics","With the development of lithography techniques, microfluidic systems have drastically evolved in the past decades. Digital microfluidics (DMF), which enables discrete droplet actuation without any carrying liquid as opposed to the continuous-fluid-based microfluidics, emerged as the candidate for the next generation of lab-on-a-chip systems. The DMF has been applied to a wide variety of fields including electrochemical and biomedical assays, drug delivery, and point-of-care diagnosis of diseases. Most of the DMF devices are made with photolithography which requires complicated processes, sophisticated equipment, and cleanroom setting. Based on the fabrication technology being used, these DMF manipulate droplets in a planar format that limits the increase of chip density. The objective of this study is to introduce additive manufacturing (AM) into the fabrication process of DMF to design and build a 3D-structured DMF platform for droplet actuation between different planes. The creation of additively manufactured DMF is demonstrated by fabricating a planar DMF device with ion-selective sensing functions. Following that, the design of vertical DMF electrodes overcomes the barrier for droplets to move between different actuation components, and the application of AM helps to construct free-standing xylem DMF to drive the droplet upward. To form a functional system, the horizontal and xylem DMF are integrated so that a three-dimensional (3D) droplet manipulation is demonstrated. The integrated system performs a droplet actuation speed of 1 mm/s from horizontal to vertical with various droplet sizes. It is highly expected that the 3D-structured DMF open new possibilities for the design of DMF devices that can be used in many practical applications.","relators:aut:Min, Xin",575,2021-08-27,"Applied Sciences: School of Mechatronic Systems Engineering",etd21603,"Digital microfluidics%%%Additive manufacturing%%%3D printing%%%Electrowetting",531,30044%%%30035,"This thesis may be printed or downloaded for non-commercial research and scholarly purposes.","relators:ths:Soo, Kim, Woo","(Thesis) Ph.D.",545,"125 pages.",519,512
 ```
 
-Supplemental files for a thesis are created as child nodes, with the thesis node containing the PDF media as the parent. Here is an [example in Summit](https://summit.sfu.ca/item/35389) that has two supplemental video files. These child nodes are created using a Workbench [secondary task](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task). The configuration file for this secondary task looks like this:
+Supplemental files for a thesis are created as child nodes, with the thesis node containing the PDF media as the parent. Here is the [thesis in Summit](https://summit.sfu.ca/item/35620) created from the CSV data above. This thesis has four supplemental video files, which are created as the child nodes using a Workbench [secondary task](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task). The configuration file for this secondary task looks like this:
 
 ```yaml
+task: create
+host: https://summit.sfu.ca
+username: xxxxxxxxxxxxxxxx
+password: xxxxxxxxxxxxxxxx
+content_type: islandora_object
+allow_adding_terms: true
+subdelimiter: '%%%'
+media_types_override:
+  - video: ['mp4', 'mov', 'mpv']
+  - file: ['zip', 'xls', 'xlsx']
+# In case the supplemental file doesn't download, etc. we still create the node.
+allow_missing_files: true
+input_dir: /home/utilityuser/islandora_workbench/input_data
+input_csv: /home/utilityuser/summit_data/tmp/supplemental_daily.csv
+log_file_path: /home/utilityuser/islandora_workbench/theses_daily.log
 ```
 
-The input CSV for this secondary task, which describes the supplemental files, looks like this:
+The input CSV for this secondary task, which describes the supplemental files (and is named in the `input_csv` setting in the "secondary" config file), looks like this (only rows for children of the above item shown here):
 
 ```csv
-[example to come]
+id,parent_id,title,file,field_model,field_member_of,field_linked_agent,field_sfu_rights_ref,field_edtf_date_created,field_description,field_display_hints
+6603.1,6603,"DMF droplet actuation_Planar","/home/utilityuser/summit_data/tmp/etd21603/etd21603-xin-min-DMF droplet actuation_Planar.mp4",511,,"relators:aut:Min, Xin",575,2021-08-27,,
+6603.2,6603,"DMF droplet actuation_3D electrode","/home/utilityuser/summit_data/tmp/etd21603/etd21603-xin-min-DMF droplet actuation_3D electrode.mp4",511,,"relators:aut:Min, Xin",575,2021-08-27,,
+6603.3,6603,"DMF droplet actuation_xylem DMF","/home/utilityuser/summit_data/tmp/etd21603/etd21603-xin-min-DMF droplet actuation_xylem DMF.mp4",511,,"relators:aut:Min, Xin",575,2021-08-27,,
+6603.4,6603,"Horizontal to vertical movement","/home/utilityuser/summit_data/tmp/etd21603/etd21603-xin-min-Horizontal to vertical movement.mp4",511,,"relators:aut:Min, Xin",575,2021-08-27,,
 ```
 
 #### Step 4: Update the TRS
