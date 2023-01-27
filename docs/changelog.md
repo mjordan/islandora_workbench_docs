@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* January 26, 2023 (commit 6b0c16b): Added validation in `--check` of parent/child position in CSV file (issue [529](https://github.com/mjordan/islandora_workbench/issues/529).
 * January 19, 2023 (commit b97b563): Fixed bug [522](https://github.com/mjordan/islandora_workbench/issues/522) and (commit 76d8c44) bug [523](https://github.com/mjordan/islandora_workbench/issues/523); changed log level from `ERROR` to `WARNING` when there are missing files and the `allow_missing_files` config option is set to true.
 * January 18, 2023 (commit 727145f): Added `validate_parent_node_exists` config option (issue [521](https://github.com/mjordan/islandora_workbench/issues/521)).
 * January 17, 2023 (commit a4a5008): Added better trimming of trailing slash in the `host` config option (issue [519](https://github.com/mjordan/islandora_workbench/issues/519)); (commit 1763fe6) fixed bug when "field_member_of" contained multiple values [520](https://github.com/mjordan/islandora_workbench/issues/520).

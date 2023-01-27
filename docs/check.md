@@ -30,6 +30,7 @@ If you do this, Workbench will check the following conditions and report any err
     * Whether files in the `file` CSV column have extensions that are registered with the media's file field in Drupal. Note that validation of file extensions does not yet apply to files named using the `additional_files` configuration or for remote files (see [this issue](https://github.com/mjordan/islandora_workbench/issues/126) for more info).
     * Whether the media types configured for specific file extensions are configured on the target Drupal. Islandora Workbench will default to the 'file' media type if it can't find another more specific media type for a file, so the most likely cause for this check to fail is that the assigned media type does not exist on the target Drupal.
     * If creating [media track files](/islandora_workbench_docs/media_track_files/), `--check` will tell you if your media_use_tid value (either in the media_use_tid configuration setting or in row-level values in your CSV) does not include the "Service File" taxonomy term.
+    * If creating compound/paged content using the "With page/child-level metadata" method, `--check` will tell you if any child item rows in your CSV precede their parent rows. 
 * Field values
     * Base fields
         * If the `langcode` field is present in your CSV, whether values in it are valid Drupal language codes.
