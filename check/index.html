@@ -913,6 +913,7 @@
 <li>Whether files in the <code>file</code> CSV column have extensions that are registered with the media's file field in Drupal. Note that validation of file extensions does not yet apply to files named using the <code>additional_files</code> configuration or for remote files (see <a href="https://github.com/mjordan/islandora_workbench/issues/126">this issue</a> for more info).</li>
 <li>Whether the media types configured for specific file extensions are configured on the target Drupal. Islandora Workbench will default to the 'file' media type if it can't find another more specific media type for a file, so the most likely cause for this check to fail is that the assigned media type does not exist on the target Drupal.</li>
 <li>If creating <a href="/islandora_workbench_docs/media_track_files/">media track files</a>, <code>--check</code> will tell you if your media_use_tid value (either in the media_use_tid configuration setting or in row-level values in your CSV) does not include the "Service File" taxonomy term.</li>
+<li>If creating compound/paged content using the "With page/child-level metadata" method, <code>--check</code> will tell you if any child item rows in your CSV precede their parent rows. </li>
 </ul>
 </li>
 <li>Field values<ul>
