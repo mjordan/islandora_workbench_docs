@@ -37,3 +37,5 @@ Note that Workbench will not validate values in fields that are configured to us
 ## Setting destination filesystem for media is not possible
 
 Drupal's REST interface for file fields does not allow overriding the "upload destination" (filesystem) that is configured in the file field's configuration. For example, if a file field is configured to use the "Flysystem: fedora" upload destination, you cannot tell Workbench to use the "Public Files" upload destination instead.
+
+The `drupal_filesystem` configuration setting only applies to Drupal versions 8.x - 9.1. If you are using Drupal 9.2 or later, this setting is ignored.
