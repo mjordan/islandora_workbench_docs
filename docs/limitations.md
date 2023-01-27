@@ -34,3 +34,6 @@ Only taxonomy reference fields that use the "Default" reference type are current
 
 Note that Workbench will not validate values in fields that are configured to use this type of reference. Also, term IDs that are not in the View results will result in the node not being created (Drupal will return a 422 response).
 
+## Setting destination filesystem for media is not possible
+
+Drupal's REST interface for file fields does not allow overriding the "upload destination" (filesystem) that is configured in the file field's configuration. For example, if a file field is configured to use the "Flysystem: fedora" upload destination, you cannot tell Workbench to use the "Public Files" upload destination instead.
