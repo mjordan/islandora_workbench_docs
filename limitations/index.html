@@ -968,8 +968,8 @@
 </ul>
 <p>Note that Workbench will not validate values in fields that are configured to use this type of reference. Also, term IDs that are not in the View results will result in the node not being created (Drupal will return a 422 response).</p>
 <h2 id="setting-destination-filesystem-for-media-is-not-possible">Setting destination filesystem for media is not possible</h2>
-<p>Drupal's REST interface for file fields does not allow overriding the "upload destination" (filesystem) that is configured in the file field's configuration. For example, if a file field is configured to use the "Flysystem: fedora" upload destination, you cannot tell Workbench to use the "Public Files" upload destination instead.</p>
-<p>The <code>drupal_filesystem</code> configuration setting only applies to Drupal versions 8.x - 9.1. If you are using Drupal 9.2 or later, this setting is ignored.</p>
+<p>Drupal's REST interface for file fields does not allow overriding the "upload destination" (filesystem) that is defined in a media type's file field configuration. For example, if a file field is configured to use the "Flysystem: fedora" upload destination, you cannot tell Workbench to use the "Public Files" upload destination instead.</p>
+<p>Note that the <code>drupal_filesystem</code> configuration setting only applied to Drupal versions 8.x - 9.1. In Drupal 9.2 or later, this setting is ignored.</p>
 
 
 
