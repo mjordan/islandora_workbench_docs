@@ -15,7 +15,7 @@
     
     
       
-        <title>Creating nodes from the sample data - Islandora Workbench</title>
+        <title>Generating a contact sheet - Islandora Workbench</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating nodes from the sample data
+              Generating a contact sheet
             
           </span>
         </div>
@@ -547,19 +547,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../sample_data/" class="md-nav__link">
         Creating nodes from the sample data
       </a>
-      
     </li>
   
 
@@ -690,11 +682,19 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../contact_sheet/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Generating a contact sheet
       </a>
+      
     </li>
   
 
@@ -819,40 +819,25 @@
                 
                   
 
-  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/sample_data.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/contact_sheet.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-  <h1>Creating nodes from the sample data</h1>
+  <h1>Generating a contact sheet</h1>
 
-<p>Islandora Workbench comes with some sample data. Running</p>
-<p><code>./workbench --config create.yml --check</code></p>
-<p>will result in the following output:</p>
-<pre><code class="language-text">OK, connection to Drupal at http://localhost:8000 verified.
-OK, configuration file has all required values (did not check for optional values).
-OK, CSV file input_data/metadata.csv found.
-OK, all 5 rows in the CSV file have the same number of columns as there are headers (5).
-OK, CSV column headers match Drupal field names.
-OK, required Drupal fields are present in the CSV file.
-OK, term IDs/names in CSV file exist in their respective taxonomies.
-OK, term IDs/names used in typed relation fields in the CSV file exist in their respective taxonomies.
-OK, files named in the CSV &quot;file&quot; column are all present.
-Configuration and input data appear to be valid.
-</code></pre>
-<p>Then running workbench Workbench without <code>--check</code> will result in something like:</p>
-<pre><code class="language-text">Node for 'Small boats in Havana Harbour' created at http://localhost:8000/node/52.
-+File media for IMG_1410.tif created.
-Node for 'Manhatten Island' created at http://localhost:8000/node/53.
-+File media for IMG_2549.jp2 created.
-Node for 'Looking across Burrard Inlet' created at http://localhost:8000/node/54.
-+Image media for IMG_2940.JPG created.
-Node for 'Amsterdam waterfront' created at http://localhost:8000/node/55.
-+Image media for IMG_2958.JPG created.
-Node for 'Alcatraz Island' created at http://localhost:8000/node/56.
-+Image media for IMG_5083.JPG created.
-</code></pre>
+<p>During <code>--check</code>, you can generate a contact sheet from your input CSV by adding the command-line option <code>--contactsheet</code>, like this:</p>
+<ul>
+<li><code>./workbench --config anyconfig.yml --check --contactsheet</code></li>
+</ul>
+<p>Contact sheets looks like this:</p>
+<p><img alt="Example contact sheet" src="../images/contact_sheet_no_compounds.png" /></p>
+<p>Fields with long values are indicated by "[...]"; placing your pointer over this will show a popup that contains the full value. Also, in fields that have multiple values, the subdelimiter defined in your configuration file is replaced by a small square, to improve readability.</p>
+<p>If there are any compound items in your CSV, they are indicated by a "compound" icon and a link to a separate contact sheet containing all their members:</p>
+<p><img alt="Example contact sheet with compound items" src="../images/contact_sheet_with_compounds.png" /></p>
+<p>The members contact sheet looks like this:</p>
+<p><img alt="Example contact sheet with compound items" src="../images/contact_sheet_members.png" /></p>
 
 
 
@@ -873,7 +858,7 @@ Node for 'Alcatraz Island' created at http://localhost:8000/node/56.
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../generating_csv_files/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Generating CSV files" rel="prev">
+        <a href="../workflows/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Workflows" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -882,20 +867,20 @@ Node for 'Alcatraz Island' created at http://localhost:8000/node/56.
               <span class="md-footer__direction">
                 Previous
               </span>
-              Generating CSV files
+              Workflows
             </div>
           </div>
         </a>
       
       
         
-        <a href="../exporting_islandora_7_content/" class="md-footer__link md-footer__link--next" aria-label="Next: Exporting Islandora 7 content" rel="next">
+        <a href="../reducing_load/" class="md-footer__link md-footer__link--next" aria-label="Next: Reducing Workbench&#39;s impact on Drupal" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Exporting Islandora 7 content
+              Reducing Workbench's impact on Drupal
             </div>
           </div>
           <div class="md-footer__button md-icon">
