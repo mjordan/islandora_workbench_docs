@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* January 29, 2023 (commit cff6008): Added ability to generate a contact sheet (issue [515](https://github.com/mjordan/islandora_workbench/issues/515)).
 * January 26, 2023 (commit 6b0c16b): Added validation in `--check` of parent/child position in CSV file (issue [529](https://github.com/mjordan/islandora_workbench/issues/529)); resolved [issue 531](https://github.com/mjordan/islandora_workbench/issues/531) (commit 3150b4b).
 * January 19, 2023 (commit b97b563): Fixed bug [522](https://github.com/mjordan/islandora_workbench/issues/522) and (commit 76d8c44) bug [523](https://github.com/mjordan/islandora_workbench/issues/523); changed log level from `ERROR` to `WARNING` when there are missing files and the `allow_missing_files` config option is set to true.
 * January 18, 2023 (commit 727145f): Added `validate_parent_node_exists` config option (issue [521](https://github.com/mjordan/islandora_workbench/issues/521)).
@@ -32,6 +33,7 @@
 
 ### Documentation
 
+* January 23, 2023: Added "[Generating a contact sheet](/islandora_workbench_docs/contact_sheet)".
 * January 23, 2023: Added example CSVs for primary and secondary tasks in the "[Case study](/islandora_workbench_docs/workflows/#case-study)" section of the Workflows documentation.
 * January 22, 2023: Several clarifications and corrections, including @rosiel's correction of how to use `allow_missing_files` and `additional_files` together; added some [examples of planning large compound/paged content ingests](/islandora_workbench_docs/paged_and_compound/#with-pagechild-level-metadata).
 * January 16, 2023: Updated "[Exporting Islandora 7 content](/islandora_workbench_docs/exporting_islandora_7_content/)." 

@@ -38,6 +38,7 @@ nav:
     - Cancelling Workbench: cancelling.md
     - Quick delete: quick_delete.md
     - Workflows: workflows.md
+    - Generating a contact sheet: contact_sheet.md
     - Reducing Workbench's impact on Drupal: reducing_load.md
     - Known limitations: limitations.md
     - Roadmap (Fall 2021): roadmap.md
