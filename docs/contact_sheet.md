@@ -1,4 +1,4 @@
-During `--check`, you can generate a contact sheet from your input CSV by adding the command-line option `--contactsheet`, like this:
+During `--check` in `create` tasks, you can generate a contact sheet from your input CSV by adding the command-line option `--contactsheet`, like this:
 
 * `./workbench --config anyconfig.yml --check --contactsheet`
 
