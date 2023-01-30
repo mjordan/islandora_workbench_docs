@@ -16,7 +16,7 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 Each parent's pages are located in a subdirectory of the input directory that is named to match the value of the `id` field of the parent item they are pages of:
 
 ```text
-samplebook/
+books/
 ├── book1
 │   ├── page-001.jpg
 │   ├── page-002.jpg
