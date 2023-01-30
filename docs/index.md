@@ -13,6 +13,7 @@ Note that Islandora Workbench is not related in any way to the Drupal contrib mo
 * Provides robust data validation functionality
 * Supports a variety of Drupal entity field types (text, integer, term reference, typed relation, geolocation)
 * Can generate a CSV file template based on Drupal content type
+* Can generate a contact sheet from CSV data
 * Can use a Google Sheet or an Excel file instead of a CSV file as input
 * Allows assignment of Drupal vocabulary terms using term IDs, term names, or term URIs
 * Allows creation of new taxonomy terms from CSV field data
