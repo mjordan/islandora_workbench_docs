@@ -11,17 +11,17 @@ Contact sheets looks like this:
 The icons (courtesy of [icons8](https://icons8.com/)) indicate if the item in the CSV is an:
 
 * image
-* PDF
 * video
 * audio
+* PDF
 * miscellaneous binary file
 * compound item
 
-An additional icon that indicates that there is no file in the input CSV for the item.
+There is also an icon that indicates that there is no file in the input CSV for the item.
 
-Fields with long values are indicated by "[...]". Placing your pointer over this will show a popup that contains the full value. Also, in fields that have multiple values, the subdelimiter defined in your configuration file is replaced by a small square (&square;), to improve readability.
+Fields with long values are indicated by link formatted like "[...]". Placing your pointer over this link will show a popup that contains the full value. Also, in fields that have multiple values, the subdelimiter defined in your configuration file is replaced by a small square (&square;), to improve readability.
 
-If there are any compound items in your CSV, they are indicated by a "compound" icon and a link to a separate contact sheet containing all their members:
+Compound items in the input CSV sheet are represented by a "compound" icon and a link to a separate contact sheet containing the item's members:
 
 ![Example contact sheet with compound items](images/contact_sheet_with_compounds.png)
 
@@ -32,7 +32,7 @@ The members contact sheet looks like this:
 !!! note
     Currently, separate contact sheets can only be created for compound items that use the "With page/child-level metadata" method of creating compound/paged content. Support for the "Using subdirectories" method [is underway](https://github.com/mjordan/islandora_workbench/issues/536).
 
-You can define where your contact sheet is written to using the `contact_sheet_output_dir` configuration setting. If the directory doesn't exist, Workbench will create it. All the HTML, CSS, and image files that are part of the contact sheet(s) is written to this directory, so if you want to share it with someone (for quality assurance purposes, for example), you can give them a copy of the directory.
+You can define where your contact sheet is written to using the `contact_sheet_output_dir` configuration setting. If the directory doesn't exist, Workbench will create it. All the HTML, CSS, and image files that are part of the contact sheet(s) is written to this directory, so if you want to share it with someone (for quality assurance purposes, for example), you can give them a copy of the directory and its contents.
 
 You can also define the path to an alternative CSS stylesheet to use for your contact sheets. The default CSS file is a `assets/contact_sheet/contact-sheet.css` within the Workbench directory. To specify your own CSS file, include its relative (to the Workbench directory) or absolute path in the `contact_sheet_css_path` config setting. If you use an alternative CSS file, you should base yours on a copy of the default one, since the layout of the contact sheets depends heavily on the default CSS.
 
