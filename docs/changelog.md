@@ -33,7 +33,8 @@
 
 ### Documentation
 
-* January 23, 2023: Added "[Generating a contact sheet](/islandora_workbench_docs/contact_sheet)".
+* January 30, 2023: Edits to the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method of creating compound/paged content to clarify the absence of the "file" CSV column.
+* January 29, 2023: Added "[Generating a contact sheet](/islandora_workbench_docs/contact_sheet)".
 * January 23, 2023: Added example CSVs for primary and secondary tasks in the "[Case study](/islandora_workbench_docs/workflows/#case-study)" section of the Workflows documentation.
 * January 22, 2023: Several clarifications and corrections, including @rosiel's correction of how to use `allow_missing_files` and `additional_files` together; added some [examples of planning large compound/paged content ingests](/islandora_workbench_docs/paged_and_compound/#with-pagechild-level-metadata).
 * January 16, 2023: Updated "[Exporting Islandora 7 content](/islandora_workbench_docs/exporting_islandora_7_content/)." 
