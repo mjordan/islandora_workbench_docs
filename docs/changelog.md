@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* January 31, 2023 (commit b452450): Resolved issue (issue [536](https://github.com/mjordan/islandora_workbench/issues/536)).
 * January 29, 2023 (commit cff6008): Added ability to generate a contact sheet (issue [515](https://github.com/mjordan/islandora_workbench/issues/515)).
 * January 26, 2023 (commit 6b0c16b): Added validation in `--check` of parent/child position in CSV file (issue [529](https://github.com/mjordan/islandora_workbench/issues/529)); resolved [issue 531](https://github.com/mjordan/islandora_workbench/issues/531) (commit 3150b4b).
 * January 19, 2023 (commit b97b563): Fixed bug [522](https://github.com/mjordan/islandora_workbench/issues/522) and (commit 76d8c44) bug [523](https://github.com/mjordan/islandora_workbench/issues/523); changed log level from `ERROR` to `WARNING` when there are missing files and the `allow_missing_files` config option is set to true.
@@ -33,6 +34,7 @@
 
 ### Documentation
 
+* January 31, 2023: Updated "[Generating a contact sheet](/islandora_workbench_docs/contact_sheet)".
 * January 30, 2023: Edits to the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method of creating compound/paged content to clarify the absence of the "file" CSV column.
 * January 29, 2023: Added "[Generating a contact sheet](/islandora_workbench_docs/contact_sheet)".
 * January 23, 2023: Added example CSVs for primary and secondary tasks in the "[Case study](/islandora_workbench_docs/workflows/#case-study)" section of the Workflows documentation.
