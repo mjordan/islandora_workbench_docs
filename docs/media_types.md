@@ -30,7 +30,7 @@ media_types_override:
 Note that:
 
 * If a file's extension is not present in the default mapping or in the `media_types_override` custom mapping, the media is assigned the "file" type.
-* If you use the `media_types_override` configuration option, your mapping *replaces* Workbench's default mappings for the specified file extension. This means that if you want to retain any of the default mappings for the file extension, you need to include them in the mapping, as illustrated by the presence of "mp4" in the example above.
+* If you use the `media_types_override` configuration option, your mapping *replaces* Workbench's default mappings for the specified media type. This means that if you want to retain the default media type mapping for a file extension, you need to include it in the mapping, as illustrated by the presence of "mp4" in the example above.
 * If both `media_type` and `media_types_override` are included in the config file, the mapping in `media_types_override` is ignored and the media type assigned in `media_type` is used.
 
 ## Configuring a custom media type

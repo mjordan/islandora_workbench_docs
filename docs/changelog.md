@@ -34,7 +34,7 @@
 
 ### Documentation
 
-* January 31, 2023: Updated "[Generating a contact sheet](/islandora_workbench_docs/contact_sheet)".
+* January 31, 2023: Updated "[Generating a contact sheet](/islandora_workbench_docs/contact_sheet)"; updated "[Configuring media types](/islandora_workbench_docs/media_types/)".
 * January 30, 2023: Edits to the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method of creating compound/paged content to clarify the absence of the "file" CSV column.
 * January 29, 2023: Added "[Generating a contact sheet](/islandora_workbench_docs/contact_sheet)".
 * January 23, 2023: Added example CSVs for primary and secondary tasks in the "[Case study](/islandora_workbench_docs/workflows/#case-study)" section of the Workflows documentation.
