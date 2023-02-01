@@ -29,7 +29,7 @@ The members contact sheet looks like this:
 
 ![Example contact sheet with compound items](images/contact_sheet_members.png)
 
-You can define where your contact sheet is written to using the `contact_sheet_output_dir` configuration setting. If the directory doesn't exist, Workbench will create it. All the HTML, CSS, and image files that are part of the contact sheet(s) is written to this directory, so if you want to share it with someone (for quality assurance purposes, for example), you can zip up the directory and its contents and give them a copy. All the files required to render the conact sheet are in this directory.
+You can define where your contact sheet is written to using the `contact_sheet_output_dir` configuration setting. If the directory doesn't exist, Workbench will create it. All the HTML, CSS, and image files that are part of the contact sheet(s) is written to this directory, so if you want to share it with someone (for quality assurance purposes, for example), you can zip up the directory and its contents and give them a copy. All the files required to render the conact sheet are in this directory:
 
 ![Example contact sheet directory](images/contact_sheet_directory.png)
 
