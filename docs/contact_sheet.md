@@ -31,5 +31,7 @@ The members contact sheet looks like this:
 
 You can define where your contact sheet is written to using the `contact_sheet_output_dir` configuration setting. If the directory doesn't exist, Workbench will create it. All the HTML, CSS, and image files that are part of the contact sheet(s) is written to this directory, so if you want to share it with someone (for quality assurance purposes, for example), you can zip up the directory and its contents and give them a copy. All the files required to render the conact sheet are in this directory.
 
+![Example contact sheet directory](images/contact_sheet_directory.png)
+
 You can also define the path to an alternative CSS stylesheet to use for your contact sheets. The default CSS file is a `assets/contact_sheet/contact-sheet.css` within the Workbench directory. To specify your own CSS file, include its relative (to the Workbench directory) or absolute path in the `contact_sheet_css_path` config setting. If you use an alternative CSS file, you should base yours on a copy of the default one, since the layout of the contact sheets depends heavily on the default CSS.
 
