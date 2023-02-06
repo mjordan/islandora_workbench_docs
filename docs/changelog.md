@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* Feburay 5, 2023 (commit 65db118): Resolved issue (issue [538](https://github.com/mjordan/islandora_workbench/issues/538)).
 * January 31, 2023 (commit b452450): Resolved issue (issue [536](https://github.com/mjordan/islandora_workbench/issues/536)).
 * January 29, 2023 (commit cff6008): Added ability to generate a contact sheet (issue [515](https://github.com/mjordan/islandora_workbench/issues/515)).
 * January 26, 2023 (commit 6b0c16b): Added validation in `--check` of parent/child position in CSV file (issue [529](https://github.com/mjordan/islandora_workbench/issues/529)); resolved [issue 531](https://github.com/mjordan/islandora_workbench/issues/531) (commit 3150b4b).
@@ -34,6 +35,7 @@
 
 ### Documentation
 
+* February 5, 2023: Updated the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method of creating compound/paged content to explain using the new `page_title_template` config option.
 * January 31, 2023: Updated "[Generating a contact sheet](/islandora_workbench_docs/contact_sheet)"; updated "[Configuring media types](/islandora_workbench_docs/media_types/)".
 * January 30, 2023: Edits to the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method of creating compound/paged content to clarify the absence of the "file" CSV column.
 * January 29, 2023: Added "[Generating a contact sheet](/islandora_workbench_docs/contact_sheet)".

@@ -173,6 +173,7 @@ See the section "[Creating paged content](/islandora_workbench_docs/paged_and_co
 | paged_content_page_model_tid |  | | Required if `paged_content_from_directories` is true. The the term ID from the Islandora Models taxonomy to assign to pages. |
 | paged_content_page_display_hints |  | | The term ID from the Islandora Display taxonomy to assign to pages. If not included, defaults to the value of the `field_display_hints` in the parent's record in the CSV file. |
 | paged_content_page_content_type |  | | Set to the machine name of the Drupal node content type for pages created using the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method if it is different than the content type of the parent (which is specified in the content_type setting). |
+| page_title_template | '$parent_title, page $weight' | | Template used to generate the titles of pages/members in the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method. |
 | secondary_tasks |  | | A list of configuration file names that are executed as secondary tasks after the primary task to create compound objects. See "[Using a secondary task](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task)" for more information. |
 
 ### Logging settings
