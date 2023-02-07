@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* Feburay 6, 2023 (commit 869bd5b): Resolved issue (issue [547](https://github.com/mjordan/islandora_workbench/issues/547)).
 * Feburay 5, 2023 (commit 65db118): Resolved issue (issue [538](https://github.com/mjordan/islandora_workbench/issues/538)).
 * January 31, 2023 (commit b452450): Resolved issue (issue [536](https://github.com/mjordan/islandora_workbench/issues/536)).
 * January 29, 2023 (commit cff6008): Added ability to generate a contact sheet (issue [515](https://github.com/mjordan/islandora_workbench/issues/515)).
