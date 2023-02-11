@@ -801,6 +801,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ive-pulled-in-updates-to-islandora-workbench-from-github-but-when-i-run-it-python-complains-about-not-being-able-to-find-a-library" class="md-nav__link">
+    I've pulled in updates to Islandora Workbench from Github but when I run it, Python complains about not being able to find a library.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-in-the-log-mentioning-http-response-code-422" class="md-nav__link">
     Workbench is failing to ingest some nodes and is leaving messages in the log mentioning HTTP response code 422.
   </a>
@@ -838,13 +845,6 @@
           <li class="md-nav__item">
   <a href="#my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use" class="md-nav__link">
     My Islandora uses a custom media type and I need to tell Workbench what file field to use.
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ive-pulled-in-updates-to-islandora-workbench-from-github-but-when-i-run-it-python-complains-about-not-being-able-to-find-a-library" class="md-nav__link">
-    I've pulled in updates to Islandora Workbench from Github but when I run it, Python complains about not being able to find a library.
   </a>
   
 </li>
@@ -974,6 +974,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ive-pulled-in-updates-to-islandora-workbench-from-github-but-when-i-run-it-python-complains-about-not-being-able-to-find-a-library" class="md-nav__link">
+    I've pulled in updates to Islandora Workbench from Github but when I run it, Python complains about not being able to find a library.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-in-the-log-mentioning-http-response-code-422" class="md-nav__link">
     Workbench is failing to ingest some nodes and is leaving messages in the log mentioning HTTP response code 422.
   </a>
@@ -1011,13 +1018,6 @@
           <li class="md-nav__item">
   <a href="#my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use" class="md-nav__link">
     My Islandora uses a custom media type and I need to tell Workbench what file field to use.
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ive-pulled-in-updates-to-islandora-workbench-from-github-but-when-i-run-it-python-complains-about-not-being-able-to-find-a-library" class="md-nav__link">
-    I've pulled in updates to Islandora Workbench from Github but when I run it, Python complains about not being able to find a library.
   </a>
   
 </li>
@@ -1101,6 +1101,9 @@
 <p>If git tells you it has pulled in any changes to Workbench, you will be running the latest code. If you get an error while running git, ask for help.</p>
 <p>Also, you might be asked to provide your configuration file (without username and password!), some sample input CSV, or your Workbench log file.</p>
 <h2 id="some-things-that-might-sound-familiar">Some things that might sound familiar</h2>
+<h3 id="ive-pulled-in-updates-to-islandora-workbench-from-github-but-when-i-run-it-python-complains-about-not-being-able-to-find-a-library">I've pulled in updates to Islandora Workbench from Github but when I run it, Python complains about not being able to find a library.</h3>
+<p>First thing is a meta thing! This won't happen very often, and the cause of this message will likely have been announced in the <code>#islandoraworkbench</code> Slack channel. This error is caused by the addition of a new Python library to Workbench. Rerunning <code>setup.py</code> will install the missing library. Details are available in the "Updating Islandora Workbench" section of the <a href="https://mjordan.github.io/islandora_workbench_docs/installation/#updating-islandora-workbench">Requirements and Installation</a> docs.</p>
+<p>This problem happens so infrequently that you <em>do not need</em> to run <code>setup.py</code> every time you pull in current code. Introducing a new library is not a common occurancde.l</p>
 <h3 id="workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-in-the-log-mentioning-http-response-code-422">Workbench is failing to ingest some nodes and is leaving messages in the log mentioning HTTP response code 422.</h3>
 <p>This is probably caused by unexpected data in your CSV file that Workbench's <code>--check</code> validation is not finding. If you encounter these messages, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a> and share any relevant entries in your Workbench log and Drupal log (as an admin user, go to Admin &gt; Reports &gt; Recent log messages) so we can track down the problem.</p>
 <p>One of the most common causes of this error is that one or more of the vocabularies being populated in your <code>create</code> task CSV contain required fields other than the default term name. It is possible to have Workbench create these fields, but you must do so as a separate <code>create_terms</code> task. See "<a href="/islandora_workbench_docs/creating_taxonomy_terms">Creating taxonomy terms</a>" for more information.</p>
@@ -1133,8 +1136,6 @@
 'extracted_text': 'field_media_file',
 'fits_technical_metadata': 'field_media_file'
 </code></pre>
-<h3 id="ive-pulled-in-updates-to-islandora-workbench-from-github-but-when-i-run-it-python-complains-about-not-being-able-to-find-a-library">I've pulled in updates to Islandora Workbench from Github but when I run it, Python complains about not being able to find a library.</h3>
-<p>This is likely due to the addition of a new Python library to Workbench. Rerunning <code>setup.py</code> will install the missing library. Details are available in the "Updating Islandora Workbench" section of the <a href="https://mjordan.github.io/islandora_workbench_docs/installation/#updating-islandora-workbench">Requirements and Installation</a> docs.</p>
 <h3 id="edtf-interval-values-are-not-rendering-in-islandora-properly">EDTF 'interval' values are not rendering in Islandora properly.</h3>
 <p>Islandora can display EDTF interval values (e.g., <code>2004-06/2006-08</code>, <code>193X/196X</code>) properly, but by default, the configuration that allows this is disabled (see <a href="https://github.com/Islandora/documentation/issues/1889">this issue</a> for more information). To enable it, for each field in your Islandora content types that use EDTF fields, visit the "Manage form display" configuration for the content type, and for each field that uses the "Default EDTF widget", within the widget configuration (click on the gear), check the "Permit date intervals" option and click "Update":</p>
 <p><img alt="EDTF form widget configuration" src="../images/edtf_form_widget_config.png" /></p>
