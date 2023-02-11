@@ -828,18 +828,12 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use" class="md-nav__link">
     My Islandora uses a custom media type and I need to tell Workbench what file field to use.
   </a>
   
-    <nav class="md-nav" aria-label="My Islandora uses a custom media type and I need to tell Workbench what file field to use.">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#ive-pulled-in-updates-to-islandora-workbench-from-github-but-when-i-run-it-python-complains-about-not-being-able-to-find-a-library" class="md-nav__link">
@@ -1000,18 +994,12 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use" class="md-nav__link">
     My Islandora uses a custom media type and I need to tell Workbench what file field to use.
   </a>
   
-    <nav class="md-nav" aria-label="My Islandora uses a custom media type and I need to tell Workbench what file field to use.">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#ive-pulled-in-updates-to-islandora-workbench-from-github-but-when-i-run-it-python-complains-about-not-being-able-to-find-a-library" class="md-nav__link">
@@ -1087,7 +1075,7 @@
 <p>If you are encountering problems not described here, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a> and help improve Islandora Workbench!</p>
 </div>
 <h2 id="ask-for-help">Ask for help</h2>
-<p>The <code>#islandoraworkbench</code> Slack is good place to ask a question if Workbench isn't working the way you expect.</p>
+<p>The <code>#islandoraworkbench</code> Slack channel is good place to ask a question if Workbench isn't working the way you expect or if it crashes.</p>
 <p>Before you ask, it might help to ensure that you are running an up-to-date version. Workbnench doesn't use version numbers yet, so the best way o keep it wup to date is to pull in the latest commits from the Github repository reperiodically.To do that, within the "islandora_workbench" directory, run the following git commands:</p>
 <ol>
 <li><code>git branch</code>, which should tell whether you're currently in the "main" brach. If you are:</li>
@@ -1113,7 +1101,7 @@
 <p>Note that both of these settings will slow Workbench down, which is their purpose. However, <code>adaptive_pause</code> should have less impact on overall speed since it only pauses between requests if it detects the server is getting slower over time. If you use <code>adaptive_pause</code>, you can also tune the <code>adaptive_pause_threshold</code> option by incrementing the value by .5 intervals (for example, from the default of 2 to 2.5, then 3, etc.) to see if doing so reduces strain on your Drupal server while keeping overall speed acceptable. You can also lower the value of <code>adaptive_pause</code> incrementally to balance strain with overall speed.</p>
 <h3 id="the-text-in-my-csv-does-not-match-how-it-looks-when-i-view-it-in-drupal">The text in my CSV does not match how it looks when I view it in Drupal.</h3>
 <p>If a field is configured in Drupal to use <a href="https://www.drupal.org/node/213156">text filters</a>, the HTML that is displayed to the user may not be exactly the same as the content of the node add/edit form field. If you check the node add/edit form, the content of the field should match the content of the CSV field. If it does, it is likely that Drupal is apply a text filter. See <a href="https://github.com/mjordan/islandora_workbench/issues/328">this issue</a> for more information.</p>
-<h2 id="my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use">My Islandora uses a custom media type and I need to tell Workbench what file field to use.</h2>
+<h3 id="my-islandora-uses-a-custom-media-type-and-i-need-to-tell-workbench-what-file-field-to-use">My Islandora uses a custom media type and I need to tell Workbench what file field to use.</h3>
 <p>If you need to create a media that is not one of the standard Islandora types (Image, File, Digital Document, Video, Audio, Extracted Text, or FITS Technical metadata), you will need to include the  <code>media_file_fields</code> setting in your config file, like this:</p>
 <pre><code class="language-yaml">media_file_fields:
  - mycustommedia_machine_name: field_custom_file
