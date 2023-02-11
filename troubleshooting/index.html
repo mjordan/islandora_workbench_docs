@@ -1096,7 +1096,14 @@
 <li><code>git pull</code>, which will fetch the most recent code and and merge it into the code you are running.</li>
 </ol>
 <p>If git tells you it has pulled in any changes to Workbench, you will be running the latest code. If you get an error while running git, ask for help.</p>
-<p>Also, you might be asked to provide your configuration file (without username and password!), some sample input CSV, or your Workbench log file.</p>
+<p>Also, you might be asked to provide one or more of the following:</p>
+<ul>
+<li>your configuration file (without username and password!)</li>
+<li>some sample input CSV</li>
+<li>your Workbench log file</li>
+<li>details fromn your Drupal log, available at Admin &gt; Reports &gt; Recent log messages</li>
+<li>whether youb have certain contrib modules installed, or other questions about how your Drupal is configured.</li>
+</ul>
 <h2 id="some-things-that-might-sound-familiar">Some things that might sound familiar</h2>
 <h3 id="ive-pulled-in-updates-to-islandora-workbench-from-github-but-when-i-run-it-python-complains-about-not-being-able-to-find-a-library">I've pulled in updates to Islandora Workbench from Github but when I run it, Python complains about not being able to find a library.</h3>
 <p>First thing is a meta thing! This won't happen very often, and the cause of this message will likely have been announced in the <code>#islandoraworkbench</code> Slack channel. This error is caused by the addition of a new Python library to Workbench. Running <code>setup.py</code> will install the missing library. Details are available in the "Updating Islandora Workbench" section of the <a href="https://mjordan.github.io/islandora_workbench_docs/installation/#updating-islandora-workbench">Requirements and Installation</a> docs.</p>
