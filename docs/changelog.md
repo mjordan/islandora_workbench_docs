@@ -36,6 +36,7 @@
 
 ### Documentation
 
+* February 11, 2023: Updated the "[Troubleshooting](/islandora_workbench_docs/troubleshooting/)" page.
 * February 5, 2023: Updated the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method of creating compound/paged content to explain using the new `page_title_template` config option.
 * January 31, 2023: Updated "[Generating a contact sheet](/islandora_workbench_docs/contact_sheet)"; updated "[Configuring media types](/islandora_workbench_docs/media_types/)".
 * January 30, 2023: Edits to the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method of creating compound/paged content to clarify the absence of the "file" CSV column.
