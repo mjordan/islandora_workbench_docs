@@ -1,6 +1,6 @@
 ### main branch (no tag/release)
 
-* Feburay 6, 2023 (commit 869bd5b): Resolved issue (issue [547](https://github.com/mjordan/islandora_workbench/issues/547)).
+* Feburay 11, 2023 (commit 869bd5b): Resolved issue (issue [547](https://github.com/mjordan/islandora_workbench/issues/547)). Added `rollback_dir` config option (commit 1abad16, pull request [550](https://github.com/mjordan/islandora_workbench/pull/550)). Updated PR template (commit a32e88f).
 * Feburay 5, 2023 (commit 65db118): Resolved issue (issue [538](https://github.com/mjordan/islandora_workbench/issues/538)).
 * January 31, 2023 (commit b452450): Resolved issue (issue [536](https://github.com/mjordan/islandora_workbench/issues/536)).
 * January 29, 2023 (commit cff6008): Added ability to generate a contact sheet (issue [515](https://github.com/mjordan/islandora_workbench/issues/515)).
@@ -36,7 +36,7 @@
 
 ### Documentation
 
-* February 11, 2023: Updated the "[Troubleshooting](/islandora_workbench_docs/troubleshooting/)" page.
+* February 11, 2023: Updated "[Troubleshooting](/islandora_workbench_docs/troubleshooting/)" and "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)."
 * February 5, 2023: Updated the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method of creating compound/paged content to explain using the new `page_title_template` config option.
 * January 31, 2023: Updated "[Generating a contact sheet](/islandora_workbench_docs/contact_sheet)"; updated "[Configuring media types](/islandora_workbench_docs/media_types/)".
 * January 30, 2023: Edits to the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method of creating compound/paged content to clarify the absence of the "file" CSV column.
