@@ -1,10 +1,10 @@
-If you encounter a problem, take a look at the "things that migh sound familiar" section below.
+If you encounter a problem, take a look at the "things that migh sound familiar" section below. But, if the problem you're encountering isn't described below, you can ask for help.
 
 ## Ask for help
 
-But, if the problem you're encountering isn't described below, you can ask for help!
+The `#islandoraworkbench` Slack channel is a good place to ask a question if Workbench isn't working the way you expect or if it crashes. You can also [open a Github issue](https://github.com/mjordan/islandora_workbench/issues).
 
-The `#islandoraworkbench` Slack channel is a good place to ask a question if Workbench isn't working the way you expect or if it crashes. You can also [open a Github issue](https://github.com/mjordan/islandora_workbench/issues). A common kind of "isn't working the way you expect" is likely caused by unclear documentation. Crashes are usually caused by sloppy Python coding. Reporting either is a great way to contribute to Islandora Workbench.
+If Workbench "isn't working the way you expect", the documentation is likely unclear. Crashes are usually caused by sloppy Python coding. Reporting either is a great way to contribute to Islandora Workbench.
 
 ## Before you ask...
 
@@ -30,7 +30,7 @@ Also, you might be asked to provide one or more of the following:
 
 ### I've pulled in updates to Islandora Workbench from Github but when I run it, Python complains about not being able to find a library.
 
-First thing is a meta thing! This won't happen very often, and the cause of this message will likely have been announced in the `#islandoraworkbench` Slack channel. This error is caused by the addition of a new Python library to Workbench. Running `setup.py` will install the missing library. Details are available in the "Updating Islandora Workbench" section of the [Requirements and Installation](https://mjordan.github.io/islandora_workbench_docs/installation/#updating-islandora-workbench) docs.
+This won't happen very often, and the cause of this message will likely have been announced in the `#islandoraworkbench` Slack channel. This error is caused by the addition of a new Python library to Workbench. Running `setup.py` will install the missing library. Details are available in the "Updating Islandora Workbench" section of the [Requirements and Installation](https://mjordan.github.io/islandora_workbench_docs/installation/#updating-islandora-workbench) docs.
 
 You *do not need* to run `setup.py` every time you update the Workbench code. Introducing a new library is not a common occurance.
 
