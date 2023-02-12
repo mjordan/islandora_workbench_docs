@@ -1084,10 +1084,9 @@
 
   <h1>Troubleshooting</h1>
 
-<p>If you encounter a problem, take a look at the "things that migh sound familiar" section below.</p>
+<p>If you encounter a problem, take a look at the "things that migh sound familiar" section below. But, if the problem you're encountering isn't described below, you can ask for help!</p>
 <h2 id="ask-for-help">Ask for help</h2>
-<p>But, if the problem you're encountering isn't described below, you can ask for help!</p>
-<p>The <code>#islandoraworkbench</code> Slack channel is a good place to ask a question if Workbench isn't working the way you expect or if it crashes. You can also <a href="https://github.com/mjordan/islandora_workbench/issues">open a Github issue</a>. A common kind of "isn't working the way you expect" is likely caused by unclear documentation. Crashes are usually caused by sloppy Python coding. Reporting either is a great way to contribute to Islandora Workbench.</p>
+<p>The <code>#islandoraworkbench</code> Slack channel is a good place to ask a question if Workbench isn't working the way you expect or if it crashes. You can also <a href="https://github.com/mjordan/islandora_workbench/issues">open a Github issue</a>. Usually, if Workbench "isn't working the way you expect", the documentation is likely unclear. Crashes are usually caused by sloppy Python coding. Reporting either is a great way to contribute to Islandora Workbench.</p>
 <h2 id="before-you-ask">Before you ask...</h2>
 <p>If Workbench crashes on you, you might be able to fix the problem by pulling in the most recent code. The best way to keep it up to date is to pull in the latest commits from the Github repository periodically.</p>
 <p>To pull in the latest updates, within the "islandora_workbench" directory, run the following git commands:</p>
@@ -1106,7 +1105,7 @@
 </ul>
 <h2 id="some-things-that-might-sound-familiar">Some things that might sound familiar</h2>
 <h3 id="ive-pulled-in-updates-to-islandora-workbench-from-github-but-when-i-run-it-python-complains-about-not-being-able-to-find-a-library">I've pulled in updates to Islandora Workbench from Github but when I run it, Python complains about not being able to find a library.</h3>
-<p>First thing is a meta thing! This won't happen very often, and the cause of this message will likely have been announced in the <code>#islandoraworkbench</code> Slack channel. This error is caused by the addition of a new Python library to Workbench. Running <code>setup.py</code> will install the missing library. Details are available in the "Updating Islandora Workbench" section of the <a href="https://mjordan.github.io/islandora_workbench_docs/installation/#updating-islandora-workbench">Requirements and Installation</a> docs.</p>
+<p>This won't happen very often, and the cause of this message will likely have been announced in the <code>#islandoraworkbench</code> Slack channel. This error is caused by the addition of a new Python library to Workbench. Running <code>setup.py</code> will install the missing library. Details are available in the "Updating Islandora Workbench" section of the <a href="https://mjordan.github.io/islandora_workbench_docs/installation/#updating-islandora-workbench">Requirements and Installation</a> docs.</p>
 <p>You <em>do not need</em> to run <code>setup.py</code> every time you update the Workbench code. Introducing a new library is not a common occurance.</p>
 <h3 id="workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-in-the-log-mentioning-http-response-code-422">Workbench is failing to ingest some nodes and is leaving messages in the log mentioning HTTP response code 422.</h3>
 <p>This is probably caused by unexpected data in your CSV file that Workbench's <code>--check</code> validation is not finding. If you encounter these messages, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a> and share any relevant entries in your Workbench log and Drupal log (as an admin user, go to Admin &gt; Reports &gt; Recent log messages) so we can track down the problem.</p>
