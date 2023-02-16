@@ -190,6 +190,7 @@ See the "[Logging](/islandora_workbench_docs/logging/)" section for more informa
 | log_response_status_code |  | false | Whether or not to log the HTTP response code. Useful for debugging. |
 | log_response_time |  | false | Whether or not to log the response time of each request that is slower than the average response time for the last 20 HTTP requests Workbench makes to the Drupal server. Useful for debugging. |
 | log_response_body |  | false | Whether or not to log the raw HTTP response body. Useful for debugging. |
+| log_term_creation | | true | Whether or not to log the creation of new terms during "create" and "update" tasks (does not apply to the "create_terms" task). `--check` will still report that terms in the CSV do not exist in their respective vocabularies. |
 
 ### HTTP settings
 
