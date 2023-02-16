@@ -358,3 +358,19 @@ node_post_create: ['/home/mark/hacking/islandora_workbench/scripts/entity_post_t
 # node_post_update: ['/home/mark/hacking/islandora_workbench/scripts/entity_post_task_example.py']
 # media_post_create: ['/home/mark/hacking/islandora_workbench/scripts/entity_post_task_example.py']
 ```
+
+### Create nodes and media from files
+
+```yaml
+task: create_from_files
+host: "http://localhost:8000"
+username: admin
+password: islandora
+input_dir: path/to/files
+models:
+ - 'http://purl.org/coar/resource_type/c_1843': ['zip', 'tar', '']
+ - 'https://schema.org/DigitalDocument': ['pdf', 'doc', 'docx', 'ppt', 'pptx']
+ - 'http://purl.org/coar/resource_type/c_c513': ['tif', 'tiff', 'jp2', 'png', 'gif', 'jpg', 'jpeg']
+ - 'http://purl.org/coar/resource_type/c_18cc': ['mp3', 'wav', 'aac']
+ - 'http://purl.org/coar/resource_type/c_12ce': ['mp4']
+```

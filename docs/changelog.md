@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* Februray 16, 2023 (commit 9a8828b): Removed sample config files from workbench directory (issue [552](https://github.com/mjordan/islandora_workbench/issues/552)).
 * Februray 15, 2023 (commit 309c311): Added `temp_dir` config option (issue [551](https://github.com/mjordan/islandora_workbench/issues/551)).
 * Februray 14, 2023 (commit d200db6): Resolved issue (issue [553](https://github.com/mjordan/islandora_workbench/issues/553)). 
 * Febiruray 11, 2023 (commit 869bd5b): Resolved issue (issue [547](https://github.com/mjordan/islandora_workbench/issues/547)). Added `rollback_dir` config option (commit 1abad16, pull request [550](https://github.com/mjordan/islandora_workbench/pull/550)). Updated PR template (commit a32e88f).
