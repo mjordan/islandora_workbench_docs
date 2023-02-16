@@ -892,9 +892,9 @@
 
 <h3 id="main-branch-no-tagrelease">main branch (no tag/release)</h3>
 <ul>
-<li>Februray 16, 2023 (commit 9a8828b): Removed sample config files from workbench directory (issue <a href="https://github.com/mjordan/islandora_workbench/issues/552">552</a>).</li>
+<li>Februray 16, 2023 (commit 9a8828b): Removed sample config files from workbench directory (issue <a href="https://github.com/mjordan/islandora_workbench/issues/552">552</a>). Added new config option <code>log_term_creation</code> (commit 51348d0, issue <a href="https://github.com/mjordan/islandora_workbench/issues/558">558</a>).</li>
 <li>Februray 15, 2023 (commit 309c311): Added <code>temp_dir</code> config option (issue <a href="https://github.com/mjordan/islandora_workbench/issues/551">551</a>).</li>
-<li>Februray 14, 2023 (commit d200db6): Resolved issue (issue <a href="https://github.com/mjordan/islandora_workbench/issues/553">553</a>). </li>
+<li>Februray 14, 2023 (commit d200db6): Resolved issue (issue <a href="https://github.com/mjordan/islandora_workbench/issues/553">553</a>).</li>
 <li>Febiruray 11, 2023 (commit 869bd5b): Resolved issue (issue <a href="https://github.com/mjordan/islandora_workbench/issues/547">547</a>). Added <code>rollback_dir</code> config option (commit 1abad16, pull request <a href="https://github.com/mjordan/islandora_workbench/pull/550">550</a>). Updated PR template (commit a32e88f).</li>
 <li>Februray 5, 2023 (commit 65db118): Resolved issue (issue <a href="https://github.com/mjordan/islandora_workbench/issues/538">538</a>).</li>
 <li>January 31, 2023 (commit b452450): Resolved issue (issue <a href="https://github.com/mjordan/islandora_workbench/issues/536">536</a>).</li>
@@ -926,11 +926,12 @@
 <li>August 11, 2022 (commit df0a609): Fixed bug where items in secondary task CSV were created even if they didn't have a parent in the primary CSV, or if their parent was not created (issue <a href="https://github.com/mjordan/islandora_workbench/issues/458">458</a>). They are now skipped.</li>
 <li>July 28, 2022 (commit 3d1753a): Added option to prompt user for password (issue <a href="https://github.com/mjordan/islandora_workbench/issues/449">449</a>; fixed 'version' in setup.py).</li>
 <li>July 27, 2022 (commit 029cb6d): Shifted to using Drupal's default media URIs (issue <a href="https://github.com/mjordan/islandora_workbench/issues/446">446</a>).</li>
-<li>July 26, 2022 (commit 8dcf85a): Fixed setup.py on macOS/Homebrew (isue <a href="https://github.com/mjordan/islandora_workbench/pull/448">448</a>). </li>
-<li>July 26, 2022 (commit 09e9f53): Changed license in setup.py to "MIT". </li>
+<li>July 26, 2022 (commit 8dcf85a): Fixed setup.py on macOS/Homebrew (isue <a href="https://github.com/mjordan/islandora_workbench/pull/448">448</a>).</li>
+<li>July 26, 2022 (commit 09e9f53): Changed license in setup.py to "MIT".</li>
 </ul>
 <h3 id="documentation">Documentation</h3>
 <ul>
+<li>February 16, 2023: Updated "<a href="/islandora_workbench_docs/configuration/#logging-settings/">Configuration</a>" to include new <code>log_term_creation</code> setting.</li>
 <li>February 15, 2023: Updated "<a href="/islandora_workbench_docs/configuration/#miscellaneous-settings/">Configuration</a>" to include new <code>temp_dir</code> setting.</li>
 <li>February 11, 2023: Updated "<a href="/islandora_workbench_docs/troubleshooting/">Troubleshooting</a>" and "<a href="/islandora_workbench_docs/rolling_back/">Rolling back nodes and media</a>."</li>
 <li>February 5, 2023: Updated the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method of creating compound/paged content to explain using the new <code>page_title_template</code> config option.</li>
@@ -939,9 +940,9 @@
 <li>January 29, 2023: Added "<a href="/islandora_workbench_docs/contact_sheet">Generating a contact sheet</a>".</li>
 <li>January 23, 2023: Added example CSVs for primary and secondary tasks in the "<a href="/islandora_workbench_docs/workflows/#case-study">Case study</a>" section of the Workflows documentation.</li>
 <li>January 22, 2023: Several clarifications and corrections, including @rosiel's correction of how to use <code>allow_missing_files</code> and <code>additional_files</code> together; added some <a href="/islandora_workbench_docs/paged_and_compound/#with-pagechild-level-metadata">examples of planning large compound/paged content ingests</a>.</li>
-<li>January 16, 2023: Updated "<a href="/islandora_workbench_docs/exporting_islandora_7_content/">Exporting Islandora 7 content</a>." </li>
-<li>January 15, 2023: Updated "<a href="/islandora_workbench_docs/check/">Checking configuration and input data</a>." </li>
-<li>January 9, 2023: Added docs for creating "<a href="/islandora_workbench_docs/media_track_files/">Media track files</a>." </li>
+<li>January 16, 2023: Updated "<a href="/islandora_workbench_docs/exporting_islandora_7_content/">Exporting Islandora 7 content</a>."</li>
+<li>January 15, 2023: Updated "<a href="/islandora_workbench_docs/check/">Checking configuration and input data</a>."</li>
+<li>January 9, 2023: Added docs for creating "<a href="/islandora_workbench_docs/media_track_files/">Media track files</a>."</li>
 <li>January 8, 2023: Updated "<a href="/islandora_workbench_docs/limitations/">Known limitations</a>" with a work around for unsupported "Filter by an entity reference View" fields; added examples of valid Windows paths to "<a href="/islandora_workbench_docs/fields/#values-in-the-file-column">Values in the 'file' column</a>."</li>
 <li>December 29, 2022: Minor corrections to "<a href="/islandora_workbench_docs/limitations/">Known limitations</a>", "<a href="/islandora_workbench_docs/workflows/">Workflows</a>", "<a href="/islandora_workbench_docs/paged_and_compound/">Creating paged, compound, and collection content</a>," and "<a href="/islandora_workbench_docs/preparing_data/">Preparing your data</a>."</li>
 <li>December 28, 2022: Added cross reference between "<a href="/islandora_workbench_docs/field_templates/">CSV field templates</a>" and "<a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/#ignoring-csv-columns">Ignoring CSV rows and columns</a>".</li>
@@ -958,7 +959,7 @@
 <li>September 8, 2022: Added documentation on "<a href="/islandora_workbench_docs/reducing_load/">Reducing Workbench's impact on Drupal</a>."</li>
 <li>August 30, 2022: Updated "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" docs to clarify that the HTTP response code passed to post-entity-create scripts is a string, not an integer.</li>
 <li>August 18, 2022: Updated <code>standalone_media_url</code> entry in the "<a href="/islandora_workbench_docs/configuration/">Congfiguration</a>" docs, and added brief entry to the "<a href="/islandora_workbench_docs/troubleshooting/">Troubleshooting</a>" page about clearning Drupal's cache.</li>
-<li>August 13, 2022: Updated "<a href="/islandora_workbench_docs/configuration/">Congfiguration</a>" and "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" page to describe shutdown scripts. </li>
+<li>August 13, 2022: Updated "<a href="/islandora_workbench_docs/configuration/">Congfiguration</a>" and "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" page to describe shutdown scripts.</li>
 <li>August 11, 2022: Added text to "<a href="/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task">Creating paged, compound, and collection content</a>" page to clarify what happens when a row in the secondary CSV does not have a matching row in the primary CSV.</li>
 <li>August 8, 2022: Added entry to "<a href="/islandora_workbench_docs/limitations/">Limitations</a>" page about support for "Filter by an entity reference View" fields.</li>
 <li>August 3, 2022: Added entry to "<a href="/islandora_workbench_docs/troubleshooting/">Troubleshooting</a>" page about missing Microsoft Visual C++ error when installing Workbench on Windows.</li>

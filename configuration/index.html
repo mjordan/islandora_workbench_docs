@@ -1823,6 +1823,12 @@ csv_field_templates:
 <td>false</td>
 <td>Whether or not to log the raw HTTP response body. Useful for debugging.</td>
 </tr>
+<tr>
+<td>log_term_creation</td>
+<td></td>
+<td>true</td>
+<td>Whether or not to log the creation of new terms during "create" and "update" tasks (does not apply to the "create_terms" task). <code>--check</code> will still report that terms in the CSV do not exist in their respective vocabularies.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="http-settings">HTTP settings</h3>
