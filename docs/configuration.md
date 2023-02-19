@@ -117,6 +117,7 @@ Strictly speaking, YAML lists can be represented as either a series of entries o
 | ignore_csv_columns |  |  | Used in the `create` and `update` tasks only. A list of CSV column headers that Workbench should ignore. For example, `ignore_csv_columns: [Target Collection, Ready to publish]`|
 | csv_start_row  |  |  | Used in all tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) before the designated row number. [More information](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges) is available. |
 | csv_stop_row  |  |  | Used in all tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) after the designated row number. [More information](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges) is available.|
+| csv_headers  |  | names  | Used in "create", "update" and "create_terms" tasks. Set to "labels" to allow use of field labels (as opposed to machine names) as CSV column headers. |
 
 ### Output CSV settings
 

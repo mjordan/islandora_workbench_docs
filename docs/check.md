@@ -26,6 +26,7 @@ If you do this, Workbench will check the following conditions and report any err
     * Whether all Drupal fields that are configured to be required are present in the CSV file.
     * Whether the columns required to create paged content are present (see "Creating paged content" below).
     * If creating compound/paged content using the "With page/child-level metadata" method, `--check` will tell you if any child item rows in your CSV precede their parent rows. 
+    * If your config file includes `csv_headers: labels`, `--check` will tell you if it detects any duplicate field labels.
 * Media files
     * Whether the files named in the CSV file are present, or in the case of remote files, are accessible (but this check is skipped if `allow_missing_files: true` is present in your config file for "create" tasks). If `nodes_only` is true, this check is skipped.
     * Whether files in the `file` CSV column have extensions that are registered with the media's file field in Drupal. Note that validation of file extensions does not yet apply to files named using the `additional_files` configuration or for remote files (see [this issue](https://github.com/mjordan/islandora_workbench/issues/126) for more info).

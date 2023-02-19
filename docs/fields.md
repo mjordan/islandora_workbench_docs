@@ -106,6 +106,21 @@ IMG_5083.JPG,05,Alcatraz Island,25,"Taken from Fisherman's Wharf, San Francisco.
 !!! note
     If content-type field values apply to all of the rows in your CSV file, you can avoid including them in the CSV and instead use "[CSV field templates](/islandora_workbench_docs/field_templates/)".
 
+#### Using field labels as CSV column headers
+
+By default, Workbench requires that column headers in your CSV file use the machine name of Drupal fields. However, in "create", "update", and "create_terms" tasks, you can use the field labels if you include `csv_headers: labels` in your configuration file. If you do this, you can use CSV file like this:
+
+```text
+file,id,title,Model,Description
+IMG_1410.tif,01,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
+IMG_2549.jp2,02,Manhatten Island,25,"Taken from the ferry from downtown New York to Highlands, NJ. Weather was windy."
+IMG_2940.JPG,03,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain. Simon Fraser University is visible on the top of the mountain in the distance.
+IMG_2958.JPG,04,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
+IMG_5083.JPG,05,Alcatraz Island,25,"Taken from Fisherman's Wharf, San Francisco."
+```
+
+Note that if the content type (or vocabulary) that you are populating uses the same label for multiple fields, you won't be able to use this setting. `--check` will tell you if there are any duplicate field labels. Also note that if any field labels contain the character you are using as the CSV delimiter (defined in the `delimter` config setting), you will need to wrap the column header in quotation marks.
+
 ### Single and multi-valued fields
 
 Drupal allows for fields to have a single value, a specific maximum number of values, or unlimited number of values. In the CSV input file, each Drupal field corresponds to a single CSV field. In other words, the CSV column names must be unique, even if a Drupal field allows multiple values. Populating multivalued fields is explained below.
