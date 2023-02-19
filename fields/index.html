@@ -1443,7 +1443,13 @@ IMG_2940.JPG,03,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby M
 IMG_2958.JPG,04,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
 IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Francisco.&quot;
 </code></pre>
-<p>Note that if the content type (or vocabulary) that you are populating uses the same label for multiple fields, you won't be able to use this setting. <code>--check</code> will tell you if there are any duplicate field labels. Also note that if any field labels contain the character you are using as the CSV delimiter (defined in the <code>delimter</code> config setting), you will need to wrap the column header in quotation marks.</p>
+<p>Some things to note about using field labels in your CSV:</p>
+<ul>
+<li>if the content type (or vocabulary) that you are populating uses the same label for multiple fields, you won't be able to use labels as your CSV column headers. <code>--check</code> will tell you if there are any duplicate field labels.</li>
+<li>Spaces in feld labels are OK, e.g. <code>Country of Publication</code>.</li>
+<li>Spelling, capitalization, punctuation, etc. in CSV column headers must match the configured field label exactly.</li>
+<li>If any field labels contain the character you are using as the CSV delimiter (defined in the <code>delimter</code> config setting), you will need to wrap the column header in quotation marks, e.g. <code>"Height, length, weight"</code>.</li>
+</ul>
 <h3 id="single-and-multi-valued-fields">Single and multi-valued fields</h3>
 <p>Drupal allows for fields to have a single value, a specific maximum number of values, or unlimited number of values. In the CSV input file, each Drupal field corresponds to a single CSV field. In other words, the CSV column names must be unique, even if a Drupal field allows multiple values. Populating multivalued fields is explained below.</p>
 <h4 id="single-valued-fields">Single-valued fields</h4>
