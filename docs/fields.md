@@ -118,8 +118,12 @@ IMG_2940.JPG,03,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby M
 IMG_2958.JPG,04,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
 IMG_5083.JPG,05,Alcatraz Island,25,"Taken from Fisherman's Wharf, San Francisco."
 ```
+Some things to note about using field labels in your CSV:
 
-Note that if the content type (or vocabulary) that you are populating uses the same label for multiple fields, you won't be able to use this setting. `--check` will tell you if there are any duplicate field labels. Also note that if any field labels contain the character you are using as the CSV delimiter (defined in the `delimter` config setting), you will need to wrap the column header in quotation marks.
+* if the content type (or vocabulary) that you are populating uses the same label for multiple fields, you won't be able to use labels as your CSV column headers. `--check` will tell you if there are any duplicate field labels.
+* Spaces in feld labels are OK, e.g. `Country of Publication`.
+* Spelling, capitalization, punctuation, etc. in CSV column headers must match the field labels exactly.
+* If any field labels contain the character you are using as the CSV delimiter (defined in the `delimter` config setting), you will need to wrap the column header in quotation marks, e.g. `"Height, length, weight"`.
 
 ### Single and multi-valued fields
 
