@@ -833,7 +833,7 @@
 <p>The rollback CSV file is written to the location defined in the <code>input_dir</code> setting. If you want to define another directory to put it in, include the <code>rollback_dir</code> setting in your config file.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When secondary tasks are configured, each task will get its own rollback file. Each of the secondary task's rollback file will have a normalized version of the path to the task's configuration file appended to the rollback filename, e.g., <code>rollback.csv.home_mark_hacking_islandora_workbench_example_secondary_task</code>. Using these separate rollbacki files, you can delete only the nodes created in a specific secondary task.</p>
+<p>When secondary tasks are configured, each task will get its own rollback file. Each secondary task's rollback file will have a normalized version of the path to the task's configuration file appended to the rollback filename, e.g., <code>rollback.csv.home_mark_hacking_islandora_workbench_example_secondary_task</code>. Using these separate rollback files, you can delete only the nodes created in a specific secondary task.</p>
 </div>
 
 
