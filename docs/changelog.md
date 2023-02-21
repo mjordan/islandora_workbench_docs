@@ -1,6 +1,6 @@
 ### main branch (no tag/release)
 
-* Februray 20, 2023 (commit 96cc6ef): Resolved issue [554](https://github.com/mjordan/islandora_workbench/issues/554)); (commit a143bab): resolved issue [556](https://github.com/mjordan/islandora_workbench/issues/556)).
+* Februray 20, 2023 (commit 96cc6ef): Resolved issue [554](https://github.com/mjordan/islandora_workbench/issues/554); (commit a143bab): resolved issue [556](https://github.com/mjordan/islandora_workbench/issues/556)).
 * Februray 18, 2023 (commit ffa03de): Added `csv_headers` config option (issue [559](https://github.com/mjordan/islandora_workbench/issues/559)).
 * Februray 16, 2023 (commit 9a8828b): Removed sample config files from workbench directory (issue [552](https://github.com/mjordan/islandora_workbench/issues/552)). Added new config option `log_term_creation` (commit 51348d0, issue [558](https://github.com/mjordan/islandora_workbench/issues/558)).
 * Februray 15, 2023 (commit 309c311): Added `temp_dir` config option (issue [551](https://github.com/mjordan/islandora_workbench/issues/551)).
