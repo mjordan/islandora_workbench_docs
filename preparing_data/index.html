@@ -344,6 +344,19 @@
     Using an Excel file as the input CSV file
   </a>
   
+    <nav class="md-nav" aria-label="Using an Excel file as the input CSV file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#selecting-a-specific-worksheet-within-an-excel-file" class="md-nav__link">
+    Selecting a specific worksheet within an Excel file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -948,6 +961,19 @@
     Using an Excel file as the input CSV file
   </a>
   
+    <nav class="md-nav" aria-label="Using an Excel file as the input CSV file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#selecting-a-specific-worksheet-within-an-excel-file" class="md-nav__link">
+    Selecting a specific worksheet within an Excel file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -994,7 +1020,7 @@
 <p>The options for arranging your data are detailed below.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Some of Workbench's functionality depends on a specific directory structure not described here, for example "<a href="/islandora_workbench_docs/creating_nodes_from_files/">Creating nodes from files</a>" and "<a href="/islandora_workbench_docs/paged_and_compound/">Creating paged, compound, and collection content</a>." However, the information on this page applies to the vast majority of Workbench usage.    </p>
+<p>Some of Workbench's functionality depends on a specific directory structure not described here, for example "<a href="/islandora_workbench_docs/creating_nodes_from_files/">Creating nodes from files</a>" and "<a href="/islandora_workbench_docs/paged_and_compound/">Creating paged, compound, and collection content</a>." However, the information on this page applies to the vast majority of Workbench usage.</p>
 </div>
 <h2 id="using-an-input-directory">Using an input directory</h2>
 <p>In this configuration, you define an input directory (identified by the <code>input_dir</code> config option) that contains a CSV file with field content (identified by the <code>input_csv</code> config option) and any accompanying media files you want to add to the newly created nodes:</p>
@@ -1123,6 +1149,16 @@ input_csv: 'https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZv
 <p>Using a Google Sheet is currently the fastest and most convenient way of managing CSV data for use with Islandora Workbench. Since Sheets saves changes in realtime, and since Workbench fetches a fresh copy of the CSV data every time you run it, it's easy to iterate by making changes to your data in Sheets, running Workbench (don't forget to use <code>--check</code> first to identify any problems!), seeing the effects of your changes in the nodes you've just created, <a href="/islandora_workbench_docs/rolling_back/">rolling back your nodes</a>, tweaking your data in Sheets, and starting a new cycle.</p>
 <p>If you are focused on refining your CSV metadata, you can save time by skipping the creation of media by including <code>nodes_only: true</code> in your configuration file.</p>
 </div>
+<p>Some things to note about using Google Sheets:</p>
+<ul>
+<li>You can use a Google Sheet in all tasks that use a CSV file as input.</li>
+<li>All of the columns required in a local CSV file are also required in the Google spreadsheet.</li>
+<li>The URL in the configuration file needs single or double quotes around it, like any other value that contains a colon.</li>
+<li>You can use either the URL you copy from your browser when you are viewing the spreadsheet (which ends in "/edit#gid=0" or something similar), or the "sharing" URL you copy into your clipboard from within the "Share" dialog box (which ends in "edit?usp=sharing"). Either is OK.</li>
+<li>The Google spreadsheet must be publicly readable, e.g. with "Anyone on the Internet with this link can view" permission.</li>
+<li>Spreadsheets work best for descriptive metadata if all cells are formatted as "Plain text". To do this in Google Sheets, select all cells, then choose the menu items Format &gt; Number &gt; Plain text <em>before adding any content to the cells</em>.</li>
+<li>If the values in the <code>file</code> column of the spreadsheet are relative, they are assumed to point to files within your local <code>input_directory</code>, just like they do in a local CSV input file. However, you can also use absolute file paths and URLs in the <code>file</code> column, as described above.</li>
+</ul>
 <h3 id="selecting-a-specific-worksheet-within-a-google-sheet">Selecting a specific worksheet within a Google Sheet</h3>
 <p>Worksheets within a given Google Sheet are identified by a "gid". If a Sheet has only a single worksheet, its "gid" is "0" (zero):</p>
 <p><code>https://docs.google.com/spreadsheets/d/1RLrjb5BrlJNaasFIKrKV4l2rw/edit#gid=0</code></p>
@@ -1136,16 +1172,6 @@ password: islandora
 input_csv: 'https://docs.google.com/spreadsheets/d/1RLrjb5BrlJNaasFIKrKV4l2rw/edit?usp=sharing'
 google_sheets_gid: 1094504353
 </code></pre>
-<p>Some things to note about using Google Sheets:</p>
-<ul>
-<li>You can use a Google Sheet in all tasks that use a CSV file as input.</li>
-<li>All of the columns required in a local CSV file are also required in the Google spreadsheet.</li>
-<li>The URL in the configuration file needs single or double quotes around it, like any other value that contains a colon.</li>
-<li>You can use either the URL you copy from your browser when you are viewing the spreadsheet (which ends in "/edit#gid=0" or something similar), or the "sharing" URL you copy into your clipboard from within the "Share" dialog box (which ends in "edit?usp=sharing"). Either is OK.</li>
-<li>The Google spreadsheet must be publicly readable, e.g. with "Anyone on the Internet with this link can view" permission.</li>
-<li>Spreadsheets work best for descriptive metadata if all cells are formatted as "Plain text". To do this in Google Sheets, select all cells, then choose the menu items Format &gt; Number &gt; Plain text <em>before adding any content to the cells</em>.</li>
-<li>If the values in the <code>file</code> column of the spreadsheet are relative, they are assumed to point to files within your local <code>input_directory</code>, just like they do in a local CSV input file. However, you can also use absolute file paths and URLs in the <code>file</code> column, as described above.</li>
-</ul>
 <h2 id="using-an-excel-file-as-the-input-csv-file">Using an Excel file as the input CSV file</h2>
 <p>With this option, your configuration's <code>input_csv</code> option contains the filename of an Excel 2010 (or higher) file, like this:</p>
 <pre><code class="language-yaml">task: create
@@ -1160,9 +1186,19 @@ input_csv: my_file.xlsx
 <li>You can use an Excel file in all tasks that use a CSV file as input.</li>
 <li>All of the columns required in a local CSV file are also required in the Excel spreadsheet.</li>
 <li>Spreadsheets work best for descriptive metadata if all cells are formatted as "text". To do this, in Excel, select all cells, alt-click on the selected area, then choose the "Format Cells" context menu item. In the "Number" tab, choose "Text", then click on the "OK" button.</li>
-<li>The worksheet that the CSV data is taken from is the one named "Sheet1", unless you specify another worksheet using the <code>excel_worksheet</code> configuration option.</li>
 <li>If the values in the <code>file</code> column of the spreadsheet are relative, they are assumed to point to files within your local <code>input_directory</code>, just like they do in a local CSV input file. However, you can also use absolute file paths and URLs in the <code>file</code> column, as described above.</li>
 </ul>
+<h3 id="selecting-a-specific-worksheet-within-an-excel-file">Selecting a specific worksheet within an Excel file</h3>
+<ul>
+<li>The worksheet that the CSV data is taken from is the one named "Sheet1", unless you specify another worksheet using the <code>excel_worksheet</code> configuration option. As with Google Sheets, you can tell Workbench to use a specific worksheet in an Excel file. Here is an example of a config file using that setting:</li>
+</ul>
+<pre><code class="language-yaml">task: create
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+input_csv: my_file.xlsx
+excel_worksheet: Second sheet
+</code></pre>
 <h2 id="blank-or-missing-file-values">Blank or missing "file" values</h2>
 <p>By default, if the <code>file</code> value for a row is empty, Workbench's <code>--check</code> option will show an error. But, in some cases you may want to create nodes but not add any media. If you add <code>allow_missing_files: true</code> to your config file for "create" tasks, you can leave the <code>file</code> column in your CSV empty.</p>
 <h2 id="creating-nodes-but-not-media">Creating nodes but not media</h2>
