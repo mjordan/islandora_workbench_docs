@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* Februray 22, 2023: Resolved issue (issue [563](https://github.com/mjordan/islandora_workbench/issues/563)).
 * Februray 20, 2023 (commit 96cc6ef): Resolved issue [554](https://github.com/mjordan/islandora_workbench/issues/554); (commit a143bab): resolved issue [556](https://github.com/mjordan/islandora_workbench/issues/556)).
 * Februray 18, 2023 (commit ffa03de): Added `csv_headers` config option (issue [559](https://github.com/mjordan/islandora_workbench/issues/559)).
 * Februray 16, 2023 (commit 9a8828b): Removed sample config files from workbench directory (issue [552](https://github.com/mjordan/islandora_workbench/issues/552)). Added new config option `log_term_creation` (commit 51348d0, issue [558](https://github.com/mjordan/islandora_workbench/issues/558)).
@@ -41,6 +42,7 @@
 
 ### Documentation
 
+* February 22, 2023: Updated "[Preparing your data](/islandora_workbench_docs/preparing_data/)".
 * February 20, 2023: Updated "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)".
 * February 18, 2023: Updated "[Field data (Drupal and CSV)](/islandora_workbench_docs/fields/#using-field-labels-as-csv-column-headers)" to include new `csv_headers` setting.
 * February 16, 2023: Updated "[Configuration](/islandora_workbench_docs/configuration/#logging-settings)" to include new `log_term_creation` setting.

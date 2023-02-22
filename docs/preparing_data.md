@@ -6,7 +6,7 @@ Islandora Workbench allows you to arrange your input data in a variety of ways. 
 The options for arranging your data are detailed below.
 
 !!! note
-    Some of Workbench's functionality depends on a specific directory structure not described here, for example "[Creating nodes from files](/islandora_workbench_docs/creating_nodes_from_files/)" and "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/)." However, the information on this page applies to the vast majority of Workbench usage.    
+    Some of Workbench's functionality depends on a specific directory structure not described here, for example "[Creating nodes from files](/islandora_workbench_docs/creating_nodes_from_files/)" and "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/)." However, the information on this page applies to the vast majority of Workbench usage.
 
 ## Using an input directory
 
@@ -185,6 +185,16 @@ Islandora Workbench fetches a new copy of the CSV data every time it runs (even 
 
     If you are focused on refining your CSV metadata, you can save time by skipping the creation of media by including `nodes_only: true` in your configuration file.
 
+Some things to note about using Google Sheets:
+
+* You can use a Google Sheet in all tasks that use a CSV file as input.
+* All of the columns required in a local CSV file are also required in the Google spreadsheet.
+* The URL in the configuration file needs single or double quotes around it, like any other value that contains a colon.
+* You can use either the URL you copy from your browser when you are viewing the spreadsheet (which ends in "/edit#gid=0" or something similar), or the "sharing" URL you copy into your clipboard from within the "Share" dialog box (which ends in "edit?usp=sharing"). Either is OK.
+* The Google spreadsheet must be publicly readable, e.g. with "Anyone on the Internet with this link can view" permission.
+* Spreadsheets work best for descriptive metadata if all cells are formatted as "Plain text". To do this in Google Sheets, select all cells, then choose the menu items Format > Number > Plain text *before adding any content to the cells*.
+* If the values in the `file` column of the spreadsheet are relative, they are assumed to point to files within your local `input_directory`, just like they do in a local CSV input file. However, you can also use absolute file paths and URLs in the `file` column, as described above.
+
 ### Selecting a specific worksheet within a Google Sheet
 
 Worksheets within a given Google Sheet are identified by a "gid". If a Sheet has only a single worksheet, its "gid" is "0" (zero):
@@ -206,16 +216,6 @@ input_csv: 'https://docs.google.com/spreadsheets/d/1RLrjb5BrlJNaasFIKrKV4l2rw/ed
 google_sheets_gid: 1094504353
 ```
 
-Some things to note about using Google Sheets:
-
-* You can use a Google Sheet in all tasks that use a CSV file as input.
-* All of the columns required in a local CSV file are also required in the Google spreadsheet.
-* The URL in the configuration file needs single or double quotes around it, like any other value that contains a colon.
-* You can use either the URL you copy from your browser when you are viewing the spreadsheet (which ends in "/edit#gid=0" or something similar), or the "sharing" URL you copy into your clipboard from within the "Share" dialog box (which ends in "edit?usp=sharing"). Either is OK.
-* The Google spreadsheet must be publicly readable, e.g. with "Anyone on the Internet with this link can view" permission.
-* Spreadsheets work best for descriptive metadata if all cells are formatted as "Plain text". To do this in Google Sheets, select all cells, then choose the menu items Format > Number > Plain text *before adding any content to the cells*.
-* If the values in the `file` column of the spreadsheet are relative, they are assumed to point to files within your local `input_directory`, just like they do in a local CSV input file. However, you can also use absolute file paths and URLs in the `file` column, as described above.
-
 ## Using an Excel file as the input CSV file
 
 With this option, your configuration's `input_csv` option contains the filename of an Excel 2010 (or higher) file, like this:
@@ -235,9 +235,21 @@ Note that:
 * You can use an Excel file in all tasks that use a CSV file as input.
 * All of the columns required in a local CSV file are also required in the Excel spreadsheet.
 * Spreadsheets work best for descriptive metadata if all cells are formatted as "text". To do this, in Excel, select all cells, alt-click on the selected area, then choose the "Format Cells" context menu item. In the "Number" tab, choose "Text", then click on the "OK" button.
-* The worksheet that the CSV data is taken from is the one named "Sheet1", unless you specify another worksheet using the `excel_worksheet` configuration option.
 * If the values in the `file` column of the spreadsheet are relative, they are assumed to point to files within your local `input_directory`, just like they do in a local CSV input file. However, you can also use absolute file paths and URLs in the `file` column, as described above.
 
+### Selecting a specific worksheet within an Excel file
+
+* The worksheet that the CSV data is taken from is the one named "Sheet1", unless you specify another worksheet using the `excel_worksheet` configuration option. As with Google Sheets, you can tell Workbench to use a specific worksheet in an Excel file. Here is an example of a config file using that setting:
+
+
+```yaml
+task: create
+host: "http://localhost:8000"
+username: admin
+password: islandora
+input_csv: my_file.xlsx
+excel_worksheet: Second sheet
+```
 
 ## Blank or missing "file" values
 
