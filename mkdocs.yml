@@ -14,6 +14,7 @@ nav:
     - Field data (Drupal and CSV): fields.md
     - Ignoring CSV rows and columns: ignoring_csv_rows_and_columns.md
     - CSV field templates: field_templates.md
+    - CSV value templates: csv_value_templates.md
     - Creating paged, compound, and collection content: paged_and_compound.md
     - Creating nodes without media: nodes_only.md
     - Creating nodes from files: creating_nodes_from_files.md
