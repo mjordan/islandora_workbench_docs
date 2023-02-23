@@ -1,7 +1,7 @@
 Workbench uses a CSV file to populate Islandora objects' metadata. This file contains the field values that is to be added to new or existing nodes, and some additional reserved columns specific to Workbench. Data in this CSV file can be:
 
 * strings (for string or text fields) like `Using Islandora Workbench for Fun and Profit`
-* integers like `1` or `7281`
+* integers like `7281`
 * the binary values `1` or `0`
 * Existing Drupal-generated entity IDs (term IDs for taxonomy terms or node IDs for collections and parents), which are integers like `10` or `3549`
 * Workbench-specific structured strings for typed relation (e.g., `relators:art:30`), link fields (e.g., `https://acme.net%%Acme Products`), geolocation fields (e.g., `"49.16667,-123.93333"`), and athority link data (e.g., `viaf%%http://viaf.org/viaf/10646807%%VIAF Record`)
@@ -56,7 +56,7 @@ A small number of columns are required in your CSV, depending on the task you ar
 
 | Task | Required in CSV | Note |
 | --- | --- ||
-| create | id | See detail in "Reserved CSV fields", above |
+| create | id | See detail in "Reserved CSV fields", above. |
 | | title | The node title. |
 | | file | Empty values in the `file` field are allowed if `allow_missing_files` is present in your configuration file, in which case a node will be created but it will have no attached media. |
 | update | node_id | The node ID of an existing node you are updating. |
