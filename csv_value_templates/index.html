@@ -846,7 +846,7 @@
 <p class="admonition-title">Note</p>
 <p>This section describes using CSV <em>value</em> templates in your configuration file. For information on CSV <em>field</em> templates, see the "<a href="/islandora_workbench_docs/field_templates.md">CSV field templates</a>". For information on CSV <em>file</em> templates, see the "<a href="/islandora_workbench_docs/generating_csv_files/#csv-file-templates">CSV file templates</a>" section.</p>
 </div>
-<p>In <code>create</code> and <code>update</code> tasks, you can configure templates that are applied to all the values in a CSV field (or to each subvalue if you have multiple values in a single field) as if the templated text were present in the values in your CSV file. The templates are configured in the <code>csv_value_templates</code> option. An example looks like this:</p>
+<p>In <code>create</code> and <code>update</code> tasks, you can configure templates that are applied to all the values in a CSV column (or to each subvalue if you have multiple values in a single field) as if the templated text were present in the values in your CSV file. The templates are configured in the <code>csv_value_templates</code> option. An example looks like this:</p>
 <pre><code class="language-text">csv_value_templates:
   - field_linked_agent: relators:aut:person:$csv_value
 </code></pre>
@@ -858,6 +858,12 @@ IMG_2940.JPG,03,Looking across Burrard Inlet,25,&quot;Jordan, Mark|Cantelo, M.&q
 <pre><code class="language-text">file,id,title,field_model,field_linked_agent
 IMG_2940.JPG,03,Looking across Burrard Inlet,25,&quot;relators:aut:person:Jordan, Mark|relators:aut:person:Cantelo, M.&quot;
 </code></pre>
+<p>This example configuration defines only one field/template pair, but <code>csv_value_templates</code> can define multiple field/template pairs, for example:</p>
+<pre><code class="language-text">csv_value_templates:
+  - field_linked_agent: relators:aut:person:$csv_value
+  - field_subject: subject:$csv_value
+  - field_local_identifier: SFU-$csv_value
+</code></pre>
 <p>A few things to note about CSV value templates:</p>
 <ul>
 <li><code>$csv_value</code> is the only variable available in a template.</li>
@@ -866,12 +872,6 @@ IMG_2940.JPG,03,Looking across Burrard Inlet,25,&quot;relators:aut:person:Jordan
 <li>You can only apply a single template to the value(s) in the configured field.</li>
 <li>Values in the templated CSV output are validated against Drupal's configuration in the same way that values present in your CSV are validated.</li>
 </ul>
-<p>Finally, <code>csv_value_templates</code> can define multiple field/template pairs, for example:</p>
-<pre><code class="language-text">csv_value_templates:
-  - field_linked_agent: relators:aut:person:$csv_value
-  - field_subject: subject:$csv_value
-  - field_local_identifier: SFU-$csv_value
-</code></pre>
 
 
 
