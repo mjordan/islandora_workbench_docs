@@ -15,7 +15,7 @@
     
     
       
-        <title>Creating taxonomy terms - Islandora Workbench</title>
+        <title>CSV value templates - Islandora Workbench</title>
       
     
     
@@ -65,11 +65,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#the-configuration-and-input-csv-files" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -99,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating taxonomy terms
+              CSV value templates
             
           </span>
         </div>
@@ -327,11 +322,19 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../csv_value_templates/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         CSV value templates
       </a>
+      
     </li>
   
 
@@ -387,69 +390,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Creating taxonomy terms
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../creating_taxonomy_terms/" class="md-nav__link">
         Creating taxonomy terms
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-configuration-and-input-csv-files" class="md-nav__link">
-    The configuration and input CSV files
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#term-weight-and-description" class="md-nav__link">
-    Term weight and description
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vocabularies-with-custom-fields" class="md-nav__link">
-    Vocabularies with custom fields
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hierarchical-vocabularies" class="md-nav__link">
-    Hierarchical vocabularies
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -877,42 +822,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-configuration-and-input-csv-files" class="md-nav__link">
-    The configuration and input CSV files
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#term-weight-and-description" class="md-nav__link">
-    Term weight and description
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vocabularies-with-custom-fields" class="md-nav__link">
-    Vocabularies with custom fields
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hierarchical-vocabularies" class="md-nav__link">
-    Hierarchical vocabularies
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -925,84 +834,32 @@
                 
                   
 
-  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/creating_taxonomy_terms.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/csv_value_templates.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-  <h1>Creating taxonomy terms</h1>
+  <h1>CSV value templates</h1>
 
-<p>Islandora Workbench lets you create vocabulary terms from CSV files. This ability is separate from creating vocabulary terms while creating the nodes in a <code>create</code> task, as described in the "<a href="/islandora_workbench_docs/fields">Field data (Drupal and CSV)</a>" documentation. You should create vocabulary terms using the options described here if any of these situations applies to you:</p>
-<ul>
-<li>you are working with a vocabulary that has fields in addition to term name</li>
-<li>you are working with a vocabulary that is hierarchical</li>
-<li>you want terms to exist before you create nodes using a <code>create</code> task.</li>
-</ul>
-<p>If you want to create terms during a <code>create</code> task, and if the terms you are creating don't have any additional fields or hierarchical relationships to other terms, then you don't need to use the task described here. You can use the method you can create terms as described in as described in the "Taxonomy reference fields" section of "<a href="/islandora_workbench_docs/fields">Field data (Drupal and CSV)</a>."</p>
-<h3 id="the-configuration-and-input-csv-files">The configuration and input CSV files</h3>
-<p>To add terms to a vocabulary, you use a <code>create_terms</code> task. A typical configuration file looks like this:</p>
-<pre><code class="language-yaml">task: create_terms
-host: &quot;http://localhost:8000&quot;
-username: admin
-password: islandora
-input_csv: my_term_data.csv
-vocab_id: myvocabulary
-</code></pre>
-<p>The <code>vocab_id</code> config option is required. It contains the machine name of the vocabulary you are adding the terms to. </p>
-<p>The CSV file identified in the <code>input_csv</code> option has one required column, <code>term_name</code>, which contains each term's name:</p>
-<pre><code class="language-text">term_name
-Automobiles
-Sports cars
-SUVs
-Jaguar
-Porche
-Land Rover
-</code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Unlike input CSV files used during <code>create</code> tasks, input CSV files for <code>create_terms</code> tasks do not have an "id" column. Instead, <code>term_name</code> is the column whose values are the unique identifier for each term. Workbench assumes that term names are unique within a vocabulary. If the terms in the <code>term_name</code> column aren't unique, Workbench only creates the term the first time it encounters it in the CSV file. </p>
+<p>This section describes using CSV <em>value</em> templates in your configuration file. For information on CSV <em>field</em> templates, see the "<a href="/islandora_workbench_docs/field_templates.md">CSV field templates</a>". For information on CSV <em>file</em> templates, see the "<a href="/islandora_workbench_docs/generating_csv_files/#csv-file-templates">CSV file templates</a>" section.</p>
 </div>
-<p>Two reserved but optional columns, <code>weight</code>, and <code>description</code>, are described next. A third reserved column header, <code>parent</code> is described in the "Hierarchical vocabularies" section. You can also add columns that correspond to a vocabulary's field names, just like you do when you assemble your CSV for <code>create</code> tasks, as described in the "Vocabularies with custom fields" section below.</p>
-<h3 id="term-weight-and-description">Term weight and description</h3>
-<p>Two other reserved CSV column headers are <code>weight</code> and <code>description</code>. All Drupal taxonomy terms have these two fields but populating them is optional.</p>
-<ul>
-<li><code>weight</code> is used to sort the terms in the vocabulary overview page in relation to their parent term (or the vocabulary root if a term has no parent). Values in the <code>weight</code> field are integers. The lower the weight, the earlier the term sorts. For example, a value of "0" (zero) sorts the term at the top in relation to its parent, and a value of "100" sorts the term much lower.</li>
-<li><code>description</code> is, as the name suggests, a field that contains a description of the term.</li>
-</ul>
-<p>If you do not add <code>weight</code> values, Drupal sorts the terms in the vocabulary alphabetically.</p>
-<h3 id="vocabularies-with-custom-fields">Vocabularies with custom fields</h3>
-<p>Example column headers in a CSV file for use in <code>create_terms</code> tasks that has two additional fields, "field_example" and "field_second_example", in addition to the optional "description" column, would look like this:</p>
-<pre><code class="language-text">term_name,field_example,field_second_example,description
+<p>In <code>create</code> and <code>update</code> tasks, you can configure CSV value templates that are applied to each value (or subvalue if you have multiple values in a single field) as if the templated text were present in the values in your CSV file. The templates are configured in the <code>csv_value_templates</code> option. An example looks like this:</p>
+<pre><code class="language-text">csv_value_templates:
+  - field_linked_agent: relators:aut:person:$csv_value
 </code></pre>
-<p>Here is a sample CSV input file with headers for <code>description</code> and <code>field_external_uri</code> fields, and two records for terms named "Program file" and "Data set":</p>
-<pre><code class="language-text">term_name,description,field_external_uri
-Program file,A program file is executable source code or a binary executable file.,http://id.loc.gov/vocabulary/mfiletype/program
-Data set,&quot;A data set is raw, often tabular, data.&quot;,https://www.wikidata.org/wiki/Q1172284
+<p>For each value in the named CSV field (in this example, <code>field_linked_agent</code>), Workbench will apply the template text (in this example, <code>relators:aut:person:</code>) to the CSV value, represented in the template as <code>$csv_value</code>. An input CSV file that looks like this:</p>
+<pre><code class="language-text">file,id,title,field_model,field_linked_agent
+IMG_2940.JPG,03,Looking across Burrard Inlet,25,&quot;Jordan, Mark|Cantelo, M.&quot;
 </code></pre>
-<p>Optional fields don't need to be included in our CSV if you are not populating them, but fields that are configured as required in the vocabulary settings do need to be present, and populated (just like required fields on content types in <code>create</code> tasks). Running <code>--check</code> on a <code>create_terms</code> task will detect any required fields that are missing from your input CSV file.</p>
-<h3 id="hierarchical-vocabularies">Hierarchical vocabularies</h3>
-<p>If you want to create a vocabulary that is hierarchical, like this:</p>
-<p><img alt="Hierarchical_vocabulary" src="../images/hierarchical_vocab.png" /></p>
-<p>you can add a <code>parent</code> column to your CSV and for each row, include the term name of the term you want as the parent. For example, the above sample vocabulary was created using this CSV input file:</p>
-<pre><code class="language-text">term_name,parent
-Automobiles,
-Sports cars,Automobiles
-SUVs,Automobiles
-Jaguar,Sports cars
-Porche,Sports cars
-Land Rover,SUVs
+<p>will have the template <code>relators:aut:person:$csv_value</code> applied to so it is converted to:</p>
+<pre><code class="language-text">file,id,title,field_model,field_linked_agent
+IMG_2940.JPG,03,Looking across Burrard Inlet,25,&quot;relators:aut:person:Jordan, Mark|relators:aut:person:Cantelo, M.&quot;
 </code></pre>
-<p>One important aspect of creating a hierarchical vocabulary is that all parents must exist before their children are added. That means that within your CSV file, the rows for terms used as parents should be placed earlier in the file than the rows for their children. If a term is named as a parent but doesn't exist yet because it came after the child term in the CSV, Workbench will create the child term and write a warning in the log indicating that the parent didn't exist at the time of creating the child. In these cases, you can manually assign a parent to the terms using Drupal's taxonomy administration tools. </p>
-<p>You can include the <code>parent</code> column in your CSV along with Drupal field names. Workbench will not only create the hierarchy, it will also add the field data to the terms:</p>
-<pre><code class="language-text">term_name,parent,description,field_external_uri
-Automobiles,,,
-Sports cars,Automobiles,&quot;Sports cars focus on performance, handling, and driver experience.&quot;,https://en.wikipedia.org/wiki/Sports_car
-SUVs,Automobiles,&quot;SUVs, or Sports Utility Vehicles, are the most popular type of automobile.&quot;,https://en.wikipedia.org/wiki/Sport_utility_vehicle
-Jaguar,Sports cars,,
-Porche,Sports cars,,
-Land Rover,SUVs,,
-</code></pre>
+<p>Note that the same template is applied to all values in the configured field. Also, you cannot apply more than one template to the values in the configured field.</p>
+<p>Values in the resulting CSV output are validated against Drupal's configuration in the same way that values present in your CSV are validated.</p>
 
 
 
@@ -1023,7 +880,7 @@ Land Rover,SUVs,,
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../creating_nodes_from_files/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Creating nodes from files" rel="prev">
+        <a href="../field_templates/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CSV field templates" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1032,20 +889,20 @@ Land Rover,SUVs,,
               <span class="md-footer__direction">
                 Previous
               </span>
-              Creating nodes from files
+              CSV field templates
             </div>
           </div>
         </a>
       
       
         
-        <a href="../aliases/" class="md-footer__link md-footer__link--next" aria-label="Next: Assigning URL aliases" rel="next">
+        <a href="../paged_and_compound/" class="md-footer__link md-footer__link--next" aria-label="Next: Creating paged, compound, and collection content" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Assigning URL aliases
+              Creating paged, compound, and collection content
             </div>
           </div>
           <div class="md-footer__button md-icon">
