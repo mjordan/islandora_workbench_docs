@@ -861,11 +861,16 @@ IMG_2940.JPG,03,Looking across Burrard Inlet,25,&quot;relators:aut:person:Jordan
 <p>A few things to note about CSV value templates:</p>
 <ul>
 <li><code>$csv_value</code> is the only variable available in a template.</li>
-<li>The same template is applied to all values in the configured field.</li>
-<li>You cannot apply more than one template to the values in the configured field.</li>
-<li>Even though the example above shows only one field/template pair, <code>csv_value_templates</code> can take multiple values (i.e., you can define multiple field/template pairs), just like the <code>csv_field_templates</code> setting can.</li>
+<li>Your templated text can be appended or prepended to <code>$csv_value</code>.</li>
+<li>If a CSV field contains multiple subvalues, the same template is applied to all subvalues in the field.</li>
+<li>You can only apply a single template to the value(s) in the configured field.</li>
 <li>Values in the templated CSV output are validated against Drupal's configuration in the same way that values present in your CSV are validated.</li>
 </ul>
+<p>Finally, <code>csv_value_templates</code> can define multiple field/template pairs, for example:</p>
+<pre><code class="language-text">csv_value_templates:
+  - field_linked_agent: relators:aut:person:$csv_value
+  - field_local_identifier: SFU-$csv_value
+</code></pre>
 
 
 
