@@ -858,8 +858,13 @@ IMG_2940.JPG,03,Looking across Burrard Inlet,25,&quot;Jordan, Mark|Cantelo, M.&q
 <pre><code class="language-text">file,id,title,field_model,field_linked_agent
 IMG_2940.JPG,03,Looking across Burrard Inlet,25,&quot;relators:aut:person:Jordan, Mark|relators:aut:person:Cantelo, M.&quot;
 </code></pre>
-<p>Note that the same template is applied to all values in the configured field. Also, you cannot apply more than one template to the values in the configured field.</p>
-<p>Values in the resulting CSV output are validated against Drupal's configuration in the same way that values present in your CSV are validated.</p>
+<p>A few things to note about CSV value templates:</p>
+<ul>
+<li><code>$csv_value</code> is the only variable available in a template.</li>
+<li>The same template is applied to all values in the configured field.</li>
+<li>You cannot apply more than one template to the values in the configured field.</li>
+<li>Values in the resulting CSV output are validated against Drupal's configuration in the same way that values present in your CSV are validated.</li>
+</ul>
 
 
 
