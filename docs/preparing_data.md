@@ -251,6 +251,26 @@ input_csv: my_file.xlsx
 excel_worksheet: Second sheet
 ```
 
+## How Workbench cleans your input data
+
+Regardless of whether your input data is raw CSV, a Google Sheet, or Excel, Workbench applies a small number of cleansing operations on it. These are:
+
+* replaces smart/curley quotes (both double and single) with regular quotes
+* replaces multiple whitespaces within strings with a single space
+* removes leading and trailing spaces (including newlines).
+
+If you do not want Workbench to do any of these, include the `clean_csv_values_skip` setting in your configuration, specifying in a list one or more of the following:
+
+* `smart_quotes`
+* `inside_spaces`
+* `outside_spaces`
+
+An example of using this configuration setting is:
+
+```
+clean_csv_values_skip: ["smart_quotes", "inside_spaces"]
+```
+
 ## Blank or missing "file" values
 
 By default, if the `file` value for a row is empty, Workbench's `--check` option will show an error. But, in some cases you may want to create nodes but not add any media. If you add `allow_missing_files: true` to your config file for "create" tasks, you can leave the `file` column in your CSV empty.

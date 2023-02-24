@@ -198,7 +198,7 @@ However, if all of your characters are Latin (basically, the characters found on
 
 Some things to note about Drupal text fields:
 
-* Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file, but, depending on a field's configuration, Drupal may apply [text filters](https://www.drupal.org/node/213156).
+* Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file (with [this exception](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data)), but, depending on a field's configuration, Drupal may apply [text filters](https://www.drupal.org/node/213156).
 * Text fields may be configured to have a maximum length. Running Workbench with `--check` will produce a warning if any of the values in your CSV file surpass the configured maximum length of a field.
 * Some specialized forms of text fields, such as EDTF, enforce or prohibit the presence of specific types of characters (see below for EDTF's requirements).
 
