@@ -360,6 +360,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-workbench-cleans-your-input-data" class="md-nav__link">
+    How Workbench cleans your input data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#blank-or-missing-file-values" class="md-nav__link">
     Blank or missing "file" values
   </a>
@@ -992,6 +999,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#how-workbench-cleans-your-input-data" class="md-nav__link">
+    How Workbench cleans your input data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#blank-or-missing-file-values" class="md-nav__link">
     Blank or missing "file" values
   </a>
@@ -1213,6 +1227,22 @@ username: admin
 password: islandora
 input_csv: my_file.xlsx
 excel_worksheet: Second sheet
+</code></pre>
+<h2 id="how-workbench-cleans-your-input-data">How Workbench cleans your input data</h2>
+<p>Regardless of whether your input data is raw CSV, a Google Sheet, or Excel, Workbench applies a small number of cleansing operations on it. These are:</p>
+<ul>
+<li>replaces smart/curley quotes (both double and single) with regular quotes</li>
+<li>replaces multiple whitespaces within strings with a single space</li>
+<li>removes leading and trailing spaces (including newlines).</li>
+</ul>
+<p>If you do not want Workbench to do any of these, include the <code>clean_csv_values_skip</code> setting in your configuration, specifying in a list one or more of the following:</p>
+<ul>
+<li><code>smart_quotes</code></li>
+<li><code>inside_spaces</code></li>
+<li><code>outside_spaces</code></li>
+</ul>
+<p>An example of using this configuration setting is:</p>
+<pre><code>clean_csv_values_skip: [&quot;smart_quotes&quot;, &quot;inside_spaces&quot;]
 </code></pre>
 <h2 id="blank-or-missing-file-values">Blank or missing "file" values</h2>
 <p>By default, if the <code>file</code> value for a row is empty, Workbench's <code>--check</code> option will show an error. But, in some cases you may want to create nodes but not add any media. If you add <code>allow_missing_files: true</code> to your config file for "create" tasks, you can leave the <code>file</code> column in your CSV empty.</p>
