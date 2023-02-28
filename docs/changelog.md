@@ -43,6 +43,7 @@
 
 ### Documentation
 
+* February 27, 2023: Replaced "Islandora 8" with "Islandora 2".
 * February 24, 2023: Added "[How Workbench cleans your input data](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data)".
 * February 22, 2023: Updated "[Preparing your data](/islandora_workbench_docs/preparing_data/)"; added "[CSV value templates](/islandora_workbench_docs/csv_value_templates/)".
 * February 20, 2023: Updated "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)".
