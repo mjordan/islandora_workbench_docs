@@ -1055,7 +1055,7 @@
 <h3 id="content-types">Content types</h3>
 <div class="admonition info inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
-<p>Workbench can only work with a single content type at a time. You define this content type in the <code>content_type</code> configuration setting.</p>
+<p>Islandora Workbench can only work with a single content type at a time. You define this content type in the <code>content_type</code> configuration setting.</p>
 </div>
 <p>Drupal categorizes what people see as "pages" on a Drupal website into content types. By default, Drupal provides "Article" and "Basic Page" content types, but site administrators can create custom content types. You can see the content types configured on your Drupal by logging in as an admin user and visiting <code>/admin/structure/types</code>. Or, you can navigate to the list of your site's content types by clicking on the Structure menu item, then the Content Types entry:</p>
 <p><img alt="ISLE default content types" src="../images/ISLE_DC_demo_content_types.png" /></p>
@@ -1063,9 +1063,21 @@
 <h3 id="fields">Fields</h3>
 <div class="admonition info inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
-<p>The fields in the content type identified in your Workbench configuration file correspond to columns in your CSV file.</p>
+<p>The fields in the content type identified in your Workbench configuration file correspond to columns in your CSV file. Also, you need to be familiar with how to determine a field's "machine name" and "type", as explained below.</p>
 </div>
 <p>The main structural difference between content types in Drupal is each is made up of a unique set of fields. A field in Drupal the same as a "field" in metadata - it is a container for data. For example, all content types have a "title" field (although it might be labeled differently) to hold the page's title. Islandora's default content type, the Repository Item, uses metadata-oriented fields like "Copyright date", "Extent", "Resource type", and "Subject".</p>
+<p>Fields have two properties which you need to be familiar with in order to use Islandora Workbench:</p>
+<ol>
+<li>machine name</li>
+<li>type</li>
+</ol>
+<p>To explain why these two properties are important, we will use the following screenshot showing the default fields in the "Repository item" content type:</p>
+<p><img alt="Default fields in the Repository Item content type" src="../images/repository_item_fields.png" /></p>
+<div class="admonition info inline end">
+<p class="admonition-title">Relevance to using Workbench</p>
+<p>You must use field machine names in Islandora Workbench configuration files. You can also use them as column headers in your metadata CSV files (but in most cases you can use fields' human-readable labels as column headers instead).</p>
+</div>
+<p>A field has a human-readable label, such as "Copyright date", but that label can change or can be translated. Drupal assigns each field a "machine name" that is easier for software to use than human-readable labels. These field machine names are all lower case, use underscores instead of spaces, and are guaranteed to be unique. In the screenshot above, you can see the machine names in the middle column.</p>
 <h3 id="nodes">Nodes</h3>
 <p>Think of a "node" as a specific page in a Drupal website. Every node has a content type (e.g. "Article" or "Repository Item") containing content in the fields defined by its content type. It has a URL in the Drupal website, like <code>https://mysite.org/node/3798</code>. The "3798" at the end of the URL is the node ID and uniquely identifies the node within its website.</p>
 <h2 id="taxonomies-aka-vocabularies">Taxonomies (a.k.a. vocabularies)</h2>
