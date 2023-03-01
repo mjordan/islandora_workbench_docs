@@ -1044,7 +1044,8 @@
 
   <h1>Workbench's relationship to Drupal and Islandora</h1>
 
-<p>This page highlights the most imporant Drupal and Islandora features relevant to the use of Workbench. Its audience is managers of Islandora repositories who want a primer on how Drupal, Islandora, and Workbench relate to each other. This page is not intended to be a replacement for the <a href="https://islandora.github.io/documentation/">official Islandora documentation</a>, which provides comprehensive and detailed information about how Islandora works.</p>
+<p>This page highlights the most important Drupal and Islandora features relevant to the use of Workbench. Its audience is managers of Islandora repositories who want a primer on how Drupal, Islandora, and Workbench relate to each other. The ideas introduced here are documented in detail elsewhere in this site.</p>
+<p>This page is not intended to be a replacement for the <a href="https://islandora.github.io/documentation/">official Islandora documentation</a>, which provides comprehensive and detailed information about how Islandora works.</p>
 <p>Your feedback on the usefulness of this page is very important! Join the <code>#islandoraworkbench</code> channel in the <a href="https://islandora.slack.com/join/shared_invite/zt-1ac9k1xs5-Hbeit2twqexyJCxZQg9ZBQ#/shared-invite/email">Islandora Slack</a>, or leave a comment on <a href="https://github.com/mjordan/islandora_workbench/issues/532">this Github issue</a>.</p>
 <h2 id="why-would-i-want-to-use-islandora-workbench">Why would I want to use Islandora Workbench?</h2>
 <p>Islandora Workbench lets you manage content in an Islandora repository at scale. Islandora provides web forms for creating and editing content on an item-by-item basis, but if you want to load a large number of items into an Islandora repository (or update or delete content in large numbers), you need a batch-oriented tool like Workbench. Islandora Workbench fills a basic need: it enables you to get batches of content into an Islandora repository, and also update or delete content in batches.</p>
@@ -1088,9 +1089,9 @@
 </ul>
 <div class="admonition info inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
-<p>Drupal enforces cardinality very strictly. FOr this reason, if your CSV file contains more values for a field than the field's configuration allows, Workbench will truncate the number of values to match the maximum number allowed for the field. If it does this, it will leave an entry in its log so you know that it didn't add all the values in your CSV data.</p>
+<p>Drupal enforces cardinality very strictly. For this reason, if your CSV file contains more values for a field than the field's configuration allows, Workbench will truncate the number of values to match the maximum number allowed for the field. If it does this, it will leave an entry in its log so you know that it didn't add all the values in your CSV data.</p>
 </div>
-<p>Another important aspect of Drupal fields is their cardinality, or in other words, how many individual values they can have. This is similar to the "repeatability" of fields in metadata schemas. Some fields are configured to hold only a single value, others to hold a a maximum number of values (three, for example), and others can hold an unlimited number of values. You can find each field's cardinality in its "Field settings" tab. Here is an example showing a field with unlimited cardinality:</p>
+<p>Another important aspect of Drupal fields is their cardinality, or in other words, how many individual values they are configured to have. This is similar to the "repeatability" of fields in metadata schemas. Some fields are configured to hold only a single value, others to hold a a maximum number of values (three, for example), and others can hold an unlimited number of values. You can find each field's cardinality in its "Field settings" tab. Here is an example showing a field with unlimited cardinality:</p>
 <p><img alt="Default fields in the Repository Item content type" src="../images/sample_field_cardinality.png" /></p>
 <h3 id="nodes">Nodes</h3>
 <div class="admonition info inline end">
