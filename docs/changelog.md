@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* Februray 28, 2023: Resolved issue [569](https://github.com/mjordan/islandora_workbench/issues/569).
 * Februray 24, 2023: Added `clean_csv_values_skip` config setting (commit e659616e, issue [567](https://github.com/mjordan/islandora_workbench/issues/567)).
 * Februray 22, 2023: Resolved issue [563](https://github.com/mjordan/islandora_workbench/issues/563); Added `csv_value_templates` config setting (commit ae1fcd2b, issue [566](https://github.com/mjordan/islandora_workbench/issues/566)).
 * Februray 20, 2023 (commit 96cc6ef): Resolved issue [554](https://github.com/mjordan/islandora_workbench/issues/554); (commit a143bab): resolved issue [556](https://github.com/mjordan/islandora_workbench/issues/556)).
@@ -43,6 +44,7 @@
 
 ### Documentation
 
+* February 28, 2023: Removed references to the `iteration-utilities` Python library.
 * February 27, 2023: Replaced "Islandora 8" with "Islandora 2".
 * February 24, 2023: Added "[How Workbench cleans your input data](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data)".
 * February 22, 2023: Updated "[Preparing your data](/islandora_workbench_docs/preparing_data/)"; added "[CSV value templates](/islandora_workbench_docs/csv_value_templates/)".

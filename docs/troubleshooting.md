@@ -100,14 +100,6 @@ Islandora can display EDTF interval values (e.g., `2004-06/2006-08`, `193X/196X`
 
 First thing to check is whether you are using the [Pathauto](https://www.drupal.org/project/pathauto) module. It also creates URL aliases, and since by default Drupal only allows one URL alias, in most cases, the aliases it creates will take precedence over aliases created by Workbench.
 
-### I'm installing Workbench on Windows and it's failing because Microsoft Visual C++ is not installed
-
-On Windows, the "iteration_utilities" library that Workbench uses requires Microsoft Visual C++ 14.0 or higher. Often, this is already installed, in which case `setup.py` will execute successfully. However, if you see the following error when running Workbench's `setup.py`:
-
-> Setup script exited with error: Microsoft Visual C++ 14.0 or greater is required. Get it with "Microsoft C++ Build Tools": https://visualstudio.microsoft.com/visual-cpp-build-tools/
-
-you will need to visit that site, download the "Build Tools" and install them.
-
 ### I'm having trouble getting Workbench to work in a cronjob
 
 The most common problem you will encounter when running Islandora Workbench in a cronjob is that Workbench can't find its configuration file, or input/output directories. The easiest way to avoid this is to use absolute file paths everywhere, including as the value of Workbench's `--config` parameter, in configuration files, and in `file` and `additional_files` columns in your input CSV files.

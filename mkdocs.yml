@@ -7,6 +7,7 @@ repo_url: https://github.com/mjordan/islandora_workbench_docs
 theme: material
 nav:
     - Home: index.md
+    - Workbench's relationship to Drupal and Islandora: drupal_and_workbench.md
     - Requirements and installation: installation.md
     - Configuration: configuration.md
     - Checking configuration and input data: check.md

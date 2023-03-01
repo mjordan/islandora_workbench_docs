@@ -11,7 +11,6 @@
     * [unidecode](https://pypi.org/project/Unidecode/)
     * [edtf-validate](https://pypi.org/project/edtf-validate/)
     * [rich](https://pypi.org/project/rich/)
-    * [iteration-utilities](https://pypi.org/project/iteration-utilities/)
     * If you want to have these libraries automatically installed, you will need Python's [setuptools](https://pypi.org/project/setuptools/)
 
 Islandora Workbench has been installed and used on Linux, Mac, and Windows.
