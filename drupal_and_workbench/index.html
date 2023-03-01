@@ -1088,7 +1088,7 @@
 </ul>
 <div class="admonition info inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
-<p>Drupal enforces cardinality very strictly. If your CSV file contains more values for a field than the field's configuration allows, Workbench will truncate the number of values to match the maximum number allowed for the field. If it does this, it will leave an entry in its log so you know that it didn't add all the values in your CSV data.</p>
+<p>Drupal enforces cardinality very strictly. FOr this reason, if your CSV file contains more values for a field than the field's configuration allows, Workbench will truncate the number of values to match the maximum number allowed for the field. If it does this, it will leave an entry in its log so you know that it didn't add all the values in your CSV data.</p>
 </div>
 <p>Another important aspect of Drupal fields is their cardinality, or in other words, how many individual values they can have. This is similar to the "repeatability" of fields in metadata schemas. Some fields are configured to hold only a single value, others to hold a a maximum number of values (three, for example), and others can hold an unlimited number of values. You can find each field's cardinality in its "Field settings" tab. Here is an example showing a field with unlimited cardinality:</p>
 <p><img alt="Default fields in the Repository Item content type" src="../images/sample_field_cardinality.png" /></p>
