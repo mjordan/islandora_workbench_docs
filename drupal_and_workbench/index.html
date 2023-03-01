@@ -1051,7 +1051,22 @@
 <p>Islandora Workbench lets you manage content in an Islandora repository at scale. Islandora provides web forms for creating and editing content on an item-by-item basis, but if you want to load a large number of items into an Islandora repository (or update or delete content in large numbers), you need a batch-oriented tool like Workbench. Simply put, Islandora Workbench enables you to get batches of content into an Islandora repository, and also update or delete content in batches.</p>
 <h2 id="how-do-i-use-islandora-workbench">How do I use Islandora Workbench?</h2>
 <p>Islandora Workbench provides the ability to perform a set of "tasks". The focus of this page is the "create" task, but other tasks Workbench enables include "update", "delete", and "add_media".</p>
-<p>To use Islandora Workbench to create new content, you need to assemble a CSV file containing metadata describing your content, and arrange the accompanying image, video, PDF, and other files in specific ways so that Workbench knows where to find them. Then, you need to create a configuration file to tell Workbench the URL of your Islandora, which Drupal account credentials to use, and the location of your CSV file. You can customize many other aspects of Islandora Workbench by including various settings in your configuration file.</p>
+<p>To use Islandora Workbench to create new content, you need to assemble a CSV file containing metadata describing your content, and arrange the accompanying image, video, PDF, and other files in specific ways so that Workbench knows where to find them.  Here is a sample, very simple, Workbench CSV file:</p>
+<pre><code class="language-text">file,id,title,field_model,field_description
+IMG_1410.tif,01,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
+IMG_2549.jp2,02,Manhatten Island,25,&quot;Taken from the ferry from downtown New York to Highlands, NJ.&quot;
+IMG_2940.JPG,03,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain.
+IMG_2958.JPG,04,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
+IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Francisco.&quot;
+</code></pre>
+<p>Then, you need to create a configuration file to tell Workbench the URL of your Islandora, which Drupal account credentials to use, and the location of your CSV file. You can customize many other aspects of Islandora Workbench by including various settings in your configuration file. This is a very simple configuration file, showing one of the customization settings (<code>ignore_csv_columns</code>):</p>
+<pre><code class="language-yaml">task: create
+host: http://localhost:8000
+username: admin
+password: islandora
+input_csv: input.csv
+ignore_csv_columns: ['date_generated', 'quality control by']
+</code></pre>
 <p>When you have all these things ready, you tell Workbench to "check" your configuration and input data, and, when your checks are complete, you use Workbench to push your content into your Islandora repository.</p>
 <h2 id="content-types-fields-and-nodes">Content types, fields, and nodes</h2>
 <p>Below are the Drupal and Islandora concepts that will help you use Workbench effectively.</p>
