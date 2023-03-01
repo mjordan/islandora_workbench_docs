@@ -1,4 +1,6 @@
-This page highlights the most imporant Drupal and Islandora features relevant to the use of Workbench. Its audience is managers of Islandora repositories who want a primer on how Drupal, Islandora, and Workbench relate to each other. This page is not intended to be a replacement for the [official Islandora documentation](https://islandora.github.io/documentation/), which provides comprehensive and detailed information about how Islandora works.
+This page highlights the most important Drupal and Islandora features relevant to the use of Workbench. Its audience is managers of Islandora repositories who want a primer on how Drupal, Islandora, and Workbench relate to each other. The ideas introduced here are documented in detail elsewhere in this site.
+
+This page is not intended to be a replacement for the [official Islandora documentation](https://islandora.github.io/documentation/), which provides comprehensive and detailed information about how Islandora works.
 
 Your feedback on the usefulness of this page is very important! Join the `#islandoraworkbench` channel in the [Islandora Slack](https://islandora.slack.com/join/shared_invite/zt-1ac9k1xs5-Hbeit2twqexyJCxZQg9ZBQ#/shared-invite/email), or leave a comment on [this Github issue](https://github.com/mjordan/islandora_workbench/issues/532).
 
@@ -58,9 +60,9 @@ A field's "type" determines the structure of the data it can hold. Some common f
 
 
 !!! info inline end "Relevance to using Workbench"
-    Drupal enforces cardinality very strictly. FOr this reason, if your CSV file contains more values for a field than the field's configuration allows, Workbench will truncate the number of values to match the maximum number allowed for the field. If it does this, it will leave an entry in its log so you know that it didn't add all the values in your CSV data.
+    Drupal enforces cardinality very strictly. For this reason, if your CSV file contains more values for a field than the field's configuration allows, Workbench will truncate the number of values to match the maximum number allowed for the field. If it does this, it will leave an entry in its log so you know that it didn't add all the values in your CSV data.
 
-Another important aspect of Drupal fields is their cardinality, or in other words, how many individual values they can have. This is similar to the "repeatability" of fields in metadata schemas. Some fields are configured to hold only a single value, others to hold a a maximum number of values (three, for example), and others can hold an unlimited number of values. You can find each field's cardinality in its "Field settings" tab. Here is an example showing a field with unlimited cardinality:
+Another important aspect of Drupal fields is their cardinality, or in other words, how many individual values they are configured to have. This is similar to the "repeatability" of fields in metadata schemas. Some fields are configured to hold only a single value, others to hold a a maximum number of values (three, for example), and others can hold an unlimited number of values. You can find each field's cardinality in its "Field settings" tab. Here is an example showing a field with unlimited cardinality:
 
 ![Default fields in the Repository Item content type](images/sample_field_cardinality.png)
 
