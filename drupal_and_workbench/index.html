@@ -1054,12 +1054,16 @@
 <h2 id="content-types-fields-and-nodes">Content types, fields, and nodes</h2>
 <h3 id="content-types">Content types</h3>
 <div class="admonition info inline end">
-<p class="admonition-title">Relevant to Workbench</p>
-<p>Workbench can only work with a single content type at a time. Also, the columns in your CSV file....</p>
+<p class="admonition-title">Relevance to using Workbench</p>
+<p>Workbench can only work with a single content type at a time. You define this content type in the <code>content_type</code> configuration setting.</p>
 </div>
 <p>Drupal categorizes what people see as "pages" on a Drupal website into content types. By default, Drupal provides "Article" and "Basic Page" content types, but site administrators can create custom content types. You can see the content types configured on your Drupal by logging in as an admin user and visiting <code>/admin/structure/types</code>.</p>
 <p>Islandora, by default, creates a content type called a "Repository Item". But, many Islandora sites use additional content types, such as "Collection".</p>
 <h3 id="fields">Fields</h3>
+<div class="admonition info inline end">
+<p class="admonition-title">Relevance to using Workbench</p>
+<p>The fields in the content type identified in your Workbench configuration file correspond to columns in your CSV file.</p>
+</div>
 <p>The main structural difference between content types in Drupal is each is made up of a unique set of fields. A field in Drupal the same as a "field" in metadata - it is a container for data. For example, all content types have a "title" field (although it might be labeled differently) to hold the page's title. Islandora's default content type, the Repository Item, uses metadata-oriented fields like "Copyright date", "Extent", "Resource type", and "Subject".</p>
 <h3 id="nodes">Nodes</h3>
 <p>Think of a "node" as a specific page in a Drupal website. Every node has a content type (e.g. "Article" or "Repository Item") containing content in the fields defined by its content type. It has a URL in the Drupal website, like <code>https://mysite.org/node/3798</code>. The "3798" at the end of the URL is the node ID and uniquely identifies the node within its website.</p>
@@ -1068,7 +1072,11 @@
 <h2 id="media">Media</h2>
 <h2 id="views">Views</h2>
 <h2 id="rest">REST</h2>
-<p>As a user of Workbench, you don't ned to know anything about REST. The only exception is that sometimes, if things go wrong, Workbench will include in its log file some details about the particular REST request that didn't work. Again, you don't need to know how Workbench interacts with Drupal via REST. But, if Workbench fails to add your content to Islandora, and you <a href="/islandora_workbench_docs/troubleshooting/">reach out for help</a> figuring out why, you might be asked to provide your Workbench log file. Your log file might contain references to "HTTP response codes" or contain some very ugly JSON (which is the structure used by Drupal and Workbench to communicate with each other). All you need to know is where your Workbench log is, so you can share it for troubleshooting.</p>
+<div class="admonition info inline end">
+<p class="admonition-title">Relevance to using Workbench</p>
+<p>Your log file might contain references to "HTTP response codes" or contain some very ugly JSON (which is the structure used by Drupal and Workbench to communicate with each other). All you need to know is where your Workbench log is, so you can share it for troubleshooting.</p>
+</div>
+<p>As a user of Workbench, you don't ned to know anything about REST. The only exception is that sometimes, if things go wrong, Workbench will include in its log file some details about the particular REST request that didn't work. Again, you don't need to know how Workbench interacts with Drupal via REST. But, if Workbench fails to add your content to Islandora, and you <a href="/islandora_workbench_docs/troubleshooting/">reach out for help</a> figuring out why, you might be asked to provide your Workbench log file.</p>
 
 
 
