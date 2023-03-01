@@ -302,13 +302,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#uris" class="md-nav__link">
-    URIs
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#media" class="md-nav__link">
     Media
   </a>
@@ -995,13 +988,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#uris" class="md-nav__link">
-    URIs
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#media" class="md-nav__link">
     Media
   </a>
@@ -1080,16 +1066,46 @@
 <p>A field has a human-readable label, such as "Copyright date", but that label can change or can be translated, and, more significantly, doesn't need to be unique within a Drupal website. Drupal assigns each field a "machine name" that is easier for software to use than human-readable labels. These field machine names are all lower case, use underscores instead of spaces, and are guaranteed to be unique. In the screenshot above, you can see the machine names in the middle column.</p>
 <p>A field's "type" determines the structure of the data it holds. Some common field types used in Islandora are "Text" (and its derivatives "Text (plain)" and "Text (plain, long)"), "Entity Reference", "Typed Relationh", and "EDTF". These field types are explained in the "<a href="/islandora_workbench_docs/fields/">Field Data (CSV and Drupal</a> documentation, but the important point here is that they are all represented differently in your Workbench CSV. For example:</p>
 <ul>
-<li>EDTF fields take dates in the Library of Congress' <a href="https://www.loc.gov/standards/datetime/">EDTF format</a> (an example CSV entry is <code>1964/2008</code>)</li>
+<li>EDTF fields take dates in the Library of Congress' <a href="https://www.loc.gov/standards/datetime/">Extended Date/Time Format</a> (an example CSV entry is <code>1964/2008</code>)</li>
 <li>Entity reference fields are used for taxonomy terms (an example entry is <code>cats:Tabby</code>, where "cats" is the name of the taxonomy and "Tabby" is the term)</li>
 <li>Typed relation fields are used for taxonomy entries that contain additional data indicating what "type" they are, such as using MARC relators to indicate the relationship of the taxonomy term to the item being described. An example typed relation CSV value is <code>relators:art:Jordan, Mark</code>, where "relators:art" indicates the term "Jordan, Mark" uses the MARC relator for "author".</li>
 </ul>
 <h3 id="nodes">Nodes</h3>
-<p>Think of a "node" as a specific page in a Drupal website. Every node has a content type (e.g. "Article" or "Repository Item") containing content in the fields defined by its content type. It has a URL in the Drupal website, like <code>https://mysite.org/node/3798</code>. The "3798" at the end of the URL is the node ID and uniquely identifies the node within its website.</p>
+<div class="admonition info inline end">
+<p class="admonition-title">Relevance to using Workbench</p>
+<p>In Islandora, a node is a metadata description - a set of date, contained in fields, that describe an item. Each row in your input CSV contains the field data that is used to create a node.</p>
+</div>
+<p>Think of a "node" as a specific page in a Drupal website. Every node has a content type (e.g. "Article" or "Repository Item") containing content in the fields defined by its content type. It has a URL in the Drupal website, like <code>https://mysite.org/node/3798</code>. The "3798" at the end of the URL is the node ID (also known as the "nid") and uniquely identifies the node within its website.</p>
+<p>For some operations you use Islandora Workbench for, such as updating nodes or adding media to nodes, your CSV uses node IDs.</p>
 <h2 id="taxonomies-aka-vocabularies">Taxonomies (a.k.a. vocabularies)</h2>
-<h2 id="uris">URIs</h2>
+<p>One of Drupal's most powerful features is its support for structured taxonomies (sometimes referred to as "vocabularies"). These can be used to maintain local authority lists of names, subjects, and other concepts, just like in other library/archives/museum tools. Islandora uses several taxonomies extensively as part of its data model. These include Islandora Models (which determines how derivatives are generated for example) and Islandora Media Use (which indicates if a files is an "Original file" or a "Service file", for example).</p>
+<p>Drupal assigns each term an ID, much like it assigns each node an ID. These are called "term IDs" (or "tids"). Like node IDs, they are unique within a single Drupal instance but they are not unique across Drupal instances.</p>
+<p>The taxonomies created by Islandora, such as Islandora Models and Islandora Media Use, include Linked Data URIs in the taxonomy term entries. These URIs are useful because they uniquely and reliably identify taxonomy terms across Drupal instances. For example, the taxonomy term with the Linked Data URI <code>http://pcdm.org/use#OriginalFile</code> is the same in two Drupal instances even if the term ID for the term is 589 in one instance and 23 in the other. If you create your own taxonomies, you can also assign earch term a Linked Data URI. In your Workbench CSV files, you can use URIs instead of term IDs.</p>
+<p>Islandora Workbench lets you create taxonomy term in advance of the nodes they are attached to, or at the same time as the nodes. Also, within your CSV file, you can use term IDs, term URIs, or term names. You can use term names both when you are creating new terms on the fly, or if you are assigning existing terms to newly created nodes.</p>
 <h2 id="media">Media</h2>
+<div class="admonition info inline end">
+<p class="admonition-title">Relevance to using Workbench</p>
+<p>In most cases, the file you upload using Islandora Workbench will be assigned the "Original file" media use term. Islandora will then automatically generate derivatives, such as thumbnails and extracted text where applicable, from that file and create additional media. However, you can use Workbench to upload custom or pregenerated derivatives if you want.</p>
+</div>
+<p>Media in Islandora are the image, video, audio, PDF, and other content files that are attached to nodes. Together, a node and its attached media make up an resource or item.</p>
+<p>Media have types. Standard media types defined by Islandora are:</p>
+<ul>
+<li>audio</li>
+<li>document</li>
+<li>extracted text</li>
+<li>FITS Technical Metadata</li>
+<li>File</li>
+<li>Image</li>
+<li>Remote video</li>
+<li>Video</li>
+</ul>
+<p>In general when using Workbench you don't need to worry about assigning a type to a file. Workbench infers a media's type from the file extensions, but you can override this if necessary.</p>
 <h2 id="views">Views</h2>
+<div class="admonition info inline end">
+<p class="admonition-title">Relevance to using Workbench</p>
+<p>You generally don't need to interact with Views when using Islandora Workbench, but you can use Workbench to <a href="/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv">export CSV data</a> from Drupal via a View.</p>
+</div>
+<p>Views are another extremely powerful Drupal feature that Islandora uses extensively. A View is a configuration that generates a list of things managed by Drupal, most frequently nodes but also media and taxonomy terms. Islandora Workbench uses an accompanying Drupal module called Islandora Workbench Integration that creates a number of custom Views that are necessary for Workbench to interact with Drupal. So even though as a Workbench user you might not use Views directly, Workbench is getting information from Drupal constantly using a set of custom Views.</p>
 <h2 id="rest">REST</h2>
 <div class="admonition info inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
