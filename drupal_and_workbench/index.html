@@ -1067,7 +1067,10 @@ password: islandora
 input_csv: input.csv
 ignore_csv_columns: ['date_generated', 'quality control by']
 </code></pre>
-<p>When you have all these things ready, you tell Workbench to "check" your configuration and input data, and, when your checks are complete, you use Workbench to push your content into your Islandora repository.</p>
+<p>When you have all these things ready, you tell Workbench to "check" your configuration and input data:</p>
+<p><code>./workbench --config config.yml --check</code></p>
+<p>and, when your checks are complete, you use Workbench to push your content into your Islandora repository:</p>
+<p><code>./workbench --config config.yml</code></p>
 <h2 id="content-types-fields-and-nodes">Content types, fields, and nodes</h2>
 <p>Below are the Drupal and Islandora concepts that will help you use Workbench effectively.</p>
 <h3 id="content-types">Content types</h3>
