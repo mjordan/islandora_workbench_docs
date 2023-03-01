@@ -1048,16 +1048,17 @@
 <p class="admonition-title">Note</p>
 <p>This page is under construction - and we want you to help build it! If you're new to Islandora, or Workbench, your feedback on the usefulness of this page is very important! Join the <code>#islandoraworkbench</code> channel in the <a href="https://islandora.slack.com/join/shared_invite/zt-1ac9k1xs5-Hbeit2twqexyJCxZQg9ZBQ#/shared-invite/email">Islandora Slack</a>, or leave a comment on <a href="https://github.com/mjordan/islandora_workbench/issues/532">this Github issue</a>.</p>
 </div>
-<p>In this section, we will review some of Drupal's features relevant to the use of Workbench. Its intended audience is managers of Islandora repositories who want a primer on how Drupal and Islandora relate to each other</p>
+<p>If you are new to Islandora, this section reviews some of Drupal's features relevant to the use of Workbench. Its intended audience is managers of Islandora repositories who want a primer on how Drupal, Islandora, and Workbench relate to each other.</p>
 <h2 id="why-would-i-want-to-use-islandora-workbench">Why would I want to use Islandora Workbench?</h2>
-<p>Islandora Workbench is a tool for managing content in an Islandora repository. The need it fills is basic: organizations need to get batches of content into their Islandora repositories, and sometimes need to update or delete it. Workbench lets you do all these things.</p>
+<p>Islandora Workbench lets you manage content in an Islandora repository at scale. Islandora provides perfectly usable web forms for creating and editing content on an item-by-item basis, but if you want to load a large number of items into an Islandora repository (or update or delete content in large numbers), you need a batch-oriented tool like Workbench. Islandora Workbench fills a basic need: it enables you to get batches of content into an Islandora repository, and also update or delete content in batches.</p>
 <h2 id="content-types-fields-and-nodes">Content types, fields, and nodes</h2>
 <h3 id="content-types">Content types</h3>
 <div class="admonition info inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
 <p>Workbench can only work with a single content type at a time. You define this content type in the <code>content_type</code> configuration setting.</p>
 </div>
-<p>Drupal categorizes what people see as "pages" on a Drupal website into content types. By default, Drupal provides "Article" and "Basic Page" content types, but site administrators can create custom content types. You can see the content types configured on your Drupal by logging in as an admin user and visiting <code>/admin/structure/types</code>.</p>
+<p>Drupal categorizes what people see as "pages" on a Drupal website into content types. By default, Drupal provides "Article" and "Basic Page" content types, but site administrators can create custom content types. You can see the content types configured on your Drupal by logging in as an admin user and visiting <code>/admin/structure/types</code>. Or, you can navigate to the list of your site's content types by clicking on the Structure menu item, then the Content Types entry:</p>
+<p><img alt="ISLE default content types" src="../images/ISLE_DC_demo_content_types.png" /></p>
 <p>Islandora, by default, creates a content type called a "Repository Item". But, many Islandora sites use additional content types, such as "Collection".</p>
 <h3 id="fields">Fields</h3>
 <div class="admonition info inline end">
