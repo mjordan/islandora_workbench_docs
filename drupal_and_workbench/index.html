@@ -1093,7 +1093,7 @@ ignore_csv_columns: ['date_generated', 'quality control by']
 <li>machine name</li>
 <li>type</li>
 </ol>
-<p>To help explain how these two properties work, we will use the following screenshot showing the default fields in the "Repository item" content type:</p>
+<p>To help explain how these two properties work, we will use the following screenshot showing a few of the default fields in the "Repository item" content type:</p>
 <p><img alt="Default fields in the Repository Item content type" src="../images/repository_item_fields.png" /></p>
 <div class="admonition info inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
@@ -1104,7 +1104,7 @@ ignore_csv_columns: ['date_generated', 'quality control by']
 <ul>
 <li>EDTF fields take dates in the Library of Congress' <a href="https://www.loc.gov/standards/datetime/">Extended Date/Time Format</a> (an example CSV entry is <code>1964/2008</code>)</li>
 <li>Entity reference fields are used for taxonomy terms (an example entry is <code>cats:Tabby</code>, where "cats" is the name of the taxonomy and "Tabby" is the term)</li>
-<li>Typed relation fields are used for taxonomy entries that contain additional data indicating what "type" they are, such as using MARC relators to indicate the relationship of the taxonomy term to the item being described. An example typed relation CSV value is <code>relators:art:Jordan, Mark</code>, where "relators:art" indicates the term "Jordan, Mark" uses the MARC relator for "author".</li>
+<li>Typed relation fields are used for taxonomy entries that contain additional data indicating what "type" they are, such as using MARC relators to indicate the relationship of the taxonomy term to the item being described. An example typed relation CSV value is <code>relators:art:Jordan, Mark</code>, where "relators:art" indicates the term "Jordan, Mark" uses the MARC relator "art", which stands for "author".</li>
 <li>Link fields take two pieces of information, a URL and the link text.</li>
 </ul>
 <div class="admonition info inline end">
