@@ -1172,7 +1172,7 @@ ignore_csv_columns: ['date_generated', 'quality control by']
 <h2 id="views">Views</h2>
 <div class="admonition success inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
-<p>You generally don't need to interact with Views when using Islandora Workbench, but you can use Workbench to <a href="/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv">export CSV data</a> from Drupal via a View.</p>
+<p>You usually don't need to know anything about Views when using Islandora Workbench, but you can use Workbench to <a href="/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv">export CSV data</a> from Drupal via a View.</p>
 </div>
 <p>Views are another extremely powerful Drupal feature that Islandora uses extensively. A View is a Drupal configuration that generates a list of things managed by Drupal, most commonly nodes. As a Workbench user, you will probably only use a View if you want to export data from Islandora via a <code>get_data_from_view</code> Workbench task.</p>
 <p>Behind the scenes, Workbench depends on a Drupal module called Islandora Workbench Integration that creates a number of custom Views Workbench uses to interact with Drupal. So even though you might only use Views directly when exporting CSV data from Islandora, behind the scenes Workbench is getting information from Drupal constantly using a set of custom Views.</p>
