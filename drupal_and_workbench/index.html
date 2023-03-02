@@ -1085,7 +1085,8 @@ ignore_csv_columns: ['date_generated', 'quality control by']
 </div>
 <p>Drupal categorizes what people see as "pages" on a Drupal website into content types. By default, Drupal provides "Article" and "Basic Page" content types, but site administrators can create custom content types. You can see the content types configured on your Drupal by logging in as an admin user and visiting <code>/admin/structure/types</code>. Or, you can navigate to the list of your site's content types by clicking on the Structure menu item, then the Content Types entry:</p>
 <p><img alt="ISLE default content types" src="../images/ISLE_DC_demo_content_types.png" /></p>
-<p>Islandora, by default, creates a content type called a "Repository Item". But, many Islandora sites use additional content types, such as "Collection".</p>
+<p>Islandora, by default, creates a content type called a "Repository Item". But, many Islandora sites use additional content types, such as "Collection". To find the machine name of the content type you want to use with Workbench, visit the content type's configuration page. The machine name will be the last segment of the URL. For example, in the following example, it's <code>islandora_object</code>:</p>
+<p><img alt="Default fields in the Repository Item content type" src="../images/content_type_machine_name.png" /></p>
 <h3 id="fields">Fields</h3>
 <div class="admonition success inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
@@ -1118,6 +1119,7 @@ ignore_csv_columns: ['date_generated', 'quality control by']
 <p>Another important aspect of Drupal fields is their cardinality, or in other words, how many individual values they are configured to have. This is similar to the "repeatability" of fields in metadata schemas. Some fields are configured to hold only a single value, others to hold a a maximum number of values (three, for example), and others can hold an unlimited number of values. You can find each field's cardinality in its "Field settings" tab. Here is an example showing a field with unlimited cardinality:</p>
 <p><img alt="Default fields in the Repository Item content type" src="../images/sample_field_cardinality.png" /></p>
 <p>Drupal enforces cardinality very strictly. For this reason, if your CSV file contains more values for a field than the field's configuration allows, Workbench will truncate the number of values to match the maximum number allowed for the field. If it does this, it will leave an entry in its log so you know that it didn't add all the values in your CSV data.</p>
+<p>See the Islandora documentation for <a href="https://islandora.github.io/documentation/user-documentation/metadata/#fields">additional information</a> about Drupal fields.</p>
 <h3 id="nodes">Nodes</h3>
 <div class="admonition success inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
