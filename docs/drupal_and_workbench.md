@@ -1,27 +1,31 @@
 This page highlights the most important Drupal and Islandora features relevant to the use of Workbench. Its audience is managers of Islandora repositories who want a primer on how Drupal, Islandora, and Workbench relate to each other. The Workbench-specific ideas introduced here are documented in detail elsewhere on this site.
 
-This page is not intended to be a replacement for the [official Islandora documentation](https://islandora.github.io/documentation/), which provides comprehensive and detailed information about how Islandora works.
+This page is not intended to be a replacement for the [official Islandora documentation](https://islandora.github.io/documentation/), which provides comprehensive and detailed information about how Islandora is structured, and about how to install, configure, and use it.
 
-Your feedback on the usefulness of this page is very important! Join the `#islandoraworkbench` channel in the [Islandora Slack](https://islandora.slack.com/join/shared_invite/zt-1ac9k1xs5-Hbeit2twqexyJCxZQg9ZBQ#/shared-invite/email), or leave a comment on [this Github issue](https://github.com/mjordan/islandora_workbench/issues/532).
+!!! question "Help improve this page!"
+    Your feedback on the usefulness of this page is very important! Join the `#islandoraworkbench` channel in the [Islandora Slack](https://islandora.slack.com/join/shared_invite/zt-1ac9k1xs5-Hbeit2twqexyJCxZQg9ZBQ#/shared-invite/email), or leave a comment on [this Github issue](https://github.com/mjordan/islandora_workbench/issues/532).
 
 ## Why would I want to use Islandora Workbench?
 
-Islandora Workbench lets you manage content in an Islandora repository at scale. Islandora provides web forms for creating and editing content on an item-by-item basis, but if you want to load a large number of items into an Islandora repository (or update or delete content in large numbers), you need a batch-oriented tool like Workbench. Simply put, Islandora Workbench enables you to get batches of content into an Islandora repository, and also update or delete content in batches.
+Islandora Workbench lets you manage content in an Islandora repository at scale. Islandora provides web forms for creating and editing content on an item-by-item basis, but if you want to load a large number of items into an Islandora repository (or update or delete content in large numbers), you need a batch-oriented tool like Workbench. Simply put, Islandora Workbench enables you to get batches of content into an Islandora repository, and also update or delete content in large batches.
 
 ## How do I use Islandora Workbench?
 
 Islandora Workbench provides the ability to perform a set of "tasks". The focus of this page is the `create` task, but other tasks Workbench enables include `update`, `delete`, and `add_media`.
 
-To use Islandora Workbench to create new content, you need to assemble a CSV file containing metadata describing your content, and arrange the accompanying image, video, PDF, and other files in specific ways so that Workbench knows where to find them.  Here is a sample, very simple, Workbench CSV file:
+To use Islandora Workbench to create new content, you need to assemble a CSV file containing metadata describing your content, and arrange the accompanying image, video, PDF, and other files in specific ways so that Workbench knows where to find them.  Here is a very simple sample Workbench CSV file:
 
 ```text
 file,id,title,field_model,field_description,date_generated,quality control by
-IMG_1410.tif,01,Small boats in Havana Harbour,25,Taken on vacation in Cuba.,2021-02-12,MJ
-IMG_2549.jp2,02,Manhatten Island,25,"Taken from the ferry from downtown New York to Highlands, NJ.",2021-02-12,MJ
-IMG_2940.JPG,03,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain.,2021-02-18,SP
-IMG_2958.JPG,04,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.,2021-02-12,MJ
-IMG_5083.JPG,05,Alcatraz Island,25,"Taken from Fisherman's Wharf, San Francisco.",2021-02-18,SP
+IMG_1410.tif,01,Small boats in Havana Harbour,Image,Taken on vacation in Cuba.,2021-02-12,MJ
+IMG_2549.jp2,02,Manhatten Island,Image,"Taken from the ferry from downtown New York to Highlands, NJ.",2021-02-12,MJ
+IMG_2940.JPG,03,Looking across Burrard Inlet,Image,View from Deep Cove to Burnaby Mountain.,2021-02-18,SP
+IMG_2958.JPG,04,Amsterdam waterfront,Image,Amsterdam waterfront on an overcast day.,2021-02-12,MJ
+IMG_5083.JPG,05,Alcatraz Island,Image,"Taken from Fisherman's Wharf, San Francisco.",2021-02-18,SP
 ```
+
+!!! question inline end "Why tell Workbench to ignore some CSV columns?"
+    The `ignore_csv_columns` configuration setting is just an example of the dozens of optional Workbench settings. Admittedly, it might seem a bit esoteric, but one of Workbench's strengths is that is can be incorporated into scripted or automated [workflows](/islandora_workbench_docs/workflows/). In some of those situations, your CSV might be produced by a script or application upstream in the workflow. Being able to ignore specific CSV columns provides more flexibility when Workbench is being used in this way. More information on ignoring columns and rows in your CSV is available [here](/islandora_workbench_docs/ignoring_csv_rows_and_columns/).
 
 Then, you need to create a configuration file to tell Workbench the URL of your Islandora, which Drupal account credentials to use, and the location of your CSV file. You can customize many other aspects of Islandora Workbench by including various settings in your configuration file. This is a very simple configuration file, showing one of the customization settings (`ignore_csv_columns`):
 
@@ -51,18 +55,20 @@ Below are the Drupal and Islandora concepts that will help you use Workbench eff
 
 ### Content types
 
-!!! info inline end "Relevance to using Workbench"
+!!! success inline end "Relevance to using Workbench"
     Generally speaking, Islandora Workbench can only work with a single content type at a time. You define this content type in the `content_type` configuration setting.
 
 Drupal categorizes what people see as "pages" on a Drupal website into content types. By default, Drupal provides "Article" and "Basic Page" content types, but site administrators can create custom content types. You can see the content types configured on your Drupal by logging in as an admin user and visiting `/admin/structure/types`. Or, you can navigate to the list of your site's content types by clicking on the Structure menu item, then the Content Types entry:
 
 ![ISLE default content types](images/ISLE_DC_demo_content_types.png)
 
-Islandora, by default, creates a content type called a "Repository Item". But, many Islandora sites use additional content types, such as "Collection".
+Islandora, by default, creates a content type called a "Repository Item". But, many Islandora sites use additional content types, such as "Collection". To find the machine name of the content type you want to use with Workbench, visit the content type's configuration page. The machine name will be the last segment of the URL. In the following example, it's `islandora_object`:
+
+![Default fields in the Repository Item content type](images/content_type_machine_name.png)
 
 ### Fields
 
-!!! info inline end "Relevance to using Workbench"
+!!! success inline end "Relevance to using Workbench"
     The columns in your CSV file correspond to fields in your Islandora content type.
 
 The main structural difference between content types in Drupal is that each content type is configured to use a unique set of fields. A field in Drupal the same as a "field" in metadata - it is a container for an individual piece of data. For example, all content types have a "title" field (although it might be labeled differently) to hold the page's title. Islandora's default content type, the Repository Item, uses metadata-oriented fields like "Copyright date", "Extent", "Resource type", and "Subject".
@@ -76,8 +82,8 @@ To help explain how these two properties work, we will use the following screens
 
 ![Default fields in the Repository Item content type](images/repository_item_fields.png)
 
-!!! info inline end "Relevance to using Workbench"
-    You must use field machine names in Islandora Workbench configuration files. You can also use them as column headers in your metadata CSV files (but in [most cases](/islandora_workbench_docs/fields/#using-field-labels-as-csv-column-headers) you can use fields' human-readable labels as column headers instead).
+!!! success inline end "Relevance to using Workbench"
+    In [most cases](/islandora_workbench_docs/fields/#using-field-labels-as-csv-column-headers) you can use a fields' human-readable labels as column headers in your CSV file, but within Islandora Workbench configuration files, you must use field machine names.
 
 A field has a human-readable label, such as "Copyright date", but that label can change or can be translated, and, more significantly, doesn't need to be unique within a Drupal website. Drupal assigns each field a machine name that is more reliable for software to use than human-readable labels. These field machine names are all lower case, use underscores instead of spaces, and are guaranteed by Drupal to be unique within a content type. In the screenshot above, you can see the machine names in the middle column (you might need to zoom in!). For example, the machine name for the "Copyright date" field is `field_copyright_date`.
 
@@ -89,16 +95,20 @@ A field's "type" determines the structure of the data it can hold. Some common f
 * Link fields take two pieces of information, a URL and the link text, like `http://acme.com%%Acme Products Inc.`
 
 
-!!! info inline end "Relevance to using Workbench"
-    Drupal enforces cardinality very strictly. For this reason, if your CSV file contains more values for a field than the field's configuration allows, Workbench will truncate the number of values to match the maximum number allowed for the field. If it does this, it will leave an entry in its log so you know that it didn't add all the values in your CSV data.
+!!! success inline end "Relevance to using Workbench"
+    Drupal fields can be configured to have multiple values.
 
 Another important aspect of Drupal fields is their cardinality, or in other words, how many individual values they are configured to have. This is similar to the "repeatability" of fields in metadata schemas. Some fields are configured to hold only a single value, others to hold a a maximum number of values (three, for example), and others can hold an unlimited number of values. You can find each field's cardinality in its "Field settings" tab. Here is an example showing a field with unlimited cardinality:
 
 ![Default fields in the Repository Item content type](images/sample_field_cardinality.png)
 
+Drupal enforces cardinality very strictly. For this reason, if your CSV file contains more values for a field than the field's configuration allows, Workbench will truncate the number of values to match the maximum number allowed for the field. If it does this, it will leave an entry in its log so you know that it didn't add all the values in your CSV data.
+
+See the Islandora documentation for [additional information](https://islandora.github.io/documentation/user-documentation/metadata/#fields) about Drupal fields.
+
 ### Nodes
 
-!!! info inline end "Relevance to using Workbench"
+!!! success inline end "Relevance to using Workbench"
     In Islandora, a node is a metadata description - a grouping of data, contained in fields, that describe an item. Each row in your input CSV contains the field data that is used to create a node.
 
 Think of a "node" as a specific page in a Drupal website. Every node has a content type (e.g. "Article" or "Repository Item") containing content in the fields defined by its content type. It has a URL in the Drupal website, like `https://mysite.org/node/3798`. The "3798" at the end of the URL is the node ID (also known as the "nid") and uniquely identifies the node within its website. In Islandora, a node is less like a "web page" and more like a "catalogue record" since Islandora-specific content types generally contain a lot of metadata-oriented fields rather than long discursive text like a blog would have. In `create` tasks, each row in your input CSV will create a single node.
@@ -109,9 +119,9 @@ Content in Islandora can be hierarchical. For example, collections contain items
 
 If you want to learn more about how Drupal nodes work, consult the [Islandora documentation](https://islandora.github.io/documentation/concepts/node-concepts/).
 
-## Taxonomies (a.k.a. vocabularies)
+## Taxonomies
 
-!!! info inline end "Relevance to using Workbench"
+!!! success inline end "Relevance to using Workbench"
     Drupal's taxonomy system lets you create local authority lists for names, subjects, genre terms, and other types of data.
 
 One of Drupal's most powerful features is its support for structured taxonomies (sometimes referred to as "vocabularies"). These can be used to maintain local authority lists of personal and corporate names, subjects, and other concepts, just like in other library/archives/museum tools.
@@ -126,8 +136,10 @@ The taxonomies created by Islandora, such as Islandora Models and Islandora Medi
 
 ## Media
 
-!!! info inline end "Relevance to using Workbench"
-    In most cases, the file you upload using Islandora Workbench will be assigned the "Original file" media use term. Islandora will then automatically generate derivatives, such as thumbnails and extracted text where applicable, from that file and create additional media. However, you can use Workbench to upload custom or pregenerated derivatives if you want by assigning them other media use terms.
+!!! success inline end "Relevance to using Workbench"
+    By default, the file you upload using Islandora Workbench will be assigned the "Original file" media use term. Islandora will then automatically generate derivatives, such as thumbnails and extracted text where applicable, from that file and create additional media.
+
+    However, you can use Workbench to upload additional files or pregenerated derivatives by assigning them other media use terms.
 
 Media in Islandora are the image, video, audio, PDF, and other content files that are attached to nodes. Together, a node and its attached media make up an resource or item.
 
@@ -163,8 +175,8 @@ The Islandora documentation provides additional information on [media](https://i
 
 ## Views
 
-!!! info inline end "Relevance to using Workbench"
-    You generally don't need to interact with Views when using Islandora Workbench, but you can use Workbench to [export CSV data](/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv) from Drupal via a View.
+!!! success inline end "Relevance to using Workbench"
+    You usually don't need to know anything about Views when using Islandora Workbench, but you can use Workbench to [export CSV data](/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv) from Drupal via a View.
 
 Views are another extremely powerful Drupal feature that Islandora uses extensively. A View is a Drupal configuration that generates a list of things managed by Drupal, most commonly nodes. As a Workbench user, you will probably only use a View if you want to export data from Islandora via a `get_data_from_view` Workbench task.
 
@@ -173,8 +185,8 @@ Behind the scenes, Workbench depends on a Drupal module called Islandora Workben
 
 ## REST
 
-!!! info inline end "Relevance to using Workbench"
-     As a Workbench user, you don't need to know anything about REST, but if you encounter a problem using Workbench, you may be asked to provide your log file, which may contain some raw REST data.
+!!! success inline end "Relevance to using Workbench"
+     As a Workbench user, you don't need to know anything about REST, but if you encounter a problem using Workbench and reach out for help, you might be asked to provide your log file, which will likely contain some raw REST data.
 
 REST is the protocol that Workbench uses to interact with Drupal. However, as a user of Workbench, you don't need to know anything about REST - it's Workbench's job to shield you from all that complexity.
 
