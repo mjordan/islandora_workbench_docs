@@ -43,6 +43,8 @@ Workbench will provide a summary of what passed the check and what needs to be f
 
 `./workbench --config config.yml`
 
+You can use a raw CSV file, a [Google Sheet](https://mjordan.github.io/islandora_workbench_docs/preparing_data/#using-a-google-sheet-as-the-input-csv-file), or an [Excel file](https://mjordan.github.io/islandora_workbench_docs/preparing_data/#using-an-excel-file-as-the-input-csv-file) as input, and your image, PDF, video, and other files can be stored [locally](https://mjordan.github.io/islandora_workbench_docs/preparing_data/#using-an-input-directory), or at [URLs](https://mjordan.github.io/islandora_workbench_docs/preparing_data/#using-urls-as-file-paths) on the web.
+
 ## Content types, fields, and nodes
 
 Below are the Drupal and Islandora concepts that will help you use Workbench effectively.

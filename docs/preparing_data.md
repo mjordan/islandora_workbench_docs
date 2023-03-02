@@ -162,7 +162,7 @@ id,file,title
 003,dog.png,My dog
 ```
 
-[More information](/fields/#values-in-the-file-field) is available on using URLs in your `file` column.
+[More information](/islandora_workbench_docs/fields/#values-in-the-file-column) is available on using URLs in your `file` column.
 
 ## Using a Google Sheet as the input CSV file
 
