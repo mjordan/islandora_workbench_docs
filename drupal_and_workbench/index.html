@@ -1046,7 +1046,7 @@
 
 <p>This page highlights the most important Drupal and Islandora features relevant to the use of Workbench. Its audience is managers of Islandora repositories who want a primer on how Drupal, Islandora, and Workbench relate to each other. The Workbench-specific ideas introduced here are documented in detail elsewhere on this site.</p>
 <p>This page is not intended to be a replacement for the <a href="https://islandora.github.io/documentation/">official Islandora documentation</a>, which provides comprehensive and detailed information about how Islandora works.</p>
-<p>Your feedback on the usefulness of this page is very important! Join the <code>#islandoraworkbench</code> channel in the <a href="https://islandora.slack.com/join/shared_invite/zt-1ac9k1xs5-Hbeit2twqexyJCxZQg9ZBQ#/shared-invite/email">Islandora Slack</a>, or leave a comment on <a href="https://github.com/mjordan/islandora_workbench/issues/532">this Github issue</a>.</p>
+<p>!!! question Your feedback on the usefulness of this page is very important! Join the <code>#islandoraworkbench</code> channel in the <a href="https://islandora.slack.com/join/shared_invite/zt-1ac9k1xs5-Hbeit2twqexyJCxZQg9ZBQ#/shared-invite/email">Islandora Slack</a>, or leave a comment on <a href="https://github.com/mjordan/islandora_workbench/issues/532">this Github issue</a>.</p>
 <h2 id="why-would-i-want-to-use-islandora-workbench">Why would I want to use Islandora Workbench?</h2>
 <p>Islandora Workbench lets you manage content in an Islandora repository at scale. Islandora provides web forms for creating and editing content on an item-by-item basis, but if you want to load a large number of items into an Islandora repository (or update or delete content in large numbers), you need a batch-oriented tool like Workbench. Simply put, Islandora Workbench enables you to get batches of content into an Islandora repository, and also update or delete content in batches.</p>
 <h2 id="how-do-i-use-islandora-workbench">How do I use Islandora Workbench?</h2>
@@ -1076,7 +1076,7 @@ ignore_csv_columns: ['date_generated', 'quality control by']
 <h2 id="content-types-fields-and-nodes">Content types, fields, and nodes</h2>
 <p>Below are the Drupal and Islandora concepts that will help you use Workbench effectively.</p>
 <h3 id="content-types">Content types</h3>
-<div class="admonition info inline end">
+<div class="admonition success inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
 <p>Generally speaking, Islandora Workbench can only work with a single content type at a time. You define this content type in the <code>content_type</code> configuration setting.</p>
 </div>
@@ -1084,7 +1084,7 @@ ignore_csv_columns: ['date_generated', 'quality control by']
 <p><img alt="ISLE default content types" src="../images/ISLE_DC_demo_content_types.png" /></p>
 <p>Islandora, by default, creates a content type called a "Repository Item". But, many Islandora sites use additional content types, such as "Collection".</p>
 <h3 id="fields">Fields</h3>
-<div class="admonition info inline end">
+<div class="admonition success inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
 <p>The columns in your CSV file correspond to fields in your Islandora content type.</p>
 </div>
@@ -1096,7 +1096,7 @@ ignore_csv_columns: ['date_generated', 'quality control by']
 </ol>
 <p>To help explain how these two properties work, we will use the following screenshot showing a few of the default fields in the "Repository item" content type:</p>
 <p><img alt="Default fields in the Repository Item content type" src="../images/repository_item_fields.png" /></p>
-<div class="admonition info inline end">
+<div class="admonition success inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
 <p>You must use field machine names in Islandora Workbench configuration files. You can also use them as column headers in your metadata CSV files (but in <a href="/islandora_workbench_docs/fields/#using-field-labels-as-csv-column-headers">most cases</a> you can use fields' human-readable labels as column headers instead).</p>
 </div>
@@ -1108,14 +1108,14 @@ ignore_csv_columns: ['date_generated', 'quality control by']
 <li>Typed relation fields are used for taxonomy entries that contain additional data indicating what "type" they are, such as using MARC relators to indicate the relationship of the taxonomy term to the item being described. An example typed relation CSV value is <code>relators:art:Jordan, Mark</code>, where "relators:art" indicates the term "Jordan, Mark" uses the MARC relator "art", which stands for "author".</li>
 <li>Link fields take two pieces of information, a URL and the link text, like <code>http://acme.com%%Acme Products Inc.</code></li>
 </ul>
-<div class="admonition info inline end">
+<div class="admonition success inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
 <p>Drupal enforces cardinality very strictly. For this reason, if your CSV file contains more values for a field than the field's configuration allows, Workbench will truncate the number of values to match the maximum number allowed for the field. If it does this, it will leave an entry in its log so you know that it didn't add all the values in your CSV data.</p>
 </div>
 <p>Another important aspect of Drupal fields is their cardinality, or in other words, how many individual values they are configured to have. This is similar to the "repeatability" of fields in metadata schemas. Some fields are configured to hold only a single value, others to hold a a maximum number of values (three, for example), and others can hold an unlimited number of values. You can find each field's cardinality in its "Field settings" tab. Here is an example showing a field with unlimited cardinality:</p>
 <p><img alt="Default fields in the Repository Item content type" src="../images/sample_field_cardinality.png" /></p>
 <h3 id="nodes">Nodes</h3>
-<div class="admonition info inline end">
+<div class="admonition success inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
 <p>In Islandora, a node is a metadata description - a grouping of data, contained in fields, that describe an item. Each row in your input CSV contains the field data that is used to create a node.</p>
 </div>
@@ -1124,7 +1124,7 @@ ignore_csv_columns: ['date_generated', 'quality control by']
 <p>Content in Islandora can be hierarchical. For example, collections contain items, newspapers contain issues which in turn contain pages, and compound items can contain a top-level "parent" node and many "child" nodes. Islandora defines a specifc field, <code>field_member_of</code> (or in English, "Member Of") that contains the node ID of another node's parent. If this field is empty in a node, it has no parent; if this field contains a value, the node with that node ID is the first node's parent. Islandora Workbench provides <a href="https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/">several ways</a> for you to create hierarchical content.</p>
 <p>If you want to learn more about how Drupal nodes work, consult the <a href="https://islandora.github.io/documentation/concepts/node-concepts/">Islandora documentation</a>.</p>
 <h2 id="taxonomies-aka-vocabularies">Taxonomies (a.k.a. vocabularies)</h2>
-<div class="admonition info inline end">
+<div class="admonition success inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
 <p>Drupal's taxonomy system lets you create local authority lists for names, subjects, genre terms, and other types of data.</p>
 </div>
@@ -1134,7 +1134,7 @@ ignore_csv_columns: ['date_generated', 'quality control by']
 <p>Islandora uses several specific taxonomies extensively as part of its data model. These include Islandora Models (which determines how derivatives are generated for example) and Islandora Media Use (which indicates if a file is an "Original file" or a "Service file", for example).</p>
 <p>The taxonomies created by Islandora, such as Islandora Models and Islandora Media Use, include Linked Data URIs in the taxonomy term entries. These URIs are useful because they uniquely and reliably identify taxonomy terms across Drupal instances. For example, the taxonomy term with the Linked Data URI <code>http://pcdm.org/use#OriginalFile</code> is the same in two Drupal instances even if the term ID for the term is 589 in one instance and 23 in the other, or if the name of the term is in different languages. If you create your own taxonomies, you can also assign earch term a Linked Data URI.</p>
 <h2 id="media">Media</h2>
-<div class="admonition info inline end">
+<div class="admonition success inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
 <p>In most cases, the file you upload using Islandora Workbench will be assigned the "Original file" media use term. Islandora will then automatically generate derivatives, such as thumbnails and extracted text where applicable, from that file and create additional media. However, you can use Workbench to upload custom or pregenerated derivatives if you want by assigning them other media use terms.</p>
 </div>
@@ -1165,14 +1165,14 @@ ignore_csv_columns: ['date_generated', 'quality control by']
 <p><img alt="Sample media use terms form" src="../images/sample_media_with_media_use_terms.png" /></p>
 <p>The Islandora documentation provides additional information on <a href="https://islandora.github.io/documentation/concepts/node-media/">media</a>.</p>
 <h2 id="views">Views</h2>
-<div class="admonition info inline end">
+<div class="admonition success inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
 <p>You generally don't need to interact with Views when using Islandora Workbench, but you can use Workbench to <a href="/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv">export CSV data</a> from Drupal via a View.</p>
 </div>
 <p>Views are another extremely powerful Drupal feature that Islandora uses extensively. A View is a Drupal configuration that generates a list of things managed by Drupal, most commonly nodes. As a Workbench user, you will probably only use a View if you want to export data from Islandora via a <code>get_data_from_view</code> Workbench task.</p>
 <p>Behind the scenes, Workbench depends on a Drupal module called Islandora Workbench Integration that creates a number of custom Views Workbench uses to interact with Drupal. So even though you might only use Views directly when exporting CSV data from Islandora, behind the scenes Workbench is getting information from Drupal constantly using a set of custom Views.</p>
 <h2 id="rest">REST</h2>
-<div class="admonition info inline end">
+<div class="admonition success inline end">
 <p class="admonition-title">Relevance to using Workbench</p>
 <p>As a Workbench user, you don't need to know anything about REST, but if you encounter a problem using Workbench, you may be asked to provide your log file, which may contain some raw REST data.</p>
 </div>
