@@ -1702,7 +1702,7 @@ csv_field_templates:
 <td>delete_tmp_upload</td>
 <td></td>
 <td>false</td>
-<td>For remote files, if set to <code>true</code>, remote file is deleted after it is used to create media. If <code>false</code>, downloaded file will remain in your <code>input_dir</code>. If the file cannot be deleted (e.g. a virus scanner is scanning it), it will remain and an error message will be added to the log file.</td>
+<td>For remote files, if set to <code>true</code>, the temporary copy of the remote file is deleted after it is used to create media. If <code>false</code>, the copy will remain in the location defined in your <code>temp_dir</code> setting. If the file cannot be deleted (e.g. a virus scanner is scanning it), it will remain and an error message will be added to the log file.</td>
 </tr>
 <tr>
 <td>additional_files</td>
@@ -1973,19 +1973,19 @@ csv_field_templates:
 <td>bootstrap</td>
 <td></td>
 <td></td>
-<td>List of absolute paths to one or more scripts that execute prior to Workbench connecting to Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a> documentation.</td>
+<td>List of absolute paths to one or more scripts that execute prior to Workbench connecting to Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
 </tr>
 <tr>
 <td>shutdown</td>
 <td></td>
 <td></td>
-<td>List of absolute paths to one or more scripts that execute after Workbench connecting to Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a> documentation.</td>
+<td>List of absolute paths to one or more scripts that execute after Workbench connecting to Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
 </tr>
 <tr>
 <td>preprocessors</td>
 <td></td>
 <td></td>
-<td>List of absolute paths to one or more scripts that are applied to CSV values prior to the values being ingested into Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a> documentation.</td>
+<td>List of absolute paths to one or more scripts that are applied to CSV values prior to the values being ingested into Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
 </tr>
 <tr>
 <td>node_post_create</td>
