@@ -85,6 +85,9 @@ When ingesting media in Drupal versions 8.5 and earlier, Islandora Workbench has
 
 To avoid these issues, you need to be running Drupal version 8.6 or higher.
 
+!!! warning
+    If you are using Drupal 8.5 or earlier, you need to use the version of Workbench tagged with `drupal_8.5_and_lower` (commit 542325fb6d44c2ac84a4e2965289bb9f9ed9bf68). Later versions no longer support Drupal 8.5 and earlier.
+
 ## Password managment
 
 Islandora Workbench requires user credentials that have administrator-level permissions in the target Drupal. Therefore you should exercise caution when managing those credentials.
@@ -92,7 +95,7 @@ Islandora Workbench requires user credentials that have administrator-level perm
 Workbench configuration files must contain a `username` setting, but you can provide the corresponding password in three ways:
 
 1. in the `password` setting in your YAML configuration file
-1. in the `ISLANDORA_WORKBENCH_PASSWORD` environment variable 
+1. in the `ISLANDORA_WORKBENCH_PASSWORD` environment variable
 1. in response to a prompt when you run Workbench.
 
 If the `password` setting is present in your configuration files, Workbench will use its value as the user password and will ignore the other two methods of providing a password. If the `password` setting is absent, Workbench will look for the `ISLANDORA_WORKBENCH_PASSWORD` environment variable and if it is present, use its value. If both the `password` setting and the `ISLANDORA_WORKBENCH_PASSWORD` environment variable are absent, Workbench will prompt the user for a password before proceeding.

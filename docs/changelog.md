@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* March 2, 2023: Created `drupal_8.5_and_lower` tag. Users of Drupal 8.5 and earlier must use this version of Workbench.
 * Februray 28, 2023: Resolved issue [569](https://github.com/mjordan/islandora_workbench/issues/569).
 * Februray 24, 2023: Added `clean_csv_values_skip` config setting (commit e659616e, issue [567](https://github.com/mjordan/islandora_workbench/issues/567)).
 * Februray 22, 2023: Resolved issue [563](https://github.com/mjordan/islandora_workbench/issues/563); Added `csv_value_templates` config setting (commit ae1fcd2b, issue [566](https://github.com/mjordan/islandora_workbench/issues/566)).
@@ -44,6 +45,7 @@
 
 ### Documentation
 
+* March 2, 2023: Added mention of `drupal_8.5_and_lower` tag to "[Requirements and installation](/islandora_workbench_docs/installation/#using-drupal-85-or-earlier).
 * February 28, 2023: Removed references to the `iteration-utilities` Python library; add new page "[Workbench's relationship to Drupal and Islandora](/islandora_workbench_docs/drupal_and_workbench/)".
 * February 27, 2023: Replaced "Islandora 8" with "Islandora 2".
 * February 24, 2023: Added "[How Workbench cleans your input data](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data)".
