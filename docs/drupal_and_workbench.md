@@ -24,10 +24,7 @@ IMG_2958.JPG,04,Amsterdam waterfront,Image,Amsterdam waterfront on an overcast d
 IMG_5083.JPG,05,Alcatraz Island,Image,"Taken from Fisherman's Wharf, San Francisco.",2021-02-18,SP
 ```
 
-!!! question inline end "Why tell Workbench to ignore some CSV columns?"
-    The `ignore_csv_columns` configuration setting is just an example of the dozens of optional Workbench settings. Admittedly, this configfuration setting might seem a bit esoteric, but one of Workbench's strengths is that is can be incorporated into scripted or automated [workflows](/islandora_workbench_docs/workflows/). In some of those situations, your CSV might be produced by a script or application upstream in the workflow. Being able to ignore specific CSV columns provides more flexibility when Workbench is being used in this way. More information on ignoring columns and rows in your CSV is available [here](/islandora_workbench_docs/ignoring_csv_rows_and_columns/).
-
-Then, you need to create a configuration file to tell Workbench the URL of your Islandora, which Drupal account credentials to use, and the location of your CSV file. You can customize many other aspects of Islandora Workbench by including various settings in your configuration file. This is a very simple configuration file, showing one of the customization settings (`ignore_csv_columns`):
+Then, you need to create a configuration file to tell Workbench the URL of your Islandora, which Drupal account credentials to use, and the location of your CSV file. You can customize many other aspects of Islandora Workbench by including various settings in your configuration file. Here is a very simple configuration file:
 
 ```yaml
 task: create
@@ -36,16 +33,18 @@ username: admin
 password: islandora
 input_csv: input.csv
 content_type: islandora_object
-ignore_csv_columns: ['date_generated', 'quality control by']
 ```
+
+!!! success inline end "Relevance to using Workbench"
+    It is *very* important to run `--check` before you commit to having Workbench add content to your Drupal. Doing so lets Workbench find issues with your configuration and input CSV and files. See the "[Checking configuration and input data](/islandora_workbench_docs/check/)" documentation for a complete list of the things `--check` looks for.
 
 When you have all these things ready, you tell Workbench to "check" your configuration and input data:
 
-`./workbench --config config.yml --check`
+`./workbench --config test.yml --check`
 
 Workbench will provide a summary of what passed the check and what needs to be fixed. When your checks are complete, you use Workbench to push your content into your Islandora repository:
 
-`./workbench --config config.yml`
+`./workbench --config test.yml`
 
 You can use a raw CSV file, a [Google Sheet](https://mjordan.github.io/islandora_workbench_docs/preparing_data/#using-a-google-sheet-as-the-input-csv-file), or an [Excel file](https://mjordan.github.io/islandora_workbench_docs/preparing_data/#using-an-excel-file-as-the-input-csv-file) as input, and your image, PDF, video, and other files can be stored [locally](https://mjordan.github.io/islandora_workbench_docs/preparing_data/#using-an-input-directory), or at [URLs](https://mjordan.github.io/islandora_workbench_docs/preparing_data/#using-urls-as-file-paths) on the web.
 
@@ -178,9 +177,9 @@ The Islandora documentation provides additional information on [media](https://i
 !!! success inline end "Relevance to using Workbench"
     You usually don't need to know anything about Views when using Islandora Workbench, but you can use Workbench to [export CSV data](/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv) from Drupal via a View.
 
-Views are another extremely powerful Drupal feature that Islandora uses extensively. A View is a Drupal configuration that generates a list of things managed by Drupal, most commonly nodes. As a Workbench user, you will probably only use a View if you want to export data from Islandora via a `get_data_from_view` Workbench task.
+Views are another powerful Drupal feature that Islandora uses extensively. A View is a Drupal configuration that generates a list of things managed by Drupal, most commonly nodes. As a Workbench user, you will probably only use a View if you want to export data from Islandora via a `get_data_from_view` Workbench task.
 
-Behind the scenes, Workbench depends on a Drupal module called Islandora Workbench Integration that creates a number of custom Views Workbench uses to interact with Drupal. So even though you might only use Views directly when exporting CSV data from Islandora, behind the scenes Workbench is getting information from Drupal constantly using a set of custom Views.
+Behind the scenes, Workbench depends on a Drupal module called Islandora Workbench Integration that creates a number of custom Views that Workbench uses to interact with Drupal. So even though you might only use Views directly when exporting CSV data from Islandora, behind the scenes Workbench is getting information from Drupal constantly using a set of custom Views.
 
 
 ## REST
