@@ -907,6 +907,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#get_islandora_7_contentpy-crashes-with-the-error-illegal-request-server-returned-status-of-400-the-default-query-may-be-too-long-for-a-url-request" class="md-nav__link">
+    get_islandora_7_content.py crashes with the error "illegal request: Server returned status of 400. The default query may be too long for a url request."
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1073,6 +1080,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#get_islandora_7_contentpy-crashes-with-the-error-illegal-request-server-returned-status-of-400-the-default-query-may-be-too-long-for-a-url-request" class="md-nav__link">
+    get_islandora_7_content.py crashes with the error "illegal request: Server returned status of 400. The default query may be too long for a url request."
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1166,6 +1180,8 @@
 <h3 id="im-having-trouble-getting-workbench-to-work-in-a-cronjob">I'm having trouble getting Workbench to work in a cronjob</h3>
 <p>The most common problem you will encounter when running Islandora Workbench in a cronjob is that Workbench can't find its configuration file, or input/output directories. The easiest way to avoid this is to use absolute file paths everywhere, including as the value of Workbench's <code>--config</code> parameter, in configuration files, and in <code>file</code> and <code>additional_files</code> columns in your input CSV files.</p>
 <p>In some cases, particularly if you are using a secondary task to create pages or child items, you many need to use the <code>path_to_python</code> and <code>path_to_workbench_script</code> configuration settings.</p>
+<h3 id="get_islandora_7_contentpy-crashes-with-the-error-illegal-request-server-returned-status-of-400-the-default-query-may-be-too-long-for-a-url-request">get_islandora_7_content.py crashes with the error "illegal request: Server returned status of 400. The default query may be too long for a url request."</h3>
+<p>Islandora 7's Solr contains a lot of redundant fields. You need to reduce the number of fields to export. See the "<a href="/islandora_workbench_docs/exporting_islandora_7_content/#configuring-which-solr-fields-to-include-in-the-csv">Exporting Islandora 7 content</a>" documentation for ways to reduce the number of fields. Ask in the <code>#islandoraworkbench</code> Slack channel if you need help.</p>
 
 
 
