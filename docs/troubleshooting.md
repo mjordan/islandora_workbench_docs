@@ -105,3 +105,7 @@ First thing to check is whether you are using the [Pathauto](https://www.drupal.
 The most common problem you will encounter when running Islandora Workbench in a cronjob is that Workbench can't find its configuration file, or input/output directories. The easiest way to avoid this is to use absolute file paths everywhere, including as the value of Workbench's `--config` parameter, in configuration files, and in `file` and `additional_files` columns in your input CSV files.
 
 In some cases, particularly if you are using a secondary task to create pages or child items, you many need to use the `path_to_python` and `path_to_workbench_script` configuration settings.
+
+### get_islandora_7_content.py crashes with the error "illegal request: Server returned status of 400. The default query may be too long for a url request."
+
+Islandora 7's Solr contains a lot of redundant fields. You need to reduce the number of fields to export. See the "[Exporting Islandora 7 content](/islandora_workbench_docs/exporting_islandora_7_content/#configuring-which-solr-fields-to-include-in-the-csv)" documentation for ways to reduce the number of fields. Ask in the `#islandoraworkbench` Slack channel if you need help.

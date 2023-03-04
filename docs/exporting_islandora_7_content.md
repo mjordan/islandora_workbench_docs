@@ -135,7 +135,7 @@ The script takes the following approach to providing control over what fields en
    variable, and if the match is successful, includes the fieldname in the CSV. For
    example, `field_pattern = 'mods_.*(_s|_ms)$'` will match every Solr field that starts with "mods_" and ends with
    either "_s" or "_ms".
-1. Next, it matches each remaining filename against the regular expression patterns defined in the
+1. Next, it matches each remaining fieldname against the regular expression patterns defined in the
    script's `field_pattern_do_not_want` variable, and if the match is successful, *removes* the fieldname from the CSV.
    For example, `field_pattern_do_not_want = '(marcrelator|isSequenceNumberOf)'` will remove all fieldnames that contain
    either the string "marcrelator" or "isSequenceNumberOf". Note that the regular expression used in this configuration
@@ -158,19 +158,7 @@ a sample from a minimal Islandora 7.x:
 file,PID,RELS_EXT_hasModel_uri_s,RELS_EXT_isMemberOfCollection_uri_ms,RELS_EXT_isConstituentOf_uri_ms,RELS_EXT_isPageOf_uri_ms,mods_recordInfo_recordOrigin_ms,mods_name_personal_author_ms,mods_abstract_s,mods_name_aut_role_roleTerm_code_s,mods_name_personal_author_s,mods_typeOfResource_s,mods_subject_geographic_ms,mods_identifier_local_ms,mods_genre_ms,mods_name_photographer_role_roleTerm_code_s,mods_physicalDescription_form_all_ms,mods_physicalDescription_extent_ms,mods_subject_topic_ms,mods_name_namePart_s,mods_physicalDescription_form_authority_marcform_ms,mods_name_pht_s,mods_identifier_uuid_ms,mods_language_languageTerm_code_s,mods_physicalDescription_form_s,mods_accessCondition_use_and_reproduction_s,mods_name_personal_role_roleTerm_text_s,mods_name__role_roleTerm_code_ms,mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_ms,mods_name_aut_s,mods_originInfo_encoding_iso8601_dateIssued_s,mods_originInfo_dateIssued_ms,mods_name_photographer_namePart_s,mods_name_pht_role_roleTerm_text_ms,mods_identifier_all_ms,mods_name_namePart_ms,mods_subject_geographic_s,mods_originInfo_publisher_ms,mods_subject_descendants_all_ms,mods_titleInfo_title_all_ms,mods_name_photographer_role_roleTerm_text_ms,mods_name_role_roleTerm_text_s,mods_titleInfo_title_ms,mods_name_photographer_s,mods_originInfo_place_placeTerm_text_s,mods_name_role_roleTerm_code_ms,mods_name_pht_role_roleTerm_code_s,mods_name_pht_namePart_s,mods_name_pht_namePart_ms,mods_name_role_roleTerm_code_s,mods_genre_all_ms,mods_physicalDescription_form_authority_marcform_s,mods_name_pht_role_roleTerm_code_ms,mods_extension_display_date_ms,mods_name_photographer_namePart_ms,mods_genre_authority_bgtchm_ms,mods_name_personal_role_roleTerm_text_ms,mods_name_pht_ms,mods_name_photographer_role_roleTerm_text_s,mods_language_languageTerm_code_ms,mods_originInfo_place_placeTerm_text_ms,mods_titleInfo_title_s,mods_identifier_uuid_s,mods_language_languageTerm_code_authority_iso639-2b_s,mods_genre_s,mods_name_aut_role_roleTerm_code_ms,mods_typeOfResource_ms,mods_originInfo_encoding_iso8601_dateIssued_ms,mods_name_personal_author_role_roleTerm_text_ms,mods_abstract_ms,mods_language_languageTerm_text_s,mods_genre_authority_bgtchm_s,mods_language_languageTerm_s,mods_language_languageTerm_ms,mods_subject_topic_s,mods_name_photographer_ms,mods_name_pht_role_roleTerm_text_s,mods_recordInfo_recordOrigin_s,mods_name_aut_ms,mods_originInfo_publisher_s,mods_identifier_local_s,mods_language_languageTerm_text_ms,mods_physicalDescription_extent_s,mods_language_languageTerm_code_authority_iso639-2b_ms,mods_name__role_roleTerm_code_s,mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_s,mods_name_photographer_role_roleTerm_code_ms,mods_name_role_roleTerm_text_ms,mods_name_personal_author_role_roleTerm_text_s,mods_accessCondition_use_and_reproduction_ms,mods_physicalDescription_form_ms,sequence
 ```
 
-The script-generated solr request may not in most cases be useful or even workable. The user has the option of
-providing their own solr query in a file and adding a second parameter when running the script:
-
-`python3 get_islandora_7_content.py --config <my_config> --metadata_solr_request <my_request.txt>`
-
-By adding filters to the Solr query the user can bring back the results of single collections or content types. If you
-use the `--metadata_solr_request` option, the contents of the file must contain a full HTTP request to Solr, e.g.:
-
-```text
-http://localhost:8080/solr/select?q=PID:**&wt=csv&rows=1000000&fl=PID,RELS_EXT_hasModel_uri_s,RELS_EXT_isMemberOfCollection_uri_ms,RELS_EXT_isMemberOf_uri_ms,mods_originInfo_encoding_iso8601_dateIssued_mdt
-```
-
-The advantage of putting your Solr request in its own file is that you have complete control over the Solr query. Requests to Solr in this file should always include the "wt=csv" and "rows=1000000" parameters (the "rows" parameter should have a value that is greater than the number of objects in your repository, otherwise Solr won't return all objects).
+The script-generated solr request may not in most cases be useful or even workable. You may need to experiment with the `field_pattern` and `field_pattern_do_not_want` configuration settings to reduce the number of Solr fields.
 
 ## Adding filters to your Solr query to limit the objects fetched from the source Islandora
 
@@ -181,6 +169,22 @@ solr_filters:
  - ancestor_ms: 'some:collection'
  - fgs_state_s: 'Active'
 ```
+
+## Putting your Solr request in a file
+
+You have the option of
+providing their own solr query in a text file and  pointing to the file using the `--metadata_solr_request` option when running the script:
+
+`python3 get_islandora_7_content.py --config <my_config> --metadata_solr_request <my_request.txt>`
+
+The contents of the file must contain a full HTTP request to Solr, e.g.:
+
+```text
+http://localhost:8080/solr/select?q=PID:**&wt=csv&rows=1000000&fl=PID,RELS_EXT_hasModel_uri_s,RELS_EXT_isMemberOfCollection_uri_ms,RELS_EXT_isMemberOf_uri_ms,mods_originInfo_encoding_iso8601_dateIssued_mdt
+```
+
+The advantage of putting your Solr request in its own file is that you have complete control over the Solr query. Requests to Solr in this file should always include the "wt=csv" and "rows=1000000" parameters (the "rows" parameter should have a value that is greater than the number of objects in your repository, otherwise Solr won't return all objects).
+
 
 ## Using the CSV as input for Workbench
 

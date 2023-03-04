@@ -140,7 +140,7 @@ The taxonomies created by Islandora, such as Islandora Models and Islandora Medi
 
     However, you can use Workbench to upload additional files or pregenerated derivatives by assigning them other media use terms.
 
-Media in Islandora are the image, video, audio, PDF, and other content files that are attached to nodes. Together, a node and its attached media make up an resource or item.
+Media in Islandora are the image, video, audio, PDF, and other content files that are attached to nodes. Together, a node and its attached media make up a resource or item.
 
 Media have types. Standard media types defined by Islandora are:
 
@@ -189,4 +189,4 @@ Behind the scenes, Workbench depends on a Drupal module called Islandora Workben
 
 REST is the protocol that Workbench uses to interact with Drupal. However, as a user of Workbench, you don't need to know anything about REST - it's Workbench's job to shield you from all that complexity.
 
-The only exception is that sometimes, if things go wrong, Workbench will include in its log file some details about the particular REST request that didn't work (such as HTTP response codes and raw JSON). Again, you don't need to know how Workbench interacts with Drupal via REST. But, if Workbench fails to add your content to Islandora, and you [reach out for help](/islandora_workbench_docs/troubleshooting/) figuring out why, you might be asked to provide your Workbench log file to aid in troubleshooting.
+However, if things go wrong, Workbench will include in its log file some details about the particular REST request that didn't work (such as HTTP response codes and raw JSON). If you [reach out for help](/islandora_workbench_docs/troubleshooting/), you might be asked to provide your Workbench log file to aid in troubleshooting. It's normal to see the raw data used in REST communication between Workbench and Drupal in the log.

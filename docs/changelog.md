@@ -45,6 +45,7 @@
 
 ### Documentation
 
+* March 4, 2023: Updated the "[Exporting Islandora 7 content](/islandora_workbench_docs/exporting_islandora_7_content/)" page.
 * March 2, 2023: Added mention of `drupal_8.5_and_lower` tag to "[Requirements and installation](/islandora_workbench_docs/installation/#using-drupal-85-or-earlier).
 * February 28, 2023: Removed references to the `iteration-utilities` Python library; add new page "[Workbench's relationship to Drupal and Islandora](/islandora_workbench_docs/drupal_and_workbench/)".
 * February 27, 2023: Replaced "Islandora 8" with "Islandora 2".
