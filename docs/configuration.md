@@ -95,6 +95,8 @@ Strictly speaking, YAML lists can be represented as either a series of entries o
 | max_node_title_length |  | 255 | Set to the number of allowed characters for node titles if your Drupal uses [Node Title Length](https://www.drupal.org/project/title_length). If unsure what your the maximum length of the node titles your site allows, check the length of the "title" column in your Drupal database's "node_field_data" table. |
 | list_missing_drupal_fields |  | false | Set to `true` to tell Workbench to provide a list of fields that exist in your input CSV but that cannot be matched to Drupal field names (or reserved column names such as "file"). If `false`, Workbench will still check for CSV column headers that it can't match to Drupal fields, but will exit upon finding the first such field. This option produces a list of fields instead of exiting on detecting the first field.|
 | standalone_media_url |  | false | Set to `true` if your Drupal instance has the "Standalone media URL" option at `/admin/config/media/media-settings` checked. The Drupal default is to have this unchecked, so you only need to use this Workbench option if you have changed Drupal's default. [More information](/islandora_workbench_docs/installation/#configuring-drupals-media-urls) is available. |
+| require_entity_reference_views |  | true | Set to `false` to tell Workbench to not require a View to expose the values in an entity reference field configured to use an Entity Reference View. Additional information is available [here](/islandora_workbench_docs/fields/#entity-reference-views-fields). |
+
 
 ### Input data location settings
 
