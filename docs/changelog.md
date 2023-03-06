@@ -1,6 +1,6 @@
 ### main branch (no tag/release)
 
-* March 5, 2023: Fixed URL to the "[Entity Reference Views fields](/islandora_workbench_docs/fields/#entity-reference-views-fields)" docs.
+* March 5, 2023: Fixed URL to the "[Entity Reference Views fields](/islandora_workbench_docs/fields/#entity-reference-views-fields)" docs; resolved issue [566](https://github.com/mjordan/islandora_workbench/issues/566) (commit 19b1c2e).
 * March 2, 2023: Created `drupal_8.5_and_lower` tag. Users of Drupal 8.5 and earlier must use this version of Workbench.
 * Februray 28, 2023: Resolved issue [569](https://github.com/mjordan/islandora_workbench/issues/569).
 * Februray 24, 2023: Added `clean_csv_values_skip` config setting (commit e659616e, issue [567](https://github.com/mjordan/islandora_workbench/issues/567)).
