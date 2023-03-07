@@ -1249,12 +1249,14 @@ excel_worksheet: Second sheet
 <li>replaces smart/curley quotes (both double and single) with regular quotes</li>
 <li>replaces multiple whitespaces within strings with a single space</li>
 <li>removes leading and trailing spaces (including newlines).</li>
+<li>removes leading and trailing subdelimter characters (i.e., the value of the <code>subdelimiter</code> config setting, default of <code>|</code>).</li>
 </ul>
-<p>If you do not want Workbench to do any of these, include the <code>clean_csv_values_skip</code> setting in your configuration, specifying in a list one or more of the following:</p>
+<p>If you do <em>not</em> want Workbench to do one or more of these cleanups, include the <code>clean_csv_values_skip</code> setting in your configuration, specifying in a list one or more of the following:</p>
 <ul>
 <li><code>smart_quotes</code></li>
 <li><code>inside_spaces</code></li>
 <li><code>outside_spaces</code></li>
+<li><code>outside_subdelimiters</code></li>
 </ul>
 <p>An example of using this configuration setting is:</p>
 <pre><code>clean_csv_values_skip: [&quot;smart_quotes&quot;, &quot;inside_spaces&quot;]
