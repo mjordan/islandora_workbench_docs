@@ -38,7 +38,7 @@ content_type: islandora_object
 !!! success inline end "Relevance to using Workbench"
     It is *very* important to run `--check` before you commit to having Workbench add content to your Drupal. Doing so lets Workbench find issues with your configuration and input CSV and files. See the "[Checking configuration and input data](/islandora_workbench_docs/check/)" documentation for a complete list of the things `--check` looks for.
 
-When you have all these things ready, you tell Workbench to "check" your configuration and input data:
+When you have all these things ready, you tell Workbench to "check" your input data and configuration:
 
 `./workbench --config test.yml --check`
 
@@ -86,11 +86,11 @@ To help explain how these two properties work, we will use the following screens
 
 A field has a human-readable label, such as "Copyright date", but that label can change or can be translated, and, more significantly, doesn't need to be unique within a Drupal website. Drupal assigns each field a machine name that is more reliable for software to use than human-readable labels. These field machine names are all lower case, use underscores instead of spaces, and are guaranteed by Drupal to be unique within a content type. In the screenshot above, you can see the machine names in the middle column (you might need to zoom in!). For example, the machine name for the "Copyright date" field is `field_copyright_date`.
 
-A field's "type" determines the structure of the data it can hold. Some common field types used in Islandora are "Text" (and its derivatives "Text (plain)" and "Text (plain, long)"), "Entity Reference", "Typed Relationh", "EDTF", and "Link". These field types are explained in the "[Field Data (CSV and Drupal)](/islandora_workbench_docs/fields/)" documentation, but the important point here is that they are all represented differently in your Workbench CSV. For example:
+A field's "type" determines the structure of the data it can hold. Some common field types used in Islandora are "Text" (and its derivatives "Text (plain)" and "Text (plain, long)"), "Entity Reference", "Typed Relation", "EDTF", and "Link". These field types are explained in the "[Field Data (CSV and Drupal)](/islandora_workbench_docs/fields/)" documentation, but the important point here is that they are all represented differently in your Workbench CSV. For example:
 
 * EDTF fields take dates in the Library of Congress' [Extended Date/Time Format](https://www.loc.gov/standards/datetime/) (an example CSV entry is `1964/2008`)
 * Entity reference fields are used for taxonomy terms (an example entry is `cats:Tabby`, where "cats" is the name of the taxonomy and "Tabby" is the term)
-* Typed relation fields are used for taxonomy entries that contain additional data indicating what "type" they are, such as using MARC relators to indicate the relationship of the taxonomy term to the item being described. An example typed relation CSV value is `relators:art:Jordan, Mark`, where "relators:art" indicates the term "Jordan, Mark" uses the MARC relator "art", which stands for "author".
+* Typed relation fields are used for taxonomy entries that contain additional data indicating what "type" they are, such as using MARC relators to indicate the relationship of the taxonomy term to the item being described. An example typed relation CSV value is `relators:aut:Jordan, Mark`, where "relators:aut" indicates the term "Jordan, Mark" uses the MARC relator "aut", which stands for "author".
 * Link fields take two pieces of information, a URL and the link text, like `http://acme.com%%Acme Products Inc.`
 
 
@@ -112,9 +112,9 @@ See the Islandora documentation for [additional information](https://islandora.g
 
 Think of a "node" as a specific page in a Drupal website. Every node has a content type (e.g. "Article" or "Repository Item") containing content in the fields defined by its content type. It has a URL in the Drupal website, like `https://mysite.org/node/3798`. The "3798" at the end of the URL is the node ID (also known as the "nid") and uniquely identifies the node within its website. In Islandora, a node is less like a "web page" and more like a "catalogue record" since Islandora-specific content types generally contain a lot of metadata-oriented fields rather than long discursive text like a blog would have. In `create` tasks, each row in your input CSV will create a single node.
 
-For some operations you use Islandora Workbench for, such as updating nodes or adding media to nodes, your CSV has a column that contains node IDs.
+Islandora Workbench uses the node ID column in your CSV  for some operations, for example updating nodes or adding media to nodes.
 
-Content in Islandora can be hierarchical. For example, collections contain items, newspapers contain issues which in turn contain pages, and compound items can contain a top-level "parent" node and many "child" nodes. Islandora defines a specifc field, `field_member_of` (or in English, "Member Of") that contains the node ID of another node's parent. If this field is empty in a node, it has no parent; if this field contains a value, the node with that node ID is the first node's parent. Islandora Workbench provides [several ways](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/) for you to create hierarchical content.
+Content in Islandora can be hierarchical. For example, collections contain items, newspapers contain issues which in turn contain pages, and compound items can contain a top-level "parent" node and many "child" nodes. Islandora defines a specific field, `field_member_of` (or in English, "Member Of") that contains the node ID of another node's parent. If this field is empty in a node, it has no parent; if this field contains a value, the node with that node ID is the first node's parent. Islandora Workbench provides [several ways](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/) for you to create hierarchical content.
 
 If you want to learn more about how Drupal nodes work, consult the [Islandora documentation](https://islandora.github.io/documentation/concepts/node-concepts/).
 
@@ -125,7 +125,7 @@ If you want to learn more about how Drupal nodes work, consult the [Islandora do
 
 One of Drupal's most powerful features is its support for structured taxonomies (sometimes referred to as "vocabularies"). These can be used to maintain local authority lists of personal and corporate names, subjects, and other concepts, just like in other library/archives/museum tools.
 
-Islandora Workbench lets you create taxonomy term in advance of the nodes they are attached to, or at the same time as the nodes. Also, within your CSV file, you can use term IDs, term URIs, or term names. You can use term names both when you are creating new terms on the fly, or if you are assigning existing terms to newly created nodes.
+Islandora Workbench lets you create taxonomy terms in advance of the nodes they are attached to, or at the same time as the nodes. Also, within your CSV file, you can use term IDs, term URIs, or term names. You can use term names both when you are creating new terms on the fly, or if you are assigning existing terms to newly created nodes.
 
 Drupal assigns each term an ID, much like it assigns each node an ID. These are called "term IDs" (or "tids"). Like node IDs, they are unique within a single Drupal instance but they are not unique across Drupal instances.
 

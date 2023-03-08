@@ -258,12 +258,15 @@ Regardless of whether your input data is raw CSV, a Google Sheet, or Excel, Work
 * replaces smart/curley quotes (both double and single) with regular quotes
 * replaces multiple whitespaces within strings with a single space
 * removes leading and trailing spaces (including newlines).
+* removes leading and trailing subdelimter characters (i.e., the value of the `subdelimiter` config setting, default of `|`).
 
-If you do not want Workbench to do any of these, include the `clean_csv_values_skip` setting in your configuration, specifying in a list one or more of the following:
+If you do *not* want Workbench to do one or more of these cleanups, include the `clean_csv_values_skip` setting in your configuration, specifying in a list one or more of the following:
 
 * `smart_quotes`
 * `inside_spaces`
 * `outside_spaces`
+* `outside_subdelimiters`
+
 
 An example of using this configuration setting is:
 

@@ -1,5 +1,7 @@
 ### main branch (no tag/release)
 
+* March 7, 2023 (commit 591dac1): Resolved [issue 405](https://github.com/mjordan/islandora_workbench/issues/405).
+* March 6, 2023 (commit 3c19cf6): Resolved [issue 576](https://github.com/mjordan/islandora_workbench/issues/576).
 * March 5, 2023: Fixed URL to the "[Entity Reference Views fields](/islandora_workbench_docs/fields/#entity-reference-views-fields)" docs; resolved issue [566](https://github.com/mjordan/islandora_workbench/issues/566) (commit 19b1c2e).
 * March 2, 2023: Created `drupal_8.5_and_lower` tag. Users of Drupal 8.5 and earlier must use this version of Workbench.
 * Februray 28, 2023: Resolved issue [569](https://github.com/mjordan/islandora_workbench/issues/569).
@@ -46,7 +48,8 @@
 
 ### Documentation
 
-* March 6, 2023: Added an entry for the `require_entity_reference_views` config setting to the "[Drupal settings](/islandora_workbench_docs/configuration/#drupal-settings)".
+* March 7, 2023: Updated "[How Workbench cleans your input data](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data)".
+* March 6, 2023: Added an entry for the `require_entity_reference_views` config setting to the "[Drupal settings](/islandora_workbench_docs/configuration/#drupal-settings)"; minor corrections and updates to "[Workbench's relationship to Drupal and Islandora](/islandora_workbench_docs/drupal_and_workbench/)".
 * March 4, 2023: Updated the "[Exporting Islandora 7 content](/islandora_workbench_docs/exporting_islandora_7_content/)" page.
 * March 2, 2023: Added mention of `drupal_8.5_and_lower` tag to "[Requirements and installation](/islandora_workbench_docs/installation/#using-drupal-85-or-earlier).
 * February 28, 2023: Removed references to the `iteration-utilities` Python library; add new page "[Workbench's relationship to Drupal and Islandora](/islandora_workbench_docs/drupal_and_workbench/)".
