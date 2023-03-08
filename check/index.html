@@ -944,14 +944,15 @@
 </ul>
 </li>
 <li>CSV file<ul>
-<li>Whether the CSV file is encoded in either ASCII or UTF-8.  </li>
+<li>Whether the CSV file is encoded in either ASCII or UTF-8.</li>
 <li>Whether each row contains the same number of columns as there are column headers.</li>
 <li>Whether there are any duplicate column headers.</li>
 <li>Whether your CSV file contains required columns headers, including the field defined as the unique ID for each record (defaults to "id" if the <code>id_field</code> key is not in your config file)</li>
+<li>Whether required fields in your CSV contain values (i.e., they are not blank).</li>
 <li>Whether your CSV column headers correspond to existing Drupal field machine names.</li>
 <li>Whether all Drupal fields that are configured to be required are present in the CSV file.</li>
 <li>Whether the columns required to create paged content are present (see "Creating paged content" below).</li>
-<li>If creating compound/paged content using the "With page/child-level metadata" method, <code>--check</code> will tell you if any child item rows in your CSV precede their parent rows. </li>
+<li>If creating compound/paged content using the "With page/child-level metadata" method, <code>--check</code> will tell you if any child item rows in your CSV precede their parent rows.</li>
 <li>If your config file includes <code>csv_headers: labels</code>, <code>--check</code> will tell you if it detects any duplicate field labels.</li>
 </ul>
 </li>
@@ -1013,7 +1014,7 @@
 <p>You will probably need to run Workbench using <code>--check</code> a few times before you will be ready to run it without <code>--check</code> and commit your data to Islandora. For example, you may need to correct errors in taxonomy term IDs or names, fix errors in media filenames, or wrap values in your CSV files in quotation marks.</p>
 <p>It's also a good idea to check the Workbench log file after running <code>--check</code>. All warnings and errors are printed to the console, but the log file may contain additional information or detail that will help you resolve issues.</p>
 <p>Once you have used <code>--check</code> to detect all of the problems with your CSV data, committing it to Islandora will work very reliably.</p>
-<p>Also, it is good practice to check your log after each time you run Islandora Workbench, since it may contain information that is not printed to the console. </p>
+<p>Also, it is good practice to check your log after each time you run Islandora Workbench, since it may contain information that is not printed to the console.</p>
 
 
 
