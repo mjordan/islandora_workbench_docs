@@ -18,14 +18,15 @@ If you do this, Workbench will check the following conditions and report any err
 * Input directory
     * Whether the directory named in the `input_dir` configuration setting exists.
 * CSV file
-    * Whether the CSV file is encoded in either ASCII or UTF-8.  
+    * Whether the CSV file is encoded in either ASCII or UTF-8.
     * Whether each row contains the same number of columns as there are column headers.
     * Whether there are any duplicate column headers.
     * Whether your CSV file contains required columns headers, including the field defined as the unique ID for each record (defaults to "id" if the `id_field` key is not in your config file)
-    * Whether your CSV column headers correspond to existing Drupal field machine names.
+    * Whether your CSV column headers correspond to existing Drupal field labels or machine names.
     * Whether all Drupal fields that are configured to be required are present in the CSV file.
+    * Whether required fields in your CSV contain values (i.e., they are not blank).
     * Whether the columns required to create paged content are present (see "Creating paged content" below).
-    * If creating compound/paged content using the "With page/child-level metadata" method, `--check` will tell you if any child item rows in your CSV precede their parent rows. 
+    * If creating compound/paged content using the "With page/child-level metadata" method, `--check` will tell you if any child item rows in your CSV precede their parent rows.
     * If your config file includes `csv_headers: labels`, `--check` will tell you if it detects any duplicate field labels.
 * Media files
     * Whether the files named in the CSV file are present, or in the case of remote files, are accessible (but this check is skipped if `allow_missing_files: true` is present in your config file for "create" tasks). If `nodes_only` is true, this check is skipped.
@@ -75,4 +76,4 @@ It's also a good idea to check the Workbench log file after running `--check`. A
 
 Once you have used `--check` to detect all of the problems with your CSV data, committing it to Islandora will work very reliably.
 
-Also, it is good practice to check your log after each time you run Islandora Workbench, since it may contain information that is not printed to the console. 
+Also, it is good practice to check your log after each time you run Islandora Workbench, since it may contain information that is not printed to the console.
