@@ -1147,9 +1147,8 @@ parameters can be changed in the user-supplied config file.</p>
 <p>If you can't or don't want to install the Islandora Metadata Extras module, you can query Solr directly to get sample document.</p>
 <p>[Coming soon]</p>
 <h2 id="configuring-which-solr-fields-to-include-in-the-csv">Configuring which Solr fields to include in the CSV</h2>
-<p>Islandora 7's Solr schema contains a lot of fields, mirroring the richness of MODS (or other XML-based metadata) and the
-Fedora 3.x RELS-EXT properties. By default, this script fetches all the fields in the Islandora 7's Solr's index, which
-will invariably be many more fields that you will normally want in the output CSV.</p>
+<p>As we can see from the examples above, Islandora 7's Solr schema contains a lot of fields, mirroring the richness of MODS (or other XML-based metadata) and the
+Fedora 3.x RELS-EXT properties. By default, this script fetches all the fields in the Islandora 7's Solr's index, which will invariably be many, many more fields that you will normally want in the output CSV. You will need to tell the script which fields to exclude and which to include.</p>
 <p>The script takes the following approach to providing control over what fields end up in the CSV data it generates:</p>
 <ol>
 <li>It fetches a list of all fieldnames used in the Solr index.</li>
