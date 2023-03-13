@@ -98,12 +98,12 @@ parameters can be changed in the user-supplied config file.
     <tr>
         <td>collection</td>
         <td></td>
-        <td>PID of a single collection limiting the objects to fetch from the source Islandora 7.x instance. Only matches objects that have the specified collection as their immediate parent. For recursive collection membership, add `ancestor_ms` as a `solr_filter`, as documented below.</td>
+        <td>PID of a single collection limiting the objects to fetch from the source Islandora 7.x instance. Only matches objects that have the specified collection as their immediate parent. For recursive collection membership, add `tors_ms` as a `solr_filter`, as documented below. Note: the colon in the collection PID must be escaped with a backslash (`\`), e.g., `cartoons\:collection`.</td>
     </tr>
     <tr>
         <td>content_model</td>
         <td></td>
-        <td>PID of a single content model limiting the objects to fetch from the source Islandora 7.x instance.</td>
+        <td>PID of a single content model limiting the objects to fetch from the source Islandora 7.x instance. Note: the colon in the content model PID must be escaped with a backslash (`\`), e.g., `islandora\:sp_large_image_cmodel`.</td>
     </tr>
     <tr>
         <td>solr_filters</td>
@@ -122,11 +122,32 @@ parameters can be changed in the user-supplied config file.
     </tr>
 </table>
 
+## Analyzing your Islandora 7 Solr index
+
+In order to use the configuration options outlined above, you will need to know what fields are in your Islandora 7 Solr index. Not all Islandoras are indexed in the same way, and since most Solr field names are derived from MODS or other XML datastream element names, the specific Solr fieldnames are difficult to predict.
+
+### Using the Islandora Metadata Extras module
+
+The [Islandora Metadata Extras module](https://github.com/bondjimbond/islandora_metadata_extras) provides a "Solr Metadata" tab in each object's Manage menu that shows the raw Solr document for the object. The Solr field names and the values for the current object are easy to identify. Here are two screenshots showing the top section of the output and a sample from the middle of the output:
+
+Top:
+
+![Example Solr Document top](images/metadata_extras_solr_metadata_top.png)
+
+Middle:
+
+![Example Solr Document middle](images/metadata_extras_solr_metadata_middle.png)
+
+### Fetching a sample Solr document
+
+If you can't or don't want to install the Islandora Metadata Extras module, you can query Solr directly to get sample document.
+
+[Coming soon]
+
 ## Configuring which Solr fields to include in the CSV
 
-Islandora 7's Solr schema contains a lot of fields, mirroring the richness of MODS (or other XML-based metadata) and the
-Fedora 3.x RELS-EXT properties. By default, this script fetches all the fields in the Islandora 7's Solr's index, which
-will invariably be many more fields that you will normally want in the output CSV.
+As we can see from the examples above, Islandora 7's Solr schema contains a lot of fields, mirroring the richness of MODS (or other XML-based metadata) and the
+Fedora 3.x RELS-EXT properties. By default, this script fetches all the fields in the Islandora 7's Solr's index, which will invariably be many, many more fields that you will normally want in the output CSV. You will need to tell the script which fields to exclude and which to include.
 
 The script takes the following approach to providing control over what fields end up in the CSV data it generates:
 
@@ -166,9 +187,13 @@ The `namespace`, `collection`, `content_model`, and `solr_filters` options docum
 
 ```text
 solr_filters:
- - ancestor_ms: 'some:collection'
+ - ancestors_ms: 'some\:collection'
  - fgs_state_s: 'Active'
 ```
+
+!!! warning
+    Colons within PIDs used in filters must be escaped with a backslash (`\`), e.g., `some\:collection`.
+
 
 ## Putting your Solr request in a file
 
@@ -180,7 +205,7 @@ providing their own solr query in a text file and  pointing to the file using th
 The contents of the file must contain a full HTTP request to Solr, e.g.:
 
 ```text
-http://localhost:8080/solr/select?q=PID:**&wt=csv&rows=1000000&fl=PID,RELS_EXT_hasModel_uri_s,RELS_EXT_isMemberOfCollection_uri_ms,RELS_EXT_isMemberOf_uri_ms,mods_originInfo_encoding_iso8601_dateIssued_mdt
+http://localhost:8080/solr/select?q=PID:*&wt=csv&rows=1000000&fl=PID,RELS_EXT_hasModel_uri_s,RELS_EXT_isMemberOfCollection_uri_ms,RELS_EXT_isMemberOf_uri_ms,mods_originInfo_encoding_iso8601_dateIssued_mdt
 ```
 
 The advantage of putting your Solr request in its own file is that you have complete control over the Solr query. Requests to Solr in this file should always include the "wt=csv" and "rows=1000000" parameters (the "rows" parameter should have a value that is greater than the number of objects in your repository, otherwise Solr won't return all objects).
