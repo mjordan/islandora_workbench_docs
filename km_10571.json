@@ -1,0 +1,1903 @@
+{
+    "responseHeader": {
+      "status": 0,
+      "QTime": 0,
+      "params": {
+        "q": "PID:km\\:10571",
+        "wt": "json"
+      }
+    },
+    "response": {
+      "numFound": 1,
+      "start": 0,
+      "docs": [
+        {
+          "PID": "km:10571",
+          "PID_kw": "km:10571",
+          "fgs_state_s": "Active",
+          "fgs_state_mlt": "Active",
+          "fgs_state_t": "Active",
+          "fgs_state_ms": [
+            "Active"
+          ],
+          "fgs_state_mt": [
+            "Active"
+          ],
+          "fgs_state_ss": "Active",
+          "fgs_label_s": "People and business along the 500 to 300 blocks of Granville",
+          "fgs_label_mlt": "People and business along the 500 to 300 blocks of Granville",
+          "fgs_label_t": "People and business along the 500 to 300 blocks of Granville",
+          "fgs_label_ms": [
+            "People and business along the 500 to 300 blocks of Granville"
+          ],
+          "fgs_label_mt": [
+            "People and business along the 500 to 300 blocks of Granville"
+          ],
+          "fgs_label_ss": "People and business along the 500 to 300 blocks of Granville",
+          "fgs_ownerId_s": "admin",
+          "fgs_ownerId_mlt": "admin",
+          "fgs_ownerId_t": "admin",
+          "fgs_ownerId_ms": [
+            "admin"
+          ],
+          "fgs_ownerId_mt": [
+            "admin"
+          ],
+          "fgs_ownerId_ss": "admin",
+          "fgs_createdDate_dt": "2016-05-05T04:40:00.192Z",
+          "fgs_createdDate_mt": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fgs_createdDate_mdt": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fgs_lastModifiedDate_dt": "2019-05-27T01:00:15.446Z",
+          "fgs_lastModifiedDate_mt": [
+            "2019-05-27T01:00:15.446Z"
+          ],
+          "fgs_lastModifiedDate_mdt": [
+            "2019-05-27T01:00:15.446Z"
+          ],
+          "fedora_datastreams_ms": [
+            "AUDIT",
+            "RELS-EXT",
+            "MODS",
+            "DC",
+            "OBJ",
+            "TECHMD",
+            "TN",
+            "JPG",
+            "JP2"
+          ],
+          "fedora_datastreams_mt": [
+            "AUDIT",
+            "RELS-EXT",
+            "MODS",
+            "DC",
+            "OBJ",
+            "TECHMD",
+            "TN",
+            "JPG",
+            "JP2"
+          ],
+          "fedora_datastreams_mimetypes_ms": [
+            "text/xml",
+            "application/rdf+xml",
+            "application/xml",
+            "application/xml",
+            "image/jp2",
+            "application/xml",
+            "image/jpeg",
+            "image/jpeg",
+            "image/jp2"
+          ],
+          "fedora_datastreams_mimetypes_mt": [
+            "text/xml",
+            "application/rdf+xml",
+            "application/xml",
+            "application/xml",
+            "image/jp2",
+            "application/xml",
+            "image/jpeg",
+            "image/jpeg",
+            "image/jp2"
+          ],
+          "fedora_datastream_info_AUDIT_ID_ms": [
+            "AUDIT"
+          ],
+          "fedora_datastream_info_AUDIT_ID_mt": [
+            "AUDIT"
+          ],
+          "fedora_datastream_info_AUDIT_FEDORA_URI_ms": [
+            "info:fedora/km:10571/AUDIT"
+          ],
+          "fedora_datastream_info_AUDIT_FEDORA_URI_mt": [
+            "info:fedora/km:10571/AUDIT"
+          ],
+          "fedora_datastream_info_AUDIT_STATE_ms": [
+            "A"
+          ],
+          "fedora_datastream_info_AUDIT_STATE_mt": [
+            "A"
+          ],
+          "fedora_datastream_info_AUDIT_CONTROL_GROUP_ms": [
+            "X"
+          ],
+          "fedora_datastream_info_AUDIT_CONTROL_GROUP_mt": [
+            "X"
+          ],
+          "fedora_datastream_info_AUDIT_VERSIONABLE_ms": [
+            "false"
+          ],
+          "fedora_datastream_info_AUDIT_VERSIONABLE_mt": [
+            "false"
+          ],
+          "fedora_datastream_version_AUDIT_ID_ms": [
+            "AUDIT.0"
+          ],
+          "fedora_datastream_version_AUDIT_ID_mt": [
+            "AUDIT.0"
+          ],
+          "fedora_datastream_version_AUDIT_LABEL_ms": [
+            "Audit Trail for this object"
+          ],
+          "fedora_datastream_version_AUDIT_LABEL_mt": [
+            "Audit Trail for this object"
+          ],
+          "fedora_datastream_version_AUDIT_CREATED_ms": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_version_AUDIT_CREATED_mt": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_version_AUDIT_MIMETYPE_ms": [
+            "text/xml"
+          ],
+          "fedora_datastream_version_AUDIT_MIMETYPE_mt": [
+            "text/xml"
+          ],
+          "fedora_datastream_version_AUDIT_FORMAT_URI_ms": [
+            "info:fedora/fedora-system:format/xml.fedora.audit"
+          ],
+          "fedora_datastream_version_AUDIT_FORMAT_URI_mt": [
+            "info:fedora/fedora-system:format/xml.fedora.audit"
+          ],
+          "fedora_datastream_latest_AUDIT_ID_ms": [
+            "AUDIT.0"
+          ],
+          "fedora_datastream_latest_AUDIT_ID_mt": [
+            "AUDIT.0"
+          ],
+          "fedora_datastream_latest_AUDIT_LABEL_ms": [
+            "Audit Trail for this object"
+          ],
+          "fedora_datastream_latest_AUDIT_LABEL_mt": [
+            "Audit Trail for this object"
+          ],
+          "fedora_datastream_latest_AUDIT_CREATED_ms": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_latest_AUDIT_CREATED_mt": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_latest_AUDIT_MIMETYPE_ms": [
+            "text/xml"
+          ],
+          "fedora_datastream_latest_AUDIT_MIMETYPE_mt": [
+            "text/xml"
+          ],
+          "fedora_datastream_latest_AUDIT_FORMAT_URI_ms": [
+            "info:fedora/fedora-system:format/xml.fedora.audit"
+          ],
+          "fedora_datastream_latest_AUDIT_FORMAT_URI_mt": [
+            "info:fedora/fedora-system:format/xml.fedora.audit"
+          ],
+          "fedora_datastream_info_RELS-EXT_ID_ms": [
+            "RELS-EXT"
+          ],
+          "fedora_datastream_info_RELS-EXT_ID_mt": [
+            "RELS-EXT"
+          ],
+          "fedora_datastream_info_RELS-EXT_FEDORA_URI_ms": [
+            "info:fedora/km:10571/RELS-EXT"
+          ],
+          "fedora_datastream_info_RELS-EXT_FEDORA_URI_mt": [
+            "info:fedora/km:10571/RELS-EXT"
+          ],
+          "fedora_datastream_info_RELS-EXT_STATE_ms": [
+            "A"
+          ],
+          "fedora_datastream_info_RELS-EXT_STATE_mt": [
+            "A"
+          ],
+          "fedora_datastream_info_RELS-EXT_CONTROL_GROUP_ms": [
+            "X"
+          ],
+          "fedora_datastream_info_RELS-EXT_CONTROL_GROUP_mt": [
+            "X"
+          ],
+          "fedora_datastream_info_RELS-EXT_VERSIONABLE_ms": [
+            "true"
+          ],
+          "fedora_datastream_info_RELS-EXT_VERSIONABLE_mt": [
+            "true"
+          ],
+          "fedora_datastream_version_RELS-EXT_ID_ms": [
+            "RELS-EXT.0"
+          ],
+          "fedora_datastream_version_RELS-EXT_ID_mt": [
+            "RELS-EXT.0"
+          ],
+          "fedora_datastream_version_RELS-EXT_LABEL_ms": [
+            "Fedora Object to Object Relationship Metadata."
+          ],
+          "fedora_datastream_version_RELS-EXT_LABEL_mt": [
+            "Fedora Object to Object Relationship Metadata."
+          ],
+          "fedora_datastream_version_RELS-EXT_CREATED_ms": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_version_RELS-EXT_CREATED_mt": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_version_RELS-EXT_MIMETYPE_ms": [
+            "application/rdf+xml"
+          ],
+          "fedora_datastream_version_RELS-EXT_MIMETYPE_mt": [
+            "application/rdf+xml"
+          ],
+          "fedora_datastream_version_RELS-EXT_FORMAT_URI_ms": [
+            "info:fedora/fedora-system:FedoraRELSExt-1.0"
+          ],
+          "fedora_datastream_version_RELS-EXT_FORMAT_URI_mt": [
+            "info:fedora/fedora-system:FedoraRELSExt-1.0"
+          ],
+          "fedora_datastream_version_RELS-EXT_SIZE_ms": [
+            "547"
+          ],
+          "fedora_datastream_version_RELS-EXT_SIZE_mt": [
+            "547"
+          ],
+          "fedora_datastream_latest_RELS-EXT_ID_ms": [
+            "RELS-EXT.0"
+          ],
+          "fedora_datastream_latest_RELS-EXT_ID_mt": [
+            "RELS-EXT.0"
+          ],
+          "fedora_datastream_latest_RELS-EXT_LABEL_ms": [
+            "Fedora Object to Object Relationship Metadata."
+          ],
+          "fedora_datastream_latest_RELS-EXT_LABEL_mt": [
+            "Fedora Object to Object Relationship Metadata."
+          ],
+          "fedora_datastream_latest_RELS-EXT_CREATED_ms": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_latest_RELS-EXT_CREATED_mt": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_latest_RELS-EXT_MIMETYPE_ms": [
+            "application/rdf+xml"
+          ],
+          "fedora_datastream_latest_RELS-EXT_MIMETYPE_mt": [
+            "application/rdf+xml"
+          ],
+          "fedora_datastream_latest_RELS-EXT_FORMAT_URI_ms": [
+            "info:fedora/fedora-system:FedoraRELSExt-1.0"
+          ],
+          "fedora_datastream_latest_RELS-EXT_FORMAT_URI_mt": [
+            "info:fedora/fedora-system:FedoraRELSExt-1.0"
+          ],
+          "fedora_datastream_latest_RELS-EXT_SIZE_ms": [
+            "547"
+          ],
+          "fedora_datastream_latest_RELS-EXT_SIZE_mt": [
+            "547"
+          ],
+          "fedora_datastream_info_MODS_ID_ms": [
+            "MODS"
+          ],
+          "fedora_datastream_info_MODS_ID_mt": [
+            "MODS"
+          ],
+          "fedora_datastream_info_MODS_FEDORA_URI_ms": [
+            "info:fedora/km:10571/MODS"
+          ],
+          "fedora_datastream_info_MODS_FEDORA_URI_mt": [
+            "info:fedora/km:10571/MODS"
+          ],
+          "fedora_datastream_info_MODS_STATE_ms": [
+            "A"
+          ],
+          "fedora_datastream_info_MODS_STATE_mt": [
+            "A"
+          ],
+          "fedora_datastream_info_MODS_CONTROL_GROUP_ms": [
+            "M"
+          ],
+          "fedora_datastream_info_MODS_CONTROL_GROUP_mt": [
+            "M"
+          ],
+          "fedora_datastream_info_MODS_VERSIONABLE_ms": [
+            "true"
+          ],
+          "fedora_datastream_info_MODS_VERSIONABLE_mt": [
+            "true"
+          ],
+          "fedora_datastream_version_MODS_ID_ms": [
+            "MODS.0"
+          ],
+          "fedora_datastream_version_MODS_ID_mt": [
+            "MODS.0"
+          ],
+          "fedora_datastream_version_MODS_LABEL_ms": [
+            "MODS Record"
+          ],
+          "fedora_datastream_version_MODS_LABEL_mt": [
+            "MODS Record"
+          ],
+          "fedora_datastream_version_MODS_CREATED_ms": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_version_MODS_CREATED_mt": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_version_MODS_MIMETYPE_ms": [
+            "application/xml"
+          ],
+          "fedora_datastream_version_MODS_MIMETYPE_mt": [
+            "application/xml"
+          ],
+          "fedora_datastream_version_MODS_SIZE_ms": [
+            "4525"
+          ],
+          "fedora_datastream_version_MODS_SIZE_mt": [
+            "4525"
+          ],
+          "fedora_datastream_latest_MODS_ID_ms": [
+            "MODS.0"
+          ],
+          "fedora_datastream_latest_MODS_ID_mt": [
+            "MODS.0"
+          ],
+          "fedora_datastream_latest_MODS_LABEL_ms": [
+            "MODS Record"
+          ],
+          "fedora_datastream_latest_MODS_LABEL_mt": [
+            "MODS Record"
+          ],
+          "fedora_datastream_latest_MODS_CREATED_ms": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_latest_MODS_CREATED_mt": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_latest_MODS_MIMETYPE_ms": [
+            "application/xml"
+          ],
+          "fedora_datastream_latest_MODS_MIMETYPE_mt": [
+            "application/xml"
+          ],
+          "fedora_datastream_latest_MODS_SIZE_ms": [
+            "4525"
+          ],
+          "fedora_datastream_latest_MODS_SIZE_mt": [
+            "4525"
+          ],
+          "fedora_datastream_info_DC_ID_ms": [
+            "DC"
+          ],
+          "fedora_datastream_info_DC_ID_mt": [
+            "DC"
+          ],
+          "fedora_datastream_info_DC_FEDORA_URI_ms": [
+            "info:fedora/km:10571/DC"
+          ],
+          "fedora_datastream_info_DC_FEDORA_URI_mt": [
+            "info:fedora/km:10571/DC"
+          ],
+          "fedora_datastream_info_DC_STATE_ms": [
+            "A"
+          ],
+          "fedora_datastream_info_DC_STATE_mt": [
+            "A"
+          ],
+          "fedora_datastream_info_DC_CONTROL_GROUP_ms": [
+            "M"
+          ],
+          "fedora_datastream_info_DC_CONTROL_GROUP_mt": [
+            "M"
+          ],
+          "fedora_datastream_info_DC_VERSIONABLE_ms": [
+            "true"
+          ],
+          "fedora_datastream_info_DC_VERSIONABLE_mt": [
+            "true"
+          ],
+          "fedora_datastream_version_DC_ID_ms": [
+            "DC.0"
+          ],
+          "fedora_datastream_version_DC_ID_mt": [
+            "DC.0"
+          ],
+          "fedora_datastream_version_DC_LABEL_ms": [
+            "DC Record"
+          ],
+          "fedora_datastream_version_DC_LABEL_mt": [
+            "DC Record"
+          ],
+          "fedora_datastream_version_DC_CREATED_ms": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_version_DC_CREATED_mt": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_version_DC_MIMETYPE_ms": [
+            "application/xml"
+          ],
+          "fedora_datastream_version_DC_MIMETYPE_mt": [
+            "application/xml"
+          ],
+          "fedora_datastream_version_DC_SIZE_ms": [
+            "1653"
+          ],
+          "fedora_datastream_version_DC_SIZE_mt": [
+            "1653"
+          ],
+          "fedora_datastream_latest_DC_ID_ms": [
+            "DC.0"
+          ],
+          "fedora_datastream_latest_DC_ID_mt": [
+            "DC.0"
+          ],
+          "fedora_datastream_latest_DC_LABEL_ms": [
+            "DC Record"
+          ],
+          "fedora_datastream_latest_DC_LABEL_mt": [
+            "DC Record"
+          ],
+          "fedora_datastream_latest_DC_CREATED_ms": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_latest_DC_CREATED_mt": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_latest_DC_MIMETYPE_ms": [
+            "application/xml"
+          ],
+          "fedora_datastream_latest_DC_MIMETYPE_mt": [
+            "application/xml"
+          ],
+          "fedora_datastream_latest_DC_SIZE_ms": [
+            "1653"
+          ],
+          "fedora_datastream_latest_DC_SIZE_mt": [
+            "1653"
+          ],
+          "fedora_datastream_info_OBJ_ID_ms": [
+            "OBJ"
+          ],
+          "fedora_datastream_info_OBJ_ID_mt": [
+            "OBJ"
+          ],
+          "fedora_datastream_info_OBJ_FEDORA_URI_ms": [
+            "info:fedora/km:10571/OBJ"
+          ],
+          "fedora_datastream_info_OBJ_FEDORA_URI_mt": [
+            "info:fedora/km:10571/OBJ"
+          ],
+          "fedora_datastream_info_OBJ_STATE_ms": [
+            "A"
+          ],
+          "fedora_datastream_info_OBJ_STATE_mt": [
+            "A"
+          ],
+          "fedora_datastream_info_OBJ_CONTROL_GROUP_ms": [
+            "M"
+          ],
+          "fedora_datastream_info_OBJ_CONTROL_GROUP_mt": [
+            "M"
+          ],
+          "fedora_datastream_info_OBJ_VERSIONABLE_ms": [
+            "true"
+          ],
+          "fedora_datastream_info_OBJ_VERSIONABLE_mt": [
+            "true"
+          ],
+          "fedora_datastream_version_OBJ_ID_ms": [
+            "OBJ.0"
+          ],
+          "fedora_datastream_version_OBJ_ID_mt": [
+            "OBJ.0"
+          ],
+          "fedora_datastream_version_OBJ_LABEL_ms": [
+            "OBJ Datastream"
+          ],
+          "fedora_datastream_version_OBJ_LABEL_mt": [
+            "OBJ Datastream"
+          ],
+          "fedora_datastream_version_OBJ_CREATED_ms": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_version_OBJ_CREATED_mt": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_version_OBJ_MIMETYPE_ms": [
+            "image/jp2"
+          ],
+          "fedora_datastream_version_OBJ_MIMETYPE_mt": [
+            "image/jp2"
+          ],
+          "fedora_datastream_version_OBJ_SIZE_ms": [
+            "2988652"
+          ],
+          "fedora_datastream_version_OBJ_SIZE_mt": [
+            "2988652"
+          ],
+          "fedora_datastream_latest_OBJ_ID_ms": [
+            "OBJ.0"
+          ],
+          "fedora_datastream_latest_OBJ_ID_mt": [
+            "OBJ.0"
+          ],
+          "fedora_datastream_latest_OBJ_LABEL_ms": [
+            "OBJ Datastream"
+          ],
+          "fedora_datastream_latest_OBJ_LABEL_mt": [
+            "OBJ Datastream"
+          ],
+          "fedora_datastream_latest_OBJ_CREATED_ms": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_latest_OBJ_CREATED_mt": [
+            "2016-05-05T04:40:00.192Z"
+          ],
+          "fedora_datastream_latest_OBJ_MIMETYPE_ms": [
+            "image/jp2"
+          ],
+          "fedora_datastream_latest_OBJ_MIMETYPE_mt": [
+            "image/jp2"
+          ],
+          "fedora_datastream_latest_OBJ_SIZE_ms": [
+            "2988652"
+          ],
+          "fedora_datastream_latest_OBJ_SIZE_mt": [
+            "2988652"
+          ],
+          "fedora_datastream_info_TECHMD_ID_ms": [
+            "TECHMD"
+          ],
+          "fedora_datastream_info_TECHMD_ID_mt": [
+            "TECHMD"
+          ],
+          "fedora_datastream_info_TECHMD_FEDORA_URI_ms": [
+            "info:fedora/km:10571/TECHMD"
+          ],
+          "fedora_datastream_info_TECHMD_FEDORA_URI_mt": [
+            "info:fedora/km:10571/TECHMD"
+          ],
+          "fedora_datastream_info_TECHMD_STATE_ms": [
+            "A"
+          ],
+          "fedora_datastream_info_TECHMD_STATE_mt": [
+            "A"
+          ],
+          "fedora_datastream_info_TECHMD_CONTROL_GROUP_ms": [
+            "M"
+          ],
+          "fedora_datastream_info_TECHMD_CONTROL_GROUP_mt": [
+            "M"
+          ],
+          "fedora_datastream_info_TECHMD_VERSIONABLE_ms": [
+            "true"
+          ],
+          "fedora_datastream_info_TECHMD_VERSIONABLE_mt": [
+            "true"
+          ],
+          "fedora_datastream_version_TECHMD_ID_ms": [
+            "TECHMD.0"
+          ],
+          "fedora_datastream_version_TECHMD_ID_mt": [
+            "TECHMD.0"
+          ],
+          "fedora_datastream_version_TECHMD_LABEL_ms": [
+            "TECHMD"
+          ],
+          "fedora_datastream_version_TECHMD_LABEL_mt": [
+            "TECHMD"
+          ],
+          "fedora_datastream_version_TECHMD_CREATED_ms": [
+            "2016-05-05T06:33:53.864Z"
+          ],
+          "fedora_datastream_version_TECHMD_CREATED_mt": [
+            "2016-05-05T06:33:53.864Z"
+          ],
+          "fedora_datastream_version_TECHMD_MIMETYPE_ms": [
+            "application/xml"
+          ],
+          "fedora_datastream_version_TECHMD_MIMETYPE_mt": [
+            "application/xml"
+          ],
+          "fedora_datastream_version_TECHMD_SIZE_ms": [
+            "5581"
+          ],
+          "fedora_datastream_version_TECHMD_SIZE_mt": [
+            "5581"
+          ],
+          "fedora_datastream_latest_TECHMD_ID_ms": [
+            "TECHMD.0"
+          ],
+          "fedora_datastream_latest_TECHMD_ID_mt": [
+            "TECHMD.0"
+          ],
+          "fedora_datastream_latest_TECHMD_LABEL_ms": [
+            "TECHMD"
+          ],
+          "fedora_datastream_latest_TECHMD_LABEL_mt": [
+            "TECHMD"
+          ],
+          "fedora_datastream_latest_TECHMD_CREATED_ms": [
+            "2016-05-05T06:33:53.864Z"
+          ],
+          "fedora_datastream_latest_TECHMD_CREATED_mt": [
+            "2016-05-05T06:33:53.864Z"
+          ],
+          "fedora_datastream_latest_TECHMD_MIMETYPE_ms": [
+            "application/xml"
+          ],
+          "fedora_datastream_latest_TECHMD_MIMETYPE_mt": [
+            "application/xml"
+          ],
+          "fedora_datastream_latest_TECHMD_SIZE_ms": [
+            "5581"
+          ],
+          "fedora_datastream_latest_TECHMD_SIZE_mt": [
+            "5581"
+          ],
+          "fedora_datastream_info_TN_ID_ms": [
+            "TN"
+          ],
+          "fedora_datastream_info_TN_ID_mt": [
+            "TN"
+          ],
+          "fedora_datastream_info_TN_FEDORA_URI_ms": [
+            "info:fedora/km:10571/TN"
+          ],
+          "fedora_datastream_info_TN_FEDORA_URI_mt": [
+            "info:fedora/km:10571/TN"
+          ],
+          "fedora_datastream_info_TN_STATE_ms": [
+            "A"
+          ],
+          "fedora_datastream_info_TN_STATE_mt": [
+            "A"
+          ],
+          "fedora_datastream_info_TN_CONTROL_GROUP_ms": [
+            "M"
+          ],
+          "fedora_datastream_info_TN_CONTROL_GROUP_mt": [
+            "M"
+          ],
+          "fedora_datastream_info_TN_VERSIONABLE_ms": [
+            "true"
+          ],
+          "fedora_datastream_info_TN_VERSIONABLE_mt": [
+            "true"
+          ],
+          "fedora_datastream_version_TN_ID_ms": [
+            "TN.0"
+          ],
+          "fedora_datastream_version_TN_ID_mt": [
+            "TN.0"
+          ],
+          "fedora_datastream_version_TN_LABEL_ms": [
+            "Thumbnail"
+          ],
+          "fedora_datastream_version_TN_LABEL_mt": [
+            "Thumbnail"
+          ],
+          "fedora_datastream_version_TN_CREATED_ms": [
+            "2016-05-05T06:33:57.912Z"
+          ],
+          "fedora_datastream_version_TN_CREATED_mt": [
+            "2016-05-05T06:33:57.912Z"
+          ],
+          "fedora_datastream_version_TN_MIMETYPE_ms": [
+            "image/jpeg"
+          ],
+          "fedora_datastream_version_TN_MIMETYPE_mt": [
+            "image/jpeg"
+          ],
+          "fedora_datastream_version_TN_SIZE_ms": [
+            "6029"
+          ],
+          "fedora_datastream_version_TN_SIZE_mt": [
+            "6029"
+          ],
+          "fedora_datastream_latest_TN_ID_ms": [
+            "TN.0"
+          ],
+          "fedora_datastream_latest_TN_ID_mt": [
+            "TN.0"
+          ],
+          "fedora_datastream_latest_TN_LABEL_ms": [
+            "Thumbnail"
+          ],
+          "fedora_datastream_latest_TN_LABEL_mt": [
+            "Thumbnail"
+          ],
+          "fedora_datastream_latest_TN_CREATED_ms": [
+            "2016-05-05T06:33:57.912Z"
+          ],
+          "fedora_datastream_latest_TN_CREATED_mt": [
+            "2016-05-05T06:33:57.912Z"
+          ],
+          "fedora_datastream_latest_TN_MIMETYPE_ms": [
+            "image/jpeg"
+          ],
+          "fedora_datastream_latest_TN_MIMETYPE_mt": [
+            "image/jpeg"
+          ],
+          "fedora_datastream_latest_TN_SIZE_ms": [
+            "6029"
+          ],
+          "fedora_datastream_latest_TN_SIZE_mt": [
+            "6029"
+          ],
+          "fedora_datastream_info_JPG_ID_ms": [
+            "JPG"
+          ],
+          "fedora_datastream_info_JPG_ID_mt": [
+            "JPG"
+          ],
+          "fedora_datastream_info_JPG_FEDORA_URI_ms": [
+            "info:fedora/km:10571/JPG"
+          ],
+          "fedora_datastream_info_JPG_FEDORA_URI_mt": [
+            "info:fedora/km:10571/JPG"
+          ],
+          "fedora_datastream_info_JPG_STATE_ms": [
+            "A"
+          ],
+          "fedora_datastream_info_JPG_STATE_mt": [
+            "A"
+          ],
+          "fedora_datastream_info_JPG_CONTROL_GROUP_ms": [
+            "M"
+          ],
+          "fedora_datastream_info_JPG_CONTROL_GROUP_mt": [
+            "M"
+          ],
+          "fedora_datastream_info_JPG_VERSIONABLE_ms": [
+            "true"
+          ],
+          "fedora_datastream_info_JPG_VERSIONABLE_mt": [
+            "true"
+          ],
+          "fedora_datastream_version_JPG_ID_ms": [
+            "JPG.0"
+          ],
+          "fedora_datastream_version_JPG_ID_mt": [
+            "JPG.0"
+          ],
+          "fedora_datastream_version_JPG_LABEL_ms": [
+            "Medium sized JPEG"
+          ],
+          "fedora_datastream_version_JPG_LABEL_mt": [
+            "Medium sized JPEG"
+          ],
+          "fedora_datastream_version_JPG_CREATED_ms": [
+            "2016-05-05T06:34:01.934Z"
+          ],
+          "fedora_datastream_version_JPG_CREATED_mt": [
+            "2016-05-05T06:34:01.934Z"
+          ],
+          "fedora_datastream_version_JPG_MIMETYPE_ms": [
+            "image/jpeg"
+          ],
+          "fedora_datastream_version_JPG_MIMETYPE_mt": [
+            "image/jpeg"
+          ],
+          "fedora_datastream_version_JPG_SIZE_ms": [
+            "39067"
+          ],
+          "fedora_datastream_version_JPG_SIZE_mt": [
+            "39067"
+          ],
+          "fedora_datastream_latest_JPG_ID_ms": [
+            "JPG.0"
+          ],
+          "fedora_datastream_latest_JPG_ID_mt": [
+            "JPG.0"
+          ],
+          "fedora_datastream_latest_JPG_LABEL_ms": [
+            "Medium sized JPEG"
+          ],
+          "fedora_datastream_latest_JPG_LABEL_mt": [
+            "Medium sized JPEG"
+          ],
+          "fedora_datastream_latest_JPG_CREATED_ms": [
+            "2016-05-05T06:34:01.934Z"
+          ],
+          "fedora_datastream_latest_JPG_CREATED_mt": [
+            "2016-05-05T06:34:01.934Z"
+          ],
+          "fedora_datastream_latest_JPG_MIMETYPE_ms": [
+            "image/jpeg"
+          ],
+          "fedora_datastream_latest_JPG_MIMETYPE_mt": [
+            "image/jpeg"
+          ],
+          "fedora_datastream_latest_JPG_SIZE_ms": [
+            "39067"
+          ],
+          "fedora_datastream_latest_JPG_SIZE_mt": [
+            "39067"
+          ],
+          "fedora_datastream_info_JP2_ID_ms": [
+            "JP2"
+          ],
+          "fedora_datastream_info_JP2_ID_mt": [
+            "JP2"
+          ],
+          "fedora_datastream_info_JP2_FEDORA_URI_ms": [
+            "info:fedora/km:10571/JP2"
+          ],
+          "fedora_datastream_info_JP2_FEDORA_URI_mt": [
+            "info:fedora/km:10571/JP2"
+          ],
+          "fedora_datastream_info_JP2_STATE_ms": [
+            "A"
+          ],
+          "fedora_datastream_info_JP2_STATE_mt": [
+            "A"
+          ],
+          "fedora_datastream_info_JP2_CONTROL_GROUP_ms": [
+            "M"
+          ],
+          "fedora_datastream_info_JP2_CONTROL_GROUP_mt": [
+            "M"
+          ],
+          "fedora_datastream_info_JP2_VERSIONABLE_ms": [
+            "true"
+          ],
+          "fedora_datastream_info_JP2_VERSIONABLE_mt": [
+            "true"
+          ],
+          "fedora_datastream_version_JP2_ID_ms": [
+            "JP2.0"
+          ],
+          "fedora_datastream_version_JP2_ID_mt": [
+            "JP2.0"
+          ],
+          "fedora_datastream_version_JP2_LABEL_ms": [
+            "JPEG 2000"
+          ],
+          "fedora_datastream_version_JP2_LABEL_mt": [
+            "JPEG 2000"
+          ],
+          "fedora_datastream_version_JP2_CREATED_ms": [
+            "2016-05-05T06:34:04.150Z"
+          ],
+          "fedora_datastream_version_JP2_CREATED_mt": [
+            "2016-05-05T06:34:04.150Z"
+          ],
+          "fedora_datastream_version_JP2_MIMETYPE_ms": [
+            "image/jp2"
+          ],
+          "fedora_datastream_version_JP2_MIMETYPE_mt": [
+            "image/jp2"
+          ],
+          "fedora_datastream_version_JP2_SIZE_ms": [
+            "2988652"
+          ],
+          "fedora_datastream_version_JP2_SIZE_mt": [
+            "2988652"
+          ],
+          "fedora_datastream_latest_JP2_ID_ms": [
+            "JP2.0"
+          ],
+          "fedora_datastream_latest_JP2_ID_mt": [
+            "JP2.0"
+          ],
+          "fedora_datastream_latest_JP2_LABEL_ms": [
+            "JPEG 2000"
+          ],
+          "fedora_datastream_latest_JP2_LABEL_mt": [
+            "JPEG 2000"
+          ],
+          "fedora_datastream_latest_JP2_CREATED_ms": [
+            "2016-05-05T06:34:04.150Z"
+          ],
+          "fedora_datastream_latest_JP2_CREATED_mt": [
+            "2016-05-05T06:34:04.150Z"
+          ],
+          "fedora_datastream_latest_JP2_MIMETYPE_ms": [
+            "image/jp2"
+          ],
+          "fedora_datastream_latest_JP2_MIMETYPE_mt": [
+            "image/jp2"
+          ],
+          "fedora_datastream_latest_JP2_SIZE_ms": [
+            "2988652"
+          ],
+          "fedora_datastream_latest_JP2_SIZE_mt": [
+            "2988652"
+          ],
+          "RELS_EXT_isMemberOfCollection_uri_s": "info:fedora/km:collection",
+          "RELS_EXT_isMemberOfCollection_uri_mlt": "info:fedora/km:collection",
+          "RELS_EXT_isMemberOfCollection_uri_t": "info:fedora/km:collection",
+          "RELS_EXT_isMemberOfCollection_uri_ms": [
+            "info:fedora/km:collection"
+          ],
+          "RELS_EXT_isMemberOfCollection_uri_mt": [
+            "info:fedora/km:collection"
+          ],
+          "RELS_EXT_isMemberOfCollection_uri_ss": "info:fedora/km:collection",
+          "RELS_EXT_info:fedora/fedora-system:def/relations-external#isMemberOfCollection_uri_s": "info:fedora/km:collection",
+          "RELS_EXT_info:fedora/fedora-system:def/relations-external#isMemberOfCollection_uri_mlt": "info:fedora/km:collection",
+          "RELS_EXT_info:fedora/fedora-system:def/relations-external#isMemberOfCollection_uri_t": "info:fedora/km:collection",
+          "RELS_EXT_info:fedora/fedora-system:def/relations-external#isMemberOfCollection_uri_ms": [
+            "info:fedora/km:collection"
+          ],
+          "RELS_EXT_info:fedora/fedora-system:def/relations-external#isMemberOfCollection_uri_mt": [
+            "info:fedora/km:collection"
+          ],
+          "RELS_EXT_info:fedora/fedora-system:def/relations-external#isMemberOfCollection_uri_ss": "info:fedora/km:collection",
+          "RELS_EXT_hasModel_uri_s": "info:fedora/islandora:sp_large_image_cmodel",
+          "RELS_EXT_hasModel_uri_mlt": "info:fedora/islandora:sp_large_image_cmodel",
+          "RELS_EXT_hasModel_uri_t": "info:fedora/islandora:sp_large_image_cmodel",
+          "RELS_EXT_hasModel_uri_ms": [
+            "info:fedora/islandora:sp_large_image_cmodel"
+          ],
+          "RELS_EXT_hasModel_uri_mt": [
+            "info:fedora/islandora:sp_large_image_cmodel"
+          ],
+          "RELS_EXT_hasModel_uri_ss": "info:fedora/islandora:sp_large_image_cmodel",
+          "RELS_EXT_info:fedora/fedora-system:def/model#hasModel_uri_s": "info:fedora/islandora:sp_large_image_cmodel",
+          "RELS_EXT_info:fedora/fedora-system:def/model#hasModel_uri_mlt": "info:fedora/islandora:sp_large_image_cmodel",
+          "RELS_EXT_info:fedora/fedora-system:def/model#hasModel_uri_t": "info:fedora/islandora:sp_large_image_cmodel",
+          "RELS_EXT_info:fedora/fedora-system:def/model#hasModel_uri_ms": [
+            "info:fedora/islandora:sp_large_image_cmodel"
+          ],
+          "RELS_EXT_info:fedora/fedora-system:def/model#hasModel_uri_mt": [
+            "info:fedora/islandora:sp_large_image_cmodel"
+          ],
+          "RELS_EXT_info:fedora/fedora-system:def/model#hasModel_uri_ss": "info:fedora/islandora:sp_large_image_cmodel",
+          "mods_abstract_s": "Looking north from south of West Pender. Left are the Fairfield Building and Wilson Building. New post office is under construction and at the end of the street is the CPR depot. Wagons, streetcars, a car, and pedestrians, including two Sikh men. Also exists as a lantern slide (66979). Vancouver Public Library. Accession number 6781",
+          "mods_abstract_mlt": "Looking north from south of West Pender. Left are the Fairfield Building and Wilson Building. New post office is under construction and at the end of the street is the CPR depot. Wagons, streetcars, a car, and pedestrians, including two Sikh men. Also exists as a lantern slide (66979). Vancouver Public Library. Accession number 6781",
+          "mods_abstract_t": "Looking north from south of West Pender. Left are the Fairfield Building and Wilson Building. New post office is under construction and at the end of the street is the CPR depot. Wagons, streetcars, a car, and pedestrians, including two Sikh men. Also exists as a lantern slide (66979). Vancouver Public Library. Accession number 6781",
+          "mods_abstract_ms": [
+            "Looking north from south of West Pender. Left are the Fairfield Building and Wilson Building. New post office is under construction and at the end of the street is the CPR depot. Wagons, streetcars, a car, and pedestrians, including two Sikh men. Also exists as a lantern slide (66979). Vancouver Public Library. Accession number 6781"
+          ],
+          "mods_abstract_mt": [
+            "Looking north from south of West Pender. Left are the Fairfield Building and Wilson Building. New post office is under construction and at the end of the street is the CPR depot. Wagons, streetcars, a car, and pedestrians, including two Sikh men. Also exists as a lantern slide (66979). Vancouver Public Library. Accession number 6781"
+          ],
+          "mods_abstract_ss": "Looking north from south of West Pender. Left are the Fairfield Building and Wilson Building. New post office is under construction and at the end of the street is the CPR depot. Wagons, streetcars, a car, and pedestrians, including two Sikh men. Also exists as a lantern slide (66979). Vancouver Public Library. Accession number 6781",
+          "mods_genre_s": "Image",
+          "mods_genre_mlt": "Image",
+          "mods_genre_t": "Image",
+          "mods_genre_ms": [
+            "Image"
+          ],
+          "mods_genre_mt": [
+            "Image"
+          ],
+          "mods_genre_ss": "Image",
+          "mods_identifier_s": "VPL 6781",
+          "mods_identifier_mlt": "VPL 6781",
+          "mods_identifier_t": "VPL 6781",
+          "mods_identifier_ms": [
+            "VPL 6781"
+          ],
+          "mods_identifier_mt": [
+            "VPL 6781"
+          ],
+          "mods_identifier_ss": "VPL 6781",
+          "mods_location_physicalLocation_s": "Vancouver Public Library",
+          "mods_location_physicalLocation_mlt": "Vancouver Public Library",
+          "mods_location_physicalLocation_t": "Vancouver Public Library",
+          "mods_location_physicalLocation_ms": [
+            "Vancouver Public Library"
+          ],
+          "mods_location_physicalLocation_mt": [
+            "Vancouver Public Library"
+          ],
+          "mods_location_physicalLocation_ss": "Vancouver Public Library",
+          "mods_language_languageTerm_text_s": "eng",
+          "mods_language_languageTerm_text_mlt": "eng",
+          "mods_language_languageTerm_text_t": "eng",
+          "mods_language_languageTerm_text_ms": [
+            "eng"
+          ],
+          "mods_language_languageTerm_text_mt": [
+            "eng"
+          ],
+          "mods_language_languageTerm_text_ss": "eng",
+          "mods_accessCondition_use_and_reproduction_s": "These images are provided for research and reference use only. Written permission to copy, publish, or otherwise use these images must be obtained from Vancouver Public Library, www.vpl.ca",
+          "mods_accessCondition_use_and_reproduction_mlt": "These images are provided for research and reference use only. Written permission to copy, publish, or otherwise use these images must be obtained from Vancouver Public Library, www.vpl.ca",
+          "mods_accessCondition_use_and_reproduction_t": "These images are provided for research and reference use only. Written permission to copy, publish, or otherwise use these images must be obtained from Vancouver Public Library, www.vpl.ca",
+          "mods_accessCondition_use_and_reproduction_ms": [
+            "These images are provided for research and reference use only. Written permission to copy, publish, or otherwise use these images must be obtained from Vancouver Public Library, www.vpl.ca"
+          ],
+          "mods_accessCondition_use_and_reproduction_mt": [
+            "These images are provided for research and reference use only. Written permission to copy, publish, or otherwise use these images must be obtained from Vancouver Public Library, www.vpl.ca"
+          ],
+          "mods_accessCondition_use_and_reproduction_ss": "These images are provided for research and reference use only. Written permission to copy, publish, or otherwise use these images must be obtained from Vancouver Public Library, www.vpl.ca",
+          "mods_identifier_uuid_s": "00c6a41d-9da1-4851-a5d0-c27da70c0ef4",
+          "mods_identifier_uuid_mlt": "00c6a41d-9da1-4851-a5d0-c27da70c0ef4",
+          "mods_identifier_uuid_t": "00c6a41d-9da1-4851-a5d0-c27da70c0ef4",
+          "mods_identifier_uuid_ms": [
+            "00c6a41d-9da1-4851-a5d0-c27da70c0ef4"
+          ],
+          "mods_identifier_uuid_mt": [
+            "00c6a41d-9da1-4851-a5d0-c27da70c0ef4"
+          ],
+          "mods_identifier_uuid_ss": "00c6a41d-9da1-4851-a5d0-c27da70c0ef4",
+          "mods_identifier_uri_s": "http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139",
+          "mods_identifier_uri_mlt": "http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139",
+          "mods_identifier_uri_t": "http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139",
+          "mods_identifier_uri_ms": [
+            "http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139"
+          ],
+          "mods_identifier_uri_mt": [
+            "http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139"
+          ],
+          "mods_identifier_uri_ss": "http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139",
+          "mods_identifier_uri_displayLabel_ms": [
+            "Migrated From"
+          ],
+          "mods_identifier_uri_displayLabel_mt": [
+            "Migrated From"
+          ],
+          "mods_titleInfo_translated_title_s": "People and business along the 500 to 300 blocks of Granville",
+          "mods_titleInfo_translated_title_mlt": "People and business along the 500 to 300 blocks of Granville",
+          "mods_titleInfo_translated_title_t": "People and business along the 500 to 300 blocks of Granville",
+          "mods_titleInfo_translated_title_ms": [
+            "People and business along the 500 to 300 blocks of Granville"
+          ],
+          "mods_titleInfo_translated_title_mt": [
+            "People and business along the 500 to 300 blocks of Granville"
+          ],
+          "mods_titleInfo_translated_title_ss": "People and business along the 500 to 300 blocks of Granville",
+          "mods_titleInfo_translated_lang_eng_title_s": "People and business along the 500 to 300 blocks of Granville",
+          "mods_titleInfo_translated_lang_eng_title_mlt": "People and business along the 500 to 300 blocks of Granville",
+          "mods_titleInfo_translated_lang_eng_title_t": "People and business along the 500 to 300 blocks of Granville",
+          "mods_titleInfo_translated_lang_eng_title_ms": [
+            "People and business along the 500 to 300 blocks of Granville"
+          ],
+          "mods_titleInfo_translated_lang_eng_title_mt": [
+            "People and business along the 500 to 300 blocks of Granville"
+          ],
+          "mods_titleInfo_translated_lang_eng_title_ss": "People and business along the 500 to 300 blocks of Granville",
+          "mods_subject_topic_s": "Sikhs in Canada",
+          "mods_subject_topic_mlt": "Sikhs in Canada",
+          "mods_subject_topic_t": "Sikhs in Canada",
+          "mods_subject_topic_ms": [
+            "Sikhs in Canada",
+            "City of Vancouver"
+          ],
+          "mods_subject_topic_mt": [
+            "Sikhs in Canada",
+            "City of Vancouver"
+          ],
+          "mods_subject_topic_ss": "Sikhs in Canada",
+          "mods_name_creator_s": "creator",
+          "mods_name_creator_mlt": "creator",
+          "mods_name_creator_t": "creator",
+          "mods_name_creator_ms": [
+            "creator",
+            "creator"
+          ],
+          "mods_name_creator_mt": [
+            "creator",
+            "creator"
+          ],
+          "mods_name_creator_ss": "creator",
+          "mods_name_creator_namePart_s": "Timms, Philip",
+          "mods_name_creator_namePart_mlt": "Timms, Philip",
+          "mods_name_creator_namePart_t": "Timms, Philip",
+          "mods_name_creator_namePart_ms": [
+            "Timms, Philip"
+          ],
+          "mods_name_creator_namePart_mt": [
+            "Timms, Philip"
+          ],
+          "mods_name_creator_namePart_ss": "Timms, Philip",
+          "mods_name_creator_role_roleTerm_text_s": "creator",
+          "mods_name_creator_role_roleTerm_text_mlt": "creator",
+          "mods_name_creator_role_roleTerm_text_t": "creator",
+          "mods_name_creator_role_roleTerm_text_ms": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_creator_role_roleTerm_text_mt": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_creator_role_roleTerm_text_ss": "creator",
+          "mods_name_creator_role_roleTerm_text_authority_marcrelator_s": "creator",
+          "mods_name_creator_role_roleTerm_text_authority_marcrelator_mlt": "creator",
+          "mods_name_creator_role_roleTerm_text_authority_marcrelator_t": "creator",
+          "mods_name_creator_role_roleTerm_text_authority_marcrelator_ms": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_creator_role_roleTerm_text_authority_marcrelator_mt": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_creator_role_roleTerm_text_authority_marcrelator_ss": "creator",
+          "mods_name_creator_role_roleTerm_code_s": "cre",
+          "mods_name_creator_role_roleTerm_code_mlt": "cre",
+          "mods_name_creator_role_roleTerm_code_t": "cre",
+          "mods_name_creator_role_roleTerm_code_ms": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_creator_role_roleTerm_code_mt": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_creator_role_roleTerm_code_ss": "cre",
+          "mods_name_creator_role_roleTerm_code_authority_marcrelator_s": "cre",
+          "mods_name_creator_role_roleTerm_code_authority_marcrelator_mlt": "cre",
+          "mods_name_creator_role_roleTerm_code_authority_marcrelator_t": "cre",
+          "mods_name_creator_role_roleTerm_code_authority_marcrelator_ms": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_creator_role_roleTerm_code_authority_marcrelator_mt": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_creator_role_roleTerm_code_authority_marcrelator_ss": "cre",
+          "mods_name_creator_authority_marcrelator_s": "creator",
+          "mods_name_creator_authority_marcrelator_mlt": "creator",
+          "mods_name_creator_authority_marcrelator_t": "creator",
+          "mods_name_creator_authority_marcrelator_ms": [
+            "creator",
+            "creator"
+          ],
+          "mods_name_creator_authority_marcrelator_mt": [
+            "creator",
+            "creator"
+          ],
+          "mods_name_creator_authority_marcrelator_ss": "creator",
+          "mods_name_creator_authority_marcrelator_namePart_s": "Timms, Philip",
+          "mods_name_creator_authority_marcrelator_namePart_mlt": "Timms, Philip",
+          "mods_name_creator_authority_marcrelator_namePart_t": "Timms, Philip",
+          "mods_name_creator_authority_marcrelator_namePart_ms": [
+            "Timms, Philip"
+          ],
+          "mods_name_creator_authority_marcrelator_namePart_mt": [
+            "Timms, Philip"
+          ],
+          "mods_name_creator_authority_marcrelator_namePart_ss": "Timms, Philip",
+          "mods_name_creator_authority_marcrelator_role_roleTerm_text_s": "creator",
+          "mods_name_creator_authority_marcrelator_role_roleTerm_text_mlt": "creator",
+          "mods_name_creator_authority_marcrelator_role_roleTerm_text_t": "creator",
+          "mods_name_creator_authority_marcrelator_role_roleTerm_text_ms": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_creator_authority_marcrelator_role_roleTerm_text_mt": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_creator_authority_marcrelator_role_roleTerm_text_ss": "creator",
+          "mods_name_creator_authority_marcrelator_role_roleTerm_text_authority_marcrelator_s": "creator",
+          "mods_name_creator_authority_marcrelator_role_roleTerm_text_authority_marcrelator_mlt": "creator",
+          "mods_name_creator_authority_marcrelator_role_roleTerm_text_authority_marcrelator_t": "creator",
+          "mods_name_creator_authority_marcrelator_role_roleTerm_text_authority_marcrelator_ms": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_creator_authority_marcrelator_role_roleTerm_text_authority_marcrelator_mt": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_creator_authority_marcrelator_role_roleTerm_text_authority_marcrelator_ss": "creator",
+          "mods_name_creator_authority_marcrelator_role_roleTerm_code_s": "cre",
+          "mods_name_creator_authority_marcrelator_role_roleTerm_code_mlt": "cre",
+          "mods_name_creator_authority_marcrelator_role_roleTerm_code_t": "cre",
+          "mods_name_creator_authority_marcrelator_role_roleTerm_code_ms": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_creator_authority_marcrelator_role_roleTerm_code_mt": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_creator_authority_marcrelator_role_roleTerm_code_ss": "cre",
+          "mods_name_creator_authority_marcrelator_role_roleTerm_code_authority_marcrelator_s": "cre",
+          "mods_name_creator_authority_marcrelator_role_roleTerm_code_authority_marcrelator_mlt": "cre",
+          "mods_name_creator_authority_marcrelator_role_roleTerm_code_authority_marcrelator_t": "cre",
+          "mods_name_creator_authority_marcrelator_role_roleTerm_code_authority_marcrelator_ms": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_creator_authority_marcrelator_role_roleTerm_code_authority_marcrelator_mt": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_creator_authority_marcrelator_role_roleTerm_code_authority_marcrelator_ss": "cre",
+          "mods_name_cre_s": "cre",
+          "mods_name_cre_mlt": "cre",
+          "mods_name_cre_t": "cre",
+          "mods_name_cre_ms": [
+            "cre",
+            "cre"
+          ],
+          "mods_name_cre_mt": [
+            "cre",
+            "cre"
+          ],
+          "mods_name_cre_ss": "cre",
+          "mods_name_cre_namePart_s": "Timms, Philip",
+          "mods_name_cre_namePart_mlt": "Timms, Philip",
+          "mods_name_cre_namePart_t": "Timms, Philip",
+          "mods_name_cre_namePart_ms": [
+            "Timms, Philip"
+          ],
+          "mods_name_cre_namePart_mt": [
+            "Timms, Philip"
+          ],
+          "mods_name_cre_namePart_ss": "Timms, Philip",
+          "mods_name_cre_role_roleTerm_text_s": "creator",
+          "mods_name_cre_role_roleTerm_text_mlt": "creator",
+          "mods_name_cre_role_roleTerm_text_t": "creator",
+          "mods_name_cre_role_roleTerm_text_ms": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_cre_role_roleTerm_text_mt": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_cre_role_roleTerm_text_ss": "creator",
+          "mods_name_cre_role_roleTerm_text_authority_marcrelator_s": "creator",
+          "mods_name_cre_role_roleTerm_text_authority_marcrelator_mlt": "creator",
+          "mods_name_cre_role_roleTerm_text_authority_marcrelator_t": "creator",
+          "mods_name_cre_role_roleTerm_text_authority_marcrelator_ms": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_cre_role_roleTerm_text_authority_marcrelator_mt": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_cre_role_roleTerm_text_authority_marcrelator_ss": "creator",
+          "mods_name_cre_role_roleTerm_code_s": "cre",
+          "mods_name_cre_role_roleTerm_code_mlt": "cre",
+          "mods_name_cre_role_roleTerm_code_t": "cre",
+          "mods_name_cre_role_roleTerm_code_ms": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_cre_role_roleTerm_code_mt": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_cre_role_roleTerm_code_ss": "cre",
+          "mods_name_cre_role_roleTerm_code_authority_marcrelator_s": "cre",
+          "mods_name_cre_role_roleTerm_code_authority_marcrelator_mlt": "cre",
+          "mods_name_cre_role_roleTerm_code_authority_marcrelator_t": "cre",
+          "mods_name_cre_role_roleTerm_code_authority_marcrelator_ms": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_cre_role_roleTerm_code_authority_marcrelator_mt": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_cre_role_roleTerm_code_authority_marcrelator_ss": "cre",
+          "mods_name_cre_authority_marcrelator_s": "cre",
+          "mods_name_cre_authority_marcrelator_mlt": "cre",
+          "mods_name_cre_authority_marcrelator_t": "cre",
+          "mods_name_cre_authority_marcrelator_ms": [
+            "cre",
+            "cre"
+          ],
+          "mods_name_cre_authority_marcrelator_mt": [
+            "cre",
+            "cre"
+          ],
+          "mods_name_cre_authority_marcrelator_ss": "cre",
+          "mods_name_cre_authority_marcrelator_namePart_s": "Timms, Philip",
+          "mods_name_cre_authority_marcrelator_namePart_mlt": "Timms, Philip",
+          "mods_name_cre_authority_marcrelator_namePart_t": "Timms, Philip",
+          "mods_name_cre_authority_marcrelator_namePart_ms": [
+            "Timms, Philip"
+          ],
+          "mods_name_cre_authority_marcrelator_namePart_mt": [
+            "Timms, Philip"
+          ],
+          "mods_name_cre_authority_marcrelator_namePart_ss": "Timms, Philip",
+          "mods_name_cre_authority_marcrelator_role_roleTerm_text_s": "creator",
+          "mods_name_cre_authority_marcrelator_role_roleTerm_text_mlt": "creator",
+          "mods_name_cre_authority_marcrelator_role_roleTerm_text_t": "creator",
+          "mods_name_cre_authority_marcrelator_role_roleTerm_text_ms": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_cre_authority_marcrelator_role_roleTerm_text_mt": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_cre_authority_marcrelator_role_roleTerm_text_ss": "creator",
+          "mods_name_cre_authority_marcrelator_role_roleTerm_text_authority_marcrelator_s": "creator",
+          "mods_name_cre_authority_marcrelator_role_roleTerm_text_authority_marcrelator_mlt": "creator",
+          "mods_name_cre_authority_marcrelator_role_roleTerm_text_authority_marcrelator_t": "creator",
+          "mods_name_cre_authority_marcrelator_role_roleTerm_text_authority_marcrelator_ms": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_cre_authority_marcrelator_role_roleTerm_text_authority_marcrelator_mt": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_cre_authority_marcrelator_role_roleTerm_text_authority_marcrelator_ss": "creator",
+          "mods_name_cre_authority_marcrelator_role_roleTerm_code_s": "cre",
+          "mods_name_cre_authority_marcrelator_role_roleTerm_code_mlt": "cre",
+          "mods_name_cre_authority_marcrelator_role_roleTerm_code_t": "cre",
+          "mods_name_cre_authority_marcrelator_role_roleTerm_code_ms": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_cre_authority_marcrelator_role_roleTerm_code_mt": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_cre_authority_marcrelator_role_roleTerm_code_ss": "cre",
+          "mods_name_cre_authority_marcrelator_role_roleTerm_code_authority_marcrelator_s": "cre",
+          "mods_name_cre_authority_marcrelator_role_roleTerm_code_authority_marcrelator_mlt": "cre",
+          "mods_name_cre_authority_marcrelator_role_roleTerm_code_authority_marcrelator_t": "cre",
+          "mods_name_cre_authority_marcrelator_role_roleTerm_code_authority_marcrelator_ms": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_cre_authority_marcrelator_role_roleTerm_code_authority_marcrelator_mt": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_cre_authority_marcrelator_role_roleTerm_code_authority_marcrelator_ss": "cre",
+          "mods_name_contributor_s": "contributor",
+          "mods_name_contributor_mlt": "contributor",
+          "mods_name_contributor_t": "contributor",
+          "mods_name_contributor_ms": [
+            "contributor"
+          ],
+          "mods_name_contributor_mt": [
+            "contributor"
+          ],
+          "mods_name_contributor_ss": "contributor",
+          "mods_name_contributor_namePart_s": "Timms, Philip",
+          "mods_name_contributor_namePart_mlt": "Timms, Philip",
+          "mods_name_contributor_namePart_t": "Timms, Philip",
+          "mods_name_contributor_namePart_ms": [
+            "Timms, Philip"
+          ],
+          "mods_name_contributor_namePart_mt": [
+            "Timms, Philip"
+          ],
+          "mods_name_contributor_namePart_ss": "Timms, Philip",
+          "mods_name_contributor_role_roleTerm_text_s": "creator",
+          "mods_name_contributor_role_roleTerm_text_mlt": "creator",
+          "mods_name_contributor_role_roleTerm_text_t": "creator",
+          "mods_name_contributor_role_roleTerm_text_ms": [
+            "creator",
+            "contributor"
+          ],
+          "mods_name_contributor_role_roleTerm_text_mt": [
+            "creator",
+            "contributor"
+          ],
+          "mods_name_contributor_role_roleTerm_text_ss": "creator",
+          "mods_name_contributor_role_roleTerm_text_authority_marcrelator_s": "creator",
+          "mods_name_contributor_role_roleTerm_text_authority_marcrelator_mlt": "creator",
+          "mods_name_contributor_role_roleTerm_text_authority_marcrelator_t": "creator",
+          "mods_name_contributor_role_roleTerm_text_authority_marcrelator_ms": [
+            "creator",
+            "contributor"
+          ],
+          "mods_name_contributor_role_roleTerm_text_authority_marcrelator_mt": [
+            "creator",
+            "contributor"
+          ],
+          "mods_name_contributor_role_roleTerm_text_authority_marcrelator_ss": "creator",
+          "mods_name_contributor_role_roleTerm_code_s": "cre",
+          "mods_name_contributor_role_roleTerm_code_mlt": "cre",
+          "mods_name_contributor_role_roleTerm_code_t": "cre",
+          "mods_name_contributor_role_roleTerm_code_ms": [
+            "cre",
+            "ctb"
+          ],
+          "mods_name_contributor_role_roleTerm_code_mt": [
+            "cre",
+            "ctb"
+          ],
+          "mods_name_contributor_role_roleTerm_code_ss": "cre",
+          "mods_name_contributor_role_roleTerm_code_authority_marcrelator_s": "cre",
+          "mods_name_contributor_role_roleTerm_code_authority_marcrelator_mlt": "cre",
+          "mods_name_contributor_role_roleTerm_code_authority_marcrelator_t": "cre",
+          "mods_name_contributor_role_roleTerm_code_authority_marcrelator_ms": [
+            "cre",
+            "ctb"
+          ],
+          "mods_name_contributor_role_roleTerm_code_authority_marcrelator_mt": [
+            "cre",
+            "ctb"
+          ],
+          "mods_name_contributor_role_roleTerm_code_authority_marcrelator_ss": "cre",
+          "mods_name_contributor_authority_marcrelator_s": "contributor",
+          "mods_name_contributor_authority_marcrelator_mlt": "contributor",
+          "mods_name_contributor_authority_marcrelator_t": "contributor",
+          "mods_name_contributor_authority_marcrelator_ms": [
+            "contributor"
+          ],
+          "mods_name_contributor_authority_marcrelator_mt": [
+            "contributor"
+          ],
+          "mods_name_contributor_authority_marcrelator_ss": "contributor",
+          "mods_name_contributor_authority_marcrelator_namePart_s": "Timms, Philip",
+          "mods_name_contributor_authority_marcrelator_namePart_mlt": "Timms, Philip",
+          "mods_name_contributor_authority_marcrelator_namePart_t": "Timms, Philip",
+          "mods_name_contributor_authority_marcrelator_namePart_ms": [
+            "Timms, Philip"
+          ],
+          "mods_name_contributor_authority_marcrelator_namePart_mt": [
+            "Timms, Philip"
+          ],
+          "mods_name_contributor_authority_marcrelator_namePart_ss": "Timms, Philip",
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_text_s": "creator",
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_text_mlt": "creator",
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_text_t": "creator",
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_text_ms": [
+            "creator",
+            "contributor"
+          ],
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_text_mt": [
+            "creator",
+            "contributor"
+          ],
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_text_ss": "creator",
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_text_authority_marcrelator_s": "creator",
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_text_authority_marcrelator_mlt": "creator",
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_text_authority_marcrelator_t": "creator",
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_text_authority_marcrelator_ms": [
+            "creator",
+            "contributor"
+          ],
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_text_authority_marcrelator_mt": [
+            "creator",
+            "contributor"
+          ],
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_text_authority_marcrelator_ss": "creator",
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_code_s": "cre",
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_code_mlt": "cre",
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_code_t": "cre",
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_code_ms": [
+            "cre",
+            "ctb"
+          ],
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_code_mt": [
+            "cre",
+            "ctb"
+          ],
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_code_ss": "cre",
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_code_authority_marcrelator_s": "cre",
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_code_authority_marcrelator_mlt": "cre",
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_code_authority_marcrelator_t": "cre",
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_code_authority_marcrelator_ms": [
+            "cre",
+            "ctb"
+          ],
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_code_authority_marcrelator_mt": [
+            "cre",
+            "ctb"
+          ],
+          "mods_name_contributor_authority_marcrelator_role_roleTerm_code_authority_marcrelator_ss": "cre",
+          "mods_name_ctb_s": "ctb",
+          "mods_name_ctb_mlt": "ctb",
+          "mods_name_ctb_t": "ctb",
+          "mods_name_ctb_ms": [
+            "ctb"
+          ],
+          "mods_name_ctb_mt": [
+            "ctb"
+          ],
+          "mods_name_ctb_ss": "ctb",
+          "mods_name_ctb_namePart_s": "Timms, Philip",
+          "mods_name_ctb_namePart_mlt": "Timms, Philip",
+          "mods_name_ctb_namePart_t": "Timms, Philip",
+          "mods_name_ctb_namePart_ms": [
+            "Timms, Philip"
+          ],
+          "mods_name_ctb_namePart_mt": [
+            "Timms, Philip"
+          ],
+          "mods_name_ctb_namePart_ss": "Timms, Philip",
+          "mods_name_ctb_role_roleTerm_text_s": "creator",
+          "mods_name_ctb_role_roleTerm_text_mlt": "creator",
+          "mods_name_ctb_role_roleTerm_text_t": "creator",
+          "mods_name_ctb_role_roleTerm_text_ms": [
+            "creator",
+            "contributor"
+          ],
+          "mods_name_ctb_role_roleTerm_text_mt": [
+            "creator",
+            "contributor"
+          ],
+          "mods_name_ctb_role_roleTerm_text_ss": "creator",
+          "mods_name_ctb_role_roleTerm_text_authority_marcrelator_s": "creator",
+          "mods_name_ctb_role_roleTerm_text_authority_marcrelator_mlt": "creator",
+          "mods_name_ctb_role_roleTerm_text_authority_marcrelator_t": "creator",
+          "mods_name_ctb_role_roleTerm_text_authority_marcrelator_ms": [
+            "creator",
+            "contributor"
+          ],
+          "mods_name_ctb_role_roleTerm_text_authority_marcrelator_mt": [
+            "creator",
+            "contributor"
+          ],
+          "mods_name_ctb_role_roleTerm_text_authority_marcrelator_ss": "creator",
+          "mods_name_ctb_role_roleTerm_code_s": "cre",
+          "mods_name_ctb_role_roleTerm_code_mlt": "cre",
+          "mods_name_ctb_role_roleTerm_code_t": "cre",
+          "mods_name_ctb_role_roleTerm_code_ms": [
+            "cre",
+            "ctb"
+          ],
+          "mods_name_ctb_role_roleTerm_code_mt": [
+            "cre",
+            "ctb"
+          ],
+          "mods_name_ctb_role_roleTerm_code_ss": "cre",
+          "mods_name_ctb_role_roleTerm_code_authority_marcrelator_s": "cre",
+          "mods_name_ctb_role_roleTerm_code_authority_marcrelator_mlt": "cre",
+          "mods_name_ctb_role_roleTerm_code_authority_marcrelator_t": "cre",
+          "mods_name_ctb_role_roleTerm_code_authority_marcrelator_ms": [
+            "cre",
+            "ctb"
+          ],
+          "mods_name_ctb_role_roleTerm_code_authority_marcrelator_mt": [
+            "cre",
+            "ctb"
+          ],
+          "mods_name_ctb_role_roleTerm_code_authority_marcrelator_ss": "cre",
+          "mods_name_ctb_authority_marcrelator_s": "ctb",
+          "mods_name_ctb_authority_marcrelator_mlt": "ctb",
+          "mods_name_ctb_authority_marcrelator_t": "ctb",
+          "mods_name_ctb_authority_marcrelator_ms": [
+            "ctb"
+          ],
+          "mods_name_ctb_authority_marcrelator_mt": [
+            "ctb"
+          ],
+          "mods_name_ctb_authority_marcrelator_ss": "ctb",
+          "mods_name_ctb_authority_marcrelator_namePart_s": "Timms, Philip",
+          "mods_name_ctb_authority_marcrelator_namePart_mlt": "Timms, Philip",
+          "mods_name_ctb_authority_marcrelator_namePart_t": "Timms, Philip",
+          "mods_name_ctb_authority_marcrelator_namePart_ms": [
+            "Timms, Philip"
+          ],
+          "mods_name_ctb_authority_marcrelator_namePart_mt": [
+            "Timms, Philip"
+          ],
+          "mods_name_ctb_authority_marcrelator_namePart_ss": "Timms, Philip",
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_text_s": "creator",
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_text_mlt": "creator",
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_text_t": "creator",
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_text_ms": [
+            "creator",
+            "contributor"
+          ],
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_text_mt": [
+            "creator",
+            "contributor"
+          ],
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_text_ss": "creator",
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_text_authority_marcrelator_s": "creator",
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_text_authority_marcrelator_mlt": "creator",
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_text_authority_marcrelator_t": "creator",
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_text_authority_marcrelator_ms": [
+            "creator",
+            "contributor"
+          ],
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_text_authority_marcrelator_mt": [
+            "creator",
+            "contributor"
+          ],
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_text_authority_marcrelator_ss": "creator",
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_code_s": "cre",
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_code_mlt": "cre",
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_code_t": "cre",
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_code_ms": [
+            "cre",
+            "ctb"
+          ],
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_code_mt": [
+            "cre",
+            "ctb"
+          ],
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_code_ss": "cre",
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_code_authority_marcrelator_s": "cre",
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_code_authority_marcrelator_mlt": "cre",
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_code_authority_marcrelator_t": "cre",
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_code_authority_marcrelator_ms": [
+            "cre",
+            "ctb"
+          ],
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_code_authority_marcrelator_mt": [
+            "cre",
+            "ctb"
+          ],
+          "mods_name_ctb_authority_marcrelator_role_roleTerm_code_authority_marcrelator_ss": "cre",
+          "mods_name_namePart_s": "Timms, Philip",
+          "mods_name_namePart_mlt": "Timms, Philip",
+          "mods_name_namePart_t": "Timms, Philip",
+          "mods_name_namePart_ms": [
+            "Timms, Philip"
+          ],
+          "mods_name_namePart_mt": [
+            "Timms, Philip"
+          ],
+          "mods_name_namePart_ss": "Timms, Philip",
+          "mods_name_role_roleTerm_text_s": "creator",
+          "mods_name_role_roleTerm_text_mlt": "creator",
+          "mods_name_role_roleTerm_text_t": "creator",
+          "mods_name_role_roleTerm_text_ms": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_role_roleTerm_text_mt": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_role_roleTerm_text_ss": "creator",
+          "mods_name_role_roleTerm_text_authority_marcrelator_s": "creator",
+          "mods_name_role_roleTerm_text_authority_marcrelator_mlt": "creator",
+          "mods_name_role_roleTerm_text_authority_marcrelator_t": "creator",
+          "mods_name_role_roleTerm_text_authority_marcrelator_ms": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_role_roleTerm_text_authority_marcrelator_mt": [
+            "creator",
+            "contributor",
+            "creator"
+          ],
+          "mods_name_role_roleTerm_text_authority_marcrelator_ss": "creator",
+          "mods_name_role_roleTerm_code_s": "cre",
+          "mods_name_role_roleTerm_code_mlt": "cre",
+          "mods_name_role_roleTerm_code_t": "cre",
+          "mods_name_role_roleTerm_code_ms": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_role_roleTerm_code_mt": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_role_roleTerm_code_ss": "cre",
+          "mods_name_role_roleTerm_code_authority_marcrelator_s": "cre",
+          "mods_name_role_roleTerm_code_authority_marcrelator_mlt": "cre",
+          "mods_name_role_roleTerm_code_authority_marcrelator_t": "cre",
+          "mods_name_role_roleTerm_code_authority_marcrelator_ms": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_role_roleTerm_code_authority_marcrelator_mt": [
+            "cre",
+            "ctb",
+            "cre"
+          ],
+          "mods_name_role_roleTerm_code_authority_marcrelator_ss": "cre",
+          "mods_name_lang_pan_role_roleTerm_text_s": "creator",
+          "mods_name_lang_pan_role_roleTerm_text_mlt": "creator",
+          "mods_name_lang_pan_role_roleTerm_text_t": "creator",
+          "mods_name_lang_pan_role_roleTerm_text_ms": [
+            "creator"
+          ],
+          "mods_name_lang_pan_role_roleTerm_text_mt": [
+            "creator"
+          ],
+          "mods_name_lang_pan_role_roleTerm_text_ss": "creator",
+          "mods_name_lang_pan_role_roleTerm_text_authority_marcrelator_s": "creator",
+          "mods_name_lang_pan_role_roleTerm_text_authority_marcrelator_mlt": "creator",
+          "mods_name_lang_pan_role_roleTerm_text_authority_marcrelator_t": "creator",
+          "mods_name_lang_pan_role_roleTerm_text_authority_marcrelator_ms": [
+            "creator"
+          ],
+          "mods_name_lang_pan_role_roleTerm_text_authority_marcrelator_mt": [
+            "creator"
+          ],
+          "mods_name_lang_pan_role_roleTerm_text_authority_marcrelator_ss": "creator",
+          "mods_name_lang_pan_role_roleTerm_code_s": "cre",
+          "mods_name_lang_pan_role_roleTerm_code_mlt": "cre",
+          "mods_name_lang_pan_role_roleTerm_code_t": "cre",
+          "mods_name_lang_pan_role_roleTerm_code_ms": [
+            "cre"
+          ],
+          "mods_name_lang_pan_role_roleTerm_code_mt": [
+            "cre"
+          ],
+          "mods_name_lang_pan_role_roleTerm_code_ss": "cre",
+          "mods_name_lang_pan_role_roleTerm_code_authority_marcrelator_s": "cre",
+          "mods_name_lang_pan_role_roleTerm_code_authority_marcrelator_mlt": "cre",
+          "mods_name_lang_pan_role_roleTerm_code_authority_marcrelator_t": "cre",
+          "mods_name_lang_pan_role_roleTerm_code_authority_marcrelator_ms": [
+            "cre"
+          ],
+          "mods_name_lang_pan_role_roleTerm_code_authority_marcrelator_mt": [
+            "cre"
+          ],
+          "mods_name_lang_pan_role_roleTerm_code_authority_marcrelator_ss": "cre",
+          "mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_dt": "1907-01-01T00:00:00Z",
+          "mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_mt": [
+            "1907-01-01T00:00:00.000Z",
+            "1907"
+          ],
+          "mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_mdt": [
+            "1907-01-01T00:00:00Z"
+          ],
+          "mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_s": "1907",
+          "mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_mlt": "1907",
+          "mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_t": "1907",
+          "mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_ms": [
+            "1907"
+          ],
+          "mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_ss": "1907",
+          "mods_originInfo_dateIssued_mdt": [
+            "1907-01-01T00:00:00Z"
+          ],
+          "mods_originInfo_dateIssued_mt": [
+            "1907-01-01T00:00:00.000Z",
+            "1907"
+          ],
+          "mods_originInfo_dateIssued_ms": [
+            "1907"
+          ],
+          "mods_extension_level_1_SFU_custom_metadata_for_the_Komagata_Maru_Continuing_the_Journal_Collection_s": "Photographs",
+          "mods_extension_level_1_SFU_custom_metadata_for_the_Komagata_Maru_Continuing_the_Journal_Collection_mlt": "Photographs",
+          "mods_extension_level_1_SFU_custom_metadata_for_the_Komagata_Maru_Continuing_the_Journal_Collection_t": "Photographs",
+          "mods_extension_level_1_SFU_custom_metadata_for_the_Komagata_Maru_Continuing_the_Journal_Collection_ms": [
+            "Photographs"
+          ],
+          "mods_extension_level_1_SFU_custom_metadata_for_the_Komagata_Maru_Continuing_the_Journal_Collection_mt": [
+            "Photographs"
+          ],
+          "mods_extension_level_1_SFU_custom_metadata_for_the_Komagata_Maru_Continuing_the_Journal_Collection_ss": "Photographs",
+          "mods_genre_all_ms": [
+            "Image"
+          ],
+          "mods_genre_all_mt": [
+            "Image"
+          ],
+          "mods_identifier_all_ms": [
+            "VPL 6781",
+            "00c6a41d-9da1-4851-a5d0-c27da70c0ef4",
+            "http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139"
+          ],
+          "mods_identifier_all_mt": [
+            "VPL 6781",
+            "00c6a41d-9da1-4851-a5d0-c27da70c0ef4",
+            "http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139"
+          ],
+          "mods_titleInfo_title_all_ms": [
+            "People and business along the 500 to 300 blocks of Granville"
+          ],
+          "mods_titleInfo_title_all_mt": [
+            "People and business along the 500 to 300 blocks of Granville"
+          ],
+          "mods_subject_descendants_all_ms": [
+            "Sikhs in Canada",
+            "City of Vancouver"
+          ],
+          "mods_subject_descendants_all_mt": [
+            "Sikhs in Canada",
+            "City of Vancouver"
+          ],
+          "mods_name_creator_namePart_all_ms": [
+            "Timms, Philip"
+          ],
+          "mods_name_creator_namePart_all_mt": [
+            "Timms, Philip"
+          ],
+          "dc.title": [
+            "People and business along the 500 to 300 blocks of Granville",
+            ""
+          ],
+          "dc.creator": [
+            "Timms, Philip (contributor)",
+            ""
+          ],
+          "dc.subject": [
+            "Sikhs in Canada--City of Vancouver",
+            ""
+          ],
+          "dc.description": [
+            "Looking north from south of West Pender. Left are the Fairfield Building and Wilson Building. New post office is under construction and at the end of the street is the CPR depot. Wagons, streetcars, a car, and pedestrians, including two Sikh men. Also exists as a lantern slide (66979). Vancouver Public Library. Accession number 6781",
+            ""
+          ],
+          "dc.publisher": [
+            "",
+            ""
+          ],
+          "dc.date": [
+            "1907"
+          ],
+          "dc.type": [
+            "Image"
+          ],
+          "dc.format": [
+            ""
+          ],
+          "dc.identifier": [
+            "km:10571",
+            ": VPL 6781",
+            "uuid: 00c6a41d-9da1-4851-a5d0-c27da70c0ef4",
+            "http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139"
+          ],
+          "dc.language": [
+            "eng"
+          ],
+          "dc.rights": [
+            "These images are provided for research and reference use only. Written permission to copy, publish, or otherwise use these images must be obtained from Vancouver Public Library, www.vpl.ca",
+            ""
+          ],
+          "ancestors_ms": [
+            "km:collection",
+            "sfudigitalcollections:1",
+            "islandora:root"
+          ],
+          "ancestors_mt": [
+            "km:collection",
+            "sfudigitalcollections:1",
+            "islandora:root"
+          ],
+          "_version_": 1634802354870026200,
+          "timestamp": "2019-05-28T18:43:38.239Z"
+        }
+      ]
+    }
+  }

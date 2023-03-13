@@ -1,0 +1,1899 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+	<lst name="responseHeader">
+		<int name="status">0</int>
+		<int name="QTime">0</int>
+		<lst name="params">
+			<str name="q">PID:km\:10571</str>
+		</lst>
+	</lst>
+	<result name="response" numFound="1" start="0">
+		<doc>
+			<str name="PID">km:10571</str>
+			<str name="PID_kw">km:10571</str>
+			<str name="fgs_state_s">Active</str>
+			<str name="fgs_state_mlt">Active</str>
+			<str name="fgs_state_t">Active</str>
+			<arr name="fgs_state_ms">
+				<str>Active</str>
+			</arr>
+			<arr name="fgs_state_mt">
+				<str>Active</str>
+			</arr>
+			<str name="fgs_state_ss">Active</str>
+			<str name="fgs_label_s">People and business along the 500 to 300 blocks of Granville</str>
+			<str name="fgs_label_mlt">People and business along the 500 to 300 blocks of Granville</str>
+			<str name="fgs_label_t">People and business along the 500 to 300 blocks of Granville</str>
+			<arr name="fgs_label_ms">
+				<str>People and business along the 500 to 300 blocks of Granville</str>
+			</arr>
+			<arr name="fgs_label_mt">
+				<str>People and business along the 500 to 300 blocks of Granville</str>
+			</arr>
+			<str name="fgs_label_ss">People and business along the 500 to 300 blocks of Granville</str>
+			<str name="fgs_ownerId_s">admin</str>
+			<str name="fgs_ownerId_mlt">admin</str>
+			<str name="fgs_ownerId_t">admin</str>
+			<arr name="fgs_ownerId_ms">
+				<str>admin</str>
+			</arr>
+			<arr name="fgs_ownerId_mt">
+				<str>admin</str>
+			</arr>
+			<str name="fgs_ownerId_ss">admin</str>
+			<date name="fgs_createdDate_dt">2016-05-05T04:40:00.192Z</date>
+			<arr name="fgs_createdDate_mt">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fgs_createdDate_mdt">
+				<date>2016-05-05T04:40:00.192Z</date>
+			</arr>
+			<date name="fgs_lastModifiedDate_dt">2019-05-27T01:00:15.446Z</date>
+			<arr name="fgs_lastModifiedDate_mt">
+				<str>2019-05-27T01:00:15.446Z</str>
+			</arr>
+			<arr name="fgs_lastModifiedDate_mdt">
+				<date>2019-05-27T01:00:15.446Z</date>
+			</arr>
+			<arr name="fedora_datastreams_ms">
+				<str>AUDIT</str>
+				<str>RELS-EXT</str>
+				<str>MODS</str>
+				<str>DC</str>
+				<str>OBJ</str>
+				<str>TECHMD</str>
+				<str>TN</str>
+				<str>JPG</str>
+				<str>JP2</str>
+			</arr>
+			<arr name="fedora_datastreams_mt">
+				<str>AUDIT</str>
+				<str>RELS-EXT</str>
+				<str>MODS</str>
+				<str>DC</str>
+				<str>OBJ</str>
+				<str>TECHMD</str>
+				<str>TN</str>
+				<str>JPG</str>
+				<str>JP2</str>
+			</arr>
+			<arr name="fedora_datastreams_mimetypes_ms">
+				<str>text/xml</str>
+				<str>application/rdf+xml</str>
+				<str>application/xml</str>
+				<str>application/xml</str>
+				<str>image/jp2</str>
+				<str>application/xml</str>
+				<str>image/jpeg</str>
+				<str>image/jpeg</str>
+				<str>image/jp2</str>
+			</arr>
+			<arr name="fedora_datastreams_mimetypes_mt">
+				<str>text/xml</str>
+				<str>application/rdf+xml</str>
+				<str>application/xml</str>
+				<str>application/xml</str>
+				<str>image/jp2</str>
+				<str>application/xml</str>
+				<str>image/jpeg</str>
+				<str>image/jpeg</str>
+				<str>image/jp2</str>
+			</arr>
+			<arr name="fedora_datastream_info_AUDIT_ID_ms">
+				<str>AUDIT</str>
+			</arr>
+			<arr name="fedora_datastream_info_AUDIT_ID_mt">
+				<str>AUDIT</str>
+			</arr>
+			<arr name="fedora_datastream_info_AUDIT_FEDORA_URI_ms">
+				<str>info:fedora/km:10571/AUDIT</str>
+			</arr>
+			<arr name="fedora_datastream_info_AUDIT_FEDORA_URI_mt">
+				<str>info:fedora/km:10571/AUDIT</str>
+			</arr>
+			<arr name="fedora_datastream_info_AUDIT_STATE_ms">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_AUDIT_STATE_mt">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_AUDIT_CONTROL_GROUP_ms">
+				<str>X</str>
+			</arr>
+			<arr name="fedora_datastream_info_AUDIT_CONTROL_GROUP_mt">
+				<str>X</str>
+			</arr>
+			<arr name="fedora_datastream_info_AUDIT_VERSIONABLE_ms">
+				<str>false</str>
+			</arr>
+			<arr name="fedora_datastream_info_AUDIT_VERSIONABLE_mt">
+				<str>false</str>
+			</arr>
+			<arr name="fedora_datastream_version_AUDIT_ID_ms">
+				<str>AUDIT.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_AUDIT_ID_mt">
+				<str>AUDIT.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_AUDIT_LABEL_ms">
+				<str>Audit Trail for this object</str>
+			</arr>
+			<arr name="fedora_datastream_version_AUDIT_LABEL_mt">
+				<str>Audit Trail for this object</str>
+			</arr>
+			<arr name="fedora_datastream_version_AUDIT_CREATED_ms">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_AUDIT_CREATED_mt">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_AUDIT_MIMETYPE_ms">
+				<str>text/xml</str>
+			</arr>
+			<arr name="fedora_datastream_version_AUDIT_MIMETYPE_mt">
+				<str>text/xml</str>
+			</arr>
+			<arr name="fedora_datastream_version_AUDIT_FORMAT_URI_ms">
+				<str>info:fedora/fedora-system:format/xml.fedora.audit</str>
+			</arr>
+			<arr name="fedora_datastream_version_AUDIT_FORMAT_URI_mt">
+				<str>info:fedora/fedora-system:format/xml.fedora.audit</str>
+			</arr>
+			<arr name="fedora_datastream_latest_AUDIT_ID_ms">
+				<str>AUDIT.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_AUDIT_ID_mt">
+				<str>AUDIT.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_AUDIT_LABEL_ms">
+				<str>Audit Trail for this object</str>
+			</arr>
+			<arr name="fedora_datastream_latest_AUDIT_LABEL_mt">
+				<str>Audit Trail for this object</str>
+			</arr>
+			<arr name="fedora_datastream_latest_AUDIT_CREATED_ms">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_AUDIT_CREATED_mt">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_AUDIT_MIMETYPE_ms">
+				<str>text/xml</str>
+			</arr>
+			<arr name="fedora_datastream_latest_AUDIT_MIMETYPE_mt">
+				<str>text/xml</str>
+			</arr>
+			<arr name="fedora_datastream_latest_AUDIT_FORMAT_URI_ms">
+				<str>info:fedora/fedora-system:format/xml.fedora.audit</str>
+			</arr>
+			<arr name="fedora_datastream_latest_AUDIT_FORMAT_URI_mt">
+				<str>info:fedora/fedora-system:format/xml.fedora.audit</str>
+			</arr>
+			<arr name="fedora_datastream_info_RELS-EXT_ID_ms">
+				<str>RELS-EXT</str>
+			</arr>
+			<arr name="fedora_datastream_info_RELS-EXT_ID_mt">
+				<str>RELS-EXT</str>
+			</arr>
+			<arr name="fedora_datastream_info_RELS-EXT_FEDORA_URI_ms">
+				<str>info:fedora/km:10571/RELS-EXT</str>
+			</arr>
+			<arr name="fedora_datastream_info_RELS-EXT_FEDORA_URI_mt">
+				<str>info:fedora/km:10571/RELS-EXT</str>
+			</arr>
+			<arr name="fedora_datastream_info_RELS-EXT_STATE_ms">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_RELS-EXT_STATE_mt">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_RELS-EXT_CONTROL_GROUP_ms">
+				<str>X</str>
+			</arr>
+			<arr name="fedora_datastream_info_RELS-EXT_CONTROL_GROUP_mt">
+				<str>X</str>
+			</arr>
+			<arr name="fedora_datastream_info_RELS-EXT_VERSIONABLE_ms">
+				<str>true</str>
+			</arr>
+			<arr name="fedora_datastream_info_RELS-EXT_VERSIONABLE_mt">
+				<str>true</str>
+			</arr>
+			<arr name="fedora_datastream_version_RELS-EXT_ID_ms">
+				<str>RELS-EXT.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_RELS-EXT_ID_mt">
+				<str>RELS-EXT.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_RELS-EXT_LABEL_ms">
+				<str>Fedora Object to Object Relationship Metadata.</str>
+			</arr>
+			<arr name="fedora_datastream_version_RELS-EXT_LABEL_mt">
+				<str>Fedora Object to Object Relationship Metadata.</str>
+			</arr>
+			<arr name="fedora_datastream_version_RELS-EXT_CREATED_ms">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_RELS-EXT_CREATED_mt">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_RELS-EXT_MIMETYPE_ms">
+				<str>application/rdf+xml</str>
+			</arr>
+			<arr name="fedora_datastream_version_RELS-EXT_MIMETYPE_mt">
+				<str>application/rdf+xml</str>
+			</arr>
+			<arr name="fedora_datastream_version_RELS-EXT_FORMAT_URI_ms">
+				<str>info:fedora/fedora-system:FedoraRELSExt-1.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_RELS-EXT_FORMAT_URI_mt">
+				<str>info:fedora/fedora-system:FedoraRELSExt-1.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_RELS-EXT_SIZE_ms">
+				<str>547</str>
+			</arr>
+			<arr name="fedora_datastream_version_RELS-EXT_SIZE_mt">
+				<str>547</str>
+			</arr>
+			<arr name="fedora_datastream_latest_RELS-EXT_ID_ms">
+				<str>RELS-EXT.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_RELS-EXT_ID_mt">
+				<str>RELS-EXT.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_RELS-EXT_LABEL_ms">
+				<str>Fedora Object to Object Relationship Metadata.</str>
+			</arr>
+			<arr name="fedora_datastream_latest_RELS-EXT_LABEL_mt">
+				<str>Fedora Object to Object Relationship Metadata.</str>
+			</arr>
+			<arr name="fedora_datastream_latest_RELS-EXT_CREATED_ms">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_RELS-EXT_CREATED_mt">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_RELS-EXT_MIMETYPE_ms">
+				<str>application/rdf+xml</str>
+			</arr>
+			<arr name="fedora_datastream_latest_RELS-EXT_MIMETYPE_mt">
+				<str>application/rdf+xml</str>
+			</arr>
+			<arr name="fedora_datastream_latest_RELS-EXT_FORMAT_URI_ms">
+				<str>info:fedora/fedora-system:FedoraRELSExt-1.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_RELS-EXT_FORMAT_URI_mt">
+				<str>info:fedora/fedora-system:FedoraRELSExt-1.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_RELS-EXT_SIZE_ms">
+				<str>547</str>
+			</arr>
+			<arr name="fedora_datastream_latest_RELS-EXT_SIZE_mt">
+				<str>547</str>
+			</arr>
+			<arr name="fedora_datastream_info_MODS_ID_ms">
+				<str>MODS</str>
+			</arr>
+			<arr name="fedora_datastream_info_MODS_ID_mt">
+				<str>MODS</str>
+			</arr>
+			<arr name="fedora_datastream_info_MODS_FEDORA_URI_ms">
+				<str>info:fedora/km:10571/MODS</str>
+			</arr>
+			<arr name="fedora_datastream_info_MODS_FEDORA_URI_mt">
+				<str>info:fedora/km:10571/MODS</str>
+			</arr>
+			<arr name="fedora_datastream_info_MODS_STATE_ms">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_MODS_STATE_mt">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_MODS_CONTROL_GROUP_ms">
+				<str>M</str>
+			</arr>
+			<arr name="fedora_datastream_info_MODS_CONTROL_GROUP_mt">
+				<str>M</str>
+			</arr>
+			<arr name="fedora_datastream_info_MODS_VERSIONABLE_ms">
+				<str>true</str>
+			</arr>
+			<arr name="fedora_datastream_info_MODS_VERSIONABLE_mt">
+				<str>true</str>
+			</arr>
+			<arr name="fedora_datastream_version_MODS_ID_ms">
+				<str>MODS.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_MODS_ID_mt">
+				<str>MODS.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_MODS_LABEL_ms">
+				<str>MODS Record</str>
+			</arr>
+			<arr name="fedora_datastream_version_MODS_LABEL_mt">
+				<str>MODS Record</str>
+			</arr>
+			<arr name="fedora_datastream_version_MODS_CREATED_ms">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_MODS_CREATED_mt">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_MODS_MIMETYPE_ms">
+				<str>application/xml</str>
+			</arr>
+			<arr name="fedora_datastream_version_MODS_MIMETYPE_mt">
+				<str>application/xml</str>
+			</arr>
+			<arr name="fedora_datastream_version_MODS_SIZE_ms">
+				<str>4525</str>
+			</arr>
+			<arr name="fedora_datastream_version_MODS_SIZE_mt">
+				<str>4525</str>
+			</arr>
+			<arr name="fedora_datastream_latest_MODS_ID_ms">
+				<str>MODS.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_MODS_ID_mt">
+				<str>MODS.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_MODS_LABEL_ms">
+				<str>MODS Record</str>
+			</arr>
+			<arr name="fedora_datastream_latest_MODS_LABEL_mt">
+				<str>MODS Record</str>
+			</arr>
+			<arr name="fedora_datastream_latest_MODS_CREATED_ms">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_MODS_CREATED_mt">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_MODS_MIMETYPE_ms">
+				<str>application/xml</str>
+			</arr>
+			<arr name="fedora_datastream_latest_MODS_MIMETYPE_mt">
+				<str>application/xml</str>
+			</arr>
+			<arr name="fedora_datastream_latest_MODS_SIZE_ms">
+				<str>4525</str>
+			</arr>
+			<arr name="fedora_datastream_latest_MODS_SIZE_mt">
+				<str>4525</str>
+			</arr>
+			<arr name="fedora_datastream_info_DC_ID_ms">
+				<str>DC</str>
+			</arr>
+			<arr name="fedora_datastream_info_DC_ID_mt">
+				<str>DC</str>
+			</arr>
+			<arr name="fedora_datastream_info_DC_FEDORA_URI_ms">
+				<str>info:fedora/km:10571/DC</str>
+			</arr>
+			<arr name="fedora_datastream_info_DC_FEDORA_URI_mt">
+				<str>info:fedora/km:10571/DC</str>
+			</arr>
+			<arr name="fedora_datastream_info_DC_STATE_ms">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_DC_STATE_mt">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_DC_CONTROL_GROUP_ms">
+				<str>M</str>
+			</arr>
+			<arr name="fedora_datastream_info_DC_CONTROL_GROUP_mt">
+				<str>M</str>
+			</arr>
+			<arr name="fedora_datastream_info_DC_VERSIONABLE_ms">
+				<str>true</str>
+			</arr>
+			<arr name="fedora_datastream_info_DC_VERSIONABLE_mt">
+				<str>true</str>
+			</arr>
+			<arr name="fedora_datastream_version_DC_ID_ms">
+				<str>DC.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_DC_ID_mt">
+				<str>DC.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_DC_LABEL_ms">
+				<str>DC Record</str>
+			</arr>
+			<arr name="fedora_datastream_version_DC_LABEL_mt">
+				<str>DC Record</str>
+			</arr>
+			<arr name="fedora_datastream_version_DC_CREATED_ms">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_DC_CREATED_mt">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_DC_MIMETYPE_ms">
+				<str>application/xml</str>
+			</arr>
+			<arr name="fedora_datastream_version_DC_MIMETYPE_mt">
+				<str>application/xml</str>
+			</arr>
+			<arr name="fedora_datastream_version_DC_SIZE_ms">
+				<str>1653</str>
+			</arr>
+			<arr name="fedora_datastream_version_DC_SIZE_mt">
+				<str>1653</str>
+			</arr>
+			<arr name="fedora_datastream_latest_DC_ID_ms">
+				<str>DC.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_DC_ID_mt">
+				<str>DC.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_DC_LABEL_ms">
+				<str>DC Record</str>
+			</arr>
+			<arr name="fedora_datastream_latest_DC_LABEL_mt">
+				<str>DC Record</str>
+			</arr>
+			<arr name="fedora_datastream_latest_DC_CREATED_ms">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_DC_CREATED_mt">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_DC_MIMETYPE_ms">
+				<str>application/xml</str>
+			</arr>
+			<arr name="fedora_datastream_latest_DC_MIMETYPE_mt">
+				<str>application/xml</str>
+			</arr>
+			<arr name="fedora_datastream_latest_DC_SIZE_ms">
+				<str>1653</str>
+			</arr>
+			<arr name="fedora_datastream_latest_DC_SIZE_mt">
+				<str>1653</str>
+			</arr>
+			<arr name="fedora_datastream_info_OBJ_ID_ms">
+				<str>OBJ</str>
+			</arr>
+			<arr name="fedora_datastream_info_OBJ_ID_mt">
+				<str>OBJ</str>
+			</arr>
+			<arr name="fedora_datastream_info_OBJ_FEDORA_URI_ms">
+				<str>info:fedora/km:10571/OBJ</str>
+			</arr>
+			<arr name="fedora_datastream_info_OBJ_FEDORA_URI_mt">
+				<str>info:fedora/km:10571/OBJ</str>
+			</arr>
+			<arr name="fedora_datastream_info_OBJ_STATE_ms">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_OBJ_STATE_mt">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_OBJ_CONTROL_GROUP_ms">
+				<str>M</str>
+			</arr>
+			<arr name="fedora_datastream_info_OBJ_CONTROL_GROUP_mt">
+				<str>M</str>
+			</arr>
+			<arr name="fedora_datastream_info_OBJ_VERSIONABLE_ms">
+				<str>true</str>
+			</arr>
+			<arr name="fedora_datastream_info_OBJ_VERSIONABLE_mt">
+				<str>true</str>
+			</arr>
+			<arr name="fedora_datastream_version_OBJ_ID_ms">
+				<str>OBJ.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_OBJ_ID_mt">
+				<str>OBJ.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_OBJ_LABEL_ms">
+				<str>OBJ Datastream</str>
+			</arr>
+			<arr name="fedora_datastream_version_OBJ_LABEL_mt">
+				<str>OBJ Datastream</str>
+			</arr>
+			<arr name="fedora_datastream_version_OBJ_CREATED_ms">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_OBJ_CREATED_mt">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_OBJ_MIMETYPE_ms">
+				<str>image/jp2</str>
+			</arr>
+			<arr name="fedora_datastream_version_OBJ_MIMETYPE_mt">
+				<str>image/jp2</str>
+			</arr>
+			<arr name="fedora_datastream_version_OBJ_SIZE_ms">
+				<str>2988652</str>
+			</arr>
+			<arr name="fedora_datastream_version_OBJ_SIZE_mt">
+				<str>2988652</str>
+			</arr>
+			<arr name="fedora_datastream_latest_OBJ_ID_ms">
+				<str>OBJ.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_OBJ_ID_mt">
+				<str>OBJ.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_OBJ_LABEL_ms">
+				<str>OBJ Datastream</str>
+			</arr>
+			<arr name="fedora_datastream_latest_OBJ_LABEL_mt">
+				<str>OBJ Datastream</str>
+			</arr>
+			<arr name="fedora_datastream_latest_OBJ_CREATED_ms">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_OBJ_CREATED_mt">
+				<str>2016-05-05T04:40:00.192Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_OBJ_MIMETYPE_ms">
+				<str>image/jp2</str>
+			</arr>
+			<arr name="fedora_datastream_latest_OBJ_MIMETYPE_mt">
+				<str>image/jp2</str>
+			</arr>
+			<arr name="fedora_datastream_latest_OBJ_SIZE_ms">
+				<str>2988652</str>
+			</arr>
+			<arr name="fedora_datastream_latest_OBJ_SIZE_mt">
+				<str>2988652</str>
+			</arr>
+			<arr name="fedora_datastream_info_TECHMD_ID_ms">
+				<str>TECHMD</str>
+			</arr>
+			<arr name="fedora_datastream_info_TECHMD_ID_mt">
+				<str>TECHMD</str>
+			</arr>
+			<arr name="fedora_datastream_info_TECHMD_FEDORA_URI_ms">
+				<str>info:fedora/km:10571/TECHMD</str>
+			</arr>
+			<arr name="fedora_datastream_info_TECHMD_FEDORA_URI_mt">
+				<str>info:fedora/km:10571/TECHMD</str>
+			</arr>
+			<arr name="fedora_datastream_info_TECHMD_STATE_ms">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_TECHMD_STATE_mt">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_TECHMD_CONTROL_GROUP_ms">
+				<str>M</str>
+			</arr>
+			<arr name="fedora_datastream_info_TECHMD_CONTROL_GROUP_mt">
+				<str>M</str>
+			</arr>
+			<arr name="fedora_datastream_info_TECHMD_VERSIONABLE_ms">
+				<str>true</str>
+			</arr>
+			<arr name="fedora_datastream_info_TECHMD_VERSIONABLE_mt">
+				<str>true</str>
+			</arr>
+			<arr name="fedora_datastream_version_TECHMD_ID_ms">
+				<str>TECHMD.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_TECHMD_ID_mt">
+				<str>TECHMD.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_TECHMD_LABEL_ms">
+				<str>TECHMD</str>
+			</arr>
+			<arr name="fedora_datastream_version_TECHMD_LABEL_mt">
+				<str>TECHMD</str>
+			</arr>
+			<arr name="fedora_datastream_version_TECHMD_CREATED_ms">
+				<str>2016-05-05T06:33:53.864Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_TECHMD_CREATED_mt">
+				<str>2016-05-05T06:33:53.864Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_TECHMD_MIMETYPE_ms">
+				<str>application/xml</str>
+			</arr>
+			<arr name="fedora_datastream_version_TECHMD_MIMETYPE_mt">
+				<str>application/xml</str>
+			</arr>
+			<arr name="fedora_datastream_version_TECHMD_SIZE_ms">
+				<str>5581</str>
+			</arr>
+			<arr name="fedora_datastream_version_TECHMD_SIZE_mt">
+				<str>5581</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TECHMD_ID_ms">
+				<str>TECHMD.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TECHMD_ID_mt">
+				<str>TECHMD.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TECHMD_LABEL_ms">
+				<str>TECHMD</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TECHMD_LABEL_mt">
+				<str>TECHMD</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TECHMD_CREATED_ms">
+				<str>2016-05-05T06:33:53.864Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TECHMD_CREATED_mt">
+				<str>2016-05-05T06:33:53.864Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TECHMD_MIMETYPE_ms">
+				<str>application/xml</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TECHMD_MIMETYPE_mt">
+				<str>application/xml</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TECHMD_SIZE_ms">
+				<str>5581</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TECHMD_SIZE_mt">
+				<str>5581</str>
+			</arr>
+			<arr name="fedora_datastream_info_TN_ID_ms">
+				<str>TN</str>
+			</arr>
+			<arr name="fedora_datastream_info_TN_ID_mt">
+				<str>TN</str>
+			</arr>
+			<arr name="fedora_datastream_info_TN_FEDORA_URI_ms">
+				<str>info:fedora/km:10571/TN</str>
+			</arr>
+			<arr name="fedora_datastream_info_TN_FEDORA_URI_mt">
+				<str>info:fedora/km:10571/TN</str>
+			</arr>
+			<arr name="fedora_datastream_info_TN_STATE_ms">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_TN_STATE_mt">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_TN_CONTROL_GROUP_ms">
+				<str>M</str>
+			</arr>
+			<arr name="fedora_datastream_info_TN_CONTROL_GROUP_mt">
+				<str>M</str>
+			</arr>
+			<arr name="fedora_datastream_info_TN_VERSIONABLE_ms">
+				<str>true</str>
+			</arr>
+			<arr name="fedora_datastream_info_TN_VERSIONABLE_mt">
+				<str>true</str>
+			</arr>
+			<arr name="fedora_datastream_version_TN_ID_ms">
+				<str>TN.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_TN_ID_mt">
+				<str>TN.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_TN_LABEL_ms">
+				<str>Thumbnail</str>
+			</arr>
+			<arr name="fedora_datastream_version_TN_LABEL_mt">
+				<str>Thumbnail</str>
+			</arr>
+			<arr name="fedora_datastream_version_TN_CREATED_ms">
+				<str>2016-05-05T06:33:57.912Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_TN_CREATED_mt">
+				<str>2016-05-05T06:33:57.912Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_TN_MIMETYPE_ms">
+				<str>image/jpeg</str>
+			</arr>
+			<arr name="fedora_datastream_version_TN_MIMETYPE_mt">
+				<str>image/jpeg</str>
+			</arr>
+			<arr name="fedora_datastream_version_TN_SIZE_ms">
+				<str>6029</str>
+			</arr>
+			<arr name="fedora_datastream_version_TN_SIZE_mt">
+				<str>6029</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TN_ID_ms">
+				<str>TN.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TN_ID_mt">
+				<str>TN.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TN_LABEL_ms">
+				<str>Thumbnail</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TN_LABEL_mt">
+				<str>Thumbnail</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TN_CREATED_ms">
+				<str>2016-05-05T06:33:57.912Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TN_CREATED_mt">
+				<str>2016-05-05T06:33:57.912Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TN_MIMETYPE_ms">
+				<str>image/jpeg</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TN_MIMETYPE_mt">
+				<str>image/jpeg</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TN_SIZE_ms">
+				<str>6029</str>
+			</arr>
+			<arr name="fedora_datastream_latest_TN_SIZE_mt">
+				<str>6029</str>
+			</arr>
+			<arr name="fedora_datastream_info_JPG_ID_ms">
+				<str>JPG</str>
+			</arr>
+			<arr name="fedora_datastream_info_JPG_ID_mt">
+				<str>JPG</str>
+			</arr>
+			<arr name="fedora_datastream_info_JPG_FEDORA_URI_ms">
+				<str>info:fedora/km:10571/JPG</str>
+			</arr>
+			<arr name="fedora_datastream_info_JPG_FEDORA_URI_mt">
+				<str>info:fedora/km:10571/JPG</str>
+			</arr>
+			<arr name="fedora_datastream_info_JPG_STATE_ms">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_JPG_STATE_mt">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_JPG_CONTROL_GROUP_ms">
+				<str>M</str>
+			</arr>
+			<arr name="fedora_datastream_info_JPG_CONTROL_GROUP_mt">
+				<str>M</str>
+			</arr>
+			<arr name="fedora_datastream_info_JPG_VERSIONABLE_ms">
+				<str>true</str>
+			</arr>
+			<arr name="fedora_datastream_info_JPG_VERSIONABLE_mt">
+				<str>true</str>
+			</arr>
+			<arr name="fedora_datastream_version_JPG_ID_ms">
+				<str>JPG.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_JPG_ID_mt">
+				<str>JPG.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_JPG_LABEL_ms">
+				<str>Medium sized JPEG</str>
+			</arr>
+			<arr name="fedora_datastream_version_JPG_LABEL_mt">
+				<str>Medium sized JPEG</str>
+			</arr>
+			<arr name="fedora_datastream_version_JPG_CREATED_ms">
+				<str>2016-05-05T06:34:01.934Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_JPG_CREATED_mt">
+				<str>2016-05-05T06:34:01.934Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_JPG_MIMETYPE_ms">
+				<str>image/jpeg</str>
+			</arr>
+			<arr name="fedora_datastream_version_JPG_MIMETYPE_mt">
+				<str>image/jpeg</str>
+			</arr>
+			<arr name="fedora_datastream_version_JPG_SIZE_ms">
+				<str>39067</str>
+			</arr>
+			<arr name="fedora_datastream_version_JPG_SIZE_mt">
+				<str>39067</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JPG_ID_ms">
+				<str>JPG.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JPG_ID_mt">
+				<str>JPG.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JPG_LABEL_ms">
+				<str>Medium sized JPEG</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JPG_LABEL_mt">
+				<str>Medium sized JPEG</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JPG_CREATED_ms">
+				<str>2016-05-05T06:34:01.934Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JPG_CREATED_mt">
+				<str>2016-05-05T06:34:01.934Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JPG_MIMETYPE_ms">
+				<str>image/jpeg</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JPG_MIMETYPE_mt">
+				<str>image/jpeg</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JPG_SIZE_ms">
+				<str>39067</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JPG_SIZE_mt">
+				<str>39067</str>
+			</arr>
+			<arr name="fedora_datastream_info_JP2_ID_ms">
+				<str>JP2</str>
+			</arr>
+			<arr name="fedora_datastream_info_JP2_ID_mt">
+				<str>JP2</str>
+			</arr>
+			<arr name="fedora_datastream_info_JP2_FEDORA_URI_ms">
+				<str>info:fedora/km:10571/JP2</str>
+			</arr>
+			<arr name="fedora_datastream_info_JP2_FEDORA_URI_mt">
+				<str>info:fedora/km:10571/JP2</str>
+			</arr>
+			<arr name="fedora_datastream_info_JP2_STATE_ms">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_JP2_STATE_mt">
+				<str>A</str>
+			</arr>
+			<arr name="fedora_datastream_info_JP2_CONTROL_GROUP_ms">
+				<str>M</str>
+			</arr>
+			<arr name="fedora_datastream_info_JP2_CONTROL_GROUP_mt">
+				<str>M</str>
+			</arr>
+			<arr name="fedora_datastream_info_JP2_VERSIONABLE_ms">
+				<str>true</str>
+			</arr>
+			<arr name="fedora_datastream_info_JP2_VERSIONABLE_mt">
+				<str>true</str>
+			</arr>
+			<arr name="fedora_datastream_version_JP2_ID_ms">
+				<str>JP2.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_JP2_ID_mt">
+				<str>JP2.0</str>
+			</arr>
+			<arr name="fedora_datastream_version_JP2_LABEL_ms">
+				<str>JPEG 2000</str>
+			</arr>
+			<arr name="fedora_datastream_version_JP2_LABEL_mt">
+				<str>JPEG 2000</str>
+			</arr>
+			<arr name="fedora_datastream_version_JP2_CREATED_ms">
+				<str>2016-05-05T06:34:04.150Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_JP2_CREATED_mt">
+				<str>2016-05-05T06:34:04.150Z</str>
+			</arr>
+			<arr name="fedora_datastream_version_JP2_MIMETYPE_ms">
+				<str>image/jp2</str>
+			</arr>
+			<arr name="fedora_datastream_version_JP2_MIMETYPE_mt">
+				<str>image/jp2</str>
+			</arr>
+			<arr name="fedora_datastream_version_JP2_SIZE_ms">
+				<str>2988652</str>
+			</arr>
+			<arr name="fedora_datastream_version_JP2_SIZE_mt">
+				<str>2988652</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JP2_ID_ms">
+				<str>JP2.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JP2_ID_mt">
+				<str>JP2.0</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JP2_LABEL_ms">
+				<str>JPEG 2000</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JP2_LABEL_mt">
+				<str>JPEG 2000</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JP2_CREATED_ms">
+				<str>2016-05-05T06:34:04.150Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JP2_CREATED_mt">
+				<str>2016-05-05T06:34:04.150Z</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JP2_MIMETYPE_ms">
+				<str>image/jp2</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JP2_MIMETYPE_mt">
+				<str>image/jp2</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JP2_SIZE_ms">
+				<str>2988652</str>
+			</arr>
+			<arr name="fedora_datastream_latest_JP2_SIZE_mt">
+				<str>2988652</str>
+			</arr>
+			<str name="RELS_EXT_isMemberOfCollection_uri_s">info:fedora/km:collection</str>
+			<str name="RELS_EXT_isMemberOfCollection_uri_mlt">info:fedora/km:collection</str>
+			<str name="RELS_EXT_isMemberOfCollection_uri_t">info:fedora/km:collection</str>
+			<arr name="RELS_EXT_isMemberOfCollection_uri_ms">
+				<str>info:fedora/km:collection</str>
+			</arr>
+			<arr name="RELS_EXT_isMemberOfCollection_uri_mt">
+				<str>info:fedora/km:collection</str>
+			</arr>
+			<str name="RELS_EXT_isMemberOfCollection_uri_ss">info:fedora/km:collection</str>
+			<str name="RELS_EXT_info:fedora/fedora-system:def/relations-external#isMemberOfCollection_uri_s">info:fedora/km:collection</str>
+			<str name="RELS_EXT_info:fedora/fedora-system:def/relations-external#isMemberOfCollection_uri_mlt">info:fedora/km:collection</str>
+			<str name="RELS_EXT_info:fedora/fedora-system:def/relations-external#isMemberOfCollection_uri_t">info:fedora/km:collection</str>
+			<arr name="RELS_EXT_info:fedora/fedora-system:def/relations-external#isMemberOfCollection_uri_ms">
+				<str>info:fedora/km:collection</str>
+			</arr>
+			<arr name="RELS_EXT_info:fedora/fedora-system:def/relations-external#isMemberOfCollection_uri_mt">
+				<str>info:fedora/km:collection</str>
+			</arr>
+			<str name="RELS_EXT_info:fedora/fedora-system:def/relations-external#isMemberOfCollection_uri_ss">info:fedora/km:collection</str>
+			<str name="RELS_EXT_hasModel_uri_s">info:fedora/islandora:sp_large_image_cmodel</str>
+			<str name="RELS_EXT_hasModel_uri_mlt">info:fedora/islandora:sp_large_image_cmodel</str>
+			<str name="RELS_EXT_hasModel_uri_t">info:fedora/islandora:sp_large_image_cmodel</str>
+			<arr name="RELS_EXT_hasModel_uri_ms">
+				<str>info:fedora/islandora:sp_large_image_cmodel</str>
+			</arr>
+			<arr name="RELS_EXT_hasModel_uri_mt">
+				<str>info:fedora/islandora:sp_large_image_cmodel</str>
+			</arr>
+			<str name="RELS_EXT_hasModel_uri_ss">info:fedora/islandora:sp_large_image_cmodel</str>
+			<str name="RELS_EXT_info:fedora/fedora-system:def/model#hasModel_uri_s">info:fedora/islandora:sp_large_image_cmodel</str>
+			<str name="RELS_EXT_info:fedora/fedora-system:def/model#hasModel_uri_mlt">info:fedora/islandora:sp_large_image_cmodel</str>
+			<str name="RELS_EXT_info:fedora/fedora-system:def/model#hasModel_uri_t">info:fedora/islandora:sp_large_image_cmodel</str>
+			<arr name="RELS_EXT_info:fedora/fedora-system:def/model#hasModel_uri_ms">
+				<str>info:fedora/islandora:sp_large_image_cmodel</str>
+			</arr>
+			<arr name="RELS_EXT_info:fedora/fedora-system:def/model#hasModel_uri_mt">
+				<str>info:fedora/islandora:sp_large_image_cmodel</str>
+			</arr>
+			<str name="RELS_EXT_info:fedora/fedora-system:def/model#hasModel_uri_ss">info:fedora/islandora:sp_large_image_cmodel</str>
+			<str name="mods_abstract_s">Looking north from south of West Pender. Left are the Fairfield Building and Wilson Building. New post office is under construction and at the end of the street is the CPR depot. Wagons, streetcars, a car, and pedestrians, including two Sikh men. Also exists as a lantern slide (66979). Vancouver Public Library. Accession number 6781</str>
+			<str name="mods_abstract_mlt">Looking north from south of West Pender. Left are the Fairfield Building and Wilson Building. New post office is under construction and at the end of the street is the CPR depot. Wagons, streetcars, a car, and pedestrians, including two Sikh men. Also exists as a lantern slide (66979). Vancouver Public Library. Accession number 6781</str>
+			<str name="mods_abstract_t">Looking north from south of West Pender. Left are the Fairfield Building and Wilson Building. New post office is under construction and at the end of the street is the CPR depot. Wagons, streetcars, a car, and pedestrians, including two Sikh men. Also exists as a lantern slide (66979). Vancouver Public Library. Accession number 6781</str>
+			<arr name="mods_abstract_ms">
+				<str>Looking north from south of West Pender. Left are the Fairfield Building and Wilson Building. New post office is under construction and at the end of the street is the CPR depot. Wagons, streetcars, a car, and pedestrians, including two Sikh men. Also exists as a lantern slide (66979). Vancouver Public Library. Accession number 6781</str>
+			</arr>
+			<arr name="mods_abstract_mt">
+				<str>Looking north from south of West Pender. Left are the Fairfield Building and Wilson Building. New post office is under construction and at the end of the street is the CPR depot. Wagons, streetcars, a car, and pedestrians, including two Sikh men. Also exists as a lantern slide (66979). Vancouver Public Library. Accession number 6781</str>
+			</arr>
+			<str name="mods_abstract_ss">Looking north from south of West Pender. Left are the Fairfield Building and Wilson Building. New post office is under construction and at the end of the street is the CPR depot. Wagons, streetcars, a car, and pedestrians, including two Sikh men. Also exists as a lantern slide (66979). Vancouver Public Library. Accession number 6781</str>
+			<str name="mods_genre_s">Image</str>
+			<str name="mods_genre_mlt">Image</str>
+			<str name="mods_genre_t">Image</str>
+			<arr name="mods_genre_ms">
+				<str>Image</str>
+			</arr>
+			<arr name="mods_genre_mt">
+				<str>Image</str>
+			</arr>
+			<str name="mods_genre_ss">Image</str>
+			<str name="mods_identifier_s">VPL 6781</str>
+			<str name="mods_identifier_mlt">VPL 6781</str>
+			<str name="mods_identifier_t">VPL 6781</str>
+			<arr name="mods_identifier_ms">
+				<str>VPL 6781</str>
+			</arr>
+			<arr name="mods_identifier_mt">
+				<str>VPL 6781</str>
+			</arr>
+			<str name="mods_identifier_ss">VPL 6781</str>
+			<str name="mods_location_physicalLocation_s">Vancouver Public Library</str>
+			<str name="mods_location_physicalLocation_mlt">Vancouver Public Library</str>
+			<str name="mods_location_physicalLocation_t">Vancouver Public Library</str>
+			<arr name="mods_location_physicalLocation_ms">
+				<str>Vancouver Public Library</str>
+			</arr>
+			<arr name="mods_location_physicalLocation_mt">
+				<str>Vancouver Public Library</str>
+			</arr>
+			<str name="mods_location_physicalLocation_ss">Vancouver Public Library</str>
+			<str name="mods_language_languageTerm_text_s">eng</str>
+			<str name="mods_language_languageTerm_text_mlt">eng</str>
+			<str name="mods_language_languageTerm_text_t">eng</str>
+			<arr name="mods_language_languageTerm_text_ms">
+				<str>eng</str>
+			</arr>
+			<arr name="mods_language_languageTerm_text_mt">
+				<str>eng</str>
+			</arr>
+			<str name="mods_language_languageTerm_text_ss">eng</str>
+			<str name="mods_accessCondition_use_and_reproduction_s">These images are provided for research and reference use only. Written permission to copy, publish, or otherwise use these images must be obtained from Vancouver Public Library, www.vpl.ca</str>
+			<str name="mods_accessCondition_use_and_reproduction_mlt">These images are provided for research and reference use only. Written permission to copy, publish, or otherwise use these images must be obtained from Vancouver Public Library, www.vpl.ca</str>
+			<str name="mods_accessCondition_use_and_reproduction_t">These images are provided for research and reference use only. Written permission to copy, publish, or otherwise use these images must be obtained from Vancouver Public Library, www.vpl.ca</str>
+			<arr name="mods_accessCondition_use_and_reproduction_ms">
+				<str>These images are provided for research and reference use only. Written permission to copy, publish, or otherwise use these images must be obtained from Vancouver Public Library, www.vpl.ca</str>
+			</arr>
+			<arr name="mods_accessCondition_use_and_reproduction_mt">
+				<str>These images are provided for research and reference use only. Written permission to copy, publish, or otherwise use these images must be obtained from Vancouver Public Library, www.vpl.ca</str>
+			</arr>
+			<str name="mods_accessCondition_use_and_reproduction_ss">These images are provided for research and reference use only. Written permission to copy, publish, or otherwise use these images must be obtained from Vancouver Public Library, www.vpl.ca</str>
+			<str name="mods_identifier_uuid_s">00c6a41d-9da1-4851-a5d0-c27da70c0ef4</str>
+			<str name="mods_identifier_uuid_mlt">00c6a41d-9da1-4851-a5d0-c27da70c0ef4</str>
+			<str name="mods_identifier_uuid_t">00c6a41d-9da1-4851-a5d0-c27da70c0ef4</str>
+			<arr name="mods_identifier_uuid_ms">
+				<str>00c6a41d-9da1-4851-a5d0-c27da70c0ef4</str>
+			</arr>
+			<arr name="mods_identifier_uuid_mt">
+				<str>00c6a41d-9da1-4851-a5d0-c27da70c0ef4</str>
+			</arr>
+			<str name="mods_identifier_uuid_ss">00c6a41d-9da1-4851-a5d0-c27da70c0ef4</str>
+			<str name="mods_identifier_uri_s">http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139</str>
+			<str name="mods_identifier_uri_mlt">http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139</str>
+			<str name="mods_identifier_uri_t">http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139</str>
+			<arr name="mods_identifier_uri_ms">
+				<str>http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139</str>
+			</arr>
+			<arr name="mods_identifier_uri_mt">
+				<str>http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139</str>
+			</arr>
+			<str name="mods_identifier_uri_ss">http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139</str>
+			<arr name="mods_identifier_uri_displayLabel_ms">
+				<str>Migrated From</str>
+			</arr>
+			<arr name="mods_identifier_uri_displayLabel_mt">
+				<str>Migrated From</str>
+			</arr>
+			<str name="mods_titleInfo_translated_title_s">People and business along the 500 to 300 blocks of Granville</str>
+			<str name="mods_titleInfo_translated_title_mlt">People and business along the 500 to 300 blocks of Granville</str>
+			<str name="mods_titleInfo_translated_title_t">People and business along the 500 to 300 blocks of Granville</str>
+			<arr name="mods_titleInfo_translated_title_ms">
+				<str>People and business along the 500 to 300 blocks of Granville</str>
+			</arr>
+			<arr name="mods_titleInfo_translated_title_mt">
+				<str>People and business along the 500 to 300 blocks of Granville</str>
+			</arr>
+			<str name="mods_titleInfo_translated_title_ss">People and business along the 500 to 300 blocks of Granville</str>
+			<str name="mods_titleInfo_translated_lang_eng_title_s">People and business along the 500 to 300 blocks of Granville</str>
+			<str name="mods_titleInfo_translated_lang_eng_title_mlt">People and business along the 500 to 300 blocks of Granville</str>
+			<str name="mods_titleInfo_translated_lang_eng_title_t">People and business along the 500 to 300 blocks of Granville</str>
+			<arr name="mods_titleInfo_translated_lang_eng_title_ms">
+				<str>People and business along the 500 to 300 blocks of Granville</str>
+			</arr>
+			<arr name="mods_titleInfo_translated_lang_eng_title_mt">
+				<str>People and business along the 500 to 300 blocks of Granville</str>
+			</arr>
+			<str name="mods_titleInfo_translated_lang_eng_title_ss">People and business along the 500 to 300 blocks of Granville</str>
+			<str name="mods_subject_topic_s">Sikhs in Canada</str>
+			<str name="mods_subject_topic_mlt">Sikhs in Canada</str>
+			<str name="mods_subject_topic_t">Sikhs in Canada</str>
+			<arr name="mods_subject_topic_ms">
+				<str>Sikhs in Canada</str>
+				<str>City of Vancouver</str>
+			</arr>
+			<arr name="mods_subject_topic_mt">
+				<str>Sikhs in Canada</str>
+				<str>City of Vancouver</str>
+			</arr>
+			<str name="mods_subject_topic_ss">Sikhs in Canada</str>
+			<str name="mods_name_creator_s">creator</str>
+			<str name="mods_name_creator_mlt">creator</str>
+			<str name="mods_name_creator_t">creator</str>
+			<arr name="mods_name_creator_ms">
+				<str>creator</str>
+				<str>creator</str>
+			</arr>
+			<arr name="mods_name_creator_mt">
+				<str>creator</str>
+				<str>creator</str>
+			</arr>
+			<str name="mods_name_creator_ss">creator</str>
+			<str name="mods_name_creator_namePart_s">Timms, Philip</str>
+			<str name="mods_name_creator_namePart_mlt">Timms, Philip</str>
+			<str name="mods_name_creator_namePart_t">Timms, Philip</str>
+			<arr name="mods_name_creator_namePart_ms">
+				<str>Timms, Philip</str>
+			</arr>
+			<arr name="mods_name_creator_namePart_mt">
+				<str>Timms, Philip</str>
+			</arr>
+			<str name="mods_name_creator_namePart_ss">Timms, Philip</str>
+			<str name="mods_name_creator_role_roleTerm_text_s">creator</str>
+			<str name="mods_name_creator_role_roleTerm_text_mlt">creator</str>
+			<str name="mods_name_creator_role_roleTerm_text_t">creator</str>
+			<arr name="mods_name_creator_role_roleTerm_text_ms">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<arr name="mods_name_creator_role_roleTerm_text_mt">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<str name="mods_name_creator_role_roleTerm_text_ss">creator</str>
+			<str name="mods_name_creator_role_roleTerm_text_authority_marcrelator_s">creator</str>
+			<str name="mods_name_creator_role_roleTerm_text_authority_marcrelator_mlt">creator</str>
+			<str name="mods_name_creator_role_roleTerm_text_authority_marcrelator_t">creator</str>
+			<arr name="mods_name_creator_role_roleTerm_text_authority_marcrelator_ms">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<arr name="mods_name_creator_role_roleTerm_text_authority_marcrelator_mt">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<str name="mods_name_creator_role_roleTerm_text_authority_marcrelator_ss">creator</str>
+			<str name="mods_name_creator_role_roleTerm_code_s">cre</str>
+			<str name="mods_name_creator_role_roleTerm_code_mlt">cre</str>
+			<str name="mods_name_creator_role_roleTerm_code_t">cre</str>
+			<arr name="mods_name_creator_role_roleTerm_code_ms">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<arr name="mods_name_creator_role_roleTerm_code_mt">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<str name="mods_name_creator_role_roleTerm_code_ss">cre</str>
+			<str name="mods_name_creator_role_roleTerm_code_authority_marcrelator_s">cre</str>
+			<str name="mods_name_creator_role_roleTerm_code_authority_marcrelator_mlt">cre</str>
+			<str name="mods_name_creator_role_roleTerm_code_authority_marcrelator_t">cre</str>
+			<arr name="mods_name_creator_role_roleTerm_code_authority_marcrelator_ms">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<arr name="mods_name_creator_role_roleTerm_code_authority_marcrelator_mt">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<str name="mods_name_creator_role_roleTerm_code_authority_marcrelator_ss">cre</str>
+			<str name="mods_name_creator_authority_marcrelator_s">creator</str>
+			<str name="mods_name_creator_authority_marcrelator_mlt">creator</str>
+			<str name="mods_name_creator_authority_marcrelator_t">creator</str>
+			<arr name="mods_name_creator_authority_marcrelator_ms">
+				<str>creator</str>
+				<str>creator</str>
+			</arr>
+			<arr name="mods_name_creator_authority_marcrelator_mt">
+				<str>creator</str>
+				<str>creator</str>
+			</arr>
+			<str name="mods_name_creator_authority_marcrelator_ss">creator</str>
+			<str name="mods_name_creator_authority_marcrelator_namePart_s">Timms, Philip</str>
+			<str name="mods_name_creator_authority_marcrelator_namePart_mlt">Timms, Philip</str>
+			<str name="mods_name_creator_authority_marcrelator_namePart_t">Timms, Philip</str>
+			<arr name="mods_name_creator_authority_marcrelator_namePart_ms">
+				<str>Timms, Philip</str>
+			</arr>
+			<arr name="mods_name_creator_authority_marcrelator_namePart_mt">
+				<str>Timms, Philip</str>
+			</arr>
+			<str name="mods_name_creator_authority_marcrelator_namePart_ss">Timms, Philip</str>
+			<str name="mods_name_creator_authority_marcrelator_role_roleTerm_text_s">creator</str>
+			<str name="mods_name_creator_authority_marcrelator_role_roleTerm_text_mlt">creator</str>
+			<str name="mods_name_creator_authority_marcrelator_role_roleTerm_text_t">creator</str>
+			<arr name="mods_name_creator_authority_marcrelator_role_roleTerm_text_ms">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<arr name="mods_name_creator_authority_marcrelator_role_roleTerm_text_mt">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<str name="mods_name_creator_authority_marcrelator_role_roleTerm_text_ss">creator</str>
+			<str name="mods_name_creator_authority_marcrelator_role_roleTerm_text_authority_marcrelator_s">creator</str>
+			<str name="mods_name_creator_authority_marcrelator_role_roleTerm_text_authority_marcrelator_mlt">creator</str>
+			<str name="mods_name_creator_authority_marcrelator_role_roleTerm_text_authority_marcrelator_t">creator</str>
+			<arr name="mods_name_creator_authority_marcrelator_role_roleTerm_text_authority_marcrelator_ms">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<arr name="mods_name_creator_authority_marcrelator_role_roleTerm_text_authority_marcrelator_mt">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<str name="mods_name_creator_authority_marcrelator_role_roleTerm_text_authority_marcrelator_ss">creator</str>
+			<str name="mods_name_creator_authority_marcrelator_role_roleTerm_code_s">cre</str>
+			<str name="mods_name_creator_authority_marcrelator_role_roleTerm_code_mlt">cre</str>
+			<str name="mods_name_creator_authority_marcrelator_role_roleTerm_code_t">cre</str>
+			<arr name="mods_name_creator_authority_marcrelator_role_roleTerm_code_ms">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<arr name="mods_name_creator_authority_marcrelator_role_roleTerm_code_mt">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<str name="mods_name_creator_authority_marcrelator_role_roleTerm_code_ss">cre</str>
+			<str name="mods_name_creator_authority_marcrelator_role_roleTerm_code_authority_marcrelator_s">cre</str>
+			<str name="mods_name_creator_authority_marcrelator_role_roleTerm_code_authority_marcrelator_mlt">cre</str>
+			<str name="mods_name_creator_authority_marcrelator_role_roleTerm_code_authority_marcrelator_t">cre</str>
+			<arr name="mods_name_creator_authority_marcrelator_role_roleTerm_code_authority_marcrelator_ms">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<arr name="mods_name_creator_authority_marcrelator_role_roleTerm_code_authority_marcrelator_mt">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<str name="mods_name_creator_authority_marcrelator_role_roleTerm_code_authority_marcrelator_ss">cre</str>
+			<str name="mods_name_cre_s">cre</str>
+			<str name="mods_name_cre_mlt">cre</str>
+			<str name="mods_name_cre_t">cre</str>
+			<arr name="mods_name_cre_ms">
+				<str>cre</str>
+				<str>cre</str>
+			</arr>
+			<arr name="mods_name_cre_mt">
+				<str>cre</str>
+				<str>cre</str>
+			</arr>
+			<str name="mods_name_cre_ss">cre</str>
+			<str name="mods_name_cre_namePart_s">Timms, Philip</str>
+			<str name="mods_name_cre_namePart_mlt">Timms, Philip</str>
+			<str name="mods_name_cre_namePart_t">Timms, Philip</str>
+			<arr name="mods_name_cre_namePart_ms">
+				<str>Timms, Philip</str>
+			</arr>
+			<arr name="mods_name_cre_namePart_mt">
+				<str>Timms, Philip</str>
+			</arr>
+			<str name="mods_name_cre_namePart_ss">Timms, Philip</str>
+			<str name="mods_name_cre_role_roleTerm_text_s">creator</str>
+			<str name="mods_name_cre_role_roleTerm_text_mlt">creator</str>
+			<str name="mods_name_cre_role_roleTerm_text_t">creator</str>
+			<arr name="mods_name_cre_role_roleTerm_text_ms">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<arr name="mods_name_cre_role_roleTerm_text_mt">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<str name="mods_name_cre_role_roleTerm_text_ss">creator</str>
+			<str name="mods_name_cre_role_roleTerm_text_authority_marcrelator_s">creator</str>
+			<str name="mods_name_cre_role_roleTerm_text_authority_marcrelator_mlt">creator</str>
+			<str name="mods_name_cre_role_roleTerm_text_authority_marcrelator_t">creator</str>
+			<arr name="mods_name_cre_role_roleTerm_text_authority_marcrelator_ms">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<arr name="mods_name_cre_role_roleTerm_text_authority_marcrelator_mt">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<str name="mods_name_cre_role_roleTerm_text_authority_marcrelator_ss">creator</str>
+			<str name="mods_name_cre_role_roleTerm_code_s">cre</str>
+			<str name="mods_name_cre_role_roleTerm_code_mlt">cre</str>
+			<str name="mods_name_cre_role_roleTerm_code_t">cre</str>
+			<arr name="mods_name_cre_role_roleTerm_code_ms">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<arr name="mods_name_cre_role_roleTerm_code_mt">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<str name="mods_name_cre_role_roleTerm_code_ss">cre</str>
+			<str name="mods_name_cre_role_roleTerm_code_authority_marcrelator_s">cre</str>
+			<str name="mods_name_cre_role_roleTerm_code_authority_marcrelator_mlt">cre</str>
+			<str name="mods_name_cre_role_roleTerm_code_authority_marcrelator_t">cre</str>
+			<arr name="mods_name_cre_role_roleTerm_code_authority_marcrelator_ms">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<arr name="mods_name_cre_role_roleTerm_code_authority_marcrelator_mt">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<str name="mods_name_cre_role_roleTerm_code_authority_marcrelator_ss">cre</str>
+			<str name="mods_name_cre_authority_marcrelator_s">cre</str>
+			<str name="mods_name_cre_authority_marcrelator_mlt">cre</str>
+			<str name="mods_name_cre_authority_marcrelator_t">cre</str>
+			<arr name="mods_name_cre_authority_marcrelator_ms">
+				<str>cre</str>
+				<str>cre</str>
+			</arr>
+			<arr name="mods_name_cre_authority_marcrelator_mt">
+				<str>cre</str>
+				<str>cre</str>
+			</arr>
+			<str name="mods_name_cre_authority_marcrelator_ss">cre</str>
+			<str name="mods_name_cre_authority_marcrelator_namePart_s">Timms, Philip</str>
+			<str name="mods_name_cre_authority_marcrelator_namePart_mlt">Timms, Philip</str>
+			<str name="mods_name_cre_authority_marcrelator_namePart_t">Timms, Philip</str>
+			<arr name="mods_name_cre_authority_marcrelator_namePart_ms">
+				<str>Timms, Philip</str>
+			</arr>
+			<arr name="mods_name_cre_authority_marcrelator_namePart_mt">
+				<str>Timms, Philip</str>
+			</arr>
+			<str name="mods_name_cre_authority_marcrelator_namePart_ss">Timms, Philip</str>
+			<str name="mods_name_cre_authority_marcrelator_role_roleTerm_text_s">creator</str>
+			<str name="mods_name_cre_authority_marcrelator_role_roleTerm_text_mlt">creator</str>
+			<str name="mods_name_cre_authority_marcrelator_role_roleTerm_text_t">creator</str>
+			<arr name="mods_name_cre_authority_marcrelator_role_roleTerm_text_ms">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<arr name="mods_name_cre_authority_marcrelator_role_roleTerm_text_mt">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<str name="mods_name_cre_authority_marcrelator_role_roleTerm_text_ss">creator</str>
+			<str name="mods_name_cre_authority_marcrelator_role_roleTerm_text_authority_marcrelator_s">creator</str>
+			<str name="mods_name_cre_authority_marcrelator_role_roleTerm_text_authority_marcrelator_mlt">creator</str>
+			<str name="mods_name_cre_authority_marcrelator_role_roleTerm_text_authority_marcrelator_t">creator</str>
+			<arr name="mods_name_cre_authority_marcrelator_role_roleTerm_text_authority_marcrelator_ms">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<arr name="mods_name_cre_authority_marcrelator_role_roleTerm_text_authority_marcrelator_mt">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<str name="mods_name_cre_authority_marcrelator_role_roleTerm_text_authority_marcrelator_ss">creator</str>
+			<str name="mods_name_cre_authority_marcrelator_role_roleTerm_code_s">cre</str>
+			<str name="mods_name_cre_authority_marcrelator_role_roleTerm_code_mlt">cre</str>
+			<str name="mods_name_cre_authority_marcrelator_role_roleTerm_code_t">cre</str>
+			<arr name="mods_name_cre_authority_marcrelator_role_roleTerm_code_ms">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<arr name="mods_name_cre_authority_marcrelator_role_roleTerm_code_mt">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<str name="mods_name_cre_authority_marcrelator_role_roleTerm_code_ss">cre</str>
+			<str name="mods_name_cre_authority_marcrelator_role_roleTerm_code_authority_marcrelator_s">cre</str>
+			<str name="mods_name_cre_authority_marcrelator_role_roleTerm_code_authority_marcrelator_mlt">cre</str>
+			<str name="mods_name_cre_authority_marcrelator_role_roleTerm_code_authority_marcrelator_t">cre</str>
+			<arr name="mods_name_cre_authority_marcrelator_role_roleTerm_code_authority_marcrelator_ms">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<arr name="mods_name_cre_authority_marcrelator_role_roleTerm_code_authority_marcrelator_mt">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<str name="mods_name_cre_authority_marcrelator_role_roleTerm_code_authority_marcrelator_ss">cre</str>
+			<str name="mods_name_contributor_s">contributor</str>
+			<str name="mods_name_contributor_mlt">contributor</str>
+			<str name="mods_name_contributor_t">contributor</str>
+			<arr name="mods_name_contributor_ms">
+				<str>contributor</str>
+			</arr>
+			<arr name="mods_name_contributor_mt">
+				<str>contributor</str>
+			</arr>
+			<str name="mods_name_contributor_ss">contributor</str>
+			<str name="mods_name_contributor_namePart_s">Timms, Philip</str>
+			<str name="mods_name_contributor_namePart_mlt">Timms, Philip</str>
+			<str name="mods_name_contributor_namePart_t">Timms, Philip</str>
+			<arr name="mods_name_contributor_namePart_ms">
+				<str>Timms, Philip</str>
+			</arr>
+			<arr name="mods_name_contributor_namePart_mt">
+				<str>Timms, Philip</str>
+			</arr>
+			<str name="mods_name_contributor_namePart_ss">Timms, Philip</str>
+			<str name="mods_name_contributor_role_roleTerm_text_s">creator</str>
+			<str name="mods_name_contributor_role_roleTerm_text_mlt">creator</str>
+			<str name="mods_name_contributor_role_roleTerm_text_t">creator</str>
+			<arr name="mods_name_contributor_role_roleTerm_text_ms">
+				<str>creator</str>
+				<str>contributor</str>
+			</arr>
+			<arr name="mods_name_contributor_role_roleTerm_text_mt">
+				<str>creator</str>
+				<str>contributor</str>
+			</arr>
+			<str name="mods_name_contributor_role_roleTerm_text_ss">creator</str>
+			<str name="mods_name_contributor_role_roleTerm_text_authority_marcrelator_s">creator</str>
+			<str name="mods_name_contributor_role_roleTerm_text_authority_marcrelator_mlt">creator</str>
+			<str name="mods_name_contributor_role_roleTerm_text_authority_marcrelator_t">creator</str>
+			<arr name="mods_name_contributor_role_roleTerm_text_authority_marcrelator_ms">
+				<str>creator</str>
+				<str>contributor</str>
+			</arr>
+			<arr name="mods_name_contributor_role_roleTerm_text_authority_marcrelator_mt">
+				<str>creator</str>
+				<str>contributor</str>
+			</arr>
+			<str name="mods_name_contributor_role_roleTerm_text_authority_marcrelator_ss">creator</str>
+			<str name="mods_name_contributor_role_roleTerm_code_s">cre</str>
+			<str name="mods_name_contributor_role_roleTerm_code_mlt">cre</str>
+			<str name="mods_name_contributor_role_roleTerm_code_t">cre</str>
+			<arr name="mods_name_contributor_role_roleTerm_code_ms">
+				<str>cre</str>
+				<str>ctb</str>
+			</arr>
+			<arr name="mods_name_contributor_role_roleTerm_code_mt">
+				<str>cre</str>
+				<str>ctb</str>
+			</arr>
+			<str name="mods_name_contributor_role_roleTerm_code_ss">cre</str>
+			<str name="mods_name_contributor_role_roleTerm_code_authority_marcrelator_s">cre</str>
+			<str name="mods_name_contributor_role_roleTerm_code_authority_marcrelator_mlt">cre</str>
+			<str name="mods_name_contributor_role_roleTerm_code_authority_marcrelator_t">cre</str>
+			<arr name="mods_name_contributor_role_roleTerm_code_authority_marcrelator_ms">
+				<str>cre</str>
+				<str>ctb</str>
+			</arr>
+			<arr name="mods_name_contributor_role_roleTerm_code_authority_marcrelator_mt">
+				<str>cre</str>
+				<str>ctb</str>
+			</arr>
+			<str name="mods_name_contributor_role_roleTerm_code_authority_marcrelator_ss">cre</str>
+			<str name="mods_name_contributor_authority_marcrelator_s">contributor</str>
+			<str name="mods_name_contributor_authority_marcrelator_mlt">contributor</str>
+			<str name="mods_name_contributor_authority_marcrelator_t">contributor</str>
+			<arr name="mods_name_contributor_authority_marcrelator_ms">
+				<str>contributor</str>
+			</arr>
+			<arr name="mods_name_contributor_authority_marcrelator_mt">
+				<str>contributor</str>
+			</arr>
+			<str name="mods_name_contributor_authority_marcrelator_ss">contributor</str>
+			<str name="mods_name_contributor_authority_marcrelator_namePart_s">Timms, Philip</str>
+			<str name="mods_name_contributor_authority_marcrelator_namePart_mlt">Timms, Philip</str>
+			<str name="mods_name_contributor_authority_marcrelator_namePart_t">Timms, Philip</str>
+			<arr name="mods_name_contributor_authority_marcrelator_namePart_ms">
+				<str>Timms, Philip</str>
+			</arr>
+			<arr name="mods_name_contributor_authority_marcrelator_namePart_mt">
+				<str>Timms, Philip</str>
+			</arr>
+			<str name="mods_name_contributor_authority_marcrelator_namePart_ss">Timms, Philip</str>
+			<str name="mods_name_contributor_authority_marcrelator_role_roleTerm_text_s">creator</str>
+			<str name="mods_name_contributor_authority_marcrelator_role_roleTerm_text_mlt">creator</str>
+			<str name="mods_name_contributor_authority_marcrelator_role_roleTerm_text_t">creator</str>
+			<arr name="mods_name_contributor_authority_marcrelator_role_roleTerm_text_ms">
+				<str>creator</str>
+				<str>contributor</str>
+			</arr>
+			<arr name="mods_name_contributor_authority_marcrelator_role_roleTerm_text_mt">
+				<str>creator</str>
+				<str>contributor</str>
+			</arr>
+			<str name="mods_name_contributor_authority_marcrelator_role_roleTerm_text_ss">creator</str>
+			<str name="mods_name_contributor_authority_marcrelator_role_roleTerm_text_authority_marcrelator_s">creator</str>
+			<str name="mods_name_contributor_authority_marcrelator_role_roleTerm_text_authority_marcrelator_mlt">creator</str>
+			<str name="mods_name_contributor_authority_marcrelator_role_roleTerm_text_authority_marcrelator_t">creator</str>
+			<arr name="mods_name_contributor_authority_marcrelator_role_roleTerm_text_authority_marcrelator_ms">
+				<str>creator</str>
+				<str>contributor</str>
+			</arr>
+			<arr name="mods_name_contributor_authority_marcrelator_role_roleTerm_text_authority_marcrelator_mt">
+				<str>creator</str>
+				<str>contributor</str>
+			</arr>
+			<str name="mods_name_contributor_authority_marcrelator_role_roleTerm_text_authority_marcrelator_ss">creator</str>
+			<str name="mods_name_contributor_authority_marcrelator_role_roleTerm_code_s">cre</str>
+			<str name="mods_name_contributor_authority_marcrelator_role_roleTerm_code_mlt">cre</str>
+			<str name="mods_name_contributor_authority_marcrelator_role_roleTerm_code_t">cre</str>
+			<arr name="mods_name_contributor_authority_marcrelator_role_roleTerm_code_ms">
+				<str>cre</str>
+				<str>ctb</str>
+			</arr>
+			<arr name="mods_name_contributor_authority_marcrelator_role_roleTerm_code_mt">
+				<str>cre</str>
+				<str>ctb</str>
+			</arr>
+			<str name="mods_name_contributor_authority_marcrelator_role_roleTerm_code_ss">cre</str>
+			<str name="mods_name_contributor_authority_marcrelator_role_roleTerm_code_authority_marcrelator_s">cre</str>
+			<str name="mods_name_contributor_authority_marcrelator_role_roleTerm_code_authority_marcrelator_mlt">cre</str>
+			<str name="mods_name_contributor_authority_marcrelator_role_roleTerm_code_authority_marcrelator_t">cre</str>
+			<arr name="mods_name_contributor_authority_marcrelator_role_roleTerm_code_authority_marcrelator_ms">
+				<str>cre</str>
+				<str>ctb</str>
+			</arr>
+			<arr name="mods_name_contributor_authority_marcrelator_role_roleTerm_code_authority_marcrelator_mt">
+				<str>cre</str>
+				<str>ctb</str>
+			</arr>
+			<str name="mods_name_contributor_authority_marcrelator_role_roleTerm_code_authority_marcrelator_ss">cre</str>
+			<str name="mods_name_ctb_s">ctb</str>
+			<str name="mods_name_ctb_mlt">ctb</str>
+			<str name="mods_name_ctb_t">ctb</str>
+			<arr name="mods_name_ctb_ms">
+				<str>ctb</str>
+			</arr>
+			<arr name="mods_name_ctb_mt">
+				<str>ctb</str>
+			</arr>
+			<str name="mods_name_ctb_ss">ctb</str>
+			<str name="mods_name_ctb_namePart_s">Timms, Philip</str>
+			<str name="mods_name_ctb_namePart_mlt">Timms, Philip</str>
+			<str name="mods_name_ctb_namePart_t">Timms, Philip</str>
+			<arr name="mods_name_ctb_namePart_ms">
+				<str>Timms, Philip</str>
+			</arr>
+			<arr name="mods_name_ctb_namePart_mt">
+				<str>Timms, Philip</str>
+			</arr>
+			<str name="mods_name_ctb_namePart_ss">Timms, Philip</str>
+			<str name="mods_name_ctb_role_roleTerm_text_s">creator</str>
+			<str name="mods_name_ctb_role_roleTerm_text_mlt">creator</str>
+			<str name="mods_name_ctb_role_roleTerm_text_t">creator</str>
+			<arr name="mods_name_ctb_role_roleTerm_text_ms">
+				<str>creator</str>
+				<str>contributor</str>
+			</arr>
+			<arr name="mods_name_ctb_role_roleTerm_text_mt">
+				<str>creator</str>
+				<str>contributor</str>
+			</arr>
+			<str name="mods_name_ctb_role_roleTerm_text_ss">creator</str>
+			<str name="mods_name_ctb_role_roleTerm_text_authority_marcrelator_s">creator</str>
+			<str name="mods_name_ctb_role_roleTerm_text_authority_marcrelator_mlt">creator</str>
+			<str name="mods_name_ctb_role_roleTerm_text_authority_marcrelator_t">creator</str>
+			<arr name="mods_name_ctb_role_roleTerm_text_authority_marcrelator_ms">
+				<str>creator</str>
+				<str>contributor</str>
+			</arr>
+			<arr name="mods_name_ctb_role_roleTerm_text_authority_marcrelator_mt">
+				<str>creator</str>
+				<str>contributor</str>
+			</arr>
+			<str name="mods_name_ctb_role_roleTerm_text_authority_marcrelator_ss">creator</str>
+			<str name="mods_name_ctb_role_roleTerm_code_s">cre</str>
+			<str name="mods_name_ctb_role_roleTerm_code_mlt">cre</str>
+			<str name="mods_name_ctb_role_roleTerm_code_t">cre</str>
+			<arr name="mods_name_ctb_role_roleTerm_code_ms">
+				<str>cre</str>
+				<str>ctb</str>
+			</arr>
+			<arr name="mods_name_ctb_role_roleTerm_code_mt">
+				<str>cre</str>
+				<str>ctb</str>
+			</arr>
+			<str name="mods_name_ctb_role_roleTerm_code_ss">cre</str>
+			<str name="mods_name_ctb_role_roleTerm_code_authority_marcrelator_s">cre</str>
+			<str name="mods_name_ctb_role_roleTerm_code_authority_marcrelator_mlt">cre</str>
+			<str name="mods_name_ctb_role_roleTerm_code_authority_marcrelator_t">cre</str>
+			<arr name="mods_name_ctb_role_roleTerm_code_authority_marcrelator_ms">
+				<str>cre</str>
+				<str>ctb</str>
+			</arr>
+			<arr name="mods_name_ctb_role_roleTerm_code_authority_marcrelator_mt">
+				<str>cre</str>
+				<str>ctb</str>
+			</arr>
+			<str name="mods_name_ctb_role_roleTerm_code_authority_marcrelator_ss">cre</str>
+			<str name="mods_name_ctb_authority_marcrelator_s">ctb</str>
+			<str name="mods_name_ctb_authority_marcrelator_mlt">ctb</str>
+			<str name="mods_name_ctb_authority_marcrelator_t">ctb</str>
+			<arr name="mods_name_ctb_authority_marcrelator_ms">
+				<str>ctb</str>
+			</arr>
+			<arr name="mods_name_ctb_authority_marcrelator_mt">
+				<str>ctb</str>
+			</arr>
+			<str name="mods_name_ctb_authority_marcrelator_ss">ctb</str>
+			<str name="mods_name_ctb_authority_marcrelator_namePart_s">Timms, Philip</str>
+			<str name="mods_name_ctb_authority_marcrelator_namePart_mlt">Timms, Philip</str>
+			<str name="mods_name_ctb_authority_marcrelator_namePart_t">Timms, Philip</str>
+			<arr name="mods_name_ctb_authority_marcrelator_namePart_ms">
+				<str>Timms, Philip</str>
+			</arr>
+			<arr name="mods_name_ctb_authority_marcrelator_namePart_mt">
+				<str>Timms, Philip</str>
+			</arr>
+			<str name="mods_name_ctb_authority_marcrelator_namePart_ss">Timms, Philip</str>
+			<str name="mods_name_ctb_authority_marcrelator_role_roleTerm_text_s">creator</str>
+			<str name="mods_name_ctb_authority_marcrelator_role_roleTerm_text_mlt">creator</str>
+			<str name="mods_name_ctb_authority_marcrelator_role_roleTerm_text_t">creator</str>
+			<arr name="mods_name_ctb_authority_marcrelator_role_roleTerm_text_ms">
+				<str>creator</str>
+				<str>contributor</str>
+			</arr>
+			<arr name="mods_name_ctb_authority_marcrelator_role_roleTerm_text_mt">
+				<str>creator</str>
+				<str>contributor</str>
+			</arr>
+			<str name="mods_name_ctb_authority_marcrelator_role_roleTerm_text_ss">creator</str>
+			<str name="mods_name_ctb_authority_marcrelator_role_roleTerm_text_authority_marcrelator_s">creator</str>
+			<str name="mods_name_ctb_authority_marcrelator_role_roleTerm_text_authority_marcrelator_mlt">creator</str>
+			<str name="mods_name_ctb_authority_marcrelator_role_roleTerm_text_authority_marcrelator_t">creator</str>
+			<arr name="mods_name_ctb_authority_marcrelator_role_roleTerm_text_authority_marcrelator_ms">
+				<str>creator</str>
+				<str>contributor</str>
+			</arr>
+			<arr name="mods_name_ctb_authority_marcrelator_role_roleTerm_text_authority_marcrelator_mt">
+				<str>creator</str>
+				<str>contributor</str>
+			</arr>
+			<str name="mods_name_ctb_authority_marcrelator_role_roleTerm_text_authority_marcrelator_ss">creator</str>
+			<str name="mods_name_ctb_authority_marcrelator_role_roleTerm_code_s">cre</str>
+			<str name="mods_name_ctb_authority_marcrelator_role_roleTerm_code_mlt">cre</str>
+			<str name="mods_name_ctb_authority_marcrelator_role_roleTerm_code_t">cre</str>
+			<arr name="mods_name_ctb_authority_marcrelator_role_roleTerm_code_ms">
+				<str>cre</str>
+				<str>ctb</str>
+			</arr>
+			<arr name="mods_name_ctb_authority_marcrelator_role_roleTerm_code_mt">
+				<str>cre</str>
+				<str>ctb</str>
+			</arr>
+			<str name="mods_name_ctb_authority_marcrelator_role_roleTerm_code_ss">cre</str>
+			<str name="mods_name_ctb_authority_marcrelator_role_roleTerm_code_authority_marcrelator_s">cre</str>
+			<str name="mods_name_ctb_authority_marcrelator_role_roleTerm_code_authority_marcrelator_mlt">cre</str>
+			<str name="mods_name_ctb_authority_marcrelator_role_roleTerm_code_authority_marcrelator_t">cre</str>
+			<arr name="mods_name_ctb_authority_marcrelator_role_roleTerm_code_authority_marcrelator_ms">
+				<str>cre</str>
+				<str>ctb</str>
+			</arr>
+			<arr name="mods_name_ctb_authority_marcrelator_role_roleTerm_code_authority_marcrelator_mt">
+				<str>cre</str>
+				<str>ctb</str>
+			</arr>
+			<str name="mods_name_ctb_authority_marcrelator_role_roleTerm_code_authority_marcrelator_ss">cre</str>
+			<str name="mods_name_namePart_s">Timms, Philip</str>
+			<str name="mods_name_namePart_mlt">Timms, Philip</str>
+			<str name="mods_name_namePart_t">Timms, Philip</str>
+			<arr name="mods_name_namePart_ms">
+				<str>Timms, Philip</str>
+			</arr>
+			<arr name="mods_name_namePart_mt">
+				<str>Timms, Philip</str>
+			</arr>
+			<str name="mods_name_namePart_ss">Timms, Philip</str>
+			<str name="mods_name_role_roleTerm_text_s">creator</str>
+			<str name="mods_name_role_roleTerm_text_mlt">creator</str>
+			<str name="mods_name_role_roleTerm_text_t">creator</str>
+			<arr name="mods_name_role_roleTerm_text_ms">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<arr name="mods_name_role_roleTerm_text_mt">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<str name="mods_name_role_roleTerm_text_ss">creator</str>
+			<str name="mods_name_role_roleTerm_text_authority_marcrelator_s">creator</str>
+			<str name="mods_name_role_roleTerm_text_authority_marcrelator_mlt">creator</str>
+			<str name="mods_name_role_roleTerm_text_authority_marcrelator_t">creator</str>
+			<arr name="mods_name_role_roleTerm_text_authority_marcrelator_ms">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<arr name="mods_name_role_roleTerm_text_authority_marcrelator_mt">
+				<str>creator</str>
+				<str>contributor</str>
+				<str>creator</str>
+			</arr>
+			<str name="mods_name_role_roleTerm_text_authority_marcrelator_ss">creator</str>
+			<str name="mods_name_role_roleTerm_code_s">cre</str>
+			<str name="mods_name_role_roleTerm_code_mlt">cre</str>
+			<str name="mods_name_role_roleTerm_code_t">cre</str>
+			<arr name="mods_name_role_roleTerm_code_ms">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<arr name="mods_name_role_roleTerm_code_mt">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<str name="mods_name_role_roleTerm_code_ss">cre</str>
+			<str name="mods_name_role_roleTerm_code_authority_marcrelator_s">cre</str>
+			<str name="mods_name_role_roleTerm_code_authority_marcrelator_mlt">cre</str>
+			<str name="mods_name_role_roleTerm_code_authority_marcrelator_t">cre</str>
+			<arr name="mods_name_role_roleTerm_code_authority_marcrelator_ms">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<arr name="mods_name_role_roleTerm_code_authority_marcrelator_mt">
+				<str>cre</str>
+				<str>ctb</str>
+				<str>cre</str>
+			</arr>
+			<str name="mods_name_role_roleTerm_code_authority_marcrelator_ss">cre</str>
+			<str name="mods_name_lang_pan_role_roleTerm_text_s">creator</str>
+			<str name="mods_name_lang_pan_role_roleTerm_text_mlt">creator</str>
+			<str name="mods_name_lang_pan_role_roleTerm_text_t">creator</str>
+			<arr name="mods_name_lang_pan_role_roleTerm_text_ms">
+				<str>creator</str>
+			</arr>
+			<arr name="mods_name_lang_pan_role_roleTerm_text_mt">
+				<str>creator</str>
+			</arr>
+			<str name="mods_name_lang_pan_role_roleTerm_text_ss">creator</str>
+			<str name="mods_name_lang_pan_role_roleTerm_text_authority_marcrelator_s">creator</str>
+			<str name="mods_name_lang_pan_role_roleTerm_text_authority_marcrelator_mlt">creator</str>
+			<str name="mods_name_lang_pan_role_roleTerm_text_authority_marcrelator_t">creator</str>
+			<arr name="mods_name_lang_pan_role_roleTerm_text_authority_marcrelator_ms">
+				<str>creator</str>
+			</arr>
+			<arr name="mods_name_lang_pan_role_roleTerm_text_authority_marcrelator_mt">
+				<str>creator</str>
+			</arr>
+			<str name="mods_name_lang_pan_role_roleTerm_text_authority_marcrelator_ss">creator</str>
+			<str name="mods_name_lang_pan_role_roleTerm_code_s">cre</str>
+			<str name="mods_name_lang_pan_role_roleTerm_code_mlt">cre</str>
+			<str name="mods_name_lang_pan_role_roleTerm_code_t">cre</str>
+			<arr name="mods_name_lang_pan_role_roleTerm_code_ms">
+				<str>cre</str>
+			</arr>
+			<arr name="mods_name_lang_pan_role_roleTerm_code_mt">
+				<str>cre</str>
+			</arr>
+			<str name="mods_name_lang_pan_role_roleTerm_code_ss">cre</str>
+			<str name="mods_name_lang_pan_role_roleTerm_code_authority_marcrelator_s">cre</str>
+			<str name="mods_name_lang_pan_role_roleTerm_code_authority_marcrelator_mlt">cre</str>
+			<str name="mods_name_lang_pan_role_roleTerm_code_authority_marcrelator_t">cre</str>
+			<arr name="mods_name_lang_pan_role_roleTerm_code_authority_marcrelator_ms">
+				<str>cre</str>
+			</arr>
+			<arr name="mods_name_lang_pan_role_roleTerm_code_authority_marcrelator_mt">
+				<str>cre</str>
+			</arr>
+			<str name="mods_name_lang_pan_role_roleTerm_code_authority_marcrelator_ss">cre</str>
+			<date name="mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_dt">1907-01-01T00:00:00Z</date>
+			<arr name="mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_mt">
+				<str>1907-01-01T00:00:00.000Z</str>
+				<str>1907</str>
+			</arr>
+			<arr name="mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_mdt">
+				<date>1907-01-01T00:00:00Z</date>
+			</arr>
+			<str name="mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_s">1907</str>
+			<str name="mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_mlt">1907</str>
+			<str name="mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_t">1907</str>
+			<arr name="mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_ms">
+				<str>1907</str>
+			</arr>
+			<str name="mods_originInfo_encoding_w3cdtf_keyDate_yes_dateIssued_ss">1907</str>
+			<arr name="mods_originInfo_dateIssued_mdt">
+				<date>1907-01-01T00:00:00Z</date>
+			</arr>
+			<arr name="mods_originInfo_dateIssued_mt">
+				<str>1907-01-01T00:00:00.000Z</str>
+				<str>1907</str>
+			</arr>
+			<arr name="mods_originInfo_dateIssued_ms">
+				<str>1907</str>
+			</arr>
+			<str name="mods_extension_level_1_SFU_custom_metadata_for_the_Komagata_Maru_Continuing_the_Journal_Collection_s">Photographs</str>
+			<str name="mods_extension_level_1_SFU_custom_metadata_for_the_Komagata_Maru_Continuing_the_Journal_Collection_mlt">Photographs</str>
+			<str name="mods_extension_level_1_SFU_custom_metadata_for_the_Komagata_Maru_Continuing_the_Journal_Collection_t">Photographs</str>
+			<arr name="mods_extension_level_1_SFU_custom_metadata_for_the_Komagata_Maru_Continuing_the_Journal_Collection_ms">
+				<str>Photographs</str>
+			</arr>
+			<arr name="mods_extension_level_1_SFU_custom_metadata_for_the_Komagata_Maru_Continuing_the_Journal_Collection_mt">
+				<str>Photographs</str>
+			</arr>
+			<str name="mods_extension_level_1_SFU_custom_metadata_for_the_Komagata_Maru_Continuing_the_Journal_Collection_ss">Photographs</str>
+			<arr name="mods_genre_all_ms">
+				<str>Image</str>
+			</arr>
+			<arr name="mods_genre_all_mt">
+				<str>Image</str>
+			</arr>
+			<arr name="mods_identifier_all_ms">
+				<str>VPL 6781</str>
+				<str>00c6a41d-9da1-4851-a5d0-c27da70c0ef4</str>
+				<str>http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139</str>
+			</arr>
+			<arr name="mods_identifier_all_mt">
+				<str>VPL 6781</str>
+				<str>00c6a41d-9da1-4851-a5d0-c27da70c0ef4</str>
+				<str>http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139</str>
+			</arr>
+			<arr name="mods_titleInfo_title_all_ms">
+				<str>People and business along the 500 to 300 blocks of Granville</str>
+			</arr>
+			<arr name="mods_titleInfo_title_all_mt">
+				<str>People and business along the 500 to 300 blocks of Granville</str>
+			</arr>
+			<arr name="mods_subject_descendants_all_ms">
+				<str>Sikhs in Canada</str>
+				<str>City of Vancouver</str>
+			</arr>
+			<arr name="mods_subject_descendants_all_mt">
+				<str>Sikhs in Canada</str>
+				<str>City of Vancouver</str>
+			</arr>
+			<arr name="mods_name_creator_namePart_all_ms">
+				<str>Timms, Philip</str>
+			</arr>
+			<arr name="mods_name_creator_namePart_all_mt">
+				<str>Timms, Philip</str>
+			</arr>
+			<arr name="dc.title">
+				<str>People and business along the 500 to 300 blocks of Granville</str>
+				<str/>
+			</arr>
+			<arr name="dc.creator">
+				<str>Timms, Philip (contributor)</str>
+				<str/>
+			</arr>
+			<arr name="dc.subject">
+				<str>Sikhs in Canada--City of Vancouver</str>
+				<str/>
+			</arr>
+			<arr name="dc.description">
+				<str>Looking north from south of West Pender. Left are the Fairfield Building and Wilson Building. New post office is under construction and at the end of the street is the CPR depot. Wagons, streetcars, a car, and pedestrians, including two Sikh men. Also exists as a lantern slide (66979). Vancouver Public Library. Accession number 6781</str>
+				<str/>
+			</arr>
+			<arr name="dc.publisher">
+				<str/>
+				<str/>
+			</arr>
+			<arr name="dc.date">
+				<str>1907</str>
+			</arr>
+			<arr name="dc.type">
+				<str>Image</str>
+			</arr>
+			<arr name="dc.format">
+				<str/>
+			</arr>
+			<arr name="dc.identifier">
+				<str>km:10571</str>
+				<str>: VPL 6781</str>
+				<str>uuid: 00c6a41d-9da1-4851-a5d0-c27da70c0ef4</str>
+				<str>http://content.lib.sfu.ca/cdm/ref/collection/km_2/id/16139</str>
+			</arr>
+			<arr name="dc.language">
+				<str>eng</str>
+			</arr>
+			<arr name="dc.rights">
+				<str>These images are provided for research and reference use only. Written permission to copy, publish, or otherwise use these images must be obtained from Vancouver Public Library, www.vpl.ca</str>
+				<str/>
+			</arr>
+			<arr name="ancestors_ms">
+				<str>km:collection</str>
+				<str>sfudigitalcollections:1</str>
+				<str>islandora:root</str>
+			</arr>
+			<arr name="ancestors_mt">
+				<str>km:collection</str>
+				<str>sfudigitalcollections:1</str>
+				<str>islandora:root</str>
+			</arr>
+			<long name="_version_">1634802354870026240</long>
+			<date name="timestamp">2019-05-28T18:43:38.239Z</date>
+		</doc>
+	</result>
+</response>

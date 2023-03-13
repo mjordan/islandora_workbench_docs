@@ -657,6 +657,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#fetching-a-csv-list-of-all-solr-fieldnames" class="md-nav__link">
+    Fetching a CSV list of all Solr fieldnames
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -961,6 +968,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#fetching-a-csv-list-of-all-solr-fieldnames" class="md-nav__link">
+    Fetching a CSV list of all Solr fieldnames
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1144,8 +1158,16 @@ parameters can be changed in the user-supplied config file.</p>
 <p>Middle:</p>
 <p><img alt="Example Solr Document middle" src="../images/metadata_extras_solr_metadata_middle.png" /></p>
 <h3 id="fetching-a-sample-solr-document">Fetching a sample Solr document</h3>
-<p>If you can't or don't want to install the Islandora Metadata Extras module, you can query Solr directly to get sample document.</p>
-<p>[Coming soon]</p>
+<p>If you can't or don't want to install the Islandora Metadata Extras module, you can query Solr directly to get sample document. To get the entire Solr document for an object in JSON format, issue the following request to your Solr, replacing <code>km\:10571</code> with the PID of your object (the <code>o [filename]</code> tells <code>curl</code> to save the response to that file):</p>
+<p><code>curl -o km_10571.json "http://localhost:8080/solr/select?q=PID:km\:10571&amp;wt=json"</code></p>
+<p>The resulting file will look like <a href="/islandora_workbench_docs/km_10571.json">this</a>.</p>
+<p>Get Solr XML document for a specific object:</p>
+<p><code>curl -o km_10571.xml "http://localhost:8080/solr/select?q=PID:km\:10571"</code></p>
+<p>The resulting file will look like <a href="/islandora_workbench_docs/km_10571.xml">this</a>.</p>
+<p>In the XML version, the Solr fieldnames are the values of the <code>"name"</code> attribute of each element.</p>
+<h3 id="fetching-a-csv-list-of-all-solr-fieldnames">Fetching a CSV list of all Solr fieldnames</h3>
+<p>To get a 1-row CSV file containing all of the fieldnames in your Solr index, issue the following request:</p>
+<p><code>curl -o allfields.csv "http://localhost:8080/solr/select?q=*:*&amp;wt=csv&amp;rows=0&amp;fl=*"</code></p>
 <h2 id="configuring-which-solr-fields-to-include-in-the-csv">Configuring which Solr fields to include in the CSV</h2>
 <p>As we can see from the examples above, Islandora 7's Solr schema contains a lot of fields, mirroring the richness of MODS (or other XML-based metadata) and the
 Fedora 3.x RELS-EXT properties. By default, this script fetches all the fields in the Islandora 7's Solr's index, which will invariably be many, many more fields that you will normally want in the output CSV. You will need to tell the script which fields to exclude and which to include.</p>
