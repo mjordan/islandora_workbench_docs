@@ -1161,8 +1161,8 @@ parameters can be changed in the user-supplied config file.</p>
 <h3 id="fetching-sample-solr-documents">Fetching sample Solr documents</h3>
 <p>If you can't or don't want to install the Islandora Metadata Extras module, you can query Solr directly to get a sample document. To get the entire Solr document for an object in JSON format, issue the following request to your Solr, replacing <code>km\:10571</code> with the PID of your object. The <code>-o</code>  option in the <code>curl</code> command (for "output") tells <code>curl</code> to save the response to the named file:</p>
 <p><code>curl -o km_10571.json "http://localhost:8080/solr/select?q=PID:km\:10571&amp;wt=json"</code></p>
-<p>The resulting file will look like <a href="/islandora_workbench_docs/km_10571.json">this</a>.</p>
-<p>Get Solr XML document for a specific object:</p>
+<p>The resulting JSON file will look like <a href="/islandora_workbench_docs/km_10571.json">this</a>.</p>
+<p>To get Solr XML document for a specific object, remove the <code>wt</code> parameter from the request URL:</p>
 <p><code>curl -o km_10571.xml "http://localhost:8080/solr/select?q=PID:km\:10571"</code></p>
 <p>The resulting file will look like <a href="/islandora_workbench_docs/km_10571.xml">this</a>.</p>
 <p>In the XML version, the Solr fieldnames are the values of the <code>"name"</code> attribute of each element.</p>
