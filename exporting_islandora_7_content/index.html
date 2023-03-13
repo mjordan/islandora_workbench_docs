@@ -651,8 +651,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fetching-a-sample-solr-document" class="md-nav__link">
-    Fetching a sample Solr document
+  <a href="#fetching-sample-solr-documents" class="md-nav__link">
+    Fetching sample Solr documents
   </a>
   
 </li>
@@ -962,8 +962,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fetching-a-sample-solr-document" class="md-nav__link">
-    Fetching a sample Solr document
+  <a href="#fetching-sample-solr-documents" class="md-nav__link">
+    Fetching sample Solr documents
   </a>
   
 </li>
@@ -1158,7 +1158,7 @@ parameters can be changed in the user-supplied config file.</p>
 <p><img alt="Example Solr Document top" src="../images/metadata_extras_solr_metadata_top.png" /></p>
 <p>Middle:</p>
 <p><img alt="Example Solr Document middle" src="../images/metadata_extras_solr_metadata_middle.png" /></p>
-<h3 id="fetching-a-sample-solr-document">Fetching a sample Solr document</h3>
+<h3 id="fetching-sample-solr-documents">Fetching sample Solr documents</h3>
 <p>If you can't or don't want to install the Islandora Metadata Extras module, you can query Solr directly to get a sample document. To get the entire Solr document for an object in JSON format, issue the following request to your Solr, replacing <code>km\:10571</code> with the PID of your object (the <code>-o [filename]</code> <code>curl</code> option tells <code>curl</code> to save the response to that file):</p>
 <p><code>curl -o km_10571.json "http://localhost:8080/solr/select?q=PID:km\:10571&amp;wt=json"</code></p>
 <p>The resulting file will look like <a href="/islandora_workbench_docs/km_10571.json">this</a>.</p>
