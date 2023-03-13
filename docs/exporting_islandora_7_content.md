@@ -146,9 +146,9 @@ If you can't or don't want to install the Islandora Metadata Extras module, you 
 
 `curl -o km_10571.json "http://localhost:8080/solr/select?q=PID:km\:10571&wt=json"`
 
-The resulting file will look like [this](/islandora_workbench_docs/km_10571.json).
+The resulting JSON file will look like [this](/islandora_workbench_docs/km_10571.json).
 
-Get Solr XML document for a specific object:
+To get Solr XML document for a specific object, remove the `wt` parameter from the request URL:
 
 `curl -o km_10571.xml "http://localhost:8080/solr/select?q=PID:km\:10571"`
 
