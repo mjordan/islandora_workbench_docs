@@ -1150,7 +1150,7 @@ parameters can be changed in the user-supplied config file.</p>
 </table>
 
 <h2 id="analyzing-your-islandora-7-solr-index">Analyzing your Islandora 7 Solr index</h2>
-<p>In order to use the configuration options outlined above, you will need to know what fields are in your Islandora 7 Solr index. Not all Islandoras are indexed in the same way, and since most Solr field names are derived from MODS or other XML datastream element names, there can be a lot of variability in Solr fieldnames across Islandora 7 instances.</p>
+<p>In order to use the configuration options outlined above, you will need to know what fields are in your Islandora 7 Solr index. Not all Islandoras are indexed in the same way, and since most Solr field names are derived from MODS or other XML datastream element names, there is enough variability in Solr fieldnames across Islandora 7 instances to make reliably predicting Solr fieldnames impractical.</p>
 <p>Two ways you can see the specific fields in your Solr index are 1) using the Islandora Metadata Extras module, and 2) issuing raw requests to your Islandora 7's Solr, both to get Solr content for sample objects and to get a list of all fields in your index.</p>
 <h3 id="using-the-islandora-metadata-extras-module">Using the Islandora Metadata Extras module</h3>
 <p>The <a href="https://github.com/bondjimbond/islandora_metadata_extras">Islandora Metadata Extras module</a> provides a "Solr Metadata" tab in each object's Manage menu that shows the raw Solr document for the object. The Solr field names and the values for the current object are easy to identify. Here are two screenshots showing the top section of the output and a sample from the middle of the output (broken into top and middle excerpts for illustration purposes here since the entire Solr document is very long):</p>
@@ -1159,7 +1159,7 @@ parameters can be changed in the user-supplied config file.</p>
 <p>Middle:</p>
 <p><img alt="Example Solr Document middle" src="../images/metadata_extras_solr_metadata_middle.png" /></p>
 <h3 id="fetching-sample-solr-documents">Fetching sample Solr documents</h3>
-<p>If you can't or don't want to install the Islandora Metadata Extras module, you can query Solr directly to get a sample document. To get the entire Solr document for an object in JSON format, issue the following request to your Solr, replacing <code>km\:10571</code> with the PID of your object (the <code>-o [filename]</code> <code>curl</code> option tells <code>curl</code> to save the response to that file):</p>
+<p>If you can't or don't want to install the Islandora Metadata Extras module, you can query Solr directly to get a sample document. To get the entire Solr document for an object in JSON format, issue the following request to your Solr, replacing <code>km\:10571</code> with the PID of your object. The <code>-o</code>  option in the <code>curl</code> command tells <code>curl</code> to save the response to that file:</p>
 <p><code>curl -o km_10571.json "http://localhost:8080/solr/select?q=PID:km\:10571&amp;wt=json"</code></p>
 <p>The resulting file will look like <a href="/islandora_workbench_docs/km_10571.json">this</a>.</p>
 <p>Get Solr XML document for a specific object:</p>
@@ -1168,7 +1168,7 @@ parameters can be changed in the user-supplied config file.</p>
 <p>In the XML version, the Solr fieldnames are the values of the <code>"name"</code> attribute of each element.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Solr documents for individual objects will not necessarily contain all the fieldname in your index. In general, empty fields in the source XML (e.g. MODS) are not added to a Solr document. This means that even though inspecting individual Solr documents may not reveal all of the Solr fields you want to include in your Workbench CSV. You should get samples from a number of objects that you think will represent all of the Solr fields you are interested in.</p>
+<p>Solr documents for individual objects will not necessarily contain all the fieldnames in your index. In general, empty fields in the source XML (e.g. MODS) are not added to a Solr document. This means that even though inspecting individual Solr documents may not reveal all of the Solr fields you want to include in your Workbench CSV. You should get samples from a number of objects that you think will represent all of the Solr fields you are interested in.</p>
 </div>
 <h3 id="fetching-a-csv-list-of-all-solr-fieldnames">Fetching a CSV list of all Solr fieldnames</h3>
 <p>To get a 1-row CSV file containing <em>all</em> of the fieldnames in your Solr index, issue the following request:</p>
