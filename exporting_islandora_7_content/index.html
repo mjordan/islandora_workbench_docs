@@ -636,6 +636,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#analyzing-your-islandora-7-solr-index" class="md-nav__link">
+    Analyzing your Islandora 7 Solr index
+  </a>
+  
+    <nav class="md-nav" aria-label="Analyzing your Islandora 7 Solr index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-the-islandora-metadata-extras-module" class="md-nav__link">
+    Using the Islandora Metadata Extras module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetching-a-sample-solr-document" class="md-nav__link">
+    Fetching a sample Solr document
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuring-which-solr-fields-to-include-in-the-csv" class="md-nav__link">
     Configuring which Solr fields to include in the CSV
   </a>
@@ -913,6 +940,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#analyzing-your-islandora-7-solr-index" class="md-nav__link">
+    Analyzing your Islandora 7 Solr index
+  </a>
+  
+    <nav class="md-nav" aria-label="Analyzing your Islandora 7 Solr index">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-the-islandora-metadata-extras-module" class="md-nav__link">
+    Using the Islandora Metadata Extras module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetching-a-sample-solr-document" class="md-nav__link">
+    Fetching a sample Solr document
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuring-which-solr-fields-to-include-in-the-csv" class="md-nav__link">
     Configuring which Solr fields to include in the CSV
   </a>
@@ -1081,6 +1135,16 @@ parameters can be changed in the user-supplied config file.</p>
     </tr>
 </table>
 
+<h2 id="analyzing-your-islandora-7-solr-index">Analyzing your Islandora 7 Solr index</h2>
+<p>In order to use the configuration options outlined above, you will need to know what fields are in your Islandora 7 Solr index. Not all Islandoras are indexed in the same way, and since most Solr field names are derived from MODS or other XML datastream element names, the specific Solr fieldnames are difficult to predict.</p>
+<h3 id="using-the-islandora-metadata-extras-module">Using the Islandora Metadata Extras module</h3>
+<p>The <a href="https://github.com/bondjimbond/islandora_metadata_extras">Islandora Metadata Extras module</a> provides a "Solr Metadata" tab in each object's Manage menu that shows the raw Solr document for the object. The Solr field names and the values for the current object are easy to identify. Here are two screenshots showing the top section of the output and a sample from the middle of the output:</p>
+<p>Top:</p>
+<p><img alt="Example Solr Document top" src="../images/metadata_extras_solr_metadata_top.png" /></p>
+<p>Middle:</p>
+<p><img alt="Example Solr Document middle" src="../images/metadata_extras_solr_metadata_middle.png" /></p>
+<h3 id="fetching-a-sample-solr-document">Fetching a sample Solr document</h3>
+<p>[Coming soon]</p>
 <h2 id="configuring-which-solr-fields-to-include-in-the-csv">Configuring which Solr fields to include in the CSV</h2>
 <p>Islandora 7's Solr schema contains a lot of fields, mirroring the richness of MODS (or other XML-based metadata) and the
 Fedora 3.x RELS-EXT properties. By default, this script fetches all the fields in the Islandora 7's Solr's index, which
