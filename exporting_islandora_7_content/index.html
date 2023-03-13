@@ -1057,12 +1057,12 @@ parameters can be changed in the user-supplied config file.</p>
     <tr>
         <td>collection</td>
         <td></td>
-        <td>PID of a single collection limiting the objects to fetch from the source Islandora 7.x instance. Only matches objects that have the specified collection as their immediate parent. For recursive collection membership, add `ancestor_ms` as a `solr_filter`, as documented below.</td>
+        <td>PID of a single collection limiting the objects to fetch from the source Islandora 7.x instance. Only matches objects that have the specified collection as their immediate parent. For recursive collection membership, add `tors_ms` as a `solr_filter`, as documented below. Note: the colon in the collection PID must be escaped with a backslash (`\`), e.g., `cartoons\:collection`.</td>
     </tr>
     <tr>
         <td>content_model</td>
         <td></td>
-        <td>PID of a single content model limiting the objects to fetch from the source Islandora 7.x instance.</td>
+        <td>PID of a single content model limiting the objects to fetch from the source Islandora 7.x instance. Note: the colon in the collection PID must be escaped with a backslash (`\`), e.g., `islandora\:sp_large_image_cmodel`.</td>
     </tr>
     <tr>
         <td>solr_filters</td>
@@ -1117,15 +1117,19 @@ a sample from a minimal Islandora 7.x:</p>
 <h2 id="adding-filters-to-your-solr-query-to-limit-the-objects-fetched-from-the-source-islandora">Adding filters to your Solr query to limit the objects fetched from the source Islandora</h2>
 <p>The <code>namespace</code>, <code>collection</code>, <code>content_model</code>, and <code>solr_filters</code> options documented above allow you to scope the set of objects exported from the source Islandora 7.x instance. The first three take simple, single values. The last option allows you to add arbitrary filters to the query sent to Solr in the form of key:value pairs, like this:</p>
 <pre><code class="language-text">solr_filters:
- - ancestor_ms: 'some:collection'
+ - ancestors_ms: 'some\:collection'
  - fgs_state_s: 'Active'
 </code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Colons within PIDs used in filters must be escaped with a backslash (<code>\</code>), e.g., <code>some\:collection</code>.</p>
+</div>
 <h2 id="putting-your-solr-request-in-a-file">Putting your Solr request in a file</h2>
 <p>You have the option of
 providing their own solr query in a text file and  pointing to the file using the <code>--metadata_solr_request</code> option when running the script:</p>
 <p><code>python3 get_islandora_7_content.py --config &lt;my_config&gt; --metadata_solr_request &lt;my_request.txt&gt;</code></p>
 <p>The contents of the file must contain a full HTTP request to Solr, e.g.:</p>
-<pre><code class="language-text">http://localhost:8080/solr/select?q=PID:**&amp;wt=csv&amp;rows=1000000&amp;fl=PID,RELS_EXT_hasModel_uri_s,RELS_EXT_isMemberOfCollection_uri_ms,RELS_EXT_isMemberOf_uri_ms,mods_originInfo_encoding_iso8601_dateIssued_mdt
+<pre><code class="language-text">http://localhost:8080/solr/select?q=PID:*&amp;wt=csv&amp;rows=1000000&amp;fl=PID,RELS_EXT_hasModel_uri_s,RELS_EXT_isMemberOfCollection_uri_ms,RELS_EXT_isMemberOf_uri_ms,mods_originInfo_encoding_iso8601_dateIssued_mdt
 </code></pre>
 <p>The advantage of putting your Solr request in its own file is that you have complete control over the Solr query. Requests to Solr in this file should always include the "wt=csv" and "rows=1000000" parameters (the "rows" parameter should have a value that is greater than the number of objects in your repository, otherwise Solr won't return all objects).</p>
 <h2 id="using-the-csv-as-input-for-workbench">Using the CSV as input for Workbench</h2>
