@@ -124,7 +124,7 @@ parameters can be changed in the user-supplied config file.
 
 ## Analyzing your Islandora 7 Solr index
 
-In order to use the configuration options outlined above, you will need to know what fields are in your Islandora 7 Solr index. Not all Islandoras are indexed in the same way, and since most Solr field names are derived from MODS or other XML datastream element names, there can be a lot of variability in Solr fieldnames across Islandora 7 instances.
+In order to use the configuration options outlined above, you will need to know what fields are in your Islandora 7 Solr index. Not all Islandoras are indexed in the same way, and since most Solr field names are derived from MODS or other XML datastream element names, there is enough variability in Solr fieldnames across Islandora 7 instances to make reliably predicting Solr fieldnames impractical.
 
 Two ways you can see the specific fields in your Solr index are 1) using the Islandora Metadata Extras module, and 2) issuing raw requests to your Islandora 7's Solr, both to get Solr content for sample objects and to get a list of all fields in your index.
 
@@ -142,7 +142,7 @@ Middle:
 
 ### Fetching sample Solr documents
 
-If you can't or don't want to install the Islandora Metadata Extras module, you can query Solr directly to get a sample document. To get the entire Solr document for an object in JSON format, issue the following request to your Solr, replacing `km\:10571` with the PID of your object (the `-o [filename]` `curl` option tells `curl` to save the response to that file):
+If you can't or don't want to install the Islandora Metadata Extras module, you can query Solr directly to get a sample document. To get the entire Solr document for an object in JSON format, issue the following request to your Solr, replacing `km\:10571` with the PID of your object. The `-o`  option in the `curl` command (for "output") tells `curl` to save the response to the named file:
 
 `curl -o km_10571.json "http://localhost:8080/solr/select?q=PID:km\:10571&wt=json"`
 
@@ -157,7 +157,7 @@ The resulting file will look like [this](/islandora_workbench_docs/km_10571.xml)
 In the XML version, the Solr fieldnames are the values of the `"name"` attribute of each element.
 
 !!! warning
-    Solr documents for individual objects will not necessarily contain all the fieldname in your index. In general, empty fields in the source XML (e.g. MODS) are not added to a Solr document. This means that even though inspecting individual Solr documents may not reveal all of the Solr fields you want to include in your Workbench CSV. You should get samples from a number of objects that you think will represent all of the Solr fields you are interested in.
+    Solr documents for individual objects will not necessarily contain all the fieldnames in your index. In general, empty fields in the source XML (e.g. MODS) are not added to a Solr document. This means that even though inspecting individual Solr documents may not reveal all of the Solr fields you want to include in your Workbench CSV. You should get samples from a number of objects that you think will represent all of the Solr fields you are interested in.
 
 
 ### Fetching a CSV list of all Solr fieldnames
