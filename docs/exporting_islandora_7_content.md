@@ -124,13 +124,13 @@ parameters can be changed in the user-supplied config file.
 
 ## Analyzing your Islandora 7 Solr index
 
-In order to use the configuration options outlined above, you will need to know what fields are in your Islandora 7 Solr index. Not all Islandoras are indexed in the same way, and since most Solr field names are derived from MODS or other XML datastream element names, there can be a lot of variability across in Solr fieldnames across Islandora 7 instances.
+In order to use the configuration options outlined above, you will need to know what fields are in your Islandora 7 Solr index. Not all Islandoras are indexed in the same way, and since most Solr field names are derived from MODS or other XML datastream element names, there can be a lot of variability in Solr fieldnames across Islandora 7 instances.
 
 Two ways you can see the specific fields in your Solr index are 1) using the Islandora Metadata Extras module, and 2) issuing raw requests to your Islandora 7's Solr, both to get Solr content for sample objects and to get a list of all fields in your index.
 
 ### Using the Islandora Metadata Extras module
 
-The [Islandora Metadata Extras module](https://github.com/bondjimbond/islandora_metadata_extras) provides a "Solr Metadata" tab in each object's Manage menu that shows the raw Solr document for the object. The Solr field names and the values for the current object are easy to identify. Here are two screenshots showing the top section of the output and a sample from the middle of the output:
+The [Islandora Metadata Extras module](https://github.com/bondjimbond/islandora_metadata_extras) provides a "Solr Metadata" tab in each object's Manage menu that shows the raw Solr document for the object. The Solr field names and the values for the current object are easy to identify. Here are two screenshots showing the top section of the output and a sample from the middle of the output (broken into top and middle excerpts for illustration purposes here since the entire Solr document is very long):
 
 Top:
 
@@ -140,7 +140,7 @@ Middle:
 
 ![Example Solr Document middle](images/metadata_extras_solr_metadata_middle.png)
 
-### Fetching a sample Solr document
+### Fetching sample Solr documents
 
 If you can't or don't want to install the Islandora Metadata Extras module, you can query Solr directly to get a sample document. To get the entire Solr document for an object in JSON format, issue the following request to your Solr, replacing `km\:10571` with the PID of your object (the `-o [filename]` `curl` option tells `curl` to save the response to that file):
 
@@ -244,7 +244,7 @@ and edit the contents of others.
 
 As we can see from the example above, the column headings in the CSV are Solr fieldnames (`RELS_EXT_hasModel_uri_s`
 , `mods_titleInfo_title_ms`, etc.). You will need to replace those column headers with the equivalent
-fields [as defined in your Drupal 9 content type](/islandora_workbench_docs/fields/). In addition, the metadata stored
+fields [as defined in your Drupal 9 content type](/islandora_workbench_docs/fields/#content-type-specific-fields). In addition, the metadata stored
 in Islandora 7's Solr index does not in many cases have the structure Workbench requires, so the data in the CSV file
 will need to be edited before it can be used by Workbench to create nodes. The content of Islandora 7 Solr fields is
 derived from MODS (or other) XML elements, and, with the exception of text-type fields, will not necessarily map cleanly
