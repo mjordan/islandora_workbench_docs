@@ -124,7 +124,9 @@ parameters can be changed in the user-supplied config file.
 
 ## Analyzing your Islandora 7 Solr index
 
-In order to use the configuration options outlined above, you will need to know what fields are in your Islandora 7 Solr index. Not all Islandoras are indexed in the same way, and since most Solr field names are derived from MODS or other XML datastream element names, the specific Solr fieldnames are difficult to predict.
+In order to use the configuration options outlined above, you will need to know what fields are in your Islandora 7 Solr index. Not all Islandoras are indexed in the same way, and since most Solr field names are derived from MODS or other XML datastream element names, there can be a lot of variability across in Solr fieldnames across Islandora 7 instances.
+
+Two ways you can see the specific fields in your Solr index are 1) using the Islandora Metadata Extras module, and 2) issuing raw requests to your Islandora 7's Solr, both to get Solr content for sample objects and to get a list of all fields in your index.
 
 ### Using the Islandora Metadata Extras module
 
