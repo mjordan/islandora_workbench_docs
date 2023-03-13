@@ -140,9 +140,32 @@ Middle:
 
 ### Fetching a sample Solr document
 
-If you can't or don't want to install the Islandora Metadata Extras module, you can query Solr directly to get sample document.
+If you can't or don't want to install the Islandora Metadata Extras module, you can query Solr directly to get a sample document. To get the entire Solr document for an object in JSON format, issue the following request to your Solr, replacing `km\:10571` with the PID of your object (the `-o [filename]` `curl` option tells `curl` to save the response to that file):
 
-[Coming soon]
+`curl -o km_10571.json "http://localhost:8080/solr/select?q=PID:km\:10571&wt=json"`
+
+The resulting file will look like [this](/islandora_workbench_docs/km_10571.json).
+
+Get Solr XML document for a specific object:
+
+`curl -o km_10571.xml "http://localhost:8080/solr/select?q=PID:km\:10571"`
+
+The resulting file will look like [this](/islandora_workbench_docs/km_10571.xml).
+
+In the XML version, the Solr fieldnames are the values of the `"name"` attribute of each element.
+
+!!! warning
+    Solr documents for individual objects will not necessarily contain all the fieldname in your index. In general, empty fields in the source XML (e.g. MODS) are not added to a Solr document. This means that even though inspecting individual Solr documents may not reveal all of the Solr fields you want to include in your Workbench CSV. You should get samples from a number of objects that you think will represent all of the Solr fields you are interested in.
+
+
+### Fetching a CSV list of all Solr fieldnames
+
+To get a 1-row CSV file containing *all* of the fieldnames in your Solr index, issue the following request:
+
+`curl -o allfields.csv "http://localhost:8080/solr/select?q=*:*&wt=csv&rows=0&fl=*"`
+
+Unlike the queries for individual Islandora 7 objects' Solr documents, the results of this query will contain all the fields in your index.
+
 
 ## Configuring which Solr fields to include in the CSV
 
