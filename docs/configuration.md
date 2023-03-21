@@ -210,6 +210,7 @@ See the "[Logging](/islandora_workbench_docs/logging/)" section for more informa
 
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
+| sqlite_db_filename |  | workbench_temp_data.db | Name of the SQLite database filename used to store CSV row ID to node ID mappings. |
 | rollback_dir |  | Value of `input_dir` setting | Absolute path to the directory where you want your "rollback.csv" file to be written. See "[Rolling back](/islandora_workbench_docs/rolling_back/)" for more information. |
 | temp_dir |  | Value of `input_dir` setting | Relative or absolute path to the directory where you want Workbench's temporary files to be written. These include the ".preprocessed" version of the your input CSV, remote files temporarily downloaded to create media, and the CSV ID to node ID map used in secondary tasks.|
 | timestamp_rollback |  | false | Set to `true` to add a timestamp to the "rollback.yml" and corresponding "rollback.csv" generated in "create" and "create_from_files" tasks. See "[Rolling back](/islandora_workbench_docs/rolling_back/)" for more information. |
