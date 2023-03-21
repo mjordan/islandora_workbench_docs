@@ -187,6 +187,8 @@ Behind the scenes, Workbench depends on a Drupal module called Islandora Workben
 !!! success inline end "Relevance to using Workbench"
      As a Workbench user, you don't need to know anything about REST, but if you encounter a problem using Workbench and reach out for help, you might be asked to provide your log file, which will likely contain some raw REST data.
 
-REST is the protocol that Workbench uses to interact with Drupal. However, as a user of Workbench, you don't need to know anything about REST - it's Workbench's job to shield you from all that complexity.
+REST is the protocol that Workbench uses to interact with Drupal. Fear not: as a user of Workbench, you don't need to know anything about REST - it's Workbench's job to shield you from REST's complexity.
+
+![Depiction of Workbench, REST, and Drupal](images/workbench_and_rest.png)
 
 However, if things go wrong, Workbench will include in its log file some details about the particular REST request that didn't work (such as HTTP response codes and raw JSON). If you [reach out for help](/islandora_workbench_docs/troubleshooting/), you might be asked to provide your Workbench log file to aid in troubleshooting. It's normal to see the raw data used in REST communication between Workbench and Drupal in the log.
