@@ -21,7 +21,4 @@ node_id,url_alias
 367,/soisthisone
 ```
 
-However, in `update` tasks,
-
-* your configuration's `update_mode` setting must be `replace`, and
-* you can only assign/update the `url_alias` for nodes that do not already have an alias.
+However, in `update` tasks, you can only assign/update the `url_alias` for nodes that do not already have an alias. Your `update_mode` setting can be either `append` or `replace`.
