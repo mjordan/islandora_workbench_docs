@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* March 23, 2023 (commit 478e8b): Resolved [issue 588](https://github.com/mjordan/islandora_workbench/issues/588).
 * March 22, 2023 (commit 1ed5f91): Resolved [issue 586](https://github.com/mjordan/islandora_workbench/issues/586).
 * March 20, 2023 (commit b342451): Resolved [issue 574](https://github.com/mjordan/islandora_workbench/issues/574).
 * March 13, 2023 (commit 3eb9c19): Resolved [issue 584](https://github.com/mjordan/islandora_workbench/issues/584).
@@ -52,6 +53,7 @@
 
 ### Documentation
 
+* March 23, 2023: Updated "[Assigning URL aliases](/islandora_workbench_docs/aliases/)."
 * March 13, 2023: Updated "[Exporting Islandora 7 content](/islandora_workbench_docs/exporting_islandora_7_content/)."
 * March 7, 2023: Updated "[How Workbench cleans your input data](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data)"; updated "[Checking configuration and input data](/islandora_workbench_docs/check/)".
 * March 6, 2023: Added an entry for the `require_entity_reference_views` config setting to the "[Drupal settings](/islandora_workbench_docs/configuration/#drupal-settings)"; minor corrections and updates to "[Workbench's relationship to Drupal and Islandora](/islandora_workbench_docs/drupal_and_workbench/)".
