@@ -1,6 +1,7 @@
 ### main branch (no tag/release)
 
-* March 23, 2023 (commit 478e8b): Resolved [issue 588](https://github.com/mjordan/islandora_workbench/issues/588).
+* March 26, 2023 (commit fab2501): Resolved [issue 590](https://github.com/mjordan/islandora_workbench/issues/590).
+* March 23, 2023 (commit 478e8bb): Resolved [issue 588](https://github.com/mjordan/islandora_workbench/issues/588).
 * March 22, 2023 (commit 1ed5f91): Resolved [issue 586](https://github.com/mjordan/islandora_workbench/issues/586).
 * March 20, 2023 (commit b342451): Resolved [issue 574](https://github.com/mjordan/islandora_workbench/issues/574).
 * March 13, 2023 (commit 3eb9c19): Resolved [issue 584](https://github.com/mjordan/islandora_workbench/issues/584).
@@ -53,6 +54,7 @@
 
 ### Documentation
 
+* March 23, 2023: Updated "[Configuration](/islandora_workbench_docs/configuration/)" and "[Base fields](/islandora_workbench_docs/fields/#base-fields)."
 * March 23, 2023: Updated "[Assigning URL aliases](/islandora_workbench_docs/aliases/)."
 * March 13, 2023: Updated "[Exporting Islandora 7 content](/islandora_workbench_docs/exporting_islandora_7_content/)."
 * March 7, 2023: Updated "[How Workbench cleans your input data](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data)"; updated "[Checking configuration and input data](/islandora_workbench_docs/check/)".
