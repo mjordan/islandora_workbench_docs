@@ -11,7 +11,7 @@ Islandora Workbench lets you manage content in an Islandora repository at scale.
 
 ## How do I use Islandora Workbench?
 
-Islandora Workbench provides the ability to perform a set of "tasks". The focus of this page is the `create` task, but other tasks Workbench enables include `update`, `delete`, and `add_media`.
+Islandora Workbench provides the ability to perform a set of "[tasks](/islandora_workbench_docs/choosing_a_task/)". The focus of this page is the `create` task, but other tasks Workbench enables include `update`, `delete`, and `add_media`.
 
 To use Islandora Workbench to create new content, you need to assemble a CSV file containing metadata describing your content, and arrange the accompanying image, video, PDF, and other files in specific ways so that Workbench knows where to find them.  Here is a very simple sample Workbench CSV file:
 
