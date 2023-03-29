@@ -445,6 +445,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#create-taxonomy-terms" class="md-nav__link">
+    Create taxonomy terms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ignore-some-columns-in-your-input-csv-file" class="md-nav__link">
     Ignore some columns in your input CSV file
   </a>
@@ -1241,6 +1248,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#create-taxonomy-terms" class="md-nav__link">
+    Create taxonomy terms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ignore-some-columns-in-your-input-csv-file" class="md-nav__link">
     Ignore some columns in your input CSV file
   </a>
@@ -1357,7 +1371,7 @@ csv_field_templates:
 <td>task</td>
 <td>✔️</td>
 <td></td>
-<td>One of 'create', 'create_from_files', 'update', delete', 'add_media', 'delete_media', 'export_csv', 'get_data_from_view, 'create_terms', or 'delete_media_by_node'.</td>
+<td>One of 'create', 'create_from_files', 'update', delete', 'add_media', 'delete_media', 'export_csv', 'get_data_from_view', 'create_terms', or 'delete_media_by_node'. See "[Choosing a task</td>
 </tr>
 <tr>
 <td>host</td>
@@ -2135,6 +2149,14 @@ output_csv: /tmp/sample_files.csv
 
 # All nodes should get the &quot;Model&quot; value corresponding to this URI.
 model: 'https://schema.org/DigitalDocument'
+</code></pre>
+<h3 id="create-taxonomy-terms">Create taxonomy terms</h3>
+<pre><code class="language-yaml">task: create_terms
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+input_csv: my_term_data.csv
+vocab_id: myvocabulary
 </code></pre>
 <h3 id="ignore-some-columns-in-your-input-csv-file">Ignore some columns in your input CSV file</h3>
 <pre><code class="language-yaml">task: create
