@@ -307,7 +307,7 @@ Using term URIs has some constraints:
 
 #### Entity Reference Views fields
 
-Islandora Workbench full supports taxonomy reference fields that use the "Default" reference type, but only partially supports "Views: Filter by an entity reference View" taxonomy reference fields. To populate this type of entity reference in "create" and "update" tasks, you must do the following:
+Islandora Workbench fully supports taxonomy reference fields that use the "Default" reference type, but only partially supports "Views: Filter by an entity reference View" taxonomy reference fields. To populate this type of entity reference in "create" and "update" tasks, you must do the following:
 
 * use term IDs instead of term names or URIs in your input CSV *and*
 * include `require_entity_reference_views: false` in your configuration file.
