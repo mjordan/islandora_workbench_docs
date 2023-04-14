@@ -54,6 +54,7 @@
 
 ### Documentation
 
+* April 14, 2023: Updated "[Troubleshootin](/islandora_workbench_docs/troubleshooting/)."
 * March 28, 2023: Added "[Choosing a task](/islandora_workbench_docs/choosing_a_task/)."
 * March 23, 2023: Updated "[Configuration](/islandora_workbench_docs/configuration/)" and "[Base fields](/islandora_workbench_docs/fields/#base-fields)."
 * March 23, 2023: Updated "[Assigning URL aliases](/islandora_workbench_docs/aliases/)."
