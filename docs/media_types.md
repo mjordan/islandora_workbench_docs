@@ -14,7 +14,7 @@ By default Workbench defines the following file extension to media type mapping:
 | mp4 | video |
 | txt | extracted_text |
 
-If a file's extension is not defined in either this default mapping, the media is assigned the "file" type.
+If a file's extension is not defined in this default mapping, the media is assigned the "file" type.
 
 If you need to override this default mapping, you can do so in two ways:
 
