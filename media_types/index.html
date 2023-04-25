@@ -516,6 +516,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#overriding-workbenchs-default-mime-type-to-file-extension-mappings" class="md-nav__link">
+    Overriding Workbench's default MIME type to file extension mappings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuring-a-custom-media-type" class="md-nav__link">
     Configuring a custom media type
   </a>
@@ -907,6 +914,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#overriding-workbenchs-default-mime-type-to-file-extension-mappings" class="md-nav__link">
+    Overriding Workbench's default MIME type to file extension mappings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuring-a-custom-media-type" class="md-nav__link">
     Configuring a custom media type
   </a>
@@ -991,13 +1005,19 @@
 <li>If you use the <code>media_types_override</code> configuration option, your mapping <em>replaces</em> Workbench's default mappings for the specified media type. This means that if you want to retain the default media type mapping for a file extension, you need to include it in the mapping, as illustrated by the presence of "mp4" in the example above.</li>
 <li>If both <code>media_type</code> and <code>media_types_override</code> are included in the config file, the mapping in <code>media_types_override</code> is ignored and the media type assigned in <code>media_type</code> is used.</li>
 </ul>
+<h2 id="overriding-workbenchs-default-mime-type-to-file-extension-mappings">Overriding Workbench's default MIME type to file extension mappings</h2>
+<p>For remote files, in other words files that start with <code>http</code> or <code>https</code>, Workbench relies on the MIME type provided by the remote web server to determine the extension of the temporary file that it writes locally. If you are getting errors indicating that a file extension is not registered for a given media type, and you suspect that the extensions are wrong, you can include the <code>mimetype_extensions</code> setting in your config file to tell Workbench which extensions to use for a given MIME type. Here is a (hypothetical) example that tells Workbench to assign the '.foo' extension to files with the MIME type 'image/jp2' and the extension '.bar' to files with the MIME type 'image/jpeg':</p>
+<pre><code class="language-yaml">mimetype_extensions:
+  'image/jp2': '.foo'
+  'image/jpeg': '.bar'
+</code></pre>
 <h2 id="configuring-a-custom-media-type">Configuring a custom media type</h2>
 <p>Islandora ships with a set of default media types, including audio, document, extracted text, file, FITS technical metadata, image, and video. If you want to add your own custom media type, you need to tell Workbench two things:</p>
 <ol>
 <li>which file extension(s) should map to the new media type, and</li>
 <li>which field on the new media type is used to store the file associated with the media.</li>
 </ol>
-<p>To satisfy the first requirement, use the <code>media_type</code> or <code>media_types_override</code> option as described above. To satisfy the second requirement, use Workbench's <code>media_type_file_fields</code> option. </p>
+<p>To satisfy the first requirement, use the <code>media_type</code> or <code>media_types_override</code> option as described above. To satisfy the second requirement, use Workbench's <code>media_type_file_fields</code> option.</p>
 <p>The values in the <code>media_type_file_fields</code> option are the machine name of the media type and the machine name of the "File" field configured for that media. To determine the machine name of your media type,</p>
 <ol>
 <li>go to the field configuration of your media types (Admin &gt; Structure &gt; Media types)</li>
