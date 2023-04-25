@@ -33,6 +33,16 @@ Note that:
 * If you use the `media_types_override` configuration option, your mapping *replaces* Workbench's default mappings for the specified media type. This means that if you want to retain the default media type mapping for a file extension, you need to include it in the mapping, as illustrated by the presence of "mp4" in the example above.
 * If both `media_type` and `media_types_override` are included in the config file, the mapping in `media_types_override` is ignored and the media type assigned in `media_type` is used.
 
+## Overriding Workbench's default MIME type to file extension mappings
+
+For remote files, in other words files that start with `http` or `https`, Workbench relies on the MIME type provided by the remote web server to determine the extension of the temporary file that it writes locally. If you are getting errors indicating that a file extension is not registered for a given media type, and you suspect that the extensions are wrong, you can include the `mimetype_extensions` setting in your config file to tell Workbench which extensions to use for a given MIME type. Here is a (hypothetical) example that tells Workbench to assign the '.foo' extension to files with the MIME type 'image/jp2' and the extension '.bar' to files with the MIME type 'image/jpeg':
+
+```yaml
+mimetype_extensions:
+  'image/jp2': '.foo'
+  'image/jpeg': '.bar'
+```
+
 ## Configuring a custom media type
 
 Islandora ships with a set of default media types, including audio, document, extracted text, file, FITS technical metadata, image, and video. If you want to add your own custom media type, you need to tell Workbench two things:
@@ -40,7 +50,7 @@ Islandora ships with a set of default media types, including audio, document, ex
 1. which file extension(s) should map to the new media type, and
 1. which field on the new media type is used to store the file associated with the media.
 
-To satisfy the first requirement, use the `media_type` or `media_types_override` option as described above. To satisfy the second requirement, use Workbench's `media_type_file_fields` option. 
+To satisfy the first requirement, use the `media_type` or `media_types_override` option as described above. To satisfy the second requirement, use Workbench's `media_type_file_fields` option.
 
 The values in the `media_type_file_fields` option are the machine name of the media type and the machine name of the "File" field configured for that media. To determine the machine name of your media type,
 

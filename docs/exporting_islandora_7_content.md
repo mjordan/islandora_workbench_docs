@@ -300,4 +300,5 @@ All of these columns will likely be present in your CSV, but it is possible that
 !!! note
     In general, the CSV that you need to end up with to ingest content into Islandora 2 using Workbench needs to have a structure similar to that described in the "[With page/child-level metadata](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#with-pagechild-level-metadata)" section of the Workbench documentation for "Creating paged, compound, and collection content." You should review the points in the "Some important things to note" section of that documentation.
 
-
+!!! note
+    Solr escapes commas in its exported CSV with backslashes (`\`). Should look for and replace these escaped commans (e.g. `\,`) with regular commas before using the CSV with Workbench.
