@@ -455,6 +455,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#text-fields-with-markup" class="md-nav__link">
+    Text fields with markup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#taxonomy-reference-fields" class="md-nav__link">
     Taxonomy reference fields
   </a>
@@ -1200,6 +1207,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#text-fields-with-markup" class="md-nav__link">
+    Text fields with markup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#taxonomy-reference-fields" class="md-nav__link">
     Taxonomy reference fields
   </a>
@@ -1547,10 +1561,20 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 <p>However, if all of your characters are Latin (basically, the characters found on a standard US keyboard) your CSV file can be encoded as ASCII.</p>
 <p>Some things to note about Drupal text fields:</p>
 <ul>
-<li>Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file (with <a href="/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data">this exception</a>), but, depending on a field's configuration, Drupal may apply <a href="https://www.drupal.org/node/213156">text filters</a>.</li>
+<li>Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file (with <a href="/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data">this exception</a>).</li>
 <li>Text fields may be configured to have a maximum length. Running Workbench with <code>--check</code> will produce a warning if any of the values in your CSV file surpass the configured maximum length of a field.</li>
 <li>Some specialized forms of text fields, such as EDTF, enforce or prohibit the presence of specific types of characters (see below for EDTF's requirements).</li>
 </ul>
+<h4 id="text-fields-with-markup">Text fields with markup</h4>
+<p>Drupal text fields that are configured to contain "formatted" text will have one of the available text formats applied to them. Workbench doesn't treat these fields differently than if they are populated using the node add/edit form, but you will have to tell Workbench which text format to apply to them in your configuration file. When you populate these fields using the node add/edit form, you need to select a text format within the form:</p>
+<p><img alt="Field machine names" src="../images/text_formats_in_form.png" /></p>
+<p>When populating these fields using Workbench, you can configure which format to use either globally (for all Drupal "formatted" text fields) or using a per-field configuration.</p>
+<p>To configure the text format to use for all "formatted" text fields, include the <code>text_output_id</code> setting in your configuration file, indicating the machine name of the text format to use, e.g., <code>text_output_id: full_html</code>. The default value for this setting is <code>basic_html</code>.</p>
+<p>To configure text formats on a per-field basis, include the <code>field_text_output_ids</code> setting in your configuration file, along with a fieldname-to-format ID mapping, like this:</p>
+<pre><code>field_text_output_ids:
+- field_description_long: full_html
+</code></pre>
+<p>You only need to configure text formats per field to override the global setting.</p>
 <h4 id="taxonomy-reference-fields">Taxonomy reference fields</h4>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
