@@ -199,9 +199,33 @@ However, if all of your characters are Latin (basically, the characters found on
 
 Some things to note about Drupal text fields:
 
-* Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file (with [this exception](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data)), but, depending on a field's configuration, Drupal may apply [text filters](https://www.drupal.org/node/213156).
+* Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file (with [this exception](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data)).
 * Text fields may be configured to have a maximum length. Running Workbench with `--check` will produce a warning if any of the values in your CSV file surpass the configured maximum length of a field.
 * Some specialized forms of text fields, such as EDTF, enforce or prohibit the presence of specific types of characters (see below for EDTF's requirements).
+
+#### Text fields with markup
+
+Drupal text fields that are configured to contain "formatted" text (for example, text with line breaks or HTML markup) will have one of the available text formats applied to them. Workbench doesn't treat these fields differently than if they are populated using the node add/edit form, but you will have to tell Workbench, in your configuratin file, which text format to apply to them. When you populate these fields using the node add/edit form, you need to select a text format within the form:
+
+![Field machine names](images/text_formats_in_form.png)
+
+When populating these fields using Workbench, you can configure which text format to use either 1) for all Drupal "formatted" text fields or 2) using a per-field configuration.
+
+To configure the text format to use for all "formatted" text fields, include the `text_format_id` setting in your configuration file, indicating the ID of the text format to use, e.g., `text_format_id: full_html`. The default value for this setting is `basic_html`.
+
+To configure text formats on a per-field basis, include the `field_text_format_ids` (plural) setting in your configuration file, along with a field machine name-to-format ID mapping, like this:
+
+```
+field_text_format_ids:
+- field_description_long: full_html
+```
+
+You only need to configure text formats per field to override the global setting.
+
+!!! note
+    Workbench has no way of knowing what text formats are configured in the target Drupal, and has no way of validating that the text format ID you use in your configuration file exists. However, if you use a text format ID that is invalid, Drupal will not allow nodes to be created or updated and will leave error messages in your Workbench log that contain text like "Unprocessable Entity: validation failed.\nfield_description_long.0.format: The value you selected is not a valid choice."
+
+    By default, Drupal comes configured with three text formats, `full_html`, `basic_html`, and `restricted_html`. If you create your own text format at `admin/config/content/formats`, you can use its ID in the Workbench configuration settings described above.
 
 #### Taxonomy reference fields
 
