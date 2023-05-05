@@ -20,11 +20,6 @@ More information is available at this [issue](https://github.com/mjordan/islando
 
 Work is underway to add this functionality. See this [issue](https://github.com/mjordan/islandora_workbench/issues/292) for latest status.
 
-
-## HTML markup in CSV field values is not rendered
-
-Currently, if you include HTML markup in Workbench's CSV input data, that markup is not rendered when users view the resulting node. This is true even if the node's field is correctly configured to accept Drupal's text formats like "basic_html" and "full_html". See issue [#367](https://github.com/mjordan/islandora_workbench/issues/367) for more information.
-
 ## Workbench doesn't support taxonomy reference fields that use the "Filter by an entity reference View" reference type
 
 Only taxonomy reference fields that use the "Default" reference type are currently supported. As a work around, to populate a "Filter by an entity reference View" field, you can do the following:

@@ -205,7 +205,9 @@ Some things to note about Drupal text fields:
 
 #### Text fields with markup
 
-Drupal text fields that are configured to contain "formatted" text (for example, text with line breaks or HTML markup) will have one of the available text formats applied to them. Workbench doesn't treat these fields differently than if they are populated using the node add/edit form, but you will have to tell Workbench, in your configuratin file, which text format to apply to them. When you populate these fields using the node add/edit form, you need to select a text format within the form:
+Drupal text fields that are configured to contain "formatted" text (for example, text with line breaks or HTML markup) will have one of the available text formats, such as "Full HTML" or "Basic HTML", applied to them. Workbench doesn't treat these fields differently than if they are populated using the node add/edit form, but you will have to tell Workbench, in your configuration file, which text format to apply to them.
+
+When you populate these fields using the node add/edit form, you need to select a text format within the WYSIWYG editor:
 
 ![Field machine names](images/text_formats_in_form.png)
 
