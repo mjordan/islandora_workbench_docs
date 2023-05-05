@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* May 5, 2023 (commit 23d2941): Resolved [issue 597](https://github.com/mjordan/islandora_workbench/issues/597).
 * April 26, 2023 (commit eeade7f): Resolved [issue 593](https://github.com/mjordan/islandora_workbench/issues/593).
 * March 26, 2023 (commit fab2501): Resolved [issue 590](https://github.com/mjordan/islandora_workbench/issues/590).
 * March 23, 2023 (commit 478e8bb): Resolved [issue 588](https://github.com/mjordan/islandora_workbench/issues/588).
@@ -55,6 +56,7 @@
 
 ### Documentation
 
+* May 1, 2023: Updated "[Updating nodes](/islandora_workbench_docs/updating_nodes/)."
 * April 26, 2023: Updated "[Exporting Islandora 7 content](/islandora_workbench_docs/exporting_islandora_7_content/)"; added docs for the new `mimetype_extensions` config option.
 * April 14, 2023: Updated "[Troubleshootin](/islandora_workbench_docs/troubleshooting/)."
 * March 28, 2023: Added "[Choosing a task](/islandora_workbench_docs/choosing_a_task/)."

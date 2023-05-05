@@ -41,4 +41,5 @@ Some things to note:
 * Updates apply to entire fields. Workbench cannot replace individual values in field.
 * Values in the `node_id` column can be numeric node IDs (e.g. `467`) or full URLs, including URL aliases.
 * If a node you are updating doesn't have a field named in your input CSV, Workbench will skip updating the node and add a log entry to that effect.
+* For `update` tasks where the `update_mode` is "replace" or "append", blank/empty CSV values will do nothing; in other words, empty CSV values tell Workbench to *not* update the field.
 * For `update` tasks where the `update_mode` is "delete", it doesn't matter if the column(s) in the input CSV are blank or contain values - the values in the corresponding Drupal fields are deleted in both cases.
