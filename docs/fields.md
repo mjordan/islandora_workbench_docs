@@ -205,7 +205,7 @@ Some things to note about Drupal text fields:
 
 #### Text fields with markup
 
-Drupal text fields that are configured to contain "formatted" text (for example, text with line breaks or HTML markup) will have one of the available text formats, such as "Full HTML" or "Basic HTML", applied to them. Workbench doesn't treat these fields differently than if they are populated using the node add/edit form, but you will have to tell Workbench, in your configuration file, which text format to apply to them.
+Drupal text fields that are configured to contain "formatted" text (for example, text with line breaks or HTML markup) will have one of the available text formats, such as "Full HTML" or "Basic HTML", applied to them. Workbench treats these fields these fields the same as if they are populated using the node add/edit form, but you will have to tell Workbench, in your configuration file, which text format to apply to them.
 
 When you populate these fields using the node add/edit form, you need to select a text format within the WYSIWYG editor:
 
@@ -213,13 +213,14 @@ When you populate these fields using the node add/edit form, you need to select 
 
 When populating these fields using Workbench, you can configure which text format to use either 1) for all Drupal "formatted" text fields or 2) using a per-field configuration.
 
-To configure the text format to use for all "formatted" text fields, include the `text_format_id` setting in your configuration file, indicating the ID of the text format to use, e.g., `text_format_id: full_html`. The default value for this setting is `basic_html`.
+1) To configure the text format to use for all "formatted" text fields, include the `text_format_id` setting in your configuration file, indicating the ID of the text format to use, e.g., `text_format_id: full_html`. The default value for this setting is `basic_html`.
 
-To configure text formats on a per-field basis, include the `field_text_format_ids` (plural) setting in your configuration file, along with a field machine name-to-format ID mapping, like this:
+2) To configure text formats on a per-field basis, include the `field_text_format_ids` (plural) setting in your configuration file, along with a field machine name-to-format ID mapping, like this:
 
 ```
 field_text_format_ids:
 - field_description_long: full_html
+- field_abstract: restricted_html
 ```
 
 You only need to configure text formats per field to override the global setting.
