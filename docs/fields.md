@@ -223,7 +223,7 @@ field_text_format_ids:
 - field_abstract: restricted_html
 ```
 
-You only need to configure text formats per field to override the global setting.
+If you use both settings in your configuration file, `field_text_format_ids` takes precendence. You only need to configure text formats per field to override the global setting.
 
 !!! note
     Workbench has no way of knowing what text formats are configured in the target Drupal, and has no way of validating that the text format ID you use in your configuration file exists. However, if you use a text format ID that is invalid, Drupal will not allow nodes to be created or updated and will leave error messages in your Workbench log that contain text like `Unprocessable Entity: validation failed.\nfield_description_long.0.format: The value you selected is not a valid choice.`
