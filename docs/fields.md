@@ -226,7 +226,7 @@ field_text_format_ids:
 You only need to configure text formats per field to override the global setting.
 
 !!! note
-    Workbench has no way of knowing what text formats are configured in the target Drupal, and has no way of validating that the text format ID you use in your configuration file exists. However, if you use a text format ID that is invalid, Drupal will not allow nodes to be created or updated and will leave error messages in your Workbench log that contain text like "Unprocessable Entity: validation failed.\nfield_description_long.0.format: The value you selected is not a valid choice."
+    Workbench has no way of knowing what text formats are configured in the target Drupal, and has no way of validating that the text format ID you use in your configuration file exists. However, if you use a text format ID that is invalid, Drupal will not allow nodes to be created or updated and will leave error messages in your Workbench log that contain text like `Unprocessable Entity: validation failed.\nfield_description_long.0.format: The value you selected is not a valid choice.`
 
     By default, Drupal comes configured with three text formats, `full_html`, `basic_html`, and `restricted_html`. If you create your own text format at `admin/config/content/formats`, you can use its ID in the Workbench configuration settings described above.
 
