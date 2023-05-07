@@ -1582,7 +1582,7 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 <p>Workbench has no way of knowing what text formats are configured in the target Drupal, and has no way of validating that the text format ID you use in your configuration file exists. However, if you use a text format ID that is invalid, Drupal will not allow nodes to be created or updated and will leave error messages in your Workbench log that contain text like <code>Unprocessable Entity: validation failed.\nfield_description_long.0.format: The value you selected is not a valid choice.</code></p>
 <p>By default, Drupal comes configured with three text formats, <code>full_html</code>, <code>basic_html</code>, and <code>restricted_html</code>. If you create your own text format at <code>admin/config/content/formats</code>, you can use its ID in the Workbench configuration settings described above.</p>
 </div>
-<p>If you want to include line breaks in your CSV, they must be physical line breaks. <code>\n</code> an other escaped line break characters will not be recognized by Drupal's "Convert line breaks into HTML (i.e. <br> and <p>)" text filter. CSV data containing physical line breaks must be wrapped in quotation marks, like this:</p>
+<p>If you want to include line breaks in your CSV, they must be physical line breaks. <code>\n</code> an other escaped line break characters will not be recognized by Drupal's "Convert line breaks into HTML (i.e. &lt;br&gt; and &lt;p&gt;)" text filter. CSV data containing physical line breaks must be wrapped in quotation marks, like this:</p>
 <pre><code>id,file,title,field_model,field_description_long
 01,,I am a title,Image,&quot;Line breaks
 are awesome.&quot;
