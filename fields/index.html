@@ -1576,12 +1576,17 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 - field_description_long: full_html
 - field_abstract: restricted_html
 </code></pre>
-<p>If you use both settings in your configuration file, <code>field_text_format_ids</code> takes precendence. You only need to configure text formats per field to override the global setting.</p>
+<p>If you use both settings in your configuration file, <code>field_text_format_ids</code> takes precedence. You only need to configure text formats per field to override the global setting.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Workbench has no way of knowing what text formats are configured in the target Drupal, and has no way of validating that the text format ID you use in your configuration file exists. However, if you use a text format ID that is invalid, Drupal will not allow nodes to be created or updated and will leave error messages in your Workbench log that contain text like <code>Unprocessable Entity: validation failed.\nfield_description_long.0.format: The value you selected is not a valid choice.</code></p>
 <p>By default, Drupal comes configured with three text formats, <code>full_html</code>, <code>basic_html</code>, and <code>restricted_html</code>. If you create your own text format at <code>admin/config/content/formats</code>, you can use its ID in the Workbench configuration settings described above.</p>
 </div>
+<p>If you want to include line breaks in your CSV, they must be physical line breaks. <code>\n</code> an other escaped line break characters will not be recognized by Drupal's "Convert line breaks into HTML (i.e. <br> and <p>)" text filter. CSV data containing physical line breaks must be wrapped in quotation marks, like this:</p>
+<pre><code>id,file,title,field_model,field_description_long
+01,,I am a title,Image,&quot;Line breaks
+are awesome.&quot;
+</code></pre>
 <h4 id="taxonomy-reference-fields">Taxonomy reference fields</h4>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
