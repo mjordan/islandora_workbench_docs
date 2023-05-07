@@ -230,7 +230,7 @@ If you use both settings in your configuration file, `field_text_format_ids` tak
 
     By default, Drupal comes configured with three text formats, `full_html`, `basic_html`, and `restricted_html`. If you create your own text format at `admin/config/content/formats`, you can use its ID in the Workbench configuration settings described above.
 
-If you want to include line breaks in your CSV, they must be physical line breaks. `\n` an other escaped line break characters will not be recognized by Drupal's "Convert line breaks into HTML (i.e. &lt;br&gt; and &lt;p&gt;)" text filter. CSV data containing physical line breaks must be wrapped in quotation marks, like this:
+If you want to include line breaks in your CSV, they must be physical line breaks. `\n` and other escaped line break characters are not recognized by Drupal's "Convert line breaks into HTML (i.e. &lt;br&gt; and &lt;p&gt;)" text filter. CSV data containing physical line breaks must be wrapped in quotation marks, like this:
 
 ```
 id,file,title,field_model,field_description_long
