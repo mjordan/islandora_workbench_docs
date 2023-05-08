@@ -199,12 +199,12 @@ However, if all of your characters are Latin (basically, the characters found on
 
 Some things to note about Drupal text fields:
 
-* Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file, with [these exceptions](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data) and if a CSV value exceeds a Drupal field's maximum configured length.
 * Some specialized forms of text fields, such as EDTF, enforce or prohibit the presence of specific types of characters (see below for EDTF's requirements).
-* Text fields may be configured to have a maximum length. Running Workbench with `--check` will produce a warning (both shown to the user and written to the Workbench log) if any of the values in your CSV file surpass the configured maximum length of a field.
+* Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file, with [these exceptions](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data). Plus, if a text value in your CSV is longer than its field's maximum configured length, Workbench will truncate the text (see the next point and warning below).
+* Text fields may be configured to have a maximum length. Running Workbench with `--check` will produce a warning (both shown to the user and written to the Workbench log) if any of the values in your CSV file are longer than their field's configured maximum length.
 
 !!! warning
-    If the CSV value for text field exceeds its configured maximum length, Workbench truncates the value to the maximum length before populating the Drupal field.
+    If the CSV value for text field exceeds its configured maximum length, Workbench truncates the value to the maximum length before populating the Drupal field, leaving a log message indicating that it has done so.
 
 #### Text fields with markup
 
