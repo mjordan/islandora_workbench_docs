@@ -1561,10 +1561,14 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 <p>However, if all of your characters are Latin (basically, the characters found on a standard US keyboard) your CSV file can be encoded as ASCII.</p>
 <p>Some things to note about Drupal text fields:</p>
 <ul>
-<li>Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file (with <a href="/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data">this exception</a>).</li>
-<li>Text fields may be configured to have a maximum length. Running Workbench with <code>--check</code> will produce a warning if any of the values in your CSV file surpass the configured maximum length of a field.</li>
+<li>Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file (with <a href="/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data">these exceptions</a>).</li>
 <li>Some specialized forms of text fields, such as EDTF, enforce or prohibit the presence of specific types of characters (see below for EDTF's requirements).</li>
+<li>Text fields may be configured to have a maximum length. Running Workbench with <code>--check</code> will produce a warning if any of the values in your CSV file surpass the configured maximum length of a field.</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When running without <code>--check</code>, Workbench will truncate text fields to the maximum allowed length.</p>
+</div>
 <h4 id="text-fields-with-markup">Text fields with markup</h4>
 <p>Drupal text fields that are configured to contain "formatted" text (for example, text with line breaks or HTML markup) will have one of the available text formats, such as "Full HTML" or "Basic HTML", applied to them. Workbench treats these fields these fields the same as if they are populated using the node add/edit form, but you will have to tell Workbench, in your configuration file, which text format to apply to them.</p>
 <p>When you populate these fields using the node add/edit form, you need to select a text format within the WYSIWYG editor:</p>
