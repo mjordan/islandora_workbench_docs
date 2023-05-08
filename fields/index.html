@@ -1563,11 +1563,11 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 <ul>
 <li>Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file, with <a href="/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data">these exceptions</a> and if a CSV value exceeds a Drupal field's maximum configured length.</li>
 <li>Some specialized forms of text fields, such as EDTF, enforce or prohibit the presence of specific types of characters (see below for EDTF's requirements).</li>
-<li>Text fields may be configured to have a maximum length. Running Workbench with <code>--check</code> will produce a warning (both shown to the use and written to the Workbench log) if any of the values in your CSV file surpass the configured maximum length of a field.</li>
+<li>Text fields may be configured to have a maximum length. Running Workbench with <code>--check</code> will produce a warning (both shown to the user and written to the Workbench log) if any of the values in your CSV file surpass the configured maximum length of a field.</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If the CSV value for text field exceeds its configured maximum lenghth, Workbench will truncate the value to the maximum allowed length before populating the Drupal field.</p>
+<p>If the CSV value for text field exceeds its configured maximum length, Workbench truncates the value to the maximum length before populating the Drupal field.</p>
 </div>
 <h4 id="text-fields-with-markup">Text fields with markup</h4>
 <p>Drupal text fields that are configured to contain "formatted" text (for example, text with line breaks or HTML markup) will have one of the available text formats, such as "Full HTML" or "Basic HTML", applied to them. Workbench treats these fields these fields the same as if they are populated using the node add/edit form, but you will have to tell Workbench, in your configuration file, which text format to apply to them.</p>
