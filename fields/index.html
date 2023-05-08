@@ -1561,8 +1561,8 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 <p>However, if all of your characters are Latin (basically, the characters found on a standard US keyboard) your CSV file can be encoded as ASCII.</p>
 <p>Some things to note about Drupal text fields:</p>
 <ul>
-<li>Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file, with <a href="/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data">these exceptions</a>. Plus, if the length of a text value in your CSV is longer than its field's maximum configured, lenght, Workbench will truncate the text (see third point and warning below).</li>
 <li>Some specialized forms of text fields, such as EDTF, enforce or prohibit the presence of specific types of characters (see below for EDTF's requirements).</li>
+<li>Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file, with <a href="/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data">these exceptions</a>. Plus, if a text value in your CSV is longer than its field's maximum configured length, Workbench will truncate the text (see the next point and warning below).</li>
 <li>Text fields may be configured to have a maximum length. Running Workbench with <code>--check</code> will produce a warning (both shown to the user and written to the Workbench log) if any of the values in your CSV file are longer than their field's configured maximum length.</li>
 </ul>
 <div class="admonition warning">
