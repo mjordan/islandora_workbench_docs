@@ -274,6 +274,16 @@ An example of using this configuration setting is:
 clean_csv_values_skip: ["smart_quotes", "inside_spaces"]
 ```
 
+## When Workbench skips invalid CSV data
+
+Runnin `--check` will tell you when any of the data in your CSV file is invalid, or in other words, does not conform to its target Drupal field's configuration and is likely to cause the creation/updating of content to fail. Currently, for the following types of fields:
+
+* text
+* geolocation
+* link
+
+Workbench will validate CSV values and skip values that fail its validation tests. Work is [underway](https://github.com/mjordan/islandora_workbench/issues/424) to complete this feature, including skipping of invalid entity reference and typed relation fields.
+
 ## Blank or missing "file" values
 
 By default, if the `file` value for a row is empty, Workbench's `--check` option will show an error. But, in some cases you may want to create nodes but not add any media. If you add `allow_missing_files: true` to your config file for "create" tasks, you can leave the `file` column in your CSV empty.

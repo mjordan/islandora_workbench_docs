@@ -1,6 +1,6 @@
 ### main branch (no tag/release)
 
-* May 5, 2023 (commit 23d2941): Resolved [issue 597](https://github.com/mjordan/islandora_workbench/issues/597), (commit ab8ee21) resolved resolved [issue 367](https://github.com/mjordan/islandora_workbench/issues/367).
+* May 5, 2023 (commit 23d2941): Resolved [issue 597](https://github.com/mjordan/islandora_workbench/issues/597), (commit ab8ee21) resolved [issue 367](https://github.com/mjordan/islandora_workbench/issues/367).
 * April 26, 2023 (commit eeade7f): Resolved [issue 593](https://github.com/mjordan/islandora_workbench/issues/593).
 * March 26, 2023 (commit fab2501): Resolved [issue 590](https://github.com/mjordan/islandora_workbench/issues/590).
 * March 23, 2023 (commit 478e8bb): Resolved [issue 588](https://github.com/mjordan/islandora_workbench/issues/588).
@@ -12,7 +12,7 @@
 * March 6, 2023 (commit 3c19cf6): Resolved [issue 576](https://github.com/mjordan/islandora_workbench/issues/576).
 * March 5, 2023: Fixed URL to the "[Entity Reference Views fields](/islandora_workbench_docs/fields/#entity-reference-views-fields)" docs; resolved issue [566](https://github.com/mjordan/islandora_workbench/issues/566) (commit 19b1c2e).
 * March 2, 2023: Created `drupal_8.5_and_lower` tag. Users of Drupal 8.5 and earlier must use this version of Workbench.
-* Februray 28, 2023: Resolved issue [569](https://github.com/mjordan/islandora_workbench/issues/569).
+* Februray 28, 2023 (commit 542325f): Resolved issue [569](https://github.com/mjordan/islandora_workbench/issues/569).
 * Februray 24, 2023: Added `clean_csv_values_skip` config setting (commit e659616e, issue [567](https://github.com/mjordan/islandora_workbench/issues/567)).
 * Februray 22, 2023: Resolved issue [563](https://github.com/mjordan/islandora_workbench/issues/563); Added `csv_value_templates` config setting (commit ae1fcd2b, issue [566](https://github.com/mjordan/islandora_workbench/issues/566)).
 * Februray 20, 2023 (commit 96cc6ef): Resolved issue [554](https://github.com/mjordan/islandora_workbench/issues/554); (commit a143bab): resolved issue [556](https://github.com/mjordan/islandora_workbench/issues/556)).
@@ -56,7 +56,8 @@
 
 ### Documentation
 
-* May 7, 2023: Added note to [Text fields](/islandora_workbench_docs/fields/#text-fields) that Workbench will truncate CSV values for fields configured in Drupal as "text" data type and that have a maximum allowed length.
+* May 8, 2023: Added "[When Workbench skips invalid CSV data](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data)."
+* May 7, 2023: Added note to "[Text fields](/islandora_workbench_docs/fields/#text-fields)" that Workbench will truncate CSV values for fields configured in Drupal as "text" data type and that have a maximum allowed length.
 * May 5, 2023: Add "[Text fields with markup](/islandora_workbench_docs/fields/#text-fields-with-markup)."
 * May 1, 2023: Updated "[Updating nodes](/islandora_workbench_docs/updating_nodes/)."
 * April 26, 2023: Updated "[Exporting Islandora 7 content](/islandora_workbench_docs/exporting_islandora_7_content/)"; added docs for the new `mimetype_extensions` config option.
