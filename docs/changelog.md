@@ -56,6 +56,7 @@
 
 ### Documentation
 
+* May 7, 2023: Added note to [Text fields](/islandora_workbench_docs/fields/#text-fields) that Workbench will truncate CSV values for fields configured in Drupal as "text" data type and that have a maximum allowed length.
 * May 5, 2023: Add "[Text fields with markup](/islandora_workbench_docs/fields/#text-fields-with-markup)."
 * May 1, 2023: Updated "[Updating nodes](/islandora_workbench_docs/updating_nodes/)."
 * April 26, 2023: Updated "[Exporting Islandora 7 content](/islandora_workbench_docs/exporting_islandora_7_content/)"; added docs for the new `mimetype_extensions` config option.
