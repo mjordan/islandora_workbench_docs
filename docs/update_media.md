@@ -16,7 +16,7 @@ password: islandora
 input_csv: update_media.csv
 ```
 
-Currently, the `update_media` routine has support for the following
+Currently, the `update_media` routine has support for the following operations:
 - Updating files attached to media
 - Updating the set of track files attached to media
 - Updating the Media Use TIDs associated with media
