@@ -95,7 +95,7 @@ media_id,media_use_tid
 Values in the `media_use_tid` column can be the taxonomy term ID of the media use or the taxonomy term URL alias.
 
 ## Updating the Published Status of Media
-To update the published status of media, you must provide a CSV file with, at minimum, a `media_id` column and a `published` column. The `media_id` column should contain the ID of the media you wish to update, and the `published` column should contain one of the following case-insensitive values:
+To update the published status of media, you must provide a CSV file with, at minimum, a `media_id` column and a `status` column. The `media_id` column should contain the ID of the media you wish to update, and the `status` column should contain one of the following case-insensitive values:
 
 
 - "1" or "True" (to publish the media)
@@ -104,7 +104,7 @@ To update the published status of media, you must provide a CSV file with, at mi
 Here is an example CSV that updates the published status of some media:
 
 ```text
-media_id,published
+media_id,status
 100,tRuE
 101,0
 ```
@@ -129,7 +129,7 @@ media_id,name,field_my_custom_field
 If you wish to leave a field unchanged, you can leave it blank in the column for that field. Here is an example CSV that updates the published status of some media and leaves others unchanged:
 
 ```text
-media_id,published
+media_id,status
 100,1
 101,
 102,0
