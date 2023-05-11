@@ -23,7 +23,7 @@ Currently, the `update_media` routine has support for the following operations:
 - Updating the published status of media
 - Updating any plain text fields attached to media (including custom ones!)
 
-## Updating Files Attached to Media
+## Updating files attached to media
 !!! note 
     This functionality is currently only supported for media attached to a node.
 
@@ -39,7 +39,7 @@ media_id,file
 
 Values in the `file` column can be paths to files on the local filesystem, full URLs, or full URL aliases.
 
-## Updating the Set of Track Files Attached to Media
+## Updating the set of track files attached to media
 !!! note 
     This functionality is currently only supported for media attached to a node.
 
@@ -76,7 +76,7 @@ media_id,field_track
 100,English Subtitles:subtitles:en:/path/to/subtitles.vtt|French Subtitles:subtitles:fr:/path/to/french_subtitles.vtt
 ```
 
-## Updating the Media Use TIDs Associated with Media
+## Updating the media use TIDs associated with media
 To update the Media Use TIDs associated with media, you must provide a CSV file with, at minimum, a `media_id` column and a `media_use_tid` column. The `media_id` column should contain the ID of the media you wish to update, and the `media_use_tid` column should contain the TID(s) of the media use term(s) you wish to associate with the media. If a value is not specified for the `media_use_tid` column in a particular row, the value for the `media_use_tid` setting in the configuration file (Service File by defualt) will be used.
 Here is an example CSV that updates the Media Use TID associated with the media with ID 100:
 
@@ -94,7 +94,7 @@ media_id,media_use_tid
 
 Values in the `media_use_tid` column can be the taxonomy term ID of the media use or the taxonomy term URL alias.
 
-## Updating the Published Status of Media
+## Updating the published status of media
 To update the published status of media, you must provide a CSV file with, at minimum, a `media_id` column and a `status` column. The `media_id` column should contain the ID of the media you wish to update, and the `status` column should contain one of the following case-insensitive values:
 
 
@@ -109,7 +109,7 @@ media_id,status
 101,0
 ```
 
-## Updating Any Plain Text Fields Attached to Media
+## Updating any plain text fields attached to media
 To update any plain text fields attached to media, you must provide a CSV file with, at minimum, a `media_id` column and columns with the machine names of the plain-text fields you wish to update. Note that a "plain text field" must have one of the following field types
 - List (text)
 - Text (formatted)
@@ -125,7 +125,7 @@ media_id,name,field_my_custom_field
 100,My Media,My Custom Value
 ```
 
-## Leaving Fields Unchanged
+## Leaving fields unchanged
 If you wish to leave a field unchanged, you can leave it blank in the column for that field. Here is an example CSV that updates the published status of some media and leaves others unchanged:
 
 ```text
