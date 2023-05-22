@@ -1,5 +1,7 @@
 ### main branch (no tag/release)
 
+* May 22, 2023 (commit 66b4cd6): Merged in contribution from @hassanelsheikha enabling Workbench to update media.
+* May 19, 2023 (commit 8e0d662): Resolved bug portion of [issue 605](https://github.com/mjordan/islandora_workbench/issues/605).
 * May 10, 2023 (commit 13ae4c2): Resolved [issue 601](https://github.com/mjordan/islandora_workbench/issues/601).
 * May 5, 2023 (commit 23d2941): Resolved [issue 597](https://github.com/mjordan/islandora_workbench/issues/597), (commit ab8ee21) resolved [issue 367](https://github.com/mjordan/islandora_workbench/issues/367).
 * April 26, 2023 (commit eeade7f): Resolved [issue 593](https://github.com/mjordan/islandora_workbench/issues/593).
@@ -57,6 +59,7 @@
 
 ### Documentation
 
+* May 22, 2023: Added "[Updating media](/islandora_workbench_docs/updating_media/)" and a few associated updates elsewhere.
 * May 11, 2023: Updated "[Post-action hooks](/islandora_workbench_docs/hooks/#post-action-scripts)."
 * May 8, 2023: Added "[When Workbench skips invalid CSV data](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data)."
 * May 7, 2023: Added note to "[Text fields](/islandora_workbench_docs/fields/#text-fields)" that Workbench will truncate CSV values for fields configured in Drupal as "text" data type and that have a maximum allowed length.
