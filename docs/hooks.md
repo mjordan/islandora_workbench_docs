@@ -77,6 +77,9 @@ These arguments are passed to post-action scripts automatically. You don't speci
 
 Your scripts can find the entity ID and other information within the (raw JSON) HTTP response body. Using the way Python decodes JSON as an example, if the entity is a node, its nid is in `entity_json['nid'][0]['value']`; if the entity is a media, the mid is in `entity_json['mid'][0]['value']`. The exact location of the nid and mid may differ if your script is written in a language that decodes JSON differently than Python (used in this example) does.
 
+!!! warning
+    Not all Workbench configuration settings are available in post-action scripts. Only the settings are explicitly defined in the configuration YAML are available.
+
 #### Running multiple scripts in one hook
 
 For all types of hooks, you can register multiple scripts, like this:

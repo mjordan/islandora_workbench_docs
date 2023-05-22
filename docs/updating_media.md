@@ -6,7 +6,7 @@ media_id,file
 ```
 Values in the `media_id` column can be numeric node IDs (as illustrated above), full URLs, or full URL aliases.
 
-The minimum configuration file for "update_media" tasks looks like this (note the `task` option is 'update_media'):
+The minimum configuration file for "update_media" tasks looks like this (note the `task` option is `update_media`):
 
 ```yaml
 task: update_media
@@ -17,14 +17,15 @@ input_csv: update_media.csv
 ```
 
 Currently, the `update_media` routine has support for the following operations:
+
 - Updating files attached to media
 - Updating the set of track files attached to media
 - Updating the Media Use TIDs associated with media
 - Updating the published status of media
-- Updating any plain text fields attached to media (including custom ones!)
+- Updating any plain text fields in media
 
 !!! warning
-    Currently, the implementation of the `update_media` routine replaces existing fields of the media that are specified in the CSV file.
+    Currently, `update_media` replaces existing field values with those in the input CSV file, and replaces existing files with those named in the CSV.
 
 ## Updating files attached to media
 !!! note 
@@ -42,7 +43,7 @@ media_id,file
 
 Values in the `file` column can be paths to files on the local filesystem, full URLs, or full URL aliases.
 
-## Updating the set of track files attached to media
+## Updating the track files attached to media
 !!! note 
     This functionality is currently only supported for media attached to a node.
 
