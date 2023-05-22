@@ -23,6 +23,9 @@ Currently, the `update_media` routine has support for the following operations:
 - Updating the published status of media
 - Updating any plain text fields attached to media (including custom ones!)
 
+!!! warning
+    Currently, the implementation of the `update_media` routine replaces existing fields of the media that are specified in the CSV file.
+
 ## Updating files attached to media
 !!! note 
     This functionality is currently only supported for media attached to a node.
