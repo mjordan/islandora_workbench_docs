@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* May 25, 2023 (commit c93a706): Resolved [issue 608](https://github.com/mjordan/islandora_workbench/issues/608).
 * May 24, 2023 (commit 2cc3cb7): Resolved [issue 609](https://github.com/mjordan/islandora_workbench/issues/609).
 * May 22, 2023 (commit 66b4cd6): Merged in contribution from @hassanelsheikha enabling Workbench to update media.
 * May 19, 2023 (commit 8e0d662): Resolved bug portion of [issue 605](https://github.com/mjordan/islandora_workbench/issues/605).
