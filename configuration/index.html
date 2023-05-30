@@ -1990,22 +1990,28 @@ csv_field_templates:
 </thead>
 <tbody>
 <tr>
+<td>temp_dir</td>
+<td></td>
+<td>Value of the temporary directory defined by your system as defined by Python's <a href="https://docs.python.org/3/library/tempfile.html#tempfile.gettempdir">gettempdir()</a> function.</td>
+<td>Relative or absolute path to the directory where you want Workbench's temporary files to be written. These include the ".preprocessed" version of the your input CSV, remote files temporarily downloaded to create media, and the SQLite database used in secondary tasks.</td>
+</tr>
+<tr>
 <td>sqlite_db_filename</td>
 <td></td>
-<td>workbench_temp_data.db</td>
+<td>[temp_dir]/workbench_temp_data.db</td>
 <td>Name of the SQLite database filename used to store CSV row ID to node ID mappings used in secondary tasks.</td>
+</tr>
+<tr>
+<td>csv_id_to_node_id_map_path</td>
+<td></td>
+<td>[temp_dir]/csv_id_to_node_id_map.db</td>
+<td>Name of the SQLite database filename used to store CSV row ID to node ID mappings for nodes created during <code>create</code> and <code>create_from_files</code> tasks. See "<a href="/islandora_workbench_docs/generating_csv_files/">Generating CSV files</a>" for more information.</td>
 </tr>
 <tr>
 <td>rollback_dir</td>
 <td></td>
 <td>Value of <code>input_dir</code> setting</td>
 <td>Absolute path to the directory where you want your "rollback.csv" file to be written. See "<a href="/islandora_workbench_docs/rolling_back/">Rolling back</a>" for more information.</td>
-</tr>
-<tr>
-<td>temp_dir</td>
-<td></td>
-<td>Value of <code>input_dir</code> setting</td>
-<td>Relative or absolute path to the directory where you want Workbench's temporary files to be written. These include the ".preprocessed" version of the your input CSV, remote files temporarily downloaded to create media, and the SQLite database used in secondary tasks.</td>
 </tr>
 <tr>
 <td>timestamp_rollback</td>

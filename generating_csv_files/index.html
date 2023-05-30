@@ -678,6 +678,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#using-the-csv-id-to-node-id-map" class="md-nav__link">
+    Using the CSV ID to node ID map
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -970,6 +977,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#using-the-csv-id-to-node-id-map" class="md-nav__link">
+    Using the CSV ID to node ID map
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1114,6 +1128,37 @@ view_parameters:
 <li><code>export_file_media_use_term_id</code>: Optional. This setting tells Workbench which Islandora Media Use term to use to identify the file to export. Defaults to <code>http://pcdm.org/use#OriginalFile</code> (for Original File). Can be either a term ID or a term URI.</li>
 </ul>
 <p>Note that currently only a single file per node can be exported, and that files need to be accessible to the anonymous Drupal user to be exported.</p>
+<h3 id="using-the-csv-id-to-node-id-map">Using the CSV ID to node ID map</h3>
+<p>By default, Workbench maintains a small database mapping values in your CSV's ID column (or whatever column you define in the <code>id_field</code> config setting) to node IDs created in <code>create</code> and <code>create_from_files</code> tasks. Since this data is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the <code>dump_id_map.py</code> script provided in Workbench's <code>scripts</code> directory.</p>
+<p>One configuration setting applies to this feature, <code>csv_id_to_node_id_map_path</code>. By default, its value is <code>[your temporary directory]/csv_id_to_node_id_map.db</code> (see the <a href="/islandora_workbench_docs/configuration/#miscellaneous-settings">temp_dir</a> config setting's documentation for more information on where that directory is). This default can be overridden in your config file.</p>
+<p>THe SQLite database at this location contains one table, "csv_id_to_node_id_map". On systems where the SQLite client is installed, you can access the data like this:</p>
+<p><code>sqlite3 /tmp/csv_id_to_node_id_map.db</code></p>
+<p>and then query it like this:</p>
+<p><code>select * from csv_id_to_node_id_map;</code></p>
+<pre><code>sqlite&gt; select * from csv_id_to_node_id_map;
+2023-05-29 19:17:45|create.yml|||03|84
+2023-05-29 19:17:45|create.yml|||04|85
+2023-05-29 19:17:46|create.yml|||05|86
+sqlite&gt;
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You do not need to install anything extra for Workbench to create this database. You only need to install SQLite3 if you want to access the database using the <code>sqlite3</code> client.</p>
+</div>
+<p>This table has five columns:</p>
+<ul>
+<li>timestamp: the current timestamp in <code>yyyy-mm-dd hh:mm:ss</code> format</li>
+<li>config_file: the name of the Workbench configuration file active when the row was added</li>
+<li>parent_csv_id: if the node was created along with its parent, the parent's CSV ID</li>
+<li>parent_node_id: if the node was create along with its parent, the parent's node ID</li>
+<li>csv_id: the value in the node's CSV ID field</li>
+<li>node_id: the node's Drupal node ID</li>
+</ul>
+<p>If you don't want to use SQL to query the database, you can use <code>scripts/dump_id_map.py</code> to:</p>
+<ul>
+<li>Dump the contents of the database to a CSV file. To do this, in the Workbench directory, run the script, specifying the path to the database file and the path to the CSV output: <code>python scripts/dump_id_map.py --db_path /tmp/csv_id_to_node_id_map.db --csv_path /tmp/output.csv</code></li>
+<li>Remove entries before a specific date. To do this, provide the script with the <code>--remove_entries_before</code> argument, e.g. <code>python scripts/dump_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_before "2023-05-29 19:17"</code></li>
+</ul>
 
 
 
