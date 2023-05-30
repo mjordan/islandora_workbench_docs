@@ -156,7 +156,10 @@ By default, Workbench maintains a small database mapping values in your CSV's ID
 
 One configuration setting applies to this feature, `csv_id_to_node_id_map_path`. By default, its value is `[your temporary directory]/csv_id_to_node_id_map.db` (see the [temp_dir](/islandora_workbench_docs/configuration/#miscellaneous-settings) config setting's documentation for more information on where that directory is). This default can be overridden in your config file. If you want to disable population of this database, set `csv_id_to_node_id_map_path` to `false`.
 
-THe SQLite database at this location contains one table, "csv_id_to_node_id_map". On systems where the SQLite client is installed, you can access the data like this:
+!!! warning
+    Some systems clear out their temporary directories on restart. You may want to define the absolute path to your ID map database in your configuration files such that it is stored in a location that will not get deleted on system restart.
+
+The SQLite database at this location contains one table, "csv_id_to_node_id_map". On systems where the SQLite client is installed, you can access the data like this:
 
 `sqlite3 /tmp/csv_id_to_node_id_map.db`
 
