@@ -1159,7 +1159,7 @@ sqlite&gt;
 <li>Dump the contents of the database to a CSV file. To do this, in the Workbench directory, run the script, specifying the path to the database file and the path to the CSV output: <code>python scripts/dump_id_map.py --db_path /tmp/csv_id_to_node_id_map.db --csv_path /tmp/output.csv</code></li>
 <li>Remove entries before a specific date. To do this, provide the script with the <code>--remove_entries_before</code> argument, e.g. <code>python scripts/dump_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_before "2023-05-29 19:17"</code></li>
 </ul>
-<p>The value of the <code>--remove_entries_before</code> argument is a date string that can take the form <code>yyyy-mm-dd hh:mm:ss</code> or any truncated version of that format, e.g. <code>yyyy-mm-dd hh:mm</code>, <code>yyyy-mm-dd hh</code>, or <code>yyyy-mm-dd</code>.</p>
+<p>The value of the <code>--remove_entries_before</code> argument is a date string that can take the form <code>yyyy-mm-dd hh:mm:ss</code> or any truncated version of that format, e.g. <code>yyyy-mm-dd hh:mm</code>, <code>yyyy-mm-dd hh</code>, or <code>yyyy-mm-dd</code>. Any rows in the database table that have a <code>timestamp</code> value that matches the date value will be deleted from the database.</p>
 
 
 
