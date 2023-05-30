@@ -1131,7 +1131,11 @@ view_parameters:
 <h3 id="using-the-csv-id-to-node-id-map">Using the CSV ID to node ID map</h3>
 <p>By default, Workbench maintains a small database mapping values in your CSV's ID column (or whatever column you define in the <code>id_field</code> config setting) to node IDs created in <code>create</code> and <code>create_from_files</code> tasks. Since this data is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the <code>dump_id_map.py</code> script provided in Workbench's <code>scripts</code> directory.</p>
 <p>One configuration setting applies to this feature, <code>csv_id_to_node_id_map_path</code>. By default, its value is <code>[your temporary directory]/csv_id_to_node_id_map.db</code> (see the <a href="/islandora_workbench_docs/configuration/#miscellaneous-settings">temp_dir</a> config setting's documentation for more information on where that directory is). This default can be overridden in your config file. If you want to disable population of this database, set <code>csv_id_to_node_id_map_path</code> to <code>false</code>.</p>
-<p>THe SQLite database at this location contains one table, "csv_id_to_node_id_map". On systems where the SQLite client is installed, you can access the data like this:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some systems clear out their temporary directories on restart. You may want to define the absolute path to your ID map database in your configuration files such that it is stored in a location that will not get deleted on system restart.</p>
+</div>
+<p>The SQLite database at this location contains one table, "csv_id_to_node_id_map". On systems where the SQLite client is installed, you can access the data like this:</p>
 <p><code>sqlite3 /tmp/csv_id_to_node_id_map.db</code></p>
 <p>and then query it like this:</p>
 <p><code>select * from csv_id_to_node_id_map;</code></p>
