@@ -1,5 +1,8 @@
 ### main branch (no tag/release)
 
+* May 29, 2023 (commit ad6c954): Resolved [issue 611](https://github.com/mjordan/islandora_workbench/issues/611); (commit 3ce7fba) resolved [issue 607](https://github.com/mjordan/islandora_workbench/issues/607).
+* May 27, 2023 (commit 391ee07): Updated PR template.
+* May 26, 2023 (commit 3dc81c6): Resolved [issue 610](https://github.com/mjordan/islandora_workbench/issues/610); (commit fcdeb7b) Improved wording of error/log messages when vocabulary or content type doesn't exist.
 * May 25, 2023 (commit c93a706): Resolved [issue 608](https://github.com/mjordan/islandora_workbench/issues/608).
 * May 24, 2023 (commit 2cc3cb7): Resolved [issue 609](https://github.com/mjordan/islandora_workbench/issues/609).
 * May 22, 2023 (commit 66b4cd6): Merged in contribution from @hassanelsheikha enabling Workbench to update media.
@@ -61,6 +64,7 @@
 
 ### Documentation
 
+* May 29, 2023: Added the "[Using the CSV ID to node ID map](/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map)" section and a few associated updates elsewhere.
 * May 22, 2023: Added "[Updating media](/islandora_workbench_docs/updating_media/)" and a few associated updates elsewhere.
 * May 11, 2023: Updated "[Post-action hooks](/islandora_workbench_docs/hooks/#post-action-scripts)."
 * May 8, 2023: Added "[When Workbench skips invalid CSV data](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data)."

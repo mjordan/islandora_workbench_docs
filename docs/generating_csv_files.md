@@ -149,3 +149,44 @@ In `export_csv` and `get_data_from_view` tasks, you can optionally export media 
 * `export_file_media_use_term_id`: Optional. This setting tells Workbench which Islandora Media Use term to use to identify the file to export. Defaults to `http://pcdm.org/use#OriginalFile` (for Original File). Can be either a term ID or a term URI.
 
 Note that currently only a single file per node can be exported, and that files need to be accessible to the anonymous Drupal user to be exported.
+
+### Using the CSV ID to node ID map
+
+By default, Workbench maintains a small database mapping values in your CSV's ID column (or whatever column you define in the `id_field` config setting) to node IDs created in `create` and `create_from_files` tasks. Since this data is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the `dump_id_map.py` script provided in Workbench's `scripts` directory.
+
+One configuration setting applies to this feature, `csv_id_to_node_id_map_path`. By default, its value is `[your temporary directory]/csv_id_to_node_id_map.db` (see the [temp_dir](/islandora_workbench_docs/configuration/#miscellaneous-settings) config setting's documentation for more information on where that directory is). This default can be overridden in your config file. If you want to disable population of this database, set `csv_id_to_node_id_map_path` to `false`.
+
+THe SQLite database at this location contains one table, "csv_id_to_node_id_map". On systems where the SQLite client is installed, you can access the data like this:
+
+`sqlite3 /tmp/csv_id_to_node_id_map.db`
+
+and then query it like this:
+
+`select * from csv_id_to_node_id_map;`
+
+```
+sqlite> select * from csv_id_to_node_id_map;
+2023-05-29 19:17:45|create.yml|||03|84
+2023-05-29 19:17:45|create.yml|||04|85
+2023-05-29 19:17:46|create.yml|||05|86
+sqlite>
+```
+
+!!! note
+    You do not need to install anything extra for Workbench to create this database. You only need to install SQLite3 if you want to access the database using the `sqlite3` client.
+
+This table has five columns:
+
+* `timestamp`: the current timestamp in `yyyy-mm-dd hh:mm:ss` format or a truncated version of that format
+* `config_file`: the name of the Workbench configuration file active when the row was added
+* `parent_csv_id`: if the node was created along with its parent, the parent's CSV ID
+* `parent_node_id`: if the node was create along with its parent, the parent's node ID
+* `csv_id`: the value in the node's CSV ID field
+* `node_id`: the node's Drupal node ID
+
+If you don't want to use SQL to query the database directly, you can use `scripts/dump_id_map.py` to:
+
+* Dump the contents of the database to a CSV file. To do this, in the Workbench directory, run the script, specifying the path to the database file and the path to the CSV output: `python scripts/dump_id_map.py --db_path /tmp/csv_id_to_node_id_map.db --csv_path /tmp/output.csv`
+* Remove entries before a specific date. To do this, provide the script with the `--remove_entries_before` argument, e.g. `python scripts/dump_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_before "2023-05-29 19:17"`
+
+The value of the `--remove_entries_before` argument is a date string that can take the form `yyyy-mm-dd hh:mm:ss` or any truncated version of that format, e.g. `yyyy-mm-dd hh:mm`, `yyyy-mm-dd hh`, or `yyyy-mm-dd`. Any rows in the database table that have a `timestamp` value that matches the date value will be deleted from the database.
