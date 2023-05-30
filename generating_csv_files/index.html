@@ -1147,18 +1147,19 @@ sqlite&gt;
 </div>
 <p>This table has five columns:</p>
 <ul>
-<li>timestamp: the current timestamp in <code>yyyy-mm-dd hh:mm:ss</code> format</li>
-<li>config_file: the name of the Workbench configuration file active when the row was added</li>
-<li>parent_csv_id: if the node was created along with its parent, the parent's CSV ID</li>
-<li>parent_node_id: if the node was create along with its parent, the parent's node ID</li>
-<li>csv_id: the value in the node's CSV ID field</li>
-<li>node_id: the node's Drupal node ID</li>
+<li><code>timestamp</code>: the current timestamp in <code>yyyy-mm-dd hh:mm:ss</code> format or a truncated version of that format</li>
+<li><code>config_file</code>: the name of the Workbench configuration file active when the row was added</li>
+<li><code>parent_csv_id</code>: if the node was created along with its parent, the parent's CSV ID</li>
+<li><code>parent_node_id</code>: if the node was create along with its parent, the parent's node ID</li>
+<li><code>csv_id</code>: the value in the node's CSV ID field</li>
+<li><code>node_id</code>: the node's Drupal node ID</li>
 </ul>
-<p>If you don't want to use SQL to query the database, you can use <code>scripts/dump_id_map.py</code> to:</p>
+<p>If you don't want to use SQL to query the database directly, you can use <code>scripts/dump_id_map.py</code> to:</p>
 <ul>
 <li>Dump the contents of the database to a CSV file. To do this, in the Workbench directory, run the script, specifying the path to the database file and the path to the CSV output: <code>python scripts/dump_id_map.py --db_path /tmp/csv_id_to_node_id_map.db --csv_path /tmp/output.csv</code></li>
 <li>Remove entries before a specific date. To do this, provide the script with the <code>--remove_entries_before</code> argument, e.g. <code>python scripts/dump_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_before "2023-05-29 19:17"</code></li>
 </ul>
+<p>The value of the <code>--remove_entries_before</code> argument is a date string that can take the form <code>yyyy-mm-dd hh:mm:ss</code> or any truncated version of that format, e.g. <code>yyyy-mm-dd hh:mm</code>, <code>yyyy-mm-dd hh</code>, or <code>yyyy-mm-dd</code>.</p>
 
 
 
