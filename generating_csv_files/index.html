@@ -1164,7 +1164,7 @@ sqlite&gt;
 </ul>
 <p>If you don't want to use the SQLite client to query the database directly, you can use <code>scripts/dump_id_map.py</code> to:</p>
 <ul>
-<li>Dump the contents of the entiore database to a CSV file.<ul>
+<li>Dump the contents of the entire database to a CSV file.<ul>
 <li>To do this, in the Workbench directory, run the script, specifying the path to the database file and the path to the CSV output: <code>python scripts/dump_id_map.py --db_path /tmp/csv_id_to_node_id_map.db --csv_path /tmp/output.csv</code></li>
 </ul>
 </li>
@@ -1172,15 +1172,15 @@ sqlite&gt;
 <li>To limit the rows that are dumped to those with duplicate values in a specific database field, add the <code>--nonunique</code> parameter and the name of the field, e.g., <code>--nonunique csv_id</code>. The resulting CSV will only contain those entries from your database.</li>
 </ul>
 </li>
-<li>Remove entries that have a specific value in their <code>config_file</code> column.<ul>
+<li>Remove entries from the database that have a specific value in their <code>config_file</code> column.<ul>
 <li>To do this, provide the script with the <code>--remove_entries_with_config_files</code> argument, e.g., <code>python scripts/dump_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_with_config_files create.yml</code>. You can also specify a comma-separated list of config file names (for example <code>--remove_entries_with_config_files create.yml,create_testing.yml</code>) to remove all entries with those config file names with one command.</li>
 </ul>
 </li>
-<li>Remove entries before a specific date.<ul>
+<li>Remove entries from the database create before a specific date.<ul>
 <li>To do this, provide the script with the <code>--remove_entries_before</code> argument, e.g., <code>python scripts/dump_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_before "2023-05-29 19:17"</code>.</li>
 </ul>
 </li>
-<li>Remove entries after a specific date.<ul>
+<li>Remove entries from the database created after a specific date.<ul>
 <li>To do this, provide the script with the <code>--remove_entries_after</code> argument, e.g., <code>python scripts/dump_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_after "2023-05-29 19:17"</code>.</li>
 </ul>
 </li>
