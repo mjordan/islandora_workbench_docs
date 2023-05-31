@@ -152,9 +152,12 @@ Note that currently only a single file per node can be exported, and that files 
 
 ### Using the CSV ID to node ID map
 
-By default, Workbench maintains a small database mapping values in your CSV's ID column (or whatever column you define in the `id_field` config setting) to node IDs created in `create` and `create_from_files` tasks. Since this data is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the `dump_id_map.py` script provided in Workbench's `scripts` directory.
+By default, Workbench maintains a small database that maps values in your CSV's ID column (or whatever column you define in the `id_field` config setting) to node IDs created in `create` tasks . Since this data is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the `dump_id_map.py` script provided in Workbench's `scripts` directory.
 
-One configuration setting applies to this feature, `csv_id_to_node_id_map_path`. By default, its value is `[your temporary directory]/csv_id_to_node_id_map.db` (see the [temp_dir](/islandora_workbench_docs/configuration/#miscellaneous-settings) config setting's documentation for more information on where that directory is). This default can be overridden in your config file. If you want to disable population of this database, set `csv_id_to_node_id_map_path` to `false`.
+!!! note
+    In `create_from_files` tasks, which don't use an imput CSV file, the filename is recorded instead of an "id".
+
+One configuration setting applies to this feature, `csv_id_to_node_id_map_path`. By default, its value is `[your temporary directory]/csv_id_to_node_id_map.db` (see the [temp_dir](/islandora_workbench_docs/configuration/#miscellaneous-settings) config setting's documentation for more information on where that directory is). This default can be overridden in your config file. If you want to disable population of this database completely, set `csv_id_to_node_id_map_path` to `false`.
 
 !!! warning
     Some systems clear out their temporary directories on restart. You may want to define the absolute path to your ID map database in your configuration files such that it is stored in a location that will not get deleted on system restart.
@@ -169,9 +172,9 @@ and then query it like this:
 
 ```
 sqlite> select * from csv_id_to_node_id_map;
-2023-05-29 19:17:45|create.yml|||03|84
-2023-05-29 19:17:45|create.yml|||04|85
-2023-05-29 19:17:46|create.yml|||05|86
+2023-05-29 19:17:45|create.yml|||my_id_03|84
+2023-05-29 19:17:45|create.yml|||my_id_04|85
+2023-05-29 19:17:46|create.yml|||my_id_05|86
 sqlite>
 ```
 
@@ -184,12 +187,21 @@ This table has five columns:
 * `config_file`: the name of the Workbench configuration file active when the row was added
 * `parent_csv_id`: if the node was created along with its parent, the parent's CSV ID
 * `parent_node_id`: if the node was create along with its parent, the parent's node ID
-* `csv_id`: the value in the node's CSV ID field
+* `csv_id`: the value in the node's CSV ID field (or in `create_from_files` tasks, which don't use an imput CSV file, the filename)
 * `node_id`: the node's Drupal node ID
 
-If you don't want to use SQL to query the database directly, you can use `scripts/dump_id_map.py` to:
+If you don't want to use the SQLite client to query the database directly, you can use `scripts/dump_id_map.py` to:
 
-* Dump the contents of the database to a CSV file. To do this, in the Workbench directory, run the script, specifying the path to the database file and the path to the CSV output: `python scripts/dump_id_map.py --db_path /tmp/csv_id_to_node_id_map.db --csv_path /tmp/output.csv`
-* Remove entries before a specific date. To do this, provide the script with the `--remove_entries_before` argument, e.g. `python scripts/dump_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_before "2023-05-29 19:17"`
+* Dump the contents of the entire database to a CSV file.
+    * To do this, in the Workbench directory, run the script, specifying the path to the database file and the path to the CSV output: `python scripts/dump_id_map.py --db_path /tmp/csv_id_to_node_id_map.db --csv_path /tmp/output.csv`
+* Dump the rows that have duplicate (i.e., identical) CSV ID values, or in fact, duplicate values in any specific field.
+    * To limit the rows that are dumped to those with duplicate values in a specific database field, add the `--nonunique` argument and the name of the field, e.g., `--nonunique csv_id`. The resulting CSV will only contain those entries from your database.
+* Remove entries from the database that have a specific value in their `config_file` column.
+    * To do this, provide the script with the `--remove_entries_with_config_files` argument, e.g., `python scripts/dump_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_with_config_files create.yml`. You can also specify a comma-separated list of config file names (for example `--remove_entries_with_config_files create.yml,create_testing.yml`) to remove all entries with those config file names with one command.
+* Remove entries from the database create before a specific date.
+    * To do this, provide the script with the `--remove_entries_before` argument, e.g., `python scripts/dump_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_before "2023-05-29 19:17"`.
+* Remove entries from the database created after a specific date.
+    * To do this, provide the script with the `--remove_entries_after` argument, e.g., `python scripts/dump_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_after "2023-05-29 19:17"`.
 
-The value of the `--remove_entries_before` argument is a date string that can take the form `yyyy-mm-dd hh:mm:ss` or any truncated version of that format, e.g. `yyyy-mm-dd hh:mm`, `yyyy-mm-dd hh`, or `yyyy-mm-dd`. Any rows in the database table that have a `timestamp` value that matches the date value will be deleted from the database.
+
+The value of the `--remove_entries_before` and `--remove_entries_after` arguments is a date string that can take the form `yyyy-mm-dd hh:mm:ss` or any truncated version of that format, e.g. `yyyy-mm-dd hh:mm`, `yyyy-mm-dd hh`, or `yyyy-mm-dd`. Any rows in the database table that have a `timestamp` value that matches the date value will be deleted from the database. Note that if your timestamp value has a space in it, you need to wrap it quotation marks as illustrated above; if you don't, the script will delete all the entries on the timestamp value before the space, in other words, that day.
