@@ -49,7 +49,9 @@ Important things to note when using this method:
 
 ### With page/child-level metadata
 
-Using this method, the metadata CSV file contains a row for every item, both parents and children. You should use this method when you are creating books, newspaper issues, or other paged or compound content where each page has its own metadata, or when you are creating compound objects of any Islandora model. The file for each page/child is named explicitly in the page/child's `file` column rather than being in a subdirectory. To link the pages to the parent, Workbench establishes parent/child relationships between items with `parent_id` values (the pages/children) with that are the same as the `id` value of another item (the parent). For this to work, your CSV file must contain a `parent_id` field plus the standard Islandora fields `field_weight`, `field_member_of`, and `field_model` (the role of these last three fields will be explained below). The `id` field is required in all CSV files used to create content, so in this case, your CSV needs both an `id` field and a `parent_id` field.
+Using this method, the metadata CSV file contains a row for every item, both parents and children. You should use this method when you are creating books, newspaper issues, or other paged or compound content where each page has its own metadata, or when you are creating compound objects of any Islandora model. The file for each page/child is named explicitly in the page/child's `file` column rather than being in a subdirectory. To link the pages to the parent, Workbench establishes parent/child relationships between items with  a special `parent_id` CSV column.
+
+Values in the `parent_id` column, witch only apply to rows describing pages/children, are the `id` value of their parent. For this to work, your CSV file must contain a `parent_id` field *plus* the standard Islandora fields `field_weight`, `field_member_of`, and `field_model` (the role of these last three fields will be explained below). The `id` field is required in all CSV files used to create content, so in this case, your CSV needs both an `id` field and a `parent_id` field.
 
 The following example illustrates how this works. Here is the raw CSV data:
 
@@ -72,6 +74,7 @@ In this example, the rows for our postcard objects have empty `parent_id`, `fiel
 
 Some important things to note:
 
+* The `parent_id` column can contain only a single value. In other words, values like `id_0029|id_0030` won't work. If you want an item to have multiple parents, you need to use a later `update` task to assign additional values to the child node's `field_member_of` field.
 * Currently, you need to include the option `allow_missing_files: true` in your configuration file when using this method to create paged/compound content. See [this issue](https://github.com/mjordan/islandora_workbench/issues/297) for more information.
 * `id` can be defined as another field name using the `id_field` configuration option. If you do define a different ID field using the `id_field` option, creating the parent/child relationships will still work.
 * The values of the `id` and `parent_id` columns do not have to follow any sequential pattern. Islandora Workbench treats them as simple strings and matches them on that basis, without looking for sequential relationships of any kind between the two fields.
