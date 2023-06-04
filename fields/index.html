@@ -1372,6 +1372,11 @@ If you are using a spreadsheet application, it will take care of wrapping the CS
 <td>This CSV field is used by Workbench for internal purposes, and is not added to the metadata of your Islandora objects. Therefore, it doesn't need to have any relationship to the item described in the rest of the fields in the CSV file. You can configure this CSV field name to be something other than <code>id</code> by using the <code>id_field</code> option in your configuration file. Note that if the specified field contains multiple values, (e.g. <code>0001|spec-86389</code>), the entire field value will be used as the internal Workbench identifier.</td>
 </tr>
 <tr>
+<td>parent_id</td>
+<td>create</td>
+<td>When creating paged or compound content, this column identifies the parent of the item described in the current row. For more information, see "<a href="/islandora_workbench_docs/paged_and_compound/#with-pagechild-level-metadata">With page/child-level metadata</a>" for instructions on how to use this field. Note that this field can contain only a single value. In other words, values like <code>id_0029|id_0030</code> won't work. If you want an item to have multiple parents, you need to use a later <code>update</code> task to assign additional values to the child node's <code>field_member_of</code> field.</td>
+</tr>
+<tr>
 <td>node_id</td>
 <td>update, delete, add_media, export_csv, delete_media_by_node</td>
 <td>The ID of the node you are updating, deleting, or adding media to. Full URLs (including URL aliases) are also allowed in this CSV field.</td>
