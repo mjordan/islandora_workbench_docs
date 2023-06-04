@@ -1081,6 +1081,7 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Some systems have both Python 2 and Python 3 installed. It's a good idea to check which version is used when you run <code>python</code>. To do this, run <code>python --version</code>, which will output something like "Python 2.7.17" or "Python 3.8.10". If <code>python --version</code> indicates you're running version 2, try running <code>python3 --version</code> to see if you have version 3 installed.</p>
+<p>Also, if you installed an alternate version of Python 3.x on your system (for example via Homebrew on a Mac), you may need to run Workbench by calling that Python interpreter directly. For Python 3.x installed via Homebrew, that will be at <code>/opt/homebrew/bin/python3</code>, so to run Workbench you would use <code>/opt/homebrew/bin/python3 workbench</code> while in the <code>islandora_workbench</code> directory.</p>
 </div>
 <h2 id="installing-islandora-workbench">Installing Islandora Workbench</h2>
 <p>Installation involves two steps:</p>
