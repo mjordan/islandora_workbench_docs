@@ -5,7 +5,7 @@ You should *always* check your configuration and input prior to creating, updati
 `./workbench --config config.yml --check`
 
 !!! note
-    If you're on Windows, you will likely need to run Workbench by explicitly invoking Python, e.g. `python workbench --config config.yml --check` instead of using `./workbench` as illustrated above.
+    If you're on Windows, you will likely need to run Workbench by explicitly invoking Python, e.g. `python workbench --config config.yml --check` instead of using `./workbench` as illustrated above. Similarly, if you are on a Mac that has the Homebrew version of Python, you may need to run Workbench by providing the full path to the Homebrew Python interpreter, e.g., `/opt/homebrew/bin/python3 workbench --config config.yml --check`.
 
 If you do this, Workbench will check the following conditions and report any errors that require your attention before proceeding:
 

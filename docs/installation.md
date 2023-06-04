@@ -18,6 +18,8 @@ Islandora Workbench has been installed and used on Linux, Mac, and Windows.
 !!! warning
     Some systems have both Python 2 and Python 3 installed. It's a good idea to check which version is used when you run `python`. To do this, run `python --version`, which will output something like "Python 2.7.17" or "Python 3.8.10". If `python --version` indicates you're running version 2, try running `python3 --version` to see if you have version 3 installed.
 
+    Also, if you installed an alternate version of Python 3.x on your system (for example via Homebrew on a Mac), you may need to run Workbench by calling that Python interpreter directly. For Python 3.x installed via Homebrew, that will be at `/opt/homebrew/bin/python3`, so to run Workbench you would use `/opt/homebrew/bin/python3 workbench` while in the `islandora_workbench` directory.
+
 ## Installing Islandora Workbench
 
 Installation involves two steps:
