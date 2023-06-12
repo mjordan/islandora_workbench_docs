@@ -532,3 +532,30 @@ Note that:
 
 * Geocoordinate values in your CSV need to be wrapped in double quotation marks, unless the `delimiter` key in your configuration file is set to something other than a comma.
 * If you are entering geocoordinates into a spreadsheet, a leading `+` will make the spreadsheet application think you are entering a formula. You can work around this by escaping the `+` with a backslash (`\`), e.g., `49.16667,-123.93333` should be `\+49.16667,-123.93333`, and `49.16667,-123.93333|49.25,-124.8` should be `\+49.16667,-123.93333|\+49.25,-124.8`. Workbench will strip the leading `\` before it populates the Drupal fields.
+
+#### Entity Reference Revisions fields (paragraphs)
+
+[Entity Reference Revisions](https://www.drupal.org/project/entity_reference_revisions) fields are similar to Drupal's core Entity Reference fields used for taxonomy terms but are intended for entities that are not intended for reference outside the context of the item that references them. For Islandora sites, this is used for [Paragraph](https://www.drupal.org/project/paragraphs) entities.
+
+Paragraphs are handy for Islandora as they allow us to create more complex metadata (such as complex titles, typed notes, or typed identifiers) by adding Drupal fields to a paragraph entity types; unlike the Typed Relationship field which hard-codes properties. However, this flexibility makes creating an workbench import more complicated and, as such, requires additional configration to make them work.
+
+For example, suppose you have a "Full Title" field (`field_full_title`) on your Islandora Object referencing a paragraph type called "Complex Title" (`complex_title`) with "main title" (`field_main_title`) and "subtitle" (`field_subtitle`) text fields. You could have a CSV like:
+
+```text
+field_full_title
+My Title: A Subtitle|Alternate Title
+```
+
+In this example we have two title values, "My Title: A Subtitle" (where "My Title" is the main title and "A Subtitle" is the subtitle) and "Alternate Title" (which only has a main title). We would then add the following to our configuration file:
+
+```yml
+field_full_title:
+  type: complex_title
+  field_order:
+    - field_main_title
+    - field_subtitle
+  field_delimiter: ':'
+  subdelimiter: '|'
+```
+
+The `field_order` property determines the order of paragraph field values. The `subdelimiter` property is the same as all other multi-valued fields, we simply offer the option to override the default or globally configured value. The `field_delimiter` property determines what character should be used to separate the paragraph entity's fields. We used a colon for the field delimiter in this example, as it is often used in titles to denote subtitles.
