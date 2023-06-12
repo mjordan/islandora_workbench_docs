@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* June 12, 2023 (commit a6404ea): Resolved [issue 615](https://github.com/mjordan/islandora_workbench/issues/615).
 * May 29, 2023 (commit ad6c954): Resolved [issue 611](https://github.com/mjordan/islandora_workbench/issues/611); (commit 3ce7fba) resolved [issue 607](https://github.com/mjordan/islandora_workbench/issues/607).
 * May 27, 2023 (commit 391ee07): Updated PR template.
 * May 26, 2023 (commit 3dc81c6): Resolved [issue 610](https://github.com/mjordan/islandora_workbench/issues/610); (commit fcdeb7b) Improved wording of error/log messages when vocabulary or content type doesn't exist.
