@@ -207,6 +207,8 @@ See the "[Logging](/islandora_workbench_docs/logging/)" section for more informa
 | allow_redirects |  | true | Whether or not to allow Islandora Workbench to respond to HTTP redirects. |
 | secure_ssl_only |  | true | Whether or not to require valid SSL certificates. Set to `false` if you want to ignore SSL certificates. |
 | enable_http_cache |  | true | Whether or not to enable Workbench's client-side request cache. Set to `false` if you want to disable the cache during troubleshooting, etc. |
+| http_cache_storage |  | memory | The backend storage type for the client-side cache. Set to `sqlite` if you are getting out of memory errors while running Islandora Workbench. |
+| http_cache_storage_expire_after |  | 1200 | Length of the client-side cache lifespan (in seconds). Reduce this number if you are using the `sqlite` storage backend and the database is using too much disk space. Note that reducing the cache lifespan will result in increased load on your Drupal server. |
 
 ### Miscellaneous settings
 
