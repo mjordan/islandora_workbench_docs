@@ -1976,6 +1976,18 @@ csv_field_templates:
 <td>true</td>
 <td>Whether or not to enable Workbench's client-side request cache. Set to <code>false</code> if you want to disable the cache during troubleshooting, etc.</td>
 </tr>
+<tr>
+<td>http_cache_storage</td>
+<td></td>
+<td>memory</td>
+<td>The backend storage type for the client-side cache. Set to <code>sqlite</code> if you are getting out of memory errors while running Islandora Workbench.</td>
+</tr>
+<tr>
+<td>http_cache_storage_expire_after</td>
+<td></td>
+<td>1200</td>
+<td>Length of the client-side cache lifespan (in seconds). Reduce this number if you are using the <code>sqlite</code> storage backend and are experiencing disk storage problems. Note that reducing the cache lifespan will result in increased load on your Drupal server.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="miscellaneous-settings">Miscellaneous settings</h3>
