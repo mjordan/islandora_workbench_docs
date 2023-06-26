@@ -65,7 +65,8 @@
 
 ### Documentation
 
-* June 4, 2023: Updated the "[Requirements and installation](/islandora_workbench_docs/installation/) and "[Checking configuration and input data](/islandora_workbench_docs/check/)" docs with instructions on calling Python explicitly on Macs using Homebrew.
+* June 26, 2023: Updated the "[Configuration docs](/islandora_workbench_docs/configuration/#http-settings)" to include the new HTTP cache settings introduced in issue 608.
+* June 4, 2023: Updated the "[Requirements and installation](/islandora_workbench_docs/installation/)" and "[Checking configuration and input data](/islandora_workbench_docs/check/)" docs with instructions on calling Python explicitly on Macs using Homebrew.
 * June 1, 2023: Updated the "[With page/child-level metadata](/islandora_workbench_docs/paged_and_compound/#with-pagechild-level-metadata)" section to clarify use of `parent_id` as per [issue 595](https://github.com/mjordan/islandora_workbench/issues/595).
 * May 30, 2023: Updated the "[Using the CSV ID to node ID map](/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map)" section.
 * May 29, 2023: Added the "[Using the CSV ID to node ID map](/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map)" section and a few associated updates elsewhere.
