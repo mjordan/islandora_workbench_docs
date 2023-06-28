@@ -362,13 +362,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#paged-and-compound-content-settings" class="md-nav__link">
-    Paged and compound content settings
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#logging-settings" class="md-nav__link">
     Logging settings
   </a>
@@ -1180,13 +1173,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#paged-and-compound-content-settings" class="md-nav__link">
-    Paged and compound content settings
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#logging-settings" class="md-nav__link">
     Logging settings
   </a>
@@ -1814,68 +1800,6 @@ csv_field_templates:
 <td></td>
 <td></td>
 <td>Used in the <code>create_from_files</code> task only. Provides a mapping between file extensions and terms in the "Islandora Models" vocabulary. Note: one of <code>model</code> or <code>models</code> is required. More detail provided in the <a href="/islandora_workbench_docs/creating_nodes_from_files/">Creating nodes from files</a>" section.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="paged-and-compound-content-settings">Paged and compound content settings</h3>
-<p>See the section "<a href="/islandora_workbench_docs/paged_and_compound/">Creating paged content</a>" for more information.</p>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Required</th>
-<th>Default value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>paged_content_from_directories</td>
-<td></td>
-<td>false</td>
-<td>Set to true if you are using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method of creating paged content.</td>
-</tr>
-<tr>
-<td>paged_content_sequence_separator</td>
-<td></td>
-<td>- [hyphen]</td>
-<td>The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method. Note: this configuration option was originally misspelled "paged_content_sequence_seprator".</td>
-</tr>
-<tr>
-<td>paged_content_page_model_tid</td>
-<td></td>
-<td></td>
-<td>Required if <code>paged_content_from_directories</code> is true. The the term ID from the Islandora Models taxonomy to assign to pages.</td>
-</tr>
-<tr>
-<td>paged_content_page_display_hints</td>
-<td></td>
-<td></td>
-<td>The term ID from the Islandora Display taxonomy to assign to pages. If not included, defaults to the value of the <code>field_display_hints</code> in the parent's record in the CSV file.</td>
-</tr>
-<tr>
-<td>paged_content_page_content_type</td>
-<td></td>
-<td></td>
-<td>Set to the machine name of the Drupal node content type for pages created using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method if it is different than the content type of the parent (which is specified in the content_type setting).</td>
-</tr>
-<tr>
-<td>page_title_template</td>
-<td></td>
-<td>'$parent_title, page $weight'</td>
-<td>Template used to generate the titles of pages/members in the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method.</td>
-</tr>
-<tr>
-<td>secondary_tasks</td>
-<td></td>
-<td></td>
-<td>A list of configuration file names that are executed as secondary tasks after the primary task to create compound objects. See "<a href="/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task">Using a secondary task</a>" for more information.</td>
-</tr>
-<tr>
-<td>query_csv_id_to_node_id_map_for_parents</td>
-<td></td>
-<td>true</td>
-<td>Do not change to false unless doing so for specific troubleshooting purposes.</td>
 </tr>
 </tbody>
 </table>
