@@ -362,15 +362,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#logging-settings" class="md-nav__link">
-    Logging settings
+  <a href="#paged-and-compound-content-settings" class="md-nav__link">
+    Paged and compound content settings
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#http-settings" class="md-nav__link">
-    HTTP settings
+  <a href="#logging-settings" class="md-nav__link">
+    Logging settings
   </a>
   
 </li>
@@ -1173,15 +1173,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#logging-settings" class="md-nav__link">
-    Logging settings
+  <a href="#paged-and-compound-content-settings" class="md-nav__link">
+    Paged and compound content settings
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#http-settings" class="md-nav__link">
-    HTTP settings
+  <a href="#logging-settings" class="md-nav__link">
+    Logging settings
   </a>
   
 </li>
@@ -1803,6 +1803,68 @@ csv_field_templates:
 </tr>
 </tbody>
 </table>
+<h3 id="paged-and-compound-content-settings">Paged and compound content settings</h3>
+<p>See the section "<a href="/islandora_workbench_docs/paged_and_compound/">Creating paged content</a>" for more information.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Required</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>paged_content_from_directories</td>
+<td></td>
+<td>false</td>
+<td>Set to true if you are using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method of creating paged content.</td>
+</tr>
+<tr>
+<td>paged_content_sequence_separator</td>
+<td></td>
+<td>- [hyphen]</td>
+<td>The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method. Note: this configuration option was originally misspelled "paged_content_sequence_seprator".</td>
+</tr>
+<tr>
+<td>paged_content_page_model_tid</td>
+<td></td>
+<td></td>
+<td>Required if <code>paged_content_from_directories</code> is true. The the term ID from the Islandora Models taxonomy to assign to pages.</td>
+</tr>
+<tr>
+<td>paged_content_page_display_hints</td>
+<td></td>
+<td></td>
+<td>The term ID from the Islandora Display taxonomy to assign to pages. If not included, defaults to the value of the <code>field_display_hints</code> in the parent's record in the CSV file.</td>
+</tr>
+<tr>
+<td>paged_content_page_content_type</td>
+<td></td>
+<td></td>
+<td>Set to the machine name of the Drupal node content type for pages created using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method if it is different than the content type of the parent (which is specified in the content_type setting).</td>
+</tr>
+<tr>
+<td>page_title_template</td>
+<td></td>
+<td>'$parent_title, page $weight'</td>
+<td>Template used to generate the titles of pages/members in the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method.</td>
+</tr>
+<tr>
+<td>secondary_tasks</td>
+<td></td>
+<td></td>
+<td>A list of configuration file names that are executed as secondary tasks after the primary task to create compound objects. See "<a href="/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task">Using a secondary task</a>" for more information.</td>
+</tr>
+<tr>
+<td>query_csv_id_to_node_id_map_for_parents</td>
+<td></td>
+<td>true</td>
+<td>Do not change to false unless doing so for specific troubleshooting purposes.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="logging-settings">Logging settings</h3>
 <p>See the "<a href="/islandora_workbench_docs/logging/">Logging</a>" section for more information.</p>
 <table>
@@ -1868,55 +1930,6 @@ csv_field_templates:
 <td></td>
 <td>true</td>
 <td>Whether or not to log the creation of new terms during "create" and "update" tasks (does not apply to the "create_terms" task). <code>--check</code> will still report that terms in the CSV do not exist in their respective vocabularies.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="http-settings">HTTP settings</h3>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Required</th>
-<th>Default value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>user_agent</td>
-<td></td>
-<td>Islandora Workbench</td>
-<td>String to use as the User-Agent header in HTTP requests.</td>
-</tr>
-<tr>
-<td>allow_redirects</td>
-<td></td>
-<td>true</td>
-<td>Whether or not to allow Islandora Workbench to respond to HTTP redirects.</td>
-</tr>
-<tr>
-<td>secure_ssl_only</td>
-<td></td>
-<td>true</td>
-<td>Whether or not to require valid SSL certificates. Set to <code>false</code> if you want to ignore SSL certificates.</td>
-</tr>
-<tr>
-<td>enable_http_cache</td>
-<td></td>
-<td>true</td>
-<td>Whether or not to enable Workbench's client-side request cache. Set to <code>false</code> if you want to disable the cache during troubleshooting, etc.</td>
-</tr>
-<tr>
-<td>http_cache_storage</td>
-<td></td>
-<td>memory</td>
-<td>The backend storage type for the client-side cache. Set to <code>sqlite</code> if you are getting out of memory errors while running Islandora Workbench.</td>
-</tr>
-<tr>
-<td>http_cache_storage_expire_after</td>
-<td></td>
-<td>1200</td>
-<td>Length of the client-side cache lifespan (in seconds). Reduce this number if you are using the <code>sqlite</code> storage backend and the database is using too much disk space. Note that reducing the cache lifespan will result in increased load on your Drupal server.</td>
 </tr>
 </tbody>
 </table>
