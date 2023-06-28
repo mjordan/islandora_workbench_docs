@@ -152,7 +152,9 @@ Note that currently only a single file per node can be exported, and that files 
 
 ### Using the CSV ID to node ID map
 
-By default, Workbench maintains a small database that maps values in your CSV's ID column (or whatever column you define in the `id_field` config setting) to node IDs created in `create` tasks . Since this data is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the `dump_id_map.py` script provided in Workbench's `scripts` directory.
+By default, Workbench maintains a small database that maps values in your CSV's ID column (or whatever column you define in the `id_field` config setting) to node IDs created in `create` tasks. Workbench uses this database to determine the node ID of parent nodes when creating paged and compound content.
+
+But, you may find other uses for this data. Since it is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the `dump_id_map.py` script provided in Workbench's `scripts` directory.
 
 !!! note
     In `create_from_files` tasks, which don't use an imput CSV file, the filename is recorded instead of an "id".

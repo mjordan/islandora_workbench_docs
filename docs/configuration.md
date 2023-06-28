@@ -182,6 +182,7 @@ See the section "[Creating paged content](/islandora_workbench_docs/paged_and_co
 | paged_content_page_content_type |  | | Set to the machine name of the Drupal node content type for pages created using the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method if it is different than the content type of the parent (which is specified in the content_type setting). |
 | page_title_template | '$parent_title, page $weight' | | Template used to generate the titles of pages/members in the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method. |
 | secondary_tasks |  | | A list of configuration file names that are executed as secondary tasks after the primary task to create compound objects. See "[Using a secondary task](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task)" for more information. |
+| query_csv_id_to_node_id_map_for_parents |  | true | Do not change to false unless doing so for specific troubleshooting purposes. |
 
 ### Logging settings
 
