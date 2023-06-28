@@ -9,7 +9,7 @@ username: admin
 password: islandora
 ```
 
-In this example, the `task` being performed is creating nodes (and optionally media). Other tasks are `create_from_files`, `update`, `delete`, `add_media`, and `delete_media`. Some of the configuration settings documented below are used in all tasks, while others are only used in specific tasks.
+In this example, the `task` being performed is creating nodes (and optionally media). Other tasks are `create_from_files`, `update`, `delete`, `add_media`, `update_media`, and `delete_media`. Some of the configuration settings documented below are used in all tasks, while others are only used in specific tasks.
 
 ## Configuration settings
 
