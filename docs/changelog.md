@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* June 29, 2023 (commit 7d44d1c): Merged [PR 625](https://github.com/mjordan/islandora_workbench/pull/625) into main branch and added some accompanying defensive logic to `--check`.
 * June 28, 2023 (commit 5f4f35c): Further work on [issue 607](https://github.com/mjordan/islandora_workbench/issues/607).
 * June 12, 2023 (commit a6404ea): Resolved [issue 615](https://github.com/mjordan/islandora_workbench/issues/615).
 * May 29, 2023 (commit ad6c954): Resolved [issue 611](https://github.com/mjordan/islandora_workbench/issues/611); (commit 3ce7fba) resolved [issue 607](https://github.com/mjordan/islandora_workbench/issues/607).
