@@ -67,6 +67,7 @@
 
 ### Documentation
 
+* June 30, 2023: Corrected entry in "[Configuration docs](/islandora_workbench_docs/configuration/)" for the `strict_check` setting.
 * June 28, 2023: Updated "[Configuration docs](/islandora_workbench_docs/configuration/#paged-and-compound-content-settings)" and "[Using a secondary task](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task)" to include new `query_csv_id_to_node_id_map_for_parents` configuration setting. Also added a note to the "id" reserved column entry in the "[Field data docs](/islandora_workbench_docs/fields/#reserved-csv-columns)" about importance of using unique ID values.
 * June 26, 2023: Updated the "[Configuration docs](/islandora_workbench_docs/configuration/#http-settings)" to include the new HTTP cache settings introduced in issue 608.
 * June 4, 2023: Updated the "[Requirements and installation](/islandora_workbench_docs/installation/)" and "[Checking configuration and input data](/islandora_workbench_docs/check/)" docs with instructions on calling Python explicitly on Macs using Homebrew.
