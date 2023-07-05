@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* July 5, 2023 (commit b2fd24c): Resolved [issue 631](https://github.com/mjordan/islandora_workbench/issues/631).
 * July 4, 2023 (commit 4a93ef0a): Resolved [issue 443](https://github.com/mjordan/islandora_workbench/issues/443); resolved (commit 1f6051b) [issue 629](https://github.com/mjordan/islandora_workbench/issues/629).
 * June 30, 2023 (commit 59f3c69): clarified `--check` message to user when "log_term_creation" config setting is set to "false".
 * June 29, 2023 (commit 7d44d1c): Merged [PR 625](https://github.com/mjordan/islandora_workbench/pull/625) into main branch and added some accompanying defensive logic to `--check`.
