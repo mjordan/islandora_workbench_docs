@@ -1171,7 +1171,7 @@ path_to_workbench_script: 'd:/users/mark/islandora_workbench/workbench'
 <p>Also note that it is important to use unique values in your CSV <code>id</code> (or configured equivalent) column, since if duplicate ID values exist in this database, Workbench can't know which corresponding node ID to use. In this case, Workbench will create the child node, but it won't assign a parent to it. <code>--check</code> will inform you if this happens, and your Workbench log will also document that there are duplicate IDs.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>By default, Workbench doesn't query the CSV ID to node ID map for parent IDs. If you want to do this, you need to set the <code>ignore_existing_parent_ids</code> configuration setting to <code>false</code>.</p>
+<p>By default, Workbench only checks the CSV ID to node ID map for parent IDs created in the same CSV as the children. If you want to assign children to paretns created in previous Workbench sessions, you need to set the <code>ignore_existing_parent_ids</code> configuration setting to <code>false</code>.</p>
 </div>
 <h3 id="creating-collections-and-members-together">Creating collections and members together</h3>
 <p>Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV which shows the references from the members' <code>parent_id</code> field to the collections' <code>id</code> field:</p>
