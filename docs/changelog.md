@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* July 10, 2023 (commit 52a5db): Changes to how the CSV ID to node ID map works; clear sqlite cache file (work on [issue 632](https://github.com/mjordan/islandora_workbench/issues/633)).
 * July 7, 2023 (commit eae85c5): Resolved [issue 633](https://github.com/mjordan/islandora_workbench/issues/633); resolved (commit 7511828) [issue 635](https://github.com/mjordan/islandora_workbench/issues/635).
 * July 5, 2023 (commit b2fd24c): Resolved [issue 631](https://github.com/mjordan/islandora_workbench/issues/631).
 * July 4, 2023 (commit 4a93ef0a): Resolved [issue 443](https://github.com/mjordan/islandora_workbench/issues/443); resolved (commit 1f6051b) [issue 629](https://github.com/mjordan/islandora_workbench/issues/629).
@@ -71,6 +72,7 @@
 
 ### Documentation
 
+* July 10, 2023: Updates to "[Creating paged, compound, and collection content]([/islandora_workbench_docs/paged_and_compound/])" to reflect changes in the CSV ID to node ID map, specifically the new `ignore_existing_parent_ids` config setting.
 * June 30, 2023: Corrected entry in "[Configuration docs](/islandora_workbench_docs/configuration/)" for the `strict_check` setting.
 * June 28, 2023: Updated "[Configuration docs](/islandora_workbench_docs/configuration/#paged-and-compound-content-settings)" and "[Using a secondary task](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task)" to include new `query_csv_id_to_node_id_map_for_parents` configuration setting. Also added a note to the "id" reserved column entry in the "[Field data docs](/islandora_workbench_docs/fields/#reserved-csv-columns)" about importance of using unique ID values.
 * June 26, 2023: Updated the "[Configuration docs](/islandora_workbench_docs/configuration/#http-settings)" to include the new HTTP cache settings introduced in issue 608.
