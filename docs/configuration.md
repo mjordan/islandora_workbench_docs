@@ -9,7 +9,7 @@ username: admin
 password: islandora
 ```
 
-In this example, the `task` being performed is creating nodes (and optionally media). Other tasks are `create_from_files`, `update`, `delete`, `add_media`, and `delete_media`. Some of the configuration settings documented below are used in all tasks, while others are only used in specific tasks.
+In this example, the `task` being performed is creating nodes (and optionally media). Other tasks are `create_from_files`, `update`, `delete`, `add_media`, `update_media`, and `delete_media`. Some of the configuration settings documented below are used in all tasks, while others are only used in specific tasks.
 
 ## Configuration settings
 
@@ -147,7 +147,7 @@ See "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/)" se
 | nodes_only | | false | Include this option in `create` tasks, set to `true`, if you want to only create nodes and not their accompanying media. See the "Creating nodes but not media" section for more information. |
 | allow_missing_files | | false | Determines if empty `file` values are allowed. Used in the `create` and `add_media` tasks. If set to true, empty `file` values are allowed. For `create` tasks, a `true` value will result in nodes without attached media. For `add_media` tasks, a `true` value will skip adding a media for the empty `file` CSV value. Defaults to false (which means all file values must contain the name of a file that exists in the `input_data` directory). |
 | exit_on_first_missing_file_during_check | | true | Removed as a configuration setting November 1, 2022. Use `strict_check` instead. |
-| strict_check | | true | If set to `true` (the default) Workbench will exit during `--check` when it encounters the first missing or empty CSV `file` value. If set to `false`, Workbench will check all `file` values and exit when it finds the first missing file. In other words, if you want Workbench to check for the existence of all media files during `--check` before exiting, set this value to `false`. |
+| strict_check | | true | If set to `true` (the default) Workbench will exit during `--check` when it encounters the first missing or empty CSV `file` value. If set to `false`, Workbench will check all `file` values and note in the log any missing files before exiting. In other words, if you want Workbench to check for the existence of all media files during `--check` before exiting, set this value to `false`. |
 | media_use_tid | | `http://pcdm.org/use#OriginalFile`  | The term ID for the term from the "Islandora Media Use" vocabulary you want to apply to the media being created in `create` and `add_media` tasks. You can provide a term URI instead of a term ID, for example `"http://pcdm.org/use#OriginalFile"`. You can specify multiple values for this setting by joining them with the subdelimiter configured in the `subdelimiter` setting; for example, `media_use_tid: 17|18`. You can also set this at the object level by including `media_use_tid` in your CSV file; values there will override the value set in your configuration file. If you are "[Adding multiple media](/islandora_workbench_docs/adding_multiple_media/)", you define media use term IDs in a slightly different way. |
 | media_type | | | Overrides, for all media being created, Workbench's default definition of whether the media being created is an image, file, document, audio, or video. Used in the `create`, `add_media`, and `create_from_files` tasks. More detail provided in the "[Configuring Media Types](/islandora_workbench_docs/media_types)" section. |
 | media_types_override | | | Overrides default media type definitions on a per file extension basis. Used in the `create`, `add_media`, and `create_from_files` tasks. More detail provided in the "[Configuring Media Types](/islandora_workbench_docs/media_types)" section. |
@@ -180,8 +180,9 @@ See the section "[Creating paged content](/islandora_workbench_docs/paged_and_co
 | paged_content_page_model_tid |  | | Required if `paged_content_from_directories` is true. The the term ID from the Islandora Models taxonomy to assign to pages. |
 | paged_content_page_display_hints |  | | The term ID from the Islandora Display taxonomy to assign to pages. If not included, defaults to the value of the `field_display_hints` in the parent's record in the CSV file. |
 | paged_content_page_content_type |  | | Set to the machine name of the Drupal node content type for pages created using the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method if it is different than the content type of the parent (which is specified in the content_type setting). |
-| page_title_template | '$parent_title, page $weight' | | Template used to generate the titles of pages/members in the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method. |
+| page_title_template | | '$parent_title, page $weight' | Template used to generate the titles of pages/members in the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method. |
 | secondary_tasks |  | | A list of configuration file names that are executed as secondary tasks after the primary task to create compound objects. See "[Using a secondary task](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task)" for more information. |
+| query_csv_id_to_node_id_map_for_parents |  | true | Do not change to false unless doing so for specific troubleshooting purposes. |
 
 ### Logging settings
 
@@ -207,6 +208,8 @@ See the "[Logging](/islandora_workbench_docs/logging/)" section for more informa
 | allow_redirects |  | true | Whether or not to allow Islandora Workbench to respond to HTTP redirects. |
 | secure_ssl_only |  | true | Whether or not to require valid SSL certificates. Set to `false` if you want to ignore SSL certificates. |
 | enable_http_cache |  | true | Whether or not to enable Workbench's client-side request cache. Set to `false` if you want to disable the cache during troubleshooting, etc. |
+| http_cache_storage |  | memory | The backend storage type for the client-side cache. Set to `sqlite` if you are getting out of memory errors while running Islandora Workbench. |
+| http_cache_storage_expire_after |  | 1200 | Length of the client-side cache lifespan (in seconds). Reduce this number if you are using the `sqlite` storage backend and the database is using too much disk space. Note that reducing the cache lifespan will result in increased load on your Drupal server. |
 
 ### Miscellaneous settings
 
@@ -214,7 +217,7 @@ See the "[Logging](/islandora_workbench_docs/logging/)" section for more informa
 | --- | --- | --- | --- |
 | temp_dir |  | Value of the temporary directory defined by your system as defined by Python's [gettempdir()](https://docs.python.org/3/library/tempfile.html#tempfile.gettempdir) function. | Relative or absolute path to the directory where you want Workbench's temporary files to be written. These include the ".preprocessed" version of the your input CSV, remote files temporarily downloaded to create media, and the SQLite database used in secondary tasks.|
 | sqlite_db_filename |  | [temp_dir]/workbench_temp_data.db | Name of the SQLite database filename used to store CSV row ID to node ID mappings used in secondary tasks. |
-| csv_id_to_node_id_map_path |  | [temp_dir]/csv_id_to_node_id_map.db | Name of the SQLite database filename used to store CSV row ID to node ID mappings for nodes created during `create` and `create_from_files` tasks. If you want to disable population of this database, set this config setting to `false`. See "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map)" for more information. |
+| csv_id_to_node_id_map_path |  | [temp_dir]/csv_id_to_node_id_map.db | Name of the SQLite database filename used to store CSV row ID to node ID mappings for nodes created during `create` and `create_from_files` tasks. If you want to store your map database outside of a temporary directory, use an absolute path to the database file for this setting. If you want to disable population of this database, set this config setting to `false`. See "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map)" for more information. |
 | rollback_dir |  | Value of `input_dir` setting | Absolute path to the directory where you want your "rollback.csv" file to be written. See "[Rolling back](/islandora_workbench_docs/rolling_back/)" for more information. |
 | timestamp_rollback |  | false | Set to `true` to add a timestamp to the "rollback.yml" and corresponding "rollback.csv" generated in "create" and "create_from_files" tasks. See "[Rolling back](/islandora_workbench_docs/rolling_back/)" for more information. |
 | pause |  | | Defines the number of seconds to pause between all 'POST', 'PUT', 'PATCH', 'DELETE' requests to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5. More information is available in the "[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/)" documentation. |

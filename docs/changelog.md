@@ -1,5 +1,12 @@
 ### main branch (no tag/release)
 
+* July 7, 2023 (commit eae85c5): Resolved [issue 633](https://github.com/mjordan/islandora_workbench/issues/633); resolved (commit 7511828) [issue 635](https://github.com/mjordan/islandora_workbench/issues/635).
+* July 5, 2023 (commit b2fd24c): Resolved [issue 631](https://github.com/mjordan/islandora_workbench/issues/631).
+* July 4, 2023 (commit 4a93ef0a): Resolved [issue 443](https://github.com/mjordan/islandora_workbench/issues/443); resolved (commit 1f6051b) [issue 629](https://github.com/mjordan/islandora_workbench/issues/629).
+* June 30, 2023 (commit 59f3c69): clarified `--check` message to user when "log_term_creation" config setting is set to "false".
+* June 29, 2023 (commit 7d44d1c): Merged [PR 625](https://github.com/mjordan/islandora_workbench/pull/625) into main branch and added some accompanying defensive logic to `--check`.
+* June 28, 2023 (commit 5f4f35c): Further work on [issue 607](https://github.com/mjordan/islandora_workbench/issues/607).
+* June 12, 2023 (commit a6404ea): Resolved [issue 615](https://github.com/mjordan/islandora_workbench/issues/615).
 * May 29, 2023 (commit ad6c954): Resolved [issue 611](https://github.com/mjordan/islandora_workbench/issues/611); (commit 3ce7fba) resolved [issue 607](https://github.com/mjordan/islandora_workbench/issues/607).
 * May 27, 2023 (commit 391ee07): Updated PR template.
 * May 26, 2023 (commit 3dc81c6): Resolved [issue 610](https://github.com/mjordan/islandora_workbench/issues/610); (commit fcdeb7b) Improved wording of error/log messages when vocabulary or content type doesn't exist.
@@ -64,7 +71,10 @@
 
 ### Documentation
 
-* June 4, 2023: Updated the "[Requirements and installation](/islandora_workbench_docs/installation/) and "[Checking configuration and input data](/islandora_workbench_docs/check/)" docs with instructions on calling Python explicitly on Macs using Homebrew.
+* June 30, 2023: Corrected entry in "[Configuration docs](/islandora_workbench_docs/configuration/)" for the `strict_check` setting.
+* June 28, 2023: Updated "[Configuration docs](/islandora_workbench_docs/configuration/#paged-and-compound-content-settings)" and "[Using a secondary task](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task)" to include new `query_csv_id_to_node_id_map_for_parents` configuration setting. Also added a note to the "id" reserved column entry in the "[Field data docs](/islandora_workbench_docs/fields/#reserved-csv-columns)" about importance of using unique ID values.
+* June 26, 2023: Updated the "[Configuration docs](/islandora_workbench_docs/configuration/#http-settings)" to include the new HTTP cache settings introduced in issue 608.
+* June 4, 2023: Updated the "[Requirements and installation](/islandora_workbench_docs/installation/)" and "[Checking configuration and input data](/islandora_workbench_docs/check/)" docs with instructions on calling Python explicitly on Macs using Homebrew.
 * June 1, 2023: Updated the "[With page/child-level metadata](/islandora_workbench_docs/paged_and_compound/#with-pagechild-level-metadata)" section to clarify use of `parent_id` as per [issue 595](https://github.com/mjordan/islandora_workbench/issues/595).
 * May 30, 2023: Updated the "[Using the CSV ID to node ID map](/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map)" section.
 * May 29, 2023: Added the "[Using the CSV ID to node ID map](/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map)" section and a few associated updates elsewhere.
