@@ -1073,7 +1073,7 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 </ul>
 <h3 id="with-pagechild-level-metadata">With page/child-level metadata</h3>
 <p>Using this method, the metadata CSV file contains a row for every item, both parents and children. You should use this method when you are creating books, newspaper issues, or other paged or compound content where each page has its own metadata, or when you are creating compound objects of any Islandora model. The file for each page/child is named explicitly in the page/child's <code>file</code> column rather than being in a subdirectory. To link the pages to the parent, Workbench establishes parent/child relationships between items with  a special <code>parent_id</code> CSV column.</p>
-<p>Values in the <code>parent_id</code> column, witch only apply to rows describing pages/children, are the <code>id</code> value of their parent. For this to work, your CSV file must contain a <code>parent_id</code> field <em>plus</em> the standard Islandora fields <code>field_weight</code>, <code>field_member_of</code>, and <code>field_model</code> (the role of these last three fields will be explained below). The <code>id</code> field is required in all CSV files used to create content, so in this case, your CSV needs both an <code>id</code> field and a <code>parent_id</code> field.</p>
+<p>Values in the <code>parent_id</code> column, which only apply to rows describing pages/children, are the <code>id</code> value of their parent. For this to work, your CSV file must contain a <code>parent_id</code> field <em>plus</em> the standard Islandora fields <code>field_weight</code>, <code>field_member_of</code>, and <code>field_model</code> (the role of these last three fields will be explained below). The <code>id</code> field is required in all CSV files used to create content, so in this case, your CSV needs both an <code>id</code> field and a <code>parent_id</code> field.</p>
 <p>The following example illustrates how this works. Here is the raw CSV data:</p>
 <pre><code class="language-text">id,parent_id,field_weight,file,title,field_description,field_model,field_member_of
 001,,,,Postcard 1,The first postcard,28,197
@@ -1101,7 +1101,7 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 <ul>
 <li>If you want to use a single "create" task to ingest all the parents and children at the same time, for each compound item, the parent CSV record must come before the records for the children/pages.</li>
 <li>If you would rather use multiple "create" tasks, you can create all your collections first, then, in subsequent "create" tasks, use their respective node IDs in the <code>field_member_of</code> CSV column for their members. If you use a separate "create" task to create members of a single collection, you can define the value of <code>field_member_of</code> in a <a href="/islandora_workbench_docs/field_templates/">CSV field template</a>.</li>
-<li>If you are ingesting a large set of books, you can ingest the book-level items first, then use their node IDs in a separate CSV for the pages of all books (each using their parent book nodes node ID in their <code>field_member_of</code> column). Or, you could run a separate "create" task for each book, and use a CSV field template containing a <code>field_member_of</code> entry containing the book item's node ID.</li>
+<li>If you are ingesting a large set of books, you can ingest the book-level items first, then use their node IDs in a separate CSV for the pages of all books (each using their parent book node's node ID in their <code>field_member_of</code> column). Or, you could run a separate "create" task for each book, and use a CSV field template containing a <code>field_member_of</code> entry containing the book item's node ID.</li>
 <li>For newspapers, you could create the top-level newspaper first, then use its node ID in a subsequent "create" task for both newspaper issues and pages. In this task, the <code>field_member_of</code> column in rows for newspaper issues would contain the newspaper's node ID, but the rows for newspaper pages would have a blank <code>field_member_of</code> and a <code>parent_id</code> using the parent issue's <code>id</code> value.</li>
 </ul>
 <h3 id="using-a-secondary-task">Using a secondary task</h3>
@@ -1137,6 +1137,7 @@ csv_field_templates:
 <p>Some things to note about secondary tasks:</p>
 <ul>
 <li>Only "create" tasks can be used as the primary and secondary tasks.</li>
+<li>You need to set the <code>ignore_existing_parent_ids</code> configuration setting to <code>false</code> in all secondary tasks' configuration files.</li>
 <li>When you have a secondary task configured, running <code>--check</code> will validate both tasks' configuration and input data.</li>
 <li>The secondary CSV must contain <code>parent_id</code> and <code>field_member_of</code> columns. <code>field_member_of</code> must be empty, since it is auto-populated by Workbench using node IDs from the newly created parent objects. If you want to assign an order to the child objects within each parent object, include <code>field_weight</code> with the appropiate values (1, 2, 3, etc., the lower numbers being earlier/higher in sort order).</li>
 <li>If a row in the secondary task CSV does not have a <code>parent_id</code> that matches an <code>id</code> of a row in the primary CSV, or if there is a matching row in the primary CSV and Workbench failed to create the described node, Workbench will skip creating the child and add an entry to the log indicating it did so.</li>
@@ -1145,7 +1146,7 @@ csv_field_templates:
 </ul>
 <h4 id="specifying-paths-to-the-python-interpreter-and-to-the-workbench-script">Specifying paths to the python interpreter and to the workbench script</h4>
 <p>When using secondary tasks, there are a couple of situations where you may need to tell Workbench where the python interpreter is located, and where the "workbench" script is located.</p>
-<p>The first is when you use a secondary task within a scheduled job (such as running Workbench via Linux's cron). Depending on how you configure the cron job, you will likely need to tell Workbench what the absolute paths to the python interpreter is and what the path to the workbench script is. This is because, unless your cronjob changes into Workbench's working directory, Workbench will be looking in the wrong directory for the secondary task. The two config options you should use are:</p>
+<p>The first is when you use a secondary task within a scheduled job (such as running Workbench via Linux's cron). Depending on how you configure the cron job, you will likely need to tell Workbench what the absolute path to the python interpreter is and what the path to the workbench script is. This is because, unless your cronjob changes into Workbench's working directory, Workbench will be looking in the wrong directory for the secondary task. The two config options you should use are:</p>
 <ul>
 <li><code>path_to_python</code></li>
 <li><code>path_to_workbench_script</code></li>
@@ -1168,6 +1169,10 @@ path_to_workbench_script: 'd:/users/mark/islandora_workbench/workbench'
 <p>By default, this database is stored in the temporary directory of the computer running Workbench. The <code>temp_dir</code> configuration setting lets you override your system's default temp directory location and use an alternative directory to store temporary data generated by Workbench. However, in both cases, there is a risk of the data being deleted if you reboot your computer. If you want to ensure that the CSV ID to node ID map database perists for a long time (e.g., during a large migration of content into Islandora), you can use an absolute path to the database file in the <code>csv_id_to_node_id_map_path</code> configuration setting.</p>
 </div>
 <p>Also note that it is important to use unique values in your CSV <code>id</code> (or configured equivalent) column, since if duplicate ID values exist in this database, Workbench can't know which corresponding node ID to use. In this case, Workbench will create the child node, but it won't assign a parent to it. <code>--check</code> will inform you if this happens, and your Workbench log will also document that there are duplicate IDs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default, Workbench doesn't query the CSV ID to node ID map for parent IDs. If you want to do this, you need to set the <code>ignore_existing_parent_ids</code> configuration setting to <code>false</code>.</p>
+</div>
 <h3 id="creating-collections-and-members-together">Creating collections and members together</h3>
 <p>Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV which shows the references from the members' <code>parent_id</code> field to the collections' <code>id</code> field:</p>
 <pre><code class="language-text">id,parent_id,file,title,field_model,field_member_of,field_weight
@@ -1197,7 +1202,7 @@ path_to_workbench_script: 'd:/users/mark/islandora_workbench/workbench'
 <td>Subdirectories</td>
 <td>Directory structure</td>
 <td>Do not include column in CSV; autopopulated.</td>
-<td>Useful for creating paged content where paged don't have their own metadata.</td>
+<td>Useful for creating paged content where pages don't have their own metadata.</td>
 </tr>
 <tr>
 <td>Parent/child-level metadata in same CSV</td>

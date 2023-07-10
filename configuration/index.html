@@ -1872,10 +1872,10 @@ csv_field_templates:
 <td>A list of configuration file names that are executed as secondary tasks after the primary task to create compound objects. See "<a href="/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task">Using a secondary task</a>" for more information.</td>
 </tr>
 <tr>
-<td>query_csv_id_to_node_id_map_for_parents</td>
+<td>ignore_existing_parent_ids</td>
 <td></td>
 <td>true</td>
-<td>Do not change to false unless doing so for specific troubleshooting purposes.</td>
+<td>Tells Workbench to not use entries in the CSV ID to node ID map when creating compound items. Set to false to include these entries. See "<a href="/islandora_workbench_docs/paged_and_compound/]">Creating paged, compound, and collection content</a> for more details. Note: this setting must be false in secondary task config files that create children.</td>
 </tr>
 </tbody>
 </table>
