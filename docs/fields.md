@@ -539,7 +539,7 @@ Note that:
 
 Paragraphs are handy for Islandora as they allow us to create more complex metadata (such as complex titles, typed notes, or typed identifiers) by adding Drupal fields to a paragraph entity types; unlike the Typed Relationship field which hard-codes properties. However, this flexibility makes creating an workbench import more complicated and, as such, requires additional configration to make them work.
 
-For example, suppose you have a "Full Title" field (`field_full_title`) on your Islandora Object referencing a paragraph type called "Complex Title" (`complex_title`) with "main title" (`field_main_title`) and "subtitle" (`field_subtitle`) text fields. You could have a CSV like:
+For example, suppose you have a "Full Title" field (`field_full_title`) on your Islandora Object content type referencing a paragraph type called "Complex Title" (`complex_title`) with "main title" (`field_main_title`) and "subtitle" (`field_subtitle`) text fields. You could have a CSV like:
 
 ```text
 field_full_title
@@ -549,13 +549,18 @@ My Title: A Subtitle|Alternate Title
 In this example we have two title values, "My Title: A Subtitle" (where "My Title" is the main title and "A Subtitle" is the subtitle) and "Alternate Title" (which only has a main title). We would then add the following to our configuration file:
 
 ```yml
-field_full_title:
-  type: complex_title
-  field_order:
-    - field_main_title
-    - field_subtitle
-  field_delimiter: ':'
-  subdelimiter: '|'
+paragraph_fields:
+  node:
+    field_full_title:
+      type: complex_title
+      field_order:
+        - field_main_title
+        - field_subtitle
+      field_delimiter: ':'
+      subdelimiter: '|'
 ```
 
 The `field_order` property determines the order of paragraph field values. The `subdelimiter` property is the same as all other multi-valued fields, we simply offer the option to override the default or globally configured value. The `field_delimiter` property determines what character should be used to separate the paragraph entity's fields. We used a colon for the field delimiter in this example, as it is often used in titles to denote subtitles.
+
+!!! note
+    Pargraphs are locked down from REST updates by default. To add new and update paragraph values you must enable the `paragraphs_type_permissions` submodule and ensure the Drupal user has sufficient privledges granted at `/admin/people/permissions/module/paragraphs_type_permissions`.
