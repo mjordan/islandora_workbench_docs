@@ -1143,10 +1143,6 @@ csv_field_templates:
 <li>As already stated, each task has its own configuration file, which means that you can specify a <code>content_type</code> value in your secondary configuration file that differs from the <code>content_type</code> of the primary task.</li>
 <li>You can include more than one secondary task in your configuration. For example, <code>secondary_tasks: ['first.yml', 'second.yml']</code> will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order. You would use multiple secondary tasks if you wanted to add children of different content types to the parent nodes.</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The <code>ignore_existing_parent_ids</code> configuration setting must be set to <code>false</code> in all secondary tasks' configuration files.</p>
-</div>
 <h4 id="specifying-paths-to-the-python-interpreter-and-to-the-workbench-script">Specifying paths to the python interpreter and to the workbench script</h4>
 <p>When using secondary tasks, there are a couple of situations where you may need to tell Workbench where the python interpreter is located, and where the "workbench" script is located.</p>
 <p>The first is when you use a secondary task within a scheduled job (such as running Workbench via Linux's cron). Depending on how you configure the cron job, you will likely need to tell Workbench what the absolute path to the python interpreter is and what the path to the workbench script is. This is because, unless your cronjob changes into Workbench's working directory, Workbench will be looking in the wrong directory for the secondary task. The two config options you should use are:</p>
@@ -1174,7 +1170,7 @@ path_to_workbench_script: 'd:/users/mark/islandora_workbench/workbench'
 <p>Also note that it is important to use unique values in your CSV <code>id</code> (or configured equivalent) column, since if duplicate ID values exist in this database, Workbench can't know which corresponding node ID to use. In this case, Workbench will create the child node, but it won't assign a parent to it. <code>--check</code> will inform you if this happens, and your Workbench log will also document that there are duplicate IDs.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>By default, Workbench only checks the CSV ID to node ID map for parent IDs created in the same CSV as the children. If you want to assign children to parents created in previous Workbench sessions, you need to set the <code>ignore_existing_parent_ids</code> configuration setting to <code>false</code>.</p>
+<p>By default, Workbench only checks the CSV ID to node ID map for parent IDs created in the same session as the children. If you want to assign children to parents created in previous Workbench sessions, you need to set the <code>ignore_existing_parent_ids</code> configuration setting to <code>false</code>.</p>
 </div>
 <h3 id="creating-collections-and-members-together">Creating collections and members together</h3>
 <p>Using a variation of the "With page/child-level metadata" approach, you can create a collection node and assign members to it at the same time (i.e., in a single Workbench job). Here is a simple example CSV which shows the references from the members' <code>parent_id</code> field to the collections' <code>id</code> field:</p>
