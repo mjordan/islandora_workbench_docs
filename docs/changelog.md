@@ -1,6 +1,6 @@
 ### main branch (no tag/release)
 
-* July 10, 2023 (commit 52a5db): Changes to how the CSV ID to node ID map works; clear sqlite cache file (work on [issue 632](https://github.com/mjordan/islandora_workbench/issues/633)).
+* July 10, 2023 (commit 2373149): Changes to how the CSV ID to node ID map works; (commit 52a5db) clear sqlite cache file (work on [issue 632](https://github.com/mjordan/islandora_workbench/issues/633)).
 * July 7, 2023 (commit eae85c5): Resolved [issue 633](https://github.com/mjordan/islandora_workbench/issues/633); resolved (commit 7511828) [issue 635](https://github.com/mjordan/islandora_workbench/issues/635).
 * July 5, 2023 (commit b2fd24c): Resolved [issue 631](https://github.com/mjordan/islandora_workbench/issues/631).
 * July 4, 2023 (commit 4a93ef0a): Resolved [issue 443](https://github.com/mjordan/islandora_workbench/issues/443); resolved (commit 1f6051b) [issue 629](https://github.com/mjordan/islandora_workbench/issues/629).

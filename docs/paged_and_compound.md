@@ -140,8 +140,6 @@ Some things to note about secondary tasks:
 * As already stated, each task has its own configuration file, which means that you can specify a `content_type` value in your secondary configuration file that differs from the `content_type` of the primary task.
 * You can include more than one secondary task in your configuration. For example, `secondary_tasks: ['first.yml', 'second.yml']` will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order. You would use multiple secondary tasks if you wanted to add children of different content types to the parent nodes.
 
-!!! warning
-    The `ignore_existing_parent_ids` configuration setting must be set to `false` in all secondary tasks' configuration files.
 
 #### Specifying paths to the python interpreter and to the workbench script
 
@@ -180,7 +178,7 @@ Because this database persists across Workbench sessions, you can use `id` value
 Also note that it is important to use unique values in your CSV `id` (or configured equivalent) column, since if duplicate ID values exist in this database, Workbench can't know which corresponding node ID to use. In this case, Workbench will create the child node, but it won't assign a parent to it. `--check` will inform you if this happens, and your Workbench log will also document that there are duplicate IDs.
 
 !!! warning
-    By default, Workbench only checks the CSV ID to node ID map for parent IDs created in the same CSV as the children. If you want to assign children to parents created in previous Workbench sessions, you need to set the `ignore_existing_parent_ids` configuration setting to `false`.
+    By default, Workbench only checks the CSV ID to node ID map for parent IDs created in the same session as the children. If you want to assign children to parents created in previous Workbench sessions, you need to set the `ignore_existing_parent_ids` configuration setting to `false`.
 
 
 ### Creating collections and members together
