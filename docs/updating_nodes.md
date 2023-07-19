@@ -22,6 +22,7 @@ task: update
 host: "http://localhost:8000"
 username: admin
 password: islandora
+content_type: my_content_type
 input_csv: update.csv
 ```
 If you want to append the values in the CSV to values that already exist in the target nodes, add the `update_mode` configuration option:
@@ -31,12 +32,14 @@ task: update
 host: "http://localhost:8000"
 username: admin
 password: islandora
+content_type: my_content_type
 input_csv: update.csv
 update_mode: append
 ```
 
 Some things to note:
 
+* If your target Drupal content type is not `islandora_object` (the default value), you must include `content_type` in your configuration file as illustrated above.
 * The `update_mode` applies to all rows in your CSV; it cannot be specified for particular rows.
 * Updates apply to entire fields. Workbench cannot replace individual values in field.
 * Values in the `node_id` column can be numeric node IDs (e.g. `467`) or full URLs, including URL aliases.

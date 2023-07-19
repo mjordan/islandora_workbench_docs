@@ -75,6 +75,7 @@
 
 ### Documentation
 
+* July 19, 2023: Clarified that `update` tasks require the `content_type` setting in their confifg files if the target Drupal content type is not `islandora_object`.
 * July 18, 2023: Updates to the `published` entry in the "[Base fields](/islandora_workbench_docs/fields/#base-fields)" documentation; added entry for `perform_soft_checks` to "[Configuration](/islandora_workbench_docs/configuration/#miscellaneous-settings)" docs (note: this new setting replaces `strict_check`).
 * July 10, 2023: Updates to "[Creating paged, compound, and collection content]([/islandora_workbench_docs/paged_and_compound/])" to reflect changes in the CSV ID to node ID map, specifically the new `ignore_existing_parent_ids` config setting.
 * June 30, 2023: Corrected entry in "[Configuration docs](/islandora_workbench_docs/configuration/)" for the `strict_check` setting.

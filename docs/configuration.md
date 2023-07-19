@@ -84,7 +84,7 @@ Strictly speaking, YAML lists can be represented as either a series of entries o
 
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
-| content_type |  | islandora_object | The machine name of the Drupal node content type you are creating or updating. |
+| content_type |  | islandora_object | The machine name of the Drupal node content type you are creating or updating. Required in "create" and "update" tasks. |
 | drupal_filesystem | | fedora:// | One of 'fedora://', 'public://', or 'private://' (the wrapping quotation marks are required). Only used with Drupal 8.x - 9.1; starting with Drupal 9.2, the filesystem is automatically detected from the media's configuration. Will eventually be deprecated. |
 | allow_adding_terms |  | false | In `create` and `update` tasks, determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "[Taxonomy reference fields](/islandora_workbench_docs/fields/#field-types)" section. Note: this setting is not required in `create_terms` tasks. |
 | vocab_id | ✔️ in `create_terms` tasks. | | Identifies the vocabulary you are adding terms to in `create_tersm` tasks. See more information in the "[Creating taxonomy terms](/islandora_workbench_docs/creating_taxonomy_terms)" section. |
