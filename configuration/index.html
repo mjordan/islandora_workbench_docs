@@ -1709,8 +1709,8 @@ csv_field_templates:
 <tr>
 <td>strict_check</td>
 <td></td>
-<td>true</td>
-<td>If set to <code>true</code> (the default) Workbench will exit during <code>--check</code> when it encounters the first missing or empty CSV <code>file</code> value. If set to <code>false</code>, Workbench will check all <code>file</code> values and note in the log any missing files before exiting. In other words, if you want Workbench to check for the existence of all media files during <code>--check</code> before exiting, set this value to <code>false</code>.</td>
+<td></td>
+<td>Replaced with <code>perform_soft_checks</code> as of commit dfa60ff (July 14, 2023).</td>
 </tr>
 <tr>
 <td>media_use_tid</td>
@@ -2008,127 +2008,34 @@ csv_field_templates:
 </thead>
 <tbody>
 <tr>
-<td>temp_dir</td>
-<td></td>
-<td>Value of the temporary directory defined by your system as defined by Python's <a href="https://docs.python.org/3/library/tempfile.html#tempfile.gettempdir">gettempdir()</a> function.</td>
-<td>Relative or absolute path to the directory where you want Workbench's temporary files to be written. These include the ".preprocessed" version of the your input CSV, remote files temporarily downloaded to create media, and the CSV ID to node ID map database.</td>
-</tr>
-<tr>
-<td>sqlite_db_filename</td>
-<td></td>
-<td>[temp_dir]/workbench_temp_data.db</td>
-<td>Name of the SQLite database filename used to store session data.</td>
-</tr>
-<tr>
-<td>csv_id_to_node_id_map_path</td>
-<td></td>
-<td>[temp_dir]/csv_id_to_node_id_map.db</td>
-<td>Name of the SQLite database filename used to store CSV row ID to node ID mappings for nodes created during <code>create</code> and <code>create_from_files</code> tasks. If you want to store your map database outside of a temporary directory, use an absolute path to the database file for this setting. If you want to disable population of this database, set this config setting to <code>false</code>. See "<a href="/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map">Generating CSV files</a>" for more information.</td>
-</tr>
-<tr>
-<td>rollback_dir</td>
-<td></td>
-<td>Value of <code>input_dir</code> setting</td>
-<td>Absolute path to the directory where you want your "rollback.csv" file to be written. See "<a href="/islandora_workbench_docs/rolling_back/">Rolling back</a>" for more information.</td>
-</tr>
-<tr>
-<td>timestamp_rollback</td>
-<td></td>
-<td>false</td>
-<td>Set to <code>true</code> to add a timestamp to the "rollback.yml" and corresponding "rollback.csv" generated in "create" and "create_from_files" tasks. See "<a href="/islandora_workbench_docs/rolling_back/">Rolling back</a>" for more information.</td>
-</tr>
-<tr>
-<td>pause</td>
 <td></td>
 <td></td>
-<td>Defines the number of seconds to pause between all 'POST', 'PUT', 'PATCH', 'DELETE' requests to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5. More information is available in the "<a href="/islandora_workbench_docs/reducing_load/">Reducing Workbench's impact on Drupal</a>" documentation.</td>
-</tr>
-<tr>
-<td>adaptive_pause</td>
 <td></td>
 <td></td>
-<td>Defines the number of seconds to pause between each REST request to Drupal. Works like "pause" but only takes effect when the Drupal server's response to the most recent request is slower (determined by the "adaptive_pause_threshold" value) than the average response time for the last 20 requests. More information is available in the "<a href="/islandora_workbench_docs/reducing_load/">Reducing Workbench's impact on Drupal</a>" documentation.</td>
-</tr>
-<tr>
-<td>adaptive_pause_threshold</td>
-<td></td>
-<td>2</td>
-<td>A weighting of the response time for the most recent request, relative to the average response times of the last 20 requests. This weighting determines how much slower the Drupal server's response to the most recent Workbench request must be in order for adaptive pausing to take effect for the next request. For example, if set to "1", adaptive pausing will happen when the response time is equal to the average of the last 20 response times; if set to "2", adaptive pausing will take effect if the last requests's response time is double the average.</td>
-</tr>
-<tr>
-<td>progress_bar</td>
-<td></td>
-<td>false</td>
-<td>Show a progress bar when running Workbench instead of row-by-row output.</td>
-</tr>
-<tr>
-<td>bootstrap</td>
-<td></td>
-<td></td>
-<td>List of absolute paths to one or more scripts that execute prior to Workbench connecting to Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
-</tr>
-<tr>
-<td>shutdown</td>
-<td></td>
-<td></td>
-<td>List of absolute paths to one or more scripts that execute after Workbench connecting to Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
-</tr>
-<tr>
-<td>preprocessors</td>
-<td></td>
-<td></td>
-<td>List of absolute paths to one or more scripts that are applied to CSV values prior to the values being ingested into Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
-</tr>
-<tr>
-<td>node_post_create</td>
-<td></td>
-<td></td>
-<td>List of absolute paths to one or more scripts that execute after a node is created. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
-</tr>
-<tr>
-<td>node_post_update</td>
-<td></td>
-<td></td>
-<td>List of absolute paths to one or more scripts that execute after a node is updated. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
-</tr>
-<tr>
-<td>media_post_create</td>
-<td></td>
-<td></td>
-<td>List of absolute paths to one or more scripts that execute after a media is created. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
-</tr>
-<tr>
-<td>drupal_8</td>
-<td></td>
-<td></td>
-<td>Deprecated.</td>
-</tr>
-<tr>
-<td>path_to_python</td>
-<td></td>
-<td>python</td>
-<td>Used in <code>create</code> tasks that also use the <code>secondary_tasks</code> option. Tells Workbench the path to the python interpreter. For details on when to use this option, refer to the end of the "Secondary Tasks" section of "<a href="/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task">Creating paged, compound, and collection content</a>".</td>
-</tr>
-<tr>
-<td>path_to_workbench_script</td>
-<td></td>
-<td>workbench</td>
-<td>Used in <code>create</code> tasks that also use the <code>secondary_tasks</code> option. Tells Workbench the path to the python interpreter. For details on when to use this option, refer to the end of the "Secondary Tasks" section of "<a href="/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task">Creating paged, compound, and collection content</a>".</td>
-</tr>
-<tr>
-<td>contact_sheet_output_dir</td>
-<td></td>
-<td>contact_sheet_output</td>
-<td>Used in <code>create</code> tasks to specify the name of the directory where contact sheet output is written. Can be relative (to the Workbench directory) or absolute. See "<a href="/islandora_workbench_docs/contact_sheet/">Generating a contact sheet</a>" for more information.</td>
-</tr>
-<tr>
-<td>contact_sheet_css_path</td>
-<td></td>
-<td>assets/contact_sheet/contact-sheet.css</td>
-<td>Used in <code>create</code> tasks to specify the path of the CSS stylesheet to use in contact sheets. Can be relative (to the Workbench directory) or absolute. See "<a href="/islandora_workbench_docs/contact_sheet/">Generating a contact sheet</a>" for more information.</td>
 </tr>
 </tbody>
 </table>
+<p>| perform_soft_checks |  | false | If set to true, <code>--check</code> will not exit when it encounters an error with parent/child order, file extention registration with media file fields, or EDTF validation. Instead, it will log any errors it encounters and exit once it has checked all rows in the CSV input file. Note: this setting replaces <code>strict_check</code>. |</p>
+<p>| temp_dir |  | Value of the temporary directory defined by your system as defined by Python's <a href="https://docs.python.org/3/library/tempfile.html#tempfile.gettempdir">gettempdir()</a> function. | Relative or absolute path to the directory where you want Workbench's temporary files to be written. These include the ".preprocessed" version of the your input CSV, remote files temporarily downloaded to create media, and the CSV ID to node ID map database. |
+| sqlite_db_filename |  | [temp_dir]/workbench_temp_data.db | Name of the SQLite database filename used to store session data. |
+| csv_id_to_node_id_map_path |  | [temp_dir]/csv_id_to_node_id_map.db | Name of the SQLite database filename used to store CSV row ID to node ID mappings for nodes created during <code>create</code> and <code>create_from_files</code> tasks. If you want to store your map database outside of a temporary directory, use an absolute path to the database file for this setting. If you want to disable population of this database, set this config setting to <code>false</code>. See "<a href="/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map">Generating CSV files</a>" for more information. |
+| rollback_dir |  | Value of <code>input_dir</code> setting | Absolute path to the directory where you want your "rollback.csv" file to be written. See "<a href="/islandora_workbench_docs/rolling_back/">Rolling back</a>" for more information. |
+| timestamp_rollback |  | false | Set to <code>true</code> to add a timestamp to the "rollback.yml" and corresponding "rollback.csv" generated in "create" and "create_from_files" tasks. See "<a href="/islandora_workbench_docs/rolling_back/">Rolling back</a>" for more information. |
+| pause |  | | Defines the number of seconds to pause between all 'POST', 'PUT', 'PATCH', 'DELETE' requests to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5. More information is available in the "<a href="/islandora_workbench_docs/reducing_load/">Reducing Workbench's impact on Drupal</a>" documentation. |
+| adaptive_pause |  | | Defines the number of seconds to pause between each REST request to Drupal. Works like "pause" but only takes effect when the Drupal server's response to the most recent request is slower (determined by the "adaptive_pause_threshold" value) than the average response time for the last 20 requests. More information is available in the "<a href="/islandora_workbench_docs/reducing_load/">Reducing Workbench's impact on Drupal</a>" documentation. |
+| adaptive_pause_threshold |  | 2 | A weighting of the response time for the most recent request, relative to the average response times of the last 20 requests. This weighting determines how much slower the Drupal server's response to the most recent Workbench request must be in order for adaptive pausing to take effect for the next request. For example, if set to "1", adaptive pausing will happen when the response time is equal to the average of the last 20 response times; if set to "2", adaptive pausing will take effect if the last requests's response time is double the average. |
+| progress_bar |  | false | Show a progress bar when running Workbench instead of row-by-row output. |
+| bootstrap |  | | List of absolute paths to one or more scripts that execute prior to Workbench connecting to Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation. |
+| shutdown |  | | List of absolute paths to one or more scripts that execute after Workbench connecting to Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation. |
+| preprocessors |  | | List of absolute paths to one or more scripts that are applied to CSV values prior to the values being ingested into Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation. |
+| node_post_create |  | | List of absolute paths to one or more scripts that execute after a node is created. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation. |
+| node_post_update |  | | List of absolute paths to one or more scripts that execute after a node is updated. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation. |
+| media_post_create |  | | List of absolute paths to one or more scripts that execute after a media is created. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation. |
+| drupal_8 |  |  | Deprecated. |
+| path_to_python |  | python | Used in <code>create</code> tasks that also use the <code>secondary_tasks</code> option. Tells Workbench the path to the python interpreter. For details on when to use this option, refer to the end of the "Secondary Tasks" section of "<a href="/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task">Creating paged, compound, and collection content</a>". |
+| path_to_workbench_script |  | workbench | Used in <code>create</code> tasks that also use the <code>secondary_tasks</code> option. Tells Workbench the path to the python interpreter. For details on when to use this option, refer to the end of the "Secondary Tasks" section of "<a href="/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task">Creating paged, compound, and collection content</a>". |
+| contact_sheet_output_dir |  | contact_sheet_output | Used in <code>create</code> tasks to specify the name of the directory where contact sheet output is written. Can be relative (to the Workbench directory) or absolute. See "<a href="/islandora_workbench_docs/contact_sheet/">Generating a contact sheet</a>" for more information. |
+| contact_sheet_css_path |  | assets/contact_sheet/contact-sheet.css | Used in <code>create</code> tasks to specify the path of the CSS stylesheet to use in contact sheets. Can be relative (to the Workbench directory) or absolute. See "<a href="/islandora_workbench_docs/contact_sheet/">Generating a contact sheet</a>" for more information. |</p>
 <p>When you run Islandora Workbench with the <code>--check</code> argument, it will verify that all configuration options required for the current task are present, and if they aren't tell you so.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
