@@ -904,6 +904,7 @@
 host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
+content_type: my_content_type
 input_csv: update.csv
 </code></pre>
 <p>If you want to append the values in the CSV to values that already exist in the target nodes, add the <code>update_mode</code> configuration option:</p>
@@ -911,11 +912,13 @@ input_csv: update.csv
 host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
+content_type: my_content_type
 input_csv: update.csv
 update_mode: append
 </code></pre>
 <p>Some things to note:</p>
 <ul>
+<li>The <code>content_type</code> config setting is used during "update" tasks. If your target content type is not <code>islandora_object</code> (the default value), you must include <code>content_type</code> in your configuration file.</li>
 <li>The <code>update_mode</code> applies to all rows in your CSV; it cannot be specified for particular rows.</li>
 <li>Updates apply to entire fields. Workbench cannot replace individual values in field.</li>
 <li>Values in the <code>node_id</code> column can be numeric node IDs (e.g. <code>467</code>) or full URLs, including URL aliases.</li>
