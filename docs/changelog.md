@@ -1,5 +1,8 @@
 ### main branch (no tag/release)
 
+* July 14, 2023 (commit dfa60ff): Merged @noahsmith's introduction of "soft checks" as described in [issue 620](https://github.com/mjordan/islandora_workbench/issues/620) (thanks!).
+* July 13, 2023 (commit 2a589f2): @noahsmith found and fixed [issue 640](https://github.com/mjordan/islandora_workbench/issues/640).
+* July 11, 2023 (commit 411cd2d): Merged [initial work on Paragraphs support](https://github.com/mjordan/islandora_workbench/pull/619) (thanks @seth-shaw-asu). `--check` functionality and documentation forthcoming.
 * July 10, 2023 (commit 2373149): Changes to how the CSV ID to node ID map works; (commit 52a5db) clear sqlite cache file (work on [issue 632](https://github.com/mjordan/islandora_workbench/issues/633)).
 * July 7, 2023 (commit eae85c5): Resolved [issue 633](https://github.com/mjordan/islandora_workbench/issues/633); resolved (commit 7511828) [issue 635](https://github.com/mjordan/islandora_workbench/issues/635).
 * July 5, 2023 (commit b2fd24c): Resolved [issue 631](https://github.com/mjordan/islandora_workbench/issues/631).
@@ -72,6 +75,7 @@
 
 ### Documentation
 
+* July 18, 2023: Updates to the `published` entry in the "[Base fields](/islandora_workbench_docs/fields/#base-fields)" documentation; added entry for `perform_soft_checks` to "[Configuration](/islandora_workbench_docs/configuration/#miscellaneous-settings)" docs (note: this new setting replaces `strict_check`).
 * July 10, 2023: Updates to "[Creating paged, compound, and collection content]([/islandora_workbench_docs/paged_and_compound/])" to reflect changes in the CSV ID to node ID map, specifically the new `ignore_existing_parent_ids` config setting.
 * June 30, 2023: Corrected entry in "[Configuration docs](/islandora_workbench_docs/configuration/)" for the `strict_check` setting.
 * June 28, 2023: Updated "[Configuration docs](/islandora_workbench_docs/configuration/#paged-and-compound-content-settings)" and "[Using a secondary task](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task)" to include new `query_csv_id_to_node_id_map_for_parents` configuration setting. Also added a note to the "id" reserved column entry in the "[Field data docs](/islandora_workbench_docs/fields/#reserved-csv-columns)" about importance of using unique ID values.
