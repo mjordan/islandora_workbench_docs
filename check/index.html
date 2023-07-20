@@ -1039,6 +1039,10 @@
 </li>
 </ul>
 <p>If Workbench detects a configuration or input data violation, it will either stop and tell you why it stopped, or (if the violation will not cause Workbench's interaction with Drupal to fail), tell you that it found an anomaly and to check the log file for more detail.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Adding <code>perform_soft_checks: true</code> to you configuration file will tell <code>--check</code> to not stop when it encounters an error with 1) parent/child order in your input CSV, 2) file extentions in your CSV that are not registered with the Drupal configuration of their media type's file fields, or 3) invalid EDTF dates. Workbench will continue to log all of these errors, but will exit after it has checked every row in your CSV file.</p>
+</div>
 <p>A successful outcome of running <code>--check</code> confirms that all of the conditions listed above are in place, but it does not <em>guarantee</em> a successful job. There are a lot of factors in play during ingest/update/delete interactions with Drupal that can't be checked in advance, most notably network stability, load on the Drupal server, or failure of an Islandora microservice. But in general <code>--check</code> will tell you if there's a problem that you can investigate and resolve before proceeding with your task.</p>
 <h2 id="typical-and-recommended-islandora-workbench-usage">Typical (and recommended) Islandora Workbench usage</h2>
 <p>You will probably need to run Workbench using <code>--check</code> a few times before you will be ready to run it without <code>--check</code> and commit your data to Islandora. For example, you may need to correct errors in taxonomy term IDs or names, fix errors in media filenames, or wrap values in your CSV files in quotation marks.</p>
