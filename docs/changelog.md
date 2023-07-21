@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* July 20, 2023 (commit 8c1995e): Merged @aOelschlager's contribution (thanks!) of an `update_terms` task from [PR 622](https://github.com/mjordan/islandora_workbench/pull/622), plus some additional prerequisite cleanup needed for her code to work.
 * July 14, 2023 (commit dfa60ff): Merged @noahsmith's introduction of "soft checks" as described in [issue 620](https://github.com/mjordan/islandora_workbench/issues/620) (thanks!).
 * July 13, 2023 (commit 2a589f2): @noahsmith found and fixed [issue 640](https://github.com/mjordan/islandora_workbench/issues/640).
 * July 11, 2023 (commit 411cd2d): Merged [initial work on Paragraphs support](https://github.com/mjordan/islandora_workbench/pull/619) (thanks @seth-shaw-asu). `--check` functionality and documentation forthcoming.
@@ -75,6 +76,8 @@
 
 ### Documentation
 
+* July 21, 2023: Updated "Workbench thinks that a remote file is an .html file when I know it's a video (or audio, or image, etc.) file" entry in "[Troubleshooting](/islandora_workbench_docs/troubleshooting/#workbench-thinks-that-a-remote-file-is-an-html-file-when-i-know-its-a-video-or-audio-or-image-etc-file)".
+* July 20, 2023: Updated "[Checking configuration and input data](/islandora_workbench_docs/check/)" to include the new `perform_soft_checks` config setting.
 * July 19, 2023: Clarified that `update` tasks require the `content_type` setting in their confifg files if the target Drupal content type is not `islandora_object`.
 * July 18, 2023: Updates to the `published` entry in the "[Base fields](/islandora_workbench_docs/fields/#base-fields)" documentation; added entry for `perform_soft_checks` to "[Configuration](/islandora_workbench_docs/configuration/#miscellaneous-settings)" docs (note: this new setting replaces `strict_check`).
 * July 10, 2023: Updates to "[Creating paged, compound, and collection content]([/islandora_workbench_docs/paged_and_compound/])" to reflect changes in the CSV ID to node ID map, specifically the new `ignore_existing_parent_ids` config setting.
