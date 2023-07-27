@@ -1,5 +1,5 @@
 ## Release Binaries
-If you are having trouble with installation you can checkout the relase [binaries](/islandora_workbench_docs/binaries).
+If you are having trouble with installation you can checkout the relaase [binaries](/islandora_workbench_docs/binaries).
 
 ## Requirements
 
