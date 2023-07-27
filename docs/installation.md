@@ -1,3 +1,6 @@
+## Release Binaries
+If you are having trouble with installation you can checkout the relase [binaries](/islandora_workbench_docs/binaries).
+
 ## Requirements
 
 * An [Islandora](https://islandora.ca/) repository using Drupal 8 or 9, with the [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module enabled. If you are using Drupal 8.5 or earlier, please refer to the "Using Drupal 8.5 or earlier" section below.
