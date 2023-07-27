@@ -8,6 +8,7 @@ theme: material
 nav:
     - Home: index.md
     - Workbench's relationship to Drupal and Islandora: drupal_and_workbench.md
+    - Releases Binaries: binaries.md
     - Requirements and installation: installation.md
     - Configuration: configuration.md
     - Choosing a task: choosing_a_task.md
