@@ -1,5 +1,7 @@
 ### main branch (no tag/release)
 
+* August 1, 2023 (commit 18ea969): Resolved [issue 648](https://github.com/mjordan/islandora_workbench/issues/648).
+* July 31, 2023 (commit a45a869): Resolved [issue 652](https://github.com/mjordan/islandora_workbench/issues/652). Thanks @willtp87!
 * July 28, 2023 (commit 63b3b83): Added @noahsmith's fix in commit f50ebf2 to all task functions, and accounted for `enable_http_cache: false`; Resolved (commit fce9db7) [issue 654](https://github.com/mjordan/islandora_workbench/issues/654).
 * July 26, 2023 (commit f50ebf2): Merged @noahsmith's fix for pruning the HTTP cache ([PR 651](https://github.com/mjordan/islandora_workbench/pull/651), work on [issue 632](https://github.com/mjordan/islandora_workbench/issues/632)). Thanks Noah!
 * July 20, 2023 (commit 8c1995e): Merged @aOelschlager's contribution (thanks!) of an `update_terms` task from [PR 622](https://github.com/mjordan/islandora_workbench/pull/622), plus some additional prerequisite cleanup needed for her code to work.
