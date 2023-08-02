@@ -1164,7 +1164,7 @@ sqlite&gt;
 <li><code>csv_id</code>: the value in the node's CSV ID field (or in <code>create_from_files</code> tasks, which don't use an imput CSV file, the filename)</li>
 <li><code>node_id</code>: the node's Drupal node ID</li>
 </ul>
-<p>If you don't want to use the SQLite client to query the database directly, you can use <code>scripts/dump_id_map.py</code> to:</p>
+<p>If you don't want to query the database directly, you can use <code>scripts/manage_csv_to_node_id_map.py</code> to:</p>
 <ul>
 <li>Dump the contents of the entire database to a CSV file.<ul>
 <li>To do this, in the Workbench directory, run the script, specifying the path to the database file and the path to the CSV output: <code>python scripts/manage_csv_to_node_id_map.py --db_path /tmp/csv_id_to_node_id_map.db --csv_path /tmp/output.csv</code></li>
