@@ -1146,7 +1146,7 @@ view_parameters:
 <p class="admonition-title">Warning</p>
 <p>Some systems clear out their temporary directories on restart. You may want to define the absolute path to your ID map database in the <code>csv_id_to_node_id_map_path</code> configuration setting so it is stored in a location that will not get deleted on system restart.</p>
 </div>
-<p>The SQLite database at this location contains one table, "csv_id_to_node_id_map". On systems where the SQLite client is installed, you can access the data like this:</p>
+<p>The SQLite database contains one table, "csv_id_to_node_id_map". On systems where the SQLite client is installed, you can access the data like this:</p>
 <p><code>sqlite3 /tmp/csv_id_to_node_id_map.db</code></p>
 <p>and then query it like this:</p>
 <p><code>select * from csv_id_to_node_id_map;</code></p>
