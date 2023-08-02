@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* August 2, 2023 (commit 4e4f14f): Preliminary work on [issue 663](https://github.com/mjordan/islandora_workbench/issues/663).
 * August 1, 2023 (commit 18ea969): Resolved [issue 648](https://github.com/mjordan/islandora_workbench/issues/648).
 * July 31, 2023 (commit a45a869): Resolved [issue 652](https://github.com/mjordan/islandora_workbench/issues/652). Thanks @willtp87!
 * July 28, 2023 (commit 63b3b83): Added @noahsmith's fix in commit f50ebf2 to all task functions, and accounted for `enable_http_cache: false`; Resolved (commit fce9db7) [issue 654](https://github.com/mjordan/islandora_workbench/issues/654).
@@ -80,6 +81,7 @@
 
 ### Documentation
 
+* August 2, 2023: Added mention of, and a screenshot showing, the DB Browser for SQLite to "[Using the CSV ID to node ID map](https://mjordan.github.io/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map)". Thanks for the tip @ajstanley!
 * July 21, 2023: Updated "Workbench thinks that a remote file is an .html file when I know it's a video (or audio, or image, etc.) file" entry in "[Troubleshooting](/islandora_workbench_docs/troubleshooting/#workbench-thinks-that-a-remote-file-is-an-html-file-when-i-know-its-a-video-or-audio-or-image-etc-file)".
 * July 20, 2023: Updated "[Checking configuration and input data](/islandora_workbench_docs/check/)" to include the new `perform_soft_checks` config setting.
 * July 19, 2023: Clarified that `update` tasks require the `content_type` setting in their confifg files if the target Drupal content type is not `islandora_object`.
