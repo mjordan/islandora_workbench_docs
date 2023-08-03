@@ -1166,7 +1166,7 @@ path_to_workbench_script: 'd:/users/mark/islandora_workbench/workbench'
 <p>Because this database persists across Workbench sessions, you can use <code>id</code> values in your input CSV's <code>parent_id</code> column from previously loaded CSV files. The mapping between the previously loaded parents' <code>id</code> values and the values in your current CSV's <code>parent_id</code> column are stored in the CSV ID to node ID map database.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It is important to use unique values in your CSV <code>id</code> (or configured equivalent) column, since if duplicate ID values exist in this database, Workbench can't know which corresponding node ID to use. In this case, Workbench will create the child node, but it won't assign a parent to it. <code>--check</code> will inform you if this happens with messages like "Warning: Query of ID map for parent ID "0002" returned multiple node IDs: (771, 772, 773, 774, 778, 779).", and your Workbench log will also document that there are duplicate IDs.</p>
+<p>It is important to use unique values in your CSV <code>id</code> (or configured equivalent) column, since if duplicate ID values exist in this database, Workbench can't know which corresponding node ID to use. In this case, Workbench will create the child node, but it won't assign a parent to it. <code>--check</code> will inform you if this happens with messages like <code>Warning: Query of ID map for parent ID "0002" returned multiple node IDs: (771, 772, 773, 774, 778, 779).</code>, and your Workbench log will also document that there are duplicate IDs.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
