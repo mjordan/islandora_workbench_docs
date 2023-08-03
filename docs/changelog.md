@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* August 3, 2023 (commit c3fe7e1): Resolved issues [issue 613](https://github.com/mjordan/islandora_workbench/issues/613) and [issue 647](https://github.com/mjordan/islandora_workbench/issues/647).
 * August 2, 2023 (commit 4e4f14f): Preliminary work on [issue 663](https://github.com/mjordan/islandora_workbench/issues/663).
 * August 1, 2023 (commit 18ea969): Resolved [issue 648](https://github.com/mjordan/islandora_workbench/issues/648).
 * July 31, 2023 (commit a45a869): Resolved [issue 652](https://github.com/mjordan/islandora_workbench/issues/652). Thanks @willtp87!
@@ -81,6 +82,7 @@
 
 ### Documentation
 
+* August 3, 2023: Documented the config settings `query_csv_id_to_node_id_map_for_parents`, `ignore_duplicate_parent_ids`, `field_for_media_title`, `use_nid_in_media_title`, `use_node_title_for_media_title`, `use_node_title_for_remote_filename`, `use_nid_in_remote_filename`, and `field_for_remote_filename`. Updated "[Using the CSV ID to node ID map](https://mjordan.github.io/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map)".
 * August 2, 2023: Added mention of, and a screenshot showing, the DB Browser for SQLite to "[Using the CSV ID to node ID map](https://mjordan.github.io/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map)". Thanks for the tip @ajstanley!
 * July 21, 2023: Updated "Workbench thinks that a remote file is an .html file when I know it's a video (or audio, or image, etc.) file" entry in "[Troubleshooting](/islandora_workbench_docs/troubleshooting/#workbench-thinks-that-a-remote-file-is-an-html-file-when-i-know-its-a-video-or-audio-or-image-etc-file)".
 * July 20, 2023: Updated "[Checking configuration and input data](/islandora_workbench_docs/check/)" to include the new `perform_soft_checks` config setting.
