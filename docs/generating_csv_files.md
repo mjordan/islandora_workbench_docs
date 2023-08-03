@@ -161,6 +161,7 @@ By default, Workbench maintains a simple database that maps values in your CSV's
 
     ![CSV to node ID map sample data in DB Browser](images/sqlite_db_browser.png)
 
+
 Workbench optionally uses this database to determine the node ID of parent nodes when creating paged and compound content, so, for example, you can use `parent_id` values in your input CSV that refer to parents created in earlier Workbench sessions. But, you may find other uses for this data. Since it is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the `dump_id_map.py` script provided in Workbench's `scripts` directory.
 
 !!! note
@@ -171,23 +172,7 @@ One configuration setting applies to this feature, `csv_id_to_node_id_map_path`.
 !!! warning
     Some systems clear out their temporary directories on restart. You may want to define the absolute path to your ID map database in the `csv_id_to_node_id_map_path` configuration setting so it is stored in a location that will not get deleted on system restart.
 
-The SQLite database contains one table, "csv_id_to_node_id_map". On systems where the SQLite client is installed, you can access the data like this:
-
-`sqlite3 /tmp/csv_id_to_node_id_map.db`
-
-and then query it like this:
-
-`select * from csv_id_to_node_id_map;`
-
-```
-sqlite> select * from csv_id_to_node_id_map;
-2023-05-29 19:17:45|create.yml|||my_id_03|84
-2023-05-29 19:17:45|create.yml|||my_id_04|85
-2023-05-29 19:17:46|create.yml|||my_id_05|86
-sqlite>
-```
-
-This table has five columns:
+The SQLite database contains one table, "csv_id_to_node_id_map". This table has five columns:
 
 * `timestamp`: the current timestamp in `yyyy-mm-dd hh:mm:ss` format or a truncated version of that format
 * `config_file`: the name of the Workbench configuration file active when the row was added
