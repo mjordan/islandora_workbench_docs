@@ -1752,13 +1752,31 @@ csv_field_templates:
 <td>use_node_title_for_media_title</td>
 <td></td>
 <td>true</td>
-<td>If set to <code>true</code> (default), name media the same as the parent node's title value. If <code>false</code>, the filename of the media will be used as the media name. Applies to both <code>create</code> and <code>add_media</code> tasks.</td>
+<td>If set to <code>true</code> (default), name media the same as the parent node's title value. Truncates the value of the field to 255 characters. Applies to both <code>create</code> and <code>add_media</code> tasks.</td>
 </tr>
 <tr>
-<td>use_node_title_for_media</td>
+<td>use_nid_in_media_title</td>
 <td></td>
 <td>false</td>
-<td>For remote files, if set to <code>true</code>, name the downloaded copy using the parent node's title value. If <code>false</code>, downloaded file's name will depend on the application/website that is serving up the file. Applies to <code>create</code> tasks only.</td>
+<td>If set to <code>true</code>, assigns a name to the media following the pattern <code>{node_id}-Original File</code>. Set to true to use the parent node's node ID as the media title. Applies to both <code>create</code> and <code>add_media</code> tasks.</td>
+</tr>
+<tr>
+<td>field_for_media_title</td>
+<td></td>
+<td></td>
+<td>Identifies a CSV field name (machine name, not human readable) that will be used as the media title in create tasks. For example, <code>field_for_media_title: id</code>. Truncates the value of the field to 255 characters. Applies to both <code>create</code> and <code>add_media</code> tasks.</td>
+</tr>
+<tr>
+<td>use_node_title_for_remote_filename</td>
+<td></td>
+<td>false</td>
+<td>Set to true to use a version of the parent node's title as the filename for a remote (http[s]) file. Replaces all non-alphanumeric characters with an underscore (<code>_</code>). Truncates the value of the field to 255 characters. Applies to both <code>create</code> and <code>add_media</code> tasks. Note: this setting replaces (the previously undocumented) <code>use_nid_in_media_filename</code> setting.</td>
+</tr>
+<tr>
+<td>field_for_remote_filename</td>
+<td></td>
+<td></td>
+<td>Identifies a CSV field name (machine name, not human readable) that will be used as the filename for a remote (http[s]) file. For example, <code>field_for_remote_filename: id</code>. Truncates the value of the field to 255 characters. If the field is empty in the CSV, the CSV ID field value will be used. Applies to both <code>create</code> and <code>add_media</code> tasks. Note: this setting replaces (the previously undocumented) <code>field_for_media_filename</code> setting.</td>
 </tr>
 <tr>
 <td>delete_tmp_upload</td>
@@ -1870,6 +1888,24 @@ csv_field_templates:
 <td></td>
 <td></td>
 <td>A list of configuration file names that are executed as secondary tasks after the primary task to create compound objects. See "<a href="/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task">Using a secondary task</a>" for more information.</td>
+</tr>
+<tr>
+<td>csv_id_to_node_id_map_path</td>
+<td></td>
+<td>[temp_dir]/csv_id_to_node_id_map.db</td>
+<td>Name of the SQLite database filename used to store CSV row ID to node ID mappings for nodes created during <code>create</code> and <code>create_from_files</code> tasks. If you want to store your map database outside of a temporary directory, use an absolute path to the database file for this setting. If you want to disable population of this database, set this config setting to <code>false</code>. See "<a href="/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map">Generating CSV files</a>" for more information.</td>
+</tr>
+<tr>
+<td>query_csv_id_to_node_id_map_for_parents</td>
+<td></td>
+<td>false</td>
+<td>Queries the CSV ID to node ID map when creating compound content. Defaults to false. Set to true if you want to use parent IDs from previous Workbench sessions. See "<a href="/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions">Creating parent/child relationships across Workbench sessions</a> for more information."</td>
+</tr>
+<tr>
+<td>ignore_duplicate_parent_ids</td>
+<td></td>
+<td>true</td>
+<td>Tells Workbench to ignore entries in the CSV ID to node ID map that have the same parent ID value. Set to false if you want Workbench to warn you that there are duplicate parent IDs in your CSV ID to node ID map. See "<a href="/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions">Creating parent/child relationships across Workbench sessions</a> for more information."</td>
 </tr>
 <tr>
 <td>ignore_existing_parent_ids</td>
@@ -2024,12 +2060,6 @@ csv_field_templates:
 <td></td>
 <td>[temp_dir]/workbench_temp_data.db</td>
 <td>Name of the SQLite database filename used to store session data.</td>
-</tr>
-<tr>
-<td>csv_id_to_node_id_map_path</td>
-<td></td>
-<td>[temp_dir]/csv_id_to_node_id_map.db</td>
-<td>Name of the SQLite database filename used to store CSV row ID to node ID mappings for nodes created during <code>create</code> and <code>create_from_files</code> tasks. If you want to store your map database outside of a temporary directory, use an absolute path to the database file for this setting. If you want to disable population of this database, set this config setting to <code>false</code>. See "<a href="/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map">Generating CSV files</a>" for more information.</td>
 </tr>
 <tr>
 <td>rollback_dir</td>
