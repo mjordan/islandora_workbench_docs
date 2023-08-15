@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* August 15, 2023 (commit f33e8df): Work in progress on [issue 487](https://github.com/mjordan/islandora_workbench/issues/487).
 * August 14, 2023 (commit c989e39): Resolved issues [issue 657](https://github.com/mjordan/islandora_workbench/issues/657) and (commit 866b6c2) [issue 671](https://github.com/mjordan/islandora_workbench/issues/671).
 * August 10, 2023 (commit 1ab0172): Resolved issue [issue 664](https://github.com/mjordan/islandora_workbench/issues/6xxi6413).
 * August 3, 2023 (commit c3fe7e1): Resolved issues [issue 613](https://github.com/mjordan/islandora_workbench/issues/613) and [issue 647](https://github.com/mjordan/islandora_workbench/issues/647).
