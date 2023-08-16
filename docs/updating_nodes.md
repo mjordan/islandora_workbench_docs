@@ -6,7 +6,7 @@ You can update existing nodes by providing a CSV file with a `node_id` column pl
 
 Islandora Workbench will never allow a field to contain more values than the field's configuration allows. Attempts to update a field with more values than the maximum number allowed will result in the surplus values being ignored during the "update" task. If Workbench does this, it will write an entry to the log indicating it has done so.
 
-The column headings in the CSV file other than `node_id` must match machine names of fields that exist in the target Islandora content type. Only include fields that you want to update. Currently, text fields, ETDF fields, taxonomy fields, linked node fields (e.g. "Member of" for collection nodes), typed relation, link, and geolocation fields can be updated following the same conventions used when creating nodes as described in the "[Fields](/islandora_workbench_docs/fields/)" documentation.
+The column headings in the CSV file other than `node_id` must match machine names of fields that exist in the target Islandora content type. Only include fields that you want to update. Currently, text fields, EDTF fields, taxonomy fields, linked node fields (e.g. "Member of" for collection nodes), typed relation, link, and geolocation fields can be updated following the same conventions used when creating nodes as described in the "[Fields](/islandora_workbench_docs/fields/)" documentation.
 
 For example, using the fields defined by the Islandora Defaults module for the "Repository Item" content type, your CSV file could look like this:
 

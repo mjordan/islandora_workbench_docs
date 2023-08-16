@@ -30,7 +30,7 @@ Eventually, handlers for new Drupal field types will need to be added to Workben
 * integers (for `field_weight`, for example) like `1` or `7281`
 * the binary values `1` or `0`
 * Existing Drupal-generated entity IDs (term IDs for taxonomy terms or node IDs for collections and parents), which are integers like `10` or `3549`
-* structured strings, for typed relation (e.g., `relators:art:30`), link fields (e.g., `https://acme.net%%Acme Products`), geolocation fields (e.g., `"49.16667,-123.93333"`), and athority link data (e.g., `viaf%%http://viaf.org/viaf/10646807%%VIAF Record`)
+* structured strings, for typed relation (e.g., `relators:art:30`), link fields (e.g., `https://acme.net%%Acme Products`), geolocation fields (e.g., `"49.16667,-123.93333"`), and authority link data (e.g., `viaf%%http://viaf.org/viaf/10646807%%VIAF Record`)
 
 Details on how to add new field types are coming soon!
 

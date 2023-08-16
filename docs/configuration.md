@@ -17,7 +17,7 @@ The settings defined in a configuration file are documented in the tables below,
 
 ### Use of quotation marks
 
-Generally speaking, you do not need to use quotation marks around values in your configuration file. You may wrap values in quotation marks if you wish, and many examples in this documentation do that (especially the `host` setting), but the only values that should not be wrapped in quotation marks are those that take `true` or `false` as values because in YAML, and many other commputer/markup languages,`"true"` is a string (in this case, an English word that can mean many things) and `true` is a reserved symbol that can mean one thing and one thing only, the boolean opposite of `false` (I'm sorry for this explanation, I can't describe the distinction in any other way without writing a primer on symbolic logic).
+Generally speaking, you do not need to use quotation marks around values in your configuration file. You may wrap values in quotation marks if you wish, and many examples in this documentation do that (especially the `host` setting), but the only values that should not be wrapped in quotation marks are those that take `true` or `false` as values because in YAML, and many other computer/markup languages,`"true"` is a string (in this case, an English word that can mean many things) and `true` is a reserved symbol that can mean one thing and one thing only, the boolean opposite of `false` (I'm sorry for this explanation, I can't describe the distinction in any other way without writing a primer on symbolic logic).
 
 For example, the following is a valid configuration file:
 
@@ -95,7 +95,7 @@ Strictly speaking, YAML lists can be represented as either a series of entries o
 | list_missing_drupal_fields |  | false | Set to `true` to tell Workbench to provide a list of fields that exist in your input CSV but that cannot be matched to Drupal field names (or reserved column names such as "file"). If `false`, Workbench will still check for CSV column headers that it can't match to Drupal fields, but will exit upon finding the first such field. This option produces a list of fields instead of exiting on detecting the first field.|
 | standalone_media_url |  | false | Set to `true` if your Drupal instance has the "Standalone media URL" option at `/admin/config/media/media-settings` checked. The Drupal default is to have this unchecked, so you only need to use this Workbench option if you have changed Drupal's default. [More information](/islandora_workbench_docs/installation/#configuring-drupals-media-urls) is available. |
 | require_entity_reference_views |  | true | Set to `false` to tell Workbench to not require a View to expose the values in an entity reference field configured to use an Entity Reference View. Additional information is available [here](/islandora_workbench_docs/fields/#entity-reference-views-fields). |
-| text_format_id |  | basic_html | The text format ID (machine name) to apply to all Drupal text fields that have a "formatted" field type. Use `text_format_ids` (plural) to provide a text format ID for a specific Drupalo field. See "[Text fields with markup](/islandora_workbench_docs/fields/#text-fields-with-markup)" for more information. |
+| text_format_id |  | basic_html | The text format ID (machine name) to apply to all Drupal text fields that have a "formatted" field type. Use `text_format_ids` (plural) to provide a text format ID for a specific Drupal field. See "[Text fields with markup](/islandora_workbench_docs/fields/#text-fields-with-markup)" for more information. |
 
 
 ### Input data location settings
@@ -134,7 +134,7 @@ See "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/)" se
 | export_csv_term_mode | | tid | Used in "export_csv" tasks to indicate whether vocabulary term IDs or names are included in the output CSV file. Set to "tid" (the default) to include term IDs, or set to "name" to include term names. See "[Exporting field data into a CSV file](/islandora_workbench_docs/generating_csv_files/#exporting-field-data-into-a-csv-file)" for more information. |
 | export_csv_field_list | | [] (empty list) | List of fields to include in exported CSV data. If empty, all fields will be included.  See "[Using a Drupal View to identify content to export as CSV](/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv)" for more information. |
 | view_parameters | | | List of URL parameter/value strings to include in requests to a View. See "[Using a Drupal View to identify content to export as CSV](/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv)" for more information. |
-| export_csv_file_path | ✔️ in `get_data_from_view` tasks. | | Used in the "export_csv" and "get_data_from_view" tasks. The path to the exported CSV file. Required in the "get_data_from_view" task; in the "export_csv" task, if left empty (the default), the file will be named after the value of the `input_csv` with ".csv_file_with_field_values" appended and saved in the directory identifed in `input_dir`. |
+| export_csv_file_path | ✔️ in `get_data_from_view` tasks. | | Used in the "export_csv" and "get_data_from_view" tasks. The path to the exported CSV file. Required in the "get_data_from_view" task; in the "export_csv" task, if left empty (the default), the file will be named after the value of the `input_csv` with ".csv_file_with_field_values" appended and saved in the directory identified in `input_dir`. |
 | export_file_directory | | | Used in the "export_csv" and "get_data_from_view" tasks. The path to the directory where files corresponding to the data in the CSV output file will be written. |
 | export_file_media_use_term_id | | `http://pcdm.org/use#OriginalFile` | Used in the "export_csv" and "get_data_from_view" tasks. The term ID or URI from the Islandora Media Use vocabulary that identifies the file you want to export. |
 
@@ -219,7 +219,7 @@ See the "[Logging](/islandora_workbench_docs/logging/)" section for more informa
 
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
-| perform_soft_checks |  | false | If set to true, `--check` will not exit when it encounters an error with parent/child order, file extention registration with Drupal media file fields, or EDTF validation. Instead, it will log any errors it encounters and exit after it has checked all rows in the CSV input file. Note: this setting replaces `strict_check`. |
+| perform_soft_checks |  | false | If set to true, `--check` will not exit when it encounters an error with parent/child order, file extension registration with Drupal media file fields, or EDTF validation. Instead, it will log any errors it encounters and exit after it has checked all rows in the CSV input file. Note: this setting replaces `strict_check`. |
 | temp_dir |  | Value of the temporary directory defined by your system as defined by Python's [gettempdir()](https://docs.python.org/3/library/tempfile.html#tempfile.gettempdir) function. | Relative or absolute path to the directory where you want Workbench's temporary files to be written. These include the ".preprocessed" version of the your input CSV, remote files temporarily downloaded to create media, and the CSV ID to node ID map database. |
 | sqlite_db_filename |  | [temp_dir]/workbench_temp_data.db | Name of the SQLite database filename used to store session data. |
 | rollback_dir |  | Value of `input_dir` setting | Absolute path to the directory where you want your "rollback.csv" file to be written. See "[Rolling back](/islandora_workbench_docs/rolling_back/)" for more information. |
@@ -308,7 +308,7 @@ host: "http://localhost:8000"
 username: admin
 password: islandora
 input_csv: 'https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZvX18xoRBxfbgxqWc/edit
-# You only need to specify the google_sheets_gid option if the workseet in the Google Sheet
+# You only need to specify the google_sheets_gid option if the worksheet in the Google Sheet
 # is not the default one.
 google_sheets_gid: 1867618389
 ```

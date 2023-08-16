@@ -4,7 +4,7 @@ Workbench uses a CSV file to populate Islandora objects' metadata. This file con
 * integers like `7281`
 * the binary values `1` or `0`
 * Existing Drupal-generated entity IDs (term IDs for taxonomy terms or node IDs for collections and parents), which are integers like `10` or `3549`
-* Workbench-specific structured strings for typed relation (e.g., `relators:art:30`), link fields (e.g., `https://acme.net%%Acme Products`), geolocation fields (e.g., `"49.16667,-123.93333"`), and athority link data (e.g., `viaf%%http://viaf.org/viaf/10646807%%VIAF Record`)
+* Workbench-specific structured strings for typed relation (e.g., `relators:art:30`), link fields (e.g., `https://acme.net%%Acme Products`), geolocation fields (e.g., `"49.16667,-123.93333"`), and authority link data (e.g., `viaf%%http://viaf.org/viaf/10646807%%VIAF Record`)
 
 !!! note
     As is standard with CSV data, values do not need to be wrapped in double quotation marks (`"`) unless they contain an instance of the delimiter character (e.g., a comma) or line breaks. Spreadsheet applications such as Google Sheets, LibreOffice Calc, and Excel will output valid CSV data.
@@ -123,9 +123,9 @@ IMG_5083.JPG,05,Alcatraz Island,25,"Taken from Fisherman's Wharf, San Francisco.
 Some things to note about using field labels in your CSV:
 
 * if the content type (or vocabulary) that you are populating uses the same label for multiple fields, you won't be able to use labels as your CSV column headers. `--check` will tell you if there are any duplicate field labels.
-* Spaces in feld labels are OK, e.g. `Country of Publication`.
+* Spaces in field labels are OK, e.g. `Country of Publication`.
 * Spelling, capitalization, punctuation, etc. in CSV column headers must match the field labels exactly.
-* If any field labels contain the character you are using as the CSV delimiter (defined in the `delimter` config setting), you will need to wrap the column header in quotation marks, e.g. `"Height, length, weight"`.
+* If any field labels contain the character you are using as the CSV delimiter (defined in the `delimiter` config setting), you will need to wrap the column header in quotation marks, e.g. `"Height, length, weight"`.
 
 ### Single and multi-valued fields
 
@@ -165,7 +165,7 @@ Drupal strictly enforces the maximum number of values allowed in a field. If the
 The subdelimiter character defaults to a pipe (`|`) but can be set in your config file using the `subdelimiter` configuration setting.
 
 !!! note
-    Workbench will remove duplicate values in CSV fields. For example, if you accidently use `first subvalue|second subvalue|second subvalue` in your CSV, Workbench will filter out the superflous `second subvalue`. This applies to both `create` and `update` tasks, and within `update` tasks, replacing values and appending values to existing ones. Workbench deduplicates CVS values silently: it doesn't log the fact that it is doing it.
+    Workbench will remove duplicate values in CSV fields. For example, if you accidentally use `first subvalue|second subvalue|second subvalue` in your CSV, Workbench will filter out the superfluous `second subvalue`. This applies to both `create` and `update` tasks, and within `update` tasks, replacing values and appending values to existing ones. Workbench deduplicates CVS values silently: it doesn't log the fact that it is doing it.
 
 ### Drupal field types
 
@@ -482,7 +482,7 @@ http://acme.com|http://diy-first-aid.net%%DIY First Aid
 
 #### Authority link fields
 
-The aurhority link field type stores abbreviations for authority sources (i.e., external controlled vocabularies such as national name authorities), authority URIs (e.g. `http://viaf.org/viaf/153525475`) and link text in separate data elements. Authority link fields are most commonly used on taxonomy terms, but can be used on nodes as well.
+The authority link field type stores abbreviations for authority sources (i.e., external controlled vocabularies such as national name authorities), authority URIs (e.g. `http://viaf.org/viaf/153525475`) and link text in separate data elements. Authority link fields are most commonly used on taxonomy terms, but can be used on nodes as well.
 
 To add or update fields of this type, Workbench needs to provide the authority source abbreviation, URI and link text in the structure Drupal expects. To accomplish this within a single CSV field, we separate the three parts in CSV values with double percent signs (`%%`), like this:
 
