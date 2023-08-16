@@ -1348,7 +1348,7 @@
 <li>integers like <code>7281</code></li>
 <li>the binary values <code>1</code> or <code>0</code></li>
 <li>Existing Drupal-generated entity IDs (term IDs for taxonomy terms or node IDs for collections and parents), which are integers like <code>10</code> or <code>3549</code></li>
-<li>Workbench-specific structured strings for typed relation (e.g., <code>relators:art:30</code>), link fields (e.g., <code>https://acme.net%%Acme Products</code>), geolocation fields (e.g., <code>"49.16667,-123.93333"</code>), and athority link data (e.g., <code>viaf%%http://viaf.org/viaf/10646807%%VIAF Record</code>)</li>
+<li>Workbench-specific structured strings for typed relation (e.g., <code>relators:art:30</code>), link fields (e.g., <code>https://acme.net%%Acme Products</code>), geolocation fields (e.g., <code>"49.16667,-123.93333"</code>), and authority link data (e.g., <code>viaf%%http://viaf.org/viaf/10646807%%VIAF Record</code>)</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1526,9 +1526,9 @@ IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Franc
 <p>Some things to note about using field labels in your CSV:</p>
 <ul>
 <li>if the content type (or vocabulary) that you are populating uses the same label for multiple fields, you won't be able to use labels as your CSV column headers. <code>--check</code> will tell you if there are any duplicate field labels.</li>
-<li>Spaces in feld labels are OK, e.g. <code>Country of Publication</code>.</li>
+<li>Spaces in field labels are OK, e.g. <code>Country of Publication</code>.</li>
 <li>Spelling, capitalization, punctuation, etc. in CSV column headers must match the field labels exactly.</li>
-<li>If any field labels contain the character you are using as the CSV delimiter (defined in the <code>delimter</code> config setting), you will need to wrap the column header in quotation marks, e.g. <code>"Height, length, weight"</code>.</li>
+<li>If any field labels contain the character you are using as the CSV delimiter (defined in the <code>delimiter</code> config setting), you will need to wrap the column header in quotation marks, e.g. <code>"Height, length, weight"</code>.</li>
 </ul>
 <h3 id="single-and-multi-valued-fields">Single and multi-valued fields</h3>
 <p>Drupal allows for fields to have a single value, a specific maximum number of values, or unlimited number of values. In the CSV input file, each Drupal field corresponds to a single CSV field. In other words, the CSV column names must be unique, even if a Drupal field allows multiple values. Populating multivalued fields is explained below.</p>
@@ -1553,7 +1553,7 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 <p>The subdelimiter character defaults to a pipe (<code>|</code>) but can be set in your config file using the <code>subdelimiter</code> configuration setting.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Workbench will remove duplicate values in CSV fields. For example, if you accidently use <code>first subvalue|second subvalue|second subvalue</code> in your CSV, Workbench will filter out the superflous <code>second subvalue</code>. This applies to both <code>create</code> and <code>update</code> tasks, and within <code>update</code> tasks, replacing values and appending values to existing ones. Workbench deduplicates CVS values silently: it doesn't log the fact that it is doing it.</p>
+<p>Workbench will remove duplicate values in CSV fields. For example, if you accidentally use <code>first subvalue|second subvalue|second subvalue</code> in your CSV, Workbench will filter out the superfluous <code>second subvalue</code>. This applies to both <code>create</code> and <code>update</code> tasks, and within <code>update</code> tasks, replacing values and appending values to existing ones. Workbench deduplicates CVS values silently: it doesn't log the fact that it is doing it.</p>
 </div>
 <h3 id="drupal-field-types">Drupal field types</h3>
 <p>The following types of Drupal fields can be populated from data in your input CSV file:</p>
@@ -1836,7 +1836,7 @@ http://acme.com
 http://acme.com|http://diy-first-aid.net%%DIY First Aid
 </code></pre>
 <h4 id="authority-link-fields">Authority link fields</h4>
-<p>The aurhority link field type stores abbreviations for authority sources (i.e., external controlled vocabularies such as national name authorities), authority URIs (e.g. <code>http://viaf.org/viaf/153525475</code>) and link text in separate data elements. Authority link fields are most commonly used on taxonomy terms, but can be used on nodes as well.</p>
+<p>The authority link field type stores abbreviations for authority sources (i.e., external controlled vocabularies such as national name authorities), authority URIs (e.g. <code>http://viaf.org/viaf/153525475</code>) and link text in separate data elements. Authority link fields are most commonly used on taxonomy terms, but can be used on nodes as well.</p>
 <p>To add or update fields of this type, Workbench needs to provide the authority source abbreviation, URI and link text in the structure Drupal expects. To accomplish this within a single CSV field, we separate the three parts in CSV values with double percent signs (<code>%%</code>), like this:</p>
 <pre><code class="language-text">field_authority_vocabs
 viaf%%http://viaf.org/viaf/10646807%%VIAF Record

@@ -1335,7 +1335,7 @@ password: islandora
 <h2 id="configuration-settings">Configuration settings</h2>
 <p>The settings defined in a configuration file are documented in the tables below, grouped into broad functional categories for easier reference. The order of the options in the configuration file doesn't matter, and settings do not need to be grouped together in any specific way in the configuration file.</p>
 <h3 id="use-of-quotation-marks">Use of quotation marks</h3>
-<p>Generally speaking, you do not need to use quotation marks around values in your configuration file. You may wrap values in quotation marks if you wish, and many examples in this documentation do that (especially the <code>host</code> setting), but the only values that should not be wrapped in quotation marks are those that take <code>true</code> or <code>false</code> as values because in YAML, and many other commputer/markup languages,<code>"true"</code> is a string (in this case, an English word that can mean many things) and <code>true</code> is a reserved symbol that can mean one thing and one thing only, the boolean opposite of <code>false</code> (I'm sorry for this explanation, I can't describe the distinction in any other way without writing a primer on symbolic logic).</p>
+<p>Generally speaking, you do not need to use quotation marks around values in your configuration file. You may wrap values in quotation marks if you wish, and many examples in this documentation do that (especially the <code>host</code> setting), but the only values that should not be wrapped in quotation marks are those that take <code>true</code> or <code>false</code> as values because in YAML, and many other computer/markup languages,<code>"true"</code> is a string (in this case, an English word that can mean many things) and <code>true</code> is a reserved symbol that can mean one thing and one thing only, the boolean opposite of <code>false</code> (I'm sorry for this explanation, I can't describe the distinction in any other way without writing a primer on symbolic logic).</p>
 <p>For example, the following is a valid configuration file:</p>
 <pre><code class="language-yaml">task: create
 host: http://localhost:8000
@@ -1489,7 +1489,7 @@ csv_field_templates:
 <td>text_format_id</td>
 <td></td>
 <td>basic_html</td>
-<td>The text format ID (machine name) to apply to all Drupal text fields that have a "formatted" field type. Use <code>text_format_ids</code> (plural) to provide a text format ID for a specific Drupalo field. See "<a href="/islandora_workbench_docs/fields/#text-fields-with-markup">Text fields with markup</a>" for more information.</td>
+<td>The text format ID (machine name) to apply to all Drupal text fields that have a "formatted" field type. Use <code>text_format_ids</code> (plural) to provide a text format ID for a specific Drupal field. See "<a href="/islandora_workbench_docs/fields/#text-fields-with-markup">Text fields with markup</a>" for more information.</td>
 </tr>
 </tbody>
 </table>
@@ -1655,7 +1655,7 @@ csv_field_templates:
 <td>export_csv_file_path</td>
 <td>✔️ in <code>get_data_from_view</code> tasks.</td>
 <td></td>
-<td>Used in the "export_csv" and "get_data_from_view" tasks. The path to the exported CSV file. Required in the "get_data_from_view" task; in the "export_csv" task, if left empty (the default), the file will be named after the value of the <code>input_csv</code> with ".csv_file_with_field_values" appended and saved in the directory identifed in <code>input_dir</code>.</td>
+<td>Used in the "export_csv" and "get_data_from_view" tasks. The path to the exported CSV file. Required in the "get_data_from_view" task; in the "export_csv" task, if left empty (the default), the file will be named after the value of the <code>input_csv</code> with ".csv_file_with_field_values" appended and saved in the directory identified in <code>input_dir</code>.</td>
 </tr>
 <tr>
 <td>export_file_directory</td>
@@ -2035,7 +2035,7 @@ csv_field_templates:
 <td>perform_soft_checks</td>
 <td></td>
 <td>false</td>
-<td>If set to true, <code>--check</code> will not exit when it encounters an error with parent/child order, file extention registration with Drupal media file fields, or EDTF validation. Instead, it will log any errors it encounters and exit after it has checked all rows in the CSV input file. Note: this setting replaces <code>strict_check</code>.</td>
+<td>If set to true, <code>--check</code> will not exit when it encounters an error with parent/child order, file extension registration with Drupal media file fields, or EDTF validation. Instead, it will log any errors it encounters and exit after it has checked all rows in the CSV input file. Note: this setting replaces <code>strict_check</code>.</td>
 </tr>
 <tr>
 <td>temp_dir</td>
@@ -2204,7 +2204,7 @@ host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
 input_csv: 'https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZvX18xoRBxfbgxqWc/edit
-# You only need to specify the google_sheets_gid option if the workseet in the Google Sheet
+# You only need to specify the google_sheets_gid option if the worksheet in the Google Sheet
 # is not the default one.
 google_sheets_gid: 1867618389
 </code></pre>
