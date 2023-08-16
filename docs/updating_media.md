@@ -81,7 +81,7 @@ media_id,field_track
 ```
 
 ## Updating the media use TIDs associated with media
-To update the Media Use TIDs associated with media, you must provide a CSV file with, at minimum, a `media_id` column and a `media_use_tid` column. The `media_id` column should contain the ID of the media you wish to update, and the `media_use_tid` column should contain the TID(s) of the media use term(s) you wish to associate with the media. If a value is not specified for the `media_use_tid` column in a particular row, the value for the `media_use_tid` setting in the configuration file (Service File by defualt) will be used.
+To update the Media Use TIDs associated with media, you must provide a CSV file with, at minimum, a `media_id` column and a `media_use_tid` column. The `media_id` column should contain the ID of the media you wish to update, and the `media_use_tid` column should contain the TID(s) of the media use term(s) you wish to associate with the media. If a value is not specified for the `media_use_tid` column in a particular row, the value for the `media_use_tid` setting in the configuration file (Service File by default) will be used.
 Here is an example CSV that updates the Media Use TID associated with the media with ID 100:
 
 ```text

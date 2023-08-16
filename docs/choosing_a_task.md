@@ -1,4 +1,4 @@
-The `task` configuration setting defines the specifc work you want Workbench to perform. This table may help you choose when to use a specific task:
+The `task` configuration setting defines the specific work you want Workbench to perform. This table may help you choose when to use a specific task:
 
 
 | If you want to | Then use this task | Start with this documentation |

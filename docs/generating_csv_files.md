@@ -54,7 +54,7 @@ The `export_csv` task generates a CSV file that contains one row for each node i
 * see in one place all of the field values for nodes, which might be useful during quality assurance after a `create` task
 * modify the data and use it as input for an `update` task using the `update_mode: replace` configuration option.
 
-The CSV file contains two of the extra rows included in the CSV file template, described above (specifically, the human-readable field label and number of values allowed), and the left-most "REMOVE THIS COLUM (KEEP THIS ROW)" column. To use the file as input for an `update` task, simply delete the extraneous column and rows.
+The CSV file contains two of the extra rows included in the CSV file template, described above (specifically, the human-readable field label and number of values allowed), and the left-most "REMOVE THIS COLUMN (KEEP THIS ROW)" column. To use the file as input for an `update` task, simply delete the extraneous column and rows.
 
 A sample configuration file for an `export_csv` task is:
 
@@ -84,7 +84,7 @@ node_id
 Some things to note:
 
 * The output includes data from nodes only, not media.
-* Unless a file path is specificed in the `export_csv_file_path` configuration option, the output CSV file name is the name of the input CSV file (containing node IDs) with ".csv_file_with_field_values" appended. For example, if you `export_csv` configuration file defines the `input_csv` as "my_export_nodes.csv", the CSV file created by the task will be named "my_export_nodes.csv.csv_file_with_field_values". The file is saved in the directory identified by the `input_dir` configuration option.
+* Unless a file path is specified in the `export_csv_file_path` configuration option, the output CSV file name is the name of the input CSV file (containing node IDs) with ".csv_file_with_field_values" appended. For example, if you `export_csv` configuration file defines the `input_csv` as "my_export_nodes.csv", the CSV file created by the task will be named "my_export_nodes.csv.csv_file_with_field_values". The file is saved in the directory identified by the `input_dir` configuration option.
 * You can include either vocabulary term IDs or term names (with accompanying vocabulary namespaces) in the CSV. By default, term IDs are included; to include term names instead, include `export_csv_term_mode: name` in you configuration file.
 * A single `export_csv` job can only export nodes that have the content type identified in your Workbench configuration. By default, this is "islandora_object". If you include node IDs in your input file for nodes that have a different content type, Workbench will skip exporting their data and log the fact that it has done so.
 * If you don't want to export all the fields on a content type, you can list the fields you want to export in the `export_csv_field_list` configuration option.
@@ -109,7 +109,7 @@ export_csv_file_path: /tmp/islandora_export.csv
 export_csv_field_list: ['field_description', 'field_extent']
 # Identify any URL parameters configured for the View (e.g., an exposed filter).
 # Note that values in the 'view_parameters' configuration setting are literal
-# paramater/operator/value strings,not YAML key: value pairs.
+# parameter/operator/value strings,not YAML key: value pairs.
 view_parameters:
  - 'title_contains=Debate'
 ```
@@ -132,7 +132,7 @@ Here is a screenshot illustrating these settings:
 To test your REST export, in your browser, join your Drupal hostname and the "Path" defined in your View configuration. Using the values in the configuration file above, that would be `http://localhost:8000/workbench-export-test`. You should see raw JSON (or formatted JSON if your browser renders JSON to be human readable) that lists the nodes in your View.
 
 !!! warning
-    If your View includes nodes that you do not want to be seen by anonymous users, or if it contains unpublished nodes, adjust the access permissions settings appropriately, and ensure that the user identified in your Workbench configuration file has sufficien permissions.
+    If your View includes nodes that you do not want to be seen by anonymous users, or if it contains unpublished nodes, adjust the access permissions settings appropriately, and ensure that the user identified in your Workbench configuration file has sufficient permissions.
 
 Some things to note:
 
@@ -155,7 +155,7 @@ Note that currently only a single file per node can be exported, and that files 
 By default, Workbench maintains a simple database that maps values in your CSV's ID column (or whatever column you define in the `id_field` config setting) to node IDs created in `create` tasks.
 
 !!! note
-    You do not need to install anything extra for Workbench to create this database. Workbench provides a utiltity script, `manage_csv_to_node_id_map.py` (described below), for exporting and pruning the data. You only need to install the `sqlite3` client or a third-party utility if you want to access the database in ways that surpass the capabilities of the `manage_csv_to_node_id_map.py` script.
+    You do not need to install anything extra for Workbench to create this database. Workbench provides a utility script, `manage_csv_to_node_id_map.py` (described below), for exporting and pruning the data. You only need to install the `sqlite3` client or a third-party utility if you want to access the database in ways that surpass the capabilities of the `manage_csv_to_node_id_map.py` script.
 
     A useful third-party tool for viewing and modifying SQLite databases is [DB Browser for SQLite](https://sqlitebrowser.org/). Here is a sample screenshot illustrating the CSV to node ID map database table in DB Browser for SQLite (CSV ID and node ID are the two right-most columns):
 
@@ -165,7 +165,7 @@ By default, Workbench maintains a simple database that maps values in your CSV's
 Workbench optionally uses this database to determine the node ID of parent nodes when creating paged and compound content, so, for example, you can use `parent_id` values in your input CSV that refer to parents created in earlier Workbench sessions. But, you may find other uses for this data. Since it is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the `dump_id_map.py` script provided in Workbench's `scripts` directory.
 
 !!! note
-    In `create_from_files` tasks, which don't use an imput CSV file, the filename is recorded instead of an "id".
+    In `create_from_files` tasks, which don't use an input CSV file, the filename is recorded instead of an "id".
 
 One configuration setting applies to this feature, `csv_id_to_node_id_map_path`. By default, its value is `[your temporary directory]/csv_id_to_node_id_map.db` (see the [temp_dir](/islandora_workbench_docs/configuration/#miscellaneous-settings) config setting's documentation for more information on where that directory is). This default can be overridden in your config file. If you want to disable population of this database completely, set `csv_id_to_node_id_map_path` to `false`.
 
@@ -178,7 +178,7 @@ The SQLite database contains one table, "csv_id_to_node_id_map". This table has 
 * `config_file`: the name of the Workbench configuration file active when the row was added
 * `parent_csv_id`: if the node was created along with its parent, the parent's CSV ID
 * `parent_node_id`: if the node was create along with its parent, the parent's node ID
-* `csv_id`: the value in the node's CSV ID field (or in `create_from_files` tasks, which don't use an imput CSV file, the filename)
+* `csv_id`: the value in the node's CSV ID field (or in `create_from_files` tasks, which don't use an input CSV file, the filename)
 * `node_id`: the node's Drupal node ID
 
 If you don't want to query the database directly, you can use `scripts/manage_csv_to_node_id_map.py` to:

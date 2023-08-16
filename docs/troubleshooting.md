@@ -1,4 +1,4 @@
-If you encounter a problem, take a look at the "things that migh sound familiar" section below. But, if the problem you're encountering isn't described below, you can ask for help.
+If you encounter a problem, take a look at the "things that might sound familiar" section below. But, if the problem you're encountering isn't described below, you can ask for help.
 
 ## Ask for help
 
@@ -12,7 +12,7 @@ If Workbench crashes on you, you might be able to fix the problem by pulling in 
 
 To pull in the latest updates, within the "islandora_workbench" directory, run the following git commands:
 
-1. `git branch`, which should tell whether you're currently in the "main" brach. If you are:
+1. `git branch`, which should tell whether you're currently in the "main" branch. If you are:
 1. `git pull`, which will fetch the most recent code and and merge it into the code you are running.
 
 If git tells you it has pulled in any changes to Workbench, you will be running the latest code. If you get an error while running git, ask for help.
@@ -22,8 +22,8 @@ Also, you might be asked to provide one or more of the following:
 * your configuration file (without username and password!)
 * some sample input CSV
 * your Workbench log file
-* details fromn your Drupal log, available at Admin > Reports > Recent log messages
-* whether youb have certain contrib modules installed, or other questions about how your Drupal is configured.
+* details from your Drupal log, available at Admin > Reports > Recent log messages
+* whether you have certain contrib modules installed, or other questions about how your Drupal is configured.
 
 
 ## Some things that might sound familiar
@@ -55,7 +55,7 @@ The most likely problem is that one of your CSV values contains a comma but is n
 
 ### My Drupal has the "Standalone media URL" option at `/admin/config/media/media-settings` checked, and I'm using Workbench's `standalone_media_url: true` option in my config, but I'm still getting lots of errors.
 
-Bue sure to clear Drupal's cache every time you change the "Standalone media URL" option. More information can be found [here](/islandora_workbench_docs/installation/#configuring-drupals-media-urls).
+Be sure to clear Drupal's cache every time you change the "Standalone media URL" option. More information can be found [here](/islandora_workbench_docs/installation/#configuring-drupals-media-urls).
 
 ### Workbench crashes or slows down my Drupal server.
 
@@ -67,7 +67,7 @@ Note that both of these settings will slow Workbench down, which is their purpos
 
 Some web applications, including Drupal 7, return a human-readable HTML page instead of a expected HTTP response code when they encounter an error. If Workbench is complaining that a remote file in your `file` other file column in your input CSV has an extension of ".htm" or ".html" and you know that the file is not an HTML page, what Workbench is seeing is probably an error message. For example, Workbench might leave a message like this in your log: `Error: File "https://digital.lib.sfu.ca/islandora/object/edcartoons:158/datastream/OBJ/view" in CSV row "text:302175" has an extension (html) that is not allowed in the "field_media_file" field of the "file" media type.`
 
-This error can be challenging to track down since the HTML error page might have been specific to the request that Workbench just made (e.g. a timeout or some other temporary server condition). One way of determining if the error is temporary (i.e. specific to the request) is to use `curl` to fetch the file (e.g., `curl -o test.tif https://digital.lib.sfu.ca/islandora/object/edcartoons:158/datastream/OBJ/view`). If the returned file (in this example, it will be named `test.tif`) is in fact HTML, the error is probably permanent or at least peristent; if the file is the one you expected to retrieve, the error was temporary and you can ignore it.
+This error can be challenging to track down since the HTML error page might have been specific to the request that Workbench just made (e.g. a timeout or some other temporary server condition). One way of determining if the error is temporary (i.e. specific to the request) is to use `curl` to fetch the file (e.g., `curl -o test.tif https://digital.lib.sfu.ca/islandora/object/edcartoons:158/datastream/OBJ/view`). If the returned file (in this example, it will be named `test.tif`) is in fact HTML, the error is probably permanent or at least persistent; if the file is the one you expected to retrieve, the error was temporary and you can ignore it.
 
 ### The text in my CSV does not match how it looks when I view it in Drupal.
 
