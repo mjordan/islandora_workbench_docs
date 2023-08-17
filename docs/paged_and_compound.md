@@ -124,7 +124,11 @@ password: islandora
 input_csv: kids.csv
 csv_field_templates:
  - field_model: http://purl.org/coar/resource_type/c_c513
+query_csv_id_to_node_id_map_for_parents: true
 ```
+
+!!! note
+    The CSV ID to node ID map is required in secondary `create` tasks. Workbench will automatically change the `query_csv_id_to_node_id_map_for_parents` to `true`, regardless of whether that setting is in your secondary task's config file.
 
 !!! note
     The `nodes_only` setting in the above example primary configuration file and the `csv_field_templates` setting in the secondary configuration file are not relevant to the primary/secondary task functionality; they're included to illustrate that the two configuration files can differ.
