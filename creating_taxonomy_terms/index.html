@@ -10,6 +10,8 @@
       
       
       
+        <link rel="canonical" href="https://mjordan.github.io/islandora_workbench_docs/creating_taxonomy_terms/">
+      
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
@@ -978,13 +980,13 @@
 
   <h1>Creating taxonomy terms</h1>
 
-<p>Islandora Workbench lets you create vocabulary terms from CSV files. This ability is separate from creating vocabulary terms while creating the nodes in a <code>create</code> task, as described in the "<a href="/islandora_workbench_docs/fields">Field data (Drupal and CSV)</a>" documentation. You should create vocabulary terms using the options described here if any of these situations applies to you:</p>
+<p>Islandora Workbench lets you create vocabulary terms from CSV files. This ability is separate from creating vocabulary terms while creating the nodes in a <code>create</code> task, as described in the "<a href="fields">Field data (Drupal and CSV)</a>" documentation. You should create vocabulary terms using the options described here if any of these situations applies to you:</p>
 <ul>
 <li>you are working with a vocabulary that has fields in addition to term name</li>
 <li>you are working with a vocabulary that is hierarchical</li>
 <li>you want terms to exist before you create nodes using a <code>create</code> task.</li>
 </ul>
-<p>If you want to create terms during a <code>create</code> task, and if the terms you are creating don't have any additional fields or hierarchical relationships to other terms, then you don't need to use the task described here. You can use the method you can create terms as described in as described in the "Taxonomy reference fields" section of "<a href="/islandora_workbench_docs/fields">Field data (Drupal and CSV)</a>."</p>
+<p>If you want to create terms during a <code>create</code> task, and if the terms you are creating don't have any additional fields or hierarchical relationships to other terms, then you don't need to use the task described here. You can use the method you can create terms as described in as described in the "Taxonomy reference fields" section of "<a href="fields">Field data (Drupal and CSV)</a>."</p>
 <h3 id="the-configuration-and-input-csv-files">The configuration and input CSV files</h3>
 <p>To add terms to a vocabulary, you use a <code>create_terms</code> task. A typical configuration file looks like this:</p>
 <pre><code class="language-yaml">task: create_terms

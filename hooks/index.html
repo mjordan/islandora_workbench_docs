@@ -10,6 +10,8 @@
       
       
       
+        <link rel="canonical" href="https://mjordan.github.io/islandora_workbench_docs/hooks/">
+      
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
@@ -1026,7 +1028,7 @@
 <p>Hook scripts can be in any language, and need to be executable by the user running Workbench.</p>
 <p>Execution (whether successful or not) of hook scripts is logged, including the scripts' exit code.</p>
 <h3 id="bootstrap-and-shutdown-scripts">Bootstrap and shutdown scripts</h3>
-<p>Bootstrap scripts execute prior to Workbench connecting to Drupal. For an example of using this feature to run a script that generates sample Islandora content, see the "<a href="/islandora_workbench_docs/generating_sample_content/">Generating sample Islandora content</a>" section.</p>
+<p>Bootstrap scripts execute prior to Workbench connecting to Drupal. For an example of using this feature to run a script that generates sample Islandora content, see the "<a href="generating_sample_content/">Generating sample Islandora content</a>" section.</p>
 <p>To register a bootstrap script in your configuration file, add it to the <code>bootstrap</code> option, like this:</p>
 <pre><code class="language-yaml">bootstrap: [&quot;/home/mark/Documents/hacking/workbench/generate_image_files.py&quot;]
 </code></pre>
