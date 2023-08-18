@@ -1,217 +1,217 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/adding_media/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/adding_multiple_media/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/aliases/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/alt_text/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/cancelling/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/changelog/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/check/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/choosing_a_task/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/configuration/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/contact_sheet/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/creating_nodes_from_files/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/creating_taxonomy_terms/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/csv_value_templates/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/deleting_media/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/deleting_nodes/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/development_guide/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/drupal_and_workbench/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/exporting_islandora_7_content/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/field_templates/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/fields/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/fixity/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/generating_csv_files/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/generating_sample_content/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/hooks/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/ignoring_csv_rows_and_columns/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/installation/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/limitations/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/logging/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/media_track_files/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/media_types/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/nodes_only/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/preparing_data/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/quick_delete/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/reducing_load/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/roadmap/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/rolling_back/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/sample_data/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/troubleshooting/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/updating_media/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/updating_nodes/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
+         <loc>https://mjordan.github.io/islandora_workbench_docs/workflows/</loc>
          <lastmod>2023-08-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
