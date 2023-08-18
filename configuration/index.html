@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://mjordan.github.io/islandora_workbench_docs/configuration/">
+        <link rel="canonical" href="https://mjordan.github.io/configuration/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
@@ -1437,19 +1437,19 @@ csv_field_templates:
 <td>allow_adding_terms</td>
 <td></td>
 <td>false</td>
-<td>In <code>create</code> and <code>update</code> tasks, determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "<a href="/islandora_workbench_docs/fields/#field-types">Taxonomy reference fields</a>" section. Note: this setting is not required in <code>create_terms</code> tasks.</td>
+<td>In <code>create</code> and <code>update</code> tasks, determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "<a href="fields/#field-types">Taxonomy reference fields</a>" section. Note: this setting is not required in <code>create_terms</code> tasks.</td>
 </tr>
 <tr>
 <td>vocab_id</td>
 <td>✔️ in <code>create_terms</code> tasks.</td>
 <td></td>
-<td>Identifies the vocabulary you are adding terms to in <code>create_tersm</code> tasks. See more information in the "<a href="/islandora_workbench_docs/creating_taxonomy_terms">Creating taxonomy terms</a>" section.</td>
+<td>Identifies the vocabulary you are adding terms to in <code>create_tersm</code> tasks. See more information in the "<a href="creating_taxonomy_terms">Creating taxonomy terms</a>" section.</td>
 </tr>
 <tr>
 <td>update_mode</td>
 <td></td>
 <td>replace</td>
-<td>Determines if Workbench will <code>replace</code>, <code>append</code> (add to) , or <code>delete</code> field values during <code>update</code> tasks. See more information in the "<a href="/islandora_workbench_docs/updating_nodes">Updating nodes</a>" section.</td>
+<td>Determines if Workbench will <code>replace</code>, <code>append</code> (add to) , or <code>delete</code> field values during <code>update</code> tasks. See more information in the "<a href="updating_nodes">Updating nodes</a>" section.</td>
 </tr>
 <tr>
 <td>validate_terms_exist</td>
@@ -1479,19 +1479,19 @@ csv_field_templates:
 <td>standalone_media_url</td>
 <td></td>
 <td>false</td>
-<td>Set to <code>true</code> if your Drupal instance has the "Standalone media URL" option at <code>/admin/config/media/media-settings</code> checked. The Drupal default is to have this unchecked, so you only need to use this Workbench option if you have changed Drupal's default. <a href="/islandora_workbench_docs/installation/#configuring-drupals-media-urls">More information</a> is available.</td>
+<td>Set to <code>true</code> if your Drupal instance has the "Standalone media URL" option at <code>/admin/config/media/media-settings</code> checked. The Drupal default is to have this unchecked, so you only need to use this Workbench option if you have changed Drupal's default. <a href="installation/#configuring-drupals-media-urls">More information</a> is available.</td>
 </tr>
 <tr>
 <td>require_entity_reference_views</td>
 <td></td>
 <td>true</td>
-<td>Set to <code>false</code> to tell Workbench to not require a View to expose the values in an entity reference field configured to use an Entity Reference View. Additional information is available <a href="/islandora_workbench_docs/fields/#entity-reference-views-fields">here</a>.</td>
+<td>Set to <code>false</code> to tell Workbench to not require a View to expose the values in an entity reference field configured to use an Entity Reference View. Additional information is available <a href="fields/#entity-reference-views-fields">here</a>.</td>
 </tr>
 <tr>
 <td>text_format_id</td>
 <td></td>
 <td>basic_html</td>
-<td>The text format ID (machine name) to apply to all Drupal text fields that have a "formatted" field type. Use <code>text_format_ids</code> (plural) to provide a text format ID for a specific Drupal field. See "<a href="/islandora_workbench_docs/fields/#text-fields-with-markup">Text fields with markup</a>" for more information.</td>
+<td>The text format ID (machine name) to apply to all Drupal text fields that have a "formatted" field type. Use <code>text_format_ids</code> (plural) to provide a text format ID for a specific Drupal field. See "<a href="fields/#text-fields-with-markup">Text fields with markup</a>" for more information.</td>
 </tr>
 </tbody>
 </table>
@@ -1516,19 +1516,19 @@ csv_field_templates:
 <td>input_csv</td>
 <td></td>
 <td>metadata.csv</td>
-<td>Path to the CSV metadata file. Can be absolute, or if just the filename is provided, will be assumed to be in the directory named in <code>input_dir</code>. Can also be the URL to a Google spreadsheet (see the "<a href="/islandora_workbench_docs/preparing_data/#using-a-google-sheet-as-the-input-csv-file">Using Google Sheets as input data</a>" section for more information).</td>
+<td>Path to the CSV metadata file. Can be absolute, or if just the filename is provided, will be assumed to be in the directory named in <code>input_dir</code>. Can also be the URL to a Google spreadsheet (see the "<a href="preparing_data/#using-a-google-sheet-as-the-input-csv-file">Using Google Sheets as input data</a>" section for more information).</td>
 </tr>
 <tr>
 <td>google_sheets_csv_filename</td>
 <td></td>
 <td>google_sheet.csv</td>
-<td>Local CSV filename for data from a Google spreadsheet. See the "<a href="/islandora_workbench_docs/preparing_data/#using-a-google-sheet-as-the-input-csv-file">Using Google Sheets as input data</a>" section for more information.</td>
+<td>Local CSV filename for data from a Google spreadsheet. See the "<a href="preparing_data/#using-a-google-sheet-as-the-input-csv-file">Using Google Sheets as input data</a>" section for more information.</td>
 </tr>
 <tr>
 <td>google_sheets_gid</td>
 <td></td>
 <td>0</td>
-<td>The "gid" of the worksheet to use in a Google Sheet. See  "<a href="/islandora_workbench_docs/preparing_data/#using-a-google-sheet-as-the-input-csv-file">Using Google Sheets as input data</a>" section for more information.</td>
+<td>The "gid" of the worksheet to use in a Google Sheet. See  "<a href="preparing_data/#using-a-google-sheet-as-the-input-csv-file">Using Google Sheets as input data</a>" section for more information.</td>
 </tr>
 <tr>
 <td>excel_worksheet</td>
@@ -1571,13 +1571,13 @@ csv_field_templates:
 <td>csv_field_templates</td>
 <td></td>
 <td></td>
-<td>Used in the <code>create</code> and <code>update</code> tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the "<a href="/islandora_workbench_docs/field_templates/">CSV field templates</a>" section.</td>
+<td>Used in the <code>create</code> and <code>update</code> tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the "<a href="field_templates/">CSV field templates</a>" section.</td>
 </tr>
 <tr>
 <td>csv_value_templates</td>
 <td></td>
 <td></td>
-<td>Used in the <code>create</code> and <code>update</code> tasks only. A list of Drupal field machine names and corresponding templates. More detail provided in the "<a href="/islandora_workbench_docs/csv_value_templates/">CSV value templates</a>" section.</td>
+<td>Used in the <code>create</code> and <code>update</code> tasks only. A list of Drupal field machine names and corresponding templates. More detail provided in the "<a href="csv_value_templates/">CSV value templates</a>" section.</td>
 </tr>
 <tr>
 <td>ignore_csv_columns</td>
@@ -1589,13 +1589,13 @@ csv_field_templates:
 <td>csv_start_row</td>
 <td></td>
 <td></td>
-<td>Used in all tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) before the designated row number. <a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges">More information</a> is available.</td>
+<td>Used in all tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) before the designated row number. <a href="ignoring_csv_rows_and_columns/#using-csv-row-ranges">More information</a> is available.</td>
 </tr>
 <tr>
 <td>csv_stop_row</td>
 <td></td>
 <td></td>
-<td>Used in all tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) after the designated row number. <a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges">More information</a> is available.</td>
+<td>Used in all tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) after the designated row number. <a href="ignoring_csv_rows_and_columns/#using-csv-row-ranges">More information</a> is available.</td>
 </tr>
 <tr>
 <td>csv_headers</td>
@@ -1607,12 +1607,12 @@ csv_field_templates:
 <td>clean_csv_values_skip</td>
 <td></td>
 <td>[] (empty list)]</td>
-<td>Used in all tasks that use CSV input files. See "<a href="/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data">How Workbench cleans your input data</a>" for more information.</td>
+<td>Used in all tasks that use CSV input files. See "<a href="preparing_data/#how-workbench-cleans-your-input-data">How Workbench cleans your input data</a>" for more information.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="output-csv-settings">Output CSV settings</h3>
-<p>See "<a href="/islandora_workbench_docs/generating_csv_files/">Generating CSV files</a>" section for more information.</p>
+<p>See "<a href="generating_csv_files/">Generating CSV files</a>" section for more information.</p>
 <table>
 <thead>
 <tr>
@@ -1639,19 +1639,19 @@ csv_field_templates:
 <td>export_csv_term_mode</td>
 <td></td>
 <td>tid</td>
-<td>Used in "export_csv" tasks to indicate whether vocabulary term IDs or names are included in the output CSV file. Set to "tid" (the default) to include term IDs, or set to "name" to include term names. See "<a href="/islandora_workbench_docs/generating_csv_files/#exporting-field-data-into-a-csv-file">Exporting field data into a CSV file</a>" for more information.</td>
+<td>Used in "export_csv" tasks to indicate whether vocabulary term IDs or names are included in the output CSV file. Set to "tid" (the default) to include term IDs, or set to "name" to include term names. See "<a href="generating_csv_files/#exporting-field-data-into-a-csv-file">Exporting field data into a CSV file</a>" for more information.</td>
 </tr>
 <tr>
 <td>export_csv_field_list</td>
 <td></td>
 <td>[] (empty list)</td>
-<td>List of fields to include in exported CSV data. If empty, all fields will be included.  See "<a href="/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv">Using a Drupal View to identify content to export as CSV</a>" for more information.</td>
+<td>List of fields to include in exported CSV data. If empty, all fields will be included.  See "<a href="generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv">Using a Drupal View to identify content to export as CSV</a>" for more information.</td>
 </tr>
 <tr>
 <td>view_parameters</td>
 <td></td>
 <td></td>
-<td>List of URL parameter/value strings to include in requests to a View. See "<a href="/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv">Using a Drupal View to identify content to export as CSV</a>" for more information.</td>
+<td>List of URL parameter/value strings to include in requests to a View. See "<a href="generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv">Using a Drupal View to identify content to export as CSV</a>" for more information.</td>
 </tr>
 <tr>
 <td>export_csv_file_path</td>
@@ -1712,31 +1712,31 @@ csv_field_templates:
 <td>media_use_tid</td>
 <td></td>
 <td><code>http://pcdm.org/use#OriginalFile</code></td>
-<td>The term ID for the term from the "Islandora Media Use" vocabulary you want to apply to the media being created in <code>create</code> and <code>add_media</code> tasks. You can provide a term URI instead of a term ID, for example <code>"http://pcdm.org/use#OriginalFile"</code>. You can specify multiple values for this setting by joining them with the subdelimiter configured in the <code>subdelimiter</code> setting; for example, <code>media_use_tid: 17|18</code>. You can also set this at the object level by including <code>media_use_tid</code> in your CSV file; values there will override the value set in your configuration file. If you are "<a href="/islandora_workbench_docs/adding_multiple_media/">Adding multiple media</a>", you define media use term IDs in a slightly different way.</td>
+<td>The term ID for the term from the "Islandora Media Use" vocabulary you want to apply to the media being created in <code>create</code> and <code>add_media</code> tasks. You can provide a term URI instead of a term ID, for example <code>"http://pcdm.org/use#OriginalFile"</code>. You can specify multiple values for this setting by joining them with the subdelimiter configured in the <code>subdelimiter</code> setting; for example, <code>media_use_tid: 17|18</code>. You can also set this at the object level by including <code>media_use_tid</code> in your CSV file; values there will override the value set in your configuration file. If you are "<a href="adding_multiple_media/">Adding multiple media</a>", you define media use term IDs in a slightly different way.</td>
 </tr>
 <tr>
 <td>media_type</td>
 <td></td>
 <td></td>
-<td>Overrides, for all media being created, Workbench's default definition of whether the media being created is an image, file, document, audio, or video. Used in the <code>create</code>, <code>add_media</code>, and <code>create_from_files</code> tasks. More detail provided in the "<a href="/islandora_workbench_docs/media_types">Configuring Media Types</a>" section.</td>
+<td>Overrides, for all media being created, Workbench's default definition of whether the media being created is an image, file, document, audio, or video. Used in the <code>create</code>, <code>add_media</code>, and <code>create_from_files</code> tasks. More detail provided in the "<a href="media_types">Configuring Media Types</a>" section.</td>
 </tr>
 <tr>
 <td>media_types_override</td>
 <td></td>
 <td></td>
-<td>Overrides default media type definitions on a per file extension basis. Used in the <code>create</code>, <code>add_media</code>, and <code>create_from_files</code> tasks. More detail provided in the "<a href="/islandora_workbench_docs/media_types">Configuring Media Types</a>" section.</td>
+<td>Overrides default media type definitions on a per file extension basis. Used in the <code>create</code>, <code>add_media</code>, and <code>create_from_files</code> tasks. More detail provided in the "<a href="media_types">Configuring Media Types</a>" section.</td>
 </tr>
 <tr>
 <td>media_type_file_fields</td>
 <td></td>
 <td></td>
-<td>Defines the name of the media field that references media's file (i.e., the field on the Media type). Usually used with custom media types and accompanied by either the <code>media_type</code> or <code>media_types_override</code> option. For more information, see the "<a href="/islandora_workbench_docs/media_types">Configuring Media Types</a>" section.</td>
+<td>Defines the name of the media field that references media's file (i.e., the field on the Media type). Usually used with custom media types and accompanied by either the <code>media_type</code> or <code>media_types_override</code> option. For more information, see the "<a href="media_types">Configuring Media Types</a>" section.</td>
 </tr>
 <tr>
 <td>mimetype_extensions</td>
 <td></td>
 <td></td>
-<td>Overrides Workbench's default mappings between MIME types and file extensions. Usually used with remote files where the remote web server returns a MIME type that is not standard. For more information, see the "<a href="/islandora_workbench_docs/media_types">Configuring Media Types</a>" section.</td>
+<td>Overrides Workbench's default mappings between MIME types and file extensions. Usually used with remote files where the remote web server returns a MIME type that is not standard. For more information, see the "<a href="media_types">Configuring Media Types</a>" section.</td>
 </tr>
 <tr>
 <td>delete_media_with_nodes</td>
@@ -1784,25 +1784,25 @@ csv_field_templates:
 <td>additional_files</td>
 <td></td>
 <td></td>
-<td>Maps a set of CSV field names to media use terms IDs to create additional media (additional to the media created from the file named in the "file" column, that is) in <code>create</code> and <code>add_media</code> tasks. See "<a href="/islandora_workbench_docs/adding_multiple_media">Adding multiple media</a>" for more information.</td>
+<td>Maps a set of CSV field names to media use terms IDs to create additional media (additional to the media created from the file named in the "file" column, that is) in <code>create</code> and <code>add_media</code> tasks. See "<a href="adding_multiple_media">Adding multiple media</a>" for more information.</td>
 </tr>
 <tr>
 <td>fixity_algorithm</td>
 <td></td>
 <td>None</td>
-<td>Checksum/hash algorithm to use during transmission fixity checking. Must be one of "md5", "sha1", or "sha256". See "<a href="/islandora_workbench_docs/fixity">Fixity checking</a>" for more information.</td>
+<td>Checksum/hash algorithm to use during transmission fixity checking. Must be one of "md5", "sha1", or "sha256". See "<a href="fixity">Fixity checking</a>" for more information.</td>
 </tr>
 <tr>
 <td>validate_fixity_during_check</td>
 <td></td>
 <td>false</td>
-<td>Perform checksum validation during <code>--check</code>. See "<a href="/islandora_workbench_docs/fixity">Fixity checking</a>" for more information.</td>
+<td>Perform checksum validation during <code>--check</code>. See "<a href="fixity">Fixity checking</a>" for more information.</td>
 </tr>
 <tr>
 <td>delete_media_by_node_media_use_tids</td>
 <td></td>
 <td>[] (empty list)</td>
-<td>During <code>delete_media_by_node</code> tasks, allows you to specify which media to delete. Only media with the listed terms IDs from the Islandora Media Use vocabulary will be deleted. By default (an empty list), all media are deleted. See "<a href="/islandora_workbench_docs/deleting_media">Deleting Media</a>" for more information.</td>
+<td>During <code>delete_media_by_node</code> tasks, allows you to specify which media to delete. Only media with the listed terms IDs from the Islandora Media Use vocabulary will be deleted. By default (an empty list), all media are deleted. See "<a href="deleting_media">Deleting Media</a>" for more information.</td>
 </tr>
 </tbody>
 </table>
@@ -1821,18 +1821,18 @@ csv_field_templates:
 <td>model [singular]</td>
 <td></td>
 <td></td>
-<td>Used in the <code>create_from_files</code> task only. Defines the term ID from the the "Islandora Models" vocabulary for all nodes created using this task. Note: one of <code>model</code> or <code>models</code> is required. More detail provided in the "<a href="/islandora_workbench_docs/creating_nodes_from_files/">Creating nodes from files</a>" section.</td>
+<td>Used in the <code>create_from_files</code> task only. Defines the term ID from the the "Islandora Models" vocabulary for all nodes created using this task. Note: one of <code>model</code> or <code>models</code> is required. More detail provided in the "<a href="creating_nodes_from_files/">Creating nodes from files</a>" section.</td>
 </tr>
 <tr>
 <td>models [plural]</td>
 <td></td>
 <td></td>
-<td>Used in the <code>create_from_files</code> task only. Provides a mapping between file extensions and terms in the "Islandora Models" vocabulary. Note: one of <code>model</code> or <code>models</code> is required. More detail provided in the <a href="/islandora_workbench_docs/creating_nodes_from_files/">Creating nodes from files</a>" section.</td>
+<td>Used in the <code>create_from_files</code> task only. Provides a mapping between file extensions and terms in the "Islandora Models" vocabulary. Note: one of <code>model</code> or <code>models</code> is required. More detail provided in the <a href="creating_nodes_from_files/">Creating nodes from files</a>" section.</td>
 </tr>
 </tbody>
 </table>
 <h3 id="paged-and-compound-content-settings">Paged and compound content settings</h3>
-<p>See the section "<a href="/islandora_workbench_docs/paged_and_compound/">Creating paged content</a>" for more information.</p>
+<p>See the section "<a href="paged_and_compound/">Creating paged content</a>" for more information.</p>
 <table>
 <thead>
 <tr>
@@ -1847,13 +1847,13 @@ csv_field_templates:
 <td>paged_content_from_directories</td>
 <td></td>
 <td>false</td>
-<td>Set to true if you are using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method of creating paged content.</td>
+<td>Set to true if you are using the "<a href="paged_and_compound/#using-subdirectories">Using subdirectories</a>" method of creating paged content.</td>
 </tr>
 <tr>
 <td>paged_content_sequence_separator</td>
 <td></td>
 <td>- [hyphen]</td>
-<td>The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method. Note: this configuration option was originally misspelled "paged_content_sequence_seprator".</td>
+<td>The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the "<a href="paged_and_compound/#using-subdirectories">Using subdirectories</a>" method. Note: this configuration option was originally misspelled "paged_content_sequence_seprator".</td>
 </tr>
 <tr>
 <td>paged_content_page_model_tid</td>
@@ -1871,42 +1871,42 @@ csv_field_templates:
 <td>paged_content_page_content_type</td>
 <td></td>
 <td></td>
-<td>Set to the machine name of the Drupal node content type for pages created using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method if it is different than the content type of the parent (which is specified in the content_type setting).</td>
+<td>Set to the machine name of the Drupal node content type for pages created using the "<a href="paged_and_compound/#using-subdirectories">Using subdirectories</a>" method if it is different than the content type of the parent (which is specified in the content_type setting).</td>
 </tr>
 <tr>
 <td>page_title_template</td>
 <td></td>
 <td>'$parent_title, page $weight'</td>
-<td>Template used to generate the titles of pages/members in the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method.</td>
+<td>Template used to generate the titles of pages/members in the "<a href="paged_and_compound/#using-subdirectories">Using subdirectories</a>" method.</td>
 </tr>
 <tr>
 <td>secondary_tasks</td>
 <td></td>
 <td></td>
-<td>A list of configuration file names that are executed as secondary tasks after the primary task to create compound objects. See "<a href="/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task">Using a secondary task</a>" for more information.</td>
+<td>A list of configuration file names that are executed as secondary tasks after the primary task to create compound objects. See "<a href="paged_and_compound/#using-a-secondary-task">Using a secondary task</a>" for more information.</td>
 </tr>
 <tr>
 <td>csv_id_to_node_id_map_path</td>
 <td></td>
 <td>[temp_dir]/csv_id_to_node_id_map.db</td>
-<td>Name of the SQLite database filename used to store CSV row ID to node ID mappings for nodes created during <code>create</code> and <code>create_from_files</code> tasks. If you want to store your map database outside of a temporary directory, use an absolute path to the database file for this setting. If you want to disable population of this database, set this config setting to <code>false</code>. See "<a href="/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map">Generating CSV files</a>" for more information.</td>
+<td>Name of the SQLite database filename used to store CSV row ID to node ID mappings for nodes created during <code>create</code> and <code>create_from_files</code> tasks. If you want to store your map database outside of a temporary directory, use an absolute path to the database file for this setting. If you want to disable population of this database, set this config setting to <code>false</code>. See "<a href="generating_csv_files/#using-the-csv-id-to-node-id-map">Generating CSV files</a>" for more information.</td>
 </tr>
 <tr>
 <td>query_csv_id_to_node_id_map_for_parents</td>
 <td></td>
 <td>false</td>
-<td>Queries the CSV ID to node ID map when creating compound content. Set to <code>true</code> if you want to use parent IDs from previous Workbench sessions. See "<a href="/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions">Creating parent/child relationships across Workbench sessions</a> for more information."</td>
+<td>Queries the CSV ID to node ID map when creating compound content. Set to <code>true</code> if you want to use parent IDs from previous Workbench sessions. See "<a href="paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions">Creating parent/child relationships across Workbench sessions</a> for more information."</td>
 </tr>
 <tr>
 <td>ignore_duplicate_parent_ids</td>
 <td></td>
 <td>true</td>
-<td>Tells Workbench to ignore entries in the CSV ID to node ID map that have the same parent ID value. Set to <code>false</code> if you want Workbench to warn you that there are duplicate parent IDs in your CSV ID to node ID map. See "<a href="/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions">Creating parent/child relationships across Workbench sessions</a> for more information."</td>
+<td>Tells Workbench to ignore entries in the CSV ID to node ID map that have the same parent ID value. Set to <code>false</code> if you want Workbench to warn you that there are duplicate parent IDs in your CSV ID to node ID map. See "<a href="paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions">Creating parent/child relationships across Workbench sessions</a> for more information."</td>
 </tr>
 </tbody>
 </table>
 <h3 id="logging-settings">Logging settings</h3>
-<p>See the "<a href="/islandora_workbench_docs/logging/">Logging</a>" section for more information.</p>
+<p>See the "<a href="logging/">Logging</a>" section for more information.</p>
 <table>
 <thead>
 <tr>
@@ -2055,25 +2055,25 @@ csv_field_templates:
 <td>rollback_dir</td>
 <td></td>
 <td>Value of <code>input_dir</code> setting</td>
-<td>Absolute path to the directory where you want your "rollback.csv" file to be written. See "<a href="/islandora_workbench_docs/rolling_back/">Rolling back</a>" for more information.</td>
+<td>Absolute path to the directory where you want your "rollback.csv" file to be written. See "<a href="rolling_back/">Rolling back</a>" for more information.</td>
 </tr>
 <tr>
 <td>timestamp_rollback</td>
 <td></td>
 <td>false</td>
-<td>Set to <code>true</code> to add a timestamp to the "rollback.yml" and corresponding "rollback.csv" generated in "create" and "create_from_files" tasks. See "<a href="/islandora_workbench_docs/rolling_back/">Rolling back</a>" for more information.</td>
+<td>Set to <code>true</code> to add a timestamp to the "rollback.yml" and corresponding "rollback.csv" generated in "create" and "create_from_files" tasks. See "<a href="rolling_back/">Rolling back</a>" for more information.</td>
 </tr>
 <tr>
 <td>pause</td>
 <td></td>
 <td></td>
-<td>Defines the number of seconds to pause between all 'POST', 'PUT', 'PATCH', 'DELETE' requests to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5. More information is available in the "<a href="/islandora_workbench_docs/reducing_load/">Reducing Workbench's impact on Drupal</a>" documentation.</td>
+<td>Defines the number of seconds to pause between all 'POST', 'PUT', 'PATCH', 'DELETE' requests to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5. More information is available in the "<a href="reducing_load/">Reducing Workbench's impact on Drupal</a>" documentation.</td>
 </tr>
 <tr>
 <td>adaptive_pause</td>
 <td></td>
 <td></td>
-<td>Defines the number of seconds to pause between each REST request to Drupal. Works like "pause" but only takes effect when the Drupal server's response to the most recent request is slower (determined by the "adaptive_pause_threshold" value) than the average response time for the last 20 requests. More information is available in the "<a href="/islandora_workbench_docs/reducing_load/">Reducing Workbench's impact on Drupal</a>" documentation.</td>
+<td>Defines the number of seconds to pause between each REST request to Drupal. Works like "pause" but only takes effect when the Drupal server's response to the most recent request is slower (determined by the "adaptive_pause_threshold" value) than the average response time for the last 20 requests. More information is available in the "<a href="reducing_load/">Reducing Workbench's impact on Drupal</a>" documentation.</td>
 </tr>
 <tr>
 <td>adaptive_pause_threshold</td>
@@ -2091,37 +2091,37 @@ csv_field_templates:
 <td>bootstrap</td>
 <td></td>
 <td></td>
-<td>List of absolute paths to one or more scripts that execute prior to Workbench connecting to Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
+<td>List of absolute paths to one or more scripts that execute prior to Workbench connecting to Drupal. More information is available in the "<a href="hooks/">Hooks</a>" documentation.</td>
 </tr>
 <tr>
 <td>shutdown</td>
 <td></td>
 <td></td>
-<td>List of absolute paths to one or more scripts that execute after Workbench connecting to Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
+<td>List of absolute paths to one or more scripts that execute after Workbench connecting to Drupal. More information is available in the "<a href="hooks/">Hooks</a>" documentation.</td>
 </tr>
 <tr>
 <td>preprocessors</td>
 <td></td>
 <td></td>
-<td>List of absolute paths to one or more scripts that are applied to CSV values prior to the values being ingested into Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
+<td>List of absolute paths to one or more scripts that are applied to CSV values prior to the values being ingested into Drupal. More information is available in the "<a href="hooks/">Hooks</a>" documentation.</td>
 </tr>
 <tr>
 <td>node_post_create</td>
 <td></td>
 <td></td>
-<td>List of absolute paths to one or more scripts that execute after a node is created. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
+<td>List of absolute paths to one or more scripts that execute after a node is created. More information is available in the "<a href="hooks/">Hooks</a>" documentation.</td>
 </tr>
 <tr>
 <td>node_post_update</td>
 <td></td>
 <td></td>
-<td>List of absolute paths to one or more scripts that execute after a node is updated. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
+<td>List of absolute paths to one or more scripts that execute after a node is updated. More information is available in the "<a href="hooks/">Hooks</a>" documentation.</td>
 </tr>
 <tr>
 <td>media_post_create</td>
 <td></td>
 <td></td>
-<td>List of absolute paths to one or more scripts that execute after a media is created. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
+<td>List of absolute paths to one or more scripts that execute after a media is created. More information is available in the "<a href="hooks/">Hooks</a>" documentation.</td>
 </tr>
 <tr>
 <td>drupal_8</td>
@@ -2133,25 +2133,25 @@ csv_field_templates:
 <td>path_to_python</td>
 <td></td>
 <td>python</td>
-<td>Used in <code>create</code> tasks that also use the <code>secondary_tasks</code> option. Tells Workbench the path to the python interpreter. For details on when to use this option, refer to the end of the "Secondary Tasks" section of "<a href="/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task">Creating paged, compound, and collection content</a>".</td>
+<td>Used in <code>create</code> tasks that also use the <code>secondary_tasks</code> option. Tells Workbench the path to the python interpreter. For details on when to use this option, refer to the end of the "Secondary Tasks" section of "<a href="paged_and_compound/#using-a-secondary-task">Creating paged, compound, and collection content</a>".</td>
 </tr>
 <tr>
 <td>path_to_workbench_script</td>
 <td></td>
 <td>workbench</td>
-<td>Used in <code>create</code> tasks that also use the <code>secondary_tasks</code> option. Tells Workbench the path to the python interpreter. For details on when to use this option, refer to the end of the "Secondary Tasks" section of "<a href="/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task">Creating paged, compound, and collection content</a>".</td>
+<td>Used in <code>create</code> tasks that also use the <code>secondary_tasks</code> option. Tells Workbench the path to the python interpreter. For details on when to use this option, refer to the end of the "Secondary Tasks" section of "<a href="paged_and_compound/#using-a-secondary-task">Creating paged, compound, and collection content</a>".</td>
 </tr>
 <tr>
 <td>contact_sheet_output_dir</td>
 <td></td>
 <td>contact_sheet_output</td>
-<td>Used in <code>create</code> tasks to specify the name of the directory where contact sheet output is written. Can be relative (to the Workbench directory) or absolute. See "<a href="/islandora_workbench_docs/contact_sheet/">Generating a contact sheet</a>" for more information.</td>
+<td>Used in <code>create</code> tasks to specify the name of the directory where contact sheet output is written. Can be relative (to the Workbench directory) or absolute. See "<a href="contact_sheet/">Generating a contact sheet</a>" for more information.</td>
 </tr>
 <tr>
 <td>contact_sheet_css_path</td>
 <td></td>
 <td>assets/contact_sheet/contact-sheet.css</td>
-<td>Used in <code>create</code> tasks to specify the path of the CSS stylesheet to use in contact sheets. Can be relative (to the Workbench directory) or absolute. See "<a href="/islandora_workbench_docs/contact_sheet/">Generating a contact sheet</a>" for more information.</td>
+<td>Used in <code>create</code> tasks to specify the path of the CSS stylesheet to use in contact sheets. Can be relative (to the Workbench directory) or absolute. See "<a href="contact_sheet/">Generating a contact sheet</a>" for more information.</td>
 </tr>
 </tbody>
 </table>
@@ -2161,7 +2161,7 @@ csv_field_templates:
 <p>Islandora Workbench automatically converts any configuration keys to lowercase, e.g., <code>Task</code> is equivalent to <code>task</code>.</p>
 </div>
 <h2 id="validating-the-syntax-of-the-configuration-file">Validating the syntax of the configuration file</h2>
-<p>When you run Workbench, it confirms that your configuration file is valid YAML. This is a syntax check only, not a content check. If the file is valid YAML, Workbench then goes on to perform a long list of application-specific <a href="/islandora_workbench_docs/check">checks</a>.</p>
+<p>When you run Workbench, it confirms that your configuration file is valid YAML. This is a syntax check only, not a content check. If the file is valid YAML, Workbench then goes on to perform a long list of application-specific <a href="check">checks</a>.</p>
 <p>If this syntax check fails, some detail about the problem will be displayed to the user. The same information plus the entire Python stack trace is also logged to a file named "workbench.log" in the directory Islandora Workbench is run from. This file name is Workbench's default log file name, but in this case (validating the config file's YAML syntax), that file name is used regardless of the log file location defined in the configuration's <code>log_file_path</code> option. The reason the error is logged in the default location instead of the value in the configuration file (if one is present) is that the configuration file isn't valid YAML and therefore can't be parsed.</p>
 <h2 id="example-configuration-files">Example configuration files</h2>
 <p>These examples provide inline annotations explaining why the settings are included in the configuration file. Blank rows/lines are included for readability.</p>

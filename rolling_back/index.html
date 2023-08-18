@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://mjordan.github.io/islandora_workbench_docs/rolling_back/">
+        <link rel="canonical" href="https://mjordan.github.io/rolling_back/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
@@ -889,7 +889,7 @@
 
   <h1>Rolling back nodes and media</h1>
 
-<p>In the <code>create</code> and <code>create_from_files</code> tasks, Workbench generates a <code>rollback.yml</code> configuration file and a <code>rollback.csv</code> file in the format described in "Deleting nodes" documentation. These files allow you to easily roll back (i.e., delete) all the nodes and accompanying media you just created. Specifically, this configuration file defines a <code>delete</code> task. See the "<a href="/islandora_workbench_docs/deleting_nodes/">Deleting nodes</a>" section for more information.</p>
+<p>In the <code>create</code> and <code>create_from_files</code> tasks, Workbench generates a <code>rollback.yml</code> configuration file and a <code>rollback.csv</code> file in the format described in "Deleting nodes" documentation. These files allow you to easily roll back (i.e., delete) all the nodes and accompanying media you just created. Specifically, this configuration file defines a <code>delete</code> task. See the "<a href="deleting_nodes/">Deleting nodes</a>" section for more information.</p>
 <p>To roll back all the nodes and media you just created, run <code>./workbench --config rollback.yml</code>.</p>
 <p>By default, Workbench overwrites the rollback configuration and CSV files each time it runs, so these files only apply to the most recent <code>create</code> and <code>create_from_files</code> runs. If you add <code>timestamp_rollback: true</code> to your configuration file, a (to-the-second) timestamp will be added to the <code>rollback.yml</code> and corresponding <code>rollback.csv</code> files, for example, <code>rollback.2021_11_03_21_10_28.yml</code> and <code>rollback.2021_11_03_21_10_28.csv</code>. The name of the CSV is also written to <code>workbench.log</code>. Running <code>./workbench --config rollback.2021_11_03_21_10_28.yml</code> will delete the nodes identified in <code>input_data/rollback.2021_11_03_21_10_28.csv</code>.</p>
 <p>The rollback CSV file is written to the location defined in the <code>input_dir</code> setting. If you want to define another directory to put it in, include the <code>rollback_dir</code> setting in your config file.</p>

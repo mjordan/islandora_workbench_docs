@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://mjordan.github.io/islandora_workbench_docs/exporting_islandora_7_content/">
+        <link rel="canonical" href="https://mjordan.github.io/exporting_islandora_7_content/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
@@ -1065,7 +1065,7 @@
 <h2 id="overview">Overview</h2>
 <p>Islandora Workbench's main purpose is to load batches of content into an Islandora 2 repository. However, loading
 content can also be the last step in migrating from Islandora 7 to Islandora 2. As noted in
-the "<a href="/islandora_workbench_docs/workflows/#migrations">Workflows</a>" documentation, Workbench can be used in the "load"
+the "<a href="workflows/#migrations">Workflows</a>" documentation, Workbench can be used in the "load"
 phase of a typical <a href="https://en.wikipedia.org/wiki/Extract,_transform,_load">extract, transform, load</a> (ETL) process.</p>
 <p>Workbench comes with a standalone script, <code>get_islandora_7_content.py</code>, that can be used to extract (a.k.a. "export")
 metadata and OBJ datastreams from an Islandora 7 instance. This data can form the basis for Workbench input data.</p>
@@ -1193,10 +1193,10 @@ parameters can be changed in the user-supplied config file.</p>
 <h3 id="fetching-sample-solr-documents">Fetching sample Solr documents</h3>
 <p>If you can't or don't want to install the Islandora Metadata Extras module, you can query Solr directly to get a sample document. To get the entire Solr document for an object in JSON format, issue the following request to your Solr, replacing <code>km\:10571</code> with the PID of your object. The <code>-o</code>  option in the <code>curl</code> command (for "output") tells <code>curl</code> to save the response to the named file:</p>
 <p><code>curl -o km_10571.json "http://localhost:8080/solr/select?q=PID:km\:10571&amp;wt=json"</code></p>
-<p>The resulting JSON file will look like <a href="/islandora_workbench_docs/km_10571.json">this</a>.</p>
+<p>The resulting JSON file will look like <a href="../km_10571.json">this</a>.</p>
 <p>To get Solr XML document for a specific object, remove the <code>wt</code> parameter from the request URL:</p>
 <p><code>curl -o km_10571.xml "http://localhost:8080/solr/select?q=PID:km\:10571"</code></p>
-<p>The resulting file will look like <a href="/islandora_workbench_docs/km_10571.xml">this</a>.</p>
+<p>The resulting file will look like <a href="../km_10571.xml">this</a>.</p>
 <p>In the XML version, the Solr fieldnames are the values of the <code>"name"</code> attribute of each element.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1262,7 +1262,7 @@ Islandora 2. You will probably want to delete columns you don't need, combine th
 and edit the contents of others.</p>
 <p>As we can see from the example above, the column headings in the CSV are Solr fieldnames (<code>RELS_EXT_hasModel_uri_s</code>
 , <code>mods_titleInfo_title_ms</code>, etc.). You will need to replace those column headers with the equivalent
-fields <a href="/islandora_workbench_docs/fields/#content-type-specific-fields">as defined in your Drupal 9 content type</a>. In addition, the metadata stored
+fields <a href="fields/#content-type-specific-fields">as defined in your Drupal 9 content type</a>. In addition, the metadata stored
 in Islandora 7's Solr index does not in many cases have the structure Workbench requires, so the data in the CSV file
 will need to be edited before it can be used by Workbench to create nodes. The content of Islandora 7 Solr fields is
 derived from MODS (or other) XML elements, and, with the exception of text-type fields, will not necessarily map cleanly
@@ -1309,7 +1309,7 @@ other CSV data.</p>
 <p>All of these columns will likely be present in your CSV, but it is possible that some may not be, for example if your Islandora 7 repository did not have a module enabled that uses one of those RELS-EXT properties.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In general, the CSV that you need to end up with to ingest content into Islandora 2 using Workbench needs to have a structure similar to that described in the "<a href="https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#with-pagechild-level-metadata">With page/child-level metadata</a>" section of the Workbench documentation for "Creating paged, compound, and collection content." You should review the points in the "Some important things to note" section of that documentation.</p>
+<p>In general, the CSV that you need to end up with to ingest content into Islandora 2 using Workbench needs to have a structure similar to that described in the "<a href="https://mjordan.github.iopaged_and_compound/#with-pagechild-level-metadata">With page/child-level metadata</a>" section of the Workbench documentation for "Creating paged, compound, and collection content." You should review the points in the "Some important things to note" section of that documentation.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

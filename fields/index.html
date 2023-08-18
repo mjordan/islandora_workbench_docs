@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://mjordan.github.io/islandora_workbench_docs/fields/">
+        <link rel="canonical" href="https://mjordan.github.io/fields/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
@@ -1371,12 +1371,12 @@ If you are using a spreadsheet application, it will take care of wrapping the CS
 <tr>
 <td>id</td>
 <td>create</td>
-<td>This CSV field is used by Workbench for internal purposes, and is not added to the metadata of your Islandora objects. Therefore, it doesn't need to have any relationship to the item described in the rest of the fields in the CSV file. You can configure this CSV field name to be something other than <code>id</code> by using the <code>id_field</code> option in your configuration file. Note that if the specified field contains multiple values, (e.g. <code>0001|spec-86389</code>), the entire field value will be used as the internal Workbench identifier. Also note that it is important to use values in this column that are unique across input CSV files if you plan to create parent/child relationships <a href="/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions">accross Workbench sessions</a>.</td>
+<td>This CSV field is used by Workbench for internal purposes, and is not added to the metadata of your Islandora objects. Therefore, it doesn't need to have any relationship to the item described in the rest of the fields in the CSV file. You can configure this CSV field name to be something other than <code>id</code> by using the <code>id_field</code> option in your configuration file. Note that if the specified field contains multiple values, (e.g. <code>0001|spec-86389</code>), the entire field value will be used as the internal Workbench identifier. Also note that it is important to use values in this column that are unique across input CSV files if you plan to create parent/child relationships <a href="paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions">accross Workbench sessions</a>.</td>
 </tr>
 <tr>
 <td>parent_id</td>
 <td>create</td>
-<td>When creating paged or compound content, this column identifies the parent of the item described in the current row. For information on how to use this field, see "<a href="/islandora_workbench_docs/paged_and_compound/#with-pagechild-level-metadata">With page/child-level metadata</a>." Note that this field can contain only a single value. In other words, values like <code>id_0029|id_0030</code> won't work. If you want an item to have multiple parents, you need to use a later <code>update</code> task to assign additional values to the child node's <code>field_member_of</code> field.</td>
+<td>When creating paged or compound content, this column identifies the parent of the item described in the current row. For information on how to use this field, see "<a href="paged_and_compound/#with-pagechild-level-metadata">With page/child-level metadata</a>." Note that this field can contain only a single value. In other words, values like <code>id_0029|id_0030</code> won't work. If you want an item to have multiple parents, you need to use a later <code>update</code> task to assign additional values to the child node's <code>field_member_of</code> field.</td>
 </tr>
 <tr>
 <td>node_id</td>
@@ -1391,32 +1391,32 @@ If you are using a spreadsheet application, it will take care of wrapping the CS
 <tr>
 <td>media_use_tid</td>
 <td>create, add_media</td>
-<td>Tells Workbench which terms from the Islandora Media Use vocabulary to assign to media created in <code>create</code> and <code>add_media</code> tasks. This can be set for all new media in the configuration file; only include it in your CSV if you want row-level control over this value. More detail is available in the "<a href="/islandora_workbench_docs/configuration/#media-settings">Configuration</a>" docs for <code>media_use_tid</code>.</td>
+<td>Tells Workbench which terms from the Islandora Media Use vocabulary to assign to media created in <code>create</code> and <code>add_media</code> tasks. This can be set for all new media in the configuration file; only include it in your CSV if you want row-level control over this value. More detail is available in the "<a href="configuration/#media-settings">Configuration</a>" docs for <code>media_use_tid</code>.</td>
 </tr>
 <tr>
 <td>url_alias</td>
 <td>create, update</td>
-<td>See detail in "<a href="/islandora_workbench_docs/aliases/">Assigning URL aliases</a>".</td>
+<td>See detail in "<a href="aliases/">Assigning URL aliases</a>".</td>
 </tr>
 <tr>
 <td>image_alt_text</td>
 <td>create</td>
-<td>See detail in "<a href="/islandora_workbench_docs/alt_text/">Adding alt text to images</a>".</td>
+<td>See detail in "<a href="alt_text/">Adding alt text to images</a>".</td>
 </tr>
 <tr>
 <td>checksum</td>
 <td>create</td>
-<td>See detail in "<a href="/islandora_workbench_docs/fixity/">Fixity checking</a>".</td>
+<td>See detail in "<a href="fixity/">Fixity checking</a>".</td>
 </tr>
 <tr>
 <td>term_name</td>
 <td>create_terms</td>
-<td>See detail in "<a href="/islandora_workbench_docs/creating_taxonomy_terms/">Creating taxonomy terms</a>".</td>
+<td>See detail in "<a href="creating_taxonomy_terms/">Creating taxonomy terms</a>".</td>
 </tr>
 </tbody>
 </table>
 <h3 id="values-in-the-file-column">Values in the "file" column</h3>
-<p>Values in the reserved <code>file</code> CSV field contain the location of files that are used to create Drupal Media. By default, Workbench pushes up to Drupal only one file, and creates only one resulting media per CSV record. However, it is possible to push up <a href="/islandora_workbench_docs/adding_multiple_media/">multiple files</a> per CSV record (and create all of their corresponding media).</p>
+<p>Values in the reserved <code>file</code> CSV field contain the location of files that are used to create Drupal Media. By default, Workbench pushes up to Drupal only one file, and creates only one resulting media per CSV record. However, it is possible to push up <a href="adding_multiple_media/">multiple files</a> per CSV record (and create all of their corresponding media).</p>
 <p>File locations in the <code>file</code> field can be relative to the directory named in <code>input_dir</code>, absolute paths, or URLs. Examples of each:</p>
 <ul>
 <li>relative to directory named in the <code>input_dir</code> configuration setting: <code>myfile.png</code></li>
@@ -1428,7 +1428,7 @@ If you are using a spreadsheet application, it will take care of wrapping the CS
 <li>Relative, absolute, and URL file locations can exist within the same CSV file, or even within the same CSV value.</li>
 <li>By default, if the <code>file</code> value for a row is empty, Workbench's <code>--check</code> option will show an error. But, in some cases you may want to create nodes but not add any media. If you add <code>allow_missing_files: true</code> to your config file for "create" tasks, you can leave the <code>file</code> column in your CSV empty.</li>
 <li>By default, during <code>--check</code>, Workbench will exit when it first encounters a missing file (or an empty <code>file</code> value). If you would prefer that Workbench checked for the existence of all files before exiting, include <code>strict_check: false</code> in your configuration.</li>
-<li>If you want do not want to create media for any of the rows in your CSV file, include <code>nodes_only: true</code> in your configuration file. More detail <a href="/islandora_workbench_docs/nodes_only/">is available</a>.</li>
+<li>If you want do not want to create media for any of the rows in your CSV file, include <code>nodes_only: true</code> in your configuration file. More detail <a href="nodes_only/">is available</a>.</li>
 <li><code>file</code> values that contain non-ASCII characters are normalized to their ASCII equivalents. See <a href="https://github.com/mjordan/islandora_workbench/issues/192">this issue</a> for more information.</li>
 <li>The Drupal filesystem where files are stored is determined by each media type's file field configuration. It is not possible to override that configuration.</li>
 </ul>
@@ -1488,7 +1488,7 @@ If you are using a spreadsheet application, it will take care of wrapping the CS
 </table>
 <p>If a required field is missing from your CSV, <code>--check</code> will tell you.</p>
 <h2 id="columns-you-want-workbench-to-ignore">Columns you want Workbench to ignore</h2>
-<p>In some cases you might want to include columns in your CSV that you want Workbench to ignore. More information on this option is available in the "Sharing the input CSV with other applications" section of the <a href="/islandora_workbench_docs/workflows/#sharing-the-input-csv-with-other-applications">Workflows</a> documentation.</p>
+<p>In some cases you might want to include columns in your CSV that you want Workbench to ignore. More information on this option is available in the "Sharing the input CSV with other applications" section of the <a href="workflows/#sharing-the-input-csv-with-other-applications">Workflows</a> documentation.</p>
 <h2 id="csv-fields-that-contain-drupal-field-data">CSV fields that contain Drupal field data</h2>
 <p>These are of two types of Drupal fields, base fields and content-type specific fields.</p>
 <h3 id="base-fields">Base fields</h3>
@@ -1514,7 +1514,7 @@ IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Franc
 </code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If content-type field values apply to all of the rows in your CSV file, you can avoid including them in the CSV and instead use "<a href="/islandora_workbench_docs/field_templates/">CSV field templates</a>".</p>
+<p>If content-type field values apply to all of the rows in your CSV file, you can avoid including them in the CSV and instead use "<a href="field_templates/">CSV field templates</a>".</p>
 </div>
 <h4 id="using-field-labels-as-csv-column-headers">Using field labels as CSV column headers</h4>
 <p>By default, Workbench requires that column headers in your CSV file use the machine name of Drupal fields. However, in "create", "update", and "create_terms" tasks, you can use the field labels if you include <code>csv_headers: labels</code> in your configuration file. If you do this, you can use CSV file like this:</p>
@@ -1584,7 +1584,7 @@ IMG_2549.jp2,Manhatten Island,34|56|28
 <p>Some things to note about Drupal text fields:</p>
 <ul>
 <li>Some specialized forms of text fields, such as EDTF, enforce or prohibit the presence of specific types of characters (see below for EDTF's requirements).</li>
-<li>Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file, with <a href="/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data">these exceptions</a>. Plus, if a text value in your CSV is longer than its field's maximum configured length, Workbench will truncate the text (see the next point and warning below).</li>
+<li>Islandora Workbench populates Drupal text fields verbatim with the content provided in the CSV file, with <a href="preparing_data/#how-workbench-cleans-your-input-data">these exceptions</a>. Plus, if a text value in your CSV is longer than its field's maximum configured length, Workbench will truncate the text (see the next point and warning below).</li>
 <li>Text fields may be configured to have a maximum length. Running Workbench with <code>--check</code> will produce a warning (both shown to the user and written to the Workbench log) if any of the values in your CSV file are longer than their field's configured maximum length.</li>
 </ul>
 <div class="admonition warning">

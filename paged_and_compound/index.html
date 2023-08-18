@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/">
+        <link rel="canonical" href="https://mjordan.github.io/paged_and_compound/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
@@ -1102,7 +1102,7 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 <p>Since parent items (collections, book-level items, newspaper issue-level items, top-level items in compound items, etc.) need to exist in Drupal before their children can be ingested, you need to plan your "create" tasks accordingly. For example:</p>
 <ul>
 <li>If you want to use a single "create" task to ingest all the parents and children at the same time, for each compound item, the parent CSV record must come before the records for the children/pages.</li>
-<li>If you would rather use multiple "create" tasks, you can create all your collections first, then, in subsequent "create" tasks, use their respective node IDs in the <code>field_member_of</code> CSV column for their members. If you use a separate "create" task to create members of a single collection, you can define the value of <code>field_member_of</code> in a <a href="/islandora_workbench_docs/field_templates/">CSV field template</a>.</li>
+<li>If you would rather use multiple "create" tasks, you can create all your collections first, then, in subsequent "create" tasks, use their respective node IDs in the <code>field_member_of</code> CSV column for their members. If you use a separate "create" task to create members of a single collection, you can define the value of <code>field_member_of</code> in a <a href="field_templates/">CSV field template</a>.</li>
 <li>If you are ingesting a large set of books, you can ingest the book-level items first, then use their node IDs in a separate CSV for the pages of all books (each using their parent book node's node ID in their <code>field_member_of</code> column). Or, you could run a separate "create" task for each book, and use a CSV field template containing a <code>field_member_of</code> entry containing the book item's node ID.</li>
 <li>For newspapers, you could create the top-level newspaper first, then use its node ID in a subsequent "create" task for both newspaper issues and pages. In this task, the <code>field_member_of</code> column in rows for newspaper issues would contain the newspaper's node ID, but the rows for newspaper pages would have a blank <code>field_member_of</code> and a <code>parent_id</code> using the parent issue's <code>id</code> value.</li>
 </ul>
@@ -1164,7 +1164,7 @@ path_to_workbench_script: 'd:/users/mark/islandora_workbench/workbench'
 </code></pre>
 <h3 id="creating-parentchild-relationships-across-workbench-sessions">Creating parent/child relationships across Workbench sessions</h3>
 <p>It is possible to use <code>parent_id</code> values in your CSV that refer to <code>id</code> values from earlier Workbench sessions. In other words, you don't need to create parents and their member/child nodes within the same Workbench job; you can create parents in an earlier job and refer to their <code>id</code> values in later jobs.</p>
-<p>This is possible because during <code>create</code> tasks, Workbench records each newly created node ID and its corresponding value from the input CSV's <code>id</code> (or configured equivalent) column. It also records any values from the CSV <code>parent_id</code> column, if they exist. This data is stored in a simple SQLite database called the "<a href="/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map">CSV ID to node ID map</a>".</p>
+<p>This is possible because during <code>create</code> tasks, Workbench records each newly created node ID and its corresponding value from the input CSV's <code>id</code> (or configured equivalent) column. It also records any values from the CSV <code>parent_id</code> column, if they exist. This data is stored in a simple SQLite database called the "<a href="generating_csv_files/#using-the-csv-id-to-node-id-map">CSV ID to node ID map</a>".</p>
 <p>Because this database persists across Workbench sessions, you can use <code>id</code> values in your input CSV's <code>parent_id</code> column from previously loaded CSV files. The mapping between the previously loaded parents' <code>id</code> values and the values in your current CSV's <code>parent_id</code> column are stored in the CSV ID to node ID map database.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
