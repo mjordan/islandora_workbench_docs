@@ -30,7 +30,10 @@ Also, you might be asked to provide one or more of the following:
 
 ### Running Workbench results in lots of messages like `InsecureRequestWarning: Unverified HTTPS request is being made to host 'islandora.dev'`.
 
-If you see this, and you are using an ISLE istallation whose Drupal hostname uses the `traefik.me` domain (for example, https://islandora.traefik.me), the HTTPS certificate for the domain has expired. This problem will be widespread so please check the Islandora Slack for any current discussion about it. You can temporarily avoid the warning messages by updating an environment variable using the following command: `export PYTHONWARNINGS="ignore:Unverified HTTPS request"`.
+If you see this, and you are using an ISLE istallation whose Drupal hostname uses the `traefik.me` domain (for example, https://islandora.traefik.me), the HTTPS certificate for the domain has expired. This problem will be widespread so please check the Islandora Slack for any current discussion about it. You can temporarily avoid the warning messages by
+
+1. adding `secure_ssl_only: false` to your Workbench config file and
+2. updating an environment variable using the following command: `export PYTHONWARNINGS="ignore:Unverified HTTPS request"`
 
 
 ### Workbench is slow.
