@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* August 18, 2023 (commit f33e8df): Work in progress on [issue 487](https://github.com/mjordan/islandora_workbench/issues/487).
 * August 15, 2023 (commit f33e8df): Work in progress on [issue 487](https://github.com/mjordan/islandora_workbench/issues/487); updated minimum version of `requests-cache` in setup.py as per [issue 632](https://github.com/mjordan/islandora_workbench/issues/632).
 * August 14, 2023 (commit c989e39): Resolved issues [issue 657](https://github.com/mjordan/islandora_workbench/issues/657) and (commit 866b6c2) [issue 671](https://github.com/mjordan/islandora_workbench/issues/671).
 * August 10, 2023 (commit 1ab0172): Resolved issue [issue 664](https://github.com/mjordan/islandora_workbench/issues/6xxi6413).
@@ -85,6 +86,7 @@
 
 ### Documentation
 
+* August 21, 2023: Updated the "[Troubleshooting](/islandora_workbench_docs/troubleshooting)" page to include how to eliminate Python "InsecureRequestWarning"s. 
 * August 16, 2023: Merged in @ysuarez's spelling fixes (issue [674](https://github.com/mjordan/islandora_workbench/issues/674)).
 * August 14, 2023: Update `published` entry in "[Base fields](/islandora_workbench_docs/fields/#base-fields)" to allow media types to set their default `published` values.
 * August 4, 2023: Removed `published` as a standalone configuration setting, and updated it entry in "[Base fields](/islandora_workbench_docs/fields/#base-fields)".
