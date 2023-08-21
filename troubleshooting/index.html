@@ -861,6 +861,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#running-workbench-results-in-lots-of-messages-like-insecurerequestwarning-unverified-https-request-is-being-made-to-host-islandoradev" class="md-nav__link">
+    Running Workbench results in lots of messages like InsecureRequestWarning: Unverified HTTPS request is being made to host 'islandora.dev'.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#workbench-is-slow" class="md-nav__link">
     Workbench is slow.
   </a>
@@ -1041,6 +1048,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#running-workbench-results-in-lots-of-messages-like-insecurerequestwarning-unverified-https-request-is-being-made-to-host-islandoradev" class="md-nav__link">
+    Running Workbench results in lots of messages like InsecureRequestWarning: Unverified HTTPS request is being made to host 'islandora.dev'.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#workbench-is-slow" class="md-nav__link">
     Workbench is slow.
   </a>
@@ -1179,6 +1193,8 @@
 <li>whether you have certain contrib modules installed, or other questions about how your Drupal is configured.</li>
 </ul>
 <h2 id="some-things-that-might-sound-familiar">Some things that might sound familiar</h2>
+<h3 id="running-workbench-results-in-lots-of-messages-like-insecurerequestwarning-unverified-https-request-is-being-made-to-host-islandoradev">Running Workbench results in lots of messages like <code>InsecureRequestWarning: Unverified HTTPS request is being made to host 'islandora.dev'</code>.</h3>
+<p>If you see this, and you are using an ISLE istallation whose Drupal hostname uses the <code>traefik.me</code> domain (for example, https://islandora.traefik.me), the HTTPS certificate for the domain has expired. This problem will be widespread so please check the Islandora Slack for any current discussion about it. You can temporarily avoid the warning messages by updating an environment variable using the following command: <code>export PYTHONWARNINGS="ignore:Unverified HTTPS request"</code>.</p>
 <h3 id="workbench-is-slow">Workbench is slow.</h3>
 <p>True, it can be slow. However, users have found that the following strategies increase Workbench's speed substantially:</p>
 <ul>
