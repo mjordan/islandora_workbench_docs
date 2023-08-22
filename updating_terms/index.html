@@ -15,7 +15,7 @@
     
     
       
-        <title>Ignoring CSV rows and columns - Islandora Workbench</title>
+        <title>Updating taxonomy terms - Islandora Workbench</title>
       
     
     
@@ -65,11 +65,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#commenting-out-csv-rows" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -99,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ignoring CSV rows and columns
+              Updating taxonomy terms
             
           </span>
         </div>
@@ -327,62 +322,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Ignoring CSV rows and columns
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../ignoring_csv_rows_and_columns/" class="md-nav__link">
         Ignoring CSV rows and columns
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#commenting-out-csv-rows" class="md-nav__link">
-    Commenting out CSV rows
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-csv-row-ranges" class="md-nav__link">
-    Using CSV row ranges
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ignoring-csv-columns" class="md-nav__link">
-    Ignoring CSV columns
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -513,11 +457,19 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../updating_terms/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Updating taxonomy terms
       </a>
+      
     </li>
   
 
@@ -930,35 +882,6 @@
   
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#commenting-out-csv-rows" class="md-nav__link">
-    Commenting out CSV rows
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-csv-row-ranges" class="md-nav__link">
-    Using CSV row ranges
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ignoring-csv-columns" class="md-nav__link">
-    Ignoring CSV columns
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -971,68 +894,53 @@
                 
                   
 
-  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/ignoring_csv_rows_and_columns.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/updating_terms.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-  <h1>Ignoring CSV rows and columns</h1>
+  <h1>Updating taxonomy terms</h1>
 
-<h2 id="commenting-out-csv-rows">Commenting out CSV rows</h2>
-<p>You can comment out rows in your input CSV, Excel file, or Google Sheet by adding a hash mark (<code>#</code>) as the first character of the value in the first column. Workbench ignores these rows, both when it is run with and without <code>--check</code>. Commenting out rows works in all tasks that use CSV data.</p>
-<p>For example, the third row in the following CSV file is commented out:</p>
-<pre><code class="language-text">file,id,title,field_model,field_description
-IMG_1410.tif,01,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
-IMG_2549.jp2,02,Manhatten Island,25,Weather was windy.
-#IMG_2940.JPG,03,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain.
-IMG_2958.JPG,04,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
-IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Francisco.&quot;
+<p>You can update existing taxonomy terms in an <code>update_terms</code> tasks by providing a CSV file with a <code>term_id</code> column plus field data you want to update. The type of update is determined by the value of the <code>update_mode</code> configuration option:</p>
+<ul>
+<li><code>replace</code> (the default) will replace all existing values in a field with the values in the input CSV.</li>
+<li><code>append</code> will add values in the input CSV to any existing values in a field.</li>
+<li><code>delete</code> will delete all values in a field.</li>
+</ul>
+<p>Islandora Workbench will never allow a field to contain more values than the field's configuration allows. Attempts to update a field with more values than the maximum number allowed will result in the surplus values being ignored during the "update" task. If Workbench does this, it will write an entry to the log indicating it has done so.</p>
+<p>The column headings in the CSV file other than <code>term_id</code> must match either the machine names of fields that exist in the target Islandora content type, or their human-readable labels, with exceptions for the following field: <code>term_name</code>, <code>description</code>, <code>parent</code>, and <code>weight</code> (more information about these fields is available in the "<a href="/islandora_workbench_docs/creating_taxonomy_terms/">Creating taxonomy terms</a>" documentation). Only include fields that you want to update. Currently, text fields, EDTF fields, taxonomy fields, linked node fields, typed relation, link, and geolocation fields can be updated following the same conventions used when creating nodes and terms as described in the "<a href="/islandora_workbench_docs/fields/">Fields</a>" documentation.</p>
+<p>For example, using the fields defined by the Islandora Defaults module for the "Person" vocabulary, your CSV file could look like this:</p>
+<pre><code class="language-text">term_id,term_name,description,field_authority_link
+100,&quot;Jordan, Mark&quot;,Mark Jordan's Person term.,http://viaf.org/viaf/106468077%%VIAF Record
 </code></pre>
-<p>Since column order doesn't matter to Workbench, the same row is commented out in both the previous example and in this one:</p>
-<pre><code class="language-text">id,file,title,field_model,field_description
-01,IMG_1410.tif,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
-02,IMG_2549.jp2,Manhatten Island,25,Weather was windy.
-# 03,IMG_2940.JPG,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain.
-04,IMG_2958.JPG,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
-05,IMG_5083.JPG,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Francisco.&quot;
+<p>The config file for update operations looks like this (note the <code>task</code> option is 'update'):</p>
+<pre><code class="language-yaml">task: update_terms
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+# vocab_id is required.
+vocab_id: person
+input_csv: update.csv
 </code></pre>
-<p>Commenting works the same with in Excel and Google Sheets. Here is the CSV file used above in a Google Sheet:</p>
-<p><img alt="Google Sheet with commented row" src="../images/google_sheet_commented_row.png" /></p>
-<p>You can also use commenting to include actual <em>comments</em> in your CSV/Google Sheet/Excel file:</p>
-<pre><code class="language-text">id,file,title,field_model,field_description
-01,IMG_1410.tif,Small boats in Havana Harbour,25,Taken on vacation in Cuba.
-02,IMG_2549.jp2,Manhatten Island,25,Weather was windy.
-# Let's not load the following record right now.
-# 03,IMG_2940.JPG,Looking across Burrard Inlet,25,View from Deep Cove to Burnaby Mountain.
-04,IMG_2958.JPG,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
-05,IMG_5083.JPG,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Francisco.&quot;
+<p>If you want to append the values in the CSV to values that already exist in the target nodes, add the <code>update_mode</code> configuration option:</p>
+<pre><code class="language-yaml">task: update_terms
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+vocab_id: person
+input_csv: update.csv
+update_mode: append
 </code></pre>
-<h2 id="using-csv-row-ranges">Using CSV row ranges</h2>
-<p>The <code>csv_start_row</code> and <code>csv_stop_row</code> configuration settings allow you to tell Workbench to only process a specific subset of input CSV records. Both settings are optional and can be used in any task, and apply when using text CSV, Google Sheets, or Excel input files. Each setting takes as its value a row number (ignoring the header row). For example, row number 2 is the second row of data after the CSV header row. Below are some example configurations.</p>
-<p>Process CSV rows 10 to the end of the CSV file (ignoring rows 1-9):</p>
-<p><code>csv_start_row: 10</code></p>
-<p>Process only CSV rows 10-15 (ignoring all other rows):</p>
-<p><code>csv_start_row: 10</code><br />
-<code>csv_stop_row: 15</code> </p>
-<p>Process CSV from the start of the file to row 20 (ignoring rows 21 and higher):</p>
-<p><code>csv_stop_row: 20</code> </p>
-<p>If you only want to process a single row, use its position in the CSV for both <code>csv_start_row</code> or <code>csv_stop_row</code> (for example, to only process row 100):</p>
-<p><code>csv_start_row: 100</code><br />
-<code>csv_stop_row: 100</code> </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>When the <code>csv_start_row</code> or <code>csv_stop_row</code> options are in use, Workbench will display a message similar to the following when run:</p>
-<p><code>Using a subset of the input CSV (will start at row 10, stop at row 15).</code></p>
-</div>
-<h2 id="ignoring-csv-columns">Ignoring CSV columns</h2>
-<p>Islandora Workbench strictly validates the columns in the input CSV to ensure that they match Drupal field names and reserved Workbench column names. To accommodate CSV columns that do not correspond to either of those types, or to eliminate a column during testing or troubleshooting, you can tell Workbench to ignore specific columns that are present in the CSV. To do this, list the column headers in the <code>ignore_csv_columns</code> configuration setting. The value of this setting is a list. For example, if you want to include a <code>date_generated</code> column in your CSV (which is neither a Workbench reserved column or a Drupal field name), include the following in your Workbench configuration file:</p>
-<pre><code>ignore_csv_columns: ['date_generated']
-</code></pre>
-<p>If you want Workbench to ignore the "data_generated" column and the "field_description" columns, your configuration would look like this:</p>
-<pre><code>ignore_csv_columns: ['date_generated', 'field_description']
-</code></pre>
-<p>Note that if a column name is listed in the <code>csv_field_templates</code> <a href="/islandora_workbench_docs/field_templates/">setting</a>, the value for the column defined in the template is used. In other words, the values in the CSV are ignored, but the field in Drupal is still populated using the value from the field template.</p>
+<p>Some things to note:</p>
+<ul>
+<li>The <code>vacab_id</code> config setting is required.</li>
+<li>The <code>update_mode</code> applies to all rows in your CSV; it cannot be specified for particular rows.</li>
+<li>Updates apply to entire fields. Workbench cannot replace individual values in field.</li>
+<li>Values in the <code>term_id</code> column can be numeric term IDs (e.g. <code>467</code>).</li>
+<li>For <code>update</code> tasks where the <code>update_mode</code> is "replace" or "append", blank/empty CSV values will do nothing; in other words, empty CSV values tell Workbench to <em>not</em> update the field.</li>
+<li>For <code>update</code> tasks where the <code>update_mode</code> is "delete", it doesn't matter if the column(s) in the input CSV are blank or contain values - the values in the corresponding Drupal fields are deleted in both cases.</li>
+</ul>
 
 
 
@@ -1053,7 +961,7 @@ IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Franc
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../fields/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Field data (Drupal and CSV)" rel="prev">
+        <a href="../creating_taxonomy_terms/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Creating taxonomy terms" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1062,20 +970,20 @@ IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Franc
               <span class="md-footer__direction">
                 Previous
               </span>
-              Field data (Drupal and CSV)
+              Creating taxonomy terms
             </div>
           </div>
         </a>
       
       
         
-        <a href="../field_templates/" class="md-footer__link md-footer__link--next" aria-label="Next: CSV field templates" rel="next">
+        <a href="../aliases/" class="md-footer__link md-footer__link--next" aria-label="Next: Assigning URL aliases" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              CSV field templates
+              Assigning URL aliases
             </div>
           </div>
           <div class="md-footer__button md-icon">
