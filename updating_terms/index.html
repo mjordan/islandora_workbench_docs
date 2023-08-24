@@ -934,10 +934,10 @@ update_mode: append
 </code></pre>
 <p>Some things to note:</p>
 <ul>
-<li>The <code>vacab_id</code> config setting is required.</li>
+<li>The <code>vocab_id</code> config setting is required.</li>
 <li>The <code>update_mode</code> applies to all rows in your CSV; it cannot be specified for particular rows.</li>
 <li>Updates apply to entire fields. Workbench cannot replace individual values in field.</li>
-<li>Values in the <code>term_id</code> column can be numeric term IDs (e.g. <code>467</code>).</li>
+<li>Values in the <code>term_id</code> column can be numeric term IDs (e.g. <code>467</code>) or string (e.g. <code>Dogs</code>). If a string, it must match the existing term identically other than for trailing and leading whitespace. In tasks where you want to <em>update</em> the values in <code>term_name</code>, you should use <code>term_id</code> to identify the term entity.</li>
 <li>For <code>update</code> tasks where the <code>update_mode</code> is "replace" or "append", blank/empty CSV values will do nothing; in other words, empty CSV values tell Workbench to <em>not</em> update the field.</li>
 <li>For <code>update</code> tasks where the <code>update_mode</code> is "delete", it doesn't matter if the column(s) in the input CSV are blank or contain values - the values in the corresponding Drupal fields are deleted in both cases.</li>
 </ul>
