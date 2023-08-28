@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* August 28, 2023 (commit 575b7ba): Merged @hassanelsheikha's work to resolve [issue 95](https://github.com/mjordan/islandora_workbench/issues/95) (not yet documented). 
 * August 24, 2023: Resolved issues [issue 682](https://github.com/mjordan/islandora_workbench/issues/682) and [issue 684](https://github.com/mjordan/islandora_workbench/issues/684).
 * August 18, 2023 (commit f33e8df): Work in progress on [issue 487](https://github.com/mjordan/islandora_workbench/issues/487).
 * August 15, 2023 (commit f33e8df): Work in progress on [issue 487](https://github.com/mjordan/islandora_workbench/issues/487); updated minimum version of `requests-cache` in setup.py as per [issue 632](https://github.com/mjordan/islandora_workbench/issues/632).
