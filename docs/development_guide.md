@@ -15,9 +15,9 @@ Also provide tests where applicable. Tests in Workbench fall into two categories
 * Unit tests that do not require a live Islandora instance.
     * Unit tests in `tests/unit_tests.py` (run with `python3 tests/unit_tests.py`)
     * Unit tests for Workbench's Drupal fields handlers in `tests/field_tests.py` (run with `python3 tests/field_tests.py`)
-* Integration tests that require a live Islandora instance running at `http://localhost:8000`
+* Integration tests that require a live Islandora instance running at `https://islandora.traefik.me/`
     * `tests/islandora_tests.py`, `tests/islandora_tests_check.py`,  `tests/islandora_tests_hooks.py`, and `tests/islandora_tests_paged_content.py` can be run with `python3 tests/islandora_tests.py`, etc.
-    * The [Islandora Playbook](https://github.com/Islandora-Devops/islandora-playbook) is recommended way to deploy the Islandora used in these tests. Note that if an Islandora integration test fails, nodes and taxonomy terms created by the test before it fails may not be removed from Islandora.
+    * The Islandora Starter Site deployed with [ISLE](https://github.com/Islandora-Devops/isle-dc) is recommended way to deploy the Islandora used in these tests. Integration tests remove all nodes and media added during the tests, unless a test fails. Taxonomy terms created by tests are not removed.
     * Some integration and field tests output text that beings with "Error:." This is normal, it's the text that Workbench outputs when it finds something wrong (which is probably what the test is testing). Successful test (whether they test for success or failure) runs will exit with "OK". If you can figure out how to suppress this output, please visit [this issue](https://github.com/mjordan/islandora_workbench/issues/160).
 * If you want to run the tests within a specific class, include the class name as an argument like this: `python3 tests/unit_tests.py TestCompareStings`
 

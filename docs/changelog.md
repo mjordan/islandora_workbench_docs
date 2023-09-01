@@ -88,6 +88,7 @@
 
 ### Documentation
 
+* September 1, 2023: Updated the "[Development guide](/islandora_workbench_docs/development_guide)" page.
 * August 21, 2023: Updated the "[Troubleshooting](/islandora_workbench_docs/troubleshooting)" page to include how to eliminate Python "InsecureRequestWarning"s.
 * August 16, 2023: Merged in @ysuarez's spelling fixes (issue [674](https://github.com/mjordan/islandora_workbench/issues/674)).
 * August 14, 2023: Update `published` entry in "[Base fields](/islandora_workbench_docs/fields/#base-fields)" to allow media types to set their default `published` values.
