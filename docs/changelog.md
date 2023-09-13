@@ -1,6 +1,7 @@
 ### main branch (no tag/release)
 
-* August 28, 2023 (commit 575b7ba): Merged @hassanelsheikha's work to resolve [issue 95](https://github.com/mjordan/islandora_workbench/issues/95) (not yet documented). 
+* September 13, 2023: Merged in @seth-shaw-asu's work to resolve [issue 694](https://github.com/mjordan/islandora_workbench/issues/694); merged @ysuarez's work on [issue 445](https://github.com/mjordan/islandora_workbench/issues/445); WIP on [issue 691](https://github.com/mjordan/islandora_workbench/issues/691) and [issue 692](https://github.com/mjordan/islandora_workbench/issues/692).
+* August 28, 2023 (commit 575b7ba): Merged @hassanelsheikha's work to resolve [issue 95](https://github.com/mjordan/islandora_workbench/issues/95) (not yet documented).
 * August 24, 2023: Resolved issues [issue 682](https://github.com/mjordan/islandora_workbench/issues/682) and [issue 684](https://github.com/mjordan/islandora_workbench/issues/684).
 * August 18, 2023 (commit f33e8df): Work in progress on [issue 487](https://github.com/mjordan/islandora_workbench/issues/487).
 * August 15, 2023 (commit f33e8df): Work in progress on [issue 487](https://github.com/mjordan/islandora_workbench/issues/487); updated minimum version of `requests-cache` in setup.py as per [issue 632](https://github.com/mjordan/islandora_workbench/issues/632).
@@ -88,6 +89,7 @@
 
 ### Documentation
 
+* September 13, 2023: Updated the docs on "[CSV preprocessor scripts](/islandora_workbench_docs/hooks/#csv-preprocessor-scripts)".
 * September 1, 2023: Updated the "[Development guide](/islandora_workbench_docs/development_guide)" page.
 * August 21, 2023: Updated the "[Troubleshooting](/islandora_workbench_docs/troubleshooting)" page to include how to eliminate Python "InsecureRequestWarning"s.
 * August 16, 2023: Merged in @ysuarez's spelling fixes (issue [674](https://github.com/mjordan/islandora_workbench/issues/674)).
