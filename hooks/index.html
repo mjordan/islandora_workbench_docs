@@ -1045,25 +1045,28 @@
 <p>To register a bootstrap script in your configuration file, add it to the <code>bootstrap</code> option, like this:</p>
 <pre><code class="language-yaml">bootstrap: [&quot;/home/mark/Documents/hacking/workbench/generate_image_files.py&quot;]
 </code></pre>
-<p>Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's <code>--config</code> argument. For example, if you are running Workbench with a config file called <code>create.yml</code>, <code>create.yml</code> will be passed as the argument to your bootstrap script. </p>
+<p>Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's <code>--config</code> argument. For example, if you are running Workbench with a config file called <code>create.yml</code>, <code>create.yml</code> will be passed as the argument to your bootstrap script.</p>
 <p>Shutdown scripts work the same way as bootstrap scripts but they execute after Workbench has finished connecting to Drupal. A common situation where a shutdown script is useful is to check the Workbench log for failures, and if any are detected, to email someone. To register a shutdown script, add it to the <code>shutdown</code> option:</p>
 <pre><code class="language-yaml">shutdown: [&quot;/home/mark/Documents/hacking/workbench/shutdown_example.py&quot;]
 </code></pre>
 <p><code>--check</code> will check for the existence of bootstrap and shutdown scripts, and that they are executable, but does not execute them. The scripts are only executed when Workbench is run without <code>--check</code>.</p>
 <p>Very basic example bootstrap and shutdown scripts can be found in the <code>scripts</code> folder.</p>
 <h3 id="csv-preprocessor-scripts">CSV preprocessor scripts</h3>
-<p>CSV preprocessor scripts are applied to CSV values prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocessor must split it and then reassemble it back into a string. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title). If you are interested in seeing preprocessor scripts act on binary data such as images, see this <a href="https://github.com/mjordan/islandora_workbench/issues/45">issue</a>.</p>
-<p>For example, you might want to convert all the values in a CSV field to sentence case. You can do this by writing a small Python script that uses the <code>capitalize()</code> method and registering it as a preprocessor. </p>
-<p>To register a preprocessor script in your configuration file, add it to the <code>preprocessors</code> option, like this:</p>
-<pre><code class="language-yaml">preprocessors: [&quot;/home/mark/Documents/hacking/workbench/scripts/samplepreprocessor.py&quot;]
+<p>CSV preprocessor scripts are applied to CSV values in a specific CSV field prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocessor must split it and then reassemble it back into a string. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title). If you are interested in seeing preprocessor scripts act on binary data such as images, see this <a href="https://github.com/mjordan/islandora_workbench/issues/45">issue</a>.</p>
+<p>For example, you might want to convert all the values in the <code>field_description</code> CSV field to sentence case. You can do this by writing a small Python script that uses the <code>capitalize()</code> method and registering it as a preprocessor.</p>
+<p>To register a preprocessor script in your configuration file, add it to the <code>preprocessors</code> setting, like this:</p>
+<pre><code class="language-yaml">preprocessors:
+ - field_description: /home/mark/Documents/hacking/workbench/scripts/samplepreprocessor.py
 </code></pre>
+<p>You must provide the absolute path to the script, and the script must be executable.</p>
 <p>Each preprocessor script gets passed two arguments:</p>
 <ol>
 <li>the character used as the CSV subdelimiter (defined in the <code>subdelimiter</code> config option, which defaults to <code>|</code>)</li>
 <li>the CSV field value</li>
 </ol>
+<p>In turn, the script processes the string content of the CSV field, and then prints it to STDOUT. An example preprocessor script is available in <code>scripts/samplepreprocessor.py</code>.</p>
 <h3 id="post-action-scripts">Post-action scripts</h3>
-<p>Post-action scripts execute after a node is created or updated, or after a media is created.  </p>
+<p>Post-action scripts execute after a node is created or updated, or after a media is created.</p>
 <p>To register post-action scripts in your configuration file, add them to either the <code>node_post_create</code>, <code>node_post_update</code>, or <code>media_post_create</code> configuration setting:</p>
 <pre><code class="language-yaml">node_post_create: [&quot;/home/mark/Documents/hacking/workbench/post_node_create.py&quot;]
 </code></pre>
