@@ -1,12 +1,13 @@
 ### main branch (no tag/release)
 
+* September 19, 2023 (commit bd3e05e): Work on [issue 692](https://github.com/mjordan/islandora_workbench/issues/692).
 * September 13, 2023: Merged in @seth-shaw-asu's work to resolve [issue 694](https://github.com/mjordan/islandora_workbench/issues/694); merged @ysuarez's work on [issue 445](https://github.com/mjordan/islandora_workbench/issues/445); WIP on [issue 691](https://github.com/mjordan/islandora_workbench/issues/691) and [issue 692](https://github.com/mjordan/islandora_workbench/issues/692).
 * August 28, 2023 (commit 575b7ba): Merged @hassanelsheikha's work to resolve [issue 95](https://github.com/mjordan/islandora_workbench/issues/95) (not yet documented).
 * August 24, 2023: Resolved issues [issue 682](https://github.com/mjordan/islandora_workbench/issues/682) and [issue 684](https://github.com/mjordan/islandora_workbench/issues/684).
 * August 18, 2023 (commit f33e8df): Work in progress on [issue 487](https://github.com/mjordan/islandora_workbench/issues/487).
 * August 15, 2023 (commit f33e8df): Work in progress on [issue 487](https://github.com/mjordan/islandora_workbench/issues/487); updated minimum version of `requests-cache` in setup.py as per [issue 632](https://github.com/mjordan/islandora_workbench/issues/632).
 * August 14, 2023 (commit c989e39): Resolved issues [issue 657](https://github.com/mjordan/islandora_workbench/issues/657) and (commit 866b6c2) [issue 671](https://github.com/mjordan/islandora_workbench/issues/671).
-* August 10, 2023 (commit 1ab0172): Resolved issue [issue 664](https://github.com/mjordan/islandora_workbench/issues/6xxi6413).
+* August 10, 2023 (commit 1ab0172): Resolved issue [issue 664](https://github.com/mjordan/islandora_workbench/issues/664).
 * August 3, 2023 (commit c3fe7e1): Resolved issues [issue 613](https://github.com/mjordan/islandora_workbench/issues/613) and [issue 647](https://github.com/mjordan/islandora_workbench/issues/647).
 * August 2, 2023 (commit 4e4f14f): Preliminary work on [issue 663](https://github.com/mjordan/islandora_workbench/issues/663).
 * August 1, 2023 (commit 18ea969): Resolved [issue 648](https://github.com/mjordan/islandora_workbench/issues/648).
