@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* September 24, 2023 (commit 7c66389): Resolved issue [issue 690](https://github.com/mjordan/islandora_workbench/issues/690).
 * September 20, 2023 (commit e41ece7): Some minor coding style cleanup.
 * September 19, 2023 (commit bd3e05e): Work on [issue 692](https://github.com/mjordan/islandora_workbench/issues/692).
 * September 13, 2023: Merged in @seth-shaw-asu's work to resolve [issue 694](https://github.com/mjordan/islandora_workbench/issues/694); merged @ysuarez's work on [issue 445](https://github.com/mjordan/islandora_workbench/issues/445); WIP on [issue 691](https://github.com/mjordan/islandora_workbench/issues/691) and [issue 692](https://github.com/mjordan/islandora_workbench/issues/692).
