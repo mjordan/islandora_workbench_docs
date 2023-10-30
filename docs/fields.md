@@ -531,4 +531,7 @@ field_coordinates
 Note that:
 
 * Geocoordinate values in your CSV need to be wrapped in double quotation marks, unless the `delimiter` key in your configuration file is set to something other than a comma.
-* If you are entering geocoordinates into a spreadsheet, a leading `+` will make the spreadsheet application think you are entering a formula. You can work around this by escaping the `+` with a backslash (`\`), e.g., `49.16667,-123.93333` should be `\+49.16667,-123.93333`, and `49.16667,-123.93333|49.25,-124.8` should be `\+49.16667,-123.93333|\+49.25,-124.8`. Workbench will strip the leading `\` before it populates the Drupal fields.
+* If you are entering geocoordinates into a spreadsheet, you may need to escape leading `+` and `-` signs since they will make the spreadsheet application think you are entering a formula. You can work around this by escaping the `+` an `-` with a backslash (`\`), e.g., `49.16667,-123.93333` should be `\+49.16667,-123.93333`, and `49.16667,-123.93333|49.25,-124.8` should be `\+49.16667,-123.93333|\+49.25,-124.8`. Workbench will strip the leading `\` before it populates the Drupal fields.
+    * Excel: leading `+` and `-` need to be escaped
+    * Google Sheets: only `+` needs to be escaped
+    * LibreOffice Calc: neither `+` nor `-` needs to be escaped
