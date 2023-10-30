@@ -910,7 +910,7 @@ IMG_2549.jp2,Manhatten Island,Manhatten is part of New York City.,/manhatten
 <p>No other configuration is required. URL aliases must start with a forward slash (<code>/</code>). When you run Workbench with its <code>--check</code> option, it will check whether each alias starts with this character, and whether the alias already exists.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This method of assigning URL aliases is useful if you have pre-existing aliases. If you want to assign URL aliases that are derived from node-specific field data (like title, date, taxonomy terms, etc.), you can use the Drupal contrib module <a href="https://www.drupal.org/project/pathauto">Pathauto</a> instead.</p>
+<p>This method of assigning URL aliases is useful if, for example, you are migrating from another platform and want to retain the URLs of items from the source platform. If you want to assign URL aliases that are derived from node-specific field data (like title, date, taxonomy terms, etc.), you can use the Drupal contrib module <a href="https://www.drupal.org/project/pathauto">Pathauto</a> instead.</p>
 <p>But, note also that any URL aliases created through Drupal's core URL alias functionality, which the method described above uses, is overwritten by Pathauto. This means that if you use Pathauto to create aliases, any URL aliases created by Workbench will likely not work.</p>
 </div>
 <p>You can also assign URL aliases in <code>update</code> tasks:</p>
