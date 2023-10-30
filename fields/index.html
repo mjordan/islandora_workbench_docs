@@ -1880,10 +1880,12 @@ viaf%%http://viaf.org/viaf/10646807|other%%https://github.com/mjordan%%Github
 <p>Note that:</p>
 <ul>
 <li>Geocoordinate values in your CSV need to be wrapped in double quotation marks, unless the <code>delimiter</code> key in your configuration file is set to something other than a comma.</li>
-<li>If you are entering geocoordinates into a spreadsheet, you may need to escape leading <code>+</code> and <code>-</code> signs since they will make the spreadsheet application think you are entering a formula. You can work around this by escaping the <code>+</code> an <code>-</code> with a backslash (<code>\</code>), e.g., <code>49.16667,-123.93333</code> should be <code>\+49.16667,-123.93333</code>, and <code>49.16667,-123.93333|49.25,-124.8</code> should be <code>\+49.16667,-123.93333|\+49.25,-124.8</code>. Workbench will strip the leading <code>\</code> before it populates the Drupal fields.</li>
+<li>If you are entering geocoordinates into a spreadsheet, you may need to escape leading <code>+</code> and <code>-</code> signs since they will make the spreadsheet application think you are entering a formula. You can work around this by escaping the <code>+</code> an <code>-</code> with a backslash (<code>\</code>), e.g., <code>49.16667,-123.93333</code> should be <code>\+49.16667,-123.93333</code>, and <code>49.16667,-123.93333|49.25,-124.8</code> should be <code>\+49.16667,-123.93333|\+49.25,-124.8</code>. Workbench will strip the leading <code>\</code> before it populates the Drupal fields.<ul>
 <li>Excel: leading <code>+</code> and <code>-</code> need to be escaped</li>
 <li>Google Sheets: only <code>+</code> needs to be escaped</li>
 <li>LibreOffice Calc: neither <code>+</code> nor <code>-</code> needs to be escaped</li>
+</ul>
+</li>
 </ul>
 
 
