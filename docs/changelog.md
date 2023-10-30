@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* October 29, 2023 (commit 3c3f7a8): Resolved issue [issue 703](https://github.com/mjordan/islandora_workbench/issues/703).
 * October 23, 2023 (commit f41fa85): Resolved issue [issue 701](https://github.com/mjordan/islandora_workbench/issues/701).
 * September 24, 2023 (commit 7c66389): Resolved issue [issue 690](https://github.com/mjordan/islandora_workbench/issues/690).
 * September 20, 2023 (commit e41ece7): Some minor coding style cleanup.
@@ -93,6 +94,7 @@
 
 ### Documentation
 
+* October 29, 2023: Updated the docs on "[Assigning URL aliases](/islandora_workbench_docs/aliases/)".
 * September 13, 2023: Updated the docs on "[CSV preprocessor scripts](/islandora_workbench_docs/hooks/#csv-preprocessor-scripts)".
 * September 1, 2023: Updated the "[Development guide](/islandora_workbench_docs/development_guide)" page.
 * August 21, 2023: Updated the "[Troubleshooting](/islandora_workbench_docs/troubleshooting)" page to include how to eliminate Python "InsecureRequestWarning"s.
