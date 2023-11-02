@@ -6,11 +6,11 @@ The `#islandoraworkbench` Slack channel is a good place to ask a question if Wor
 
 If Workbench "isn't working the way you expect", the documentation is likely unclear. Crashes are usually caused by sloppy Python coding. Reporting either is a great way to contribute to Islandora Workbench.
 
-## Before you ask...
+## But before you ask...
 
-If Workbench crashes on you, you might be able to fix the problem by pulling in the most recent code. The best way to keep it up to date is to pull in the latest commits from the Github repository periodically.
+The first step you should take while troubleshooting a Workbench failure is to use Islandora's graphical user interface to create/edit/delete a node/media/taxonomy term (or whatever it is you're trying to do with Workbench). If Islandora works without error, you have confirmed that the problem you are experiencing is likely isolated to Workbench and is not being caused by an underlying problem with Islandora.
 
-To pull in the latest updates, within the "islandora_workbench" directory, run the following git commands:
+Next, if you have eliminated Islandora as the cause of the Workbench problem you are experiencing, you might be able to fix the problem by pulling in the most recent Workbench code. The best way to keep it up to date is to pull in the latest commits from the Github repository periodically, but if you haven't done that in a while, within the "islandora_workbench" directory, run the following git commands:
 
 1. `git branch`, which should tell whether you're currently in the "main" branch. If you are:
 1. `git pull`, which will fetch the most recent code and and merge it into the code you are running.
