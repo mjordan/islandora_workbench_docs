@@ -58,6 +58,12 @@ This is probably caused by unexpected data in your CSV file that Workbench's `--
 
 One of the most common causes of this error is that one or more of the vocabularies being populated in your `create` task CSV contain required fields other than the default term name. It is possible to have Workbench create these fields, but you must do so as a separate `create_terms` task. See "[Creating taxonomy terms](/islandora_workbench_docs/creating_taxonomy_terms)" for more information.
 
+### Workbench is crashing and telling me there are problems with SSL certificates.
+
+To determine if this issue is specific to Workbench, from the same computer Workbench is running on, try hitting your Drupal server (or server your remote files are on) with `curl`. If `curl` also complains about SSL certificates, the problem lies in the SSL/HTTPS configuration on the server. An example `curl` command is `curl https://wwww.lib.sfu.ca`. 
+
+If `curl` doesn't complain, the problem is specific to Workbench.
+
 ### --check is telling me that one the rows in my CSV file has more columns than headers.
 
 The most likely problem is that one of your CSV values contains a comma but is not wrapped in double quotes.
