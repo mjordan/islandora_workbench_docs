@@ -1,6 +1,5 @@
 {
   "openapi": "3.0.0",
-  "docExpansion": "full",
   "info": {
     "title": "Islandora Workbench Config Schema",
     "version": "0.0.1"
