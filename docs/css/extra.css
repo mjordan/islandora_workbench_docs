@@ -5,3 +5,13 @@ code.yaml {
   white-space: pre-wrap;
   word-break: keep-all;
 }
+
+/** Only display OpenAPI schema */
+.swagger-ui section {
+  display: none !important;
+}
+.swagger-ui section:has(> section.models),
+.swagger-ui section.models
+{
+  display: block !important;
+}
