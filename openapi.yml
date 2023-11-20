@@ -10,7 +10,7 @@ paths:
         content:
           application/yaml:
             schema:
-              $ref: '#/components/schemas/CombinedSchema'
+              $ref: '#/components/schemas/Required'
       responses:
         '200':
           description: Task executed successfully
@@ -18,20 +18,7 @@ paths:
           description: Bad request, check request parameters
 components:
   schemas:
-    CombinedSchema:
-      allOf:
-        - $ref: '#/components/schemas/Base'
-        - $ref: '#/components/schemas/DrupalSettings'
-        - $ref: '#/components/schemas/InputDataLocationSettings'
-        - $ref: '#/components/schemas/InputCSVFileSettings'
-        - $ref: '#/components/schemas/OutputCSVSettings'
-        - $ref: '#/components/schemas/MediaSettings'
-        - $ref: '#/components/schemas/IslandoraModelSettings'
-        - $ref: '#/components/schemas/PagedAndCompoundContentSettings'
-        - $ref: '#/components/schemas/LoggingSettings'
-        - $ref: '#/components/schemas/HttpSettings'
-        - $ref: '#/components/schemas/MiscellaneousSettings'
-    Base:
+    Required:
       type: object
       properties:
         task:

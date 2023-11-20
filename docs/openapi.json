@@ -1,5 +1,6 @@
 {
   "openapi": "3.0.0",
+  "docExpansion": "full",
   "info": {
     "title": "Islandora Workbench Config Schema",
     "version": "0.0.1"
@@ -12,7 +13,7 @@
           "content": {
             "application/yaml": {
               "schema": {
-                "$ref": "#/components/schemas/CombinedSchema"
+                "$ref": "#/components/schemas/Required"
               }
             }
           }
@@ -30,44 +31,7 @@
   },
   "components": {
     "schemas": {
-      "CombinedSchema": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Base"
-          },
-          {
-            "$ref": "#/components/schemas/DrupalSettings"
-          },
-          {
-            "$ref": "#/components/schemas/InputDataLocationSettings"
-          },
-          {
-            "$ref": "#/components/schemas/InputCSVFileSettings"
-          },
-          {
-            "$ref": "#/components/schemas/OutputCSVSettings"
-          },
-          {
-            "$ref": "#/components/schemas/MediaSettings"
-          },
-          {
-            "$ref": "#/components/schemas/IslandoraModelSettings"
-          },
-          {
-            "$ref": "#/components/schemas/PagedAndCompoundContentSettings"
-          },
-          {
-            "$ref": "#/components/schemas/LoggingSettings"
-          },
-          {
-            "$ref": "#/components/schemas/HttpSettings"
-          },
-          {
-            "$ref": "#/components/schemas/MiscellaneousSettings"
-          }
-        ]
-      },
-      "Base": {
+      "Required": {
         "type": "object",
         "properties": {
           "task": {
