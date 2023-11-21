@@ -194,7 +194,10 @@
           },
           "csv_value_templates": {
             "type": "object",
-            "description": "Used in the \\`create\\` and \\`update\\` tasks only. A list of Drupal field machine names and corresponding templates. More detail provided in the \"[CSV value templates](https://mjordan.github.io/islandora_workbench_docs/csv_value_templates/)\" section."
+            "description": "Used in the \\`create\\` and \\`update\\` tasks only. A list of Drupal field machine names and corresponding templates. More detail provided in the \"[CSV value templates](https://mjordan.github.io/islandora_workbench_docs/csv_value_templates/)\" section.",
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "ignore_csv_columns": {
             "type": "array",
@@ -317,7 +320,13 @@
           },
           "media_types_override": {
             "type": "object",
-            "description": "Overrides default media type definitions on a per file extension basis. Used in the \\`create\\`, \\`add_media\\`, and \\`create_from_files\\` tasks. More detail provided in the \"[Configuring Media Types](https://mjordan.github.io/islandora_workbench_docs/media_types)\" section."
+            "description": "Overrides default media type definitions on a per file extension basis. Used in the \\`create\\`, \\`add_media\\`, and \\`create_from_files\\` tasks. More detail provided in the \"[Configuring Media Types](https://mjordan.github.io/islandora_workbench_docs/media_types)\" section.",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           },
           "media_type_file_fields": {
             "type": "string",
@@ -325,7 +334,10 @@
           },
           "mimetype_extensions": {
             "type": "object",
-            "description": "Overrides Workbench's default mappings between MIME types and file extensions. Usually used with remote files where the remote web server returns a MIME type that is not standard. For more information, see the \"[Configuring Media Types](https://mjordan.github.io/islandora_workbench_docs/media_types)\" section."
+            "description": "Overrides Workbench's default mappings between MIME types and file extensions. Usually used with remote files where the remote web server returns a MIME type that is not standard. For more information, see the \"[Configuring Media Types](https://mjordan.github.io/islandora_workbench_docs/media_types)\" section.",
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "delete_media_with_nodes": {
             "type": "boolean",
@@ -362,7 +374,10 @@
           },
           "additional_files": {
             "type": "object",
-            "description": "Maps a set of CSV field names to media use terms IDs to create additional media (additional to the media created from the file named in the \"file\" column, that is) in \\`create\\` and \\`add_media\\` tasks. See \"[Adding multiple media](https://mjordan.github.io/islandora_workbench_docs/adding_multiple_media)\" for more information."
+            "description": "Maps a set of CSV field names to media use terms IDs to create additional media (additional to the media created from the file named in the \"file\" column, that is) in \\`create\\` and \\`add_media\\` tasks. See \"[Adding multiple media](https://mjordan.github.io/islandora_workbench_docs/adding_multiple_media)\" for more information.",
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "fixity_algorithm": {
             "type": "string",
@@ -401,7 +416,13 @@
           },
           "models": {
             "type": "object",
-            "description": "Used in the \\`create_from_files\\` task only. Provides a mapping between file extensions and terms in the \"Islandora Models\" vocabulary. Note: one of \\`model\\` or \\`models\\` is required. More detail provided in the [Creating nodes from files](https://mjordan.github.io/islandora_workbench_docs/creating_nodes_from_files/)\" section."
+            "description": "Used in the \\`create_from_files\\` task only. Provides a mapping between file extensions and terms in the \"Islandora Models\" vocabulary. Note: one of \\`model\\` or \\`models\\` is required. More detail provided in the [Creating nodes from files](https://mjordan.github.io/islandora_workbench_docs/creating_nodes_from_files/)\" section.",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         }
       },
