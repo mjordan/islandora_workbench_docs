@@ -75,15 +75,18 @@
         "properties": {
           "content_type": {
             "type": "string",
-            "description": "The machine name of the Drupal node content type you are creating or updating. Required in \"create\" and \"update\" tasks. "
+            "description": "The machine name of the Drupal node content type you are creating or updating. Required in \"create\" and \"update\" tasks. ",
+            "default": "islandora_object"
           },
           "drupal_filesystem": {
             "type": "string",
-            "description": "One of 'fedora://', 'public://', or 'private://' (the wrapping quotation marks are required). Only used with Drupal 8.x - 9.1; starting with Drupal 9.2, the filesystem is automatically detected from the media's configuration. Will eventually be deprecated. "
+            "description": "One of 'fedora://', 'public://', or 'private://' (the wrapping quotation marks are required). Only used with Drupal 8.x - 9.1; starting with Drupal 9.2, the filesystem is automatically detected from the media's configuration. Will eventually be deprecated. ",
+            "default": "fedora://"
           },
           "allow_adding_terms": {
             "type": "boolean",
-            "description": "In \\`create\\` and \\`update\\` tasks, determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the \"[Taxonomy reference fields](/islandora_workbench_docs/fields/#field-types)\" section. Note: this setting is not required in \\`create_terms\\` tasks. "
+            "description": "In \\`create\\` and \\`update\\` tasks, determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the \"[Taxonomy reference fields](/islandora_workbench_docs/fields/#field-types)\" section. Note: this setting is not required in \\`create_terms\\` tasks. ",
+            "default": false
           },
           "vocab_id": {
             "type": "string",
@@ -91,35 +94,43 @@
           },
           "update_mode": {
             "type": "string",
-            "description": "Determines if Workbench will \\`replace\\`, \\`append\\` (add to) , or \\`delete\\` field values during \\`update\\` tasks. See more information in the \"[Updating nodes](/islandora_workbench_docs/updating_nodes)\" section. "
+            "description": "Determines if Workbench will \\`replace\\`, \\`append\\` (add to) , or \\`delete\\` field values during \\`update\\` tasks. See more information in the \"[Updating nodes](/islandora_workbench_docs/updating_nodes)\" section. ",
+            "default": "replace"
           },
           "validate_terms_exist": {
             "type": "boolean",
-            "description": "If set to false, during \\`--check\\` Workbench will not query Drupal to determine if taxonomy terms exist. The structure of term values in CSV are still validated; this option only tells Workbench to not check for each term's existence in the target Drupal. Useful to speed up the \\`--check\\` process if you know terms don't exist in the target Drupal. "
+            "description": "If set to false, during \\`--check\\` Workbench will not query Drupal to determine if taxonomy terms exist. The structure of term values in CSV are still validated; this option only tells Workbench to not check for each term's existence in the target Drupal. Useful to speed up the \\`--check\\` process if you know terms don't exist in the target Drupal. ",
+            "default": true
           },
           "validate_parent_node_exists": {
             "type": "boolean",
-            "description": "If set to false, during \\`--check\\` Workbench will not query Drupal to determine if nodes whose node IDs are in \\`field_member_of\\` exist. Useful to speed up the \\`--check\\` process if you know terms already exist in the target Drupal. "
+            "description": "If set to false, during \\`--check\\` Workbench will not query Drupal to determine if nodes whose node IDs are in \\`field_member_of\\` exist. Useful to speed up the \\`--check\\` process if you know terms already exist in the target Drupal. ",
+            "default": true
           },
           "max_node_title_length": {
             "type": "integer",
-            "description": "Set to the number of allowed characters for node titles if your Drupal uses [Node Title Length](https://www.drupal.org/project/title_length). If unsure what your the maximum length of the node titles your site allows, check the length of the \"title\" column in your Drupal database's \"node_field_data\" table. "
+            "description": "Set to the number of allowed characters for node titles if your Drupal uses [Node Title Length](https://www.drupal.org/project/title_length). If unsure what your the maximum length of the node titles your site allows, check the length of the \"title\" column in your Drupal database's \"node_field_data\" table. ",
+            "default": 255
           },
           "list_missing_drupal_fields": {
             "type": "boolean",
-            "description": "Set to \\`true\\` to tell Workbench to provide a list of fields that exist in your input CSV but that cannot be matched to Drupal field names (or reserved column names such as \"file\"). If \\`false\\`, Workbench will still check for CSV column headers that it can't match to Drupal fields, but will exit upon finding the first such field. This option produces a list of fields instead of exiting on detecting the first field."
+            "description": "Set to \\`true\\` to tell Workbench to provide a list of fields that exist in your input CSV but that cannot be matched to Drupal field names (or reserved column names such as \"file\"). If \\`false\\`, Workbench will still check for CSV column headers that it can't match to Drupal fields, but will exit upon finding the first such field. This option produces a list of fields instead of exiting on detecting the first field.",
+            "default": false
           },
           "standalone_media_url": {
             "type": "boolean",
-            "description": "Set to \\`true\\` if your Drupal instance has the \"Standalone media URL\" option at \\`/admin/config/media/media-settings\\` checked. The Drupal default is to have this unchecked, so you only need to use this Workbench option if you have changed Drupal's default. [More information](/islandora_workbench_docs/installation/#configuring-drupals-media-urls) is available. "
+            "description": "Set to \\`true\\` if your Drupal instance has the \"Standalone media URL\" option at \\`/admin/config/media/media-settings\\` checked. The Drupal default is to have this unchecked, so you only need to use this Workbench option if you have changed Drupal's default. [More information](/islandora_workbench_docs/installation/#configuring-drupals-media-urls) is available. ",
+            "default": false
           },
           "require_entity_reference_views": {
             "type": "boolean",
-            "description": "Set to \\`false\\` to tell Workbench to not require a View to expose the values in an entity reference field configured to use an Entity Reference View. Additional information is available [here](/islandora_workbench_docs/fields/#entity-reference-views-fields). "
+            "description": "Set to \\`false\\` to tell Workbench to not require a View to expose the values in an entity reference field configured to use an Entity Reference View. Additional information is available [here](/islandora_workbench_docs/fields/#entity-reference-views-fields). ",
+            "default": true
           },
           "text_format_id": {
             "type": "string",
-            "description": "The text format ID (machine name) to apply to all Drupal text fields that have a \"formatted\" field type. Use \\`text_format_ids\\` (plural) to provide a text format ID for a specific Drupal field. See \"[Text fields with markup](/islandora_workbench_docs/fields/#text-fields-with-markup)\" for more information. "
+            "description": "The text format ID (machine name) to apply to all Drupal text fields that have a \"formatted\" field type. Use \\`text_format_ids\\` (plural) to provide a text format ID for a specific Drupal field. See \"[Text fields with markup](/islandora_workbench_docs/fields/#text-fields-with-markup)\" for more information. ",
+            "default": "basic_html"
           }
         }
       },
@@ -240,7 +251,8 @@
               "tid",
               "name"
             ],
-            "description": "Used in \"export_csv\" tasks to indicate whether vocabulary term IDs or names are included in the output CSV file. Set to \"tid\" (the default) to include term IDs, or set to \"name\" to include term names. See \"[Exporting field data into a CSV file](/islandora_workbench_docs/generating_csv_files/#exporting-field-data-into-a-csv-file)\" for more information. "
+            "description": "Used in \"export_csv\" tasks to indicate whether vocabulary term IDs or names are included in the output CSV file. Set to \"tid\" (the default) to include term IDs, or set to \"name\" to include term names. See \"[Exporting field data into a CSV file](/islandora_workbench_docs/generating_csv_files/#exporting-field-data-into-a-csv-file)\" for more information. ",
+            "default": "tid"
           },
           "export_csv_field_list": {
             "type": "array",
@@ -266,7 +278,8 @@
           },
           "export_file_media_use_term_id": {
             "type": "string",
-            "description": "Used in the \"export_csv\" and \"get_data_from_view\" tasks. The term ID or URI from the Islandora Media Use vocabulary that identifies the file you want to export. "
+            "description": "Used in the \"export_csv\" and \"get_data_from_view\" tasks. The term ID or URI from the Islandora Media Use vocabulary that identifies the file you want to export. ",
+            "default": "http://pcdm.org/use#OriginalFile"
           }
         },
         "required": [
@@ -283,7 +296,8 @@
           },
           "allow_missing_files": {
             "type": "boolean",
-            "description": "Determines if empty \\`file\\` values are allowed. Used in the \\`create\\` and \\`add_media\\` tasks. If set to true, empty \\`file\\` values are allowed. For \\`create\\` tasks, a \\`true\\` value will result in nodes without attached media. For \\`add_media\\` tasks, a \\`true\\` value will skip adding a media for the empty \\`file\\` CSV value. Defaults to false (which means all file values must contain the name of a file that exists in the \\`input_data\\` directory). "
+            "description": "Determines if empty \\`file\\` values are allowed. Used in the \\`create\\` and \\`add_media\\` tasks. If set to true, empty \\`file\\` values are allowed. For \\`create\\` tasks, a \\`true\\` value will result in nodes without attached media. For \\`add_media\\` tasks, a \\`true\\` value will skip adding a media for the empty \\`file\\` CSV value. Defaults to false (which means all file values must contain the name of a file that exists in the \\`input_data\\` directory). ",
+            "default": false
           },
           "strict_check": {
             "type": "boolean",
@@ -315,15 +329,18 @@
           },
           "delete_media_with_nodes": {
             "type": "boolean",
-            "description": "When a node is deleted using a \\`delete\\` task, by default, all if its media are automatically deleted. Set this option to false to not delete all of a node's media (you do not generally want to keep the media without the node). "
+            "description": "When a node is deleted using a \\`delete\\` task, by default, all if its media are automatically deleted. Set this option to false to not delete all of a node's media (you do not generally want to keep the media without the node). ",
+            "default": true
           },
           "use_node_title_for_media_title": {
             "type": "boolean",
-            "description": "If set to \\`true\\` (default), name media the same as the parent node's title value. Truncates the value of the field to 255 characters. Applies to both \\`create\\` and \\`add_media\\` tasks. "
+            "description": "If set to \\`true\\` (default), name media the same as the parent node's title value. Truncates the value of the field to 255 characters. Applies to both \\`create\\` and \\`add_media\\` tasks. ",
+            "default": true
           },
           "use_nid_in_media_title": {
             "type": "boolean",
-            "description": "If set to \\`true\\`, assigns a name to the media following the pattern \\`{node_id}-Original File\\`. Set to true to use the parent node's node ID as the media title. Applies to both \\`create\\` and \\`add_media\\` tasks. "
+            "description": "If set to \\`true\\`, assigns a name to the media following the pattern \\`{node_id}-Original File\\`. Set to true to use the parent node's node ID as the media title. Applies to both \\`create\\` and \\`add_media\\` tasks. ",
+            "default": false
           },
           "field_for_media_title": {
             "type": "string",
@@ -331,7 +348,8 @@
           },
           "use_node_title_for_remote_filename": {
             "type": "boolean",
-            "description": "Set to true to use a version of the parent node's title as the filename for a remote (http[s]) file. Replaces all non-alphanumeric characters with an underscore (\\`_\\`). Truncates the value of the field to 255 characters. Applies to both \\`create\\` and \\`add_media\\` tasks. Note: this setting replaces (the previously undocumented) \\`use_nid_in_media_filename\\` setting."
+            "description": "Set to true to use a version of the parent node's title as the filename for a remote (http[s]) file. Replaces all non-alphanumeric characters with an underscore (\\`_\\`). Truncates the value of the field to 255 characters. Applies to both \\`create\\` and \\`add_media\\` tasks. Note: this setting replaces (the previously undocumented) \\`use_nid_in_media_filename\\` setting.",
+            "default": false
           },
           "field_for_remote_filename": {
             "type": "string",
@@ -339,7 +357,8 @@
           },
           "delete_tmp_upload": {
             "type": "boolean",
-            "description": "For remote files, if set to \\`true\\`, the temporary copy of the remote file is deleted after it is used to create media. If \\`false\\`, the copy will remain in the location defined in your \\`temp_dir\\` setting. If the file cannot be deleted (e.g. a virus scanner is scanning it), it will remain and an error message will be added to the log file. "
+            "description": "For remote files, if set to \\`true\\`, the temporary copy of the remote file is deleted after it is used to create media. If \\`false\\`, the copy will remain in the location defined in your \\`temp_dir\\` setting. If the file cannot be deleted (e.g. a virus scanner is scanning it), it will remain and an error message will be added to the log file. ",
+            "default": false
           },
           "additional_files": {
             "type": "object",
@@ -356,17 +375,20 @@
           },
           "validate_fixity_during_check": {
             "type": "boolean",
-            "description": "Perform checksum validation during \\`--check\\`. See \"[Fixity checking](/islandora_workbench_docs/fixity)\" for more information. "
+            "description": "Perform checksum validation during \\`--check\\`. See \"[Fixity checking](/islandora_workbench_docs/fixity)\" for more information. ",
+            "default": false
           },
           "delete_media_by_node_media_use_tids": {
             "type": "array",
             "items": {
-              "type": "string"
+              "type": "integer"
             },
             "description": "During \\`delete_media_by_node\\` tasks, allows you to specify which media to delete. Only media with the listed terms IDs from the Islandora Media Use vocabulary will be deleted. By default (an empty list), all media are deleted. See \"[Deleting Media](/islandora_workbench_docs/deleting_media)\" for more information."
           },
           "exit_on_first_missing_file_during_check": {
-            "description": "Removed as a configuration setting November 1, 2022. Use \\`strict_check\\` instead. "
+            "type": "boolean",
+            "description": "Removed as a configuration setting November 1, 2022. Use \\`strict_check\\` instead. ",
+            "default": true
           }
         }
       },
@@ -389,7 +411,8 @@
         "properties": {
           "paged_content_from_directories": {
             "type": "boolean",
-            "description": "Set to true if you are using the \"[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)\" method of creating paged content. "
+            "description": "Set to true if you are using the \"[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)\" method of creating paged content. ",
+            "default": false
           },
           "paged_content_sequence_separator": {
             "type": "string",
@@ -488,21 +511,6 @@
             "type": "boolean",
             "description": "Whether or not to log the creation of new terms during \"create\" and \"update\" tasks (does not apply to the \"create_terms\" task). \\`--check\\` will still report that terms in the CSV do not exist in their respective vocabularies. ",
             "default": true
-          },
-          "allow_redirects": {
-            "description": "Whether or not to allow Islandora Workbench to respond to HTTP redirects. "
-          },
-          "secure_ssl_only": {
-            "description": "Whether or not to require valid SSL certificates. Set to \\`false\\` if you want to ignore SSL certificates. "
-          },
-          "enable_http_cache": {
-            "description": "Whether or not to enable Workbench's client-side request cache. Set to \\`false\\` if you want to disable the cache during troubleshooting, etc. "
-          },
-          "http_cache_storage": {
-            "description": "The backend storage type for the client-side cache. Set to \\`sqlite\\` if you are getting out of memory errors while running Islandora Workbench. "
-          },
-          "http_cache_storage_expire_after": {
-            "description": "Length of the client-side cache lifespan (in seconds). Reduce this number if you are using the \\`sqlite\\` storage backend and the database is using too much disk space. Note that reducing the cache lifespan will result in increased load on your Drupal server. "
           }
         }
       },
@@ -531,6 +539,10 @@
           },
           "http_cache_storage": {
             "type": "string",
+            "enum": [
+              "memory",
+              "sqlite"
+            ],
             "description": "The backend storage type for the client-side cache. Set to sqlite if you are getting out of memory errors while running Islandora Workbench.",
             "default": "memory"
           },
@@ -560,22 +572,23 @@
           },
           "rollback_dir": {
             "type": "string",
-            "description": "Absolute path to the directory where you want your \"rollback.csv\" file to be written. See \"[Rolling back](/islandora_workbench_docs/rolling_back/)\" for more information. "
+            "description": "Absolute path to the directory where you want your \"rollback.csv\" file to be written. See \"[Rolling back](/islandora_workbench_docs/rolling_back/)\" for more information."
           },
           "timestamp_rollback": {
             "type": "boolean",
-            "description": "Set to \\`true\\` to add a timestamp to the \"rollback.yml\" and corresponding \"rollback.csv\" generated in \"create\" and \"create_from_files\" tasks. See \"[Rolling back](/islandora_workbench_docs/rolling_back/)\" for more information. "
+            "description": "Set to \\`true\\` to add a timestamp to the \"rollback.yml\" and corresponding \"rollback.csv\" generated in \"create\" and \"create_from_files\" tasks. See \"[Rolling back](/islandora_workbench_docs/rolling_back/)\" for more information.",
+            "default": false
           },
           "pause": {
-            "type": "number",
-            "description": "Defines the number of seconds to pause between all 'POST', 'PUT', 'PATCH', 'DELETE' requests to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5. More information is available in the \"[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/)\" documentation. "
+            "type": "integer",
+            "description": "Defines the number of seconds to pause between all 'POST', 'PUT', 'PATCH', 'DELETE' requests to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5. More information is available in the \"[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/)\" documentation."
           },
           "adaptive_pause": {
-            "type": "number",
+            "type": "integer",
             "description": "Defines the number of seconds to pause between each REST request to Drupal. Works like \"pause\" but only takes effect when the Drupal server's response to the most recent request is slower (determined by the \"adaptive_pause_threshold\" value) than the average response time for the last 20 requests. More information is available in the \"[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/)\" documentation. "
           },
           "adaptive_pause_threshold": {
-            "type": "number",
+            "type": "integer",
             "description": "A weighting of the response time for the most recent request, relative to the average response times of the last 20 requests. This weighting determines how much slower the Drupal server's response to the most recent Workbench request must be in order for adaptive pausing to take effect for the next request.",
             "default": 2
           },
