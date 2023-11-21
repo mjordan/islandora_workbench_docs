@@ -48,7 +48,7 @@
               "create_terms",
               "delete_media_by_node"
             ],
-            "description": "One of 'create', 'create_from_files', 'update', delete', 'add_media', 'delete_media', 'update_media', 'export_csv', 'get_data_from_view', 'create_terms', or 'delete_media_by_node'. See \"[Choosing a task](/islandora_workbench_docs/choosing_a_task/)\" for more information."
+            "description": "One of 'create', 'create_from_files', 'update', delete', 'add_media', 'delete_media', 'update_media', 'export_csv', 'get_data_from_view', 'create_terms', or 'delete_media_by_node'. See \"[Choosing a task](https://mjordan.github.io/islandora_workbench_docs/choosing_a_task/)\" for more information."
           },
           "host": {
             "type": "string",
@@ -85,16 +85,16 @@
           },
           "allow_adding_terms": {
             "type": "boolean",
-            "description": "In \\`create\\` and \\`update\\` tasks, determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the \"[Taxonomy reference fields](/islandora_workbench_docs/fields/#field-types)\" section. Note: this setting is not required in \\`create_terms\\` tasks.",
+            "description": "In \\`create\\` and \\`update\\` tasks, determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the \"[Taxonomy reference fields](https://mjordan.github.io/islandora_workbench_docs/fields/#field-types)\" section. Note: this setting is not required in \\`create_terms\\` tasks.",
             "default": false
           },
           "vocab_id": {
             "type": "string",
-            "description": "Identifies the vocabulary you are adding terms to in \\`create_tersm\\` tasks. See more information in the \"[Creating taxonomy terms](/islandora_workbench_docs/creating_taxonomy_terms)\" section."
+            "description": "Identifies the vocabulary you are adding terms to in \\`create_tersm\\` tasks. See more information in the \"[Creating taxonomy terms](https://mjordan.github.io/islandora_workbench_docs/creating_taxonomy_terms)\" section."
           },
           "update_mode": {
             "type": "string",
-            "description": "Determines if Workbench will \\`replace\\`, \\`append\\` (add to) , or \\`delete\\` field values during \\`update\\` tasks. See more information in the \"[Updating nodes](/islandora_workbench_docs/updating_nodes)\" section.",
+            "description": "Determines if Workbench will \\`replace\\`, \\`append\\` (add to) , or \\`delete\\` field values during \\`update\\` tasks. See more information in the \"[Updating nodes](https://mjordan.github.io/islandora_workbench_docs/updating_nodes)\" section.",
             "default": "replace"
           },
           "validate_terms_exist": {
@@ -119,17 +119,17 @@
           },
           "standalone_media_url": {
             "type": "boolean",
-            "description": "Set to \\`true\\` if your Drupal instance has the \"Standalone media URL\" option at \\`/admin/config/media/media-settings\\` checked. The Drupal default is to have this unchecked, so you only need to use this Workbench option if you have changed Drupal's default. [More information](/islandora_workbench_docs/installation/#configuring-drupals-media-urls) is available.",
+            "description": "Set to \\`true\\` if your Drupal instance has the \"Standalone media URL\" option at \\`/admin/config/media/media-settings\\` checked. The Drupal default is to have this unchecked, so you only need to use this Workbench option if you have changed Drupal's default. [More information](https://mjordan.github.io/islandora_workbench_docs/installation/#configuring-drupals-media-urls) is available.",
             "default": false
           },
           "require_entity_reference_views": {
             "type": "boolean",
-            "description": "Set to \\`false\\` to tell Workbench to not require a View to expose the values in an entity reference field configured to use an Entity Reference View. Additional information is available [here](/islandora_workbench_docs/fields/#entity-reference-views-fields).",
+            "description": "Set to \\`false\\` to tell Workbench to not require a View to expose the values in an entity reference field configured to use an Entity Reference View. Additional information is available [here](https://mjordan.github.io/islandora_workbench_docs/fields/#entity-reference-views-fields).",
             "default": true
           },
           "text_format_id": {
             "type": "string",
-            "description": "The text format ID (machine name) to apply to all Drupal text fields that have a \"formatted\" field type. Use \\`text_format_ids\\` (plural) to provide a text format ID for a specific Drupal field. See \"[Text fields with markup](/islandora_workbench_docs/fields/#text-fields-with-markup)\" for more information.",
+            "description": "The text format ID (machine name) to apply to all Drupal text fields that have a \"formatted\" field type. Use \\`text_format_ids\\` (plural) to provide a text format ID for a specific Drupal field. See \"[Text fields with markup](https://mjordan.github.io/islandora_workbench_docs/fields/#text-fields-with-markup)\" for more information.",
             "default": "basic_html"
           }
         }
@@ -144,16 +144,16 @@
           },
           "input_csv": {
             "type": "string",
-            "description": "Path to the CSV metadata file. Can be absolute, or if just the filename is provided, will be assumed to be in the directory named in \\`input_dir\\`. Can also be the URL to a Google spreadsheet (see the \"[Using Google Sheets as input data](/islandora_workbench_docs/preparing_data/#using-a-google-sheet-as-the-input-csv-file)\" section for more information).",
+            "description": "Path to the CSV metadata file. Can be absolute, or if just the filename is provided, will be assumed to be in the directory named in \\`input_dir\\`. Can also be the URL to a Google spreadsheet (see the \"[Using Google Sheets as input data](https://mjordan.github.io/islandora_workbench_docs/preparing_data/#using-a-google-sheet-as-the-input-csv-file)\" section for more information).",
             "default": "metadata.csv"
           },
           "google_sheets_csv_filename": {
             "type": "string",
-            "description": "Local CSV filename for data from a Google spreadsheet. See the \"[Using Google Sheets as input data](/islandora_workbench_docs/preparing_data/#using-a-google-sheet-as-the-input-csv-file)\" section for more information."
+            "description": "Local CSV filename for data from a Google spreadsheet. See the \"[Using Google Sheets as input data](https://mjordan.github.io/islandora_workbench_docs/preparing_data/#using-a-google-sheet-as-the-input-csv-file)\" section for more information."
           },
           "google_sheets_gid": {
             "type": "integer",
-            "description": "The \"gid\" of the worksheet to use in a Google Sheet. See  \"[Using Google Sheets as input data](/islandora_workbench_docs/preparing_data/#using-a-google-sheet-as-the-input-csv-file)\" section for more information.",
+            "description": "The \"gid\" of the worksheet to use in a Google Sheet. See  \"[Using Google Sheets as input data](https://mjordan.github.io/islandora_workbench_docs/preparing_data/#using-a-google-sheet-as-the-input-csv-file)\" section for more information.",
             "default": 0
           },
           "excel_worksheet": {
@@ -187,14 +187,14 @@
           },
           "csv_field_templates": {
             "type": "object",
-            "description": "Used in the \\`create\\` and \\`update\\` tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the \"[CSV field templates](/islandora_workbench_docs/field_templates/)\" section.",
+            "description": "Used in the \\`create\\` and \\`update\\` tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the \"[CSV field templates](https://mjordan.github.io/islandora_workbench_docs/field_templates/)\" section.",
             "additionalProperties": {
               "type": "string"
             }
           },
           "csv_value_templates": {
             "type": "object",
-            "description": "Used in the \\`create\\` and \\`update\\` tasks only. A list of Drupal field machine names and corresponding templates. More detail provided in the \"[CSV value templates](/islandora_workbench_docs/csv_value_templates/)\" section."
+            "description": "Used in the \\`create\\` and \\`update\\` tasks only. A list of Drupal field machine names and corresponding templates. More detail provided in the \"[CSV value templates](https://mjordan.github.io/islandora_workbench_docs/csv_value_templates/)\" section."
           },
           "ignore_csv_columns": {
             "type": "array",
@@ -205,11 +205,11 @@
           },
           "csv_start_row": {
             "type": "integer",
-            "description": "Used in all tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) before the designated row number. [More information](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges) is available."
+            "description": "Used in all tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) before the designated row number. [More information](https://mjordan.github.io/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges) is available."
           },
           "csv_stop_row": {
             "type": "integer",
-            "description": "Used in all tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) after the designated row number. [More information](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges) is available."
+            "description": "Used in all tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) after the designated row number. [More information](https://mjordan.github.io/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges) is available."
           },
           "csv_headers": {
             "type": "string",
@@ -225,7 +225,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Used in all tasks that use CSV input files. See \"[How Workbench cleans your input data](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data)\" for more information."
+            "description": "Used in all tasks that use CSV input files. See \"[How Workbench cleans your input data](https://mjordan.github.io/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data)\" for more information."
           }
         },
         "required": [
@@ -251,7 +251,7 @@
               "tid",
               "name"
             ],
-            "description": "Used in \"export_csv\" tasks to indicate whether vocabulary term IDs or names are included in the output CSV file. Set to \"tid\" (the default) to include term IDs, or set to \"name\" to include term names. See \"[Exporting field data into a CSV file](/islandora_workbench_docs/generating_csv_files/#exporting-field-data-into-a-csv-file)\" for more information.",
+            "description": "Used in \"export_csv\" tasks to indicate whether vocabulary term IDs or names are included in the output CSV file. Set to \"tid\" (the default) to include term IDs, or set to \"name\" to include term names. See \"[Exporting field data into a CSV file](https://mjordan.github.io/islandora_workbench_docs/generating_csv_files/#exporting-field-data-into-a-csv-file)\" for more information.",
             "default": "tid"
           },
           "export_csv_field_list": {
@@ -259,14 +259,14 @@
             "items": {
               "type": "string"
             },
-            "description": "List of fields to include in exported CSV data. If empty, all fields will be included.  See \"[Using a Drupal View to identify content to export as CSV](/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv)\" for more information."
+            "description": "List of fields to include in exported CSV data. If empty, all fields will be included.  See \"[Using a Drupal View to identify content to export as CSV](https://mjordan.github.io/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv)\" for more information."
           },
           "view_parameters": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "List of URL parameter/value strings to include in requests to a View. See \"[Using a Drupal View to identify content to export as CSV](/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv)\" for more information."
+            "description": "List of URL parameter/value strings to include in requests to a View. See \"[Using a Drupal View to identify content to export as CSV](https://mjordan.github.io/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv)\" for more information."
           },
           "export_csv_file_path": {
             "type": "string",
@@ -313,19 +313,19 @@
           },
           "media_type": {
             "type": "string",
-            "description": "Overrides, for all media being created, Workbench's default definition of whether the media being created is an image, file, document, audio, or video. Used in the \\`create\\`, \\`add_media\\`, and \\`create_from_files\\` tasks. More detail provided in the \"[Configuring Media Types](/islandora_workbench_docs/media_types)\" section."
+            "description": "Overrides, for all media being created, Workbench's default definition of whether the media being created is an image, file, document, audio, or video. Used in the \\`create\\`, \\`add_media\\`, and \\`create_from_files\\` tasks. More detail provided in the \"[Configuring Media Types](https://mjordan.github.io/islandora_workbench_docs/media_types)\" section."
           },
           "media_types_override": {
             "type": "object",
-            "description": "Overrides default media type definitions on a per file extension basis. Used in the \\`create\\`, \\`add_media\\`, and \\`create_from_files\\` tasks. More detail provided in the \"[Configuring Media Types](/islandora_workbench_docs/media_types)\" section."
+            "description": "Overrides default media type definitions on a per file extension basis. Used in the \\`create\\`, \\`add_media\\`, and \\`create_from_files\\` tasks. More detail provided in the \"[Configuring Media Types](https://mjordan.github.io/islandora_workbench_docs/media_types)\" section."
           },
           "media_type_file_fields": {
             "type": "string",
-            "description": "Defines the name of the media field that references media's file (i.e., the field on the Media type). Usually used with custom media types and accompanied by either the \\`media_type\\` or \\`media_types_override\\` option. For more information, see the \"[Configuring Media Types](/islandora_workbench_docs/media_types)\" section."
+            "description": "Defines the name of the media field that references media's file (i.e., the field on the Media type). Usually used with custom media types and accompanied by either the \\`media_type\\` or \\`media_types_override\\` option. For more information, see the \"[Configuring Media Types](https://mjordan.github.io/islandora_workbench_docs/media_types)\" section."
           },
           "mimetype_extensions": {
             "type": "object",
-            "description": "Overrides Workbench's default mappings between MIME types and file extensions. Usually used with remote files where the remote web server returns a MIME type that is not standard. For more information, see the \"[Configuring Media Types](/islandora_workbench_docs/media_types)\" section."
+            "description": "Overrides Workbench's default mappings between MIME types and file extensions. Usually used with remote files where the remote web server returns a MIME type that is not standard. For more information, see the \"[Configuring Media Types](https://mjordan.github.io/islandora_workbench_docs/media_types)\" section."
           },
           "delete_media_with_nodes": {
             "type": "boolean",
@@ -362,7 +362,7 @@
           },
           "additional_files": {
             "type": "object",
-            "description": "Maps a set of CSV field names to media use terms IDs to create additional media (additional to the media created from the file named in the \"file\" column, that is) in \\`create\\` and \\`add_media\\` tasks. See \"[Adding multiple media](/islandora_workbench_docs/adding_multiple_media)\" for more information."
+            "description": "Maps a set of CSV field names to media use terms IDs to create additional media (additional to the media created from the file named in the \"file\" column, that is) in \\`create\\` and \\`add_media\\` tasks. See \"[Adding multiple media](https://mjordan.github.io/islandora_workbench_docs/adding_multiple_media)\" for more information."
           },
           "fixity_algorithm": {
             "type": "string",
@@ -371,11 +371,11 @@
               "sha1",
               "sha256"
             ],
-            "description": "Checksum/hash algorithm to use during transmission fixity checking. Must be one of \"md5\", \"sha1\", or \"sha256\". See \"[Fixity checking](/islandora_workbench_docs/fixity)\" for more information."
+            "description": "Checksum/hash algorithm to use during transmission fixity checking. Must be one of \"md5\", \"sha1\", or \"sha256\". See \"[Fixity checking](https://mjordan.github.io/islandora_workbench_docs/fixity)\" for more information."
           },
           "validate_fixity_during_check": {
             "type": "boolean",
-            "description": "Perform checksum validation during \\`--check\\`. See \"[Fixity checking](/islandora_workbench_docs/fixity)\" for more information.",
+            "description": "Perform checksum validation during \\`--check\\`. See \"[Fixity checking](https://mjordan.github.io/islandora_workbench_docs/fixity)\" for more information.",
             "default": false
           },
           "delete_media_by_node_media_use_tids": {
@@ -383,7 +383,7 @@
             "items": {
               "type": "integer"
             },
-            "description": "During \\`delete_media_by_node\\` tasks, allows you to specify which media to delete. Only media with the listed terms IDs from the Islandora Media Use vocabulary will be deleted. By default (an empty list), all media are deleted. See \"[Deleting Media](/islandora_workbench_docs/deleting_media)\" for more information."
+            "description": "During \\`delete_media_by_node\\` tasks, allows you to specify which media to delete. Only media with the listed terms IDs from the Islandora Media Use vocabulary will be deleted. By default (an empty list), all media are deleted. See \"[Deleting Media](https://mjordan.github.io/islandora_workbench_docs/deleting_media)\" for more information."
           },
           "exit_on_first_missing_file_during_check": {
             "type": "boolean",
@@ -397,11 +397,11 @@
         "properties": {
           "model": {
             "type": "string",
-            "description": "Used in the \\`create_from_files\\` task only. Defines the term ID from the the \"Islandora Models\" vocabulary for all nodes created using this task. Note: one of \\`model\\` or \\`models\\` is required. More detail provided in the \"[Creating nodes from files](/islandora_workbench_docs/creating_nodes_from_files/)\" section."
+            "description": "Used in the \\`create_from_files\\` task only. Defines the term ID from the the \"Islandora Models\" vocabulary for all nodes created using this task. Note: one of \\`model\\` or \\`models\\` is required. More detail provided in the \"[Creating nodes from files](https://mjordan.github.io/islandora_workbench_docs/creating_nodes_from_files/)\" section."
           },
           "models": {
             "type": "object",
-            "description": "Used in the \\`create_from_files\\` task only. Provides a mapping between file extensions and terms in the \"Islandora Models\" vocabulary. Note: one of \\`model\\` or \\`models\\` is required. More detail provided in the [Creating nodes from files](/islandora_workbench_docs/creating_nodes_from_files/)\" section."
+            "description": "Used in the \\`create_from_files\\` task only. Provides a mapping between file extensions and terms in the \"Islandora Models\" vocabulary. Note: one of \\`model\\` or \\`models\\` is required. More detail provided in the [Creating nodes from files](https://mjordan.github.io/islandora_workbench_docs/creating_nodes_from_files/)\" section."
           }
         }
       },
@@ -411,12 +411,12 @@
         "properties": {
           "paged_content_from_directories": {
             "type": "boolean",
-            "description": "Set to true if you are using the \"[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)\" method of creating paged content.",
+            "description": "Set to true if you are using the \"[Using subdirectories](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#using-subdirectories)\" method of creating paged content.",
             "default": false
           },
           "paged_content_sequence_separator": {
             "type": "string",
-            "description": "The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the \"[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)\" method. Note: this configuration option was originally misspelled \"paged_content_sequence_seprator\".",
+            "description": "The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the \"[Using subdirectories](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#using-subdirectories)\" method. Note: this configuration option was originally misspelled \"paged_content_sequence_seprator\".",
             "default": "-"
           },
           "paged_content_page_model_tid": {
@@ -429,11 +429,11 @@
           },
           "paged_content_page_content_type": {
             "type": "string",
-            "description": "Set to the machine name of the Drupal node content type for pages created using the \"[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)\" method if it is different than the content type of the parent (which is specified in the content_type setting)."
+            "description": "Set to the machine name of the Drupal node content type for pages created using the \"[Using subdirectories](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#using-subdirectories)\" method if it is different than the content type of the parent (which is specified in the content_type setting)."
           },
           "page_title_template": {
             "type": "string",
-            "description": "Template used to generate the titles of pages/members in the \"[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)\" method.",
+            "description": "Template used to generate the titles of pages/members in the \"[Using subdirectories](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#using-subdirectories)\" method.",
             "default": "$parent_title, page $weight"
           },
           "secondary_tasks": {
@@ -441,20 +441,20 @@
             "items": {
               "type": "string"
             },
-            "description": "A list of configuration file names that are executed as secondary tasks after the primary task to create compound objects. See \"[Using a secondary task](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task)\" for more information."
+            "description": "A list of configuration file names that are executed as secondary tasks after the primary task to create compound objects. See \"[Using a secondary task](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task)\" for more information."
           },
           "csv_id_to_node_id_map_path": {
             "type": "string",
-            "description": "Name of the SQLite database filename used to store CSV row ID to node ID mappings for nodes created during \\`create\\` and \\`create_from_files\\` tasks. If you want to store your map database outside of a temporary directory, use an absolute path to the database file for this setting. If you want to disable population of this database, set this config setting to \\`false\\`. See \"[Generating CSV files](/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map)\" for more information.",
+            "description": "Name of the SQLite database filename used to store CSV row ID to node ID mappings for nodes created during \\`create\\` and \\`create_from_files\\` tasks. If you want to store your map database outside of a temporary directory, use an absolute path to the database file for this setting. If you want to disable population of this database, set this config setting to \\`false\\`. See \"[Generating CSV files](https://mjordan.github.io/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map)\" for more information.",
             "default": "[temp_dir]/csv_id_to_node_id_map.db"
           },
           "query_csv_id_to_node_id_map_for_parents": {
             "type": "boolean",
-            "description": "Queries the CSV ID to node ID map when creating compound content. Set to \\`true\\` if you want to use parent IDs from previous Workbench sessions. Note: this setting is automatically set to true in secondary task config files. See \"[Creating parent/child relationships across Workbench sessions](/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions) for more information.\""
+            "description": "Queries the CSV ID to node ID map when creating compound content. Set to \\`true\\` if you want to use parent IDs from previous Workbench sessions. Note: this setting is automatically set to true in secondary task config files. See \"[Creating parent/child relationships across Workbench sessions](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions) for more information.\""
           },
           "ignore_duplicate_parent_ids": {
             "type": "boolean",
-            "description": "Tells Workbench to ignore entries in the CSV ID to node ID map that have the same parent ID value. Set to \\`false\\` if you want Workbench to warn you that there are duplicate parent IDs in your CSV ID to node ID map. See \"[Creating parent/child relationships across Workbench sessions](/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions) for more information.\"",
+            "description": "Tells Workbench to ignore entries in the CSV ID to node ID map that have the same parent ID value. Set to \\`false\\` if you want Workbench to warn you that there are duplicate parent IDs in your CSV ID to node ID map. See \"[Creating parent/child relationships across Workbench sessions](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions) for more information.\"",
             "default": true
           }
         }
@@ -572,20 +572,20 @@
           },
           "rollback_dir": {
             "type": "string",
-            "description": "Absolute path to the directory where you want your \"rollback.csv\" file to be written. See \"[Rolling back](/islandora_workbench_docs/rolling_back/)\" for more information."
+            "description": "Absolute path to the directory where you want your \"rollback.csv\" file to be written. See \"[Rolling back](https://mjordan.github.io/islandora_workbench_docs/rolling_back/)\" for more information."
           },
           "timestamp_rollback": {
             "type": "boolean",
-            "description": "Set to \\`true\\` to add a timestamp to the \"rollback.yml\" and corresponding \"rollback.csv\" generated in \"create\" and \"create_from_files\" tasks. See \"[Rolling back](/islandora_workbench_docs/rolling_back/)\" for more information.",
+            "description": "Set to \\`true\\` to add a timestamp to the \"rollback.yml\" and corresponding \"rollback.csv\" generated in \"create\" and \"create_from_files\" tasks. See \"[Rolling back](https://mjordan.github.io/islandora_workbench_docs/rolling_back/)\" for more information.",
             "default": false
           },
           "pause": {
             "type": "integer",
-            "description": "Defines the number of seconds to pause between all 'POST', 'PUT', 'PATCH', 'DELETE' requests to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5. More information is available in the \"[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/)\" documentation."
+            "description": "Defines the number of seconds to pause between all 'POST', 'PUT', 'PATCH', 'DELETE' requests to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5. More information is available in the \"[Reducing Workbench's impact on Drupal](https://mjordan.github.io/islandora_workbench_docs/reducing_load/)\" documentation."
           },
           "adaptive_pause": {
             "type": "integer",
-            "description": "Defines the number of seconds to pause between each REST request to Drupal. Works like \"pause\" but only takes effect when the Drupal server's response to the most recent request is slower (determined by the \"adaptive_pause_threshold\" value) than the average response time for the last 20 requests. More information is available in the \"[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/)\" documentation."
+            "description": "Defines the number of seconds to pause between each REST request to Drupal. Works like \"pause\" but only takes effect when the Drupal server's response to the most recent request is slower (determined by the \"adaptive_pause_threshold\" value) than the average response time for the last 20 requests. More information is available in the \"[Reducing Workbench's impact on Drupal](https://mjordan.github.io/islandora_workbench_docs/reducing_load/)\" documentation."
           },
           "adaptive_pause_threshold": {
             "type": "integer",
