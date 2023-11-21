@@ -68,7 +68,6 @@
           "task",
           "host",
           "username",
-          "password"
         ]
       },
       "DrupalSettings": {
