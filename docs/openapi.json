@@ -67,7 +67,7 @@
         "required": [
           "task",
           "host",
-          "username",
+          "username"
         ]
       },
       "DrupalSettings": {
