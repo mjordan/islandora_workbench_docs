@@ -381,11 +381,13 @@
           "fixity_algorithm": {
             "type": "string",
             "enum": [
+              "",
               "md5",
               "sha1",
               "sha256"
             ],
-            "description": "Checksum/hash algorithm to use during transmission fixity checking. Must be one of \"md5\", \"sha1\", or \"sha256\". See \"[Fixity checking](https://mjordan.github.io/islandora_workbench_docs/fixity)\" for more information."
+            "description": "Checksum/hash algorithm to use during transmission fixity checking. Must be one of \"md5\", \"sha1\", or \"sha256\". See \"[Fixity checking](https://mjordan.github.io/islandora_workbench_docs/fixity)\" for more information.",
+            "default": ""
           },
           "validate_fixity_during_check": {
             "type": "boolean",
