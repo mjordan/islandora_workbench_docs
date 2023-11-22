@@ -284,10 +284,7 @@
             "description": "Used in the \"export_csv\" and \"get_data_from_view\" tasks. The term ID or URI from the Islandora Media Use vocabulary that identifies the file you want to export.",
             "default": "http://pcdm.org/use#OriginalFile"
           }
-        },
-        "required": [
-          "export_csv_file_path"
-        ]
+        }
       },
       "MediaSettings": {
         "type": "object",
