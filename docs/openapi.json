@@ -304,11 +304,13 @@
           },
           "strict_check": {
             "type": "boolean",
-            "description": "Replaced with \\`perform_soft_checks\\` as of commit dfa60ff (July 14, 2023)."
+            "description": "Replaced with \\`perform_soft_checks\\` as of commit dfa60ff (July 14, 2023).",
+            "default": false
           },
           "perform_soft_checks": {
             "type": "boolean",
-            "description": "Use soft checks for validation during processing."
+            "description": "Use soft checks for validation during processing.",
+            "default": false
           },
           "media_use_tid": {
             "type": "string",
@@ -471,7 +473,8 @@
           },
           "query_csv_id_to_node_id_map_for_parents": {
             "type": "boolean",
-            "description": "Queries the CSV ID to node ID map when creating compound content. Set to \\`true\\` if you want to use parent IDs from previous Workbench sessions. Note: this setting is automatically set to true in secondary task config files. See \"[Creating parent/child relationships across Workbench sessions](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions) for more information.\""
+            "description": "Queries the CSV ID to node ID map when creating compound content. Set to \\`true\\` if you want to use parent IDs from previous Workbench sessions. Note: this setting is automatically set to true in secondary task config files. See \"[Creating parent/child relationships across Workbench sessions](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions) for more information.\"",
+            "default": false
           },
           "ignore_duplicate_parent_ids": {
             "type": "boolean",
