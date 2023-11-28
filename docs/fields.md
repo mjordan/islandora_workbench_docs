@@ -424,6 +424,9 @@ Note that:
 * For multi-vocabulary fields, new typed relator targets must be accompanied by a vocabulary namespace (`person` in the above examples).
 * You cannot add new relators (e.g. `relators:foo`) in your CSV file, only new target terms.
 
+!!! note
+    Adding the typed relation namespace, relators, and vocabulary names is a major hassle. If this information is the same for all values (in all rows) in your `field_linked_agent` column (or any other typed relation field), you can use [CSV value templates](/islandora_workbench_docs/csv_value_templates/) to reduce the tedium.
+
 #### EDTF fields
 
 Running Islandora Workbench with `--check` will validate [Extended Date/Time Format (EDTF) Specification](https://www.loc.gov/standards/datetime/) dates (Levels 0, 1, and 2) in EDTF fields. Some common examples include:

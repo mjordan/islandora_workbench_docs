@@ -95,6 +95,7 @@
 
 ### Documentation
 
+* November 28, 2023: Addressed issue [713](https://github.com/mjordan/islandora_workbench/issues/713).
 * November 2, 2023: Updated the "[Troubleshooting](/islandora_workbench_docs/troubleshooting)" page to include how to narrow down errors involving SSL certificates, and some additonal minor changes.
 * October 29, 2023: Updated the docs on "[Assigning URL aliases](/islandora_workbench_docs/aliases/)".
 * September 13, 2023: Updated the docs on "[CSV preprocessor scripts](/islandora_workbench_docs/hooks/#csv-preprocessor-scripts)".
