@@ -1039,7 +1039,7 @@ input_csv: update_media.csv
 <li>Updating the set of track files attached to media</li>
 <li>Updating the Media Use TIDs associated with media</li>
 <li>Updating the published status of media</li>
-<li>Updating any plain text fields in media</li>
+<li>Updating any plain text fields in media (currently, updating other field types is not possible, but there is an open <a href="https://github.com/mjordan/islandora_workbench/issues/606">Github issue</a> for doing so)</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1054,7 +1054,7 @@ input_csv: update_media.csv
 <p class="admonition-title">Note</p>
 <p>This operation will delete the existing file attached to the media and replace it with the file specified in the CSV file.</p>
 </div>
-<p>To update the file attached to a media, you must provide a CSV file with, at minimum, a <code>media_id</code> column and a <code>file</code> column. The <code>media_id</code> column should contain the ID of the media you wish to update, and the <code>file</code> column should contain the path to the file you wish to attach to the media. Here is an example CSV that updates the file attached to the media with ID 100:</p>
+<p>To update the file attached to a media, you must provide a CSV file with, at minimum, a <code>media_id</code> column and a <code>file</code> column. The <code>media_id</code> column should contain the ID of the media you wish to update, and the <code>file</code> column should contain the path to the file you wish to attach to the media (always use <code>file</code> and not the media-type-specific file fieldname). Here is an example CSV that updates the file attached to the media with ID 100:</p>
 <pre><code class="language-text">media_id,file
 100,test.txt
 </code></pre>
