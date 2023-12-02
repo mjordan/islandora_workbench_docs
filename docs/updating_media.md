@@ -22,19 +22,19 @@ Currently, the `update_media` routine has support for the following operations:
 - Updating the set of track files attached to media
 - Updating the Media Use TIDs associated with media
 - Updating the published status of media
-- Updating any plain text fields in media
+- Updating any plain text fields in media (currently, updating other field types is not possible, but there is an open [Github issue](https://github.com/mjordan/islandora_workbench/issues/606) for doing so)
 
 !!! warning
     Currently, `update_media` replaces existing field values with those in the input CSV file, and replaces existing files with those named in the CSV.
 
 ## Updating files attached to media
-!!! note 
+!!! note
     This functionality is currently only supported for media attached to a node.
 
-!!! note 
+!!! note
     This operation will delete the existing file attached to the media and replace it with the file specified in the CSV file.
 
-To update the file attached to a media, you must provide a CSV file with, at minimum, a `media_id` column and a `file` column. The `media_id` column should contain the ID of the media you wish to update, and the `file` column should contain the path to the file you wish to attach to the media. Here is an example CSV that updates the file attached to the media with ID 100:
+To update the file attached to a media, you must provide a CSV file with, at minimum, a `media_id` column and a `file` column. The `media_id` column should contain the ID of the media you wish to update, and the `file` column should contain the path to the file you wish to attach to the media (always use `file` and not the media-type-specific file fieldname). Here is an example CSV that updates the file attached to the media with ID 100:
 
 ```text
 media_id,file
@@ -44,10 +44,10 @@ media_id,file
 Values in the `file` column can be paths to files on the local filesystem, full URLs, or full URL aliases.
 
 ## Updating the track files attached to media
-!!! note 
+!!! note
     This functionality is currently only supported for media attached to a node.
 
-!!! note 
+!!! note
     This operation will delete all existing track files attached to the media and replace them with the track files specified in the CSV file.
 
 To update the set of track files attached to a media, you must provide a CSV file with, at minimum, a `media_id` column and a column with a name that matches the `media_track_file_fields` setting in the configuration file. By default, the `media_track_file_fields` setting in the configuration file is set to `field_track` for both audio and video. If you have a custom setup that has a different machine name of the field on the media that holds the track file and need to override these defaults, you can do so using the `media_track_file_fields` configuration setting:

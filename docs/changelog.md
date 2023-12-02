@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* December 1, 2023 (commit 749265b): Resolved [issue 715](https://github.com/mjordan/islandora_workbench/issues/715), [issue 716](https://github.com/mjordan/islandora_workbench/issues/716), [issue 717](https://github.com/mjordan/islandora_workbench/issues/717), [issue 718](https://github.com/mjordan/islandora_workbench/issues/718).
 * October 30, 2023 (commit b38d37e): Resolved issue [issue 702](https://github.com/mjordan/islandora_workbench/issues/702) and issue [issue 705](https://github.com/mjordan/islandora_workbench/issues/705).
 * October 29, 2023 (commit 3c3f7a8): Resolved issue [issue 703](https://github.com/mjordan/islandora_workbench/issues/703).
 * October 23, 2023 (commit f41fa85): Resolved issue [issue 701](https://github.com/mjordan/islandora_workbench/issues/701).
@@ -95,6 +96,7 @@
 
 ### Documentation
 
+* December 1, 2023: Updated the "[Updating media](https://mjordan.github.io/islandora_workbench_docs/updating_media/)" docs.
 * November 28, 2023: Addressed issue [713](https://github.com/mjordan/islandora_workbench/issues/713); merged in @rosiel's https://github.com/mjordan/islandora_workbench_docs/pull/12.
 * November 2, 2023: Updated the "[Troubleshooting](/islandora_workbench_docs/troubleshooting)" page to include how to narrow down errors involving SSL certificates, and some additonal minor changes.
 * October 29, 2023: Updated the docs on "[Assigning URL aliases](/islandora_workbench_docs/aliases/)".
