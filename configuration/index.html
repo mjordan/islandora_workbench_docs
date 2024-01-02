@@ -1707,7 +1707,7 @@ csv_field_templates:
 <td>allow_missing_files</td>
 <td></td>
 <td>false</td>
-<td>Determines if empty <code>file</code> values are allowed. Used in the <code>create</code> and <code>add_media</code> tasks. If set to true, empty <code>file</code> values are allowed. For <code>create</code> tasks, a <code>true</code> value will result in nodes without attached media. For <code>add_media</code> tasks, a <code>true</code> value will skip adding a media for the empty <code>file</code> CSV value. Defaults to false (which means all file values must contain the name of a file that exists in the <code>input_data</code> directory).</td>
+<td>Determines if <code>file</code> values that point to missing (not found) files are allowed. Used in the <code>create</code> and <code>add_media</code> tasks. If set to true, <code>file</code> values that point to missing files are allowed. For <code>create</code> tasks, a <code>true</code> value will result in nodes without attached media. For <code>add_media</code> tasks, a <code>true</code> value will skip adding a media for the missing <code>file</code> CSV value. Defaults to false (which means all <code>file</code> values must name files that exist at their specified locations). Note that this setting has no effect on empty <code>file</code> values; these are always logged, and their corresponding media are simply not created.</td>
 </tr>
 <tr>
 <td>exit_on_first_missing_file_during_check</td>
