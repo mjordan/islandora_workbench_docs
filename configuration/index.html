@@ -2050,7 +2050,7 @@ csv_field_templates:
 <td>perform_soft_checks</td>
 <td></td>
 <td>false</td>
-<td>If set to true, <code>--check</code> will not exit when it encounters an error with parent/child order, file extension registration with Drupal media file fields, or EDTF validation. Instead, it will log any errors it encounters and exit after it has checked all rows in the CSV input file. Note: this setting replaces <code>strict_check</code>.</td>
+<td>If set to true, <code>--check</code> will not exit when it encounters an error with parent/child order, file extension registration with Drupal media file fields, missing files named in the <code>files</code> CSV column, or EDTF validation. Instead, it will log any errors it encounters and exit after it has checked all rows in the CSV input file. Note: this setting replaces <code>strict_check</code> as of commit dfa60ff (July 14, 2023).</td>
 </tr>
 <tr>
 <td>temp_dir</td>
