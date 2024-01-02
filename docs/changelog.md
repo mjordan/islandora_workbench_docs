@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* January 2, 2024 (commit 248560b): Resolved issue [issue 726](https://github.com/mjordan/islandora_workbench/issues/726).
 * December 12, 2023 (commit 864be45): Merged @ajstanley's work on [PR 722](https://github.com/mjordan/islandora_workbench/pull/722).
 * December 11, 2023 (commit f03f97b): Merged @joecorall's work on issue [issue 719](https://github.com/mjordan/islandora_workbench/issues/719).
 * December 10, 2023 (commit 988c69d): Resolved issue [issue 687](https://github.com/mjordan/islandora_workbench/issues/687).
