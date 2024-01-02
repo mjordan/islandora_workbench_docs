@@ -1,5 +1,8 @@
 ### main branch (no tag/release)
 
+* December 12, 2023 (commit 864be45): Merged @ajstanley's work on [PR 722](https://github.com/mjordan/islandora_workbench/pull/722).
+* December 11, 2023 (commit f03f97b): Merged @joecorall's work on issue [issue 719](https://github.com/mjordan/islandora_workbench/issues/719).
+* December 10, 2023 (commit 988c69d): Resolved issue [issue 687](https://github.com/mjordan/islandora_workbench/issues/687).
 * December 1, 2023 (commit 749265b): Resolved [issue 715](https://github.com/mjordan/islandora_workbench/issues/715), [issue 716](https://github.com/mjordan/islandora_workbench/issues/716), [issue 717](https://github.com/mjordan/islandora_workbench/issues/717), [issue 718](https://github.com/mjordan/islandora_workbench/issues/718).
 * October 30, 2023 (commit b38d37e): Resolved issue [issue 702](https://github.com/mjordan/islandora_workbench/issues/702) and issue [issue 705](https://github.com/mjordan/islandora_workbench/issues/705).
 * October 29, 2023 (commit 3c3f7a8): Resolved issue [issue 703](https://github.com/mjordan/islandora_workbench/issues/703).
@@ -96,6 +99,7 @@
 
 ### Documentation
 
+* January 2, 2024: Updated the docs on `allow_missing_files` and `perform_soft_checks`.
 * December 1, 2023: Updated the "[Updating media](https://mjordan.github.io/islandora_workbench_docs/updating_media/)" docs.
 * November 28, 2023: Addressed issue [713](https://github.com/mjordan/islandora_workbench/issues/713); merged in @rosiel's https://github.com/mjordan/islandora_workbench_docs/pull/12.
 * November 2, 2023: Updated the "[Troubleshooting](/islandora_workbench_docs/troubleshooting)" page to include how to narrow down errors involving SSL certificates, and some additonal minor changes.

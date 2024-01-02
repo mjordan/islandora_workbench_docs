@@ -39,8 +39,7 @@ File locations in the `file` field can be relative to the directory named in `in
 Things to note about `file` values in general:
 
 * Relative, absolute, and URL file locations can exist within the same CSV file, or even within the same CSV value.
-* By default, if the `file` value for a row is empty, Workbench's `--check` option will show an error. But, in some cases you may want to create nodes but not add any media. If you add `allow_missing_files: true` to your config file for "create" tasks, you can leave the `file` column in your CSV empty.
-* By default, during `--check`, Workbench will exit when it first encounters a missing file (or an empty `file` value). If you would prefer that Workbench checked for the existence of all files before exiting, include `strict_check: false` in your configuration.
+* By default, if the `file` value for a row is empty, Workbench will log the empty value, both in and outside of `--check`. `file` values that point to files that don't exist will result in Workbench logging the missing file and then exiting, unless `allow_missing_files: true` is present in your config file. Adding `perform_soft_checks` will also tell Workbench to not error out when the value in the `file` column can't be found.
 * If you want do not want to create media for any of the rows in your CSV file, include `nodes_only: true` in your configuration file. More detail [is available](/islandora_workbench_docs/nodes_only/).
 * `file` values that contain non-ASCII characters are normalized to their ASCII equivalents. See [this issue](https://github.com/mjordan/islandora_workbench/issues/192) for more information.
 * The Drupal filesystem where files are stored is determined by each media type's file field configuration. It is not possible to override that configuration.
