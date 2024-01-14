@@ -1,7 +1,7 @@
 ### main branch (no tag/release)
 
 * January 14, 2024 (commit 5dfd657): Resolved [issue 731](https://github.com/mjordan/islandora_workbench/issues/731) and [issue 732](https://github.com/mjordan/islandora_workbench/issues/732).
-* January 10, 2024 (commit 7d9aa0): Resolved [issue 606](https://github.com/mjordan/islandora_workbench/issues/606).
+* January 10, 2024 (commit 7d9aa0): Resolved [issue 606](https://github.com/mjordan/islandora_workbench/issues/606) and (commit ac46541) [issue 728](https://github.com/mjordan/islandora_workbench/issues/728).
 * January 5, 2024 (commit c36cc5d): Resolved issue [issue 723](https://github.com/mjordan/islandora_workbench/issues/723).
 * January 2, 2024 (commit 248560b): Resolved issue [issue 726](https://github.com/mjordan/islandora_workbench/issues/726).
 * December 12, 2023 (commit 864be45): Merged @ajstanley's work on [PR 722](https://github.com/mjordan/islandora_workbench/pull/722).
