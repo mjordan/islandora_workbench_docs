@@ -22,10 +22,10 @@ Currently, the `update_media` routine has support for the following operations:
 - Updating the set of track files attached to media
 - Updating the Media Use TIDs associated with media
 - Updating the published status of media
-- Updating any plain text fields in media (currently, updating other field types is not possible, but there is an open [Github issue](https://github.com/mjordan/islandora_workbench/issues/606) for doing so)
+- Updating custom fields of any supported field type
 
 !!! warning
-    Currently, `update_media` replaces existing field values with those in the input CSV file, and replaces existing files with those named in the CSV.
+    Currently, `update_media` tasks replace existing files with those named in the CSV.
 
 ## Updating files attached to media
 !!! note
@@ -113,14 +113,8 @@ media_id,status
 101,0
 ```
 
-## Updating any plain text fields attached to media
-To update any plain text fields attached to media, you must provide a CSV file with, at minimum, a `media_id` column and columns with the machine names of the plain-text fields you wish to update. Note that a "plain text field" must have one of the following field types
-- List (text)
-- Text (formatted)
-- Text (formatted, long)
-- Text (formatted, long, with summary)
-- Text (plain)
-- Text (plain, long)
+## Updating custom fields attached to media
+To update custom fields attached to media, you must provide a CSV file with, at minimum, a `media_id` column and columns with the machine names of the fields you wish to update.
 
 The `media_id` column should contain the ID of the media you wish to update, and the other columns should contain the values you wish to set for the fields. Here is an example CSV that updates the published status of some media:
 
