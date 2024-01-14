@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* January 14, 2024 (commit 5dfd657): Resolved [issue 731](https://github.com/mjordan/islandora_workbench/issues/731) and [issue 732](https://github.com/mjordan/islandora_workbench/issues/732).
 * January 5, 2024 (commit c36cc5d): Resolved issue [issue 723](https://github.com/mjordan/islandora_workbench/issues/723).
 * January 2, 2024 (commit 248560b): Resolved issue [issue 726](https://github.com/mjordan/islandora_workbench/issues/726).
 * December 12, 2023 (commit 864be45): Merged @ajstanley's work on [PR 722](https://github.com/mjordan/islandora_workbench/pull/722).
@@ -101,6 +102,7 @@
 
 ### Documentation
 
+* January 14, 2024: Added `promote` to the "[Base fields](https://mjordan.github.io/islandora_workbench_docs/fields/#base-fields)" docs.
 * January 2, 2024: Updated the docs on `allow_missing_files` and `perform_soft_checks`.
 * December 1, 2023: Updated the "[Updating media](https://mjordan.github.io/islandora_workbench_docs/updating_media/)" docs.
 * November 28, 2023: Addressed issue [713](https://github.com/mjordan/islandora_workbench/issues/713); merged in @rosiel's https://github.com/mjordan/islandora_workbench_docs/pull/12.

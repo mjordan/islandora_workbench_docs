@@ -84,8 +84,9 @@ Base fields are basic node properties, shared by all content types. The base fie
 * `uid`: The Drupal user ID to assign to the node and media created with the node. Optional. Only available in `create` tasks. If you are creating paged/compound objects from directories, this value is applied to the parent's children (if you are creating them using the page/child-level metadata method, these fields must be in your CSV metadata).
 * `created`: The timestamp to use in the node's "created" attribute and in the "created" attribute of the media created with the node. Optional, but if present, it must be in format 2020-11-15T23:49:22+00:00 (the +00:00 is the difference to Greenwich time/GMT). If you are creating paged/compound objects from directories, this value is applied to the parent's children (if you are creating them using the page/child-level metadata method, these fields must be in your CSV metadata).
 * `published`: Whether or not the node (and all accompanying media) is published. If present in `add_media` tasks, will override parent node's `published` value. Values in this field are either `1` (for published) or `0` (for unpublished). The default value for this field is defined within each Drupal content type's (and media type's) configuration, and may be determined by contrib modules such as [Workflow](https://www.drupal.org/project/workflow).
+* `promote`: Whether or not the node is promoted to the site's front page. `1` (for promoted) or `0` (for not promoted). The default vaue for this field is defined within each Drupal content type's (and media type's) configuration, and may be determined by contrib modules such as [Workflow](https://www.drupal.org/project/workflow).
 
-All base fields other than `uid` can be included in `create` and `update` tasks.
+All base fields other than `uid` can be included in both `create` and `update` tasks.
 
 ### Content type-specific fields
 
