@@ -657,8 +657,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#updating-any-plain-text-fields-attached-to-media" class="md-nav__link">
-    Updating any plain text fields attached to media
+  <a href="#updating-custom-fields-attached-to-media" class="md-nav__link">
+    Updating custom fields attached to media
   </a>
   
 </li>
@@ -986,8 +986,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#updating-any-plain-text-fields-attached-to-media" class="md-nav__link">
-    Updating any plain text fields attached to media
+  <a href="#updating-custom-fields-attached-to-media" class="md-nav__link">
+    Updating custom fields attached to media
   </a>
   
 </li>
@@ -1039,11 +1039,11 @@ input_csv: update_media.csv
 <li>Updating the set of track files attached to media</li>
 <li>Updating the Media Use TIDs associated with media</li>
 <li>Updating the published status of media</li>
-<li>Updating any plain text fields in media (currently, updating other field types is not possible, but there is an open <a href="https://github.com/mjordan/islandora_workbench/issues/606">Github issue</a> for doing so)</li>
+<li>Updating custom fields of any supported field type</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Currently, <code>update_media</code> replaces existing field values with those in the input CSV file, and replaces existing files with those named in the CSV.</p>
+<p>Currently, <code>update_media</code> tasks replace existing files with those named in the CSV.</p>
 </div>
 <h2 id="updating-files-attached-to-media">Updating files attached to media</h2>
 <div class="admonition note">
@@ -1109,14 +1109,8 @@ Here is an example CSV that updates the Media Use TID associated with the media 
 100,tRuE
 101,0
 </code></pre>
-<h2 id="updating-any-plain-text-fields-attached-to-media">Updating any plain text fields attached to media</h2>
-<p>To update any plain text fields attached to media, you must provide a CSV file with, at minimum, a <code>media_id</code> column and columns with the machine names of the plain-text fields you wish to update. Note that a "plain text field" must have one of the following field types
-- List (text)
-- Text (formatted)
-- Text (formatted, long)
-- Text (formatted, long, with summary)
-- Text (plain)
-- Text (plain, long)</p>
+<h2 id="updating-custom-fields-attached-to-media">Updating custom fields attached to media</h2>
+<p>To update custom fields attached to media, you must provide a CSV file with, at minimum, a <code>media_id</code> column and columns with the machine names of the fields you wish to update.</p>
 <p>The <code>media_id</code> column should contain the ID of the media you wish to update, and the other columns should contain the values you wish to set for the fields. Here is an example CSV that updates the published status of some media:</p>
 <pre><code class="language-text">media_id,name,field_my_custom_field
 100,My Media,My Custom Value
