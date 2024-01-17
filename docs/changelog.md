@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* January 17, 2024 (commit 197e55a): Resolved [issue 734](https://github.com/mjordan/islandora_workbench/issues/734).
 * January 15, 2024 (commit 5d0b38c): Resolved [issue 733](https://github.com/mjordan/islandora_workbench/issues/733).
 * January 14, 2024 (commit 5dfd657): Resolved [issue 731](https://github.com/mjordan/islandora_workbench/issues/731) and [issue 732](https://github.com/mjordan/islandora_workbench/issues/732).
 * January 10, 2024 (commit 7d9aa0): Resolved [issue 606](https://github.com/mjordan/islandora_workbench/issues/606) and (commit ac46541) [issue 728](https://github.com/mjordan/islandora_workbench/issues/728).
@@ -104,6 +105,7 @@
 
 ### Documentation
 
+* January 17, 2023: Updated the "[Updating media](https://mjordan.github.io/islandora_workbench_docs/updating_media/)" docs to mention the `update_mode` config setting.
 * January 14, 2024: Added `promote` to the "[Base fields](https://mjordan.github.io/islandora_workbench_docs/fields/#base-fields)" docs; updated "[Updating media](https://mjordan.github.io/islandora_workbench_docs/updating_media/)".
 * January 2, 2024: Updated the docs on `allow_missing_files` and `perform_soft_checks`.
 * December 1, 2023: Updated the "[Updating media](https://mjordan.github.io/islandora_workbench_docs/updating_media/)" docs.

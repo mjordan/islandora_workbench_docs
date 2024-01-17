@@ -24,15 +24,18 @@ Currently, the `update_media` routine has support for the following operations:
 - Updating the published status of media
 - Updating custom fields of any supported field type
 
-!!! warning
-    Currently, `update_media` tasks replace existing files with those named in the CSV.
+When updating other field values on the media, the `update_mode` configuration option allows you to determine whether the field values are appendeded or deleted:
+
+* `replace` (the default) will replace all existing values in a field with the values in the input CSV.
+* `append` will add values in the input CSV to any existing values in a field.
+* `delete` will delete all values in a field.
 
 ## Updating files attached to media
 !!! note
-    This functionality is currently only supported for media attached to a node.
+    Updating files attached to media is currently only supported for media attached to a node.
 
-!!! note
-    This operation will delete the existing file attached to the media and replace it with the file specified in the CSV file.
+!!! warning
+    This operation will delete the existing file attached to the media and replace it with the file specified in the CSV file. The `update_mode` setting has no effect on replacing files.
 
 To update the file attached to a media, you must provide a CSV file with, at minimum, a `media_id` column and a `file` column. The `media_id` column should contain the ID of the media you wish to update, and the `file` column should contain the path to the file you wish to attach to the media (always use `file` and not the media-type-specific file fieldname). Here is an example CSV that updates the file attached to the media with ID 100:
 
