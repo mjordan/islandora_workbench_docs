@@ -9,9 +9,9 @@ Islandora Workbench provides three ways to create paged and compound content:
 Enable this method by including `paged_content_from_directories: true` in your configuration file. Use this method when you are creating books, newspaper issues, or other paged content where your pages don't have their own metadata. This method groups page-level files into subdirectories that correspond to each parent, and does not require (or allow) page-level metadata in the CSV file. Each parent (book, newspaper issue, etc.) has a row on the CSV file, e.g.:
 
 ```text
-id,title,field_model,field_display_hints
-book1,How to Use Islandora Workbench like a Pro,28,2
-book2,Using Islandora Workbench for Fun and Profit,28,2
+id,title,field_model
+book1,How to Use Islandora Workbench like a Pro,Paged Content
+book2,Using Islandora Workbench for Fun and Profit,Paged Content
 ```
 
 !!! note
