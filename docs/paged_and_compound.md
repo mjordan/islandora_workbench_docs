@@ -109,7 +109,7 @@ paged_content_additional_page_media:
  - 429: hocr
 ```
 
-''' note
+!!! note
     Using hOCR media for Islandora paged content nodes may not be configured on your Islandora repository; hOCR and the corresponding URI are used here as an example only.
 
 In this case, Workbench looks for files with the extensions `txt` and `hocr` and creates media for them with respective mapped Media Use terms. The paged content input directory would look like this:
