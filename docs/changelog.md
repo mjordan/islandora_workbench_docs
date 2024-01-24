@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* January 24, 2024 (commit eea1165): Resolved [issue 639](https://github.com/mjordan/islandora_workbench/issues/639).
 * January 23, 2024 (commit 60285ad): Resolved [issue 730](https://github.com/mjordan/islandora_workbench/issues/730).
 * January 17, 2024 (commit 197e55a): Resolved [issue 734](https://github.com/mjordan/islandora_workbench/issues/734).
 * January 15, 2024 (commit 5d0b38c): Resolved [issue 733](https://github.com/mjordan/islandora_workbench/issues/733).
@@ -106,6 +107,7 @@
 
 ### Documentation
 
+* January 24, 2023: Added new docs on "[Ingesting OCR (and other) files with page images](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#ingesting-ocr-and-other-files-with-page-images)" and updated the "[Configuration](https://mjordan.github.io/islandora_workbench_docs/configuration/#paged-and-compound-content-settings)" page with the newly introduced config settings.
 * January 17, 2023: Updated the "[Updating media](https://mjordan.github.io/islandora_workbench_docs/updating_media/)" docs to mention the `update_mode` config setting.
 * January 14, 2024: Added `promote` to the "[Base fields](https://mjordan.github.io/islandora_workbench_docs/fields/#base-fields)" docs; updated "[Updating media](https://mjordan.github.io/islandora_workbench_docs/updating_media/)".
 * January 2, 2024: Updated the docs on `allow_missing_files` and `perform_soft_checks`.

@@ -45,6 +45,91 @@ Important things to note when using this method:
 * You should also include a `field_display_hints` column in your CSV. This value is applied to the parent nodes and also the page nodes, unless the `paged_content_page_display_hints` setting is present in you configuration file. However, if you normally don't set the "Display hints" field in your objects but use a Context to determine how objects display, you should not include a `field_display_hints` column in your CSV file.
 * `id` can be defined as another field name using the `id_field` configuration option. If you do define a different ID field using the `id_field` option, creating the parent/paged item relationships will still work.
 * The Drupal content type for page nodes is inherited from the parent, unless you specify a different content type in the `paged_content_page_content_type` setting in your configuration file.
+* If your page directories contain files other than page images, you need to include the `paged_content_image_file_extension` setting in your configuration. Otherwise, Workbench can't tell which files to create pages from.
+
+#### Ingesting OCR (and other) files with page images
+
+You can tell Workbench to add OCR and other media related to page images when using the "Using subdirectories" method of creating paged content. To do this, add the OCR files to your subdirectories, using the base filenames of each page image plus an extension like `.txt`:
+
+```text
+books/
+├── book1
+│   ├── page-001.jpg
+│   ├── page-001.txt
+│   ├── page-002.jpg
+│   ├── page-002.txt
+│   ├── page-003.txt
+│   └── page-003.jpg
+├── book2
+│   ├── isbn-1843341778-001.jpg
+│   ├── isbn-1843341778-001.txt
+│   ├── using-islandora-workbench-page-002.jpg
+│   ├── using-islandora-workbench-page-002.txt
+│   ├── page-003.txt
+│   └── page-003.jpg
+└── metadata.csv
+```
+
+Then, add the following settings to your configuration file:
+
+- `paged_content_from_directories: true` (as described above)
+- `paged_content_page_model_tid` (as described above)
+- `paged_content_image_file_extension`: this is the file extension, without the leading `.`, of the page images, for example `tif`, `jpg`, etc.
+- `paged_content_additional_page_media`: this is a list of mappings from Media Use term IDs or URIs to the file extensions of the OCR or other files you are ingesting. See the example below.
+
+An example configuration is:
+
+```yaml
+task: create
+host: "http://localhost:8000"
+username: admin
+password: islandora
+input_dir: input_data/paged_content_example
+standalone_media_url: true
+paged_content_from_directories: true
+paged_content_page_model_tid: http://id.loc.gov/ontologies/bibframe/part
+paged_content_image_file_extension: jpg
+paged_content_additional_page_media:
+ - http://pcdm.org/use#ExtractedText: txt
+```
+
+You can add multiple additional files (for example, OCR and hOCR) if you provide a Media Use term-to-file-extension mapping for each type of file:
+
+```yaml
+paged_content_additional_page_media:
+ - http://pcdm.org/use#ExtractedText: txt
+ - https://www.wikidata.org/wiki/Q288405: hocr
+```
+
+You can also use your Drupal's numeric Media Use term IDs in the mappings, like:
+
+```yaml
+paged_content_additional_page_media:
+ - 354: txt
+ - 429: hocr
+```
+
+''' note
+    Using hOCR media for Islandora paged content nodes may not be configured on your Islandora repository; hOCR and the corresponding URI are used here as an example only.
+
+In this case, Workbench looks for files with the extensions `txt` and `hocr` and creates media for them with respective mapped Media Use terms. The paged content input directory would look like this:
+
+```text
+books/
+├── book1
+│   ├── page-001.jpg
+│   ├── page-001.txt
+│   ├── page-001.hocr
+│   ├── page-002.jpg
+│   ├── page-002.txt
+│   ├── page-002.hocr
+│   ├── page-003.txt
+│   ├── page-003.hocr
+│   └── page-003.jpg
+```
+
+!!! warning
+    It is important to temporarily disable actions in Contexts that generate media/derivatives that would conflict with additional media you are adding using the method described here. For example, if you are adding OCR files, in the "Page Derivatives" Context listed at `/admin/structure/context`, disable the "Extract text from PDF or image" action prior to running Workbench, and be sure to re-enable it afterwards. If you do not do this, the OCR media added by Workbench will get overwritten with the one that Islandora generates using the "Extract text from PDF or image" action.
 
 
 ### With page/child-level metadata
