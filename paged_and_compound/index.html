@@ -408,6 +408,19 @@
     Using subdirectories
   </a>
   
+    <nav class="md-nav" aria-label="Using subdirectories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ingesting-ocr-and-other-files-with-page-images" class="md-nav__link">
+    Ingesting OCR (and other) files with page images
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -975,6 +988,19 @@
     Using subdirectories
   </a>
   
+    <nav class="md-nav" aria-label="Using subdirectories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ingesting-ocr-and-other-files-with-page-images" class="md-nav__link">
+    Ingesting OCR (and other) files with page images
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1085,7 +1111,75 @@ book2,Using Islandora Workbench for Fun and Profit,28,2
 <li>You should also include a <code>field_display_hints</code> column in your CSV. This value is applied to the parent nodes and also the page nodes, unless the <code>paged_content_page_display_hints</code> setting is present in you configuration file. However, if you normally don't set the "Display hints" field in your objects but use a Context to determine how objects display, you should not include a <code>field_display_hints</code> column in your CSV file.</li>
 <li><code>id</code> can be defined as another field name using the <code>id_field</code> configuration option. If you do define a different ID field using the <code>id_field</code> option, creating the parent/paged item relationships will still work.</li>
 <li>The Drupal content type for page nodes is inherited from the parent, unless you specify a different content type in the <code>paged_content_page_content_type</code> setting in your configuration file.</li>
+<li>If your page directories contain files other than page images, you need to include the <code>paged_content_image_file_extension</code> setting in your configuration. Otherwise, Workbench can't tell which files to create pages from.</li>
 </ul>
+<h4 id="ingesting-ocr-and-other-files-with-page-images">Ingesting OCR (and other) files with page images</h4>
+<p>You can tell Workbench to add OCR and other media related to page images when using the "Using subdirectories" method of creating paged content. To do this, add the OCR files to your subdirectories, using the base filenames of each page image plus an extension like <code>.txt</code>:</p>
+<pre><code class="language-text">books/
+├── book1
+│   ├── page-001.jpg
+│   ├── page-001.txt
+│   ├── page-002.jpg
+│   ├── page-002.txt
+│   ├── page-003.txt
+│   └── page-003.jpg
+├── book2
+│   ├── isbn-1843341778-001.jpg
+│   ├── isbn-1843341778-001.txt
+│   ├── using-islandora-workbench-page-002.jpg
+│   ├── using-islandora-workbench-page-002.txt
+│   ├── page-003.txt
+│   └── page-003.jpg
+└── metadata.csv
+</code></pre>
+<p>Then, add the following settings to your configuration file:</p>
+<ul>
+<li><code>paged_content_from_directories: true</code> (as described above)</li>
+<li><code>paged_content_page_model_tid</code> (as described above)</li>
+<li><code>paged_content_image_file_extension</code>: this is the file extension, without the leading <code>.</code>, of the page images, for example <code>tif</code>, <code>jpg</code>, etc.</li>
+<li><code>paged_content_additional_page_media</code>: this is a list of mappings from Media Use term IDs or URIs to the file extensions of the OCR or other files you are ingesting. See the example below.</li>
+</ul>
+<p>An example configuration is:</p>
+<pre><code class="language-yaml">task: create
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+input_dir: input_data/paged_content_example
+standalone_media_url: true
+paged_content_from_directories: true
+paged_content_page_model_tid: http://id.loc.gov/ontologies/bibframe/part
+paged_content_image_file_extension: jpg
+paged_content_additional_page_media:
+ - http://pcdm.org/use#ExtractedText: txt
+</code></pre>
+<p>You can add multiple additional files (for example, OCR and hOCR) if you provide a Media Use term-to-file-extension mapping for each type of file:</p>
+<pre><code class="language-yaml">paged_content_additional_page_media:
+ - http://pcdm.org/use#ExtractedText: txt
+ - https://www.wikidata.org/wiki/Q288405: hocr
+</code></pre>
+<p>You can also use your Drupal's numeric Media Use term IDs in the mappings, like:</p>
+<pre><code class="language-yaml">paged_content_additional_page_media:
+ - 354: txt
+ - 429: hocr
+</code></pre>
+<p>(Note that creating hOCR media to Islandora paged content nodes may not be configured on your Islandora repository; hOCR and the corresponding URI are used here as an example only.)</p>
+<p>In this case, Workbench looks for files with the extensions <code>txt</code> and <code>hocr</code> and creates media for them with respective mapped Media Use terms. The paged content input directory would look like this:</p>
+<pre><code class="language-text">books/
+├── book1
+│   ├── page-001.jpg
+│   ├── page-001.txt
+│   ├── page-001.hocr
+│   ├── page-002.jpg
+│   ├── page-002.txt
+│   ├── page-002.hocr
+│   ├── page-003.txt
+│   ├── page-003.hocr
+│   └── page-003.jpg
+</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is important to temporarily disable actions in Contexts that generate media/derivatives that would conflict with additional media you are adding using the method described here. For example, if you are adding OCR files, in the "Page Derivatives" Context listed at <code>/admin/structure/context</code>, disable the "Extract text from PDF or image" action prior to running Workbench, and be sure to re-enable it afterwards. If you do not do this, the OCR media added by Workbench will get overwritten with the one that Islandora generates using the "Extract text from PDF or image" action.</p>
+</div>
 <h3 id="with-pagechild-level-metadata">With page/child-level metadata</h3>
 <p>Using this method, the metadata CSV file contains a row for every item, both parents and children. You should use this method when you are creating books, newspaper issues, or other paged or compound content where each page has its own metadata, or when you are creating compound objects of any Islandora model. The file for each page/child is named explicitly in the page/child's <code>file</code> column rather than being in a subdirectory. To link the pages to the parent, Workbench establishes parent/child relationships between items with  a special <code>parent_id</code> CSV column.</p>
 <p>Values in the <code>parent_id</code> column, which only apply to rows describing pages/children, are the <code>id</code> value of their parent. For this to work, your CSV file must contain a <code>parent_id</code> field <em>plus</em> the standard Islandora fields <code>field_weight</code>, <code>field_member_of</code>, and <code>field_model</code> (the role of these last three fields will be explained below). The <code>id</code> field is required in all CSV files used to create content, so in this case, your CSV needs both an <code>id</code> field and a <code>parent_id</code> field.</p>

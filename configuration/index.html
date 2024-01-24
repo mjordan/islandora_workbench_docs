@@ -1462,7 +1462,7 @@ csv_field_templates:
 <td>update_mode</td>
 <td></td>
 <td>replace</td>
-<td>Determines if Workbench will <code>replace</code>, <code>append</code> (add to) , or <code>delete</code> field values during <code>update</code> tasks. See more information in the "<a href="/islandora_workbench_docs/updating_nodes">Updating nodes</a>" section.</td>
+<td>Determines if Workbench will <code>replace</code>, <code>append</code> (add to) , or <code>delete</code> field values during <code>update</code> tasks. See more information in the "<a href="/islandora_workbench_docs/updating_nodes">Updating nodes</a>" section. Also applies to <code>update_media</code> tasks.</td>
 </tr>
 <tr>
 <td>validate_terms_exist</td>
@@ -1873,6 +1873,18 @@ csv_field_templates:
 <td></td>
 <td></td>
 <td>Required if <code>paged_content_from_directories</code> is true. The the term ID from the Islandora Models (or its URI) taxonomy to assign to pages.</td>
+</tr>
+<tr>
+<td>paged_content_image_file_extension</td>
+<td></td>
+<td></td>
+<td>If the subdirectories containing your page image files also contain other files (that are not page images), you need to use this setting to tell Workbench which files to create pages from. Common values include <code>tif</code>, <code>tiff</code>, and <code>jpg</code>.</td>
+</tr>
+<tr>
+<td>paged_content_additional_page_media</td>
+<td></td>
+<td></td>
+<td>A mapping of Media Use term IDs (or URIs) to file extensions telling Workbench which Media Use term to apply to media created from additional files such as OCR text files.</td>
 </tr>
 <tr>
 <td>paged_content_page_display_hints</td>
