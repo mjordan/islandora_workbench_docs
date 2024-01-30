@@ -1134,10 +1134,10 @@ view_parameters:
 <p class="admonition-title">Warning</p>
 <p>If your View includes nodes that you do not want to be seen by anonymous users, or if it contains unpublished nodes, adjust the access permissions settings appropriately, and ensure that the user identified in your Workbench configuration file has sufficient permissions.</p>
 </div>
-<p>If your View is configured to include Contextual Filters, and those contextual filters are exposed as "Query parameters", you can include the query parameter name and its value in your configuration file using the <code>view_parameters</code> config setting, as illustrated in the sample configuration file above. The configuration in the View's Contextual Filters for this type of parameter looks like this:</p>
+<p>If your View is configured to use Contextual Filters, and those contextual filters are exposed as "Query parameters", you can include the query parameter name and its value in your configuration file using the <code>view_parameters</code> config setting, as illustrated in the sample configuration file above. The configuration in the View's Contextual Filters for this type of parameter looks like this:</p>
 <p><img alt="Sample REST export display" src="../images/REST_export_query_paramters.png" /></p>
-<p>By adding Contextual Filters to your View display, you can control what nodes end up in the output CSV by including the value you want to filter on in your Workbench configuration's <code>view_parameters</code> setting. In the screenshot of the Contextual Filter shown here, the query parameter is <code>date</code>, so you include that parameter in your <code>view_parameters</code> list in your configuration file, e.g.:</p>
-<p>``
+<p>By adding Contextual Filters to your View display, you can control what nodes end up in the output CSV by including the value you want to filter on in your Workbench configuration's <code>view_parameters</code> setting. In the screenshot of the "Created date" Contextual Filter shown here, the query parameter is <code>date</code>, so you include that parameter in your <code>view_parameters</code> list in your configuration file along with the value you want to assign to the parameter (separated by an <code>=</code> sign), e.g.:</p>
+<p>``````
 view_parameters:
  - 'date=20231202'</p>
 <pre><code>
