@@ -14,5 +14,7 @@ The `task` configuration setting defines the specific work you want Workbench to
 | Delete media using a list of node IDs | `delete_media_by_node` | [Deleting media](/islandora_workbench_docs/deleting_media/#deleting-media-using-node-ids) |
 | Export node field data using a list of node IDs | `export_csv` | [Generating CSV files](/islandora_workbench_docs/generating_csv_files/#csv-file-containing-field-data-for-existing-nodes) |
 | Export node field data using a Drupal View | `get_data_from_view` | [Generating CSV files](/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv) |
+| Export a media report using a Drupal View | `get_media_report_from_view` | [Generating CSV files](/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv) |
 | Populate a vocabulary from CSV | `create_terms` | [Creating taxonomy terms](/islandora_workbench_docs/creating_taxonomy_terms/) |
+
 

@@ -143,6 +143,26 @@ Some things to note:
 * Only content from nodes that have the content type identified in the `content_type` configuration setting will be written to the CSV file.
 * If you want to export term names instead of term IDs, include `export_csv_term_mode: name` in your configuration file. The warning about this option slowing down the export applies to this task and the `export_csv` task.
 
+### Using a Drupal View to generate a media report as CSV
+
+You can get a report of which media a set of nodes has using a View. This report is generated using a `get_media_report_from_view` task, and the View it uses is the same as the View described above (in fact, you can use the same View with both `get_data_from_view` and `get_media_report_from_view` tasks). A sample configuration file looks like:
+
+
+```yaml
+task: get_media_report_from_view
+host: "http://localhost:8000/"
+view_path: daily_nodes_created
+username: admin
+password: islandora
+export_csv_file_path: /tmp/media_report.csv
+view_parameters:
+ - 'date=20231201'
+```
+
+The output contains colums for Node ID, Title, Content Type, Islandora Model, and Media. For each node in the View, the Media column contains the media use terms for all media attached to the node separated by semicolons, and sorted alphabetically:
+
+![Sample Media report](images/media_report_output.png)
+
 ### Exporting image, video, etc. files along with CSV data
 
 In `export_csv` and `get_data_from_view` tasks, you can optionally export media files. To do this, add the following settings to your configuration file:
