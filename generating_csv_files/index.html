@@ -691,6 +691,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#using-a-drupal-view-to-generate-a-media-report-as-csv" class="md-nav__link">
+    Using a Drupal View to generate a media report as CSV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exporting-image-video-etc-files-along-with-csv-data" class="md-nav__link">
     Exporting image, video, etc. files along with CSV data
   </a>
@@ -992,6 +999,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#using-a-drupal-view-to-generate-a-media-report-as-csv" class="md-nav__link">
+    Using a Drupal View to generate a media report as CSV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exporting-image-video-etc-files-along-with-csv-data" class="md-nav__link">
     Exporting image, video, etc. files along with CSV data
   </a>
@@ -1137,27 +1151,21 @@ view_parameters:
 <p>If your View is configured to use Contextual Filters, and those contextual filters are exposed as "Query parameters", you can include the query parameter name and its value in your configuration file using the <code>view_parameters</code> config setting, as illustrated in the sample configuration file above. The configuration in the View's Contextual Filters for this type of parameter looks like this:</p>
 <p><img alt="Sample REST export display" src="../images/REST_export_query_paramters.png" /></p>
 <p>By adding Contextual Filters to your View display, you can control what nodes end up in the output CSV by including the value you want to filter on in your Workbench configuration's <code>view_parameters</code> setting. In the screenshot of the "Created date" Contextual Filter shown here, the query parameter is <code>date</code>, so you include that parameter in your <code>view_parameters</code> list in your configuration file along with the value you want to assign to the parameter (separated by an <code>=</code> sign), e.g.:</p>
-<p>``````
-view_parameters:
- - 'date=20231202'</p>
-<pre><code>
-will set the value of the `date` query parameter in the &quot;Created date&quot; Contextual Filter to &quot;20231202&quot;.
-
-Some things to note:
-
-* Note that the value you include in `view_parameters` only appies to your View's Contextual Filters. Any &quot;Filter Criteria&quot; you include in the main part of your View configuration also take effect. In other words, both &quot;Filter Criteria&quot; and &quot;Contextual Filters&quot; determine what nodes end up in your output CSV file.
-* REST export Views displays don't use fields in the same way that other Views displays do. In fact, Drupal says within the Views user interface that for REST export displays, &quot;The selected style or row format does not use fields.&quot; Instead, these displays export the entire node in JSON format. Workbench iterates through all fields on the node JSON that start with `field_` and includes those fields, plus `node_id` and `title`, in the output CSV.
-* If you don't want to export all the fields on a content type, you can list the fields you want to export in the `export_csv_field_list` configuration option.
-* Only content from nodes that have the content type identified in the `content_type` configuration setting will be written to the CSV file.
-* If you want to export term names instead of term IDs, include `export_csv_term_mode: name` in your configuration file. The warning about this option slowing down the export applies to this task and the `export_csv` task.
-
-### Using a Drupal View to generate a media report as CSV
-
-You can get a report of which media a set of nodes has using a View. This report is generated using a `get_media_report_from_view` task, and the View it uses is the same as the View described above (in fact, you can use the same View with both `get_data_from_view` and `get_media_report_from_view` tasks). A sample configuration file looks like:
-
-
-```yaml
-task: get_media_report_from_view
+<pre><code>view_parameters:
+ - 'date=20231202'
+</code></pre>
+<p>will set the value of the <code>date</code> query parameter in the "Created date" Contextual Filter to "20231202".</p>
+<p>Some things to note:</p>
+<ul>
+<li>Note that the value you include in <code>view_parameters</code> only appies to your View's Contextual Filters. Any "Filter Criteria" you include in the main part of your View configuration also take effect. In other words, both "Filter Criteria" and "Contextual Filters" determine what nodes end up in your output CSV file.</li>
+<li>REST export Views displays don't use fields in the same way that other Views displays do. In fact, Drupal says within the Views user interface that for REST export displays, "The selected style or row format does not use fields." Instead, these displays export the entire node in JSON format. Workbench iterates through all fields on the node JSON that start with <code>field_</code> and includes those fields, plus <code>node_id</code> and <code>title</code>, in the output CSV.</li>
+<li>If you don't want to export all the fields on a content type, you can list the fields you want to export in the <code>export_csv_field_list</code> configuration option.</li>
+<li>Only content from nodes that have the content type identified in the <code>content_type</code> configuration setting will be written to the CSV file.</li>
+<li>If you want to export term names instead of term IDs, include <code>export_csv_term_mode: name</code> in your configuration file. The warning about this option slowing down the export applies to this task and the <code>export_csv</code> task.</li>
+</ul>
+<h3 id="using-a-drupal-view-to-generate-a-media-report-as-csv">Using a Drupal View to generate a media report as CSV</h3>
+<p>You can get a report of which media a set of nodes has using a View. This report is generated using a <code>get_media_report_from_view</code> task, and the View it uses is the same as the View described above (in fact, you can use the same View with both <code>get_data_from_view</code> and <code>get_media_report_from_view</code> tasks). A sample configuration file looks like:</p>
+<pre><code class="language-yaml">task: get_media_report_from_view
 host: &quot;http://localhost:8000/&quot;
 view_path: daily_nodes_created
 username: admin
