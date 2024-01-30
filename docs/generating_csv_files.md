@@ -109,9 +109,11 @@ export_csv_file_path: /tmp/islandora_export.csv
 # If export_csv_field_list is not present, all fields will be exported.
 # node_id and title are always included.
 export_csv_field_list: ['field_description', 'field_extent']
-# Identify any URL parameters configured for the View (e.g., an exposed filter).
-# Note that values in the 'view_parameters' configuration setting are literal
-# parameter/operator/value strings,not YAML key: value pairs.
+# 'view_paramters' is optinal, and used only if your View uses Contextual Filters.
+# In this setting you identify any URL parameters configured as Contextual Filters
+# for the View. Note that values in the 'view_parameters' configuration setting
+# are literal parameter=value strings that include the =, not YAML key: value
+# pairs used elsewhere in the Workbench configuration file.
 view_parameters:
  - 'date=20231202'
 ```
@@ -160,7 +162,7 @@ Some things to note:
 
 ### Using a Drupal View to generate a media report as CSV
 
-You can get a report of which media a set of nodes has using a View. This report is generated using a `get_media_report_from_view` task, and the View it uses is the same as the View described above (in fact, you can use the same View with both `get_data_from_view` and `get_media_report_from_view` tasks). A sample configuration file looks like:
+You can get a report of which media a set of nodes has using a View. This report is generated using a `get_media_report_from_view` task, and the View configuration it uses is the same as the View configuration described above (in fact, you can use the same View with both `get_data_from_view` and `get_media_report_from_view` tasks). A sample Workbench configuration file looks like:
 
 
 ```yaml
@@ -170,6 +172,7 @@ view_path: daily_nodes_created
 username: admin
 password: islandora
 export_csv_file_path: /tmp/media_report.csv
+# view_paramters is optinal, and used only if your View uses Contextual Filters.
 view_parameters:
  - 'date=20231201'
 ```
