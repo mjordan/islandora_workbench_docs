@@ -101,10 +101,10 @@ You can use a new or existing View to tell Workbench what nodes to export into C
 ```yaml
 task: get_data_from_view
 host: "http://localhost:8000/"
-view_path: '/workbench-export-test'
+view_path: '/daily_nodes_created_test'
 username: admin
 password: islandora
-content_type: my_custom_content_type
+content_type: pubished_work
 export_csv_file_path: /tmp/islandora_export.csv
 # If export_csv_field_list is not present, all fields will be exported.
 # node_id and title are always included.
@@ -113,7 +113,7 @@ export_csv_field_list: ['field_description', 'field_extent']
 # Note that values in the 'view_parameters' configuration setting are literal
 # parameter/operator/value strings,not YAML key: value pairs.
 view_parameters:
- - 'title_contains=Debate'
+ - 'date=20231202'
 ```
 
 The `view_path` setting should contain the value of the "Path" option in the Views configuration page's "Path settings" section. The `export_csv_file_path` is the location where you want your CSV file saved.
@@ -136,8 +136,23 @@ To test your REST export, in your browser, join your Drupal hostname and the "Pa
 !!! warning
     If your View includes nodes that you do not want to be seen by anonymous users, or if it contains unpublished nodes, adjust the access permissions settings appropriately, and ensure that the user identified in your Workbench configuration file has sufficient permissions.
 
+You can optionally configure your View to use a single Contextual Filters, and expose that Contextual Filter to use one or more query parameters. This way, you can include each query parameter's name and its value in your configuration file using Workbench's `view_parameters` config setting, as illustrated in the sample configuration file above. The configuration in the View's Contextual Filters for this type of parameter looks like this:
+
+![Sample REST export display](images/REST_export_query_paramters.png)
+
+By adding a Contextual Filterf to your View display, you can control what nodes end up in the output CSV by including the value you want to filter on in your Workbench configuration's `view_parameters` setting. In the screenshot of the "Created date" Contextual Filter shown here, the query parameter is `date`, so you include that parameter in your `view_parameters` list in your configuration file along with the value you want to assign to the parameter (separated by an `=` sign), e.g.:
+
+```
+view_parameters:
+ - 'date=20231202'
+```
+
+will set the value of the `date` query parameter in the "Created date" Contextual Filter to "20231202".
+
 Some things to note:
 
+* Note that the values you include in `view_parameters` apply only to your View's Contextual Filter. Any "Filter Criteria" you include in the main part of your View configuration also take effect. In other words, both "Filter Criteria" and "Contextual Filters" determine what nodes end up in your output CSV file.
+    * You can only include a single Contextual Filter in your View, but it can have multiple query parameters.
 * REST export Views displays don't use fields in the same way that other Views displays do. In fact, Drupal says within the Views user interface that for REST export displays, "The selected style or row format does not use fields." Instead, these displays export the entire node in JSON format. Workbench iterates through all fields on the node JSON that start with `field_` and includes those fields, plus `node_id` and `title`, in the output CSV.
 * If you don't want to export all the fields on a content type, you can list the fields you want to export in the `export_csv_field_list` configuration option.
 * Only content from nodes that have the content type identified in the `content_type` configuration setting will be written to the CSV file.
