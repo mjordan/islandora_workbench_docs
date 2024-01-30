@@ -1148,6 +1148,8 @@ view_parameters:
 <p class="admonition-title">Warning</p>
 <p>If your View includes nodes that you do not want to be seen by anonymous users, or if it contains unpublished nodes, adjust the access permissions settings appropriately, and ensure that the user identified in your Workbench configuration file has sufficient permissions.</p>
 </div>
+<p>If your View is configured to include Contextual Filters, and those contextual filters are exposed as "Query parameters", you can include the value of the filter in your configuration file using the <code>view_parameters</code> config setting, as illustrated in the sample configuration file above. The configuration in the View's Contextual Filters for this type of parameter looks like this:</p>
+<p><img alt="Sample REST export display" src="../images/REST_export_query_paramters.png" /></p>
 <p>Some things to note:</p>
 <ul>
 <li>REST export Views displays don't use fields in the same way that other Views displays do. In fact, Drupal says within the Views user interface that for REST export displays, "The selected style or row format does not use fields." Instead, these displays export the entire node in JSON format. Workbench iterates through all fields on the node JSON that start with <code>field_</code> and includes those fields, plus <code>node_id</code> and <code>title</code>, in the output CSV.</li>
