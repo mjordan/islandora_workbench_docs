@@ -1166,7 +1166,7 @@ export_csv_file_path: /tmp/media_report.csv
 view_parameters:
  - 'date=20231201'
 </code></pre>
-<p>The output contains colums for Node ID, Title, Content Type, Islandora Model, and Media. For each node in the View, the Media column contains the media use terms for all media attached to the node, sorted alphabetically:</p>
+<p>The output contains colums for Node ID, Title, Content Type, Islandora Model, and Media. For each node in the View, the Media column contains the media use terms for all media attached to the node separated by semicolons, and sorted alphabetically:</p>
 <p><img alt="Sample Media report" src="../images/media_report_output.png" /></p>
 <h3 id="exporting-image-video-etc-files-along-with-csv-data">Exporting image, video, etc. files along with CSV data</h3>
 <p>In <code>export_csv</code> and <code>get_data_from_view</code> tasks, you can optionally export media files. To do this, add the following settings to your configuration file:</p>
