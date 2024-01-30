@@ -691,6 +691,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#using-a-drupal-view-to-generate-a-media-report-as-csv" class="md-nav__link">
+    Using a Drupal View to generate a media report as CSV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exporting-image-video-etc-files-along-with-csv-data" class="md-nav__link">
     Exporting image, video, etc. files along with CSV data
   </a>
@@ -992,6 +999,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#using-a-drupal-view-to-generate-a-media-report-as-csv" class="md-nav__link">
+    Using a Drupal View to generate a media report as CSV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exporting-image-video-etc-files-along-with-csv-data" class="md-nav__link">
     Exporting image, video, etc. files along with CSV data
   </a>
@@ -1141,6 +1155,19 @@ view_parameters:
 <li>Only content from nodes that have the content type identified in the <code>content_type</code> configuration setting will be written to the CSV file.</li>
 <li>If you want to export term names instead of term IDs, include <code>export_csv_term_mode: name</code> in your configuration file. The warning about this option slowing down the export applies to this task and the <code>export_csv</code> task.</li>
 </ul>
+<h3 id="using-a-drupal-view-to-generate-a-media-report-as-csv">Using a Drupal View to generate a media report as CSV</h3>
+<p>You can get a report of which media a set of nodes has using a View. This report is generated using a <code>get_media_report_from_view</code> task, and the View it uses is the same as the View described above. A sample configuration file looks like:</p>
+<pre><code class="language-yaml">task: get_media_report_from_view
+host: &quot;http://localhost:8000/&quot;
+view_path: daily_nodes_created
+username: admin
+password: islandora
+export_csv_file_path: /tmp/media_report.csv
+view_parameters:
+ - 'date=20231201'
+</code></pre>
+<p>The output includes colums for Node ID, Title, Content Type, Islandora Model, and Media. Within the Media column, the media use terms for all attached media are listed, sorted alphabetically:</p>
+<p><img alt="Sample Media report" src="../images/media_report_output.png" /></p>
 <h3 id="exporting-image-video-etc-files-along-with-csv-data">Exporting image, video, etc. files along with CSV data</h3>
 <p>In <code>export_csv</code> and <code>get_data_from_view</code> tasks, you can optionally export media files. To do this, add the following settings to your configuration file:</p>
 <ul>
