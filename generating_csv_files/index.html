@@ -1125,10 +1125,9 @@ export_csv_file_path: /tmp/islandora_export.csv
 # If export_csv_field_list is not present, all fields will be exported.
 # node_id and title are always included.
 export_csv_field_list: ['field_description', 'field_extent']
-# Identify any URL parameters configured as Contextual Filters for the View. Note that
-# values in the 'view_parameters' configuration setting are literal parameter=value
-# strings that include the = (or other configured operator), not YAML key: value pairs
-# used elsewhere in the Workbench configuration file.
+# Identify any URL parameters configured as Contextual Filters for the View. Note that values
+# in the 'view_parameters' configuration setting are literal parameter=value strings that
+# include the =, not YAML key: value pairs used elsewhere in the Workbench configuration file.
 view_parameters:
  - 'date=20231202'
 </code></pre>
