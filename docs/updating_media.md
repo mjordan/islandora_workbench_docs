@@ -14,7 +14,10 @@ host: "http://localhost:8000"
 username: admin
 password: islandora
 input_csv: update_media.csv
+media_type: file
 ```
+
+`media_type` is required, and its value is the Drupal machine name of the type of media you are updating (e.g. `image`, `document`, `file`, `video`, etc.)
 
 Currently, the `update_media` routine has support for the following operations:
 

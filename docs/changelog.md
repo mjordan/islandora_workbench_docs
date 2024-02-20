@@ -1,5 +1,7 @@
 ### main branch (no tag/release)
 
+* February 20, 2024: (commit 2b686d5) Resolved [issue 743](https://github.com/mjordan/islandora_workbench/issues/743).
+* February 13, 2024: (commit dab400f) Resolved [issue 740](https://github.com/mjordan/islandora_workbench/issues/740).
 * January 30, 2024: (commit 3681ae1) Added a new `get_media_report_from_view` task, arising from discussion at [issue 727](https://github.com/mjordan/islandora_workbench/issues/727).
 * January 25, 2024: Resolved [issue 735](https://github.com/mjordan/islandora_workbench/issues/735).
 * January 24, 2024 (commit eea1165): Resolved [issue 639](https://github.com/mjordan/islandora_workbench/issues/639).
@@ -109,6 +111,7 @@
 
 ### Documentation
 
+* February 20, 2024: Updated "[Updating media](https://mjordan.github.io/islandora_workbench_docs/updating_media/)" to indicate that `media_type` is now a required configuration setting in `update_media` tasks.
 * January 30, 2024: Added new docs on "[Using a Drupal View to generate a media report as CSV](https://mjordan.github.io/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-generate-a-media-report-as-csv)". Also updated these docs to be clearer on the difference between Contextual Filters and Filter Criteria.
 * January 24, 2024: Added new docs on "[Ingesting OCR (and other) files with page images](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#ingesting-ocr-and-other-files-with-page-images)" and updated the "[Configuration](https://mjordan.github.io/islandora_workbench_docs/configuration/#paged-and-compound-content-settings)" page with the newly introduced config settings.
 * January 17, 2023: Updated the "[Updating media](https://mjordan.github.io/islandora_workbench_docs/updating_media/)" docs to mention the `update_mode` config setting.
