@@ -1066,6 +1066,7 @@
 <li>geolocation fields (e.g., <code>"49.16667,-123.93333"</code>)</li>
 <li>authority link data (e.g., <code>viaf%%http://viaf.org/viaf/10646807%%VIAF Record</code>)</li>
 </ul>
+<p>All field types are defined in classes contained in <code>workbench_fields.py</code> and share the methods <code>create()</code>, <code>update()</code>, <code>dedupe_values()</code>, <code>remove_invalid_values()</code>, and <code>serialize()</code>.</p>
 <p>Details on how to add new field types are coming soon!</p>
 <h2 id="writing-tests">Writing tests</h2>
 <p>Islandora Workbench's tests are writtin in <code>unittest</code>, and, as explained above, fall into two categories:</p>
