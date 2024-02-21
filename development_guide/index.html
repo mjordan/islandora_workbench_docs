@@ -1059,7 +1059,7 @@
 <p>The unit tests are pretty conventional, but the integration tests are a bit more challenging. The two sample tests provided below are copied from <code>islandora_tests.py</code>, and you can see their input files in <code>tests/assets/create_test</code> and <code>tests/assets/max_node_title_length_test</code>, respectively.</p>
 <h3 id="a-simple-test">A simple test</h3>
 <p>An example of a simple integration test is <code>TestCreate</code>, whose code (in <code>islandora_tests.py</code>) looks like this (with line numbers added for easy reference):</p>
-<pre><code class="language-py">1. class TestCreate(unittest.TestCase):
+<pre><code class="language-python">1. class TestCreate(unittest.TestCase):
 2.
 3.     def setUp(self):
 4.         self.current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -1112,7 +1112,7 @@ allow_missing_files: True
 <li>Clean up by deleting any Drupal entities created during the tests and also any temporary local files.</li>
 </ol>
 <p>An integration test that checks data in the node JSON is <code>TestUpdateWithMaxNodeTitleLength()</code>. Here is a copy of its code:</p>
-<pre><code class="language-py">1. class TestUpdateWithMaxNodeTitleLength(unittest.TestCase):
+<pre><code class="language-python">1. class TestUpdateWithMaxNodeTitleLength(unittest.TestCase):
 2.
 3.     def setUp(self):
 4.         self.current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -1187,7 +1187,14 @@ allow_missing_files: True
 73.         if os.path.exists(self.preprocessed_update_file_path):
 74.             os.remove(self.preprocessed_update_file_path)
 </code></pre>
-<p>This test creates some nodes (line 16), then writes out a temporary CSV file (lines 28-42) which will be used as the <code>input_csv</code> file in a subsequent <code>update</code> task containing the new node IDs plus some titles that are longer than <code>max_node_title_length: 30</code> setting in the <code>assets/max_node_title_length_test/update.yml</code> file. Next, it runs <code>self.update_cmd</code> to execute the <code>update</code> task (line 45). Finally, it fetches (in lines 47-53) the title values for each of the updated nodes and tests the length of each title string to confirm that it does not exceed the maximum allowed length of 30 characters. <code>tearDown()</code> removes all nodes created by the test and removes all temporary local files.</p>
+<p>This test</p>
+<ol>
+<li>creates some nodes (line 16)</li>
+<li>writes out a temporary CSV file (lines 28-42) which will be used as the <code>input_csv</code> file in a subsequent <code>update</code> task containing the new node IDs plus some titles that are longer than <code>max_node_title_length: 30</code> setting in the <code>assets/max_node_title_length_test/update.yml</code> file</li>
+<li>runs <code>self.update_cmd</code> to execute the <code>update</code> task (line 45)</li>
+<li>fetches (in lines 47-53) the title values for each of the updated nodes and tests the length of each title string to confirm that it does not exceed the maximum allowed length of 30 characters.</li>
+</ol>
+<p><code>tearDown()</code> removes all nodes created by the test and removes all temporary local files.</p>
 
 
 
