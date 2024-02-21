@@ -186,5 +186,12 @@ An integration test that checks data in the node JSON is `TestUpdateWithMaxNodeT
 74.             os.remove(self.preprocessed_update_file_path)
 ```
 
-This test creates some nodes (line 16), then writes out a temporary CSV file (lines 28-42) which will be used as the `input_csv` file in a subsequent `update` task containing the new node IDs plus some titles that are longer than `max_node_title_length: 30` setting in the `assets/max_node_title_length_test/update.yml` file. Next, it runs `self.update_cmd` to execute the `update` task (line 45). Finally, it fetches (in lines 47-53) the title values for each of the updated nodes and tests the length of each title string to confirm that it does not exceed the maximum allowed length of 30 characters. `tearDown()` removes all nodes created by the test and removes all temporary local files.
+This test
+
+1. creates some nodes (line 16)
+1. writes out a temporary CSV file (lines 28-42) which will be used as the `input_csv` file in a subsequent `update` task containing the new node IDs plus some titles that are longer than `max_node_title_length: 30` setting in the `assets/max_node_title_length_test/update.yml` file
+1. runs `self.update_cmd` to execute the `update` task (line 45)
+1. fetches (in lines 47-53) the title values for each of the updated nodes and tests the length of each title string to confirm that it does not exceed the maximum allowed length of 30 characters.
+
+`tearDown()` removes all nodes created by the test and removes all temporary local files.
 
