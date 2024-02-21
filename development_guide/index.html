@@ -1078,6 +1078,19 @@
                 self.nids.append(nid)
 
         self.assertEqual(len(self.nids), 2)
+
+    def tearDown(self):
+        for nid in self.nids:
+            quick_delete_cmd = [&quot;./workbench&quot;, &quot;--config&quot;, self.create_config_file_path, '--quick_delete_node', 'https://islandora.traefik.me/node/' + nid]
+            quick_delete_output = subprocess.check_output(quick_delete_cmd)
+
+        self.rollback_file_path = os.path.join(self.current_dir, 'assets', 'create_test', 'rollback.csv')
+        if os.path.exists(self.rollback_file_path):
+            os.remove(self.rollback_file_path)
+
+        self.preprocessed_file_path = os.path.join(self.current_dir, 'assets', 'create_test', 'metadata.csv.preprocessed')
+        if os.path.exists(self.preprocessed_file_path):
+            os.remove(self.preprocessed_file_path)
 </code></pre>
 <p>As you can see, this test runs Workbench using the config file <code>create.yml</code>, which lives at <code>assets/create_test/create.yml</code>, relative to the workbench directory. A tricky aspect of using real config files in tests is that all paths mentioned in the config file must be relative to the workbench directory. This <code>create.yml</code> defines the <code>input_dir</code> setting to be <code>tests/assets/create_test</code>:</p>
 <pre><code class="language-yaml">task: create
