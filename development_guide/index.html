@@ -1207,17 +1207,17 @@ allow_missing_files: True
 </code></pre>
 <p>This test:</p>
 <ol>
-<li>creates some nodes (line 16)</li>
-<li>writes out a temporary CSV file (lines 28-42) which will be used as the <code>input_csv</code> file in a subsequent <code>update</code> task containing the new node IDs plus some titles that are longer than <code>max_node_title_length: 30</code> setting in the <code>assets/max_node_title_length_test/update.yml</code> file</li>
-<li>runs <code>self.update_cmd</code> to execute the <code>update</code> task (line 45)</li>
-<li>fetches (in lines 47-53) the title values for each of the updated nodes and tests the length of each title string to confirm that it does not exceed the maximum allowed length of 30 characters.</li>
+<li>(line 16) creates some nodes</li>
+<li>(lines 28-42) writes out a temporary CSV file which will be used as the <code>input_csv</code> file in a subsequent <code>update</code> task containing the new node IDs plus some titles that are longer than <code>max_node_title_length: 30</code> setting in the <code>assets/max_node_title_length_test/update.yml</code> file</li>
+<li>(line 45) runs <code>self.update_cmd</code> to execute the <code>update</code> task</li>
+<li>(lines 47-53) fetches the title values for each of the updated nodes and tests the length of each title string to confirm that it does not exceed the maximum allowed length of 30 characters.</li>
 </ol>
 <p><code>tearDown()</code> removes all nodes created by the test and removes all temporary local files.</p>
 <h3 id="running-your-tests">Running your tests</h3>
-<p>Running tests is described in the "General" section above, but if you add a new test, you may want to run only it (as opposed to all tests in its file) until you know it works.</p>
-<p>If you want to run a specific test class (for example, <code>TestMyNewTest</code> in <code>islandora_tests.py</code>), execture a command like:</p>
+<p>Running tests is described in the "General" section above, but if you add a new test, you may want to run only it (as opposed to all tests in its file) until you know it works the way you want.</p>
+<p>If you want to run a specific test class (for example, <code>TestMyNewTest</code> in <code>islandora_tests.py</code>), execute a command like:</p>
 <p><code>python tests/islandora_tests.py TestMyNewTest</code></p>
-<p>You can also specify multiple test classes from a single test file:</p>
+<p>You can also specify multiple test classes within a single test file:</p>
 <p><code>python tests/islandora_tests.py TestMyNewTest TestMyOtherNewTest</code></p>
 
 
