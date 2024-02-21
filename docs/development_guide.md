@@ -24,13 +24,21 @@ Also provide tests where applicable. Tests in Workbench fall into two categories
 
 ## Adding a new Drupal field type
 
-Eventually, handlers for new Drupal field types will need to be added to Workbench. Currently, the only types supported are:
+Eventually, handlers for new Drupal field types will need to be added to Workbench as the community adopts more field types provided by Drupal contrib modules or creates new field types specific to Islandora. Currently, Workbench supports the following field types:
 
-* strings (for string or text fields) like `Using Islandora Workbench for Fun and Profit`
-* integers (for `field_weight`, for example) like `1` or `7281`
-* the binary values `1` or `0`
-* Existing Drupal-generated entity IDs (term IDs for taxonomy terms or node IDs for collections and parents), which are integers like `10` or `3549`
-* structured strings, for typed relation (e.g., `relators:art:30`), link fields (e.g., `https://acme.net%%Acme Products`), geolocation fields (e.g., `"49.16667,-123.93333"`), and authority link data (e.g., `viaf%%http://viaf.org/viaf/10646807%%VIAF Record`)
+* "simple" fields for
+    * strings (for string or text fields) like `Using Islandora Workbench for Fun and Profit`
+    * integers (for `field_weight`, for example) like `1` or `7281`
+    * the binary values `1` or `0`
+    * existing Drupal-generated entity IDs (term IDs for taxonomy terms or node IDs for collections and parents), which are integers like `10` or `3549`
+* entity reference fields
+* entity reference revision fields
+* typed relation fields (e.g., `relators:art:30`)
+* link fields (e.g., `https://acme.net%%Acme Products`)
+* geolocation fields (e.g., `"49.16667,-123.93333"`)
+* authority link fields (e.g., `viaf%%http://viaf.org/viaf/10646807%%VIAF Record`)
+
+All field types are defined in classes contained in `workbench_fields.py` and share the methods `create()`, `update()`, `dedupe_values()`, `remove_invalid_values()`, and `serialize()`.
 
 Details on how to add new field types are coming soon!
 
@@ -186,12 +194,24 @@ An integration test that checks data in the node JSON is `TestUpdateWithMaxNodeT
 74.             os.remove(self.preprocessed_update_file_path)
 ```
 
-This test
+This test:
 
-1. creates some nodes (line 16)
-1. writes out a temporary CSV file (lines 28-42) which will be used as the `input_csv` file in a subsequent `update` task containing the new node IDs plus some titles that are longer than `max_node_title_length: 30` setting in the `assets/max_node_title_length_test/update.yml` file
-1. runs `self.update_cmd` to execute the `update` task (line 45)
-1. fetches (in lines 47-53) the title values for each of the updated nodes and tests the length of each title string to confirm that it does not exceed the maximum allowed length of 30 characters.
+1. (line 16) creates some nodes
+1. (lines 28-42) writes out a temporary CSV file which will be used as the `input_csv` file in a subsequent `update` task containing the new node IDs plus some titles that are longer than `max_node_title_length: 30` setting in the `assets/max_node_title_length_test/update.yml` file
+1. (line 45) runs `self.update_cmd` to execute the `update` task
+1. (lines 47-53) fetches the title values for each of the updated nodes and tests the length of each title string to confirm that it does not exceed the maximum allowed length of 30 characters.
 
 `tearDown()` removes all nodes created by the test and removes all temporary local files.
+
+### Running your tests
+
+Running tests is described in the "General" section above, but if you add a new test, you may want to run only it (as opposed to all tests in its file) until you know it works the way you want.
+
+If you want to run a specific test class (for example, `TestMyNewTest` in `islandora_tests.py`), execute a command like:
+
+`python tests/islandora_tests.py TestMyNewTest`
+
+You can also specify multiple test classes within a single test file:
+
+`python tests/islandora_tests.py TestMyNewTest TestMyOtherNewTest`
 
