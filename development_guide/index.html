@@ -1059,7 +1059,7 @@
 <p>The unit tests are pretty conventional, but the integration tests are a bit more challenging. The two sample tests provided below are copied from <code>islandora_tests.py</code>, and you can see their input files in <code>tests/assets/create_test</code> and <code>tests/assets/max_node_title_length_test</code>, respectively.</p>
 <h3 id="a-simple-test">A simple test</h3>
 <p>An example of a simple integration test is <code>TestCreate</code>, whose code (in <code>islandora_tests.py</code>) looks like this (with line numbers added for easy reference):</p>
-<pre><code class="language-python">1. class TestCreate(unittest.TestCase):
+<pre><code class="language-py">1. class TestCreate(unittest.TestCase):
 2.
 3.     def setUp(self):
 4.         self.current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -1112,7 +1112,7 @@ allow_missing_files: True
 <li>Clean up by deleting any Drupal entities created during the tests and also any temporary local files.</li>
 </ol>
 <p>An integration test that checks data in the node JSON is <code>TestUpdateWithMaxNodeTitleLength()</code>. Here is a copy of its code:</p>
-<pre><code class="language-python">1. class TestUpdateWithMaxNodeTitleLength(unittest.TestCase):
+<pre><code class="language-py">1. class TestUpdateWithMaxNodeTitleLength(unittest.TestCase):
 2.
 3.     def setUp(self):
 4.         self.current_dir = os.path.dirname(os.path.abspath(__file__))
