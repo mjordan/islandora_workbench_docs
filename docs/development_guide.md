@@ -45,44 +45,45 @@ The unit tests are pretty conventional, but the integration tests are a bit more
 
 ### A simple test
 
-An example of a simple integration test is `TestCreate`, whose code (in `islandora_tests.py`) looks like this:
+An example of a simple integration test is `TestCreate`, whose code (in `islandora_tests.py`) looks like this (with line numbers added for easy reference):
 
 ```python
-class TestCreate(unittest.TestCase):
+1. class TestCreate(unittest.TestCase):
+2.
+3.     def setUp(self):
+4.         self.current_dir = os.path.dirname(os.path.abspath(__file__))
+5.         self.create_config_file_path = os.path.join(self.current_dir, 'assets', 'create_test', 'create.yml')
+6.         self.create_cmd = ["./workbench", "--config", self.create_config_file_path]
+7.
+8.     def test_create(self):
+9.         self.nids = list()
+10.         create_output = subprocess.check_output(self.create_cmd)
+11.         create_output = create_output.decode().strip()
+12.         create_lines = create_output.splitlines()
+13.         for line in create_lines:
+14.             if 'created at' in line:
+15.                 nid = line.rsplit('/', 1)[-1]
+16.                 nid = nid.strip('.')
+17.                 self.nids.append(nid)
+18.
+19.         self.assertEqual(len(self.nids), 2)
+20.
+21.     def tearDown(self):
+22.         for nid in self.nids:
+23.             quick_delete_cmd = ["./workbench", "--config", self.create_config_file_path, '--quick_delete_node', 'https://islandora.traefik.me/node/' + nid]
+24.             quick_delete_output = subprocess.check_output(quick_delete_cmd)
+25.
+26.         self.rollback_file_path = os.path.join(self.current_dir, 'assets', 'create_test', 'rollback.csv')
+27.         if os.path.exists(self.rollback_file_path):
+28.             os.remove(self.rollback_file_path)
+29.
+30.         self.preprocessed_file_path = os.path.join(self.current_dir, 'assets', 'create_test', 'metadata.csv.preprocessed')
+31.         if os.path.exists(self.preprocessed_file_path):
+32.             os.remove(self.preprocessed_file_path)
 
-    def setUp(self):
-        self.current_dir = os.path.dirname(os.path.abspath(__file__))
-        self.create_config_file_path = os.path.join(self.current_dir, 'assets', 'create_test', 'create.yml')
-        self.create_cmd = ["./workbench", "--config", self.create_config_file_path]
-
-    def test_create(self):
-        self.nids = list()
-        create_output = subprocess.check_output(self.create_cmd)
-        create_output = create_output.decode().strip()
-        create_lines = create_output.splitlines()
-        for line in create_lines:
-            if 'created at' in line:
-                nid = line.rsplit('/', 1)[-1]
-                nid = nid.strip('.')
-                self.nids.append(nid)
-
-        self.assertEqual(len(self.nids), 2)
-
-    def tearDown(self):
-        for nid in self.nids:
-            quick_delete_cmd = ["./workbench", "--config", self.create_config_file_path, '--quick_delete_node', 'https://islandora.traefik.me/node/' + nid]
-            quick_delete_output = subprocess.check_output(quick_delete_cmd)
-
-        self.rollback_file_path = os.path.join(self.current_dir, 'assets', 'create_test', 'rollback.csv')
-        if os.path.exists(self.rollback_file_path):
-            os.remove(self.rollback_file_path)
-
-        self.preprocessed_file_path = os.path.join(self.current_dir, 'assets', 'create_test', 'metadata.csv.preprocessed')
-        if os.path.exists(self.preprocessed_file_path):
-            os.remove(self.preprocessed_file_path)
 ```
 
-As you can see, this test runs Workbench using the config file `create.yml`, which lives at `assets/create_test/create.yml`, relative to the workbench directory. A tricky aspect of using real config files in tests is that all paths mentioned in the config file must be relative to the workbench directory. This `create.yml` defines the `input_dir` setting to be `tests/assets/create_test`:
+As you can see, this test runs Workbench using the config file `create.yml` (line 10), which lives at `assets/create_test/create.yml`, relative to the workbench directory. A tricky aspect of using real config files in tests is that all paths mentioned in the config file must be relative to the workbench directory. This `create.yml` defines the `input_dir` setting to be `tests/assets/create_test`:
 
 ```yaml
 task: create
@@ -94,7 +95,7 @@ media_type: image
 allow_missing_files: True
 ```
 
-The test's `setUp()` method prepares the file paths, etc. and within the test's only test method, `test_create()`, runs Workbench using Python's `subprocess.check_output()` method, grabs the node IDs from the output from the "created at" strings emitted by Workbench, adds them to a list, and then counts the number of members in that list. If the number of nodes created matches the expected number, the test passes.
+The test's `setUp()` method prepares the file paths, etc. and within the test's only test method, `test_create()`, runs Workbench using Python's `subprocess.check_output()` method, grabs the node IDs from the output from the "created at" strings emitted by Workbench (lines 14-17), adds them to a list, and then counts the number of members in that list. If the number of nodes created matches the expected number, the test passes.
 
 Since this test creates some nodes, we use the test class's `teaarDown()` method to put the target Drupal back into as close a state as we started with as possible. `tearDown()` basically takes the list of node IDs created in `test_create()` and runs Workbench with the `--quick_delete_node` option. It then removes any temporary files created during the test.
 
@@ -109,81 +110,81 @@ Since Workbench is essentially a specialized REST client, writing integration te
 An integration test that checks data in the node JSON is `TestUpdateWithMaxNodeTitleLength()`. Here is a copy of its code:
 
 ```python
-class TestUpdateWithMaxNodeTitleLength(unittest.TestCase):
-
-    def setUp(self):
-        self.current_dir = os.path.dirname(os.path.abspath(__file__))
-        self.create_config_file_path = os.path.join(self.current_dir, 'assets', 'max_node_title_length_test', 'create.yml')
-        self.create_cmd = ["./workbench", "--config", self.create_config_file_path]
-        self.nids = list()
-
-        self.update_csv_file_path = os.path.join(self.current_dir, 'assets', 'max_node_title_length_test', 'update_max_node_title_length.csv')
-        self.update_config_file_path = os.path.join(self.current_dir, 'assets', 'max_node_title_length_test', 'update.yml')
-        self.update_cmd = ["./workbench", "--config", self.update_config_file_path]
-
-        self.temp_dir = tempfile.gettempdir()
-
-    def test_create(self):
-        create_output = subprocess.check_output(self.create_cmd)
-        self.create_output = create_output.decode().strip()
-
-        create_lines = self.create_output.splitlines()
-        for line in create_lines:
-            if 'created at' in line:
-                nid = line.rsplit('/', 1)[-1]
-                nid = nid.strip('.')
-                self.nids.append(nid)
-
-        self.assertEqual(len(self.nids), 6)
-
-        # Write out an update CSV file using the node IDs in self.nids.
-        update_csv_file_rows = list()
-        test_titles = ['This title is 37 chars___________long',
-                       'This title is 39 chars_____________long',
-                       'This title is 29 _ chars long',
-                       'This title is 42 chars________________long',
-                       'This title is 44 chars__________________long',
-                       'This title is 28 chars long.']
-        update_csv_file_rows.append('node_id,title')
-        i = 0
-        while i <= 5:
-            update_csv_file_rows.append(f'{self.nids[i]},{test_titles[i]}')
-            i = i + 1
-        with open(self.update_csv_file_path, mode='wt') as update_csv_file:
-            update_csv_file.write('\n'.join(update_csv_file_rows))
-
-        # Run the update command.
-        check_output = subprocess.check_output(self.update_cmd)
-
-        # Fetch each node in self.nids and check to see if its title is <= 30 chars long. All should be.
-        for nid_to_update in self.nids:
-            node_url = 'https://islandora.traefik.me/node/' + str(self.nids[0]) + '?_format=json'
-            node_response = requests.get(node_url)
-            node = json.loads(node_response.text)
-            updated_title = str(node['title'][0]['value'])
-            self.assertLessEqual(len(updated_title), 30, '')
-
-    def tearDown(self):
-        for nid in self.nids:
-            quick_delete_cmd = ["./workbench", "--config", self.create_config_file_path, '--quick_delete_node', 'https://islandora.traefik.me/node/' + nid]
-            quick_delete_output = subprocess.check_output(quick_delete_cmd)
-
-        self.rollback_file_path = os.path.join(self.current_dir, 'assets', 'max_node_title_length_test', 'rollback.csv')
-        if os.path.exists(self.rollback_file_path):
-            os.remove(self.rollback_file_path)
-
-        self.preprocessed_file_path = os.path.join(self.temp_dir, 'create_max_node_title_length.csv.preprocessed')
-        if os.path.exists(self.preprocessed_file_path):
-            os.remove(self.preprocessed_file_path)
-
-        # Update test: 1) delete the update CSV file, 2) delete the update .preprocessed file.
-        if os.path.exists(self.update_csv_file_path):
-            os.remove(self.update_csv_file_path)
-
-        self.preprocessed_update_file_path = os.path.join(self.temp_dir, 'update_max_node_title_length.csv.preprocessed')
-        if os.path.exists(self.preprocessed_update_file_path):
-            os.remove(self.preprocessed_update_file_path)
+1. class TestUpdateWithMaxNodeTitleLength(unittest.TestCase):
+2.
+3.     def setUp(self):
+4.         self.current_dir = os.path.dirname(os.path.abspath(__file__))
+5.         self.create_config_file_path = os.path.join(self.current_dir, 'assets', 'max_node_title_length_test', 'create.yml')
+6.         self.create_cmd = ["./workbench", "--config", self.create_config_file_path]
+7.         self.nids = list()
+8.
+9.         self.update_csv_file_path = os.path.join(self.current_dir, 'assets', 'max_node_title_length_test', 'update_max_node_title_length.csv')
+10.         self.update_config_file_path = os.path.join(self.current_dir, 'assets', 'max_node_title_length_test', 'update.yml')
+11.         self.update_cmd = ["./workbench", "--config", self.update_config_file_path]
+12.
+13.         self.temp_dir = tempfile.gettempdir()
+14.
+15.     def test_create(self):
+16.         create_output = subprocess.check_output(self.create_cmd)
+17.         self.create_output = create_output.decode().strip()
+18.
+19.         create_lines = self.create_output.splitlines()
+20.         for line in create_lines:
+21.             if 'created at' in line:
+22.                 nid = line.rsplit('/', 1)[-1]
+23.                 nid = nid.strip('.')
+24.                 self.nids.append(nid)
+25.
+26.         self.assertEqual(len(self.nids), 6)
+27.
+28.         # Write out an update CSV file using the node IDs in self.nids.
+29.         update_csv_file_rows = list()
+30.         test_titles = ['This title is 37 chars___________long',
+31.                        'This title is 39 chars_____________long',
+32.                        'This title is 29 _ chars long',
+33.                        'This title is 42 chars________________long',
+34.                        'This title is 44 chars__________________long',
+35.                        'This title is 28 chars long.']
+36.         update_csv_file_rows.append('node_id,title')
+37.         i = 0
+38.         while i <= 5:
+39.             update_csv_file_rows.append(f'{self.nids[i]},{test_titles[i]}')
+40.             i = i + 1
+41.         with open(self.update_csv_file_path, mode='wt') as update_csv_file:
+42.             update_csv_file.write('\n'.join(update_csv_file_rows))
+43.
+44.         # Run the update command.
+45.         check_output = subprocess.check_output(self.update_cmd)
+46.
+47.         # Fetch each node in self.nids and check to see if its title is <= 30 chars long. All should be.
+48.         for nid_to_update in self.nids:
+49.             node_url = 'https://islandora.traefik.me/node/' + str(self.nids[0]) + '?_format=json'
+50.             node_response = requests.get(node_url)
+51.             node = json.loads(node_response.text)
+52.             updated_title = str(node['title'][0]['value'])
+53.             self.assertLessEqual(len(updated_title), 30, '')
+54.
+55.     def tearDown(self):
+56.         for nid in self.nids:
+57.             quick_delete_cmd = ["./workbench", "--config", self.create_config_file_path, '--quick_delete_node', 'https://islandora.traefik.me/node/' + nid]
+58.             quick_delete_output = subprocess.check_output(quick_delete_cmd)
+59.
+60.         self.rollback_file_path = os.path.join(self.current_dir, 'assets', 'max_node_title_length_test', 'rollback.csv')
+61.         if os.path.exists(self.rollback_file_path):
+62.             os.remove(self.rollback_file_path)
+63.
+64.         self.preprocessed_file_path = os.path.join(self.temp_dir, 'create_max_node_title_length.csv.preprocessed')
+65.         if os.path.exists(self.preprocessed_file_path):
+66.             os.remove(self.preprocessed_file_path)
+67.
+68.         # Update test: 1) delete the update CSV file, 2) delete the update .preprocessed file.
+69.         if os.path.exists(self.update_csv_file_path):
+70.             os.remove(self.update_csv_file_path)
+71.
+72.         self.preprocessed_update_file_path = os.path.join(self.temp_dir, 'update_max_node_title_length.csv.preprocessed')
+73.         if os.path.exists(self.preprocessed_update_file_path):
+74.             os.remove(self.preprocessed_update_file_path)
 ```
 
-This test creates some nodes, then writes out a temporary CSV file (which will be used as the `input_csv` file in a subsequent `update` task) containing the new node IDs plus some titles that are longer than `max_node_title_length: 30` setting in the `assets/max_node_title_length_test/update.yml` file. Next, it runs `self.update_cmd` to execute the `update` task. Finally, it fetches the title values for each of the updated nodes and tests the length of each title string to confirm that it does not exceed the maximum allowed length of 30 characters.
+This test creates some nodes (line 16), then writes out a temporary CSV file (lines 28-42) which will be used as the `input_csv` file in a subsequent `update` task containing the new node IDs plus some titles that are longer than `max_node_title_length: 30` setting in the `assets/max_node_title_length_test/update.yml` file. Next, it runs `self.update_cmd` to execute the `update` task (line 45). Finally, it fetches (in lines 47-53) the title values for each of the updated nodes and tests the length of each title string to confirm that it does not exceed the maximum allowed length of 30 characters. `tearDown()` removes all nodes created by the test and removes all temporary local files.
 
