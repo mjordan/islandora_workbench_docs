@@ -1055,16 +1055,20 @@
 <li>If you want to run the tests within a specific class, include the class name as an argument like this: <code>python3 tests/unit_tests.py TestCompareStings</code></li>
 </ul>
 <h2 id="adding-a-new-drupal-field-type">Adding a new Drupal field type</h2>
-<p>Eventually, handlers for new Drupal field types will need to be added to Workbench as the community adopts more fields types provided by Drupal contrib modules or creates new field types specific to Islandora. Currently, the only types supported are:</p>
+<p>Eventually, handlers for new Drupal field types will need to be added to Workbench as the community adopts more field types provided by Drupal contrib modules or creates new field types specific to Islandora. Currently, Workbench supports the following field types:</p>
 <ul>
+<li>"simple" fields<ul>
 <li>strings (for string or text fields) like <code>Using Islandora Workbench for Fun and Profit</code></li>
 <li>integers (for <code>field_weight</code>, for example) like <code>1</code> or <code>7281</code></li>
 <li>the binary values <code>1</code> or <code>0</code></li>
 <li>existing Drupal-generated entity IDs (term IDs for taxonomy terms or node IDs for collections and parents), which are integers like <code>10</code> or <code>3549</code></li>
-<li>typed relation (e.g., <code>relators:art:30</code>)</li>
+</ul>
+</li>
+<li>typed relation fields (e.g., <code>relators:art:30</code>)</li>
 <li>link fields (e.g., <code>https://acme.net%%Acme Products</code>)</li>
 <li>geolocation fields (e.g., <code>"49.16667,-123.93333"</code>)</li>
-<li>authority link data (e.g., <code>viaf%%http://viaf.org/viaf/10646807%%VIAF Record</code>)</li>
+<li>authority link fields (e.g., <code>viaf%%http://viaf.org/viaf/10646807%%VIAF Record</code>)</li>
+<li>entity reference revision fields (used by Paragraphs)</li>
 </ul>
 <p>All field types are defined in classes contained in <code>workbench_fields.py</code> and share the methods <code>create()</code>, <code>update()</code>, <code>dedupe_values()</code>, <code>remove_invalid_values()</code>, and <code>serialize()</code>.</p>
 <p>Details on how to add new field types are coming soon!</p>
