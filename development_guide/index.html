@@ -1052,9 +1052,11 @@
 <p>Details on how to add new field types are coming soon!</p>
 <h2 id="writing-tests">Writing tests</h2>
 <p>Islandora Workbench's tests are writtin in <code>unittest</code>, and, as explained above, fall into two categories:</p>
-<p>Unit tests that do not require a live Islandora instance.
-Integration tests that require a live Islandora instance running at https://islandora.traefik.me/</p>
-<p>The unit tests are pretty conventional, but the integration tests are a bit more challenging.</p>
+<ul>
+<li>Unit tests that do not require a live Islandora instance.</li>
+<li>Integration tests that require a live Islandora instance running at <code>https://islandora.traefik.me/</code>.</li>
+</ul>
+<p>The unit tests are pretty conventional, but the integration tests are a bit more challenging. The two sample tests provided below are copied from <code>islandora_tests.py</code>, and you can see their input files in <code>tests/assets/create_test</code> and <code>tests/assets/max_node_title_length_test</code>, respectively.</p>
 <h3 id="a-simple-test">A simple test</h3>
 <p>An example of a simple integration test is <code>TestCreate</code>, whose code (in <code>islandora_tests.py</code>) looks like this:</p>
 <pre><code class="language-python">class TestCreate(unittest.TestCase):
@@ -1171,7 +1173,7 @@ allow_missing_files: True
         if os.path.exists(self.preprocessed_update_file_path):
             os.remove(self.preprocessed_update_file_path)
 </code></pre>
-<p>This test creates some nodes, then writes out a temporary CSV file (which will be used in a subsequent <code>update</code> task) containing the new node IDs plus some titles that are longer than <code>max_node_title_length: 30</code> setting in the <code>assets/max_node_title_length_test/update.yml</code> file. Next, it runs <code>self.update_cmd</code> to execute the <code>update</code> task. Finally, it fetches the title values for each of the updated nodes and tests the length of each title string to confirm that it does not exceed the maximum allowed length of 30 characters.</p>
+<p>This test creates some nodes, then writes out a temporary CSV file (which will be used as the <code>input_csv</code> file in a subsequent <code>update</code> task) containing the new node IDs plus some titles that are longer than <code>max_node_title_length: 30</code> setting in the <code>assets/max_node_title_length_test/update.yml</code> file. Next, it runs <code>self.update_cmd</code> to execute the <code>update</code> task. Finally, it fetches the title values for each of the updated nodes and tests the length of each title string to confirm that it does not exceed the maximum allowed length of 30 characters.</p>
 
 
 
