@@ -10,16 +10,17 @@ If you open a PR, please check your code with pycodestyle:
 
 You can also check a specific file by replacing the `.` with the filename.
 
-Also provide tests where applicable. Tests in Workbench fall into two categories:
+Also provide tests where applicable (see "Writing tests", below). Tests in Workbench fall into two categories:
 
-* Unit tests that do not require a live Islandora instance.
+1. Unit tests that do not require a live Islandora instance.
     * Unit tests in `tests/unit_tests.py` (run with `python3 tests/unit_tests.py`)
     * Unit tests for Workbench's Drupal fields handlers in `tests/field_tests.py` (run with `python3 tests/field_tests.py`)
-* Integration tests that require a live Islandora instance running at `https://islandora.traefik.me/`
+1. Integration tests that require a live Islandora instance running at `https://islandora.traefik.me/`
     * `tests/islandora_tests.py`, `tests/islandora_tests_check.py`,  `tests/islandora_tests_hooks.py`, and `tests/islandora_tests_paged_content.py` can be run with `python3 tests/islandora_tests.py`, etc.
     * The Islandora Starter Site deployed with [ISLE](https://github.com/Islandora-Devops/isle-dc) is recommended way to deploy the Islandora used in these tests. Integration tests remove all nodes and media added during the tests, unless a test fails. Taxonomy terms created by tests are not removed.
     * Some integration and field tests output text that beings with "Error:." This is normal, it's the text that Workbench outputs when it finds something wrong (which is probably what the test is testing). Successful test (whether they test for success or failure) runs will exit with "OK". If you can figure out how to suppress this output, please visit [this issue](https://github.com/mjordan/islandora_workbench/issues/160).
-* If you want to run the tests within a specific class, include the class name as an argument like this: `python3 tests/unit_tests.py TestCompareStings`
+
+If you want to run the tests within a specific class, include the class name as an argument like this: `python3 tests/unit_tests.py TestCompareStings`
 
 
 ## Adding a new Drupal field type
@@ -40,7 +41,8 @@ Eventually, handlers for new Drupal field types will need to be added to Workben
 
 All field types are defined in classes contained in `workbench_fields.py` and share the methods `create()`, `update()`, `dedupe_values()`, `remove_invalid_values()`, and `serialize()`.
 
-Details on how to add new field types are coming soon!
+!!! note
+    Details on how to add new field types are coming soon!
 
 ## Writing tests
 
@@ -51,7 +53,29 @@ Islandora Workbench's tests are written using the Python built-in [module](https
 
 The unit tests are pretty conventional, but the integration tests are a bit more challenging. The two sample tests provided below are copied from `islandora_tests.py`, and you can see their input files in `tests/assets/create_test` and `tests/assets/max_node_title_length_test`, respectively.
 
-### A simple test
+### A simple unit test
+
+This test tests the `validate_latlong_value()` method fromn the `workbench_utils.py` module.
+
+```python
+class TestValidateLatlongValue(unittest.TestCase):
+
+    def test_validate_good_latlong_values(self):
+        values = ['+90.0, -127.554334', '90.0, -127.554334', '-90,-180', '+50.25,-117.8', '+48.43333,-123.36667']
+        for value in values:
+            res = workbench_utils.validate_latlong_value(value)
+            self.assertTrue(res)
+
+    def test_validate_bad_latlong_values(self):
+        values = ['+90.1 -100.111', '045, 180', '+5025,-117.8', '-123.36667']
+        for value in values:
+            res = workbench_utils.validate_latlong_value(value)
+            self.assertFalse(res)
+```
+
+Nothing too complex here - we define a list of valid lat/long pairs and run them through the `workbench_utils.validate_latlong_value()` method expecting it to return `True` for each value, and then we define a list of bad lat/long pairs, run them through the method expecting it to return `False` for each value. Since `workbench_utils.validate_latlong_value()` doesn't interact with Islandora, `https://islandora.traefik.me/` doesn't need to be available to run this unit test.
+
+### A simple integration test
 
 An example of a simple integration test is `TestCreate`, whose code (in `islandora_tests.py`) looks like this (with line numbers added for easy reference):
 
@@ -91,7 +115,7 @@ An example of a simple integration test is `TestCreate`, whose code (in `islando
 
 ```
 
-As you can see, this test runs Workbench using the config file `create.yml` (line 10), which lives at `assets/create_test/create.yml`, relative to the workbench directory. A tricky aspect of using real config files in tests is that all paths mentioned in the config file must be relative to the workbench directory. This `create.yml` defines the `input_dir` setting to be `tests/assets/create_test`:
+As you can see, this test runs Workbench using the config file `create.yml` (line 10), which lives at `tests/assets/create_test/create.yml`, relative to the workbench directory. A tricky aspect of using real config files in tests is that all paths mentioned in the config file must be relative to the workbench directory. This `create.yml` defines the `input_dir` setting to be `tests/assets/create_test`:
 
 ```yaml
 task: create
@@ -107,11 +131,11 @@ The test's `setUp()` method prepares the file paths, etc. and within the test's 
 
 Since this test creates some nodes, we use the test class's `tearDown()` method to put the target Drupal back into as close a state as we started with as possible. `tearDown()` basically takes the list of node IDs created in `test_create()` and runs Workbench with the `--quick_delete_node` option. It then removes any temporary files created during the test.
 
-### A more complex test
+### A more complex integration test
 
 Since Workbench is essentially a specialized REST client, writing integration tests that require interaction with Drupal can get a bit complex. But, the overall pattern is:
 
-1. Create something (nodes, media, taxonomy terms).
+1. Create some entities (nodes, media, taxonomy terms).
 1. Confirm that they were created in the expected way (doing this usually involves keeping track of any node IDs needed to run tests or to clean up, and in some cases parsing out values from raw JSON returned by Drupal).
 1. Clean up by deleting any Drupal entities created during the tests and also any temporary local files.
 
@@ -196,7 +220,7 @@ An integration test that checks data in the node JSON is `TestUpdateWithMaxNodeT
 
 This test:
 
-1. (line 16) creates some nodes
+1. (line 16) creates some nodes that will be updated within the same test class (i.e. in line 45)
 1. (lines 28-42) writes out a temporary CSV file which will be used as the `input_csv` file in a subsequent `update` task containing the new node IDs plus some titles that are longer than `max_node_title_length: 30` setting in the `assets/max_node_title_length_test/update.yml` file
 1. (line 45) runs `self.update_cmd` to execute the `update` task
 1. (lines 47-53) fetches the title values for each of the updated nodes and tests the length of each title string to confirm that it does not exceed the maximum allowed length of 30 characters.
