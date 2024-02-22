@@ -1053,7 +1053,7 @@
 </ul>
 </li>
 </ol>
-<p>f you want to run the tests within a specific class, include the class name as an argument like this: <code>python3 tests/unit_tests.py TestCompareStings</code></p>
+<p>If you want to run the tests within a specific class, include the class name as an argument like this: <code>python3 tests/unit_tests.py TestCompareStings</code></p>
 <h2 id="adding-a-new-drupal-field-type">Adding a new Drupal field type</h2>
 <p>Eventually, handlers for new Drupal field types will need to be added to Workbench as the community adopts more field types provided by Drupal contrib modules or creates new field types specific to Islandora. Currently, Workbench supports the following field types:</p>
 <ul>
@@ -1074,8 +1074,8 @@
 <p>All field types are defined in classes contained in <code>workbench_fields.py</code> and share the methods <code>create()</code>, <code>update()</code>, <code>dedupe_values()</code>, <code>remove_invalid_values()</code>, and <code>serialize()</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>Details on how to add new field types are coming soon!</p>
+</div>
 <h2 id="writing-tests">Writing tests</h2>
 <p>Islandora Workbench's tests are written using the Python built-in <a href="https://docs.python.org/3/library/unittest.html">module</a> <code>unittest</code>, and as explained above, fall into two categories:</p>
 <ul>
@@ -1215,7 +1215,7 @@ allow_missing_files: True
 </code></pre>
 <p>This test:</p>
 <ol>
-<li>(line 16) creates some nodes that will be updated within the same test class</li>
+<li>(line 16) creates some nodes that will be updated within the same test class (i.e. in line 45)</li>
 <li>(lines 28-42) writes out a temporary CSV file which will be used as the <code>input_csv</code> file in a subsequent <code>update</code> task containing the new node IDs plus some titles that are longer than <code>max_node_title_length: 30</code> setting in the <code>assets/max_node_title_length_test/update.yml</code> file</li>
 <li>(line 45) runs <code>self.update_cmd</code> to execute the <code>update</code> task</li>
 <li>(lines 47-53) fetches the title values for each of the updated nodes and tests the length of each title string to confirm that it does not exceed the maximum allowed length of 30 characters.</li>
