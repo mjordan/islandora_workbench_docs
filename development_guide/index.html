@@ -1098,7 +1098,7 @@
 </ul>
 <p>The unit tests are pretty conventional, but the integration tests are a bit more challenging. The two sample tests provided below are copied from <code>islandora_tests.py</code>, and you can see their input files in <code>tests/assets/create_test</code> and <code>tests/assets/max_node_title_length_test</code>, respectively.</p>
 <h3 id="a-simple-unit-test">A simple unit test</h3>
-<p>This test tests the <code>validate_latlong_value()</code> method from the <code>workbench_utils.py</code> module.</p>
+<p>This test, from <code>tests/unit_tests.py</code>, tests the <code>validate_latlong_value()</code> method from the <code>workbench_utils.py</code> module.</p>
 <pre><code class="language-python">class TestValidateLatlongValue(unittest.TestCase):
 
     def test_validate_good_latlong_values(self):
@@ -1113,7 +1113,7 @@
             res = workbench_utils.validate_latlong_value(value)
             self.assertFalse(res)
 </code></pre>
-<p>This is a fairly standard Python unit test - we define a list of valid lat/long pairs and run them through the <code>workbench_utils.validate_latlong_value()</code> method expecting it to return <code>True</code> for each value, and then we define a list of bad lat/long pairs, run them through the method expecting it to return <code>False</code> for each value. Since <code>workbench_utils.validate_latlong_value()</code> doesn't interact with Islandora, <code>https://islandora.traefik.me/</code> doesn't need to be available to run this unit test.</p>
+<p>This is a fairly standard Python unit test - we define a list of valid lat/long pairs and run them through the <code>workbench_utils.validate_latlong_value()</code> method expecting it to return <code>True</code> for each value, and then we define a list of bad lat/long pairs and run them through the method expecting it to return <code>False</code> for each value. Since <code>workbench_utils.validate_latlong_value()</code> doesn't interact with Islandora, <code>https://islandora.traefik.me/</code> doesn't need to be available to run this unit test.</p>
 <h3 id="a-simple-integration-test">A simple integration test</h3>
 <p>An example of a simple integration test is <code>TestCreate</code>, whose code (in <code>islandora_tests.py</code>) looks like this (with line numbers added for easy reference):</p>
 <pre><code class="language-python">1. class TestCreate(unittest.TestCase):
