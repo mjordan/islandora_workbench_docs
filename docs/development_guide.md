@@ -44,7 +44,7 @@ Details on how to add new field types are coming soon!
 
 ## Writing tests
 
-Islandora Workbench's tests are writtin in `unittest`, and, as explained above, fall into two categories:
+Islandora Workbench's tests are written using the Python built-in [module](https://docs.python.org/3/library/unittest.html) `unittest`, and as explained above, fall into two categories:
 
 - Unit tests that do not require a live Islandora instance.
 - Integration tests that require a live Islandora instance running at `https://islandora.traefik.me/`.
@@ -105,7 +105,7 @@ allow_missing_files: True
 
 The test's `setUp()` method prepares the file paths, etc. and within the test's only test method, `test_create()`, runs Workbench using Python's `subprocess.check_output()` method, grabs the node IDs from the output from the "created at" strings emitted by Workbench (lines 14-17), adds them to a list, and then counts the number of members in that list. If the number of nodes created matches the expected number, the test passes.
 
-Since this test creates some nodes, we use the test class's `teaarDown()` method to put the target Drupal back into as close a state as we started with as possible. `tearDown()` basically takes the list of node IDs created in `test_create()` and runs Workbench with the `--quick_delete_node` option. It then removes any temporary files created during the test.
+Since this test creates some nodes, we use the test class's `tearDown()` method to put the target Drupal back into as close a state as we started with as possible. `tearDown()` basically takes the list of node IDs created in `test_create()` and runs Workbench with the `--quick_delete_node` option. It then removes any temporary files created during the test.
 
 ### A more complex test
 
