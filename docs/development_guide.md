@@ -55,7 +55,7 @@ The unit tests are pretty conventional, but the integration tests are a bit more
 
 ### A simple unit test
 
-This test tests the `validate_latlong_value()` method fromn the `workbench_utils.py` module.
+This test, from `tests/unit_tests.py`, tests the `validate_latlong_value()` method from the `workbench_utils.py` module.
 
 ```python
 class TestValidateLatlongValue(unittest.TestCase):
@@ -73,7 +73,7 @@ class TestValidateLatlongValue(unittest.TestCase):
             self.assertFalse(res)
 ```
 
-Nothing too complex here - we define a list of valid lat/long pairs and run them through the `workbench_utils.validate_latlong_value()` method expecting it to return `True` for each value, and then we define a list of bad lat/long pairs, run them through the method expecting it to return `False` for each value. Since `workbench_utils.validate_latlong_value()` doesn't interact with Islandora, `https://islandora.traefik.me/` doesn't need to be available to run this unit test.
+This is a fairly standard Python unit test - we define a list of valid lat/long pairs and run them through the `workbench_utils.validate_latlong_value()` method expecting it to return `True` for each value, and then we define a list of bad lat/long pairs and run them through the method expecting it to return `False` for each value. Since `workbench_utils.validate_latlong_value()` doesn't interact with Islandora, `https://islandora.traefik.me/` doesn't need to be available to run this unit test.
 
 ### A simple integration test
 
