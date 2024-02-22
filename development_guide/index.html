@@ -1039,8 +1039,8 @@
 <p>If you open a PR, please check your code with pycodestyle:</p>
 <p><code>pycodestyle --show-source --show-pep8 --ignore=E402,W504 --max-line-length=200 .</code></p>
 <p>You can also check a specific file by replacing the <code>.</code> with the filename.</p>
-<p>Also provide tests where applicable. Tests in Workbench fall into two categories:</p>
-<ul>
+<p>Also provide tests where applicable (see "Writing tests", below). Tests in Workbench fall into two categories:</p>
+<ol>
 <li>Unit tests that do not require a live Islandora instance.<ul>
 <li>Unit tests in <code>tests/unit_tests.py</code> (run with <code>python3 tests/unit_tests.py</code>)</li>
 <li>Unit tests for Workbench's Drupal fields handlers in <code>tests/field_tests.py</code> (run with <code>python3 tests/field_tests.py</code>)</li>
@@ -1052,8 +1052,8 @@
 <li>Some integration and field tests output text that beings with "Error:." This is normal, it's the text that Workbench outputs when it finds something wrong (which is probably what the test is testing). Successful test (whether they test for success or failure) runs will exit with "OK". If you can figure out how to suppress this output, please visit <a href="https://github.com/mjordan/islandora_workbench/issues/160">this issue</a>.</li>
 </ul>
 </li>
-<li>If you want to run the tests within a specific class, include the class name as an argument like this: <code>python3 tests/unit_tests.py TestCompareStings</code></li>
-</ul>
+</ol>
+<p>f you want to run the tests within a specific class, include the class name as an argument like this: <code>python3 tests/unit_tests.py TestCompareStings</code></p>
 <h2 id="adding-a-new-drupal-field-type">Adding a new Drupal field type</h2>
 <p>Eventually, handlers for new Drupal field types will need to be added to Workbench as the community adopts more field types provided by Drupal contrib modules or creates new field types specific to Islandora. Currently, Workbench supports the following field types:</p>
 <ul>
@@ -1072,6 +1072,9 @@
 <li>authority link fields (e.g., <code>viaf%%http://viaf.org/viaf/10646807%%VIAF Record</code>)</li>
 </ul>
 <p>All field types are defined in classes contained in <code>workbench_fields.py</code> and share the methods <code>create()</code>, <code>update()</code>, <code>dedupe_values()</code>, <code>remove_invalid_values()</code>, and <code>serialize()</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
 <p>Details on how to add new field types are coming soon!</p>
 <h2 id="writing-tests">Writing tests</h2>
 <p>Islandora Workbench's tests are written using the Python built-in <a href="https://docs.python.org/3/library/unittest.html">module</a> <code>unittest</code>, and as explained above, fall into two categories:</p>
@@ -1116,7 +1119,7 @@
 32.             os.remove(self.preprocessed_file_path)
 
 </code></pre>
-<p>As you can see, this test runs Workbench using the config file <code>create.yml</code> (line 10), which lives at <code>assets/create_test/create.yml</code>, relative to the workbench directory. A tricky aspect of using real config files in tests is that all paths mentioned in the config file must be relative to the workbench directory. This <code>create.yml</code> defines the <code>input_dir</code> setting to be <code>tests/assets/create_test</code>:</p>
+<p>As you can see, this test runs Workbench using the config file <code>create.yml</code> (line 10), which lives at <code>tests/assets/create_test/create.yml</code>, relative to the workbench directory. A tricky aspect of using real config files in tests is that all paths mentioned in the config file must be relative to the workbench directory. This <code>create.yml</code> defines the <code>input_dir</code> setting to be <code>tests/assets/create_test</code>:</p>
 <pre><code class="language-yaml">task: create
 host: https://islandora.traefik.me
 username: admin
@@ -1130,7 +1133,7 @@ allow_missing_files: True
 <h3 id="a-more-complex-test">A more complex test</h3>
 <p>Since Workbench is essentially a specialized REST client, writing integration tests that require interaction with Drupal can get a bit complex. But, the overall pattern is:</p>
 <ol>
-<li>Create something (nodes, media, taxonomy terms).</li>
+<li>Create some entities (nodes, media, taxonomy terms).</li>
 <li>Confirm that they were created in the expected way (doing this usually involves keeping track of any node IDs needed to run tests or to clean up, and in some cases parsing out values from raw JSON returned by Drupal).</li>
 <li>Clean up by deleting any Drupal entities created during the tests and also any temporary local files.</li>
 </ol>
@@ -1212,7 +1215,7 @@ allow_missing_files: True
 </code></pre>
 <p>This test:</p>
 <ol>
-<li>(line 16) creates some nodes</li>
+<li>(line 16) creates some nodes that will be updated within the same test class</li>
 <li>(lines 28-42) writes out a temporary CSV file which will be used as the <code>input_csv</code> file in a subsequent <code>update</code> task containing the new node IDs plus some titles that are longer than <code>max_node_title_length: 30</code> setting in the <code>assets/max_node_title_length_test/update.yml</code> file</li>
 <li>(line 45) runs <code>self.update_cmd</code> to execute the <code>update</code> task</li>
 <li>(lines 47-53) fetches the title values for each of the updated nodes and tests the length of each title string to confirm that it does not exceed the maximum allowed length of 30 characters.</li>
