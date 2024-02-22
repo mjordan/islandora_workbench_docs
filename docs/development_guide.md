@@ -239,6 +239,8 @@ You can also specify multiple test classes within a single test file:
 
 `python tests/islandora_tests.py TestMyNewTest TestMyOtherNewTest`
 
+Of course, one of the main reasons we write tests is to ensure changes in the code don't break existing functionality. Once you are sure your new tests work as intended, please run all tests to detect regression errors.
+
 ## Islandora Workbench Integration Drupal module
 
 [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) is a Drupal module that allows Islandora Workbench to communicate with Drupal efficiently and reliably. It enables some Views and REST endpoints that Workbench expects, and also provides a few custom REST endpoints (see the module's README for details).
