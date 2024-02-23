@@ -936,6 +936,26 @@
     Adding a new Drupal field type
   </a>
   
+    <nav class="md-nav" aria-label="Adding a new Drupal field type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview-of-how-workbench-handles-field-types" class="md-nav__link">
+    Overview of how Workbench handles field types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field-class-methods" class="md-nav__link">
+    Field class methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1029,6 +1049,26 @@
   <a href="#adding-a-new-drupal-field-type" class="md-nav__link">
     Adding a new Drupal field type
   </a>
+  
+    <nav class="md-nav" aria-label="Adding a new Drupal field type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview-of-how-workbench-handles-field-types" class="md-nav__link">
+    Overview of how Workbench handles field types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field-class-methods" class="md-nav__link">
+    Field class methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1256,27 +1296,300 @@ allow_missing_files: True
 </ol>
 <p><code>tearDown()</code> removes all nodes created by the test and removes all temporary local files.</p>
 <h2 id="adding-a-new-drupal-field-type">Adding a new Drupal field type</h2>
-<p>Eventually, handlers for new Drupal field types will need to be added to Workbench as the community adopts more field types provided by Drupal contrib modules or creates new field types specific to Islandora. Currently, Workbench supports the following field types:</p>
+<h4 id="overview-of-how-workbench-handles-field-types">Overview of how Workbench handles field types</h4>
+<p>Workbench and Drupal exchange field data represented as JSON, via Drupal's REST API. The specific JSON structure depends on the field type (text, entity reference, geolocation, etc.). Dealing with the details of these structures when adding new field data during <code>create</code> tasks, updating existing field data during <code>update</code> tasks, etc. is performed by code in the <code>workbench_fields.py</code> module. Each distinct structure has its own class in this file. All field types managed by classes in <code>workbench_fields.py</code> have the methods <code>create()</code>, <code>update()</code>, <code>dedupe_values()</code>, <code>remove_invalid_values()</code>, and <code>serialize()</code>. In general, these methods convert field data as represented in Workbench CSV input files to Python dictionaries, and vice versa.</p>
+<p>Currently, Workbench supports the following field types:</p>
 <ul>
 <li>"simple" fields for<ul>
-<li>strings (for string or text fields) like <code>Using Islandora Workbench for Fun and Profit</code></li>
-<li>integers (for <code>field_weight</code>, for example) like <code>1</code> or <code>7281</code></li>
-<li>the binary values <code>1</code> or <code>0</code></li>
-<li>existing Drupal-generated entity IDs (term IDs for taxonomy terms or node IDs for collections and parents), which are integers like <code>10</code> or <code>3549</code></li>
+<li>strings (for string or text fields)</li>
+<li>integers</li>
+<li>binary values 1 and 0</li>
+<li>existing Drupal-generated entity IDs</li>
 </ul>
 </li>
 <li>entity reference fields</li>
 <li>entity reference revision fields</li>
-<li>typed relation fields (e.g., <code>relators:art:30</code>)</li>
-<li>link fields (e.g., <code>https://acme.net%%Acme Products</code>)</li>
-<li>geolocation fields (e.g., <code>"49.16667,-123.93333"</code>)</li>
-<li>authority link fields (e.g., <code>viaf%%http://viaf.org/viaf/10646807%%VIAF Record</code>)</li>
+<li>typed relation fields</li>
+<li>link fields</li>
+<li>geolocation fields</li>
+<li>authority link fields</li>
+<li>media track fields</li>
 </ul>
-<p>All field types are defined in classes contained in <code>workbench_fields.py</code> and share the methods <code>create()</code>, <code>update()</code>, <code>dedupe_values()</code>, <code>remove_invalid_values()</code>, and <code>serialize()</code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Details on how to add new field types are coming soon!</p>
-</div>
+<p>Eventually, handlers for new Drupal field types will need to be added to Workbench as the community adopts more field types provided by Drupal contrib modules or creates new field types specific to Islandora.</p>
+<h4 id="field-class-methods">Field class methods</h4>
+<p>The most complex aspect of handling field data Drupal's entity field JSON is cardinality, or in other words, whether a given field's configuration setting "Allowed number of values" allows for a single value, a maximum number of values (3 values, or 4, for example)), or an unlimited number of values.</p>
+<p>Each field type's cardinality configuration complicates creating and updating field instances because Workbench must know how to deal with situations where a Workbench user has provided more values than are allowed, or when the user wants to append a value to an existing field instance rather than replace existing values. Drupal's REST interface is very strict about cardinaltiy, and if Workbench tries to push up a field's JSON that violates the field's configured cardinality, the HTTP request fails and returns a <code>422 Unprocessable Content</code> response. To prevent this from happening, the code within field type classes needs to contain logic to account for the three different types of cardinality and for whatever field data is in the input CSV.</p>
+<p>To illustrate this complexity, let's look at the <code>update()</code> method within the <code>SimpleField</code> class, which handles field types that have the Python structure <code>{"value": value}</code> or, for "formatted" text, <code>{"value": value, "format": text_format}</code>, such as text fields, formatted text fields, and number fields:</p>
+<pre><code class="language-python">1.     def update(
+2.         self, config, field_definitions, entity, row, field_name, entity_field_values
+3.     ):
+4.     &quot;&quot;&quot;Note: this method appends incoming CSV values to existing values, replaces existing field
+5.     values with incoming values, or deletes all values from fields, depending on whether
+6.     config['update_mode'] is 'append', 'replace', or 'delete'. It doesn not replace individual
+7.     values within fields.
+8.     &quot;&quot;&quot;
+9.     &quot;&quot;&quot;Parameters
+10.         ----------
+11.         config : dict
+12.             The configuration settings defined by workbench_config.get_config().
+13.         field_definitions : dict
+14.             The field definitions object defined by get_field_definitions().
+15.         entity : dict
+16.             The dict that will be POSTed to Drupal as JSON.
+17.         row : OrderedDict.
+18.             The current CSV record.
+19.         field_name : string
+20.             The Drupal fieldname/CSV column header.
+21.         entity_field_values : list
+22.             List of dictionaries containing existing value(s) for field_name in the entity being updated.
+23.         Returns
+24.         -------
+25.         dictionary
+26.             A dictionary represeting the entity that is PATCHed to Drupal as JSON.
+27.     &quot;&quot;&quot;
+28.     if config[&quot;update_mode&quot;] == &quot;delete&quot;:
+29.         entity[field_name] = []
+30.         return entity
+31.
+32.     if row[field_name] is None:
+33.         return entity
+34.
+35.     if field_name in config[&quot;field_text_format_ids&quot;]:
+36.         text_format = config[&quot;field_text_format_ids&quot;][field_name]
+37.     else:
+38.         text_format = config[&quot;text_format_id&quot;]
+39.
+40.     if config[&quot;task&quot;] == &quot;update_terms&quot;:
+41.         entity_id_field = &quot;term_id&quot;
+42.     if config[&quot;task&quot;] == &quot;update&quot;:
+43.         entity_id_field = &quot;node_id&quot;
+44.     if config[&quot;task&quot;] == &quot;update_media&quot;:
+45.         entity_id_field = &quot;media_id&quot;
+46.
+47.     # Cardinality has a limit.
+48.     if field_definitions[field_name][&quot;cardinality&quot;] &gt; 0:
+49.         if config[&quot;update_mode&quot;] == &quot;append&quot;:
+50.             if config[&quot;subdelimiter&quot;] in row[field_name]:
+51.                 subvalues = row[field_name].split(config[&quot;subdelimiter&quot;])
+52.                 subvalues = self.remove_invalid_values(
+53.                     config, field_definitions, field_name, subvalues
+54.                 )
+55.                 for subvalue in subvalues:
+56.                     subvalue = truncate_csv_value(
+57.                         field_name,
+58.                         row[entity_id_field],
+59.                         field_definitions[field_name],
+60.                         subvalue,
+61.                     )
+62.                     if (
+63.                         &quot;formatted_text&quot; in field_definitions[field_name]
+64.                         and field_definitions[field_name][&quot;formatted_text&quot;] is True
+65.                     ):
+66.                         entity[field_name].append(
+67.                             {&quot;value&quot;: subvalue, &quot;format&quot;: text_format}
+68.                         )
+69.                     else:
+70.                         entity[field_name].append({&quot;value&quot;: subvalue})
+71.                 entity[field_name] = self.dedupe_values(entity[field_name])
+72.                 if len(entity[field_name]) &gt; int(
+73.                     field_definitions[field_name][&quot;cardinality&quot;]
+74.                 ):
+75.                     log_field_cardinality_violation(
+76.                         field_name,
+77.                         row[entity_id_field],
+78.                         field_definitions[field_name][&quot;cardinality&quot;],
+79.                     )
+80.                     entity[field_name] = entity[field_name][
+81.                         : field_definitions[field_name][&quot;cardinality&quot;]
+82.                     ]
+83.             else:
+84.                 row[field_name] = self.remove_invalid_values(
+85.                     config, field_definitions, field_name, row[field_name]
+86.                 )
+87.                 row[field_name] = truncate_csv_value(
+88.                     field_name,
+89.                     row[entity_id_field],
+90.                     field_definitions[field_name],
+91.                     row[field_name],
+92.                 )
+93.                 if (
+94.                     &quot;formatted_text&quot; in field_definitions[field_name]
+95.                     and field_definitions[field_name][&quot;formatted_text&quot;] is True
+96.                 ):
+97.                     entity[field_name].append(
+98.                         {&quot;value&quot;: row[field_name], &quot;format&quot;: text_format}
+99.                     )
+100.                 else:
+101.                     entity[field_name].append({&quot;value&quot;: row[field_name]})
+102.                 entity[field_name] = self.dedupe_values(entity[field_name])
+103.                 if len(entity[field_name]) &gt; int(
+104.                     field_definitions[field_name][&quot;cardinality&quot;]
+105.                 ):
+106.                     log_field_cardinality_violation(
+107.                         field_name,
+108.                         row[entity_id_field],
+109.                         field_definitions[field_name][&quot;cardinality&quot;],
+110.                     )
+111.                     entity[field_name] = entity[field_name][
+112.                         : field_definitions[field_name][&quot;cardinality&quot;]
+113.                     ]
+114.
+115.         if config[&quot;update_mode&quot;] == &quot;replace&quot;:
+116.             if config[&quot;subdelimiter&quot;] in row[field_name]:
+117.                 field_values = []
+118.                 subvalues = row[field_name].split(config[&quot;subdelimiter&quot;])
+119.                 subvalues = self.remove_invalid_values(
+120.                     config, field_definitions, field_name, subvalues
+121.                 )
+122.                 subvalues = self.dedupe_values(subvalues)
+123.                 if len(subvalues) &gt; int(
+124.                     field_definitions[field_name][&quot;cardinality&quot;]
+125.                 ):
+126.                     log_field_cardinality_violation(
+127.                         field_name,
+128.                         row[entity_id_field],
+129.                         field_definitions[field_name][&quot;cardinality&quot;],
+130.                     )
+131.                     subvalues = subvalues[
+132.                         : field_definitions[field_name][&quot;cardinality&quot;]
+133.                     ]
+134.                 for subvalue in subvalues:
+135.                     subvalue = truncate_csv_value(
+136.                         field_name,
+137.                         row[entity_id_field],
+138.                         field_definitions[field_name],
+139.                         subvalue,
+140.                     )
+141.                     if (
+142.                         &quot;formatted_text&quot; in field_definitions[field_name]
+143.                         and field_definitions[field_name][&quot;formatted_text&quot;] is True
+144.                     ):
+145.                         field_values.append(
+146.                             {&quot;value&quot;: subvalue, &quot;format&quot;: text_format}
+147.                         )
+148.                     else:
+149.                         field_values.append({&quot;value&quot;: subvalue})
+150.                 field_values = self.dedupe_values(field_values)
+151.                 entity[field_name] = field_values
+152.             else:
+153.                 row[field_name] = truncate_csv_value(
+154.                     field_name,
+155.                     row[entity_id_field],
+156.                     field_definitions[field_name],
+157.                     row[field_name],
+158.                 )
+159.                 if (
+160.                     &quot;formatted_text&quot; in field_definitions[field_name]
+161.                     and field_definitions[field_name][&quot;formatted_text&quot;] is True
+162.                 ):
+163.                     entity[field_name] = [
+164.                         {&quot;value&quot;: row[field_name], &quot;format&quot;: text_format}
+165.                     ]
+166.                 else:
+167.                     entity[field_name] = [{&quot;value&quot;: row[field_name]}]
+168.
+169.     # Cardinatlity is unlimited.
+170.     else:
+171.         if config[&quot;update_mode&quot;] == &quot;append&quot;:
+172.             if config[&quot;subdelimiter&quot;] in row[field_name]:
+173.                 field_values = []
+174.                 subvalues = row[field_name].split(config[&quot;subdelimiter&quot;])
+175.                 subvalues = self.remove_invalid_values(
+176.                     config, field_definitions, field_name, subvalues
+177.                 )
+178.                 for subvalue in subvalues:
+179.                     subvalue = truncate_csv_value(
+180.                         field_name,
+181.                         row[entity_id_field],
+182.                         field_definitions[field_name],
+183.                         subvalue,
+184.                     )
+185.                     if (
+186.                         &quot;formatted_text&quot; in field_definitions[field_name]
+187.                         and field_definitions[field_name][&quot;formatted_text&quot;] is True
+188.                     ):
+189.                         field_values.append(
+190.                             {&quot;value&quot;: subvalue, &quot;format&quot;: text_format}
+191.                         )
+192.                     else:
+193.                         field_values.append({&quot;value&quot;: subvalue})
+194.                 entity[field_name] = entity_field_values + field_values
+195.                 entity[field_name] = self.dedupe_values(entity[field_name])
+196.             else:
+197.                 row[field_name] = truncate_csv_value(
+198.                     field_name,
+199.                     row[entity_id_field],
+200.                     field_definitions[field_name],
+201.                     row[field_name],
+202.                 )
+203.                 if (
+204.                     &quot;formatted_text&quot; in field_definitions[field_name]
+205.                     and field_definitions[field_name][&quot;formatted_text&quot;] is True
+206.                 ):
+207.                     entity[field_name] = entity_field_values + [
+208.                         {&quot;value&quot;: row[field_name], &quot;format&quot;: text_format}
+209.                     ]
+210.                 else:
+211.                     entity[field_name] = entity_field_values + [
+212.                         {&quot;value&quot;: row[field_name]}
+213.                     ]
+214.                 entity[field_name] = self.dedupe_values(entity[field_name])
+215.         if config[&quot;update_mode&quot;] == &quot;replace&quot;:
+216.             if config[&quot;subdelimiter&quot;] in row[field_name]:
+217.                 field_values = []
+218.                 subvalues = row[field_name].split(config[&quot;subdelimiter&quot;])
+219.                 subvalues = self.remove_invalid_values(
+220.                     config, field_definitions, field_name, subvalues
+221.                 )
+222.                 for subvalue in subvalues:
+223.                     subvalue = truncate_csv_value(
+224.                         field_name,
+225.                         row[entity_id_field],
+226.                         field_definitions[field_name],
+227.                         subvalue,
+228.                     )
+229.                     if (
+230.                         &quot;formatted_text&quot; in field_definitions[field_name]
+231.                         and field_definitions[field_name][&quot;formatted_text&quot;] is True
+232.                     ):
+233.                         field_values.append(
+234.                             {&quot;value&quot;: subvalue, &quot;format&quot;: text_format}
+235.                         )
+236.                     else:
+237.                         field_values.append({&quot;value&quot;: subvalue})
+238.                 entity[field_name] = field_values
+239.                 entity[field_name] = self.dedupe_values(entity[field_name])
+240.             else:
+241.                 row[field_name] = truncate_csv_value(
+242.                     field_name,
+243.                     row[entity_id_field],
+244.                     field_definitions[field_name],
+245.                     row[field_name],
+246.                 )
+247.                 if (
+248.                     &quot;formatted_text&quot; in field_definitions[field_name]
+249.                     and field_definitions[field_name][&quot;formatted_text&quot;] is True
+250.                 ):
+251.                     entity[field_name] = [
+252.                         {&quot;value&quot;: row[field_name], &quot;format&quot;: text_format}
+253.                     ]
+254.                 else:
+255.                     entity[field_name] = [{&quot;value&quot;: row[field_name]}]
+256.
+257.     return entity
+</code></pre>
+<p>Each field type has its own structure. Within the field classes, the field structure is represented in Python dictionaries and converted to JSON when pushed up to Drupal as part of REST requests:</p>
+<ul>
+<li><code>SimpleField</code> fields have the Python structure <code>{"value": value}</code> or, for "formatted" text, <code>{"value": value, "format": text_format}</code></li>
+<li><code>GeolocationField</code> fields have the Python structure <code>{"lat": lat_value, "lon": lon_value}</code></li>
+<li><code>LinkField</code> fields have the python structure <code>{"uri": uri, "title": title}</code></li>
+<li><code>EntityReferenceField</code> fields have the Python structure <code>{"target_id": id, "target_type": target_type}</code> (where <code>id</code> is a node, term, or media ID and <code>target_type</code> is "node", "taxonomy_term", or "media")</li>
+<li><code>TypedRelationField</code> fields have the Python structure <code>{"target_id": id, "rel_type": rel_type:rel_value, "target_type": target_type}</code> (where <code>rel_type</code> is the relator type, e.g. MARC relators, and <code>rel_value</code> is the relator value, e.g. <code>aut</code> for author)</li>
+<li><code>AuthorityLinkField</code> fields have the Python structure <code>{"source": source, "uri": uri, "title": title}</code></li>
+<li><code>MediaTrackField</code> fields have the Python structure <code>{"label": label, "kind": kind, "srclang": lang, "file_path": path}</code></li>
+</ul>
+<p>To add a support for a new field type, we need to figure out its JSON structure and convert that structure into the Python dictionary equivalent in the new field class methods. The best way to inspect a field type's JSON structure is to view the JSON representation of a node that contains instances of the field by tacking <code>?_format=json</code> to the end of the node's URL and reverse engineering it. Then, we write the necessary class methods to between JSON and Workbench CSV data, making sure we enforce fields' cardinality.</p>
+<p>Writing field classes is one aspect of Workbench development that makes the value of unit tests obvious. Without writing unit tests to accompany the development of these classes. Trust me - <code>tests/field_tests.py</code> contains over 5,000 lines of test code.</p>
 <h2 id="islandora-workbench-integration-drupal-module">Islandora Workbench Integration Drupal module</h2>
 <p><a href="https://github.com/mjordan/islandora_workbench_integration">Islandora Workbench Integration</a> is a Drupal module that allows Islandora Workbench to communicate with Drupal efficiently and reliably. It enables some Views and REST endpoints that Workbench expects, and also provides a few custom REST endpoints (see the module's README for details).</p>
 <p>Generally speaking, the only situtation where the Integration module will need to be updated (apart from requirements imposed by new versions of Drupal) is if we add a new feature to Workbench that requires a specific View or a specific REST endpoint to be enabled and configured in the target Drupal. If a change is required in the Integration module, it is very important to communicate this to Workbench users, since if the Integration module is not updated to align with the change in Workbench, the new feature won't work.</p>
