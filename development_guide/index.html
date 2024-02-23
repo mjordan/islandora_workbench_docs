@@ -906,8 +906,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-simple-islandora-workbench-unit-test" class="md-nav__link">
-    A simple Islandora Workbench unit test
+  <a href="#a-simple-unit-test" class="md-nav__link">
+    A simple unit test
   </a>
   
 </li>
@@ -1000,8 +1000,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-simple-islandora-workbench-unit-test" class="md-nav__link">
-    A simple Islandora Workbench unit test
+  <a href="#a-simple-unit-test" class="md-nav__link">
+    A simple unit test
   </a>
   
 </li>
@@ -1096,7 +1096,7 @@
 <li>Integration tests that require a live Islandora instance running at <code>https://islandora.traefik.me/</code>.</li>
 </ul>
 <p><code>unittest</code> groups tests into classes. A single test file can contain one or more test classes. Within each test class, you can put one or more test methods. As shown in the second example below, two reserved methods, <code>setUp()</code> and <code>tearDown()</code>, are reserved for setup and cleanup tasks, respectively, within each class. If you are new to using <code>unittest</code>, <a href="https://www.pythontutorial.net/python-unit-testing/">this</a> is a good tutorial.</p>
-<h3 id="a-simple-islandora-workbench-unit-test">A simple Islandora Workbench unit test</h3>
+<h3 id="a-simple-unit-test">A simple unit test</h3>
 <p>Islandora Workbench unit tests are much like unit tests in any Python application. The sample test below, from <code>tests/unit_tests.py</code>, tests the <code>validate_latlong_value()</code> method from the <code>workbench_utils.py</code> module. Since <code>workbench_utils.validate_latlong_value()</code> doesn't interact with Islandora, <code>https://islandora.traefik.me/</code> doesn't need to be available to run this unit test.</p>
 <pre><code class="language-python">class TestValidateLatlongValue(unittest.TestCase):
 
@@ -1165,7 +1165,7 @@ allow_missing_files: True
 <p>Since Workbench is essentially a specialized REST client, writing integration tests that require interaction with Drupal can get a bit complex. But, the overall pattern is:</p>
 <ol>
 <li>Create some entities (nodes, media, taxonomy terms).</li>
-<li>Confirm that they were created in the expected way (doing this usually involves keeping track of any node IDs needed to run tests or to clean up, and in some cases parsing out values from raw JSON returned by Drupal).</li>
+<li>Confirm that they were created in the expected way (doing this usually involves keeping track of any node IDs needed to run tests or to clean up, and in some cases involves parsing out values from raw JSON returned by Drupal).</li>
 <li>Clean up by deleting any Drupal entities created during the tests and also any temporary local files.</li>
 </ol>
 <p>An integration test that checks data in the node JSON is <code>TestUpdateWithMaxNodeTitleLength()</code>. Files that accompany this test are in <code>tests/assets/max_node_title_length_test</code>. Here is a copy of the test's code:</p>
