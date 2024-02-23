@@ -1589,7 +1589,10 @@ allow_missing_files: True
 <li><code>GeolocationField</code> fields have the Python structure <code>{"lat": lat_value, "lon": lon_value}</code></li>
 <li><code>LinkField</code> fields have the python structure <code>{"uri": uri, "title": title}</code></li>
 <li><code>EntityReferenceField</code> fields have the Python structure <code>{"target_id": id, "target_type": target_type}</code></li>
-<li><code>TypedRelationField</code> fields have the Python structure <code>{"target_id": id, "rel_type": rel_type:rel_value, "target_type": target_type}</code> (where <code>rel_type</code> is the relator type, e.g. MARC relators, and <code>rel_value</code> is the relator value, e.g. <code>aut</code> for author, separated by a colon)</li>
+<li><code>TypedRelationField</code> fields have the Python structure <code>{"target_id": id, "rel_type": rel_type:rel_value, "target_type": target_type}</code><ul>
+<li><code>rel_type</code> is the relator type, e.g. MARC relators, and <code>rel_value</code> is the relator value, e.g. <code>aut</code> for author, separated by a colon</li>
+</ul>
+</li>
 <li><code>AuthorityLinkField</code> fields have the Python structure <code>{"source": source, "uri": uri, "title": title}</code></li>
 <li><code>MediaTrackField</code> fields have the Python structure <code>{"label": label, "kind": kind, "srclang": lang, "file_path": path}</code></li>
 </ul>
