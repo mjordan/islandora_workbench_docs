@@ -891,11 +891,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tests" class="md-nav__link">
-    Tests
+  <a href="#running-tests" class="md-nav__link">
+    Running tests
   </a>
   
-    <nav class="md-nav" aria-label="Tests">
+    <nav class="md-nav" aria-label="Running tests">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -929,13 +929,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-your-tests" class="md-nav__link">
-    Running your tests
-  </a>
   
 </li>
         
@@ -998,11 +991,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tests" class="md-nav__link">
-    Tests
+  <a href="#running-tests" class="md-nav__link">
+    Running tests
   </a>
   
-    <nav class="md-nav" aria-label="Tests">
+    <nav class="md-nav" aria-label="Running tests">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1036,13 +1029,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-your-tests" class="md-nav__link">
-    Running your tests
-  </a>
   
 </li>
         
@@ -1090,14 +1076,18 @@
 <p>This documentation is aimed at developers who want to contribute to Islandora Workbench.</p>
 <h2 id="general">General</h2>
 <ul>
-<li>Bug reports, improvements, feature requests, and PRs welcome. Before you open a pull request, please open an issue so we can discuss your idea (and to earn extra karma). In cases where the PR introduces a potentiall disruptive change to Workbench, we usually want to start a discussion about its impact on users in the <code>#islandoraworkbench</code> Slack channel.</li>
+<li>Bug reports, improvements, feature requests, and PRs welcome. Before you open a pull request, please open an issue so we can discuss your idea. In cases where the PR introduces a potentiall disruptive change to Workbench, we usually want to start a discussion about its impact on users in the <code>#islandoraworkbench</code> Slack channel.</li>
 <li>All code must be formatted using <a href="https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html">black</a>. You can automatically style your code <a href="https://black.readthedocs.io/en/stable/integrations/editors.html">using black in your IDE of choice</a>.</li>
-<li>Where applicable, unit or integration tests to accompany your code are very appreciated. See below for more information on writing tests.</li>
+<li>Where applicable, unit and integration tests to accompany your code are very appreciated. Tests in Workbench fall into two categories:<ul>
+<li>Unit tests that do not require a live Islandora instance.
+*Integration tests that require a live Islandora instance running at <code>https://islandora.traefik.me/</code>.</li>
 </ul>
-<h2 id="tests">Tests</h2>
-<p>Tests in Workbench fall into two categories:</p>
+</li>
+</ul>
+<h2 id="running-tests">Running tests</h2>
+<p>While developing code for Islandora Workbench, you should run tests frequently to ensure that your code hasn't introduced any regression errors.</p>
 <ol>
-<li>Unit tests that do not require a live Islandora instance.<ul>
+<li>To run unit tests that do not require a live Islandora instance:<ul>
 <li>Unit tests in <code>tests/unit_tests.py</code> (run with <code>python3 tests/unit_tests.py</code>)</li>
 <li>Unit tests for Workbench's Drupal fields handlers in <code>tests/field_tests.py</code> (run with <code>python3 tests/field_tests.py</code>)</li>
 </ul>
@@ -1110,6 +1100,7 @@
 </li>
 </ol>
 <p>If you want to run the tests within a specific class, include the class name as an argument like this: <code>python3 tests/unit_tests.py TestCompareStings</code></p>
+<p>You can also specify multiple test classes within a single test file: <code>python tests/islandora_tests.py TestMyNewTest TestMyOtherNewTest</code></p>
 <h3 id="writing-tests">Writing tests</h3>
 <p>Islandora Workbench's tests are written using the Python built-in <a href="https://docs.python.org/3/library/unittest.html">module</a> <code>unittest</code>, and as explained above, fall into two categories:</p>
 <ul>
@@ -1273,13 +1264,6 @@ allow_missing_files: True
 <li>(lines 47-53) fetches the title values for each of the updated nodes and tests the length of each title string to confirm that it does not exceed the maximum allowed length of 30 characters.</li>
 </ol>
 <p><code>tearDown()</code> removes all nodes created by the test and removes all temporary local files.</p>
-<h3 id="running-your-tests">Running your tests</h3>
-<p>Running tests is described in the "General" section above, but if you add a new test, you may want to run only it (as opposed to all tests in its file) until you know it works the way you want.</p>
-<p>If you want to run a specific test class (for example, <code>TestMyNewTest</code> in <code>islandora_tests.py</code>), execute a command like:</p>
-<p><code>python tests/islandora_tests.py TestMyNewTest</code></p>
-<p>You can also specify multiple test classes within a single test file:</p>
-<p><code>python tests/islandora_tests.py TestMyNewTest TestMyOtherNewTest</code></p>
-<p>Of course, one of the main reasons we write tests is to ensure changes in the code don't break existing functionality. Once you are sure your new tests work as intended, please run all tests to detect regression errors.</p>
 <h2 id="adding-a-new-drupal-field-type">Adding a new Drupal field type</h2>
 <p>Eventually, handlers for new Drupal field types will need to be added to Workbench as the community adopts more field types provided by Drupal contrib modules or creates new field types specific to Islandora. Currently, Workbench supports the following field types:</p>
 <ul>
