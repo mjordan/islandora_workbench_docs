@@ -2,47 +2,28 @@ This documentation is aimed at developers who want to contribute to Islandora Wo
 
 ## General
 
-Bug reports, improvements, feature requests, and PRs welcome. Before you open a pull request, please open an issue.
+* Bug reports, improvements, feature requests, and PRs are welcome. Before you open a pull request, *please open an issue so we can discuss your idea*. In cases where the PR introduces a potentially disruptive change to Workbench, we usually want to start a discussion about its impact on users in the `#islandoraworkbench` Slack channel.
+    * When you open a PR, you will be asked to complete the Workbench [PR template](https://github.com/mjordan/islandora_workbench/blob/main/.github/PULL_REQUEST_TEMPLATE.md).
+* All code must be formatted using [Black](https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html). You can automatically style your code [using Black in your IDE of choice](https://black.readthedocs.io/en/stable/integrations/editors.html).
+* Where applicable, unit and integration tests to accompany your code are very appreciated. Tests in Workbench fall into two categories:
+    * *Unit tests* that do not require a live Islandora instance.
+    * *Integration tests* that require a live Islandora instance running at `https://islandora.traefik.me/`.
 
-If you open a PR, please check your code with pycodestyle:
+## Running tests
 
-`pycodestyle --show-source --show-pep8 --ignore=E402,W504 --max-line-length=200 .`
+While developing code for Islandora Workbench, you should run tests frequently to ensure that your code hasn't introduced any regression errors. Workbench is a farily large and complex application, and has many configuration settings. Even minor changes in the code can break things.
 
-You can also check a specific file by replacing the `.` with the filename.
-
-Also provide tests where applicable (see "Writing tests", below). Tests in Workbench fall into two categories:
-
-1. Unit tests that do not require a live Islandora instance.
-    * Unit tests in `tests/unit_tests.py` (run with `python3 tests/unit_tests.py`)
-    * Unit tests for Workbench's Drupal fields handlers in `tests/field_tests.py` (run with `python3 tests/field_tests.py`)
-1. Integration tests that require a live Islandora instance running at `https://islandora.traefik.me/`
-    * `tests/islandora_tests.py`, `tests/islandora_tests_check.py`,  `tests/islandora_tests_hooks.py`, and `tests/islandora_tests_paged_content.py` can be run with `python3 tests/islandora_tests.py`, etc.
+1. To run unit tests that do not require a live Islandora instance:
+    * Unit tests in `tests/unit_tests.py` (run with `python tests/unit_tests.py`)
+    * Unit tests for Workbench's Drupal fields handlers in `tests/field_tests.py` (run with `python tests/field_tests.py`)
+1. To run integration tests that require a live Islandora instance running at `https://islandora.traefik.me/`
+    * `tests/islandora_tests.py`, `tests/islandora_tests_check.py`,  `tests/islandora_tests_hooks.py`, and `tests/islandora_tests_paged_content.py` can be run with `python tests/islandora_tests.py`, etc.
     * The Islandora Starter Site deployed with [ISLE](https://github.com/Islandora-Devops/isle-dc) is recommended way to deploy the Islandora used in these tests. Integration tests remove all nodes and media added during the tests, unless a test fails. Taxonomy terms created by tests are not removed.
     * Some integration and field tests output text that beings with "Error:." This is normal, it's the text that Workbench outputs when it finds something wrong (which is probably what the test is testing). Successful test (whether they test for success or failure) runs will exit with "OK". If you can figure out how to suppress this output, please visit [this issue](https://github.com/mjordan/islandora_workbench/issues/160).
 
-If you want to run the tests within a specific class, include the class name as an argument like this: `python3 tests/unit_tests.py TestCompareStings`
+If you want to run the tests within a specific class, include the class name as an argument like this: `python tests/unit_tests.py TestCompareStings`
 
-
-## Adding a new Drupal field type
-
-Eventually, handlers for new Drupal field types will need to be added to Workbench as the community adopts more field types provided by Drupal contrib modules or creates new field types specific to Islandora. Currently, Workbench supports the following field types:
-
-* "simple" fields for
-    * strings (for string or text fields) like `Using Islandora Workbench for Fun and Profit`
-    * integers (for `field_weight`, for example) like `1` or `7281`
-    * the binary values `1` or `0`
-    * existing Drupal-generated entity IDs (term IDs for taxonomy terms or node IDs for collections and parents), which are integers like `10` or `3549`
-* entity reference fields
-* entity reference revision fields
-* typed relation fields (e.g., `relators:art:30`)
-* link fields (e.g., `https://acme.net%%Acme Products`)
-* geolocation fields (e.g., `"49.16667,-123.93333"`)
-* authority link fields (e.g., `viaf%%http://viaf.org/viaf/10646807%%VIAF Record`)
-
-All field types are defined in classes contained in `workbench_fields.py` and share the methods `create()`, `update()`, `dedupe_values()`, `remove_invalid_values()`, and `serialize()`.
-
-!!! note
-    Details on how to add new field types are coming soon!
+You can also specify multiple test classes within a single test file: `python tests/islandora_tests.py TestMyNewTest TestMyOtherNewTest`
 
 ## Writing tests
 
@@ -51,11 +32,11 @@ Islandora Workbench's tests are written using the Python built-in [module](https
 - Unit tests that do not require a live Islandora instance.
 - Integration tests that require a live Islandora instance running at `https://islandora.traefik.me/`.
 
-The unit tests are pretty conventional, but the integration tests are a bit more challenging. The two sample tests provided below are copied from `islandora_tests.py`, and you can see their input files in `tests/assets/create_test` and `tests/assets/max_node_title_length_test`, respectively.
+`unittest` groups tests into classes. A single test file can contain one or more test classes. Within each test class, you can put one or more test methods. As shown in the second example below, two reserved methods, `setUp()` and `tearDown()`, are reserved for setup and cleanup tasks, respectively, within each class. If you are new to using `unittest`, [this](https://www.pythontutorial.net/python-unit-testing/) is a good tutorial.
 
 ### A simple unit test
 
-This test, from `tests/unit_tests.py`, tests the `validate_latlong_value()` method from the `workbench_utils.py` module.
+Islandora Workbench unit tests are much like unit tests in any Python application. The sample test below, from `tests/unit_tests.py`, tests the `validate_latlong_value()` method from the `workbench_utils.py` module. Since `workbench_utils.validate_latlong_value()` doesn't interact with Islandora, `https://islandora.traefik.me/` doesn't need to be available to run this unit test.
 
 ```python
 class TestValidateLatlongValue(unittest.TestCase):
@@ -73,11 +54,13 @@ class TestValidateLatlongValue(unittest.TestCase):
             self.assertFalse(res)
 ```
 
-This is a fairly standard Python unit test - we define a list of valid lat/long pairs and run them through the `workbench_utils.validate_latlong_value()` method expecting it to return `True` for each value, and then we define a list of bad lat/long pairs and run them through the method expecting it to return `False` for each value. Since `workbench_utils.validate_latlong_value()` doesn't interact with Islandora, `https://islandora.traefik.me/` doesn't need to be available to run this unit test.
+This is a fairly standard Python unit test - we define a list of valid lat/long pairs and run them through the `workbench_utils.validate_latlong_value()` method expecting it to return `True` for each value, and then we define a list of bad lat/long pairs and run them through the method expecting it to return `False` for each value.
 
 ### A simple integration test
 
-An example of a simple integration test is `TestCreate`, whose code (in `islandora_tests.py`) looks like this (with line numbers added for easy reference):
+The two sample integration tests provided below are copied from `islandora_tests.py`.
+
+The first sample integration test, `TestCreate`, looks like this (with line numbers added for easy reference). Configuration and CSV files used by this test are in `tests/assets/create_test`:
 
 ```python
 1. class TestCreate(unittest.TestCase):
@@ -136,10 +119,10 @@ Since this test creates some nodes, we use the test class's `tearDown()` method 
 Since Workbench is essentially a specialized REST client, writing integration tests that require interaction with Drupal can get a bit complex. But, the overall pattern is:
 
 1. Create some entities (nodes, media, taxonomy terms).
-1. Confirm that they were created in the expected way (doing this usually involves keeping track of any node IDs needed to run tests or to clean up, and in some cases parsing out values from raw JSON returned by Drupal).
+1. Confirm that they were created in the expected way (doing this usually involves keeping track of any node IDs needed to run tests or to clean up, and in some cases involves parsing out values from raw JSON returned by Drupal).
 1. Clean up by deleting any Drupal entities created during the tests and also any temporary local files.
 
-An integration test that checks data in the node JSON is `TestUpdateWithMaxNodeTitleLength()`. Here is a copy of its code:
+An integration test that checks data in the node JSON is `TestUpdateWithMaxNodeTitleLength()`. Files that accompany this test are in `tests/assets/max_node_title_length_test`. Here is a copy of the test's code:
 
 ```python
 1. class TestUpdateWithMaxNodeTitleLength(unittest.TestCase):
@@ -227,25 +210,32 @@ This test:
 
 `tearDown()` removes all nodes created by the test and removes all temporary local files.
 
-### Running your tests
+## Adding a new Drupal field type
 
-Running tests is described in the "General" section above, but if you add a new test, you may want to run only it (as opposed to all tests in its file) until you know it works the way you want.
+Eventually, handlers for new Drupal field types will need to be added to Workbench as the community adopts more field types provided by Drupal contrib modules or creates new field types specific to Islandora. Currently, Workbench supports the following field types:
 
-If you want to run a specific test class (for example, `TestMyNewTest` in `islandora_tests.py`), execute a command like:
+* "simple" fields for
+    * strings (for string or text fields) like `Using Islandora Workbench for Fun and Profit`
+    * integers (for `field_weight`, for example) like `1` or `7281`
+    * the binary values `1` or `0`
+    * existing Drupal-generated entity IDs (term IDs for taxonomy terms or node IDs for collections and parents), which are integers like `10` or `3549`
+* entity reference fields
+* entity reference revision fields
+* typed relation fields (e.g., `relators:art:30`)
+* link fields (e.g., `https://acme.net%%Acme Products`)
+* geolocation fields (e.g., `"49.16667,-123.93333"`)
+* authority link fields (e.g., `viaf%%http://viaf.org/viaf/10646807%%VIAF Record`)
 
-`python tests/islandora_tests.py TestMyNewTest`
+All field types are defined in classes contained in `workbench_fields.py` and share the methods `create()`, `update()`, `dedupe_values()`, `remove_invalid_values()`, and `serialize()`.
 
-You can also specify multiple test classes within a single test file:
-
-`python tests/islandora_tests.py TestMyNewTest TestMyOtherNewTest`
-
-Of course, one of the main reasons we write tests is to ensure changes in the code don't break existing functionality. Once you are sure your new tests work as intended, please run all tests to detect regression errors.
+!!! note
+    Details on how to add new field types are coming soon!
 
 ## Islandora Workbench Integration Drupal module
 
 [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) is a Drupal module that allows Islandora Workbench to communicate with Drupal efficiently and reliably. It enables some Views and REST endpoints that Workbench expects, and also provides a few custom REST endpoints (see the module's README for details).
 
-Generally speaking, the only situation where the Integration module will need to be updated (apart from requirements imposed by new versions of Drupal) is if we add a new feature to Workbench that requires a specific View or a specific REST endpoint to be enabled and configured in the target Drupal. If a change is required in the Integration module, it is very important to communicate this to Workbench users, since if the Integration module is not updated to align with the change in Workbench, the new feature won't work.
+Generally speaking, the only situtation where the Integration module will need to be updated (apart from requirements imposed by new versions of Drupal) is if we add a new feature to Workbench that requires a specific View or a specific REST endpoint to be enabled and configured in the target Drupal. If a change is required in the Integration module, it is very important to communicate this to Workbench users, since if the Integration module is not updated to align with the change in Workbench, the new feature won't work.
 
 A defensive coding strategy to ensure that changes in the client-side Workbench code that depend on changes in the server-side Integration module will work is, within the Workbench code, invoke the `check_integration_module_version()` function to check the Integration module's version number and use conditional logic to execute the new Workbench code only if the Integration module's version number meets or exceeds a version number string defined in that section of the Workbench code (e.g., the new Workbench feature requires version 1.1.3 of the Integration module). Under the hood, this function queries `/islandora_workbench_integration/version` on the target Drupal to get the Integration module's version number, although as a developer all you need to do is invoke the `check_integration_module_version()` function and inspect its return value. In this example, your code would compare the Integration module's version number with 1.1.3 (possibly using the `convert_semver_to_number()` utility function) and include logic so that it only executes if the minimum Integration module version is met.
 
