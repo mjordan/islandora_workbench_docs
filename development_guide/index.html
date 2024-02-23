@@ -895,10 +895,9 @@
     Running tests
   </a>
   
-    <nav class="md-nav" aria-label="Running tests">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#writing-tests" class="md-nav__link">
     Writing tests
   </a>
@@ -924,11 +923,6 @@
   <a href="#a-more-complex-integration-test" class="md-nav__link">
     A more complex integration test
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -995,10 +989,9 @@
     Running tests
   </a>
   
-    <nav class="md-nav" aria-label="Running tests">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#writing-tests" class="md-nav__link">
     Writing tests
   </a>
@@ -1024,11 +1017,6 @@
   <a href="#a-more-complex-integration-test" class="md-nav__link">
     A more complex integration test
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1079,8 +1067,8 @@
 <li>Bug reports, improvements, feature requests, and PRs are welcome. Before you open a pull request, <em>please open an issue so we can discuss your idea</em>. In cases where the PR introduces a potentially disruptive change to Workbench, we usually want to start a discussion about its impact on users in the <code>#islandoraworkbench</code> Slack channel.</li>
 <li>All code must be formatted using <a href="https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html">Black</a>. You can automatically style your code <a href="https://black.readthedocs.io/en/stable/integrations/editors.html">using Black in your IDE of choice</a>.</li>
 <li>Where applicable, unit and integration tests to accompany your code are very appreciated. Tests in Workbench fall into two categories:<ul>
-<li>Unit tests that do not require a live Islandora instance.</li>
-<li>Integration tests that require a live Islandora instance running at <code>https://islandora.traefik.me/</code>.</li>
+<li><em>Unit tests</em> that do not require a live Islandora instance.</li>
+<li><em>Integration tests</em> that require a live Islandora instance running at <code>https://islandora.traefik.me/</code>.</li>
 </ul>
 </li>
 </ul>
@@ -1101,14 +1089,14 @@
 </ol>
 <p>If you want to run the tests within a specific class, include the class name as an argument like this: <code>python tests/unit_tests.py TestCompareStings</code></p>
 <p>You can also specify multiple test classes within a single test file: <code>python tests/islandora_tests.py TestMyNewTest TestMyOtherNewTest</code></p>
-<h3 id="writing-tests">Writing tests</h3>
+<h2 id="writing-tests">Writing tests</h2>
 <p>Islandora Workbench's tests are written using the Python built-in <a href="https://docs.python.org/3/library/unittest.html">module</a> <code>unittest</code>, and as explained above, fall into two categories:</p>
 <ul>
 <li>Unit tests that do not require a live Islandora instance.</li>
 <li>Integration tests that require a live Islandora instance running at <code>https://islandora.traefik.me/</code>.</li>
 </ul>
-<p><code>unittest</code> groups tests into classes. A single test file can contain one or more test classes. Within each test class, you can put one or more test methods. As shown in the second example below, two reserved methods, <code>setUp()</code> and <code>tearDown()</code>, are reserved for setup and cleanup tasks, respectively. If you are new to using <code>unittest</code>, <a href="https://www.pythontutorial.net/python-unit-testing/">this</a> is a good tutorial.</p>
-<h4 id="a-simple-islandora-workbench-unit-test">A simple Islandora Workbench unit test</h4>
+<p><code>unittest</code> groups tests into classes. A single test file can contain one or more test classes. Within each test class, you can put one or more test methods. As shown in the second example below, two reserved methods, <code>setUp()</code> and <code>tearDown()</code>, are reserved for setup and cleanup tasks, respectively, within each class. If you are new to using <code>unittest</code>, <a href="https://www.pythontutorial.net/python-unit-testing/">this</a> is a good tutorial.</p>
+<h3 id="a-simple-islandora-workbench-unit-test">A simple Islandora Workbench unit test</h3>
 <p>Islandora Workbench unit tests are much like unit tests in any Python application. The sample test below, from <code>tests/unit_tests.py</code>, tests the <code>validate_latlong_value()</code> method from the <code>workbench_utils.py</code> module. Since <code>workbench_utils.validate_latlong_value()</code> doesn't interact with Islandora, <code>https://islandora.traefik.me/</code> doesn't need to be available to run this unit test.</p>
 <pre><code class="language-python">class TestValidateLatlongValue(unittest.TestCase):
 
@@ -1125,7 +1113,7 @@
             self.assertFalse(res)
 </code></pre>
 <p>This is a fairly standard Python unit test - we define a list of valid lat/long pairs and run them through the <code>workbench_utils.validate_latlong_value()</code> method expecting it to return <code>True</code> for each value, and then we define a list of bad lat/long pairs and run them through the method expecting it to return <code>False</code> for each value.</p>
-<h4 id="a-simple-integration-test">A simple integration test</h4>
+<h3 id="a-simple-integration-test">A simple integration test</h3>
 <p>The two sample integration tests provided below are copied from <code>islandora_tests.py</code>.</p>
 <p>The first sample integration test, <code>TestCreate</code>, looks like this (with line numbers added for easy reference). Configuration and CSV files used by this test are in <code>tests/assets/create_test</code>:</p>
 <pre><code class="language-python">1. class TestCreate(unittest.TestCase):
@@ -1173,7 +1161,7 @@ allow_missing_files: True
 </code></pre>
 <p>The test's <code>setUp()</code> method prepares the file paths, etc. and within the test's only test method, <code>test_create()</code>, runs Workbench using Python's <code>subprocess.check_output()</code> method, grabs the node IDs from the output from the "created at" strings emitted by Workbench (lines 14-17), adds them to a list, and then counts the number of members in that list. If the number of nodes created matches the expected number, the test passes.</p>
 <p>Since this test creates some nodes, we use the test class's <code>tearDown()</code> method to put the target Drupal back into as close a state as we started with as possible. <code>tearDown()</code> basically takes the list of node IDs created in <code>test_create()</code> and runs Workbench with the <code>--quick_delete_node</code> option. It then removes any temporary files created during the test.</p>
-<h4 id="a-more-complex-integration-test">A more complex integration test</h4>
+<h3 id="a-more-complex-integration-test">A more complex integration test</h3>
 <p>Since Workbench is essentially a specialized REST client, writing integration tests that require interaction with Drupal can get a bit complex. But, the overall pattern is:</p>
 <ol>
 <li>Create some entities (nodes, media, taxonomy terms).</li>
