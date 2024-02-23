@@ -1064,14 +1064,16 @@
 <p>This documentation is aimed at developers who want to contribute to Islandora Workbench.</p>
 <h2 id="general">General</h2>
 <ul>
-<li>Bug reports, improvements, feature requests, and PRs are welcome. Before you open a pull request, <em>please open an issue so we can discuss your idea</em>. In cases where the PR introduces a potentially disruptive change to Workbench, we usually want to start a discussion about its impact on users in the <code>#islandoraworkbench</code> Slack channel.</li>
+<li>Bug reports, improvements, feature requests, and PRs are welcome. Before you open a pull request, <em>please open an issue so we can discuss your idea</em>. In cases where the PR introduces a potentially disruptive change to Workbench, we usually want to start a discussion about its impact on users in the <code>#islandoraworkbench</code> Slack channel.<ul>
+<li>When you open a PR, you will be asked to complete the Workbench <a href="https://github.com/mjordan/islandora_workbench/blob/main/.github/PULL_REQUEST_TEMPLATE.md">PR template</a>.</li>
+</ul>
+</li>
 <li>All code must be formatted using <a href="https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html">Black</a>. You can automatically style your code <a href="https://black.readthedocs.io/en/stable/integrations/editors.html">using Black in your IDE of choice</a>.</li>
 <li>Where applicable, unit and integration tests to accompany your code are very appreciated. Tests in Workbench fall into two categories:<ul>
 <li><em>Unit tests</em> that do not require a live Islandora instance.</li>
 <li><em>Integration tests</em> that require a live Islandora instance running at <code>https://islandora.traefik.me/</code>.</li>
 </ul>
 </li>
-<li>When you open a PR, you will be asked to complete the Workbench <a href="https://github.com/mjordan/islandora_workbench/blob/main/.github/PULL_REQUEST_TEMPLATE.md">PR template</a>.</li>
 </ul>
 <h2 id="running-tests">Running tests</h2>
 <p>While developing code for Islandora Workbench, you should run tests frequently to ensure that your code hasn't introduced any regression errors. Workbench is a farily large and complex application, and has many configuration settings. Even minor changes in the code can break things.</p>
