@@ -240,6 +240,8 @@ Eventually, handlers for new Drupal field types will need to be added to Workben
 
 The most complex aspect of handling field data is cardinality, or in other words, whether a given field's configuration setting "Allowed number of values" allows for a single value, a maximum number of values (for example, a maximum of 3 values), or an unlimited number of values.
 
+![Maximum field values example](images/max_field_values.png)
+
 Each field type's cardinality configuration complicates creating and updating field instances because Workbench must know how to deal with situations where Workbench input CSV data for a field contains more values than are allowed, or when the user wants to append a value to an existing field instance rather than replace existing values. Drupal's REST interface is very strict about cardinaltiy, and if Workbench tries to push up a field's JSON that violates the field's configured cardinality, the HTTP request fails and returns a `422 Unprocessable Content` response. To prevent this from happening, the code within field type classes needs to contain logic to account for the three different types of cardinality and for the specific dictionary/JSON structure created from the field data in the input CSV. When it detects that the number of instances in the CSV data surpasses the field's maximum configured cardinality, Workbench will truncate the incoming data and log that it did so via the `log_field_cardinality_violation()` function.
 
 To illustrate this complexity, let's look at the `update()` method within the `SimpleField` class, which handles field types that have the Python structure `[{"value": value}]` or, for "formatted" text, `[{"value": value, "format": text_format}]`.
@@ -513,8 +515,9 @@ Each field type has its own structure. Within the field classes, the field struc
 * `SimpleField` fields have the Python structure `{"value": value}` or, for "formatted" text, `{"value": value, "format": text_format}`
 * `GeolocationField` fields have the Python structure `{"lat": lat_value, "lon": lon_value}`
 * `LinkField` fields have the python structure `{"uri": uri, "title": title}`
-* `EntityReferenceField` fields have the Python structure `{"target_id": id, "target_type": target_type}` (where `id` is a node, term, or media ID and `target_type` is "node", "taxonomy_term", or "media")
-* `TypedRelationField` fields have the Python structure `{"target_id": id, "rel_type": rel_type:rel_value, "target_type": target_type}` (where `rel_type` is the relator type, e.g. MARC relators, and `rel_value` is the relator value, e.g. `aut` for author)
+* `EntityReferenceField` fields have the Python structure `{"target_id": id, "target_type": target_type}`
+* `TypedRelationField` fields have the Python structure `{"target_id": id, "rel_type": rel_type:rel_value, "target_type": target_type}`
+    * `rel_type` is the relator type, e.g. MARC relators, and `rel_value` is the relator value, e.g. `aut` for author, separated by a colon
 * `AuthorityLinkField` fields have the Python structure `{"source": source, "uri": uri, "title": title}`
 * `MediaTrackField` fields have the Python structure `{"label": label, "kind": kind, "srclang": lang, "file_path": path}`
 
@@ -530,4 +533,5 @@ Generally speaking, the only situtation where the Integration module will need t
 
 A defensive coding strategy to ensure that changes in the client-side Workbench code that depend on changes in the server-side Integration module will work is, within the Workbench code, invoke the `check_integration_module_version()` function to check the Integration module's version number and use conditional logic to execute the new Workbench code only if the Integration module's version number meets or exceeds a version number string defined in that section of the Workbench code (e.g., the new Workbench feature requires version 1.1.3 of the Integration module). Under the hood, this function queries `/islandora_workbench_integration/version` on the target Drupal to get the Integration module's version number, although as a developer all you need to do is invoke the `check_integration_module_version()` function and inspect its return value. In this example, your code would compare the Integration module's version number with 1.1.3 (possibly using the `convert_semver_to_number()` utility function) and include logic so that it only executes if the minimum Integration module version is met.
 
-Note that some Views required by Islandora Workbench are defined by users and not by the Islandora Workbench Integration module. Specifically, Views described in the "[Generating CSV files](https://mjordan.github.io/islandora_workbench_docs/generating_csv_files/)" documentation are created by users.
+!!! note
+    Some Views used by Islandora Workbench are defined by users and not by the Islandora Workbench Integration module. Specifically, Views described in the "[Generating CSV files](https://mjordan.github.io/islandora_workbench_docs/generating_csv_files/)" documentation are created by users.
