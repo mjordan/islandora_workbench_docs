@@ -1077,7 +1077,7 @@
 <h2 id="general">General</h2>
 <ul>
 <li>Bug reports, improvements, feature requests, and PRs welcome. Before you open a pull request, please open an issue so we can discuss your idea. In cases where the PR introduces a potentiall disruptive change to Workbench, we usually want to start a discussion about its impact on users in the <code>#islandoraworkbench</code> Slack channel.</li>
-<li>All code must be formatted using <a href="https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html">black</a>. You can automatically style your code <a href="https://black.readthedocs.io/en/stable/integrations/editors.html">using black in your IDE of choice</a>.</li>
+<li>All code must be formatted using <a href="https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html">Black</a>. You can automatically style your code <a href="https://black.readthedocs.io/en/stable/integrations/editors.html">using Black in your IDE of choice</a>.</li>
 <li>Where applicable, unit and integration tests to accompany your code are very appreciated. Tests in Workbench fall into two categories:<ul>
 <li>Unit tests that do not require a live Islandora instance.</li>
 <li>Integration tests that require a live Islandora instance running at <code>https://islandora.traefik.me/</code>.</li>
@@ -1088,18 +1088,18 @@
 <p>While developing code for Islandora Workbench, you should run tests frequently to ensure that your code hasn't introduced any regression errors.</p>
 <ol>
 <li>To run unit tests that do not require a live Islandora instance:<ul>
-<li>Unit tests in <code>tests/unit_tests.py</code> (run with <code>python3 tests/unit_tests.py</code>)</li>
-<li>Unit tests for Workbench's Drupal fields handlers in <code>tests/field_tests.py</code> (run with <code>python3 tests/field_tests.py</code>)</li>
+<li>Unit tests in <code>tests/unit_tests.py</code> (run with <code>python tests/unit_tests.py</code>)</li>
+<li>Unit tests for Workbench's Drupal fields handlers in <code>tests/field_tests.py</code> (run with <code>python tests/field_tests.py</code>)</li>
 </ul>
 </li>
 <li>To run integration tests that require a live Islandora instance running at <code>https://islandora.traefik.me/</code><ul>
-<li><code>tests/islandora_tests.py</code>, <code>tests/islandora_tests_check.py</code>,  <code>tests/islandora_tests_hooks.py</code>, and <code>tests/islandora_tests_paged_content.py</code> can be run with <code>python3 tests/islandora_tests.py</code>, etc.</li>
+<li><code>tests/islandora_tests.py</code>, <code>tests/islandora_tests_check.py</code>,  <code>tests/islandora_tests_hooks.py</code>, and <code>tests/islandora_tests_paged_content.py</code> can be run with <code>python tests/islandora_tests.py</code>, etc.</li>
 <li>The Islandora Starter Site deployed with <a href="https://github.com/Islandora-Devops/isle-dc">ISLE</a> is recommended way to deploy the Islandora used in these tests. Integration tests remove all nodes and media added during the tests, unless a test fails. Taxonomy terms created by tests are not removed.</li>
 <li>Some integration and field tests output text that beings with "Error:." This is normal, it's the text that Workbench outputs when it finds something wrong (which is probably what the test is testing). Successful test (whether they test for success or failure) runs will exit with "OK". If you can figure out how to suppress this output, please visit <a href="https://github.com/mjordan/islandora_workbench/issues/160">this issue</a>.</li>
 </ul>
 </li>
 </ol>
-<p>If you want to run the tests within a specific class, include the class name as an argument like this: <code>python3 tests/unit_tests.py TestCompareStings</code></p>
+<p>If you want to run the tests within a specific class, include the class name as an argument like this: <code>python tests/unit_tests.py TestCompareStings</code></p>
 <p>You can also specify multiple test classes within a single test file: <code>python tests/islandora_tests.py TestMyNewTest TestMyOtherNewTest</code></p>
 <h3 id="writing-tests">Writing tests</h3>
 <p>Islandora Workbench's tests are written using the Python built-in <a href="https://docs.python.org/3/library/unittest.html">module</a> <code>unittest</code>, and as explained above, fall into two categories:</p>
