@@ -891,13 +891,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#adding-a-new-drupal-field-type" class="md-nav__link">
-    Adding a new Drupal field type
+  <a href="#tests" class="md-nav__link">
+    Tests
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#writing-tests" class="md-nav__link">
     Writing tests
   </a>
@@ -906,8 +907,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-simple-unit-test" class="md-nav__link">
-    A simple unit test
+  <a href="#a-simple-islandora-workbench-unit-test" class="md-nav__link">
+    A simple Islandora Workbench unit test
   </a>
   
 </li>
@@ -926,6 +927,11 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#running-your-tests" class="md-nav__link">
     Running your tests
@@ -935,6 +941,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-new-drupal-field-type" class="md-nav__link">
+    Adding a new Drupal field type
+  </a>
   
 </li>
       
@@ -985,13 +998,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#adding-a-new-drupal-field-type" class="md-nav__link">
-    Adding a new Drupal field type
+  <a href="#tests" class="md-nav__link">
+    Tests
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#writing-tests" class="md-nav__link">
     Writing tests
   </a>
@@ -1000,8 +1014,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-simple-unit-test" class="md-nav__link">
-    A simple unit test
+  <a href="#a-simple-islandora-workbench-unit-test" class="md-nav__link">
+    A simple Islandora Workbench unit test
   </a>
   
 </li>
@@ -1020,6 +1034,11 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#running-your-tests" class="md-nav__link">
     Running your tests
@@ -1029,6 +1048,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-a-new-drupal-field-type" class="md-nav__link">
+    Adding a new Drupal field type
+  </a>
   
 </li>
       
@@ -1063,11 +1089,13 @@
 
 <p>This documentation is aimed at developers who want to contribute to Islandora Workbench.</p>
 <h2 id="general">General</h2>
-<p>Bug reports, improvements, feature requests, and PRs welcome. Before you open a pull request, please open an issue.</p>
-<p>If you open a PR, please check your code with pycodestyle:</p>
-<p><code>pycodestyle --show-source --show-pep8 --ignore=E402,W504 --max-line-length=200 .</code></p>
-<p>You can also check a specific file by replacing the <code>.</code> with the filename.</p>
-<p>Also provide tests where applicable (see "Writing tests", below). Tests in Workbench fall into two categories:</p>
+<ul>
+<li>Bug reports, improvements, feature requests, and PRs welcome. Before you open a pull request, please open an issue so we can discuss your idea (and to earn extra karma). In cases where the PR introduces a potentiall disruptive change to Workbench, we usually want to start a discussion about its impact on users in the <code>#islandoraworkbench</code> Slack channel.</li>
+<li>All code must be formatted using <a href="https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html">black</a>. You can automatically style your code <a href="https://black.readthedocs.io/en/stable/integrations/editors.html">using black in your IDE of choice</a>.</li>
+<li>Where applicable, unit or integration tests to accompany your code are very appreciated. See below for more information on writing tests.</li>
+</ul>
+<h2 id="tests">Tests</h2>
+<p>Tests in Workbench fall into two categories:</p>
 <ol>
 <li>Unit tests that do not require a live Islandora instance.<ul>
 <li>Unit tests in <code>tests/unit_tests.py</code> (run with <code>python3 tests/unit_tests.py</code>)</li>
@@ -1082,37 +1110,16 @@
 </li>
 </ol>
 <p>If you want to run the tests within a specific class, include the class name as an argument like this: <code>python3 tests/unit_tests.py TestCompareStings</code></p>
-<h2 id="adding-a-new-drupal-field-type">Adding a new Drupal field type</h2>
-<p>Eventually, handlers for new Drupal field types will need to be added to Workbench as the community adopts more field types provided by Drupal contrib modules or creates new field types specific to Islandora. Currently, Workbench supports the following field types:</p>
-<ul>
-<li>"simple" fields for<ul>
-<li>strings (for string or text fields) like <code>Using Islandora Workbench for Fun and Profit</code></li>
-<li>integers (for <code>field_weight</code>, for example) like <code>1</code> or <code>7281</code></li>
-<li>the binary values <code>1</code> or <code>0</code></li>
-<li>existing Drupal-generated entity IDs (term IDs for taxonomy terms or node IDs for collections and parents), which are integers like <code>10</code> or <code>3549</code></li>
-</ul>
-</li>
-<li>entity reference fields</li>
-<li>entity reference revision fields</li>
-<li>typed relation fields (e.g., <code>relators:art:30</code>)</li>
-<li>link fields (e.g., <code>https://acme.net%%Acme Products</code>)</li>
-<li>geolocation fields (e.g., <code>"49.16667,-123.93333"</code>)</li>
-<li>authority link fields (e.g., <code>viaf%%http://viaf.org/viaf/10646807%%VIAF Record</code>)</li>
-</ul>
-<p>All field types are defined in classes contained in <code>workbench_fields.py</code> and share the methods <code>create()</code>, <code>update()</code>, <code>dedupe_values()</code>, <code>remove_invalid_values()</code>, and <code>serialize()</code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Details on how to add new field types are coming soon!</p>
-</div>
-<h2 id="writing-tests">Writing tests</h2>
+<h3 id="writing-tests">Writing tests</h3>
 <p>Islandora Workbench's tests are written using the Python built-in <a href="https://docs.python.org/3/library/unittest.html">module</a> <code>unittest</code>, and as explained above, fall into two categories:</p>
 <ul>
 <li>Unit tests that do not require a live Islandora instance.</li>
 <li>Integration tests that require a live Islandora instance running at <code>https://islandora.traefik.me/</code>.</li>
 </ul>
 <p>The unit tests are pretty conventional, but the integration tests are a bit more challenging. The two sample tests provided below are copied from <code>islandora_tests.py</code>, and you can see their input files in <code>tests/assets/create_test</code> and <code>tests/assets/max_node_title_length_test</code>, respectively.</p>
-<h3 id="a-simple-unit-test">A simple unit test</h3>
-<p>This test, from <code>tests/unit_tests.py</code>, tests the <code>validate_latlong_value()</code> method from the <code>workbench_utils.py</code> module.</p>
+<p><code>unittest</code> groups tests into classes. A single test file can contain one or more test classes. Within each test class, you can put one or more test methods. As shown in the second example below, two reserved methods, <code>setUp()</code> and <code>tearDown()</code>, are reserved for setup and cleanup tasks, respectively. If you are new to using <code>unittest</code>, <a href="https://www.pythontutorial.net/python-unit-testing/">this</a> is a good tutorial.</p>
+<h4 id="a-simple-islandora-workbench-unit-test">A simple Islandora Workbench unit test</h4>
+<p>This test, from <code>tests/unit_tests.py</code>, tests the <code>validate_latlong_value()</code> method from the <code>workbench_utils.py</code> module. Since <code>workbench_utils.validate_latlong_value()</code> doesn't interact with Islandora, <code>https://islandora.traefik.me/</code> doesn't need to be available to run this unit test.</p>
 <pre><code class="language-python">class TestValidateLatlongValue(unittest.TestCase):
 
     def test_validate_good_latlong_values(self):
@@ -1127,8 +1134,8 @@
             res = workbench_utils.validate_latlong_value(value)
             self.assertFalse(res)
 </code></pre>
-<p>This is a fairly standard Python unit test - we define a list of valid lat/long pairs and run them through the <code>workbench_utils.validate_latlong_value()</code> method expecting it to return <code>True</code> for each value, and then we define a list of bad lat/long pairs and run them through the method expecting it to return <code>False</code> for each value. Since <code>workbench_utils.validate_latlong_value()</code> doesn't interact with Islandora, <code>https://islandora.traefik.me/</code> doesn't need to be available to run this unit test.</p>
-<h3 id="a-simple-integration-test">A simple integration test</h3>
+<p>This is a fairly standard Python unit test - we define a list of valid lat/long pairs and run them through the <code>workbench_utils.validate_latlong_value()</code> method expecting it to return <code>True</code> for each value, and then we define a list of bad lat/long pairs and run them through the method expecting it to return <code>False</code> for each value.</p>
+<h4 id="a-simple-integration-test">A simple integration test</h4>
 <p>An example of a simple integration test is <code>TestCreate</code>, whose code (in <code>islandora_tests.py</code>) looks like this (with line numbers added for easy reference):</p>
 <pre><code class="language-python">1. class TestCreate(unittest.TestCase):
 2.
@@ -1175,7 +1182,7 @@ allow_missing_files: True
 </code></pre>
 <p>The test's <code>setUp()</code> method prepares the file paths, etc. and within the test's only test method, <code>test_create()</code>, runs Workbench using Python's <code>subprocess.check_output()</code> method, grabs the node IDs from the output from the "created at" strings emitted by Workbench (lines 14-17), adds them to a list, and then counts the number of members in that list. If the number of nodes created matches the expected number, the test passes.</p>
 <p>Since this test creates some nodes, we use the test class's <code>tearDown()</code> method to put the target Drupal back into as close a state as we started with as possible. <code>tearDown()</code> basically takes the list of node IDs created in <code>test_create()</code> and runs Workbench with the <code>--quick_delete_node</code> option. It then removes any temporary files created during the test.</p>
-<h3 id="a-more-complex-integration-test">A more complex integration test</h3>
+<h4 id="a-more-complex-integration-test">A more complex integration test</h4>
 <p>Since Workbench is essentially a specialized REST client, writing integration tests that require interaction with Drupal can get a bit complex. But, the overall pattern is:</p>
 <ol>
 <li>Create some entities (nodes, media, taxonomy terms).</li>
@@ -1273,6 +1280,28 @@ allow_missing_files: True
 <p>You can also specify multiple test classes within a single test file:</p>
 <p><code>python tests/islandora_tests.py TestMyNewTest TestMyOtherNewTest</code></p>
 <p>Of course, one of the main reasons we write tests is to ensure changes in the code don't break existing functionality. Once you are sure your new tests work as intended, please run all tests to detect regression errors.</p>
+<h2 id="adding-a-new-drupal-field-type">Adding a new Drupal field type</h2>
+<p>Eventually, handlers for new Drupal field types will need to be added to Workbench as the community adopts more field types provided by Drupal contrib modules or creates new field types specific to Islandora. Currently, Workbench supports the following field types:</p>
+<ul>
+<li>"simple" fields for<ul>
+<li>strings (for string or text fields) like <code>Using Islandora Workbench for Fun and Profit</code></li>
+<li>integers (for <code>field_weight</code>, for example) like <code>1</code> or <code>7281</code></li>
+<li>the binary values <code>1</code> or <code>0</code></li>
+<li>existing Drupal-generated entity IDs (term IDs for taxonomy terms or node IDs for collections and parents), which are integers like <code>10</code> or <code>3549</code></li>
+</ul>
+</li>
+<li>entity reference fields</li>
+<li>entity reference revision fields</li>
+<li>typed relation fields (e.g., <code>relators:art:30</code>)</li>
+<li>link fields (e.g., <code>https://acme.net%%Acme Products</code>)</li>
+<li>geolocation fields (e.g., <code>"49.16667,-123.93333"</code>)</li>
+<li>authority link fields (e.g., <code>viaf%%http://viaf.org/viaf/10646807%%VIAF Record</code>)</li>
+</ul>
+<p>All field types are defined in classes contained in <code>workbench_fields.py</code> and share the methods <code>create()</code>, <code>update()</code>, <code>dedupe_values()</code>, <code>remove_invalid_values()</code>, and <code>serialize()</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Details on how to add new field types are coming soon!</p>
+</div>
 <h2 id="islandora-workbench-integration-drupal-module">Islandora Workbench Integration Drupal module</h2>
 <p><a href="https://github.com/mjordan/islandora_workbench_integration">Islandora Workbench Integration</a> is a Drupal module that allows Islandora Workbench to communicate with Drupal efficiently and reliably. It enables some Views and REST endpoints that Workbench expects, and also provides a few custom REST endpoints (see the module's README for details).</p>
 <p>Generally speaking, the only situtation where the Integration module will need to be updated (apart from requirements imposed by new versions of Drupal) is if we add a new feature to Workbench that requires a specific View or a specific REST endpoint to be enabled and configured in the target Drupal. If a change is required in the Integration module, it is very important to communicate this to Workbench users, since if the Integration module is not updated to align with the change in Workbench, the new feature won't work.</p>
