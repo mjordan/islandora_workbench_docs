@@ -1079,8 +1079,8 @@
 <li>Bug reports, improvements, feature requests, and PRs welcome. Before you open a pull request, please open an issue so we can discuss your idea. In cases where the PR introduces a potentiall disruptive change to Workbench, we usually want to start a discussion about its impact on users in the <code>#islandoraworkbench</code> Slack channel.</li>
 <li>All code must be formatted using <a href="https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html">black</a>. You can automatically style your code <a href="https://black.readthedocs.io/en/stable/integrations/editors.html">using black in your IDE of choice</a>.</li>
 <li>Where applicable, unit and integration tests to accompany your code are very appreciated. Tests in Workbench fall into two categories:<ul>
-<li>Unit tests that do not require a live Islandora instance.
-*Integration tests that require a live Islandora instance running at <code>https://islandora.traefik.me/</code>.</li>
+<li>Unit tests that do not require a live Islandora instance.</li>
+<li>Integration tests that require a live Islandora instance running at <code>https://islandora.traefik.me/</code>.</li>
 </ul>
 </li>
 </ul>
@@ -1092,7 +1092,7 @@
 <li>Unit tests for Workbench's Drupal fields handlers in <code>tests/field_tests.py</code> (run with <code>python3 tests/field_tests.py</code>)</li>
 </ul>
 </li>
-<li>Integration tests that require a live Islandora instance running at <code>https://islandora.traefik.me/</code><ul>
+<li>To run integration tests that require a live Islandora instance running at <code>https://islandora.traefik.me/</code><ul>
 <li><code>tests/islandora_tests.py</code>, <code>tests/islandora_tests_check.py</code>,  <code>tests/islandora_tests_hooks.py</code>, and <code>tests/islandora_tests_paged_content.py</code> can be run with <code>python3 tests/islandora_tests.py</code>, etc.</li>
 <li>The Islandora Starter Site deployed with <a href="https://github.com/Islandora-Devops/isle-dc">ISLE</a> is recommended way to deploy the Islandora used in these tests. Integration tests remove all nodes and media added during the tests, unless a test fails. Taxonomy terms created by tests are not removed.</li>
 <li>Some integration and field tests output text that beings with "Error:." This is normal, it's the text that Workbench outputs when it finds something wrong (which is probably what the test is testing). Successful test (whether they test for success or failure) runs will exit with "OK". If you can figure out how to suppress this output, please visit <a href="https://github.com/mjordan/islandora_workbench/issues/160">this issue</a>.</li>
@@ -1107,10 +1107,9 @@
 <li>Unit tests that do not require a live Islandora instance.</li>
 <li>Integration tests that require a live Islandora instance running at <code>https://islandora.traefik.me/</code>.</li>
 </ul>
-<p>The unit tests are pretty conventional, but the integration tests are a bit more challenging. The two sample tests provided below are copied from <code>islandora_tests.py</code>, and you can see their input files in <code>tests/assets/create_test</code> and <code>tests/assets/max_node_title_length_test</code>, respectively.</p>
 <p><code>unittest</code> groups tests into classes. A single test file can contain one or more test classes. Within each test class, you can put one or more test methods. As shown in the second example below, two reserved methods, <code>setUp()</code> and <code>tearDown()</code>, are reserved for setup and cleanup tasks, respectively. If you are new to using <code>unittest</code>, <a href="https://www.pythontutorial.net/python-unit-testing/">this</a> is a good tutorial.</p>
 <h4 id="a-simple-islandora-workbench-unit-test">A simple Islandora Workbench unit test</h4>
-<p>This test, from <code>tests/unit_tests.py</code>, tests the <code>validate_latlong_value()</code> method from the <code>workbench_utils.py</code> module. Since <code>workbench_utils.validate_latlong_value()</code> doesn't interact with Islandora, <code>https://islandora.traefik.me/</code> doesn't need to be available to run this unit test.</p>
+<p>Islandora Workbench unit tests are much like unit tests in any Python application. The sample test below, from <code>tests/unit_tests.py</code>, tests the <code>validate_latlong_value()</code> method from the <code>workbench_utils.py</code> module. Since <code>workbench_utils.validate_latlong_value()</code> doesn't interact with Islandora, <code>https://islandora.traefik.me/</code> doesn't need to be available to run this unit test.</p>
 <pre><code class="language-python">class TestValidateLatlongValue(unittest.TestCase):
 
     def test_validate_good_latlong_values(self):
@@ -1127,7 +1126,8 @@
 </code></pre>
 <p>This is a fairly standard Python unit test - we define a list of valid lat/long pairs and run them through the <code>workbench_utils.validate_latlong_value()</code> method expecting it to return <code>True</code> for each value, and then we define a list of bad lat/long pairs and run them through the method expecting it to return <code>False</code> for each value.</p>
 <h4 id="a-simple-integration-test">A simple integration test</h4>
-<p>An example of a simple integration test is <code>TestCreate</code>, whose code (in <code>islandora_tests.py</code>) looks like this (with line numbers added for easy reference):</p>
+<p>The two sample integration tests provided below are copied from <code>islandora_tests.py</code>.</p>
+<p>The first sample integration test, <code>TestCreate</code>, looks like this (with line numbers added for easy reference). Configuration and CSV files used by this test are in <code>tests/assets/create_test</code>:</p>
 <pre><code class="language-python">1. class TestCreate(unittest.TestCase):
 2.
 3.     def setUp(self):
@@ -1180,7 +1180,7 @@ allow_missing_files: True
 <li>Confirm that they were created in the expected way (doing this usually involves keeping track of any node IDs needed to run tests or to clean up, and in some cases parsing out values from raw JSON returned by Drupal).</li>
 <li>Clean up by deleting any Drupal entities created during the tests and also any temporary local files.</li>
 </ol>
-<p>An integration test that checks data in the node JSON is <code>TestUpdateWithMaxNodeTitleLength()</code>. Here is a copy of its code:</p>
+<p>An integration test that checks data in the node JSON is <code>TestUpdateWithMaxNodeTitleLength()</code>. Files that accompany this test are in <code>tests/assets/max_node_title_length_test</code>. Here is a copy of the test's code:</p>
 <pre><code class="language-python">1. class TestUpdateWithMaxNodeTitleLength(unittest.TestCase):
 2.
 3.     def setUp(self):
