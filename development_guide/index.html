@@ -1117,7 +1117,7 @@
 <li><code>workbench_utils.py</code> provides a lot of utility functions. Before writing a new utility function, please ensure that something similar to what you want to write doesn't already exist.</li>
 </ul>
 <h2 id="running-tests">Running tests</h2>
-<p>While developing code for Islandora Workbench, you should run tests frequently to ensure that your code hasn't introduced any regression errors. Workbench is a farily large and complex application, and has many configuration settings. Even minor changes in the code can break things.</p>
+<p>While developing code for Islandora Workbench, you should run tests frequently to ensure that your code hasn't introduced any regression errors. Workbench is a fairly large and complex application, and has many configuration settings. Even minor changes in the code can break things.</p>
 <ol>
 <li>To run unit tests that do not require a live Islandora instance:<ul>
 <li>Unit tests in <code>tests/unit_tests.py</code> (run with <code>python tests/unit_tests.py</code>)</li>
@@ -1321,19 +1321,19 @@ allow_missing_files: True
 <h4 id="field-class-methods">Field class methods</h4>
 <p>The most complex aspect of handling field data is cardinality, or in other words, whether a given field's configuration setting "Allowed number of values" allows for a single value, a maximum number of values (for example, a maximum of 3 values), or an unlimited number of values.</p>
 <p><img alt="Maximum field values example" src="../images/max_field_values.png" /></p>
-<p>Each field type's cardinality configuration complicates creating and updating field instances because Workbench must deal with situations where input CSV data for a field contains more values than are allowed, or when the user wants to append a value to an existing field instance rather than replace existing values, potentially exceeding the field's configured cardinality. Drupal's REST interface is very strict about cardinaltiy, and if Workbench tries to push up a field's JSON that violates the field's cardinality, the HTTP request fails and returns a <code>422 Unprocessable Content</code> response for the node containing the malformed field data. To prevent this from happening, code within field type classes needs to contain logic to account for the three different types of cardinality and for the specific JSON structure created from the field data in the input CSV. When it detects that the number of instances in the CSV data surpasses the field's maximum configured cardinality, Workbench will truncate the incoming data and log that it did so via the <code>log_field_cardinality_violation()</code> utility function.</p>
+<p>Each field type's cardinality configuration complicates creating and updating field instances because Workbench must deal with situations where input CSV data for a field contains more values than are allowed, or when the user wants to append a value to an existing field instance rather than replace existing values, potentially exceeding the field's configured cardinality. Drupal's REST interface is very strict about cardinality, and if Workbench tries to push up a field's JSON that violates the field's cardinality, the HTTP request fails and returns a <code>422 Unprocessable Content</code> response for the node containing the malformed field data. To prevent this from happening, code within field type classes needs to contain logic to account for the three different types of cardinality and for the specific JSON structure created from the field data in the input CSV. When it detects that the number of instances in the CSV data surpasses the field's maximum configured cardinality, Workbench will truncate the incoming data and log that it did so via the <code>log_field_cardinality_violation()</code> utility function.</p>
 <p>To illustrate this complexity, let's look at the <code>update()</code> method within the <code>SimpleField</code> class, which handles field types that have the Python structure <code>[{"value": value}]</code> or, for "formatted" text, <code>[{"value": value, "format": text_format}]</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Note that the example structure in the preceding paragraph shows a single value for that field. It's a list, but a list containing a single dictionary. If there were two values in a field, the structure would be a list containing two dictionaries, like <code>[{"value": value}, {"value": value}]</code>. If the field contained three values, the structure would be <code>[{"value": value}, {"value": value}, {"value": value}]</code></p>
 </div>
-<p>Lines 47-167 in the sample <code>update()</code> method apply when the field is configiured to have a limited cardinality, either 1 or a specific number higher than 1. Within that range of lines, 49-113 apply if the <code>update_mode</code> configuration setting is "append", and lines 115-167 apply if the <code>update_mode</code> setting is "replace". Lines 169-255 apply when the field's cardinality is unlimited. Within that range of lines, 171-214 apply if the <code>update_mode</code> is "append", and lines 215-255 apply if it is "replace". An <code>update_mode</code> setting of "delete" simply removes all values from the field, in lines 28-30.</p>
+<p>Lines 47-167 in the sample <code>update()</code> method apply when the field is configured to have a limited cardinality, either 1 or a specific number higher than 1. Within that range of lines, 49-113 apply if the <code>update_mode</code> configuration setting is "append", and lines 115-167 apply if the <code>update_mode</code> setting is "replace". Lines 169-255 apply when the field's cardinality is unlimited. Within that range of lines, 171-214 apply if the <code>update_mode</code> is "append", and lines 215-255 apply if it is "replace". An <code>update_mode</code> setting of "delete" simply removes all values from the field, in lines 28-30.</p>
 <pre><code class="language-python">1.     def update(
 2.         self, config, field_definitions, entity, row, field_name, entity_field_values
 3.     ):
 4.     &quot;&quot;&quot;Note: this method appends incoming CSV values to existing values, replaces existing field
 5.     values with incoming values, or deletes all values from fields, depending on whether
-6.     config['update_mode'] is 'append', 'replace', or 'delete'. It doesn not replace individual
+6.     config['update_mode'] is 'append', 'replace', or 'delete'. It does not replace individual
 7.     values within fields.
 8.     &quot;&quot;&quot;
 9.     &quot;&quot;&quot;Parameters
@@ -1353,7 +1353,7 @@ allow_missing_files: True
 23.         Returns
 24.         -------
 25.         dictionary
-26.             A dictionary represeting the entity that is PATCHed to Drupal as JSON.
+26.             A dictionary representing the entity that is PATCHed to Drupal as JSON.
 27.     &quot;&quot;&quot;
 28.     if config[&quot;update_mode&quot;] == &quot;delete&quot;:
 29.         entity[field_name] = []
@@ -1496,7 +1496,7 @@ allow_missing_files: True
 166.                 else:
 167.                     entity[field_name] = [{&quot;value&quot;: row[field_name]}]
 168.
-169.     # Cardinatlity is unlimited.
+169.     # Cardinality is unlimited.
 170.     else:
 171.         if config[&quot;update_mode&quot;] == &quot;append&quot;:
 172.             if config[&quot;subdelimiter&quot;] in row[field_name]:
@@ -1603,7 +1603,7 @@ allow_missing_files: True
 <p>Writing field classes is one aspect of Workbench development that demonstrates the value of unit tests. Without writing unit tests to accompany the development of these field classes, you <em>will</em> lose your mind. <a href="https://github.com/mjordan/islandora_workbench/blob/main/tests/field_tests.py">tests/field_tests.py</a> contains over 80 tests in more than 5,000 lines of test code for a good reason.</p>
 <h2 id="islandora-workbench-integration-drupal-module">Islandora Workbench Integration Drupal module</h2>
 <p><a href="https://github.com/mjordan/islandora_workbench_integration">Islandora Workbench Integration</a> is a Drupal module that allows Islandora Workbench to communicate with Drupal efficiently and reliably. It enables some Views and REST endpoints that Workbench expects, and also provides a few custom REST endpoints (see the module's README for details).</p>
-<p>Generally speaking, the only situtation where the Integration module will need to be updated (apart from requirements imposed by new versions of Drupal) is if we add a new feature to Workbench that requires a specific View or a specific REST endpoint to be enabled and configured in the target Drupal. If a change is required in the Integration module, it is very important to communicate this to Workbench users, since if the Integration module is not updated to align with the change in Workbench, the new feature won't work.</p>
+<p>Generally speaking, the only situation where the Integration module will need to be updated (apart from requirements imposed by new versions of Drupal) is if we add a new feature to Workbench that requires a specific View or a specific REST endpoint to be enabled and configured in the target Drupal. If a change is required in the Integration module, it is very important to communicate this to Workbench users, since if the Integration module is not updated to align with the change in Workbench, the new feature won't work.</p>
 <p>A defensive coding strategy to ensure that changes in the client-side Workbench code that depend on changes in the server-side Integration module will work is, within the Workbench code, invoke the <code>check_integration_module_version()</code> function to check the Integration module's version number and use conditional logic to execute the new Workbench code only if the Integration module's version number meets or exceeds a version number string defined in that section of the Workbench code (e.g., the new Workbench feature requires version 1.1.3 of the Integration module). Under the hood, this function queries <code>/islandora_workbench_integration/version</code> on the target Drupal to get the Integration module's version number, although as a developer all you need to do is invoke the <code>check_integration_module_version()</code> function and inspect its return value. In this example, your code would compare the Integration module's version number with 1.1.3 (possibly using the <code>convert_semver_to_number()</code> utility function) and include logic so that it only executes if the minimum Integration module version is met.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
