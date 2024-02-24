@@ -12,7 +12,7 @@ This documentation is aimed at developers who want to contribute to Islandora Wo
 
 ## Running tests
 
-While developing code for Islandora Workbench, you should run tests frequently to ensure that your code hasn't introduced any regression errors. Workbench is a farily large and complex application, and has many configuration settings. Even minor changes in the code can break things.
+While developing code for Islandora Workbench, you should run tests frequently to ensure that your code hasn't introduced any regression errors. Workbench is a fairly large and complex application, and has many configuration settings. Even minor changes in the code can break things.
 
 1. To run unit tests that do not require a live Islandora instance:
     * Unit tests in `tests/unit_tests.py` (run with `python tests/unit_tests.py`)
@@ -242,14 +242,14 @@ The most complex aspect of handling field data is cardinality, or in other words
 
 ![Maximum field values example](images/max_field_values.png)
 
-Each field type's cardinality configuration complicates creating and updating field instances because Workbench must deal with situations where input CSV data for a field contains more values than are allowed, or when the user wants to append a value to an existing field instance rather than replace existing values, potentially exceeding the field's configured cardinality. Drupal's REST interface is very strict about cardinaltiy, and if Workbench tries to push up a field's JSON that violates the field's cardinality, the HTTP request fails and returns a `422 Unprocessable Content` response for the node containing the malformed field data. To prevent this from happening, code within field type classes needs to contain logic to account for the three different types of cardinality and for the specific JSON structure created from the field data in the input CSV. When it detects that the number of instances in the CSV data surpasses the field's maximum configured cardinality, Workbench will truncate the incoming data and log that it did so via the `log_field_cardinality_violation()` utility function.
+Each field type's cardinality configuration complicates creating and updating field instances because Workbench must deal with situations where input CSV data for a field contains more values than are allowed, or when the user wants to append a value to an existing field instance rather than replace existing values, potentially exceeding the field's configured cardinality. Drupal's REST interface is very strict about cardinality, and if Workbench tries to push up a field's JSON that violates the field's cardinality, the HTTP request fails and returns a `422 Unprocessable Content` response for the node containing the malformed field data. To prevent this from happening, code within field type classes needs to contain logic to account for the three different types of cardinality and for the specific JSON structure created from the field data in the input CSV. When it detects that the number of instances in the CSV data surpasses the field's maximum configured cardinality, Workbench will truncate the incoming data and log that it did so via the `log_field_cardinality_violation()` utility function.
 
 To illustrate this complexity, let's look at the `update()` method within the `SimpleField` class, which handles field types that have the Python structure `[{"value": value}]` or, for "formatted" text, `[{"value": value, "format": text_format}]`.
 
 !!! note
     Note that the example structure in the preceding paragraph shows a single value for that field. It's a list, but a list containing a single dictionary. If there were two values in a field, the structure would be a list containing two dictionaries, like `[{"value": value}, {"value": value}]`. If the field contained three values, the structure would be `[{"value": value}, {"value": value}, {"value": value}]`
 
-Lines 47-167 in the sample `update()` method apply when the field is configiured to have a limited cardinality, either 1 or a specific number higher than 1. Within that range of lines, 49-113 apply if the `update_mode` configuration setting is "append", and lines 115-167 apply if the `update_mode` setting is "replace". Lines 169-255 apply when the field's cardinality is unlimited. Within that range of lines, 171-214 apply if the `update_mode` is "append", and lines 215-255 apply if it is "replace". An `update_mode` setting of "delete" simply removes all values from the field, in lines 28-30.
+Lines 47-167 in the sample `update()` method apply when the field is configured to have a limited cardinality, either 1 or a specific number higher than 1. Within that range of lines, 49-113 apply if the `update_mode` configuration setting is "append", and lines 115-167 apply if the `update_mode` setting is "replace". Lines 169-255 apply when the field's cardinality is unlimited. Within that range of lines, 171-214 apply if the `update_mode` is "append", and lines 215-255 apply if it is "replace". An `update_mode` setting of "delete" simply removes all values from the field, in lines 28-30.
 
 ```python
 1.     def update(
@@ -257,7 +257,7 @@ Lines 47-167 in the sample `update()` method apply when the field is configiured
 3.     ):
 4.     """Note: this method appends incoming CSV values to existing values, replaces existing field
 5.     values with incoming values, or deletes all values from fields, depending on whether
-6.     config['update_mode'] is 'append', 'replace', or 'delete'. It doesn not replace individual
+6.     config['update_mode'] is 'append', 'replace', or 'delete'. It does not replace individual
 7.     values within fields.
 8.     """
 9.     """Parameters
@@ -277,7 +277,7 @@ Lines 47-167 in the sample `update()` method apply when the field is configiured
 23.         Returns
 24.         -------
 25.         dictionary
-26.             A dictionary represeting the entity that is PATCHed to Drupal as JSON.
+26.             A dictionary representing the entity that is PATCHed to Drupal as JSON.
 27.     """
 28.     if config["update_mode"] == "delete":
 29.         entity[field_name] = []
@@ -420,7 +420,7 @@ Lines 47-167 in the sample `update()` method apply when the field is configiured
 166.                 else:
 167.                     entity[field_name] = [{"value": row[field_name]}]
 168.
-169.     # Cardinatlity is unlimited.
+169.     # Cardinality is unlimited.
 170.     else:
 171.         if config["update_mode"] == "append":
 172.             if config["subdelimiter"] in row[field_name]:
@@ -530,7 +530,7 @@ Writing field classes is one aspect of Workbench development that demonstrates t
 
 [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) is a Drupal module that allows Islandora Workbench to communicate with Drupal efficiently and reliably. It enables some Views and REST endpoints that Workbench expects, and also provides a few custom REST endpoints (see the module's README for details).
 
-Generally speaking, the only situtation where the Integration module will need to be updated (apart from requirements imposed by new versions of Drupal) is if we add a new feature to Workbench that requires a specific View or a specific REST endpoint to be enabled and configured in the target Drupal. If a change is required in the Integration module, it is very important to communicate this to Workbench users, since if the Integration module is not updated to align with the change in Workbench, the new feature won't work.
+Generally speaking, the only situation where the Integration module will need to be updated (apart from requirements imposed by new versions of Drupal) is if we add a new feature to Workbench that requires a specific View or a specific REST endpoint to be enabled and configured in the target Drupal. If a change is required in the Integration module, it is very important to communicate this to Workbench users, since if the Integration module is not updated to align with the change in Workbench, the new feature won't work.
 
 A defensive coding strategy to ensure that changes in the client-side Workbench code that depend on changes in the server-side Integration module will work is, within the Workbench code, invoke the `check_integration_module_version()` function to check the Integration module's version number and use conditional logic to execute the new Workbench code only if the Integration module's version number meets or exceeds a version number string defined in that section of the Workbench code (e.g., the new Workbench feature requires version 1.1.3 of the Integration module). Under the hood, this function queries `/islandora_workbench_integration/version` on the target Drupal to get the Integration module's version number, although as a developer all you need to do is invoke the `check_integration_module_version()` function and inspect its return value. In this example, your code would compare the Integration module's version number with 1.1.3 (possibly using the `convert_semver_to_number()` utility function) and include logic so that it only executes if the minimum Integration module version is met.
 
