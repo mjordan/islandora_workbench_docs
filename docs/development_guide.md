@@ -518,7 +518,7 @@ Each field type has its own structure. Within the field classes, the field struc
 * `LinkField` fields have the python structure `{"uri": uri, "title": title}`
 * `EntityReferenceField` fields have the Python structure `{"target_id": id, "target_type": target_type}`
 * `TypedRelationField` fields have the Python structure `{"target_id": id, "rel_type": rel_type:rel_value, "target_type": target_type}`
-    * `rel_type` is the relator type, e.g. MARC relators, and `rel_value` is the relator value, e.g. `aut` for author, separated by a colon
+    * the value of the `rel_type` key is the relator type (e.g. MARC relators) and the relator value (e.g. 'art') joined with a colon, e.g. `relators:art`
 * `AuthorityLinkField` fields have the Python structure `{"source": source, "uri": uri, "title": title}`
 * `MediaTrackField` fields have the Python structure `{"label": label, "kind": kind, "srclang": lang, "file_path": path}`
 
