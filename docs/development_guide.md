@@ -236,6 +236,17 @@ Currently, Workbench supports the following field types:
 
 Eventually, handlers for new Drupal field types will need to be added to Workbench as the community adopts more field types provided by Drupal contrib modules or creates new field types specific to Islandora.
 
+!!! note
+    If new field types are added to workbench_utils.py, corresponding logic must be added to functions in other Workbench modules (e.g. workbench_utils, workbench) that create, update, or export Drupal entities. Those places are commented in the code with either:
+
+    "Assemble Drupal field structures from CSV data. If new field types are added to
+    workbench_fields.py, they need to be registered in the following if/elif/else block."
+
+    or
+
+    "Assemble CSV output Drupal field data. If new field types are added to
+    workbench_fields.py, they need to be registered in the following if/elif/else block."
+
 #### Field class methods
 
 The most complex aspect of handling field data is cardinality, or in other words, whether a given field's configuration setting "Allowed number of values" allows for a single value, a maximum number of values (for example, a maximum of 3 values), or an unlimited number of values.
@@ -525,17 +536,6 @@ Each field type has its own structure. Within the field classes, the field struc
 To add a support for a new field type, you will need to figure out the field type's JSON structure and convert that structure into the Python dictionary equivalent in the new field class methods. The best way to inspect a field type's JSON structure is to view the JSON representation of a node that contains instances of the field by tacking `?_format=json` to the end of the node's URL. Once you have an example of the field type's JSON, you will need to write the necessary class methods to convert between Workbench CSV data and the field's JSON structure as applicable in all of the field class methods, making sure you account for the field's configured cardinality, account for the update mode within the `update()` method, etc.
 
 Writing field classes is one aspect of Workbench development that demonstrates the value of unit tests. Without writing unit tests to accompany the development of these field classes, you *will* lose your mind. [tests/field_tests.py](https://github.com/mjordan/islandora_workbench/blob/main/tests/field_tests.py) contains over 80 tests in more than 5,000 lines of test code for a good reason.
-
-!!! note
-    If new field types are added to workbench_utils.py, corresponding logic must be added to functions in other Workbench modules (e.g. workbench_utils, workbench) that create, update, or export Drupal entities. Those places are commented in the code with either:
-
-    "Assemble Drupal field structures from CSV data. If new field types are added to
-    workbench_fields.py, they need to be registered in the following if/elif/else block."
-
-    or
-
-    "Assemble CSV output Drupal field data. If new field types are added to
-    workbench_fields.py, they need to be registered in the following if/elif/else block."
 
 ## Islandora Workbench Integration Drupal module
 
