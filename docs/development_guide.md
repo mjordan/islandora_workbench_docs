@@ -526,6 +526,17 @@ To add a support for a new field type, you will need to figure out the field typ
 
 Writing field classes is one aspect of Workbench development that demonstrates the value of unit tests. Without writing unit tests to accompany the development of these field classes, you *will* lose your mind. [tests/field_tests.py](https://github.com/mjordan/islandora_workbench/blob/main/tests/field_tests.py) contains over 80 tests in more than 5,000 lines of test code for a good reason.
 
+!!! note
+    If new field types are added to workbench_utils.py, corresponding logic must be added to functions in other Workbench modules (e.g. workbench_utils, workbench) that create, update, or export Drupal entities. Those places are commented in the code with either:
+
+    "Assemble Drupal field structures from CSV data. If new field types are added to
+    workbench_fields.py, they need to be registered in the following if/elif/else block."
+
+    or
+
+    "Assemble CSV output Drupal field data. If new field types are added to
+    workbench_fields.py, they need to be registered in the following if/elif/else block."
+
 ## Islandora Workbench Integration Drupal module
 
 [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) is a Drupal module that allows Islandora Workbench to communicate with Drupal efficiently and reliably. It enables some Views and REST endpoints that Workbench expects, and also provides a few custom REST endpoints (see the module's README for details).
