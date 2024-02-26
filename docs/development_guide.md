@@ -234,7 +234,7 @@ Currently, Workbench supports the following field types:
 * authority link fields
 * media track fields
 
-Eventually, handlers for new Drupal field types will need to be added to Workbench as the community adopts more field types provided by Drupal contrib modules or creates new field types specific to Islandora.
+Eventually, classes for new Drupal field types will need to be added to Workbench as the community adopts more field types provided by Drupal contrib modules or creates new field types specific to Islandora.
 
 !!! note
     If new field types are added to workbench_utils.py, corresponding logic must be added to functions in other Workbench modules (e.g. workbench_utils, workbench) that create, update, or export Drupal entities. Those places are commented in the code with either:
