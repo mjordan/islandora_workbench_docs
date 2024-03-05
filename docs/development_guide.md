@@ -17,6 +17,7 @@ While developing code for Islandora Workbench, you should run tests frequently t
 1. To run unit tests that do not require a live Islandora instance:
     * Unit tests in `tests/unit_tests.py` (run with `python tests/unit_tests.py`)
     * Unit tests for Workbench's Drupal fields handlers in `tests/field_tests.py` (run with `python tests/field_tests.py`)
+    * Note that these tests are run automatically as GitHub actions when you push to the Islandora Workbench repo or when a merge request is merged.
 1. To run integration tests that require a live Islandora instance running at `https://islandora.traefik.me/`
     * `tests/islandora_tests.py`, `tests/islandora_tests_check.py`,  `tests/islandora_tests_hooks.py`, and `tests/islandora_tests_paged_content.py` can be run with `python tests/islandora_tests.py`, etc.
     * The Islandora Starter Site deployed with [ISLE](https://github.com/Islandora-Devops/isle-dc) is recommended way to deploy the Islandora used in these tests. Integration tests remove all nodes and media added during the tests, unless a test fails. Taxonomy terms created by tests are not removed.

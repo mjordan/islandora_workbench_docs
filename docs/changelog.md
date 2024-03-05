@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* March 4, 2024: (commit 5332f33) Work on [issue 747](https://github.com/mjordan/islandora_workbench/issues/747).
 * February 20, 2024: (commit 2b686d5) Resolved [issue 743](https://github.com/mjordan/islandora_workbench/issues/743).
 * February 13, 2024: (commit dab400f) Resolved [issue 740](https://github.com/mjordan/islandora_workbench/issues/740).
 * January 30, 2024: (commit 3681ae1) Added a new `get_media_report_from_view` task, arising from discussion at [issue 727](https://github.com/mjordan/islandora_workbench/issues/727).
