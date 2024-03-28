@@ -129,8 +129,8 @@ See "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/)" se
 
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
-| output_csv | | | The full or relative (to the "workbench" script) path to a CSV file with one record per node created by Workbench. |
-| output_csv_include_input_csv | | false | Include in the output CSV all the fields (and their values) from the input CSV. |
+| output_csv | | | Used in "create" tasks. The full or relative (to the "workbench" script) path to a CSV file with one record per node created by Workbench. |
+| output_csv_include_input_csv | | false | Used in "create" tasks in conjunction with `output_csv`. Include in the output CSV all the fields (and their values) from the input CSV. |
 | export_csv_term_mode | | tid | Used in "export_csv" tasks to indicate whether vocabulary term IDs or names are included in the output CSV file. Set to "tid" (the default) to include term IDs, or set to "name" to include term names. See "[Exporting field data into a CSV file](/islandora_workbench_docs/generating_csv_files/#exporting-field-data-into-a-csv-file)" for more information. |
 | export_csv_field_list | | [] (empty list) | List of fields to include in exported CSV data. If empty, all fields will be included.  See "[Using a Drupal View to identify content to export as CSV](/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv)" for more information. |
 | view_parameters | | | List of URL parameter/value strings to include in requests to a View. See "[Using a Drupal View to identify content to export as CSV](/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv)" for more information. |
