@@ -9,9 +9,9 @@ Islandora Workbench provides three ways to create paged and compound content:
 Enable this method by including `paged_content_from_directories: true` in your configuration file. Use this method when you are creating books, newspaper issues, or other paged content where your pages don't have their own metadata. This method groups page-level files into subdirectories that correspond to each parent, and does not require (or allow) page-level metadata in the CSV file. Each parent (book, newspaper issue, etc.) has a row on the CSV file, e.g.:
 
 ```text
-id,title,field_model,field_display_hints
-book1,How to Use Islandora Workbench like a Pro,28,2
-book2,Using Islandora Workbench for Fun and Profit,28,2
+id,title,field_model
+book1,How to Use Islandora Workbench like a Pro,Paged Content
+book2,Using Islandora Workbench for Fun and Profit,Paged Content
 ```
 
 !!! note
@@ -41,10 +41,95 @@ Finally, even though only minimal metadata is assigned to pages using this metho
 Important things to note when using this method:
 
 * To use this method of creating paged content, you must include `paged_content_page_model_tid` in your configuration file and set it to your Islandora's term ID for the "Page" term in the Islandora Models vocabulary (or to `http://id.loc.gov/ontologies/bibframe/part`).
-* The Islandora model of the parent is not set automatically. You need to include a `field_model` value for each item in your CSV file.
+* The Islandora model of the parent is not set automatically. You need to include a `field_model` value for each item in your CSV file, commonly "Paged content" or "Publication issue".
 * You should also include a `field_display_hints` column in your CSV. This value is applied to the parent nodes and also the page nodes, unless the `paged_content_page_display_hints` setting is present in you configuration file. However, if you normally don't set the "Display hints" field in your objects but use a Context to determine how objects display, you should not include a `field_display_hints` column in your CSV file.
 * `id` can be defined as another field name using the `id_field` configuration option. If you do define a different ID field using the `id_field` option, creating the parent/paged item relationships will still work.
 * The Drupal content type for page nodes is inherited from the parent, unless you specify a different content type in the `paged_content_page_content_type` setting in your configuration file.
+* If your page directories contain files other than page images, you need to include the `paged_content_image_file_extension` setting in your configuration. Otherwise, Workbench can't tell which files to create pages from.
+
+#### Ingesting OCR (and other) files with page images
+
+You can tell Workbench to add OCR and other media related to page images when using the "Using subdirectories" method of creating paged content. To do this, add the OCR files to your subdirectories, using the base filenames of each page image plus an extension like `.txt`:
+
+```text
+books/
+├── book1
+│   ├── page-001.jpg
+│   ├── page-001.txt
+│   ├── page-002.jpg
+│   ├── page-002.txt
+│   ├── page-003.txt
+│   └── page-003.jpg
+├── book2
+│   ├── isbn-1843341778-001.jpg
+│   ├── isbn-1843341778-001.txt
+│   ├── using-islandora-workbench-page-002.jpg
+│   ├── using-islandora-workbench-page-002.txt
+│   ├── page-003.txt
+│   └── page-003.jpg
+└── metadata.csv
+```
+
+Then, add the following settings to your configuration file:
+
+- `paged_content_from_directories: true` (as described above)
+- `paged_content_page_model_tid` (as described above)
+- `paged_content_image_file_extension`: this is the file extension, without the leading `.`, of the page images, for example `tif`, `jpg`, etc.
+- `paged_content_additional_page_media`: this is a list of mappings from Media Use term IDs or URIs to the file extensions of the OCR or other files you are ingesting. See the example below.
+
+An example configuration is:
+
+```yaml
+task: create
+host: "http://localhost:8000"
+username: admin
+password: islandora
+input_dir: input_data/paged_content_example
+standalone_media_url: true
+paged_content_from_directories: true
+paged_content_page_model_tid: http://id.loc.gov/ontologies/bibframe/part
+paged_content_image_file_extension: jpg
+paged_content_additional_page_media:
+ - http://pcdm.org/use#ExtractedText: txt
+```
+
+You can add multiple additional files (for example, OCR and hOCR) if you provide a Media Use term-to-file-extension mapping for each type of file:
+
+```yaml
+paged_content_additional_page_media:
+ - http://pcdm.org/use#ExtractedText: txt
+ - https://www.wikidata.org/wiki/Q288405: hocr
+```
+
+You can also use your Drupal's numeric Media Use term IDs in the mappings, like:
+
+```yaml
+paged_content_additional_page_media:
+ - 354: txt
+ - 429: hocr
+```
+
+!!! note
+    Using hOCR media for Islandora paged content nodes may not be configured on your Islandora repository; hOCR and the corresponding URI are used here as an example only.
+
+In this case, Workbench looks for files with the extensions `txt` and `hocr` and creates media for them with respective mapped Media Use terms. The paged content input directory would look like this:
+
+```text
+books/
+├── book1
+│   ├── page-001.jpg
+│   ├── page-001.txt
+│   ├── page-001.hocr
+│   ├── page-002.jpg
+│   ├── page-002.txt
+│   ├── page-002.hocr
+│   ├── page-003.txt
+│   ├── page-003.hocr
+│   └── page-003.jpg
+```
+
+!!! warning
+    It is important to temporarily disable actions in Contexts that generate media/derivatives that would conflict with additional media you are adding using the method described here. For example, if you are adding OCR files, in the "Page Derivatives" Context listed at `/admin/structure/context`, disable the "Extract text from PDF or image" action prior to running Workbench, and be sure to re-enable it afterwards. If you do not do this, the OCR media added by Workbench will get overwritten with the one that Islandora generates using the "Extract text from PDF or image" action.
 
 
 ### With page/child-level metadata
@@ -93,7 +178,7 @@ Since parent items (collections, book-level items, newspaper issue-level items, 
 
 You can configure Islandora Workbench to execute two "create" tasks - a primary and a secondary - that will result in all of the objects described in both CSV files being ingested during the same Workbench job. Parent/child relationships between items are created by referencing the row IDs in the primary task's CSV file from the secondary task's CSV file. The benefit of using this method is that each task has its own configuration file, allowing you to create children that have a different Drupal content type than their parents.
 
-The primary task's CSV describes the parent objects, and the secondary task's CSV describes the children. The two are linked via references from children CSV's `parent_id` values to their parent's `id` values, much the same way as in the "With page/child-level metadata" method described above. The difference is that the references span CSV files. The parents and children each have their own CSV input file (and in fact, their own configuration file). Each task is a standard Islandora Workbench "create" task, joined by one setting in the primary's configuration file.
+The primary task's CSV describes the parent objects, and the secondary task's CSV describes the children. The two are linked via references from children CSV's `parent_id` values to their parent's `id` values, much the same way as in the "With page/child-level metadata" method described above. The difference is that the references span CSV files. The parents and children each have their own CSV input file (and also their own configuration file). Each task is a standard Islandora Workbench "create" task, joined by one setting in the primary's configuration file, `secondary_tasks`, as described below.
 
 In the following example, the top CSV file (the primary) describes the parents, and the bottom CSV file (the secondary) describes the children:
 
@@ -124,7 +209,11 @@ password: islandora
 input_csv: kids.csv
 csv_field_templates:
  - field_model: http://purl.org/coar/resource_type/c_c513
+query_csv_id_to_node_id_map_for_parents: true
 ```
+
+!!! note
+    The CSV ID to node ID map is required in secondary `create` tasks. Workbench will automatically change the `query_csv_id_to_node_id_map_for_parents` to `true`, regardless of whether that setting is in your secondary task's config file.
 
 !!! note
     The `nodes_only` setting in the above example primary configuration file and the `csv_field_templates` setting in the secondary configuration file are not relevant to the primary/secondary task functionality; they're included to illustrate that the two configuration files can differ.
@@ -135,10 +224,11 @@ Some things to note about secondary tasks:
 
 * Only "create" tasks can be used as the primary and secondary tasks.
 * When you have a secondary task configured, running `--check` will validate both tasks' configuration and input data.
-* The secondary CSV must contain `parent_id` and `field_member_of` columns. `field_member_of` must be empty, since it is auto-populated by Workbench using node IDs from the newly created parent objects. If you want to assign an order to the child objects within each parent object, include `field_weight` with the appropiate values (1, 2, 3, etc., the lower numbers being earlier/higher in sort order).
+* The secondary CSV must contain `parent_id` and `field_member_of` columns. `field_member_of` must be empty, since it is auto-populated by Workbench using node IDs from the newly created parent objects. If you want to assign an order to the child objects within each parent object, include `field_weight` with the appropriate values (1, 2, 3, etc., the lower numbers being earlier/higher in sort order).
 * If a row in the secondary task CSV does not have a `parent_id` that matches an `id` of a row in the primary CSV, or if there is a matching row in the primary CSV and Workbench failed to create the described node, Workbench will skip creating the child and add an entry to the log indicating it did so.
 * As already stated, each task has its own configuration file, which means that you can specify a `content_type` value in your secondary configuration file that differs from the `content_type` of the primary task.
 * You can include more than one secondary task in your configuration. For example, `secondary_tasks: ['first.yml', 'second.yml']` will execute the primary task, then the "first.yml" secondary task, then the "second.yml" secondary task in that order. You would use multiple secondary tasks if you wanted to add children of different content types to the parent nodes.
+
 
 #### Specifying paths to the python interpreter and to the workbench script
 
@@ -157,7 +247,7 @@ path_to_python: '/usr/bin/python'
 path_to_workbench_script: '/home/mark/islandora_workbench/workbench'
 ```
 
-The second situation is when using a secondary task when running Workbench in Windows and "python.exe" is not in the PATH of the user running the scheduled job. Specifying the absolute path to "python.exe" will ensure that Workbench can execture the secondary task properly, like this:
+The second situation is when using a secondary task when running Workbench in Windows and "python.exe" is not in the PATH of the user running the scheduled job. Specifying the absolute path to "python.exe" will ensure that Workbench can execute the secondary task properly, like this:
 
 ```yaml
 secondary_tasks: ['children.yml']
@@ -167,15 +257,17 @@ path_to_workbench_script: 'd:/users/mark/islandora_workbench/workbench'
 
 ### Creating parent/child relationships across Workbench sessions
 
-During `create` tasks, Workbench records each newly created node ID and its corresponding value from the input CSV's `id` (or configured equivalent) column. It also records any values from the CSV `parent_id` column, if they exist. This data is stored in a simple SQLite database called the "[CSV ID to node ID map](/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map)".
+It is possible to use `parent_id` values in your CSV that refer to `id` values from earlier Workbench sessions. In other words, you don't need to create parents and their member/child nodes within the same Workbench job; you can create parents in an earlier job and refer to their `id` values in later jobs.
 
-Because this database persists across Workbench sessions, you can use `id` values in your input CSV's `parent_id` column from previously loaded CSV files. The mapping between the previously loaded parents' `id` values and the values in your current CSV's `parent_id` column are stored in the CSV ID to node ID map database. In other words, you don't need to create parents and their member/child nodes within the same Workbench job, since there is a mapping of the `id`s (and node IDs) that can be matched up with `parent_id` values in your current CSV file.
+This is possible because during `create` tasks, Workbench records each newly created node ID and its corresponding value from the input CSV's `id` (or configured equivalent) column. It also records any values from the CSV `parent_id` column, if they exist. This data is stored in a simple SQLite database called the "[CSV ID to node ID map](/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map)".
+
+Because this database persists across Workbench sessions, you can use `id` values in your input CSV's `parent_id` column from previously loaded CSV files. The mapping between the previously loaded parents' `id` values and the values in your current CSV's `parent_id` column are stored in the CSV ID to node ID map database.
+
+!!! note
+    It is important to use unique values in your CSV `id` (or configured equivalent) column, since if duplicate ID values exist in this database, Workbench can't know which corresponding node ID to use. In this case, Workbench will create the child node, but it won't assign a parent to it. `--check` will inform you if this happens with messages like `Warning: Query of ID map for parent ID "0002" returned multiple node IDs: (771, 772, 773, 774, 778, 779).`, and your Workbench log will also document that there are duplicate IDs.
 
 !!! warning
-    By default, this database is stored in the temporary directory of the computer running Workbench. The `temp_dir` configuration setting lets you override your system's default temp directory location and use an alternative directory to store temporary data generated by Workbench. However, in both cases, there is a risk of the data being deleted if you reboot your computer. If you want to ensure that the CSV ID to node ID map database perists for a long time (e.g., during a large migration of content into Islandora), you can use an absolute path to the database file in the `csv_id_to_node_id_map_path` configuration setting.
-
-Also note that it is important to use unique values in your CSV `id` (or configured equivalent) column, since if duplicate ID values exist in this database, Workbench can't know which corresponding node ID to use. In this case, Workbench will create the child node, but it won't assign a parent to it. `--check` will inform you if this happens, and your Workbench log will also document that there are duplicate IDs.
-
+    By default, Workbench only checks the CSV ID to node ID map for parent IDs created in the same session as the children. If you want to assign children to parents created in previous Workbench sessions, you need to set the `query_csv_id_to_node_id_map_for_parents` configuration setting to `true`.
 
 ### Creating collections and members together
 

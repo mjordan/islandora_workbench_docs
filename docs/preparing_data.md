@@ -255,7 +255,7 @@ excel_worksheet: Second sheet
 
 Regardless of whether your input data is raw CSV, a Google Sheet, or Excel, Workbench applies a small number of cleansing operations on it. These are:
 
-* replaces smart/curley quotes (both double and single) with regular quotes
+* replaces smart/curly quotes (both double and single) with regular quotes
 * replaces multiple whitespaces within strings with a single space
 * removes leading and trailing spaces (including newlines).
 * removes leading and trailing subdelimter characters (i.e., the value of the `subdelimiter` config setting, default of `|`).
@@ -276,7 +276,7 @@ clean_csv_values_skip: ["smart_quotes", "inside_spaces"]
 
 ## When Workbench skips invalid CSV data
 
-Runnin `--check` will tell you when any of the data in your CSV file is invalid, or in other words, does not conform to its target Drupal field's configuration and is likely to cause the creation/updating of content to fail. Currently, for the following types of fields:
+Running `--check` will tell you when any of the data in your CSV file is invalid, or in other words, does not conform to its target Drupal field's configuration and is likely to cause the creation/updating of content to fail. Currently, for the following types of fields:
 
 * text
 * geolocation

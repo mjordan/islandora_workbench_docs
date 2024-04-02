@@ -1,4 +1,4 @@
-If you encounter a problem, take a look at the "things that migh sound familiar" section below. But, if the problem you're encountering isn't described below, you can ask for help.
+If you encounter a problem, take a look at the "things that might sound familiar" section below. But, if the problem you're encountering isn't described below, you can ask for help.
 
 ## Ask for help
 
@@ -6,13 +6,13 @@ The `#islandoraworkbench` Slack channel is a good place to ask a question if Wor
 
 If Workbench "isn't working the way you expect", the documentation is likely unclear. Crashes are usually caused by sloppy Python coding. Reporting either is a great way to contribute to Islandora Workbench.
 
-## Before you ask...
+## But before you ask...
 
-If Workbench crashes on you, you might be able to fix the problem by pulling in the most recent code. The best way to keep it up to date is to pull in the latest commits from the Github repository periodically.
+The first step you should take while troubleshooting a Workbench failure is to use Islandora's graphical user interface to create/edit/delete a node/media/taxonomy term (or whatever it is you're trying to do with Workbench). If Islandora works without error, you have confirmed that the problem you are experiencing is likely isolated to Workbench and is not being caused by an underlying problem with Islandora.
 
-To pull in the latest updates, within the "islandora_workbench" directory, run the following git commands:
+Next, if you have eliminated Islandora as the cause of the Workbench problem you are experiencing, you might be able to fix the problem by pulling in the most recent Workbench code. The best way to keep it up to date is to pull in the latest commits from the Github repository periodically, but if you haven't done that in a while, within the "islandora_workbench" directory, run the following git commands:
 
-1. `git branch`, which should tell whether you're currently in the "main" brach. If you are:
+1. `git branch`, which should tell whether you're currently in the "main" branch. If you are:
 1. `git pull`, which will fetch the most recent code and and merge it into the code you are running.
 
 If git tells you it has pulled in any changes to Workbench, you will be running the latest code. If you get an error while running git, ask for help.
@@ -22,11 +22,19 @@ Also, you might be asked to provide one or more of the following:
 * your configuration file (without username and password!)
 * some sample input CSV
 * your Workbench log file
-* details fromn your Drupal log, available at Admin > Reports > Recent log messages
-* whether youb have certain contrib modules installed, or other questions about how your Drupal is configured.
+* details from your Drupal log, available at Admin > Reports > Recent log messages
+* whether you have certain contrib modules installed, or other questions about how your Drupal is configured.
 
 
 ## Some things that might sound familiar
+
+### Running Workbench results in lots of messages like `InsecureRequestWarning: Unverified HTTPS request is being made to host 'islandora.dev'`.
+
+If you see this, and you are using an ISLE istallation whose Drupal hostname uses the `traefik.me` domain (for example, https://islandora.traefik.me), the HTTPS certificate for the domain has expired. This problem will be widespread so please check the Islandora Slack for any current discussion about it. If you don't get any help in Slack, try redownloading the certificates following the instructions in the [Islandora documentation](https://islandora.github.io/documentation/installation/docker-custom/#traefikme-ssl-certificate-expired-or-revoked). If that doesn't work, you can temporarily avoid the warning messages by
+
+1. adding `secure_ssl_only: false` to your Workbench config file and
+2. updating an environment variable using the following command: `export PYTHONWARNINGS="ignore:Unverified HTTPS request"`
+
 
 ### Workbench is slow.
 
@@ -35,6 +43,7 @@ True, it can be slow. However, users have found that the following strategies in
 * Running Workbench on the same server that Drupal is running on (e.g. using "localhost" as the value of `host` in your config file). While doing this negates Workbench's most important design principle - that it does not require access to the Drupal server's command line - during long-running jobs such as those that are part of migrations, this is the best way to speed up Workbench.
 * Using local instead of remote files. If you populate your `file` or "additional files" fields with filenames that start with "http", Workbench downloads each of those files before ingesting them. Providing local copies of those files in advance of running Workbench will eliminate the time it takes Workbench to download them.
 * Avoid confirming taxonomy terms' existence during `--check`. If you add `validate_terms_exist: false` to your configuration file, Workbench will not query Drupal for each taxonomy term during `--check`. This option is suitable if you know that the terms don't exist in the target Drupal. Note that this option only speeds up `--check`; it does not have any effect when creating new nodes.
+* Generate FITS XML files offline and then add them as media like any other file. Doing this allows Islandora to not generate FITS data, which can slow down ingests substantially. If you do this, be sure to disable the "FITS derivatives" Context first.
 
 ### I've pulled in updates to Islandora Workbench from Github but when I run it, Python complains about not being able to find a library.
 
@@ -49,13 +58,19 @@ This is probably caused by unexpected data in your CSV file that Workbench's `--
 
 One of the most common causes of this error is that one or more of the vocabularies being populated in your `create` task CSV contain required fields other than the default term name. It is possible to have Workbench create these fields, but you must do so as a separate `create_terms` task. See "[Creating taxonomy terms](/islandora_workbench_docs/creating_taxonomy_terms)" for more information.
 
+### Workbench is crashing and telling me there are problems with SSL certificates.
+
+To determine if this issue is specific to Workbench, from the same computer Workbench is running on, try hitting your Drupal server (or server your remote files are on) with `curl`. If `curl` also complains about SSL certificates, the problem lies in the SSL/HTTPS configuration on the server. An example `curl` command is `curl https://wwww.lib.sfu.ca`. 
+
+If `curl` doesn't complain, the problem is specific to Workbench.
+
 ### --check is telling me that one the rows in my CSV file has more columns than headers.
 
 The most likely problem is that one of your CSV values contains a comma but is not wrapped in double quotes.
 
 ### My Drupal has the "Standalone media URL" option at `/admin/config/media/media-settings` checked, and I'm using Workbench's `standalone_media_url: true` option in my config, but I'm still getting lots of errors.
 
-Bue sure to clear Drupal's cache every time you change the "Standalone media URL" option. More information can be found [here](/islandora_workbench_docs/installation/#configuring-drupals-media-urls).
+Be sure to clear Drupal's cache every time you change the "Standalone media URL" option. More information can be found [here](/islandora_workbench_docs/installation/#configuring-drupals-media-urls).
 
 ### Workbench crashes or slows down my Drupal server.
 
@@ -65,7 +80,9 @@ Note that both of these settings will slow Workbench down, which is their purpos
 
 ### Workbench thinks that a remote file is an .html file when I know it's a video (or audio, or image, etc.) file.
 
-Some web applications, including Drupal 7, return a human-readable HTML page instead of a standard HTTP response code when they encounter an error. If Workbench is complaining that a remote file in your `file` other file column in your input CSV has an extension of ".htm" or ".html" and you know that the file is not an HTML page, what Workbench is seeing is probably an error message. To get a version of the file that you can inspect, use `curl` to fetch it (e.g., `curl https://example.com/some/file`). The returned file will likely contain some text that explains the error.
+Some web applications, including Drupal 7, return a human-readable HTML page instead of a expected HTTP response code when they encounter an error. If Workbench is complaining that a remote file in your `file` other file column in your input CSV has an extension of ".htm" or ".html" and you know that the file is not an HTML page, what Workbench is seeing is probably an error message. For example, Workbench might leave a message like this in your log: `Error: File "https://digital.lib.sfu.ca/islandora/object/edcartoons:158/datastream/OBJ/view" in CSV row "text:302175" has an extension (html) that is not allowed in the "field_media_file" field of the "file" media type.`
+
+This error can be challenging to track down since the HTML error page might have been specific to the request that Workbench just made (e.g. a timeout or some other temporary server condition). One way of determining if the error is temporary (i.e. specific to the request) is to use `curl` to fetch the file (e.g., `curl -o test.tif https://digital.lib.sfu.ca/islandora/object/edcartoons:158/datastream/OBJ/view`). If the returned file (in this example, it will be named `test.tif`) is in fact HTML, the error is probably permanent or at least persistent; if the file is the one you expected to retrieve, the error was temporary and you can ignore it.
 
 ### The text in my CSV does not match how it looks when I view it in Drupal.
 

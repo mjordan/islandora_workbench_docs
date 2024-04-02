@@ -66,6 +66,9 @@ If you do this, Workbench will check the following conditions and report any err
 
 If Workbench detects a configuration or input data violation, it will either stop and tell you why it stopped, or (if the violation will not cause Workbench's interaction with Drupal to fail), tell you that it found an anomaly and to check the log file for more detail.
 
+!!! note
+    Adding `perform_soft_checks: true` to you configuration file will tell `--check` to *not* stop when it encounters an error with 1) parent/child order in your input CSV, 2) file extensions in your CSV that are not registered with the Drupal configuration of their media type's file fields, or 3) invalid EDTF dates. Workbench will continue to log all of these errors, but will exit after it has checked every row in your CSV file.
+
 A successful outcome of running `--check` confirms that all of the conditions listed above are in place, but it does not *guarantee* a successful job. There are a lot of factors in play during ingest/update/delete interactions with Drupal that can't be checked in advance, most notably network stability, load on the Drupal server, or failure of an Islandora microservice. But in general `--check` will tell you if there's a problem that you can investigate and resolve before proceeding with your task.
 
 ## Typical (and recommended) Islandora Workbench usage

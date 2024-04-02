@@ -14,7 +14,10 @@ host: "http://localhost:8000"
 username: admin
 password: islandora
 input_csv: update_media.csv
+media_type: file
 ```
+
+`media_type` is required, and its value is the Drupal machine name of the type of media you are updating (e.g. `image`, `document`, `file`, `video`, etc.)
 
 Currently, the `update_media` routine has support for the following operations:
 
@@ -22,19 +25,22 @@ Currently, the `update_media` routine has support for the following operations:
 - Updating the set of track files attached to media
 - Updating the Media Use TIDs associated with media
 - Updating the published status of media
-- Updating any plain text fields in media
+- Updating custom fields of any supported field type
 
-!!! warning
-    Currently, `update_media` replaces existing field values with those in the input CSV file, and replaces existing files with those named in the CSV.
+When updating field values on the media, the `update_mode` configuration option allows you to determine whether the field values are appendeded or deleted:
+
+* `replace` (the default) will replace all existing values in a field with the values in the input CSV.
+* `append` will add values in the input CSV to any existing values in a field.
+* `delete` will delete all values in a field.
 
 ## Updating files attached to media
-!!! note 
-    This functionality is currently only supported for media attached to a node.
+!!! note
+    Updating files attached to media is currently only supported for media attached to a node.
 
-!!! note 
-    This operation will delete the existing file attached to the media and replace it with the file specified in the CSV file.
+!!! warning
+    This operation will delete the existing file attached to the media and replace it with the file specified in the CSV file. The `update_mode` setting has no effect on replacing files.
 
-To update the file attached to a media, you must provide a CSV file with, at minimum, a `media_id` column and a `file` column. The `media_id` column should contain the ID of the media you wish to update, and the `file` column should contain the path to the file you wish to attach to the media. Here is an example CSV that updates the file attached to the media with ID 100:
+To update the file attached to a media, you must provide a CSV file with, at minimum, a `media_id` column and a `file` column. The `media_id` column should contain the ID of the media you wish to update, and the `file` column should contain the path to the file you wish to attach to the media (always use `file` and not the media-type-specific file fieldname). Here is an example CSV that updates the file attached to the media with ID 100:
 
 ```text
 media_id,file
@@ -44,10 +50,10 @@ media_id,file
 Values in the `file` column can be paths to files on the local filesystem, full URLs, or full URL aliases.
 
 ## Updating the track files attached to media
-!!! note 
+!!! note
     This functionality is currently only supported for media attached to a node.
 
-!!! note 
+!!! note
     This operation will delete all existing track files attached to the media and replace them with the track files specified in the CSV file.
 
 To update the set of track files attached to a media, you must provide a CSV file with, at minimum, a `media_id` column and a column with a name that matches the `media_track_file_fields` setting in the configuration file. By default, the `media_track_file_fields` setting in the configuration file is set to `field_track` for both audio and video. If you have a custom setup that has a different machine name of the field on the media that holds the track file and need to override these defaults, you can do so using the `media_track_file_fields` configuration setting:
@@ -81,7 +87,7 @@ media_id,field_track
 ```
 
 ## Updating the media use TIDs associated with media
-To update the Media Use TIDs associated with media, you must provide a CSV file with, at minimum, a `media_id` column and a `media_use_tid` column. The `media_id` column should contain the ID of the media you wish to update, and the `media_use_tid` column should contain the TID(s) of the media use term(s) you wish to associate with the media. If a value is not specified for the `media_use_tid` column in a particular row, the value for the `media_use_tid` setting in the configuration file (Service File by defualt) will be used.
+To update the Media Use TIDs associated with media, you must provide a CSV file with, at minimum, a `media_id` column and a `media_use_tid` column. The `media_id` column should contain the ID of the media you wish to update, and the `media_use_tid` column should contain the TID(s) of the media use term(s) you wish to associate with the media. If a value is not specified for the `media_use_tid` column in a particular row, the value for the `media_use_tid` setting in the configuration file (Service File by default) will be used.
 Here is an example CSV that updates the Media Use TID associated with the media with ID 100:
 
 ```text
@@ -113,14 +119,8 @@ media_id,status
 101,0
 ```
 
-## Updating any plain text fields attached to media
-To update any plain text fields attached to media, you must provide a CSV file with, at minimum, a `media_id` column and columns with the machine names of the plain-text fields you wish to update. Note that a "plain text field" must have one of the following field types
-- List (text)
-- Text (formatted)
-- Text (formatted, long)
-- Text (formatted, long, with summary)
-- Text (plain)
-- Text (plain, long)
+## Updating custom fields attached to media
+To update custom fields attached to media, you must provide a CSV file with, at minimum, a `media_id` column and columns with the machine names of the fields you wish to update.
 
 The `media_id` column should contain the ID of the media you wish to update, and the other columns should contain the values you wish to set for the fields. Here is an example CSV that updates the published status of some media:
 

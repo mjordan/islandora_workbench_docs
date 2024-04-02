@@ -77,11 +77,11 @@ Islandora Workbench strictly validates the columns in the input CSV to ensure th
 ignore_csv_columns: ['date_generated', 'qa by']
 ```
 
-With this setting in place, Workbench will ignore the `date_generated` column in the input CSV. More information on this feature [is availalable](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#ignoring-csv-columns).
+With this setting in place, Workbench will ignore the `date_generated` column in the input CSV. More information on this feature [is available](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#ignoring-csv-columns).
 
 ### Case study
 
-Simon Fraser University Library uses Islandora Workbench to automate the transfer of theses from its locally developed thesis registration application (called, unsurprisingly, the [Thesis Registration System](https://theses.lib.sfu.ca), or TRS) to [Summit](https://summit.sfu.ca), the SFU institutional research respository. This transfer happens through a series of scheduled tasks that run every evening.
+Simon Fraser University Library uses Islandora Workbench to automate the transfer of theses from its locally developed thesis registration application (called, unsurprisingly, the [Thesis Registration System](https://theses.lib.sfu.ca), or TRS) to [Summit](https://summit.sfu.ca), the SFU institutional research repository. This transfer happens through a series of scheduled tasks that run every evening.
 
 This diagram depicts the automated workflow, with an explanation of each step below the diagram. This case study is an example of the "[Integration with other systems](/islandora_workbench_docs/workflows/#integrations-with-other-systems)" workflow described above.
 

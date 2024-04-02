@@ -59,7 +59,7 @@ Below are the Drupal and Islandora concepts that will help you use Workbench eff
 
 Drupal categorizes what people see as "pages" on a Drupal website into content types. By default, Drupal provides "Article" and "Basic Page" content types, but site administrators can create custom content types. You can see the content types configured on your Drupal by logging in as an admin user and visiting `/admin/structure/types`. Or, you can navigate to the list of your site's content types by clicking on the Structure menu item, then the Content Types entry:
 
-![ISLE default content types](images/ISLE_DC_demo_content_types.png)
+![Starter site content types](images/starter_site_content_types.png)
 
 Islandora, by default, creates a content type called a "Repository Item". But, many Islandora sites use additional content types, such as "Collection". To find the machine name of the content type you want to use with Workbench, visit the content type's configuration page. The machine name will be the last segment of the URL. In the following example, it's `islandora_object`:
 
@@ -131,7 +131,7 @@ Drupal assigns each term an ID, much like it assigns each node an ID. These are 
 
 Islandora uses several specific taxonomies extensively as part of its data model. These include Islandora Models (which determines how derivatives are generated for example) and Islandora Media Use (which indicates if a file is an "Original file" or a "Service file", for example).
 
-The taxonomies created by Islandora, such as Islandora Models and Islandora Media Use, include Linked Data URIs in the taxonomy term entries. These URIs are useful because they uniquely and reliably identify taxonomy terms across Drupal instances. For example, the taxonomy term with the Linked Data URI `http://pcdm.org/use#OriginalFile` is the same in two Drupal instances even if the term ID for the term is 589 in one instance and 23 in the other, or if the name of the term is in different languages. If you create your own taxonomies, you can also assign earch term a Linked Data URI.
+The taxonomies created by Islandora, such as Islandora Models and Islandora Media Use, include Linked Data URIs in the taxonomy term entries. These URIs are useful because they uniquely and reliably identify taxonomy terms across Drupal instances. For example, the taxonomy term with the Linked Data URI `http://pcdm.org/use#OriginalFile` is the same in two Drupal instances even if the term ID for the term is 589 in one instance and 23 in the other, or if the name of the term is in different languages. If you create your own taxonomies, you can also assign each term a Linked Data URI.
 
 ## Media
 

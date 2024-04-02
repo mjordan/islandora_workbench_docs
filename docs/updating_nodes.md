@@ -6,7 +6,7 @@ You can update existing nodes by providing a CSV file with a `node_id` column pl
 
 Islandora Workbench will never allow a field to contain more values than the field's configuration allows. Attempts to update a field with more values than the maximum number allowed will result in the surplus values being ignored during the "update" task. If Workbench does this, it will write an entry to the log indicating it has done so.
 
-The column headings in the CSV file other than `node_id` must match machine names of fields that exist in the target Islandora content type. Only include fields that you want to update. Currently, text fields, ETDF fields, taxonomy fields, linked node fields (e.g. "Member of" for collection nodes), typed relation, link, and geolocation fields can be updated following the same conventions used when creating nodes as described in the "[Fields](/islandora_workbench_docs/fields/)" documentation.
+The column headings in the CSV file other than `node_id` must match machine names of fields that exist in the target Islandora content type. Only include fields that you want to update. Currently, text fields, EDTF fields, taxonomy fields, linked node fields (e.g. "Member of" for collection nodes), typed relation, link, and geolocation fields can be updated following the same conventions used when creating nodes as described in the "[Fields](/islandora_workbench_docs/fields/)" documentation.
 
 For example, using the fields defined by the Islandora Defaults module for the "Repository Item" content type, your CSV file could look like this:
 
@@ -22,6 +22,7 @@ task: update
 host: "http://localhost:8000"
 username: admin
 password: islandora
+content_type: my_content_type
 input_csv: update.csv
 ```
 If you want to append the values in the CSV to values that already exist in the target nodes, add the `update_mode` configuration option:
@@ -31,12 +32,14 @@ task: update
 host: "http://localhost:8000"
 username: admin
 password: islandora
+content_type: my_content_type
 input_csv: update.csv
 update_mode: append
 ```
 
 Some things to note:
 
+* If your target Drupal content type is not `islandora_object` (the default value), you must include `content_type` in your configuration file as illustrated above.
 * The `update_mode` applies to all rows in your CSV; it cannot be specified for particular rows.
 * Updates apply to entire fields. Workbench cannot replace individual values in field.
 * Values in the `node_id` column can be numeric node IDs (e.g. `467`) or full URLs, including URL aliases.

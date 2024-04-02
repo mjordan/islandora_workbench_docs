@@ -20,13 +20,14 @@ nav:
     - Creating paged, compound, and collection content: paged_and_compound.md
     - Creating nodes without media: nodes_only.md
     - Creating nodes from files: creating_nodes_from_files.md
+    - Updating nodes: updating_nodes.md
+    - Deleting nodes: deleting_nodes.md
     - Creating taxonomy terms: creating_taxonomy_terms.md
+    - Updating taxonomy terms: updating_terms.md
     - Assigning URL aliases: aliases.md
     - Adding alt text to images: alt_text.md
     - Rolling back nodes and media: rolling_back.md
     - Configuring media types: media_types.md
-    - Updating nodes: updating_nodes.md
-    - Deleting nodes: deleting_nodes.md
     - Quick delete: quick_delete.md
     - Adding media to nodes: adding_media.md
     - Adding multiple media: adding_multiple_media.md

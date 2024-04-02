@@ -20,7 +20,7 @@ To register a bootstrap script in your configuration file, add it to the `bootst
 bootstrap: ["/home/mark/Documents/hacking/workbench/generate_image_files.py"]
 ```
 
-Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's `--config` argument. For example, if you are running Workbench with a config file called `create.yml`, `create.yml` will be passed as the argumement to your bootstrap script. 
+Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's `--config` argument. For example, if you are running Workbench with a config file called `create.yml`, `create.yml` will be passed as the argument to your bootstrap script.
 
 Shutdown scripts work the same way as bootstrap scripts but they execute after Workbench has finished connecting to Drupal. A common situation where a shutdown script is useful is to check the Workbench log for failures, and if any are detected, to email someone. To register a shutdown script, add it to the `shutdown` option:
 
@@ -34,24 +34,32 @@ Very basic example bootstrap and shutdown scripts can be found in the `scripts` 
 
 ### CSV preprocessor scripts
 
-CSV preprocessor scripts are applied to CSV values prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocesor must split it and then reassemble it back into a string. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title). If you are interested in seeing preprocessor scripts act on binary data such as images, see this [issue](https://github.com/mjordan/islandora_workbench/issues/45).
+CSV preprocessor scripts are applied to CSV values in a specific CSV field prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocessor must split it and then reassemble it back into a string. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title). Preprocessor scripts are applied in `create` and `update` tasks.
 
-For example, you might want to convert all the values in a CSV field to sentence case. You can do this by writing a small Python script that uses the `capitalize()` method and registering it as a preprocessor. 
+!!! note
+    If you are interested in seeing preprocessor scripts act on binary data such as images, see this [issue](https://github.com/mjordan/islandora_workbench/issues/45).
 
-To register a preprocessor script in your configuration file, add it to the `preprocessors` option, like this:
+For example, if you want to convert all the values in the `field_description` CSV field to sentence case, you can do this by writing a small Python script that uses the `capitalize()` method and registering it as a preprocessor.
+
+To register a preprocessor script in your configuration file, add it to the `preprocessors` setting, mapping a CSV column header to the path of the script, like this:
 
 ```yaml
-preprocessors: ["/home/mark/Documents/hacking/workbench/scripts/samplepreprocessor.py"]
+preprocessors:
+ - field_description: /home/mark/Documents/hacking/workbench/scripts/samplepreprocessor.py
 ```
+
+You must provide the absolute path to the script, and the script must be executable.
 
 Each preprocessor script gets passed two arguments:
 
-1. the character used as the CSV subdelimiter (defined in the `subdelimiter` config option, which defaults to `|`)
+1. the character used as the CSV subdelimiter (defined in the `subdelimiter` config setting, which defaults to `|`)
 1. the CSV field value
+
+In turn, the script processes the string content of the CSV field, and then prints it to STDOUT. An example preprocessor script is available in `scripts/samplepreprocessor.py`.
 
 ### Post-action scripts
 
-Post-action scripts execute after a node is created or updated, or after a media is created.  
+Post-action scripts execute after a node is created or updated, or after a media is created.
 
 To register post-action scripts in your configuration file, add them to either the `node_post_create`, `node_post_update`, or `media_post_create` configuration setting:
 

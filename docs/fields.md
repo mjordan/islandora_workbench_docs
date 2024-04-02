@@ -4,7 +4,7 @@ Workbench uses a CSV file to populate Islandora objects' metadata. This file con
 * integers like `7281`
 * the binary values `1` or `0`
 * Existing Drupal-generated entity IDs (term IDs for taxonomy terms or node IDs for collections and parents), which are integers like `10` or `3549`
-* Workbench-specific structured strings for typed relation (e.g., `relators:art:30`), link fields (e.g., `https://acme.net%%Acme Products`), geolocation fields (e.g., `"49.16667,-123.93333"`), and athority link data (e.g., `viaf%%http://viaf.org/viaf/10646807%%VIAF Record`)
+* Workbench-specific structured strings for typed relation (e.g., `relators:art:30`), link fields (e.g., `https://acme.net%%Acme Products`), geolocation fields (e.g., `"49.16667,-123.93333"`), and authority link data (e.g., `viaf%%http://viaf.org/viaf/10646807%%VIAF Record`)
 
 !!! note
     As is standard with CSV data, values do not need to be wrapped in double quotation marks (`"`) unless they contain an instance of the delimiter character (e.g., a comma) or line breaks. Spreadsheet applications such as Google Sheets, LibreOffice Calc, and Excel will output valid CSV data.
@@ -39,8 +39,7 @@ File locations in the `file` field can be relative to the directory named in `in
 Things to note about `file` values in general:
 
 * Relative, absolute, and URL file locations can exist within the same CSV file, or even within the same CSV value.
-* By default, if the `file` value for a row is empty, Workbench's `--check` option will show an error. But, in some cases you may want to create nodes but not add any media. If you add `allow_missing_files: true` to your config file for "create" tasks, you can leave the `file` column in your CSV empty.
-* By default, during `--check`, Workbench will exit when it first encounters a missing file (or an empty `file` value). If you would prefer that Workbench checked for the existence of all files before exiting, include `strict_check: false` in your configuration.
+* By default, if the `file` value for a row is empty, Workbench will log the empty value, both in and outside of `--check`. `file` values that point to files that don't exist will result in Workbench logging the missing file and then exiting, unless `allow_missing_files: true` is present in your config file. Adding `perform_soft_checks` will also tell Workbench to not error out when the value in the `file` column can't be found.
 * If you want do not want to create media for any of the rows in your CSV file, include `nodes_only: true` in your configuration file. More detail [is available](/islandora_workbench_docs/nodes_only/).
 * `file` values that contain non-ASCII characters are normalized to their ASCII equivalents. See [this issue](https://github.com/mjordan/islandora_workbench/issues/192) for more information.
 * The Drupal filesystem where files are stored is determined by each media type's file field configuration. It is not possible to override that configuration.
@@ -84,9 +83,10 @@ Base fields are basic node properties, shared by all content types. The base fie
 * `langcode`: The language of the node. Optional. If included, use one of Drupal's language codes as values (common values are 'en', 'fr', and 'es'; the entire list can be seen [here](https://git.drupalcode.org/project/drupal/-/blob/8.8.x/core/lib/Drupal/Core/Language/LanguageManager.php#L224). If absent, Drupal sets the value to the default value for your content type.
 * `uid`: The Drupal user ID to assign to the node and media created with the node. Optional. Only available in `create` tasks. If you are creating paged/compound objects from directories, this value is applied to the parent's children (if you are creating them using the page/child-level metadata method, these fields must be in your CSV metadata).
 * `created`: The timestamp to use in the node's "created" attribute and in the "created" attribute of the media created with the node. Optional, but if present, it must be in format 2020-11-15T23:49:22+00:00 (the +00:00 is the difference to Greenwich time/GMT). If you are creating paged/compound objects from directories, this value is applied to the parent's children (if you are creating them using the page/child-level metadata method, these fields must be in your CSV metadata).
-* `published`: Whether or not the node is published. Values in this field are either `1` (for published) or `0` (for unpublished).
+* `published`: Whether or not the node (and all accompanying media) is published. If present in `add_media` tasks, will override parent node's `published` value. Values in this field are either `1` (for published) or `0` (for unpublished). The default value for this field is defined within each Drupal content type's (and media type's) configuration, and may be determined by contrib modules such as [Workflow](https://www.drupal.org/project/workflow).
+* `promote`: Whether or not the node is promoted to the site's front page. `1` (for promoted) or `0` (for not promoted). The default vaue for this field is defined within each Drupal content type's (and media type's) configuration, and may be determined by contrib modules such as [Workflow](https://www.drupal.org/project/workflow).
 
-All base fields other than `uid` can be included in `create` and `update` tasks.
+All base fields other than `uid` can be included in both `create` and `update` tasks.
 
 ### Content type-specific fields
 
@@ -123,9 +123,9 @@ IMG_5083.JPG,05,Alcatraz Island,25,"Taken from Fisherman's Wharf, San Francisco.
 Some things to note about using field labels in your CSV:
 
 * if the content type (or vocabulary) that you are populating uses the same label for multiple fields, you won't be able to use labels as your CSV column headers. `--check` will tell you if there are any duplicate field labels.
-* Spaces in feld labels are OK, e.g. `Country of Publication`.
+* Spaces in field labels are OK, e.g. `Country of Publication`.
 * Spelling, capitalization, punctuation, etc. in CSV column headers must match the field labels exactly.
-* If any field labels contain the character you are using as the CSV delimiter (defined in the `delimter` config setting), you will need to wrap the column header in quotation marks, e.g. `"Height, length, weight"`.
+* If any field labels contain the character you are using as the CSV delimiter (defined in the `delimiter` config setting), you will need to wrap the column header in quotation marks, e.g. `"Height, length, weight"`.
 
 ### Single and multi-valued fields
 
@@ -165,7 +165,7 @@ Drupal strictly enforces the maximum number of values allowed in a field. If the
 The subdelimiter character defaults to a pipe (`|`) but can be set in your config file using the `subdelimiter` configuration setting.
 
 !!! note
-    Workbench will remove duplicate values in CSV fields. For example, if you accidently use `first subvalue|second subvalue|second subvalue` in your CSV, Workbench will filter out the superflous `second subvalue`. This applies to both `create` and `update` tasks, and within `update` tasks, replacing values and appending values to existing ones. Workbench deduplicates CVS values silently: it doesn't log the fact that it is doing it.
+    Workbench will remove duplicate values in CSV fields. For example, if you accidentally use `first subvalue|second subvalue|second subvalue` in your CSV, Workbench will filter out the superfluous `second subvalue`. This applies to both `create` and `update` tasks, and within `update` tasks, replacing values and appending values to existing ones. Workbench deduplicates CVS values silently: it doesn't log the fact that it is doing it.
 
 ### Drupal field types
 
@@ -424,6 +424,9 @@ Note that:
 * For multi-vocabulary fields, new typed relator targets must be accompanied by a vocabulary namespace (`person` in the above examples).
 * You cannot add new relators (e.g. `relators:foo`) in your CSV file, only new target terms.
 
+!!! note
+    Adding the typed relation namespace, relators, and vocabulary names is a major hassle. If this information is the same for all values (in all rows) in your `field_linked_agent` column (or any other typed relation field), you can use [CSV value templates](/islandora_workbench_docs/csv_value_templates/) to reduce the tedium.
+
 #### EDTF fields
 
 Running Islandora Workbench with `--check` will validate [Extended Date/Time Format (EDTF) Specification](https://www.loc.gov/standards/datetime/) dates (Levels 0, 1, and 2) in EDTF fields. Some common examples include:
@@ -482,7 +485,7 @@ http://acme.com|http://diy-first-aid.net%%DIY First Aid
 
 #### Authority link fields
 
-The aurhority link field type stores abbreviations for authority sources (i.e., external controlled vocabularies such as national name authorities), authority URIs (e.g. `http://viaf.org/viaf/153525475`) and link text in separate data elements. Authority link fields are most commonly used on taxonomy terms, but can be used on nodes as well.
+The authority link field type stores abbreviations for authority sources (i.e., external controlled vocabularies such as national name authorities), authority URIs (e.g. `http://viaf.org/viaf/153525475`) and link text in separate data elements. Authority link fields are most commonly used on taxonomy terms, but can be used on nodes as well.
 
 To add or update fields of this type, Workbench needs to provide the authority source abbreviation, URI and link text in the structure Drupal expects. To accomplish this within a single CSV field, we separate the three parts in CSV values with double percent signs (`%%`), like this:
 
@@ -531,7 +534,10 @@ field_coordinates
 Note that:
 
 * Geocoordinate values in your CSV need to be wrapped in double quotation marks, unless the `delimiter` key in your configuration file is set to something other than a comma.
-* If you are entering geocoordinates into a spreadsheet, a leading `+` will make the spreadsheet application think you are entering a formula. You can work around this by escaping the `+` with a backslash (`\`), e.g., `49.16667,-123.93333` should be `\+49.16667,-123.93333`, and `49.16667,-123.93333|49.25,-124.8` should be `\+49.16667,-123.93333|\+49.25,-124.8`. Workbench will strip the leading `\` before it populates the Drupal fields.
+* If you are entering geocoordinates into a spreadsheet, you may need to escape leading `+` and `-` signs since they will make the spreadsheet application think you are entering a formula. You can work around this by escaping the `+` an `-` with a backslash (`\`), e.g., `49.16667,-123.93333` should be `\+49.16667,-123.93333`, and `49.16667,-123.93333|49.25,-124.8` should be `\+49.16667,-123.93333|\+49.25,-124.8`. Workbench will strip the leading `\` before it populates the Drupal fields.
+    * Excel: leading `+` and `-` need to be escaped
+    * Google Sheets: only `+` needs to be escaped
+    * LibreOffice Calc: neither `+` nor `-` needs to be escaped
 
 #### Entity Reference Revisions fields (paragraphs)
 

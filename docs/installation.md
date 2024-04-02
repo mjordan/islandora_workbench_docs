@@ -41,7 +41,7 @@ For most people, the preferred place to install Python libraries is in your user
 
 `python3 setup.py install --user`
 
-A less common mehtod is to install the required Python libraries into your computer's central Python environment. To do this, omit the `--user` (note: you must have administrator privileges on the computer to do this):
+A less common method is to install the required Python libraries into your computer's central Python environment. To do this, omit the `--user` (note: you must have administrator privileges on the computer to do this):
 
 `sudo python3 setup.py install`
 
@@ -55,7 +55,7 @@ After you pull in the latest changes using `git`, it's a good idea to rerun the 
 
 `python3 setup.py install --user`
 
-or if you originally installed the required Python libraries centrally, withoug the `--user` option (again, you will need administrator privileges on the machine):
+or if you originally installed the required Python libraries centrally, without the `--user` option (again, you will need administrator privileges on the machine):
 
 `sudo python3 setup.py install`
 
@@ -90,7 +90,7 @@ To avoid these issues, you need to be running Drupal version 8.6 or higher.
 !!! warning
     If you are using Drupal 8.5 or earlier, you need to use the version of Workbench tagged with `drupal_8.5_and_lower` (commit 542325fb6d44c2ac84a4e2965289bb9f9ed9bf68). Later versions no longer support Drupal 8.5 and earlier.
 
-## Password managment
+## Password management
 
 Islandora Workbench requires user credentials that have administrator-level permissions in the target Drupal. Therefore you should exercise caution when managing those credentials.
 
