@@ -65,6 +65,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#adding-media-from-files" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -556,9 +561,45 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Adding media to nodes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Adding media to nodes
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adding-media-from-files" class="md-nav__link">
+    Adding media from files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-references-to-media-using-dgis-image-discovery-module" class="md-nav__link">
+    Adding references to media using DGI's Image Discovery module
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -882,6 +923,28 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adding-media-from-files" class="md-nav__link">
+    Adding media from files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-references-to-media-using-dgis-image-discovery-module" class="md-nav__link">
+    Adding references to media using DGI's Image Discovery module
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -902,6 +965,7 @@
 
   <h1>Adding media to nodes</h1>
 
+<h3 id="adding-media-from-files">Adding media from files</h3>
 <p>You can add media to existing nodes by providing a CSV file with a <code>node_id</code> column plus a <code>file</code> field that contains the name of the file you want to add:</p>
 <pre><code class="language-text">node_id,file
 100,test.txt
@@ -938,6 +1002,20 @@ media_use_tid: &quot;http://pcdm.org/use#Transcript&quot;
 <p class="admonition-title">Note</p>
 <p>The Drupal filesystem where files are stored is determined by each media type's file field configuration. It is not possible to override that configuration.</p>
 </div>
+<h3 id="adding-references-to-media-using-dgis-image-discovery-module">Adding references to media using DGI's Image Discovery module</h3>
+<p>DiscoveryGarden's <a href="https://github.com/discoverygarden/dgi_image_discovery">DGI Image Discovery module</a> provides a way to assign the same thumbnail image to multiple nodes. This is not its main purpose, but it is easy to accomplish that goal using Islandora Workbench.</p>
+<p>Essentially, this module defines a specific Drupal field on a node, <code>field_representative_image</code>, that contains a reference to an existing media, for example a media with an Islandora Media Use term "Thumbnail image". This approach to defining a thumbnail is different than Islandora's normal node/media relationship, where the media entity references its parent node in a <code>field_media_of</code> field attached to the media.</p>
+<p>To use Workbench to populate <code>field_representativ_image</code>, simply include that field in your Workbench <code>create</code> task CSV and populate it with the media ID of the thumbnail media you want to use. The following example CSV populates the field with the media ID "3784":</p>
+<pre><code>id,file,title,field_representative_image,field_model
+test-001,Test node 001,3784,Image
+test-002,Test node 002,3784,Digital Document
+</code></pre>
+<p>Note that this approach to assigning a thumbnail image to a node does not use Workbench's <code>additional_fields</code> configuration setting to define a CSV column containing the filename of a thumbnail image. It simply populates a node's <code>field_representativ_image</code> field with a media ID. DGI's module ensures that the referenced media is used as the node's thumbnail image. No other Workbench configuration is necessary.</p>
+<p>It's just as easy to use an <code>update</code> task to add the referenced media ID to nodes:</p>
+<pre><code>node_id,field_representative_image
+1089,3784
+1093,3784
+</code></pre>
 
 
 
