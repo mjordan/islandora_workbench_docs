@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* March 28, 2024: (commit 76736ba) Work on [issue 762](https://github.com/mjordan/islandora_workbench/issues/762).
 * March 27, 2024: (commit 1cf0717) Resolved [issue 756](https://github.com/mjordan/islandora_workbench/issues/756) and (commit 514b8f3) [issue 755](https://github.com/mjordan/islandora_workbench/issues/755).
 * March 4, 2024: (commit 5332f33) Work on [issue 747](https://github.com/mjordan/islandora_workbench/issues/747).
 * February 20, 2024: (commit 2b686d5) Resolved [issue 743](https://github.com/mjordan/islandora_workbench/issues/743).
@@ -113,6 +114,7 @@
 
 ### Documentation
 
+* April 2, 2024: Updated "[Choosing a task](https://mjordan.github.io/islandora_workbench_docs/choosing_a_task/)"; updated "[Adding media to nodes](https://mjordan.github.io/islandora_workbench_docs/adding_media/)" to describe using DGI's [Image Discovery module](https://github.com/discoverygarden/dgi_image_discovery).
 * February 21, 2024: Updated "[Development guide](https://mjordan.github.io/islandora_workbench_docs/development_guide/)".
 * February 20, 2024: Updated "[Updating media](https://mjordan.github.io/islandora_workbench_docs/updating_media/)" to indicate that `media_type` is now a required configuration setting in `update_media` tasks.
 * January 30, 2024: Added new docs on "[Using a Drupal View to generate a media report as CSV](https://mjordan.github.io/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-generate-a-media-report-as-csv)". Also updated these docs to be clearer on the difference between Contextual Filters and Filter Criteria.
