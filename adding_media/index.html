@@ -591,8 +591,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#adding-references-to-media-using-dgis-image-discovery-module" class="md-nav__link">
-    Adding references to media using DGI's Image Discovery module
+  <a href="#adding-references-to-media-for-use-with-dgis-image-discovery-module" class="md-nav__link">
+    Adding references to media for use with DGI's Image Discovery module
   </a>
   
 </li>
@@ -937,8 +937,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#adding-references-to-media-using-dgis-image-discovery-module" class="md-nav__link">
-    Adding references to media using DGI's Image Discovery module
+  <a href="#adding-references-to-media-for-use-with-dgis-image-discovery-module" class="md-nav__link">
+    Adding references to media for use with DGI's Image Discovery module
   </a>
   
 </li>
@@ -1002,9 +1002,9 @@ media_use_tid: &quot;http://pcdm.org/use#Transcript&quot;
 <p class="admonition-title">Note</p>
 <p>The Drupal filesystem where files are stored is determined by each media type's file field configuration. It is not possible to override that configuration.</p>
 </div>
-<h3 id="adding-references-to-media-using-dgis-image-discovery-module">Adding references to media using DGI's Image Discovery module</h3>
-<p>DiscoveryGarden's <a href="https://github.com/discoverygarden/dgi_image_discovery">DGI Image Discovery module</a> provides a way to assign the same thumbnail image to multiple nodes. This is not its main purpose, but it is easy to accomplish that goal using Islandora Workbench.</p>
-<p>Essentially, this module defines a specific Drupal field on a node, <code>field_representative_image</code>, that contains a reference to an existing media, for example a media with an Islandora Media Use term "Thumbnail image". This approach to defining a thumbnail is different than Islandora's normal node/media relationship, where the media entity references its parent node in a <code>field_media_of</code> field attached to the media.</p>
+<h3 id="adding-references-to-media-for-use-with-dgis-image-discovery-module">Adding references to media for use with DGI's Image Discovery module</h3>
+<p>DiscoveryGarden's <a href="https://github.com/discoverygarden/dgi_image_discovery">DGI Image Discovery module</a> provides a way to assign the same thumbnail image to multiple nodes. This is not the module's main purpose, but reusing a thumbnail image on many nodes is easy to accomplish using this module and Islandora Workbench.</p>
+<p>Essentially, the Image Discovery module defines a specific Drupal field on a node, <code>field_representative_image</code>, that contains a reference to an existing media, for example a media with an Islandora Media Use term "Thumbnail image". This approach to defining a thumbnail is different than Islandora's normal node/media relationship, where the media entity references its parent node in a <code>field_media_of</code> field attached to the media.</p>
 <p>To use Workbench to populate <code>field_representativ_image</code>, simply include that field in your Workbench <code>create</code> task CSV and populate it with the media ID of the thumbnail media you want to use. The following example CSV populates the field with the media ID "3784":</p>
 <pre><code>id,file,title,field_representative_image,field_model
 test-001,Test node 001,3784,Image
