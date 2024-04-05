@@ -118,10 +118,11 @@ Strictly speaking, YAML lists can be represented as either a series of entries o
 | csv_field_templates |  |  | Used in the `create` and `update` tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the "[CSV field templates](/islandora_workbench_docs/field_templates/)" section.|
 | csv_value_templates |  |  | Used in the `create` and `update` tasks only. A list of Drupal field machine names and corresponding templates. More detail provided in the "[CSV value templates](/islandora_workbench_docs/csv_value_templates/)" section.|
 | ignore_csv_columns |  |  | Used in the `create` and `update` tasks only. A list of CSV column headers that Workbench should ignore. For example, `ignore_csv_columns: [Target Collection, Ready to publish]`|
-| csv_start_row  |  |  | Used in all tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) before the designated row number. [More information](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges) is available. |
-| csv_stop_row  |  |  | Used in all tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) after the designated row number. [More information](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges) is available.|
+| csv_start_row  |  |  | Used in `create` and `update` tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) before the designated row number. [More information](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges) is available. |
+| csv_stop_row  |  |  | Used in `create` and `update` tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) after the designated row number. [More information](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges) is available.|
+| csv_rows_to_process  |  |  | Used in `create` and `update` tasks. Tells Workbench to process only the rows/records in input CSV (or Google Sheet or Excel) with "id" column values. [More information](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges) is available.|
 | csv_headers  |  | names  | Used in "create", "update" and "create_terms" tasks. Set to "labels" to allow use of field labels (as opposed to machine names) as CSV column headers. |
-| clean_csv_values_skip  |  | [] (empty list)]  | Used in all tasks that use CSV input files. See "[How Workbench cleans your input data](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data)" for more information. |
+| clean_csv_values_skip  |  | [] (empty list)  | Used in all tasks that use CSV input files. See "[How Workbench cleans your input data](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data)" for more information. |
 
 ### Output CSV settings
 
