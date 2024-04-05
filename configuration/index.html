@@ -1602,13 +1602,19 @@ csv_field_templates:
 <td>csv_start_row</td>
 <td></td>
 <td></td>
-<td>Used in all tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) before the designated row number. <a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges">More information</a> is available.</td>
+<td>Used in <code>create</code> and <code>update</code> tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) before the designated row number. <a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges">More information</a> is available.</td>
 </tr>
 <tr>
 <td>csv_stop_row</td>
 <td></td>
 <td></td>
-<td>Used in all tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) after the designated row number. <a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges">More information</a> is available.</td>
+<td>Used in <code>create</code> and <code>update</code> tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) after the designated row number. <a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges">More information</a> is available.</td>
+</tr>
+<tr>
+<td>csv_rows_to_process</td>
+<td></td>
+<td></td>
+<td>Used in <code>create</code> and <code>update</code> tasks. Tells Workbench to process only the rows/records in input CSV (or Google Sheet or Excel) with "id" column values. <a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges">More information</a> is available.</td>
 </tr>
 <tr>
 <td>csv_headers</td>
@@ -1619,7 +1625,7 @@ csv_field_templates:
 <tr>
 <td>clean_csv_values_skip</td>
 <td></td>
-<td>[] (empty list)]</td>
+<td>[] (empty list)</td>
 <td>Used in all tasks that use CSV input files. See "<a href="/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data">How Workbench cleans your input data</a>" for more information.</td>
 </tr>
 </tbody>
