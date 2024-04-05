@@ -68,13 +68,13 @@ If you only want to process a single row, use its position in the CSV for both `
     `Using a subset of the input CSV (will start at row 10, stop at row 15).`
 
 
-### Processing only specific CSV rows
+## Processing specific CSV rows
 
-You can tell Workbench to process specific rows in your CSV file (or, looked at from another perspective, tell it to ignore all rows other than the specified ones). To do this, add the `csv_rows_to_process` setting to your config file with a list of "id" column values, e.g.:
+You can tell Workbench to process only specific rows in your CSV file (or, looked at from another perspective, to ignore all rows other than the specified ones). To do this, add the `csv_rows_to_process` setting to your config file with a list of "id" column values, e.g.:
 
 `csv_rows_to_process: ["test_001", "test_007", "test_103"]`
 
-This will tell Workbench to only process the CSV rows that have those values in their "id" column. This works with whatever you have configured as your "id" column header using the `id_field` configuration setting.
+This will tell Workbench to process only the CSV rows that have those values in their "id" column. This works with whatever you have configured as your "id" column header using the `id_field` configuration setting.
 
 ## Ignoring CSV columns
 
