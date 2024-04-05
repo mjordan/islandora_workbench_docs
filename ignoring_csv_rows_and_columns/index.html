@@ -370,18 +370,12 @@
     Using CSV row ranges
   </a>
   
-    <nav class="md-nav" aria-label="Using CSV row ranges">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#processing-only-specific-csv-rows" class="md-nav__link">
-    Processing only specific CSV rows
-  </a>
-  
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#processing-specific-csv-rows" class="md-nav__link">
+    Processing specific CSV rows
+  </a>
   
 </li>
       
@@ -961,18 +955,12 @@
     Using CSV row ranges
   </a>
   
-    <nav class="md-nav" aria-label="Using CSV row ranges">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#processing-only-specific-csv-rows" class="md-nav__link">
-    Processing only specific CSV rows
-  </a>
-  
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#processing-specific-csv-rows" class="md-nav__link">
+    Processing specific CSV rows
+  </a>
   
 </li>
       
@@ -1051,10 +1039,10 @@ IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Franc
 <p>When the <code>csv_start_row</code> or <code>csv_stop_row</code> options are in use, Workbench will display a message similar to the following when run:</p>
 <p><code>Using a subset of the input CSV (will start at row 10, stop at row 15).</code></p>
 </div>
-<h3 id="processing-only-specific-csv-rows">Processing only specific CSV rows</h3>
-<p>You can tell Workbench to process specific rows in your CSV file (or, looked at from another perspective, tell it to ignore all rows other than the specified ones). To do this, add the <code>csv_rows_to_process</code> setting to your config file with a list of "id" column values, e.g.:</p>
+<h2 id="processing-specific-csv-rows">Processing specific CSV rows</h2>
+<p>You can tell Workbench to process only specific rows in your CSV file (or, looked at from another perspective, to ignore all rows other than the specified ones). To do this, add the <code>csv_rows_to_process</code> setting to your config file with a list of "id" column values, e.g.:</p>
 <p><code>csv_rows_to_process: ["test_001", "test_007", "test_103"]</code></p>
-<p>This will tell Workbench to only process the CSV rows that have those values in their "id" column. This works with whatever you have configured as your "id" column header using the <code>id_field</code> configuration setting.</p>
+<p>This will tell Workbench to process only the CSV rows that have those values in their "id" column. This works with whatever you have configured as your "id" column header using the <code>id_field</code> configuration setting.</p>
 <h2 id="ignoring-csv-columns">Ignoring CSV columns</h2>
 <p>Islandora Workbench strictly validates the columns in the input CSV to ensure that they match Drupal field names and reserved Workbench column names. To accommodate CSV columns that do not correspond to either of those types, or to eliminate a column during testing or troubleshooting, you can tell Workbench to ignore specific columns that are present in the CSV. To do this, list the column headers in the <code>ignore_csv_columns</code> configuration setting. The value of this setting is a list. For example, if you want to include a <code>date_generated</code> column in your CSV (which is neither a Workbench reserved column or a Drupal field name), include the following in your Workbench configuration file:</p>
 <pre><code>ignore_csv_columns: ['date_generated']
