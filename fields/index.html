@@ -1928,6 +1928,20 @@ My Title: A Subtitle|Alternate Title
 <p class="admonition-title">Note</p>
 <p>Pargraphs are locked down from REST updates by default. To add new and update paragraph values you must enable the <code>paragraphs_type_permissions</code> submodule and ensure the Drupal user has sufficient privledges granted at <code>/admin/people/permissions/module/paragraphs_type_permissions</code>.</p>
 </div>
+<p>Further configuration needed by updating the REST endpoints for paragraphs. Go to Configuration/Web Services/REST Resources (<code>/admin/config/services/rest</code>) and enable "Paragraph". Then edit the settings for Paragraph to the following:
+* Granularity = Method
+* GET
+    * formats: jsonld, json
+    * authentication: jwt_auth, basic_auth, cookie
+* POST
+    * formats: json
+    * authentication: jwt_auth, basic_auth, cookie
+* DELETE
+    * formats: json
+    * authentication: jwt_auth, basic_auth, cookie
+* PATCH
+    * formats: json
+    * authentication: jwt_auth, basic_auth, cookie</p>
 
 
 
