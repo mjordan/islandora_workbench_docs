@@ -570,3 +570,18 @@ The `field_order` property determines the order of paragraph field values. The `
 
 !!! note
     Pargraphs are locked down from REST updates by default. To add new and update paragraph values you must enable the `paragraphs_type_permissions` submodule and ensure the Drupal user has sufficient privledges granted at `/admin/people/permissions/module/paragraphs_type_permissions`.
+
+Further configuration needed by updating the REST endpoints for paragraphs. Go to Configuration/Web Services/REST Resources (`/admin/config/services/rest`) and enable "Paragraph". Then edit the settings for Paragraph to the following:
+* Granularity = Method
+* GET
+    * formats: jsonld, json
+    * authentication: jwt_auth, basic_auth, cookie
+* POST
+    * formats: json
+    * authentication: jwt_auth, basic_auth, cookie
+* DELETE
+    * formats: json
+    * authentication: jwt_auth, basic_auth, cookie
+* PATCH
+    * formats: json
+    * authentication: jwt_auth, basic_auth, cookie
