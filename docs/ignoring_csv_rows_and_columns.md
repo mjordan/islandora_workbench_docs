@@ -1,6 +1,6 @@
 ## Commenting out CSV rows
 
-You can comment out rows in your input CSV, Excel file, or Google Sheet by adding a hash mark (`#`) as the first character of the value in the first column. Workbench ignores these rows, both when it is run with and without `--check`. Commenting out rows works in all tasks that use CSV data.
+In `create` and `update` tasks, you can comment out rows in your input CSV, Excel file, or Google Sheet by adding a hash mark (`#`) as the first character of the value in the first column. Workbench ignores these rows, both when it is run with and without `--check`. Commenting out rows works in all tasks that use CSV data.
 
 For example, the third row in the following CSV file is commented out:
 
@@ -43,29 +43,38 @@ id,file,title,field_model,field_description
 ## Using CSV row ranges
 
 The `csv_start_row` and `csv_stop_row` configuration settings allow you to tell Workbench to only process a specific subset of input CSV records. Both settings are optional and can be used in any task, and apply when using text CSV, Google Sheets, or Excel input files. Each setting takes as its value a row number (ignoring the header row). For example, row number 2 is the second row of data after the CSV header row. Below are some example configurations.
-  
+
 Process CSV rows 10 to the end of the CSV file (ignoring rows 1-9):
 
 `csv_start_row: 10`
 
 Process only CSV rows 10-15 (ignoring all other rows):
 
-`csv_start_row: 10`  
-`csv_stop_row: 15` 
+`csv_start_row: 10`
+`csv_stop_row: 15`
 
 Process CSV from the start of the file to row 20 (ignoring rows 21 and higher):
 
-`csv_stop_row: 20` 
+`csv_stop_row: 20`
 
 If you only want to process a single row, use its position in the CSV for both `csv_start_row` or `csv_stop_row` (for example, to only process row 100):
 
-`csv_start_row: 100`  
-`csv_stop_row: 100` 
+`csv_start_row: 100`
+`csv_stop_row: 100`
 
 !!! note
     When the `csv_start_row` or `csv_stop_row` options are in use, Workbench will display a message similar to the following when run:
 
     `Using a subset of the input CSV (will start at row 10, stop at row 15).`
+
+
+## Processing specific CSV rows
+
+You can tell Workbench to process only specific rows in your CSV file (or, looked at from another perspective, to ignore all rows other than the specified ones). To do this, add the `csv_rows_to_process` setting to your config file with a list of "id" column values, e.g.:
+
+`csv_rows_to_process: ["test_001", "test_007", "test_103"]`
+
+This will tell Workbench to process only the CSV rows that have those values in their "id" column. This works with whatever you have configured as your "id" column header using the `id_field` configuration setting.
 
 ## Ignoring CSV columns
 

@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* April 4, 2024: (commit 0824988) Resolved [issue 765](https://github.com/mjordan/islandora_workbench/issues/765).
 * April 2, 2024: (commit 0777318) Resolved [issue 763](https://github.com/mjordan/islandora_workbench/issues/763).
 * March 28, 2024: (commit 76736ba) Work on [issue 762](https://github.com/mjordan/islandora_workbench/issues/762).
 * March 27, 2024: (commit 1cf0717) Resolved [issue 756](https://github.com/mjordan/islandora_workbench/issues/756) and (commit 514b8f3) [issue 755](https://github.com/mjordan/islandora_workbench/issues/755).
@@ -115,6 +116,7 @@
 
 ### Documentation
 
+* April 5, 2024: Updated "[Ignoring CSV rows and columns](https://mjordan.github.io/islandora_workbench_docs/ignoring_csv_rows_and_columns/)" to describe using the new `csv_rows_to_process` config setting.
 * April 2, 2024: Updated "[Choosing a task](https://mjordan.github.io/islandora_workbench_docs/choosing_a_task/)"; updated "[Adding media to nodes](https://mjordan.github.io/islandora_workbench_docs/adding_media/)" to describe using DGI's [Image Discovery module](https://github.com/discoverygarden/dgi_image_discovery).
 * February 21, 2024: Updated "[Development guide](https://mjordan.github.io/islandora_workbench_docs/development_guide/)".
 * February 20, 2024: Updated "[Updating media](https://mjordan.github.io/islandora_workbench_docs/updating_media/)" to indicate that `media_type` is now a required configuration setting in `update_media` tasks.
