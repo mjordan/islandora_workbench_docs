@@ -543,16 +543,36 @@ Note that:
 
 [Entity Reference Revisions](https://www.drupal.org/project/entity_reference_revisions) fields are similar to Drupal's core Entity Reference fields used for taxonomy terms but are intended for entities that are not intended for reference outside the context of the item that references them. For Islandora sites, this is used for [Paragraph](https://www.drupal.org/project/paragraphs) entities.
 
-Paragraphs are handy for Islandora as they allow us to create more complex metadata (such as complex titles, typed notes, or typed identifiers) by adding Drupal fields to a paragraph entity types; unlike the Typed Relationship field which hard-codes properties. However, this flexibility makes creating an workbench import more complicated and, as such, requires additional configration to make them work.
+In order to populate paragraph entites using Workbench, you need to enable and configure the REST endpoints for paragraphs. To do this, go to Configuration/Web Services/REST Resources (`/admin/config/services/rest`) and enable "Paragraph". Then edit the settings for Paragraph to the following:
 
-For example, suppose you have a "Full Title" field (`field_full_title`) on your Islandora Object content type referencing a paragraph type called "Complex Title" (`complex_title`) with "main title" (`field_main_title`) and "subtitle" (`field_subtitle`) text fields. You could have a CSV like:
+* Granularity = Method
+* GET
+    * formats: jsonld, json
+    * authentication: jwt_auth, basic_auth, cookie
+* POST
+    * formats: json
+    * authentication: jwt_auth, basic_auth, cookie
+* DELETE
+    * formats: json
+    * authentication: jwt_auth, basic_auth, cookie
+* PATCH
+    * formats: json
+    * authentication: jwt_auth, basic_auth, cookie
+
+    !!! note
+    Pargraphs are locked down from REST updates by default. To add new and update paragraph values you must enable the `paragraphs_type_permissions` submodule and ensure the Drupal user has sufficient privledges granted at `/admin/people/permissions/module/paragraphs_type_permissions`.
+
+
+Paragraphs are handy for Islandora as they provide flexibility in the creation of more complex metadata (such as complex titles, typed notes, or typed identifiers) by adding Drupal fields to paragraph entities, unlike the Typed Relationship field which hard-codes properties. However, this flexibility makes creating an Workbench import more complicated and, as such, requires additional configration.
+
+For example, suppose you have a "Full Title" field (`field_full_title`) on your Islandora Object content type referencing a paragraph type called "Complex Title" (`complex_title`) that contains "main title" (`field_main_title`) and "subtitle" (`field_subtitle`) text fields. The input CSV would look like:
 
 ```text
 field_full_title
 My Title: A Subtitle|Alternate Title
 ```
 
-In this example we have two title values, "My Title: A Subtitle" (where "My Title" is the main title and "A Subtitle" is the subtitle) and "Alternate Title" (which only has a main title). We would then add the following to our configuration file:
+In this example we have two title values, "My Title: A Subtitle" (where "My Title" is the main title and "A Subtitle" is the subtitle) and "Alternate Title" (which only has a main title). To map these CSV values to our paragraph fiels, we need to add the following to our configuration file:
 
 ```yml
 paragraph_fields:
@@ -567,21 +587,3 @@ paragraph_fields:
 ```
 
 The `field_order` property determines the order of paragraph field values. The `subdelimiter` property is the same as all other multi-valued fields, we simply offer the option to override the default or globally configured value. The `field_delimiter` property determines what character should be used to separate the paragraph entity's fields. We used a colon for the field delimiter in this example, as it is often used in titles to denote subtitles.
-
-!!! note
-    Pargraphs are locked down from REST updates by default. To add new and update paragraph values you must enable the `paragraphs_type_permissions` submodule and ensure the Drupal user has sufficient privledges granted at `/admin/people/permissions/module/paragraphs_type_permissions`.
-
-Further configuration needed by updating the REST endpoints for paragraphs. Go to Configuration/Web Services/REST Resources (`/admin/config/services/rest`) and enable "Paragraph". Then edit the settings for Paragraph to the following:
-* Granularity = Method
-* GET
-    * formats: jsonld, json
-    * authentication: jwt_auth, basic_auth, cookie
-* POST
-    * formats: json
-    * authentication: jwt_auth, basic_auth, cookie
-* DELETE
-    * formats: json
-    * authentication: jwt_auth, basic_auth, cookie
-* PATCH
-    * formats: json
-    * authentication: jwt_auth, basic_auth, cookie
