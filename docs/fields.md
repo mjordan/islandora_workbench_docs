@@ -560,7 +560,7 @@ In order to populate paragraph entites using Workbench, you need to enable and c
     * authentication: jwt_auth, basic_auth, cookie
 
     !!! note
-    Pargraphs are locked down from REST updates by default. To add new and update paragraph values you must enable the `paragraphs_type_permissions` submodule and ensure the Drupal user has sufficient privledges granted at `/admin/people/permissions/module/paragraphs_type_permissions`.
+    Pargraphs are locked down from REST updates by default. To add new and update paragraph values you must enable the `paragraphs_type_permissions` submodule and ensure the Drupal user in your configuration file has sufficient privledges granted at `/admin/people/permissions/module/paragraphs_type_permissions`.
 
 
 Paragraphs are handy for Islandora as they provide flexibility in the creation of more complex metadata (such as complex titles, typed notes, or typed identifiers) by adding Drupal fields to paragraph entities, unlike the Typed Relationship field which hard-codes properties. However, this flexibility makes creating an Workbench import more complicated and, as such, requires additional configration.
@@ -572,7 +572,7 @@ field_full_title
 My Title: A Subtitle|Alternate Title
 ```
 
-In this example we have two title values, "My Title: A Subtitle" (where "My Title" is the main title and "A Subtitle" is the subtitle) and "Alternate Title" (which only has a main title). To map these CSV values to our paragraph fiels, we need to add the following to our configuration file:
+In this example we have two title values, "My Title: A Subtitle" (where "My Title" is the main title and "A Subtitle" is the subtitle) and "Alternate Title" (which only has a main title). To map these CSV values to our paragraph fields, we need to add the following to our configuration file:
 
 ```yml
 paragraph_fields:
@@ -586,4 +586,4 @@ paragraph_fields:
       subdelimiter: '|'
 ```
 
-The `field_order` property determines the order of paragraph field values. The `subdelimiter` property is the same as all other multi-valued fields, we simply offer the option to override the default or globally configured value. The `field_delimiter` property determines what character should be used to separate the paragraph entity's fields. We used a colon for the field delimiter in this example, as it is often used in titles to denote subtitles.
+This configuration defines the paragraph field on the node (`field_full_title`) and its child fields (`field_main_title` and `field_subtitle`), which occur within the paragraph in the order they are named in the `field_order` property. Within the data in the CSV column, the values corresponding to the order of those fields are separated by the character defined in the `field_delimiter` property. `subdelimiter` here is the same as the `subdelimiter` configuration setting used in non-paragraph multi-valued fields; in this example it overrides the default or globally configured value. We use a colon for the field delimiter in this example as it is often used in titles to denote subtitles.

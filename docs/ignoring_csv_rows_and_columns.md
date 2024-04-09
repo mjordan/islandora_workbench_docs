@@ -50,8 +50,10 @@ Process CSV rows 10 to the end of the CSV file (ignoring rows 1-9):
 
 Process only CSV rows 10-15 (ignoring all other rows):
 
-`csv_start_row: 10`
-`csv_stop_row: 15`
+```
+csv_start_row: 10
+csv_stop_row: 15
+```
 
 Process CSV from the start of the file to row 20 (ignoring rows 21 and higher):
 
@@ -59,8 +61,10 @@ Process CSV from the start of the file to row 20 (ignoring rows 21 and higher):
 
 If you only want to process a single row, use its position in the CSV for both `csv_start_row` or `csv_stop_row` (for example, to only process row 100):
 
-`csv_start_row: 100`
-`csv_stop_row: 100`
+```
+csv_start_row: 100
+csv_stop_row: 100
+```
 
 !!! note
     When the `csv_start_row` or `csv_stop_row` options are in use, Workbench will display a message similar to the following when run:
