@@ -1934,7 +1934,7 @@ viaf%%http://viaf.org/viaf/10646807|other%%https://github.com/mjordan%%Github
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 </div>
-<p>Pargraphs are locked down from REST updates by default. To add new and update paragraph values you must enable the <code>paragraphs_type_permissions</code> submodule and ensure the Drupal user has sufficient privledges granted at <code>/admin/people/permissions/module/paragraphs_type_permissions</code>.</p>
+<p>Pargraphs are locked down from REST updates by default. To add new and update paragraph values you must enable the <code>paragraphs_type_permissions</code> submodule and ensure the Drupal user in your configuration file has sufficient privledges granted at <code>/admin/people/permissions/module/paragraphs_type_permissions</code>.</p>
 </li>
 </ul>
 <p>Paragraphs are handy for Islandora as they provide flexibility in the creation of more complex metadata (such as complex titles, typed notes, or typed identifiers) by adding Drupal fields to paragraph entities, unlike the Typed Relationship field which hard-codes properties. However, this flexibility makes creating an Workbench import more complicated and, as such, requires additional configration.</p>
@@ -1942,7 +1942,7 @@ viaf%%http://viaf.org/viaf/10646807|other%%https://github.com/mjordan%%Github
 <pre><code class="language-text">field_full_title
 My Title: A Subtitle|Alternate Title
 </code></pre>
-<p>In this example we have two title values, "My Title: A Subtitle" (where "My Title" is the main title and "A Subtitle" is the subtitle) and "Alternate Title" (which only has a main title). To map these CSV values to our paragraph fiels, we need to add the following to our configuration file:</p>
+<p>In this example we have two title values, "My Title: A Subtitle" (where "My Title" is the main title and "A Subtitle" is the subtitle) and "Alternate Title" (which only has a main title). To map these CSV values to our paragraph fields, we need to add the following to our configuration file:</p>
 <pre><code class="language-yml">paragraph_fields:
   node:
     field_full_title:
@@ -1953,7 +1953,7 @@ My Title: A Subtitle|Alternate Title
       field_delimiter: ':'
       subdelimiter: '|'
 </code></pre>
-<p>The <code>field_order</code> property determines the order of paragraph field values. The <code>subdelimiter</code> property is the same as all other multi-valued fields, we simply offer the option to override the default or globally configured value. The <code>field_delimiter</code> property determines what character should be used to separate the paragraph entity's fields. We used a colon for the field delimiter in this example, as it is often used in titles to denote subtitles.</p>
+<p>This configuration defines the paragraph field on the node (<code>field_full_title</code>) and its child fields (<code>field_main_title</code> and <code>field_subtitle</code>), which occur within the paragraph in the order they are named in the <code>field_order</code> property. Within the data in the CSV column, the values corresponding to the order of those fields are separated by the character defined in the <code>field_delimiter</code> property. <code>subdelimiter</code> here is the same as the <code>subdelimiter</code> configuration setting used in non-paragraph multi-valued fields; in this example it overrides the default or globally configured value. We use a colon for the field delimiter in this example as it is often used in titles to denote subtitles.</p>
 
 
 
