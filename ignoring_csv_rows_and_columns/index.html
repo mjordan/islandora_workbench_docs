@@ -1027,13 +1027,15 @@ IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Franc
 <p>Process CSV rows 10 to the end of the CSV file (ignoring rows 1-9):</p>
 <p><code>csv_start_row: 10</code></p>
 <p>Process only CSV rows 10-15 (ignoring all other rows):</p>
-<p><code>csv_start_row: 10</code>
-<code>csv_stop_row: 15</code></p>
+<pre><code>csv_start_row: 10
+csv_stop_row: 15
+</code></pre>
 <p>Process CSV from the start of the file to row 20 (ignoring rows 21 and higher):</p>
 <p><code>csv_stop_row: 20</code></p>
 <p>If you only want to process a single row, use its position in the CSV for both <code>csv_start_row</code> or <code>csv_stop_row</code> (for example, to only process row 100):</p>
-<p><code>csv_start_row: 100</code>
-<code>csv_stop_row: 100</code></p>
+<pre><code>csv_start_row: 100
+csv_stop_row: 100
+</code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When the <code>csv_start_row</code> or <code>csv_stop_row</code> options are in use, Workbench will display a message similar to the following when run:</p>
