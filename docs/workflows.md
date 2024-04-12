@@ -51,7 +51,11 @@ In this workflow, the nodes are created overnight and then updated with CSV data
 
 ## Metadata maintenance
 
-Workbench can help you maintain your metadata using a variation of the Extract/Transform/Load pattern mentioned above. [Rosie Le Faive](https://github.com/rosiel) demonstrates this round-tripping technique [in this video](https://www.dropbox.com/scl/fi/o8nqw1nnkg862xmbbvti3/adding-publisher-field.mp4?rlkey=wmvtuns3quvhmd7yelzdhvopw&dl=0) (no need to log in), in which they move publisher data from the Linked Agent field to a dedicated Publisher field. Rosie 1) uses a `get_data_from_view` task to export the Linked Agent field data from a group of nodes, then 2) does some offline transformation of that data into a separate Publisher field (in this case, a Python script, but any suitable tool could be used), then finally 3) uses a pair of `update` tasks to put the modified data back into Drupal.
+Workbench can help you maintain your metadata using a variation of the Extract/Transform/Load pattern mentioned above. [Rosie Le Faive](https://github.com/rosiel) demonstrates this round-tripping technique [in this video](https://www.dropbox.com/scl/fi/o8nqw1nnkg862xmbbvti3/adding-publisher-field.mp4?rlkey=wmvtuns3quvhmd7yelzdhvopw&dl=0) (no need to log in), in which they move publisher data from the Linked Agent field to a dedicated Publisher field. Rosie
+
+1. uses a `get_data_from_view` task to export the Linked Agent field data from a group of nodes, then
+1. does some offline transformation of that data into a separate Publisher field (in this case, a Python script, but any suitable tool could be used), then finally
+1. uses a pair of `update` tasks to put the modified data back into Drupal.
 
 Drupal's Views Bulk Operations module (documented [here](https://islandora.github.io/documentation/concepts/collection/#bulk-management-of-members-of-a-collection)) lets you do simple metadata maintenance, but the round-tripping technique Rosie demonstrates allows you to do things that VBO simply can't.
 
