@@ -777,6 +777,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#metadata-maintenance" class="md-nav__link">
+    Metadata maintenance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#integrations-with-other-systems" class="md-nav__link">
     Integrations with other systems
   </a>
@@ -1047,6 +1054,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#metadata-maintenance" class="md-nav__link">
+    Metadata maintenance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#integrations-with-other-systems" class="md-nav__link">
     Integrations with other systems
   </a>
@@ -1175,6 +1189,9 @@
 <p class="admonition-title">Note</p>
 <p>Islandora Workbench does not detect changes in directories. While tools to do so exist, Workbench's ability to ingest Islandora content in batches makes it useful to scheduled jobs, as opposed to realtime detection of new files in a directory.</p>
 </div>
+<h2 id="metadata-maintenance">Metadata maintenance</h2>
+<p>Workbench can help you maintain your metadata using a variation of the Extract/Transform/Load pattern mentioned above. <a href="https://github.com/rosiel">Rosie Le Faive</a> demonstrates this round-tripping technique <a href="https://www.dropbox.com/scl/fi/o8nqw1nnkg862xmbbvti3/adding-publisher-field.mp4?rlkey=wmvtuns3quvhmd7yelzdhvopw&amp;dl=0">in this video</a> (no need to log in), in which they move publisher data from the Linked Agent field to a dedicated Publisher field. Rosie 1) uses a <code>get_data_from_view</code> task to export the Linked Agent field data from a group of nodes, then 2) does some offline transformation of that data into a separate Publisher field (in this case, a Python script, but any suitable tool could be used), then finally 3) uses a pair of <code>update</code> tasks to put the modified data back into Drupal.</p>
+<p>Drupal's Views Bulk Operations module (documented <a href="https://islandora.github.io/documentation/concepts/collection/#bulk-management-of-members-of-a-collection">here</a>) lets you do simple metadata maintenance, but the round-tripping technique Rosie demonstrates allows you to do things that VBO simply can't.</p>
 <h2 id="integrations-with-other-systems">Integrations with other systems</h2>
 <p>A combination of the "Migrations" workflow and the "Watch folder" workflow can be used to automate the periodic movement of content from a source system (in the diagram below, Open Journal Systems or Archivematica) into Islandora:</p>
 <p><img alt="Migrations" src="../images/workflow_integrations.png" /></p>
