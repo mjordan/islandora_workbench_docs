@@ -117,6 +117,7 @@
 
 ### Documentation
 
+* April 12, 2024: Added "etadata maintenance" section to the "[Workflows](/islandora_workbench_docs/workflows/)" docs using Rosie Le Faive's excellent demonstration of round tripping metadata.
 * April 8, 2024: Updated "[Field data (Drupal and CSV)](/islandora_workbench_docs/fields/#entity-reference-revisions-fields-paragraphs)" to add documentation on Entity Reference Revisions fields (paragraphs).
 * April 5, 2024: Updated "[Ignoring CSV rows and columns](https://mjordan.github.io/islandora_workbench_docs/ignoring_csv_rows_and_columns/)" to describe using the new `csv_rows_to_process` config setting.
 * April 2, 2024: Updated "[Choosing a task](https://mjordan.github.io/islandora_workbench_docs/choosing_a_task/)"; updated "[Adding media to nodes](https://mjordan.github.io/islandora_workbench_docs/adding_media/)" to describe using DGI's [Image Discovery module](https://github.com/discoverygarden/dgi_image_discovery).
