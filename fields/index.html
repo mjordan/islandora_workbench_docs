@@ -1740,7 +1740,6 @@ http://purl.org/coar/resource_type/c_18cc
 <li>use term IDs instead of term names or URIs in your input CSV <em>and</em></li>
 <li>include <code>require_entity_reference_views: false</code> in your configuration file.</li>
 </ul>
-<p>Note that Workbench will not validate values in fields that are configured to use this type of reference. Term IDs that are not in the View results will result in the node not being created (Drupal will return a 422 response).</p>
 <p>Alternatively, if you prefer to use term names instead of term IDs in CSV column for this type of field, you will need to create a special Display for the View that is referernced from that field. To do this:</p>
 <ol>
 <li>In the View that is referenced, <em>duplicate</em> the view display as a REST export display</li>
@@ -1762,7 +1761,7 @@ http://purl.org/coar/resource_type/c_18cc
 <p>During "create" and "update" tasks, <code>--check</code> will tell you if the View REST Export display path is accesible.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Currently, fields that use the "Views: Filter by an entity reference View" configuration are read-only and cannot be updated by Workbench.</p>
+<p>Regardless of whether you use term IDs or term names in your CSV, Workbench will not validate values in "Views: Filter by an entity reference View" taxonomy reference fields. Term IDs or term names that are not in the referenced View will result in the node not being created or updated (Drupal will return a 422 response). Also note that fields that use the "Views: Filter by an entity reference View" configuration are read-only; their linked vocabularies cannot be updated during node creation or updating like vocabularies that are linked to a field directly can.</p>
 </div>
 <h4 id="typed-relation-fields">Typed Relation fields</h4>
 <p>Typed relation fields contain information about the relationship (or "relation") between a taxonomy term and the node it is attached to. For example, a term from the Person vocabulary, "Jordan, Mark", can be an author, illustrator, or editor of the book described in the node. In this example, "author", "illustrator", and "editor" are the typed relations.</p>
