@@ -980,7 +980,7 @@
 
   <h1>Checking if nodes already exist</h1>
 
-<p>In <code>create</code> tasks, you can configure Workbench to query Drupal to determine if a node exists, using the values in a specified field (referred to as the "lookup field" below) in your input CSV, such as <code>field_local_identifier</code>. If Workbench finds a node with a matching value in that field, it will skip to the next CSV row and not create the matching node.</p>
+<p>In <code>create</code> tasks, you can configure Workbench to query Drupal to determine if a node exists, using the values in a specified field (referred to as the "lookup field" below) in your input CSV, such as <code>field_local_identifier</code>. If Workbench finds a node with a matching value in that field, it will skip to the next CSV row and not create the duplicate node.</p>
 <p>This feature is useful if you want to rerun the same <code>create</code> task without having to worry about removing rows from your CSV, or if you create a subset of items as a test or quality assurance step before loading all items in your CSV.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -988,7 +988,7 @@
 <p>Another assumption Workbench makes is that the values do not contain any spaces. They can however contain underscores, hyphens, and colons.</p>
 </div>
 <h2 id="creating-the-required-view">Creating the required View</h2>
-<p>To take advantage of this feature, you first need to create a View that Workbench will query:</p>
+<p>To use this feature, you first need to create a View that Workbench will query:</p>
 <ol>
 <li>Create a new "Content" View that has a REST Export display (no other display types are needed).</li>
 <li>In the Format configuration, choose "Serializer" and under Settings, check the "Force using fields" box and the "json" format.</li>
@@ -1016,10 +1016,11 @@
   - field_local_identifier: /local_identifier_lookup
 </code></pre>
 <p>In this sample configuration we tell Workbench to query a View at the path <code>/local_identifier_lookup</code> using the filter identifer/field name <code>field_local_identifier</code>. Note that you can only have a single CSV field to View path configuration here. If you include more than one, only the last one is used. <code>--check</code> will confirm that the configured View REST export URL is accessible and that the configured CSV column is in your input CSV.</p>
-<p>Nothing special in the input CSV is required; the Workbench configuration block above is all you need to do. However, note that:</p>
+<p>Nothing special is required in the input CSV; the Workbench configuration block above is all you need to do. However, note that:</p>
 <ul>
-<li>the field you choose as your lookup field should be a regular metadata field, and not the <code>id</code> field required by Workbench. However, there is nothing preventing you from configuring Workbench (through the <code>id_field</code> setting) to use as its ID column the same field you have configured as your lookup field.</li>
+<li>the field you choose as your lookup field should be a regular metadata field (e.g. "Local identifier"), and not the <code>id</code> field required by Workbench. However, there is nothing preventing you from configuring Workbench (through the <code>id_field</code> setting) to use as its ID column the same field you have configured as your lookup field.</li>
 <li>the data in the CSV field can be multivalued. Workbench will represent the multiple values in a way that works with the "Contains any word" option in your View's Filter configuration.</li>
+<li>as noted above, the CSV values in the lookup field cannot be used by more than one node and they cannot contain spaces.</li>
 </ul>
 <p>Your CSV can look like this:</p>
 <pre><code class="language-text">file,id,title,field_model,field_local_identifier
