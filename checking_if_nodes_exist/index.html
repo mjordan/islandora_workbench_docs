@@ -935,22 +935,26 @@
   <h1>Checking if nodes exist</h1>
 
 <h2 id="checking-if-nodes-exist">Checking if nodes exist</h2>
-<p>In <code>create</code> tasks, you can configure Workbench to query Drupal to determine if a node exists, using the values in a specified field (referred to as the "lookupi field" below) in your input CSV, such as <code>field_local_identifier</code>. If Workbench finds a node with a matching value in that field, it will skip to the next CSV row and not create the matching node. The assumption is that the values in the specified field are unique to each node.</p>
+<p>In <code>create</code> tasks, you can configure Workbench to query Drupal to determine if a node exists, using the values in a specified field (referred to as the "lookupi field" below) in your input CSV, such as <code>field_local_identifier</code>. If Workbench finds a node with a matching value in that field, it will skip to the next CSV row and not create the matching node.</p>
 <p>This feature is useful if you want to rerun the same <code>create</code> task without having to worry about removing rows from your CSV, or if you create a subset of items as a test or quality assurance step before loading all items in your CSV.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>For this to work, the values in the lookup field need to be unique to each node. In other words, two more more nodes would not have the same value in this field. Another assumption Workbench makes is that the values do not contain any spaces. They can however contain underscores, hyphens, and colons.</p>
 <h3 id="creating-the-required-view">Creating the required View</h3>
 <p>To take advantage of this feature, you first need to create a View that Workbench will query:</p>
 <ol>
-<li>Create a new "Content" View that has a REST Export display (no other display types are needed)</li>
+<li>Create a new "Content" View that has a REST Export display (no other display types are needed).</li>
 <li>In the Format configuration, choose "Serializer" and under Settings, check the "Force using fields" box and the "json" format.</li>
 <li>In the Fields configuration, choose "Content: ID" (i.e., the node ID).</li>
 <li>Go to the Other configuration (on the right side of the View configuration) and in the Use Aggregation configuration, choose "Yes". If asked for "Aggregation type", select "Group results together".</li>
 <li>In the Filter criteria configuration, add the field in your content type that you want to use as the lookup field, e.g. Local Identifier.</li>
-<li>Check "Expose this filter"</li>
-<li>Choose "Single filter"</li>
+<li>Check "Expose this filter".</li>
+<li>Choose "Single filter".</li>
 <li>In the Operator configuration, select "Contains any word" and in the Value field, enter the machine name of your field (e.g. <code>field_local_identifier</code>)</li>
 <li>In the Filter identifier section, enter the name of the URL parameter requests to this View will use to identify the CSV values. You should use the same string that you used in Operator configuration (which is also the same as your field's machine name), e.g. <code>field_local_identifier</code>.</li>
-<li>In the Path settings, provide a path, e.g. <code>local_identifier_lookup</code> (dn not add the leading <code>/</code>)</li>
-<li>Assign this path Basic authentication</li>
+<li>In the Path settings, provide a path, e.g. <code>local_identifier_lookup</code> (do not add the leading <code>/</code>)</li>
+<li>Assign this path Basic authentication.</li>
 <li>Access should be by Permission &gt; View published content.</li>
 <li>In the Pager settings, choose "Display all items".</li>
 </ol>
@@ -978,6 +982,7 @@ IMG_2940.JPG,03,Looking across Burrard Inlet,Image,sfu_id_003|special_collection
 IMG_2958.JPG,04,Amsterdam waterfront,Image,sfu_id_004
 IMG_5083.JPG,05,Alcatraz Island,Image,sfu_id_005
 </code></pre>
+<p>If you include a <code>node_exists_verification_view_endpoint</code> block in your configuration, before it creates a node, Workbench will use data from the CSV column specified on the left-hand side of the configuration to query the corresponding View endpoint. If it finds no match, it will create the node as usual; if it finds a single match, it will skip that CSV row and log that it has done so; if it finds more than one match, it will also skip the CSV row and not create a node, and it will log that it has done this.</p>
 
 
 
