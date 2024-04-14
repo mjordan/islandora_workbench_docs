@@ -15,6 +15,7 @@ nav:
     - Preparing your data: preparing_data.md
     - Field data (Drupal and CSV): fields.md
     - Ignoring CSV rows and columns: ignoring_csv_rows_and_columns.md
+    - Checking if nodes already exist: checking_if_nodes_exist.md
     - CSV field templates: field_templates.md
     - CSV value templates: csv_value_templates.md
     - Creating paged, compound, and collection content: paged_and_compound.md

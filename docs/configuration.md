@@ -243,6 +243,7 @@ See the "[Logging](/islandora_workbench_docs/logging/)" section for more informa
 | path_to_workbench_script |  | workbench | Used in `create` tasks that also use the `secondary_tasks` option. Tells Workbench the path to the python interpreter. For details on when to use this option, refer to the end of the "Secondary Tasks" section of "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task)". |
 | contact_sheet_output_dir |  | contact_sheet_output | Used in `create` tasks to specify the name of the directory where contact sheet output is written. Can be relative (to the Workbench directory) or absolute. See "[Generating a contact sheet](/islandora_workbench_docs/contact_sheet/)" for more information. |
 | contact_sheet_css_path |  | assets/contact_sheet/contact-sheet.css | Used in `create` tasks to specify the path of the CSS stylesheet to use in contact sheets. Can be relative (to the Workbench directory) or absolute. See "[Generating a contact sheet](/islandora_workbench_docs/contact_sheet/)" for more information. |
+| node_exists_verification_view_endpoint |  | | Used in `create` tasks to tell Workbench to check whether a node with a matching value in your input CSV already exists. See "[Checking if nodes already exist](/islandora_workbench_docs/checking_if_nodes_exist/)" for more information. |
 
 
 When you run Islandora Workbench with the `--check` argument, it will verify that all configuration options required for the current task are present, and if they aren't tell you so.
