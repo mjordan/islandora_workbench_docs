@@ -939,8 +939,8 @@
 <p>This feature is useful if you want to rerun the same <code>create</code> task without having to worry about removing rows from your CSV, or if you create a subset of items as a test or quality assurance step before loading all items in your CSV.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>For this to work, the values in the lookup field need to be unique to each node. In other words, two more more nodes would not have the same value in this field. Another assumption Workbench makes is that the values do not contain any spaces. They can however contain underscores, hyphens, and colons.</p>
+</div>
 <h3 id="creating-the-required-view">Creating the required View</h3>
 <p>To take advantage of this feature, you first need to create a View that Workbench will query:</p>
 <ol>
@@ -961,14 +961,14 @@
 <p>Save your View. You can test you new REST export View using Curl:</p>
 <pre><code>curl -v -uadmin:password -H &quot;Content-Type: application/json&quot; &quot;https://islandora.traefik.me/local_identifier_lookup?field_local_identifier=sfu_test_001&quot;
 </code></pre>
-<p>(In this example, the REST export's "Path" is <code>local_identifier_lookup</code>. Immediately after the <code>?</code> comes the filter identifier string configured above.)</p>
+<p>(In this example, the REST export's "Path" is <code>local_identifier_lookup</code>. Immediately after the <code>?</code> comes the filter identifier string configured above, with a value after the <code>=</code> from a node's Local Identifier field.)</p>
 <p>If you have curl on your system, change the example above to incorporate your local configuration and add a known value from the lookup field. If your test is successful, the query will return a single node ID in a structure like <code>[{"nid":"126"}]</code>. If the query can't find any nodes, the returned data will look like <code>[]</code>. If it finds more than one node, the structure will looks like <code>[{"nid":"125"},{"nid":"247"}]</code>.</p>
 <h3 id="configuring-workbench">Configuring Workbench</h3>
 <p>With the View configured and tested, you can now use this feature in Workbench by adding the following configuration block:</p>
 <pre><code>node_exists_verification_view_endpoint:
   - field_local_identifier: /local_identifier_lookup
 </code></pre>
-<p>Here we tell Workbench to query a View at the path <code>/local_identifier_lookup</code> using the filter identifer/field name <code>field_local_identifier</code>. Note that you can only have a single CSV field to View path configuration here. If you include more than one, only the first one is used.</p>
+<p>Here we tell Workbench to query a View at the path <code>/local_identifier_lookup</code> using the filter identifer/field name <code>field_local_identifier</code>. Note that you can only have a single CSV field to View path configuration here. If you include more than one, only the last one is used.</p>
 <p>Nothing special in the input CSV is required; the Workbench configuration block above is all you need to do. However, note that:</p>
 <ul>
 <li>the field you choose as your lookup field should be a regular metadata field, and not the <code>id</code> field required by Workbench. However, there is nothing preventing you from configuring Workbench (through the <code>id_field</code> setting) to use as its ID column the same field you have configured as your lookup field.</li>
