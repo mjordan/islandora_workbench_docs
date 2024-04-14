@@ -1010,12 +1010,13 @@
 </code></pre>
 <p>(In this example, the REST export's "Path" is <code>local_identifier_lookup</code>. Immediately after the <code>?</code> comes the filter identifier string configured above, with a value after the <code>=</code> from a node's Local Identifier field.)</p>
 <p>If testing with curl, change the example above to incorporate your local configuration and add a known value from the lookup field. If your test is successful, the query will return a single node ID in a structure like <code>[{"nid":"126"}]</code>. If the query can't find any nodes, the returned data will look like <code>[]</code>. If it finds more than one node, the structure will looks like <code>[{"nid":"125"},{"nid":"247"}]</code>.</p>
+<p>If you don't have curl, don't worry. <code>--check</code> will confirm that the configured View REST export URL is accessible and that the configured CSV column is in your input CSV.</p>
 <h2 id="configuring-workbench">Configuring Workbench</h2>
 <p>With the View configured and tested, you can now use this feature in Workbench by adding the following configuration block:</p>
 <pre><code>node_exists_verification_view_endpoint:
   - field_local_identifier: /local_identifier_lookup
 </code></pre>
-<p>In this sample configuration we tell Workbench to query a View at the path <code>/local_identifier_lookup</code> using the filter identifer/field name <code>field_local_identifier</code>. Note that you can only have a single CSV field to View path configuration here. If you include more than one, only the last one is used. <code>--check</code> will confirm that the configured View REST export URL is accessible and that the configured CSV column is in your input CSV.</p>
+<p>In this sample configuration we tell Workbench to query a View at the path <code>/local_identifier_lookup</code> using the filter identifer/field name <code>field_local_identifier</code>. Note that you can only have a single CSV field to View path configuration here. If you include more than one, only the last one is used.</p>
 <p>Nothing special is required in the input CSV; the Workbench configuration block above is all you need to do. However, note that:</p>
 <ul>
 <li>the field you choose as your lookup field should be a regular metadata field (e.g. "Local identifier"), and not the <code>id</code> field required by Workbench. However, there is nothing preventing you from configuring Workbench (through the <code>id_field</code> setting) to use as its ID column the same field you have configured as your lookup field.</li>
