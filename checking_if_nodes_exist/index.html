@@ -15,7 +15,7 @@
     
     
       
-        <title>Checking if nodes exist - Islandora Workbench</title>
+        <title>Checking if nodes already exist - Islandora Workbench</title>
       
     
     
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Checking if nodes exist
+              Checking if nodes already exist
             
           </span>
         </div>
@@ -332,6 +332,78 @@
       <a href="../ignoring_csv_rows_and_columns/" class="md-nav__link">
         Ignoring CSV rows and columns
       </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Checking if nodes already exist
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Checking if nodes already exist
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#checking-if-nodes-exist" class="md-nav__link">
+    Checking if nodes exist
+  </a>
+  
+    <nav class="md-nav" aria-label="Checking if nodes exist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-required-view" class="md-nav__link">
+    Creating the required View
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-workbench" class="md-nav__link">
+    Configuring Workbench
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -932,13 +1004,13 @@
   </a>
 
 
-  <h1>Checking if nodes exist</h1>
+  <h1>Checking if nodes already exist</h1>
 
 <h2 id="checking-if-nodes-exist">Checking if nodes exist</h2>
 <p>In <code>create</code> tasks, you can configure Workbench to query Drupal to determine if a node exists, using the values in a specified field (referred to as the "lookupi field" below) in your input CSV, such as <code>field_local_identifier</code>. If Workbench finds a node with a matching value in that field, it will skip to the next CSV row and not create the matching node.</p>
 <p>This feature is useful if you want to rerun the same <code>create</code> task without having to worry about removing rows from your CSV, or if you create a subset of items as a test or quality assurance step before loading all items in your CSV.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>For this to work, the values in the lookup field need to be unique to each node. In other words, two more more nodes would not have the same value in this field. Another assumption Workbench makes is that the values do not contain any spaces. They can however contain underscores, hyphens, and colons.</p>
 </div>
 <h3 id="creating-the-required-view">Creating the required View</h3>
@@ -968,7 +1040,7 @@
 <pre><code>node_exists_verification_view_endpoint:
   - field_local_identifier: /local_identifier_lookup
 </code></pre>
-<p>Here we tell Workbench to query a View at the path <code>/local_identifier_lookup</code> using the filter identifer/field name <code>field_local_identifier</code>. Note that you can only have a single CSV field to View path configuration here. If you include more than one, only the last one is used.</p>
+<p>Here we tell Workbench to query a View at the path <code>/local_identifier_lookup</code> using the filter identifer/field name <code>field_local_identifier</code>. Note that you can only have a single CSV field to View path configuration here. If you include more than one, only the last one is used. <code>--check</code> will confirm that the configured View REST export URL is accessible and that the configured CSV column is in your input CSV.</p>
 <p>Nothing special in the input CSV is required; the Workbench configuration block above is all you need to do. However, note that:</p>
 <ul>
 <li>the field you choose as your lookup field should be a regular metadata field, and not the <code>id</code> field required by Workbench. However, there is nothing preventing you from configuring Workbench (through the <code>id_field</code> setting) to use as its ID column the same field you have configured as your lookup field.</li>
@@ -998,6 +1070,42 @@ IMG_5083.JPG,05,Alcatraz Island,Image,sfu_id_005
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../ignoring_csv_rows_and_columns/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Ignoring CSV rows and columns" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Ignoring CSV rows and columns
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../field_templates/" class="md-footer__link md-footer__link--next" aria-label="Next: CSV field templates" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              CSV field templates
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
