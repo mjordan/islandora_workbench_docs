@@ -1021,7 +1021,7 @@
 <ul>
 <li>the field you choose as your lookup field should be a regular metadata field (e.g. "Local identifier"), and not the <code>id</code> field required by Workbench. However, there is nothing preventing you from configuring Workbench (through the <code>id_field</code> setting) to use as its ID column the same field you have configured as your lookup field.</li>
 <li>the data in the CSV field can be multivalued. Workbench will represent the multiple values in a way that works with the "Contains any word" option in your View's Filter configuration.</li>
-<li>as noted above, the CSV values in the lookup field cannot be used by more than one node and they cannot contain spaces.</li>
+<li>as noted above, for this feature to work, the CSV values in the lookup field cannot be used by more than one node and they cannot contain spaces.</li>
 </ul>
 <p>Your CSV can look like this:</p>
 <pre><code class="language-text">file,id,title,field_model,field_local_identifier
