@@ -346,13 +346,38 @@ Using term URIs has some constraints:
 
 #### Entity Reference Views fields
 
-Islandora Workbench fully supports taxonomy reference fields that use the "Default" reference type, but only partially supports "Views: Filter by an entity reference View" taxonomy reference fields. To populate this type of entity reference in "create" and "update" tasks, you must do the following:
+Islandora Workbench fully supports taxonomy reference fields that use the "Default" reference type, but only partially supports "Views: Filter by an entity reference View" taxonomy reference fields. To populate this type of entity reference in "create" and "update" tasks, you have two options.
+
+First, if your input CSV contains only term IDs in this type of column, you can do the following:
 
 * use term IDs instead of term names or URIs in your input CSV *and*
 * include `require_entity_reference_views: false` in your configuration file.
 
-Note that Workbench will not validate values in fields that are configured to use this type of reference. Term IDs that are not in the View results will result in the node not being created (Drupal will return a 422 response).
+Alternatively, if you prefer to use term names instead of term IDs in CSV column for this type of field, you will need to create a special Display for the View that is refererenced from that field. To do this:
 
+1. In the View that is referenced, _duplicate_ the view display as a REST export display
+2. Format: Serializer Settings: json
+3. Path: /some_path
+4. Authentication: Basic Auth
+5. Access restrictions: Role > View published content (the default; "administrator vocabularies and terms" is needed for other points in workbench, but *this* view doesn't require this.)
+6. Filter Criteria:
+   1. Add Taxonomy term: name
+   1. Expose this filter
+   1. In the Field identifier field, enter "name"
+
+Then in your Workbench configuration file, using the `entity_reference_view_endpoints` setting, provide a mapping between columns in your CSV file and the applicable Views REST Export display you just configured. In this example, we define three field/end point mappings:
+
+```
+entity_reference_view_endpoints:
+ - field_linked_agent: /taxonomy/linked_agents
+ - field_language: /language/lookup
+ - field_subject: /taxonomy/subjects
+```
+
+During "create" and "update" tasks, `--check` will tell you if the View REST Export display path is accesible.
+
+!!! warning
+    Regardless of whether you use term IDs or term names in your CSV, Workbench will not validate values in "Views: Filter by an entity reference View" taxonomy reference fields. Term IDs or term names that are not in the referenced View will result in the node not being created or updated (Drupal will return a 422 response). Also note that fields that use the "Views: Filter by an entity reference View" configuration are read-only; their linked vocabularies cannot be updated during node creation or updating like vocabularies that are linked to a field directly can.
 
 #### Typed Relation fields
 
