@@ -980,11 +980,12 @@
 
   <h1>Checking if nodes already exist</h1>
 
-<p>In <code>create</code> tasks, you can configure Workbench to query Drupal to determine if a node exists, using the values in a specified field (referred to as the "lookupi field" below) in your input CSV, such as <code>field_local_identifier</code>. If Workbench finds a node with a matching value in that field, it will skip to the next CSV row and not create the matching node.</p>
+<p>In <code>create</code> tasks, you can configure Workbench to query Drupal to determine if a node exists, using the values in a specified field (referred to as the "lookup field" below) in your input CSV, such as <code>field_local_identifier</code>. If Workbench finds a node with a matching value in that field, it will skip to the next CSV row and not create the matching node.</p>
 <p>This feature is useful if you want to rerun the same <code>create</code> task without having to worry about removing rows from your CSV, or if you create a subset of items as a test or quality assurance step before loading all items in your CSV.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>For this to work, the values in the lookup field need to be unique to each node. In other words, two more more nodes would not have the same value in this field. Another assumption Workbench makes is that the values do not contain any spaces. They can however contain underscores, hyphens, and colons.</p>
+<p>For this to work, the values in the lookup field need to be unique to each node. In other words, two more more nodes should not have the same value in this field.</p>
+<p>Another assumption Workbench makes is that the values do not contain any spaces. They can however contain underscores, hyphens, and colons.</p>
 </div>
 <h2 id="creating-the-required-view">Creating the required View</h2>
 <p>To take advantage of this feature, you first need to create a View that Workbench will query:</p>
@@ -1002,18 +1003,19 @@
 <li>Assign this path Basic authentication.</li>
 <li>Access should be by Permission &gt; View published content.</li>
 <li>In the Pager settings, choose "Display all items".</li>
+<li>Save your View.</li>
 </ol>
-<p>Save your View. You can test you new REST export View using Curl:</p>
+<p>If you have curl installed on your system, you can test you new REST export View:</p>
 <pre><code>curl -v -uadmin:password -H &quot;Content-Type: application/json&quot; &quot;https://islandora.traefik.me/local_identifier_lookup?field_local_identifier=sfu_test_001&quot;
 </code></pre>
 <p>(In this example, the REST export's "Path" is <code>local_identifier_lookup</code>. Immediately after the <code>?</code> comes the filter identifier string configured above, with a value after the <code>=</code> from a node's Local Identifier field.)</p>
-<p>If you have curl on your system, change the example above to incorporate your local configuration and add a known value from the lookup field. If your test is successful, the query will return a single node ID in a structure like <code>[{"nid":"126"}]</code>. If the query can't find any nodes, the returned data will look like <code>[]</code>. If it finds more than one node, the structure will looks like <code>[{"nid":"125"},{"nid":"247"}]</code>.</p>
+<p>If testing with curl, change the example above to incorporate your local configuration and add a known value from the lookup field. If your test is successful, the query will return a single node ID in a structure like <code>[{"nid":"126"}]</code>. If the query can't find any nodes, the returned data will look like <code>[]</code>. If it finds more than one node, the structure will looks like <code>[{"nid":"125"},{"nid":"247"}]</code>.</p>
 <h2 id="configuring-workbench">Configuring Workbench</h2>
 <p>With the View configured and tested, you can now use this feature in Workbench by adding the following configuration block:</p>
 <pre><code>node_exists_verification_view_endpoint:
   - field_local_identifier: /local_identifier_lookup
 </code></pre>
-<p>Here we tell Workbench to query a View at the path <code>/local_identifier_lookup</code> using the filter identifer/field name <code>field_local_identifier</code>. Note that you can only have a single CSV field to View path configuration here. If you include more than one, only the last one is used. <code>--check</code> will confirm that the configured View REST export URL is accessible and that the configured CSV column is in your input CSV.</p>
+<p>In this sample configuration we tell Workbench to query a View at the path <code>/local_identifier_lookup</code> using the filter identifer/field name <code>field_local_identifier</code>. Note that you can only have a single CSV field to View path configuration here. If you include more than one, only the last one is used. <code>--check</code> will confirm that the configured View REST export URL is accessible and that the configured CSV column is in your input CSV.</p>
 <p>Nothing special in the input CSV is required; the Workbench configuration block above is all you need to do. However, note that:</p>
 <ul>
 <li>the field you choose as your lookup field should be a regular metadata field, and not the <code>id</code> field required by Workbench. However, there is nothing preventing you from configuring Workbench (through the <code>id_field</code> setting) to use as its ID column the same field you have configured as your lookup field.</li>
@@ -1027,7 +1029,7 @@ IMG_2940.JPG,03,Looking across Burrard Inlet,Image,sfu_id_003|special_collection
 IMG_2958.JPG,04,Amsterdam waterfront,Image,sfu_id_004
 IMG_5083.JPG,05,Alcatraz Island,Image,sfu_id_005
 </code></pre>
-<p>If you include a <code>node_exists_verification_view_endpoint</code> block in your configuration, before it creates a node, Workbench will use data from the CSV column specified on the left-hand side of the configuration to query the corresponding View endpoint. If it finds no match, it will create the node as usual; if it finds a single match, it will skip that CSV row and log that it has done so; if it finds more than one match, it will also skip the CSV row and not create a node, and it will log that it has done this.</p>
+<p>Before it creates a node, Workbench will use data from the CSV column specified on the left-hand side of the <code>node_exists_verification_view_endpoint</code> configuration to query the corresponding View endpoint. If it finds no match, it will create the node as usual; if it finds a single match, it will skip that CSV row and log that it has done so; if it finds more than one match, it will also skip the CSV row and not create a node, and it will log that it has done this.</p>
 
 
 
