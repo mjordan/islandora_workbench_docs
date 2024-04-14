@@ -57,6 +57,8 @@ Workbench can help you maintain your metadata using a variation of the Extract/T
 1. does some offline transformation of that data into a separate Publisher field (in this case, a Python script, but any suitable tool could be used), then finally
 1. uses a pair of `update` tasks to put the modified data back into Drupal.
 
+Another example of "round-tripping" is if you need to change a Drupal field's configuration (for example, to shorten a text field's maximum length) but Drupal won't allow you to do that. Using Workbench, you could export all the data in the field you want to modify, create a new field to replace it, and then use an `update` task to populate the replacement field.
+
 Drupal's Views Bulk Operations module (documented [here](https://islandora.github.io/documentation/concepts/collection/#bulk-management-of-members-of-a-collection)) lets you do simple metadata maintenance, but the round-tripping technique Rosie demonstrates allows you to do things that VBO simply can't.
 
 ## Integrations with other systems
