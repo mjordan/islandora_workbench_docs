@@ -1735,7 +1735,8 @@ http://purl.org/coar/resource_type/c_18cc
 <li>If the same URI is registered with more than one term, Workbench will choose one and write a warning to the log indicating which term it chose and which terms the URI is registered with. However, <code>--check</code> will detect that a URI is registered with more than one term and warn you. At that point you can edit your CSV file to use the correct term ID rather than the URI.</li>
 </ul>
 <h4 id="entity-reference-views-fields">Entity Reference Views fields</h4>
-<p>Islandora Workbench fully supports taxonomy reference fields that use the "Default" reference type, but only partially supports "Views: Filter by an entity reference View" taxonomy reference fields. To populate this type of entity reference in "create" and "update" tasks, you have two options. First, if your input CSV contains only term IDs in this type of column, you can do the following:</p>
+<p>Islandora Workbench fully supports taxonomy reference fields that use the "Default" reference type, but only partially supports "Views: Filter by an entity reference View" taxonomy reference fields. To populate this type of entity reference in "create" and "update" tasks, you have two options.</p>
+<p>First, if your input CSV contains only term IDs in this type of column, you can do the following:</p>
 <ul>
 <li>use term IDs instead of term names or URIs in your input CSV <em>and</em></li>
 <li>include <code>require_entity_reference_views: false</code> in your configuration file.</li>
