@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#checking-if-nodes-exist" class="md-skip">
+        <a href="#creating-the-required-view" class="md-skip">
           Skip to content
         </a>
       
@@ -374,29 +374,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#checking-if-nodes-exist" class="md-nav__link">
-    Checking if nodes exist
-  </a>
-  
-    <nav class="md-nav" aria-label="Checking if nodes exist">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#creating-the-required-view" class="md-nav__link">
     Creating the required View
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#configuring-workbench" class="md-nav__link">
     Configuring Workbench
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -958,29 +945,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#checking-if-nodes-exist" class="md-nav__link">
-    Checking if nodes exist
-  </a>
-  
-    <nav class="md-nav" aria-label="Checking if nodes exist">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#creating-the-required-view" class="md-nav__link">
     Creating the required View
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#configuring-workbench" class="md-nav__link">
     Configuring Workbench
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1006,14 +980,13 @@
 
   <h1>Checking if nodes already exist</h1>
 
-<h2 id="checking-if-nodes-exist">Checking if nodes exist</h2>
 <p>In <code>create</code> tasks, you can configure Workbench to query Drupal to determine if a node exists, using the values in a specified field (referred to as the "lookupi field" below) in your input CSV, such as <code>field_local_identifier</code>. If Workbench finds a node with a matching value in that field, it will skip to the next CSV row and not create the matching node.</p>
 <p>This feature is useful if you want to rerun the same <code>create</code> task without having to worry about removing rows from your CSV, or if you create a subset of items as a test or quality assurance step before loading all items in your CSV.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>For this to work, the values in the lookup field need to be unique to each node. In other words, two more more nodes would not have the same value in this field. Another assumption Workbench makes is that the values do not contain any spaces. They can however contain underscores, hyphens, and colons.</p>
 </div>
-<h3 id="creating-the-required-view">Creating the required View</h3>
+<h2 id="creating-the-required-view">Creating the required View</h2>
 <p>To take advantage of this feature, you first need to create a View that Workbench will query:</p>
 <ol>
 <li>Create a new "Content" View that has a REST Export display (no other display types are needed).</li>
@@ -1035,7 +1008,7 @@
 </code></pre>
 <p>(In this example, the REST export's "Path" is <code>local_identifier_lookup</code>. Immediately after the <code>?</code> comes the filter identifier string configured above, with a value after the <code>=</code> from a node's Local Identifier field.)</p>
 <p>If you have curl on your system, change the example above to incorporate your local configuration and add a known value from the lookup field. If your test is successful, the query will return a single node ID in a structure like <code>[{"nid":"126"}]</code>. If the query can't find any nodes, the returned data will look like <code>[]</code>. If it finds more than one node, the structure will looks like <code>[{"nid":"125"},{"nid":"247"}]</code>.</p>
-<h3 id="configuring-workbench">Configuring Workbench</h3>
+<h2 id="configuring-workbench">Configuring Workbench</h2>
 <p>With the View configured and tested, you can now use this feature in Workbench by adding the following configuration block:</p>
 <pre><code>node_exists_verification_view_endpoint:
   - field_local_identifier: /local_identifier_lookup
