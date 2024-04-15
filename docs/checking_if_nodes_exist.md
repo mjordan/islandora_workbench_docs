@@ -1,6 +1,6 @@
 In `create` tasks, you can configure Workbench to query Drupal to determine if a node exists, using the values in a specified field (referred to as the "lookup field" below) in your input CSV, such as `field_local_identifier`. If Workbench finds a node with a matching value in that field, it will skip to the next CSV row and not create the duplicate node.
 
-This feature is useful if you want to rerun the same `create` task without having to worry about removing rows from your CSV, or if you create a subset of items as a test or quality assurance step before loading all items in your CSV.
+This feature is useful if you create a subset of items as a test or quality assurance step before loading all items in your CSV, possibly using the [csv_rows_to_process](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#processing-specific-csv-rows) configuration setting. Another situation this might be useful in is if some of the nodes represented in your CSV failed to be created, you can fix the problems with those rows and simply rerun the entire batch without having to worry about removing the successful rows.
 
 !!! warning
     For this to work, the values in the lookup field need to be unique to each node. In other words, two more more nodes should not have the same value in this field.
@@ -10,7 +10,7 @@ This feature is useful if you want to rerun the same `create` task without havin
 
 ## Creating the required View
 
-To use this feature, you first need to create a View that Workbench will query:
+To use this feature, you first need to create a View that Workbench will query. This might seem like a lot of setup, but you can probably use the same View (and corresponding Workbench configuration, as illustrated below) over time for many `create` tasks.
 
 1. Create a new "Content" View that has a REST Export display (no other display types are needed).
 1. In the Format configuration, choose "Serializer" and under Settings, check the "Force using fields" box and the "json" format.

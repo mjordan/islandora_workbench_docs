@@ -35,7 +35,12 @@ The advantage of migrating to Islandora in this way is that the exported CSV fil
 
 ## Watch folders
 
-Since Islandora workbench is a command-line tool, it can be run in a scheduled job such as Linux "cron". If CSV and file content are present when Workbench runs, Workbench will operate on them in the same way as if a person ran Workbench manually. In the diagram below, the source of the files is the daily output of someone scanning images. If these images are saved in the directory that is specified in Workbench's `input_dir` configuration option, and Workbench is run in a cron job using the "[create_from_files](/islandora_workbench_docs/creating_nodes_from_files/)" task, nodes will be created when the cron job executes (over night, for example):
+Since Islandora workbench is a command-line tool, it can be run in a scheduled job such as Linux "cron". If CSV and file content are present when Workbench runs, Workbench will operate on them in the same way as if a person ran Workbench manually.
+
+!!! note
+    Islandora Workbench does not detect changes in directories. While tools to do so exist, Workbench's ability to ingest Islandora content in batches makes it useful to scheduled jobs, as opposed to realtime detection of new files in a directory.
+
+An example of this workflow is depicted in the diagram below, the source of the files is the daily output of someone scanning images. If these images are saved in the directory that is specified in Workbench's `input_dir` configuration option, and Workbench is run in a cron job using the "[create_from_files](/islandora_workbench_docs/creating_nodes_from_files/)" task, nodes will be created when the cron job executes (over night, for example):
 
 ![Watch folders](images/workflow_watch_folders.png)
 
@@ -46,7 +51,7 @@ A variation on this workflow is to combine it with the "Distributed" workflow de
 In this workflow, the nodes are created overnight and then updated with CSV data the next day.
 
 !!! note
-    Islandora Workbench does not detect changes in directories. While tools to do so exist, Workbench's ability to ingest Islandora content in batches makes it useful to scheduled jobs, as opposed to realtime detection of new files in a directory.
+    If you are using a CSV file as input (that is, a standard `create` task), a feature that is useful in this workflow is that Workbench can check to see [if a node already exists](/islandora_workbench_docs/checking_if_nodes_exist/) in the target Drupal before it creates the node. Using this feature, you could continue to append rows to your input CSV and not worry about accidentally creating duplicate nodes.
 
 
 ## Metadata maintenance
