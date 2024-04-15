@@ -40,7 +40,7 @@ Since Islandora workbench is a command-line tool, it can be run in a scheduled j
 !!! note
     Islandora Workbench does not detect changes in directories. While tools to do so exist, Workbench's ability to ingest Islandora content in batches makes it useful to scheduled jobs, as opposed to realtime detection of new files in a directory.
 
-An example of this workflow is depicted in the diagram below, the source of the files is the daily output of someone scanning images. If these images are saved in the directory that is specified in Workbench's `input_dir` configuration option, and Workbench is run in a cron job using the "[create_from_files](/islandora_workbench_docs/creating_nodes_from_files/)" task, nodes will be created when the cron job executes (over night, for example):
+An example of this workflow is depicted in the diagrams below, the source of the files is the daily output of someone scanning images. If these images are saved in the directory that is specified in Workbench's `input_dir` configuration option, and Workbench is run in a cron job using the "[create_from_files](/islandora_workbench_docs/creating_nodes_from_files/)" task, nodes will be created when the cron job executes (over night, for example):
 
 ![Watch folders](images/workflow_watch_folders.png)
 
@@ -56,15 +56,15 @@ In this workflow, the nodes are created overnight and then updated with CSV data
 
 ## Metadata maintenance
 
-Workbench can help you maintain your metadata using a variation of the Extract/Transform/Load pattern mentioned above. [Rosie Le Faive](https://github.com/rosiel) demonstrates this round-tripping technique [in this video](https://www.dropbox.com/scl/fi/o8nqw1nnkg862xmbbvti3/adding-publisher-field.mp4?rlkey=wmvtuns3quvhmd7yelzdhvopw&dl=0) (no need to log in), in which they move publisher data from the Linked Agent field to a dedicated Publisher field. Rosie
+Workbench can help you maintain your metadata using a variation of the Extract/Transform/Load pattern mentioned above. For example, [Rosie Le Faive](https://github.com/rosiel) demonstrates this round-tripping technique [in this video](https://www.dropbox.com/scl/fi/o8nqw1nnkg862xmbbvti3/adding-publisher-field.mp4?rlkey=wmvtuns3quvhmd7yelzdhvopw&dl=0) (no need to log in), in which they move publisher data from the Linked Agent field to a dedicated Publisher field. Rosie
 
 1. uses a `get_data_from_view` task to export the Linked Agent field data from a group of nodes, then
 1. does some offline transformation of that data into a separate Publisher field (in this case, a Python script, but any suitable tool could be used), then finally
 1. uses a pair of `update` tasks to put the modified data back into Drupal.
 
-Another example of "round-tripping" is if you need to change a Drupal field's configuration (for example, to shorten a text field's maximum length) but Drupal won't allow you to do that. Using Workbench, you could export all the data in the field you want to modify, create a new field to replace it, and then use an `update` task to populate the replacement field.
+Another example of round-tripping metadata is if you need to change a Drupal field's configuration (for example, change a text field's maximum length) but Drupal won't allow you to do that directly. Using Workbench, you could export all the data in the field you want to modify, create a new Drupal field to replace it, and then use an `update` task to populate the replacement field.
 
-Drupal's Views Bulk Operations module (documented [here](https://islandora.github.io/documentation/concepts/collection/#bulk-management-of-members-of-a-collection)) lets you do simple metadata maintenance, but the round-tripping technique Rosie demonstrates allows you to do things that VBO simply can't.
+Drupal's Views Bulk Operations module (documented [here](https://islandora.github.io/documentation/concepts/collection/#bulk-management-of-members-of-a-collection)) lets you do simple metadata maintenance, but round-tripping techniques like the ones described here allow you to do things that VBO simply can't.
 
 ## Integrations with other systems
 
