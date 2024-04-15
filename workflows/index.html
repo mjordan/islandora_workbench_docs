@@ -1200,7 +1200,7 @@
 <p class="admonition-title">Note</p>
 <p>Islandora Workbench does not detect changes in directories. While tools to do so exist, Workbench's ability to ingest Islandora content in batches makes it useful to scheduled jobs, as opposed to realtime detection of new files in a directory.</p>
 </div>
-<p>An example of this workflow is depicted in the diagram below, the source of the files is the daily output of someone scanning images. If these images are saved in the directory that is specified in Workbench's <code>input_dir</code> configuration option, and Workbench is run in a cron job using the "<a href="/islandora_workbench_docs/creating_nodes_from_files/">create_from_files</a>" task, nodes will be created when the cron job executes (over night, for example):</p>
+<p>An example of this workflow is depicted in the diagrams below, the source of the files is the daily output of someone scanning images. If these images are saved in the directory that is specified in Workbench's <code>input_dir</code> configuration option, and Workbench is run in a cron job using the "<a href="/islandora_workbench_docs/creating_nodes_from_files/">create_from_files</a>" task, nodes will be created when the cron job executes (over night, for example):</p>
 <p><img alt="Watch folders" src="../images/workflow_watch_folders.png" /></p>
 <p>A variation on this workflow is to combine it with the "Distributed" workflow described above:</p>
 <p><img alt="Watch folders with secondary CSV data" src="../images/workflow_distributed_watch_folder.png" /></p>
@@ -1216,8 +1216,8 @@
 <li>does some offline transformation of that data into a separate Publisher field (in this case, a Python script, but any suitable tool could be used), then finally</li>
 <li>uses a pair of <code>update</code> tasks to put the modified data back into Drupal.</li>
 </ol>
-<p>Another example of "round-tripping" is if you need to change a Drupal field's configuration (for example, to shorten a text field's maximum length) but Drupal won't allow you to do that. Using Workbench, you could export all the data in the field you want to modify, create a new field to replace it, and then use an <code>update</code> task to populate the replacement field.</p>
-<p>Drupal's Views Bulk Operations module (documented <a href="https://islandora.github.io/documentation/concepts/collection/#bulk-management-of-members-of-a-collection">here</a>) lets you do simple metadata maintenance, but the round-tripping technique Rosie demonstrates allows you to do things that VBO simply can't.</p>
+<p>Another example of round-tripping metadata is if you need to change a Drupal field's configuration (for example, change a text field's maximum length) but Drupal won't allow you to do that directly. Using Workbench, you could export all the data in the field you want to modify, create a new Drupal field to replace it, and then use an <code>update</code> task to populate the replacement field.</p>
+<p>Drupal's Views Bulk Operations module (documented <a href="https://islandora.github.io/documentation/concepts/collection/#bulk-management-of-members-of-a-collection">here</a>) lets you do simple metadata maintenance, but the round-tripping techniques like the ones described here allows you to do things that VBO simply can't.</p>
 <h2 id="integrations-with-other-systems">Integrations with other systems</h2>
 <p>A combination of the "Migrations" workflow and the "Watch folder" workflow can be used to automate the periodic movement of content from a source system (in the diagram below, Open Journal Systems or Archivematica) into Islandora:</p>
 <p><img alt="Migrations" src="../images/workflow_integrations.png" /></p>
