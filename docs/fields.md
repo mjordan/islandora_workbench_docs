@@ -356,14 +356,21 @@ First, if your input CSV contains only term IDs in this type of column, you can 
 Alternatively, if you prefer to use term names instead of term IDs in CSV column for this type of field, you will need to create a special Display for the View that is refererenced from that field. To do this:
 
 1. In the View that is referenced, _duplicate_ the view display as a REST export display
-2. Format: Serializer Settings: json
+2. Format: Serializer
+    - Settings: json
 3. Path: some_path (do not include the leading `/`)
 4. Authentication: Basic Auth
-5. Access restrictions: Role > View published content (the default; "administrator vocabularies and terms" is needed for other points in workbench, but *this* view doesn't require this.)
+5. Access restrictions: Role > View published content (the default; "administrator vocabularies and terms" is needed for other endpoints used by Workbench, but *this* view doesn't require this.)
 6. Filter Criteria:
-   1. Add Taxonomy term: name
-   1. Expose this filter
-   1. In the Field identifier field, enter "name"
+    1. Choose "Taxonomy term: name" from the list of fields
+    1. Expose this filter
+        1. Choose the "Is equal to" operator
+        1. Leave the Value field empty
+    1. In the Field identifier field, enter "name"
+
+Your configuration for the new "Taxonomy term: name" filter should look like this:
+
+![Entity reference views name filter configuration](images/entity_reference_views_endpoint_configuration.png)
 
 Then in your Workbench configuration file, using the `entity_reference_view_endpoints` setting, provide a mapping between columns in your CSV file and the applicable Views REST Export display path value (configured in step 3 above). In this example, we define three field/path mappings:
 
