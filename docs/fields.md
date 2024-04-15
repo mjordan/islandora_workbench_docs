@@ -357,7 +357,7 @@ Alternatively, if you prefer to use term names instead of term IDs in CSV column
 
 1. In the View that is referenced, _duplicate_ the view display as a REST export display
 2. Format: Serializer Settings: json
-3. Path: /some_path
+3. Path: some_path (do not include the leading `/`)
 4. Authentication: Basic Auth
 5. Access restrictions: Role > View published content (the default; "administrator vocabularies and terms" is needed for other points in workbench, but *this* view doesn't require this.)
 6. Filter Criteria:
@@ -365,7 +365,7 @@ Alternatively, if you prefer to use term names instead of term IDs in CSV column
    1. Expose this filter
    1. In the Field identifier field, enter "name"
 
-Then in your Workbench configuration file, using the `entity_reference_view_endpoints` setting, provide a mapping between columns in your CSV file and the applicable Views REST Export display you just configured. In this example, we define three field/end point mappings:
+Then in your Workbench configuration file, using the `entity_reference_view_endpoints` setting, provide a mapping between columns in your CSV file and the applicable Views REST Export display path value (configured in step 3 above). In this example, we define three field/path mappings:
 
 ```
 entity_reference_view_endpoints:
