@@ -1759,6 +1759,8 @@ http://purl.org/coar/resource_type/c_18cc
 </ol>
 </li>
 </ol>
+<p>Your configuration for the new "Taxonomy term: name" filter should look like this:</p>
+<p><img alt="Entity reference views name filter configuration" src="../images/entity_reference_views_endpoint_configuration.png" /></p>
 <p>Then in your Workbench configuration file, using the <code>entity_reference_view_endpoints</code> setting, provide a mapping between columns in your CSV file and the applicable Views REST Export display path value (configured in step 3 above). In this example, we define three field/path mappings:</p>
 <pre><code>entity_reference_view_endpoints:
  - field_linked_agent: /taxonomy/linked_agents
