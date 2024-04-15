@@ -1748,10 +1748,12 @@ http://purl.org/coar/resource_type/c_18cc
 <li>Path: some_path (do not include the leading <code>/</code>)</li>
 <li>Authentication: Basic Auth</li>
 <li>Access restrictions: Role &gt; View published content (the default; "administrator vocabularies and terms" is needed for other points in workbench, but <em>this</em> view doesn't require this.)</li>
-<li>Filter Criteria:</li>
+<li>Filter Criteria:<ol>
 <li>Add Taxonomy term: name</li>
 <li>Expose this filter</li>
 <li>In the Field identifier field, enter "name"</li>
+</ol>
+</li>
 </ol>
 <p>Then in your Workbench configuration file, using the <code>entity_reference_view_endpoints</code> setting, provide a mapping between columns in your CSV file and the applicable Views REST Export display path value (configured in step 3 above). In this example, we define three field/path mappings:</p>
 <pre><code>entity_reference_view_endpoints:
