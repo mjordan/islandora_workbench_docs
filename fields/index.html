@@ -1744,7 +1744,10 @@ http://purl.org/coar/resource_type/c_18cc
 <p>Alternatively, if you prefer to use term names instead of term IDs in CSV column for this type of field, you will need to create a special Display for the View that is refererenced from that field. To do this:</p>
 <ol>
 <li>In the View that is referenced, <em>duplicate</em> the view display as a REST export display</li>
-<li>Format: Serializer Settings: json</li>
+<li>Format: Serializer<ul>
+<li>Settings: json</li>
+</ul>
+</li>
 <li>Path: some_path (do not include the leading <code>/</code>)</li>
 <li>Authentication: Basic Auth</li>
 <li>Access restrictions: Role &gt; View published content (the default; "administrator vocabularies and terms" is needed for other points in workbench, but <em>this</em> view doesn't require this.)</li>
