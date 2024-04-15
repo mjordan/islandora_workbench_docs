@@ -1217,7 +1217,7 @@
 <li>uses a pair of <code>update</code> tasks to put the modified data back into Drupal.</li>
 </ol>
 <p>Another example of round-tripping metadata is if you need to change a Drupal field's configuration (for example, change a text field's maximum length) but Drupal won't allow you to do that directly. Using Workbench, you could export all the data in the field you want to modify, create a new Drupal field to replace it, and then use an <code>update</code> task to populate the replacement field.</p>
-<p>Drupal's Views Bulk Operations module (documented <a href="https://islandora.github.io/documentation/concepts/collection/#bulk-management-of-members-of-a-collection">here</a>) lets you do simple metadata maintenance, but the round-tripping techniques like the ones described here allows you to do things that VBO simply can't.</p>
+<p>Drupal's Views Bulk Operations module (documented <a href="https://islandora.github.io/documentation/concepts/collection/#bulk-management-of-members-of-a-collection">here</a>) lets you do simple metadata maintenance, but round-tripping techniques like the ones described here allows you to do things that VBO simply can't.</p>
 <h2 id="integrations-with-other-systems">Integrations with other systems</h2>
 <p>A combination of the "Migrations" workflow and the "Watch folder" workflow can be used to automate the periodic movement of content from a source system (in the diagram below, Open Journal Systems or Archivematica) into Islandora:</p>
 <p><img alt="Migrations" src="../images/workflow_integrations.png" /></p>
