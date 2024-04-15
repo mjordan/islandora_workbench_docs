@@ -1753,7 +1753,7 @@ http://purl.org/coar/resource_type/c_18cc
 <li>Expose this filter</li>
 <li>In the Field identifier field, enter "name"</li>
 </ol>
-<p>Then in your Workbench configuration file, using the <code>entity_reference_view_endpoints</code> setting, provide a mapping between columns in your CSV file and the applicable Views REST Export display you just configured. In this example, we define three field/end point mappings:</p>
+<p>Then in your Workbench configuration file, using the <code>entity_reference_view_endpoints</code> setting, provide a mapping between columns in your CSV file and the applicable Views REST Export display path value (configured in step 3 above). In this example, we define three field/path mappings:</p>
 <pre><code>entity_reference_view_endpoints:
  - field_linked_agent: /taxonomy/linked_agents
  - field_language: /language/lookup
