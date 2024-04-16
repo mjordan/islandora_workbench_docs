@@ -544,8 +544,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#entity-reference-revisions-fields-paragraphs" class="md-nav__link">
-    Entity Reference Revisions fields (paragraphs)
+  <a href="#paragraphs-entity-reference-revisions-fields" class="md-nav__link">
+    Paragraphs (Entity Reference Revisions fields)
   </a>
   
 </li>
@@ -1348,8 +1348,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#entity-reference-revisions-fields-paragraphs" class="md-nav__link">
-    Entity Reference Revisions fields (paragraphs)
+  <a href="#paragraphs-entity-reference-revisions-fields" class="md-nav__link">
+    Paragraphs (Entity Reference Revisions fields)
   </a>
   
 </li>
@@ -1749,7 +1749,7 @@ http://purl.org/coar/resource_type/c_18cc
 </ul>
 <p>Alternatively, if you prefer to use term names instead of term IDs in CSV column for this type of field, you will need to create a special Display for the View that is refererenced from that field. To do this:</p>
 <ol>
-<li>In the View that is referenced, <em>duplicate</em> the view display as a REST export display</li>
+<li>In the View that is referenced, <em>duplicate</em> the view display as a REST Export display. When making the changes to the resulting REST Export display, be careful to modify that display only (and not "All displays") by alaways choosing "This rest_export (override)" during every change.</li>
 <li>Format: Serializer<ul>
 <li>Settings: json</li>
 </ul>
@@ -1758,7 +1758,7 @@ http://purl.org/coar/resource_type/c_18cc
 <li>Authentication: Basic Auth</li>
 <li>Access restrictions: Role &gt; View published content (the default; "administrator vocabularies and terms" is needed for other endpoints used by Workbench, but <em>this</em> view doesn't require this.)</li>
 <li>Filter Criteria:<ol>
-<li>Choose "Taxonomy term: name" from the list of fields</li>
+<li>Add  "Taxonomy term / name" from the list of fields</li>
 <li>Expose this filter<ol>
 <li>Choose the "Is equal to" operator</li>
 <li>Leave the Value field empty</li>
@@ -1956,9 +1956,9 @@ viaf%%http://viaf.org/viaf/10646807|other%%https://github.com/mjordan%%Github
 </ul>
 </li>
 </ul>
-<h4 id="entity-reference-revisions-fields-paragraphs">Entity Reference Revisions fields (paragraphs)</h4>
+<h4 id="paragraphs-entity-reference-revisions-fields">Paragraphs (Entity Reference Revisions fields)</h4>
 <p><a href="https://www.drupal.org/project/entity_reference_revisions">Entity Reference Revisions</a> fields are similar to Drupal's core Entity Reference fields used for taxonomy terms but are intended for entities that are not intended for reference outside the context of the item that references them. For Islandora sites, this is used for <a href="https://www.drupal.org/project/paragraphs">Paragraph</a> entities.</p>
-<p>In order to populate paragraph entites using Workbench, you need to enable and configure the REST endpoints for paragraphs. To do this, go to Configuration/Web Services/REST Resources (<code>/admin/config/services/rest</code>) and enable "Paragraph". Then edit the settings for Paragraph to the following:</p>
+<p>In order to populate paragraph entites using Workbench in <code>create</code> and <code>update</code> tasks, you need to enable and configure the REST endpoints for paragraphs. To do this, ensure the REST UI module is enabled, then go to Configuration/Web Services/REST Resources (<code>/admin/config/services/rest</code>) and enable "Paragraph". Then edit the settings for Paragraph to the following:</p>
 <ul>
 <li>Granularity = Method</li>
 <li>GET<ul>
@@ -1993,7 +1993,7 @@ viaf%%http://viaf.org/viaf/10646807|other%%https://github.com/mjordan%%Github
 <pre><code class="language-text">field_full_title
 My Title: A Subtitle|Alternate Title
 </code></pre>
-<p>In this example we have two title values, "My Title: A Subtitle" (where "My Title" is the main title and "A Subtitle" is the subtitle) and "Alternate Title" (which only has a main title). To map these CSV values to our paragraph fields, we need to add the following to our configuration file:</p>
+<p>In this example we have two title values, "My Title: A Subtitle" (where "My Title" is the main title and " A Subtitle" is the subtitle) and "Alternate Title" (which only has a main title). To map these CSV values to our paragraph fields, we need to add the following to our configuration file:</p>
 <pre><code class="language-yml">paragraph_fields:
   node:
     field_full_title:
@@ -2004,7 +2004,12 @@ My Title: A Subtitle|Alternate Title
       field_delimiter: ':'
       subdelimiter: '|'
 </code></pre>
-<p>This configuration defines the paragraph field on the node (<code>field_full_title</code>) and its child fields (<code>field_main_title</code> and <code>field_subtitle</code>), which occur within the paragraph in the order they are named in the <code>field_order</code> property. Within the data in the CSV column, the values corresponding to the order of those fields are separated by the character defined in the <code>field_delimiter</code> property. <code>subdelimiter</code> here is the same as the <code>subdelimiter</code> configuration setting used in non-paragraph multi-valued fields; in this example it overrides the default or globally configured value. We use a colon for the field delimiter in this example as it is often used in titles to denote subtitles.</p>
+<p>This configuration defines the paragraph field on the node (<code>field_full_title</code>) and its child fields (<code>field_main_title</code> and <code>field_subtitle</code>), which occur within the paragraph in the order they are named in the <code>field_order</code> property. Within the data in the CSV column, the values corresponding to the order of those fields are separated by the character defined in the <code>field_delimiter</code> property. <code>subdelimiter</code> here is the same as the <code>subdelimiter</code> configuration setting used in non-paragraph multi-valued fields; in this example it overrides the default or globally configured value. We use a colon for the field delimiter in this example as it is often used in titles to denote subtitles. Note that in the above example, the space before "A" in the subtitle will be preserved. Whether or not you want a space there in your data will depend on how you display the Full Title field.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Note that Workbench assumes all fields within a paragraph are single-valued.</p>
+</div>
+<p>When using Workbench to update paragraphs using <code>update_mode: replace</code>, any null values for fields within the paragraph (such as the null subtitle in the second "Alternate Title" instance in the example) will null out existing field values. However, considering each paragraph as a whole field value, Workbench behaves the same as for all other fields - <code>update_mode: replace</code> will replace all paragraph entities with the ones in the CSV, but if the CSV does not contain any values for this field then the field will be left as is.</p>
 
 
 
