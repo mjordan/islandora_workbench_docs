@@ -575,11 +575,11 @@ Note that:
     * Google Sheets: only `+` needs to be escaped
     * LibreOffice Calc: neither `+` nor `-` needs to be escaped
 
-#### Entity Reference Revisions fields (paragraphs)
+#### Paragraphs (Entity Reference Revisions fields)
 
 [Entity Reference Revisions](https://www.drupal.org/project/entity_reference_revisions) fields are similar to Drupal's core Entity Reference fields used for taxonomy terms but are intended for entities that are not intended for reference outside the context of the item that references them. For Islandora sites, this is used for [Paragraph](https://www.drupal.org/project/paragraphs) entities.
 
-In order to populate paragraph entites using Workbench, you need to enable and configure the REST endpoints for paragraphs. To do this, ensure the REST UI module is enabled, then go to Configuration/Web Services/REST Resources (`/admin/config/services/rest`) and enable "Paragraph". Then edit the settings for Paragraph to the following:
+In order to populate paragraph entites using Workbench in `create` and `update` tasks, you need to enable and configure the REST endpoints for paragraphs. To do this, ensure the REST UI module is enabled, then go to Configuration/Web Services/REST Resources (`/admin/config/services/rest`) and enable "Paragraph". Then edit the settings for Paragraph to the following:
 
 * Granularity = Method
 * GET
@@ -608,7 +608,7 @@ field_full_title
 My Title: A Subtitle|Alternate Title
 ```
 
-In this example we have two title values, "My Title: A Subtitle" (where "My Title" is the main title and "A Subtitle" is the subtitle) and "Alternate Title" (which only has a main title). To map these CSV values to our paragraph fields, we need to add the following to our configuration file:
+In this example we have two title values, "My Title: A Subtitle" (where "My Title" is the main title and " A Subtitle" is the subtitle) and "Alternate Title" (which only has a main title). To map these CSV values to our paragraph fields, we need to add the following to our configuration file:
 
 ```yml
 paragraph_fields:
@@ -622,4 +622,6 @@ paragraph_fields:
       subdelimiter: '|'
 ```
 
-This configuration defines the paragraph field on the node (`field_full_title`) and its child fields (`field_main_title` and `field_subtitle`), which occur within the paragraph in the order they are named in the `field_order` property. Within the data in the CSV column, the values corresponding to the order of those fields are separated by the character defined in the `field_delimiter` property. `subdelimiter` here is the same as the `subdelimiter` configuration setting used in non-paragraph multi-valued fields; in this example it overrides the default or globally configured value. We use a colon for the field delimiter in this example as it is often used in titles to denote subtitles.
+This configuration defines the paragraph field on the node (`field_full_title`) and its child fields (`field_main_title` and `field_subtitle`), which occur within the paragraph in the order they are named in the `field_order` property. Within the data in the CSV column, the values corresponding to the order of those fields are separated by the character defined in the `field_delimiter` property. `subdelimiter` here is the same as the `subdelimiter` configuration setting used in non-paragraph multi-valued fields; in this example it overrides the default or globally configured value. We use a colon for the field delimiter in this example as it is often used in titles to denote subtitles. Note that in the above example, the space before "A" in the subtitle will be preserved. Whether or not you want a space there in your data will depend on how you display the Full Title field.
+
+When using Workbench to update paragraphs using `update_mode: replace`, any null values for fields within the paragraph (such as the null subtitle in the second "Alternate Title" instance in the example) will null out existing field values. However, considering each paragraph as a whole field value, Workbench behaves the same as for all other fields - `update_mode: replace` will replace all paragraph entities with the ones in the CSV, but if the CSV does not contain any values for this field then the field will be left as is.

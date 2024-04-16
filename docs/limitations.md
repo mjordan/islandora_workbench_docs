@@ -20,10 +20,6 @@ This is limitation of Drupal (see [this issue](https://github.com/Islandora/docu
 
 More information is available at this [issue](https://github.com/mjordan/islandora_workbench/issues/450).
 
-## Workbench can't create/update Paragraphs
-
-Work is underway to add this functionality. See this [issue](https://github.com/mjordan/islandora_workbench/issues/292) for latest status.
-
 ## Workbench doesn't support taxonomy reference fields that use the "Filter by an entity reference View" reference type
 
 Only taxonomy reference fields that use the "Default" reference type are currently supported. As a work around, to populate a "Filter by an entity reference View" field, you can do the following:
