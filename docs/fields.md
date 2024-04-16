@@ -362,14 +362,14 @@ First, if your input CSV contains only term IDs in this type of column, you can 
 
 Alternatively, if you prefer to use term names instead of term IDs in CSV column for this type of field, you will need to create a special Display for the View that is refererenced from that field. To do this:
 
-1. In the View that is referenced, _duplicate_ the view display as a REST export display
-2. Format: Serializer
+1. In the View that is referenced, _duplicate_ the view display as a REST Export display. When making the changes to the resulting REST Export display, be careful to modify that display only (and not "All displays") by alaways choosing "This rest_export (override)" during every change.
+1. Format: Serializer
     - Settings: json
-3. Path: some_path (do not include the leading `/`)
-4. Authentication: Basic Auth
-5. Access restrictions: Role > View published content (the default; "administrator vocabularies and terms" is needed for other endpoints used by Workbench, but *this* view doesn't require this.)
-6. Filter Criteria:
-    1. Choose "Taxonomy term: name" from the list of fields
+1. Path: some_path (do not include the leading `/`)
+1. Authentication: Basic Auth
+1. Access restrictions: Role > View published content (the default; "administrator vocabularies and terms" is needed for other endpoints used by Workbench, but *this* view doesn't require this.)
+1. Filter Criteria:
+    1. Add  "Taxonomy term / name" from the list of fields
     1. Expose this filter
         1. Choose the "Is equal to" operator
         1. Leave the Value field empty
@@ -624,6 +624,7 @@ paragraph_fields:
 
 This configuration defines the paragraph field on the node (`field_full_title`) and its child fields (`field_main_title` and `field_subtitle`), which occur within the paragraph in the order they are named in the `field_order` property. Within the data in the CSV column, the values corresponding to the order of those fields are separated by the character defined in the `field_delimiter` property. `subdelimiter` here is the same as the `subdelimiter` configuration setting used in non-paragraph multi-valued fields; in this example it overrides the default or globally configured value. We use a colon for the field delimiter in this example as it is often used in titles to denote subtitles. Note that in the above example, the space before "A" in the subtitle will be preserved. Whether or not you want a space there in your data will depend on how you display the Full Title field.
 
-Note that Workbench assumes all fields within a paragraph are single-valued.
+!!! warning
+    Note that Workbench assumes all fields within a paragraph are single-valued.
 
 When using Workbench to update paragraphs using `update_mode: replace`, any null values for fields within the paragraph (such as the null subtitle in the second "Alternate Title" instance in the example) will null out existing field values. However, considering each paragraph as a whole field value, Workbench behaves the same as for all other fields - `update_mode: replace` will replace all paragraph entities with the ones in the CSV, but if the CSV does not contain any values for this field then the field will be left as is.

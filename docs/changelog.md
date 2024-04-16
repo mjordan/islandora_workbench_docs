@@ -120,7 +120,7 @@
 
 ### Documentation
 
-* April 16, 2024: Updated "[Field data (Drupal and CSV)](https://mjordan.github.io/islandora_workbench_docs/fields/#entity-reference-views-fields)" to clarify warning about Entity Reference Views fields.
+* April 16, 2024: Updated "[Field data (Drupal and CSV)](https://mjordan.github.io/islandora_workbench_docs/fields/#entity-reference-views-fields)" to clarify warning about Entity Reference Views fields; merged Rosie's [changes to the docs on using Paragraphs](https://github.com/mjordan/islandora_workbench_docs/pull/17).
 * April 15, 2024: Resolved [issue 748](https://github.com/mjordan/islandora_workbench/issues/748); updated docs to include new `log_file_name_and_line_number` config setting.
 * April 14, 2024: Added "[Checking if nodes already exist](https://mjordan.github.io/islandora_workbench_docs/checking_if_nodes_exist/)". Added documentation to "[Field data (Drupal and CSV)](https://mjordan.github.io/islandora_workbench_docs/fields/#entity-reference-views-fields)" on configuring Views to allow using term names in Entity Reference Views fields.
 * April 12, 2024: Added "metadata maintenance" section to the "[Workflows](https://mjordan.github.io/islandora_workbench_docs/workflows/)" docs using Rosie Le Faive's excellent demonstration of round tripping metadata.
