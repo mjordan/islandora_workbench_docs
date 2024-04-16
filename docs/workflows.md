@@ -56,7 +56,7 @@ In this workflow, the nodes are created overnight and then updated with CSV data
 
 ## Metadata maintenance
 
-Workbench can help you maintain your metadata using a variation of the Extract/Transform/Load pattern mentioned above. For example, [Rosie Le Faive](https://github.com/rosiel) demonstrates this round-tripping technique [in this video](https://www.dropbox.com/scl/fi/o8nqw1nnkg862xmbbvti3/adding-publisher-field.mp4?rlkey=wmvtuns3quvhmd7yelzdhvopw&dl=0) (no need to log in), in which they move publisher data from the Linked Agent field to a dedicated Publisher field. Rosie
+Workbench can help you maintain your metadata using a variation of the extract, transform, load pattern mentioned above. For example, [Rosie Le Faive](https://github.com/rosiel) demonstrates this round-tripping technique [in this video](https://www.dropbox.com/scl/fi/o8nqw1nnkg862xmbbvti3/adding-publisher-field.mp4?rlkey=wmvtuns3quvhmd7yelzdhvopw&dl=0) (no need to log in), in which they move publisher data from the Linked Agent field to a dedicated Publisher field. Rosie
 
 1. uses a `get_data_from_view` task to export the Linked Agent field data from a group of nodes, then
 1. does some offline transformation of that data into a separate Publisher field (in this case, a Python script, but any suitable tool could be used), then finally
@@ -64,7 +64,7 @@ Workbench can help you maintain your metadata using a variation of the Extract/T
 
 Another example of round-tripping metadata is if you need to change a Drupal field's configuration (for example, change a text field's maximum length) but Drupal won't allow you to do that directly. Using Workbench, you could export all the data in the field you want to modify, create a new Drupal field to replace it, and then use an `update` task to populate the replacement field.
 
-Drupal's Views Bulk Operations module (documented [here](https://islandora.github.io/documentation/concepts/collection/#bulk-management-of-members-of-a-collection)) lets you do simple metadata maintenance, but round-tripping techniques like the ones described here allow you to do things that VBO simply can't.
+Drupal's Views Bulk Operations module (documented [here](https://islandora.github.io/documentation/concepts/collection/#bulk-management-of-members-of-a-collection)) lets you do simple metadata maintenance, but round-tripping techniques like the ones described here enables you to do things that VBO simply can't.
 
 ## Integrations with other systems
 
@@ -99,7 +99,7 @@ With this setting in place, Workbench will ignore the `date_generated` column in
 
 ### Case study
 
-Simon Fraser University Library uses Islandora Workbench to automate the transfer of theses from its locally developed thesis registration application (called, unsurprisingly, the [Thesis Registration System](https://theses.lib.sfu.ca), or TRS) to [Summit](https://summit.sfu.ca), the SFU institutional research repository. This transfer happens through a series of scheduled tasks that run every evening.
+Simon Fraser University Library uses Islandora Workbench to automate the transfer of theses from its locally developed thesis registration application (called, unsurprisingly, the [Thesis Registration System](https://theses.lib.sfu.ca), or TRS) to [Summit](https://summit.sfu.ca), the SFU institutional research repository running Islandora. This transfer happens through a series of scheduled tasks that run every evening.
 
 This diagram depicts the automated workflow, with an explanation of each step below the diagram. This case study is an example of the "[Integration with other systems](/islandora_workbench_docs/workflows/#integrations-with-other-systems)" workflow described above.
 
