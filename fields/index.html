@@ -1736,6 +1736,11 @@ http://purl.org/coar/resource_type/c_18cc
 </ul>
 <h4 id="entity-reference-views-fields">Entity Reference Views fields</h4>
 <p>Islandora Workbench fully supports taxonomy reference fields that use the "Default" reference type, but only partially supports "Views: Filter by an entity reference View" taxonomy reference fields. To populate this type of entity reference in "create" and "update" tasks, you have two options.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Regardless of whether you use term IDs or term names in your CSV, Workbench will not validate values in "Views: Filter by an entity reference View" taxonomy reference fields. Term IDs or term names that are not in the referenced View will result in the node not being created or updated (Drupal will return a 422 response).</p>
+<p>If <code>allow_adding_terms</code> is set to <code>true</code>, terms that are not in the referenced vocabulary will be added if your CSV data contains a vocabulary ID/namespace in the form <code>vocabid:newterm</code>. However, the terms will be added regardless of whether they are within the referenced View. Therefore, for this type of Drupal field, you should not include vocabulary IDs/namespaces in your CSV data for that field.</p>
+</div>
 <p>First, if your input CSV contains only term IDs in this type of column, you can do the following:</p>
 <ul>
 <li>use term IDs instead of term names or URIs in your input CSV <em>and</em></li>
@@ -1771,11 +1776,6 @@ http://purl.org/coar/resource_type/c_18cc
  - field_subject: /taxonomy/subjects
 </code></pre>
 <p>During "create" and "update" tasks, <code>--check</code> will tell you if the View REST Export display path is accesible.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Regardless of whether you use term IDs or term names in your CSV, Workbench will not validate values in "Views: Filter by an entity reference View" taxonomy reference fields. Term IDs or term names that are not in the referenced View will result in the node not being created or updated (Drupal will return a 422 response).</p>
-<p>If <code>allow_adding_terms</code> is set to <code>true</code>, terms that are not in the referenced vocabulary will be added if your CSV data contains a vocabulary ID/namespace in the form <code>vocabid:newterm</code>. However, the terms will be added regardless of whether they are within the referenced View. Therefore, for this type of Drupal field, you should not include vocabulary IDs/namespaces in your CSV data for that field.</p>
-</div>
 <h4 id="typed-relation-fields">Typed Relation fields</h4>
 <p>Typed relation fields contain information about the relationship (or "relation") between a taxonomy term and the node it is attached to. For example, a term from the Person vocabulary, "Jordan, Mark", can be an author, illustrator, or editor of the book described in the node. In this example, "author", "illustrator", and "editor" are the typed relations.</p>
 <div class="admonition note">
