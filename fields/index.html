@@ -1739,7 +1739,8 @@ http://purl.org/coar/resource_type/c_18cc
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Regardless of whether you use term IDs or term names in your CSV, Workbench will not validate values in "Views: Filter by an entity reference View" taxonomy reference fields. Term IDs or term names that are not in the referenced View will result in the node not being created or updated (Drupal will return a 422 response).</p>
-<p>If <code>allow_adding_terms</code> is set to <code>true</code>, terms that are not in the referenced vocabulary will be added if your CSV data contains a vocabulary ID/namespace in the form <code>vocabid:newterm</code>. However, the terms will be added regardless of whether they are within the referenced View. Therefore, for this type of Drupal field, you should not include vocabulary IDs/namespaces in your CSV data for that field.</p>
+<p>However, if <code>allow_adding_terms</code> is set to <code>true</code>, terms that are not in the referenced vocabulary will be added to the vocabulary if your CSV data contains a vocabulary ID/namespace in the form <code>vocabid:newterm</code>. The terms will be added regardless of whether they are within the referenced View. Therefore, for this type of Drupal field, you should not include vocabulary IDs/namespaces in your CSV data for that field.</p>
+<p>Further work on supporting this type of field is being tracked in <a href="https://github.com/mjordan/islandora_workbench/issues/769">this Github issue</a>.</p>
 </div>
 <p>First, if your input CSV contains only term IDs in this type of column, you can do the following:</p>
 <ul>
