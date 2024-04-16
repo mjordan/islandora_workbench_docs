@@ -579,7 +579,7 @@ Note that:
 
 [Entity Reference Revisions](https://www.drupal.org/project/entity_reference_revisions) fields are similar to Drupal's core Entity Reference fields used for taxonomy terms but are intended for entities that are not intended for reference outside the context of the item that references them. For Islandora sites, this is used for [Paragraph](https://www.drupal.org/project/paragraphs) entities.
 
-In order to populate paragraph entites using Workbench, you need to enable and configure the REST endpoints for paragraphs. To do this, go to Configuration/Web Services/REST Resources (`/admin/config/services/rest`) and enable "Paragraph". Then edit the settings for Paragraph to the following:
+In order to populate paragraph entites using Workbench, you need to enable and configure the REST endpoints for paragraphs. To do this, ensure the REST UI module is enabled, then go to Configuration/Web Services/REST Resources (`/admin/config/services/rest`) and enable "Paragraph". Then edit the settings for Paragraph to the following:
 
 * Granularity = Method
 * GET
