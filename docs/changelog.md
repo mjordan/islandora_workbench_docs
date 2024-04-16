@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* April 15, 2024: (commit 19ffa9c) Resolved [issue 770](https://github.com/mjordan/islandora_workbench/issues/770).
 * April 14, 2024: (commit 0824988) Resolved [issue 749](https://github.com/mjordan/islandora_workbench/issues/749).
 * APril 10, 2024: (commit 13f3618) Merged Seth Shaw's work to allow using term names in Entity Reference Views fields ([issue 642](https://github.com/mjordan/islandora_workbench/issues/642)).
 * April 9, 2024: (commit f751ad8) Resolved [issue 767](https://github.com/mjordan/islandora_workbench/issues/767) and (commit 253f2d6) [issue 768](https://github.com/mjordan/islandora_workbench/issues/768).
@@ -119,7 +120,7 @@
 
 ### Documentation
 
-* April 15, 2024: Resolved [issue 748](https://github.com/mjordan/islandora_workbench/issues/748).
+* April 15, 2024: Resolved [issue 748](https://github.com/mjordan/islandora_workbench/issues/748); updated docs to include new `log_file_name_and_line_number` config setting.
 * April 14, 2024: Added "[Checking if nodes already exist](/islandora_workbench_docs/checking_if_nodes_exist/)". Added documentation to "[Field data (Drupal and CSV)](/islandora_workbench_docs/fields/#entity-reference-views-fields)" on configuring Views to allow using term names in Entity Reference Views fields.
 * April 12, 2024: Added "etadata maintenance" section to the "[Workflows](/islandora_workbench_docs/workflows/)" docs using Rosie Le Faive's excellent demonstration of round tripping metadata.
 * April 8, 2024: Updated "[Field data (Drupal and CSV)](/islandora_workbench_docs/fields/#entity-reference-revisions-fields-paragraphs)" to add documentation on Entity Reference Revisions fields (paragraphs).

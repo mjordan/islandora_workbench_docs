@@ -28,7 +28,6 @@ It may also contain additional detail that would clutter up the console output, 
 
  `log_file_mode: w`
 
-
 ## Logging debugging information
 
 Workbench doesn't provide a way to set the amount of detail in its log, but several options are available that are useful for debugging and troubleshooting. These options, when set to `true`, write raw values used in the REST requests to Drupal:
@@ -38,6 +37,8 @@ Workbench doesn't provide a way to set the amount of detail in its log, but seve
 * `log_headers`: Logs the raw HTTP headers used in all requests.
 * `log_response_status_code`: Logs the HTTP response code.
 * `log_response_body`: Logs the raw HTTP response body.
+
+Another configuration setting that is useful during debugging is `log_file_name_and_line_number`, which, as the name suggests, adds to all log entries the filename and line number where the entry was generated.
 
 These options can be used independently of each other, but they are often more useful for debugging when used together.
 
