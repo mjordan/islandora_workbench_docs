@@ -348,6 +348,13 @@ Using term URIs has some constraints:
 
 Islandora Workbench fully supports taxonomy reference fields that use the "Default" reference type, but only partially supports "Views: Filter by an entity reference View" taxonomy reference fields. To populate this type of entity reference in "create" and "update" tasks, you have two options.
 
+!!! warning
+    Regardless of whether you use term IDs or term names in your CSV, Workbench will not validate values in "Views: Filter by an entity reference View" taxonomy reference fields. Term IDs or term names that are not in the referenced View will result in the node not being created or updated (Drupal will return a 422 response).
+
+    However, if `allow_adding_terms` is set to `true`, terms that are not in the referenced vocabulary will be added to the vocabulary if your CSV data contains a vocabulary ID/namespace in the form `vocabid:newterm`. The terms will be added regardless of whether they are within the referenced View. Therefore, for this type of Drupal field, you should not include vocabulary IDs/namespaces in your CSV data for that field.
+
+    Further work on supporting this type of field is being tracked in [this Github issue](https://github.com/mjordan/islandora_workbench/issues/769).
+
 First, if your input CSV contains only term IDs in this type of column, you can do the following:
 
 * use term IDs instead of term names or URIs in your input CSV *and*
@@ -382,9 +389,6 @@ entity_reference_view_endpoints:
 ```
 
 During "create" and "update" tasks, `--check` will tell you if the View REST Export display path is accesible.
-
-!!! warning
-    Regardless of whether you use term IDs or term names in your CSV, Workbench will not validate values in "Views: Filter by an entity reference View" taxonomy reference fields. Term IDs or term names that are not in the referenced View will result in the node not being created or updated (Drupal will return a 422 response). Also note that fields that use the "Views: Filter by an entity reference View" configuration are read-only; their linked vocabularies cannot be updated during node creation or updating like vocabularies that are linked to a field directly can.
 
 #### Typed Relation fields
 
