@@ -1088,9 +1088,9 @@
 <ol>
 <li>the character used as the CSV subdelimiter (defined in the <code>subdelimiter</code> config setting, which defaults to <code>|</code>)</li>
 <li>the CSV field value</li>
-<li>unlike bootstrap, shutdown, and post-action scripts, preprocessor scripts do not get passed the path to your Workbench configuration file; they only get passed the value of the <code>subdelimiter</code> config setting.</li>
+<li>(unlike bootstrap, shutdown, and post-action scripts, preprocessor scripts do not get passed the path to your Workbench configuration file; they only get passed the value of the <code>subdelimiter</code> config setting).</li>
 </ol>
-<p>In turn, the script processes the string content of the CSV field, and then prints it to STDOUT. An example preprocessor script is available in <code>scripts/samplepreprocessor.py</code>.</p>
+<p>When executed, the script processes the string content of the CSV field, and then replaces the original version of the CSV field value with the version processed by the script. An example preprocessor script is available in <code>scripts/samplepreprocessor.py</code>.</p>
 <h3 id="post-action-scripts">Post-action scripts</h3>
 <p>Post-action scripts execute after a node is created or updated, or after a media is created.</p>
 <p>To register post-action scripts in your configuration file, add them to either the <code>node_post_create</code>, <code>node_post_update</code>, or <code>media_post_create</code> configuration setting:</p>
