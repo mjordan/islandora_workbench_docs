@@ -22,7 +22,9 @@ bootstrap: ["/home/mark/Documents/hacking/workbench/generate_image_files.py"]
 
 Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's `--config` argument. For example, if you are running Workbench with a config file called `create.yml`, `create.yml` will be passed as the argument to your bootstrap script.
 
-Shutdown scripts work the same way as bootstrap scripts but they execute after Workbench has finished connecting to Drupal. A common situation where a shutdown script is useful is to check the Workbench log for failures, and if any are detected, to email someone. To register a shutdown script, add it to the `shutdown` option:
+Shutdown scripts work the same way as bootstrap scripts but they execute after Workbench has finished connecting to Drupal. Like bootstrap scripts, shutdown scripts receive a single argument from Workbench, the path to your configuration file.
+
+A common situation where a shutdown script is useful is to check the Workbench log for failures, and if any are detected, to email someone. To register a shutdown script, add it to the `shutdown` option:
 
 ```yaml
 shutdown: ["/home/mark/Documents/hacking/workbench/shutdown_example.py"]
@@ -31,6 +33,11 @@ shutdown: ["/home/mark/Documents/hacking/workbench/shutdown_example.py"]
 `--check` will check for the existence of bootstrap and shutdown scripts, and that they are executable, but does not execute them. The scripts are only executed when Workbench is run without `--check`.
 
 Very basic example bootstrap and shutdown scripts can be found in the `scripts` folder.
+
+!!! warning
+    Bootstrap and shutdown scripts get passed the path to your configuration file, but they only have access to the configuration settings explicitly defined in that file. In other words, any configuration setting with a default value, and therefore no necessarily included in your configuration file, is not known to  bootstrap/shutdown scripts.
+
+    Therefore, it is good practice to include in your configuration file all configuration settings your script will need. The presence of a configuration setting set to its default value has no effect on Workbench.
 
 ### CSV preprocessor scripts
 
@@ -54,8 +61,9 @@ Each preprocessor script gets passed two arguments:
 
 1. the character used as the CSV subdelimiter (defined in the `subdelimiter` config setting, which defaults to `|`)
 1. the CSV field value
+1. (unlike bootstrap, shutdown, and post-action scripts, preprocessor scripts do not get passed the path to your Workbench configuration file; they only get passed the value of the `subdelimiter` config setting).
 
-In turn, the script processes the string content of the CSV field, and then prints it to STDOUT. An example preprocessor script is available in `scripts/samplepreprocessor.py`.
+When executed, the script processes the string content of the CSV field, and then replaces the original version of the CSV field value with the version processed by the script. An example preprocessor script is available in `scripts/samplepreprocessor.py`.
 
 ### Post-action scripts
 
@@ -87,6 +95,8 @@ Your scripts can find the entity ID and other information within the (raw JSON) 
 
 !!! warning
     Not all Workbench configuration settings are available in post-action scripts. Only the settings are explicitly defined in the configuration YAML are available.
+
+    As with bootstrap and shutdown scripts, when using post-action scripts, it is good practice to include in your configuration file all configuration settings your script will need. The presence of a configuration setting set to its default value has no effect on Workbench.
 
 #### Running multiple scripts in one hook
 
