@@ -32,7 +32,11 @@ shutdown: ["/home/mark/Documents/hacking/workbench/shutdown_example.py"]
 
 `--check` will check for the existence of bootstrap and shutdown scripts, and that they are executable, but does not execute them. The scripts are only executed when Workbench is run without `--check`.
 
-Very basic example bootstrap and shutdown scripts can be found in the `scripts` folder.
+A shutdown script that you might find useful is `scripts/generate_iiif_manifests.py`, which generates the IIIF Manifest (book-manifest) for each node in the current `create` task that is a parent. You might want to do this since pregenerating the manifest usually speeds up rendering of paged content in Mirador and OpenSeadragon. To use it, simply add the following to your `create` task config file, adjusting the path to your Workbench `scripts` directory:
+
+```yaml
+shutdown: ["/home/mark/hacking/workbench/scripts/generate_iiif_manifests.py"]
+```
 
 !!! warning
     Bootstrap and shutdown scripts get passed the path to your configuration file, but they only have access to the configuration settings explicitly defined in that file. In other words, any configuration setting with a default value, and therefore no necessarily included in your configuration file, is not known to  bootstrap/shutdown scripts.

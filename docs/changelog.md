@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* April 22, 2024: (commit edd8870) Resolved [issue 771](https://github.com/mjordan/islandora_workbench/issues/771).
 * April 15, 2024: (commit 19ffa9c) Resolved [issue 770](https://github.com/mjordan/islandora_workbench/issues/770).
 * April 14, 2024: (commit 0824988) Resolved [issue 749](https://github.com/mjordan/islandora_workbench/issues/749).
 * APril 10, 2024: (commit 13f3618) Merged Seth Shaw's work to allow using term names in Entity Reference Views fields ([issue 642](https://github.com/mjordan/islandora_workbench/issues/642)).
@@ -120,6 +121,7 @@
 
 ### Documentation
 
+* April 22, 2024: Updated "[Hooks](https://mjordan.github.io/islandora_workbench_docs/hooks/)" to document `scripts/generate_iiif_manifests.py` (from issue 771).
 * April 17, 2024: Updated "[Hooks](https://mjordan.github.io/islandora_workbench_docs/hooks/)" to be explicit about what Workbench configuration settings are available within external scripts.
 * April 16, 2024: Updated "[Field data (Drupal and CSV)](https://mjordan.github.io/islandora_workbench_docs/fields/#entity-reference-views-fields)" to clarify warning about Entity Reference Views fields; merged Rosie's [changes to the docs on using Paragraphs](https://github.com/mjordan/islandora_workbench_docs/pull/17).
 * April 15, 2024: Resolved [issue 748](https://github.com/mjordan/islandora_workbench/issues/748); updated docs to include new `log_file_name_and_line_number` config setting.
