@@ -1060,9 +1060,11 @@
 <p>To register a bootstrap script in your configuration file, add it to the <code>bootstrap</code> option, like this:</p>
 <pre><code class="language-yaml">bootstrap: [&quot;/home/mark/Documents/hacking/workbench/generate_image_files.py&quot;]
 </code></pre>
-<p>Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's <code>--config</code> argument. For example, if you are running Workbench with a config file called <code>create.yml</code>, <code>create.yml</code> will be passed as the argument to your bootstrap script.</p>
+<p>Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's <code>--config</code> argument. For example, if you are running Workbench with a config file called <code>create.yml</code>, "create.yml" will be passed as the argument to your bootstrap script, like this:</p>
+<p><code>/home/mark/Documents/hacking/workbench/generate_image_files.py create.yml</code></p>
 <p>Shutdown scripts work the same way as bootstrap scripts but they execute after Workbench has finished connecting to Drupal. Like bootstrap scripts, shutdown scripts receive a single argument from Workbench, the path to your configuration file.</p>
-<p>A common situation where a shutdown script is useful is to check the Workbench log for failures, and if any are detected, to email someone. To register a shutdown script, add it to the <code>shutdown</code> option:</p>
+<p>A common situation where a shutdown script is useful is to check the Workbench log for failures, and if any are detected, to email someone. The script <code>email_log_if_errors.py</code> in the <code>scripts</code> directory shows how this can be done.</p>
+<p>To register a shutdown script, add it to the <code>shutdown</code> option:</p>
 <pre><code class="language-yaml">shutdown: [&quot;/home/mark/Documents/hacking/workbench/shutdown_example.py&quot;]
 </code></pre>
 <p><code>--check</code> will check for the existence of bootstrap and shutdown scripts, and that they are executable, but does not execute them. The scripts are only executed when Workbench is run without <code>--check</code>.</p>
