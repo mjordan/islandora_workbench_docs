@@ -14,17 +14,21 @@ Execution (whether successful or not) of hook scripts is logged, including the s
 
 Bootstrap scripts execute prior to Workbench connecting to Drupal. For an example of using this feature to run a script that generates sample Islandora content, see the "[Generating sample Islandora content](/islandora_workbench_docs/generating_sample_content/)" section.
 
-To register a bootstrap script in your configuration file, add it to the `bootstrap` option, like this:
+To register a bootstrap script in your configuration file, add it to the `bootstrap` option, like this, indicating the absolute path to the script:
 
 ```yaml
-bootstrap: ["/home/mark/Documents/hacking/workbench/generate_image_files.py"]
+bootstrap: ["/home/mark/Documents/hacking/workbench/scripts/generate_image_files.py"]
 ```
 
-Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's `--config` argument. For example, if you are running Workbench with a config file called `create.yml`, `create.yml` will be passed as the argument to your bootstrap script.
+Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's `--config` argument. For example, if you are running Workbench with a config file called `create.yml`, "create.yml" will automatically be passed as the argument to your bootstrap script (you do not specify it in the configuration), like this:
+
+`generate_image_files.py create.yml`
 
 Shutdown scripts work the same way as bootstrap scripts but they execute after Workbench has finished connecting to Drupal. Like bootstrap scripts, shutdown scripts receive a single argument from Workbench, the path to your configuration file.
 
-A common situation where a shutdown script is useful is to check the Workbench log for failures, and if any are detected, to email someone. To register a shutdown script, add it to the `shutdown` option:
+A common situation where a shutdown script is useful is to check the Workbench log for failures, and if any are detected, to email someone. The script `email_log_if_errors.py` in the `scripts` directory shows how this can be used for this.
+
+To register a shutdown script, add it to the `shutdown` option:
 
 ```yaml
 shutdown: ["/home/mark/Documents/hacking/workbench/shutdown_example.py"]
@@ -64,8 +68,8 @@ You must provide the absolute path to the script, and the script must be executa
 Each preprocessor script gets passed two arguments:
 
 1. the character used as the CSV subdelimiter (defined in the `subdelimiter` config setting, which defaults to `|`)
+    - unlike bootstrap, shutdown, and post-action scripts, preprocessor scripts do not get passed the path to your Workbench configuration file; they only get passed the value of the `subdelimiter` config setting.
 1. the CSV field value
-1. (unlike bootstrap, shutdown, and post-action scripts, preprocessor scripts do not get passed the path to your Workbench configuration file; they only get passed the value of the `subdelimiter` config setting).
 
 When executed, the script processes the string content of the CSV field, and then replaces the original version of the CSV field value with the version processed by the script. An example preprocessor script is available in `scripts/samplepreprocessor.py`.
 
