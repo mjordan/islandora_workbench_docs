@@ -1768,9 +1768,9 @@ csv_field_templates:
 </tr>
 <tr>
 <td>media_type</td>
+<td>✔️ in <code>add_media</code> and <code>update_media</code> tasks</td>
 <td></td>
-<td></td>
-<td>Overrides, for all media being created, Workbench's default definition of whether the media being created is an image, file, document, audio, or video. Used in the <code>create</code>, <code>add_media</code>, and <code>create_from_files</code> tasks. More detail provided in the "<a href="/islandora_workbench_docs/media_types">Configuring Media Types</a>" section. Also required in all <code>update_media</code> tasks, not to override Workbench's defaults, but to explicitly indicate the media type being updated.</td>
+<td>Overrides, for all media being created, Workbench's default definition of whether the media being created is an image, file, document, audio, or video. Used in the <code>create</code>, <code>create_from_files</code>, <code>add_media</code>, and <code>update_media</code>, tasks. More detail provided in the "<a href="/islandora_workbench_docs/media_types">Configuring Media Types</a>" section. Required in all <code>update_media</code> and <code>add_media</code> tasks, not to override Workbench's defaults, but to explicitly indicate the media type being updated/added.</td>
 </tr>
 <tr>
 <td>media_types_override</td>

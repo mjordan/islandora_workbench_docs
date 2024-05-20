@@ -994,6 +994,7 @@ password: islandora
 input_csv: add_media.csv
 # media_use_tid is optional, it defaults to &quot;Original file&quot;.
 media_use_tid: 21
+media_type: file
 </code></pre>
 <p>This is the same configuration file using a term URI in <code>media_use_tid</code> rather than a term ID:</p>
 <pre><code class="language-yaml">task: add_media
@@ -1002,6 +1003,7 @@ username: admin
 password: islandora
 input_csv: add_media.csv
 media_use_tid: &quot;http://pcdm.org/use#Transcript&quot;
+media_type: file
 </code></pre>
 <p>If you want to specify a media_use_tid per CSV row, you can include that column in your CSV (in either "add_media" or "create" tasks):</p>
 <pre><code class="language-text">node_id,file,media_use_tid
