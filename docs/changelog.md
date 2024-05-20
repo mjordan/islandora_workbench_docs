@@ -1,5 +1,7 @@
 ### main branch (no tag/release)
 
+* May 20, 2024: (commit 3acddfa) Resolved [issue 745](https://github.com/mjordan/islandora_workbench/issues/745) and (commit 3f7b966) [issue 773](https://github.com/mjordan/islandora_workbench/issues/773).
+* May 15, 2024: (commit e7e55ca) Merged [PR 778](https://github.com/mjordan/islandora_workbench/pull/778).
 * April 23, 2024: (commit c197de3) Added `email_log_if_errors.py` script.
 * April 22, 2024: (commit edd8870) Resolved [issue 771](https://github.com/mjordan/islandora_workbench/issues/771).
 * April 15, 2024: (commit 19ffa9c) Resolved [issue 770](https://github.com/mjordan/islandora_workbench/issues/770).
@@ -122,6 +124,7 @@
 
 ### Documentation
 
+* May 20, 2024: Minor edit to "[Updating nodes](https://mjordan.github.io/islandora_workbench_docs/updating_nodes/"); updated docs to indicate that `media_type` configuration setting is now required for `add_media` and `update_media` tasks.
 * April 22, 2024: Updated "[Hooks](https://mjordan.github.io/islandora_workbench_docs/hooks/)" to document `scripts/generate_iiif_manifests.py` (from issue 771) and add some clarifications.
 * April 17, 2024: Updated "[Hooks](https://mjordan.github.io/islandora_workbench_docs/hooks/)" to be explicit about what Workbench configuration settings are available within external scripts.
 * April 16, 2024: Updated "[Field data (Drupal and CSV)](https://mjordan.github.io/islandora_workbench_docs/fields/#entity-reference-views-fields)" to clarify warning about Entity Reference Views fields; merged Rosie's [changes to the docs on using Paragraphs](https://github.com/mjordan/islandora_workbench_docs/pull/17).

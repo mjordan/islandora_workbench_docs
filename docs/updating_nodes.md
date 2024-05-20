@@ -4,9 +4,7 @@ You can update existing nodes by providing a CSV file with a `node_id` column pl
 * `append` will add values in the input CSV to any existing values in a field.
 * `delete` will delete all values in a field.
 
-Islandora Workbench will never allow a field to contain more values than the field's configuration allows. Attempts to update a field with more values than the maximum number allowed will result in the surplus values being ignored during the "update" task. If Workbench does this, it will write an entry to the log indicating it has done so.
-
-The column headings in the CSV file other than `node_id` must match machine names of fields that exist in the target Islandora content type. Only include fields that you want to update. Currently, text fields, EDTF fields, taxonomy fields, linked node fields (e.g. "Member of" for collection nodes), typed relation, link, and geolocation fields can be updated following the same conventions used when creating nodes as described in the "[Fields](/islandora_workbench_docs/fields/)" documentation.
+The column headings in the CSV file other than `node_id` must match machine names of fields that exist in the target Islandora content type. Only include fields that you want to update. Workbench can update fields following the same CSV conventions used when creating nodes as described in the "[Fields](/islandora_workbench_docs/fields/)" documentation.
 
 For example, using the fields defined by the Islandora Defaults module for the "Repository Item" content type, your CSV file could look like this:
 
@@ -46,3 +44,4 @@ Some things to note:
 * If a node you are updating doesn't have a field named in your input CSV, Workbench will skip updating the node and add a log entry to that effect.
 * For `update` tasks where the `update_mode` is "replace" or "append", blank/empty CSV values will do nothing; in other words, empty CSV values tell Workbench to *not* update the field.
 * For `update` tasks where the `update_mode` is "delete", it doesn't matter if the column(s) in the input CSV are blank or contain values - the values in the corresponding Drupal fields are deleted in both cases.
+* Islandora Workbench will never allow a field to contain more values than the field's configuration allows. Attempts to update a field with more values than the maximum number allowed will result in the surplus values being ignored during the "update" task. If Workbench does this, it will write an entry to the log indicating it has done so.
