@@ -1,6 +1,6 @@
 ### main branch (no tag/release)
 
-* May 20, 2024: (commit 3acddfa) Resolved [issue 745](https://github.com/mjordan/islandora_workbench/issues/745) and (commit 3f7b966) [issue 773](https://github.com/mjordan/islandora_workbench/issues/773).
+* May 20, 2024: (commit 3acddfa) Resolved [issue 745](https://github.com/mjordan/islandora_workbench/issues/745), (commit 3f7b966) [issue 773](https://github.com/mjordan/islandora_workbench/issues/773) and (commit f667639) [issue 766](https://github.com/mjordan/islandora_workbench/issues/766).
 * May 15, 2024: (commit e7e55ca) Merged [PR 778](https://github.com/mjordan/islandora_workbench/pull/778).
 * April 23, 2024: (commit c197de3) Added `email_log_if_errors.py` script.
 * April 22, 2024: (commit edd8870) Resolved [issue 771](https://github.com/mjordan/islandora_workbench/issues/771).
