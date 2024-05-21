@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* May 21, 2024: (commit be71dd5) Resolved [issue 782](https://github.com/mjordan/islandora_workbench/issues/782) and (commit fff678e) [issue 783](https://github.com/mjordan/islandora_workbench/issues/783).
 * May 20, 2024: (commit 3acddfa) Resolved [issue 745](https://github.com/mjordan/islandora_workbench/issues/745), (commit 3f7b966) [issue 773](https://github.com/mjordan/islandora_workbench/issues/773), (commit f667639) [issue 766](https://github.com/mjordan/islandora_workbench/issues/766), and (commit e268f97) [issue 781](https://github.com/mjordan/islandora_workbench/issues/781).
 * May 15, 2024: (commit e7e55ca) Merged [PR 778](https://github.com/mjordan/islandora_workbench/pull/778).
 * April 23, 2024: (commit c197de3) Added `email_log_if_errors.py` script.
@@ -124,6 +125,7 @@
 
 ### Documentation
 
+* May 21, 2024: Minor edit to "[Updating taxonomy terms](https://mjordan.github.io/islandora_workbench_docs/updating_terms/)".
 * May 20, 2024: Minor edit to "[Updating nodes](https://mjordan.github.io/islandora_workbench_docs/updating_nodes/"); updated docs to indicate that `media_type` configuration setting is now required for `add_media` and `update_media` tasks.
 * April 22, 2024: Updated "[Hooks](https://mjordan.github.io/islandora_workbench_docs/hooks/)" to document `scripts/generate_iiif_manifests.py` (from issue 771) and add some clarifications.
 * April 17, 2024: Updated "[Hooks](https://mjordan.github.io/islandora_workbench_docs/hooks/)" to be explicit about what Workbench configuration settings are available within external scripts.
