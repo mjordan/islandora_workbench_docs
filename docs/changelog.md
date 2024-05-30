@@ -125,6 +125,7 @@
 
 ### Documentation
 
+* May 31, 2024: Some edits to "[Using subdirectories](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" section of the docs on creating paged/compound content.
 * May 21, 2024: Minor edit to "[Updating taxonomy terms](https://mjordan.github.io/islandora_workbench_docs/updating_terms/)".
 * May 20, 2024: Minor edit to "[Updating nodes](https://mjordan.github.io/islandora_workbench_docs/updating_nodes/"); updated docs to indicate that `media_type` configuration setting is now required for `add_media` and `update_media` tasks.
 * April 22, 2024: Updated "[Hooks](https://mjordan.github.io/islandora_workbench_docs/hooks/)" to document `scripts/generate_iiif_manifests.py` (from issue 771) and add some clarifications.
