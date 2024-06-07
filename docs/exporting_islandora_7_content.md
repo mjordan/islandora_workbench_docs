@@ -111,14 +111,24 @@ parameters can be changed in the user-supplied config file.
         <td>key:value pairs to add as filters to the Solr query. See examples below.</td>
     </tr>
     <tr>
+        <td>pids_to_skip</td>
+        <td></td>
+        <td>List of PIDs to not export, e.g. `pids_to_skip: ["foo:234", "bar:7890"]`. Useful if you are aware of problems with specifis Islandora 7 source objects and you don't want those objects to crash out the script.</td>
+    </tr>
+    <tr>
         <td>debug</td>
-        <td>False</td>
+        <td>false</td>
         <td>Print debug information to the console.</td>
     </tr>
     <tr>
         <td>deep_debug</td>
-        <td>False</td>
+        <td>false</td>
         <td>Print additional debug information to the console.</td>
+    </tr>
+    <tr>
+        <td>secure_ssl_only</td>
+        <td>true</td>
+        <td>Whether or not to require valid SSL certificates. Set to `false` if you want to ignore SSL certificates.</td>
     </tr>
 </table>
 
