@@ -4,7 +4,19 @@ In order to use Workbench for this, you must install the Redirect module and con
 
 ![Redirect REST endpoint settings](images/redirect_rest_configs.png)
 
-In your configuration file, use `task: create_redirects`. The input CSV contains only two columns, `redirect_source` and `redirect_target`. Each value in the source column is a relative (to the hostname running Drupal) URL path that, when visited, will automatically redirect the user to the relative (to the hostname running Drupal) URL path (or external absolute URL) named in the target column. Here is a very brief example CSV:
+A sample configuration file for a `creatre_redirects` task looks like this:
+
+```
+task: create_redirects
+host: https://islandora.traefik.me
+username: admin
+password: password
+input_csv: my_redirects.csv
+# This option is explained below.
+# redirect_status_code: 302
+```
+
+The input CSV contains only two columns, `redirect_source` and `redirect_target`. Each value in the source column is a relative (to the hostname running Drupal) URL path that, when visited, will automatically redirect the user to the relative (to the hostname running Drupal) URL path (or external absolute URL) named in the target column. Here is a very brief example CSV:
 
 ```
 redirect_source,redirect_target
@@ -24,7 +36,7 @@ Assuming that the hostname of the Drupal instance running the Redirects module i
 A few things to note about creating redirects using Islandora Workbench:
 
 - The values in the `redirect_source` column are always relative to the root of the Drupal hostname URL. Drupal expects them to *not* begin with a leading `/`, but if you include it, Workbench will trim it off automatically.
-- The `redirect_source` values do not need to represent existing nodes. For example, values like `islandora/object/awesomeimage:collection` are not the paths of underlying nodes. Values in `redirect_source` that do have underlying nodes will redirect users to the corresponding `redirect_target` but don't make a lot of sense, since the user will always be automatically redirected and not ever get to see the underlying node at the source URL. However, you may want to use a `redirect_target` value that has a local node if you don't want users to see that node temporarily for some reason.
+- The `redirect_source` values do not need to represent existing nodes. For example, a value like `islandora/object/awesomeimage:collection` has no underlying node; it's just a path that Drupal listens at, and when requested, redirects the user to the corresponding target URL. Values in `redirect_source` that do have underlying nodes will redirect users to the corresponding `redirect_target` but don't make a lot of sense, since the user will always be automatically redirected and not ever get to see the underlying node at the source URL. However, you may want to use a `redirect_target` value that has a local node if you don't want users to see that node temporarily for some reason.
 - Currently, Islandora Workbench can only create redirects, it can't update or delete them. If you have a need for either of those funtionalities, open a Github issue.
 - HTTP redirects work by issuing a special response code to the browser. In most cases, and by default in Workbench, this is `301`. However, you can change this to another redirect HTTP status code by including the `redirect_status_code` setting in your config file specifying the code you want Drupal to send to the user's browser, e.g., `redirect_status_code: 302`.
 
