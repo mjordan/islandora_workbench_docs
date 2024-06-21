@@ -26,6 +26,7 @@ nav:
     - Creating taxonomy terms: creating_taxonomy_terms.md
     - Updating taxonomy terms: updating_terms.md
     - Assigning URL aliases: aliases.md
+    - Creating redirects: redirects.md
     - Adding alt text to images: alt_text.md
     - Rolling back nodes and media: rolling_back.md
     - Configuring media types: media_types.md

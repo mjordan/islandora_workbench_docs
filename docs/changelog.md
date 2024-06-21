@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* June 20, 2024: (commit 5a049bb): Resolved [issue 398](https://github.com/mjordan/islandora_workbench/issues/398).
 * June 7, 2024: (commit 986e8ba) Merged [PR 788](https://github.com/mjordan/islandora_workbench/pull/788); resolved (commit 7101c2a) [issue 787](https://github.com/mjordan/islandora_workbench/issues/787).
 * May 21, 2024: (commit be71dd5) Resolved [issue 782](https://github.com/mjordan/islandora_workbench/issues/782) and (commit fff678e) [issue 783](https://github.com/mjordan/islandora_workbench/issues/783).
 * May 20, 2024: (commit 3acddfa) Resolved [issue 745](https://github.com/mjordan/islandora_workbench/issues/745), (commit 3f7b966) [issue 773](https://github.com/mjordan/islandora_workbench/issues/773), (commit f667639) [issue 766](https://github.com/mjordan/islandora_workbench/issues/766), and (commit e268f97) [issue 781](https://github.com/mjordan/islandora_workbench/issues/781).
@@ -126,6 +127,7 @@
 
 ### Documentation
 
+* June 20, 2024: Started docs on "[Creating redirects](https://mjordan.github.io/islandora_workbench_docs/redirects/)".
 * June 7, 2024: Updated docs on "[Exporting Islandora 7 content](https://mjordan.github.io/islandora_workbench_docs/exporting_islandora_7_content/)".
 * May 31, 2024: Some edits to "[Using subdirectories](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" section of the docs on creating paged/compound content.
 * May 21, 2024: Minor edit to "[Updating taxonomy terms](https://mjordan.github.io/islandora_workbench_docs/updating_terms/)".
