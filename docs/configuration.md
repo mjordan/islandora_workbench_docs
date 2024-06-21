@@ -247,6 +247,7 @@ See the "[Logging](/islandora_workbench_docs/logging/)" section for more informa
 | contact_sheet_output_dir |  | contact_sheet_output | Used in `create` tasks to specify the name of the directory where contact sheet output is written. Can be relative (to the Workbench directory) or absolute. See "[Generating a contact sheet](/islandora_workbench_docs/contact_sheet/)" for more information. |
 | contact_sheet_css_path |  | assets/contact_sheet/contact-sheet.css | Used in `create` tasks to specify the path of the CSS stylesheet to use in contact sheets. Can be relative (to the Workbench directory) or absolute. See "[Generating a contact sheet](/islandora_workbench_docs/contact_sheet/)" for more information. |
 | node_exists_verification_view_endpoint |  | | Used in `create` tasks to tell Workbench to check whether a node with a matching value in your input CSV already exists. See "[Checking if nodes already exist](/islandora_workbench_docs/checking_if_nodes_exist/)" for more information. |
+| redirect_status_code |  | 301 | Used in `create_redirect` tasks to set the HTTP response code in redirects. See "[Creating redirects](/islandora_workbench_docs/redirects/)" for more information. |
 
 
 When you run Islandora Workbench with the `--check` argument, it will verify that all configuration options required for the current task are present, and if they aren't tell you so.
