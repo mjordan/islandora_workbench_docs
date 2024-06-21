@@ -18,6 +18,7 @@ Note that Islandora Workbench is not related in any way to the Drupal contrib mo
 * Allows assignment of Drupal vocabulary terms using term IDs, term names, or term URIs
 * Allows creation of new taxonomy terms from CSV field data
 * Allows the assignment of URL aliases
+* Allows creation of URL redirects
 * Allows adding alt text to images
 * Supports transmission fixity auditing for media files
 * Cross platform (Windows, Mac, and Linux)
