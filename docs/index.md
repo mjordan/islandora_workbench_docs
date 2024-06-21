@@ -24,7 +24,6 @@ Note that Islandora Workbench is not related in any way to the Drupal contrib mo
 * Cross platform (Windows, Mac, and Linux)
 * Well documented
 * Well tested
-* A companion project under development, [Islandora Workbench Desktop](https://github.com/mjordan/islandora_workbench_desktop), will add a graphical user interface that enables users not familiar or comfortable with the command line to use Workbench.
 
 ## Usage
 
