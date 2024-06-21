@@ -935,7 +935,16 @@
 <p>Islandora Workbench enables you to create redirects managed by the <a href="https://www.drupal.org/project/redirect">Redirect</a> contrib module. One of the most common uses for redirects are to retain URLs that have been replaced by newer ones. Within the Islandora context, being able to redirect from Islandora 7.x <code>islandora/object/[PID]</code> style URLs to their new Islandora 2 replacements such as <code>node/[NODEID]</code>. Using redirects, you can ensure that the old URLs continue to lead the user to the expected content.</p>
 <p>In order to use Workbench for this, you must install the Redirect module and configure the "Redirect" REST endpoing at <code>/admin/config/services/rest</code> so that it has the following settings:</p>
 <p><img alt="Redirect REST endpoint settings" src="../images/redirect_rest_configs.png" /></p>
-<p>In your configuration file, use <code>task: create_redirects</code>. The input CSV contains only two columns, <code>redirect_source</code> and <code>redirect_target</code>. Each value in the source column is a relative (to the hostname running Drupal) URL path that, when visited, will automatically redirect the user to the relative (to the hostname running Drupal) URL path (or external absolute URL) named in the target column. Here is a very brief example CSV:</p>
+<p>A sample configuration file for a <code>creatre_redirects</code> task looks like this:</p>
+<pre><code>task: create_redirects
+host: https://islandora.traefik.me
+username: admin
+password: password
+input_csv: my_redirects.csv
+# This option is explained below.
+# redirect_status_code: 302
+</code></pre>
+<p>The input CSV contains only two columns, <code>redirect_source</code> and <code>redirect_target</code>. Each value in the source column is a relative (to the hostname running Drupal) URL path that, when visited, will automatically redirect the user to the relative (to the hostname running Drupal) URL path (or external absolute URL) named in the target column. Here is a very brief example CSV:</p>
 <pre><code>redirect_source,redirect_target
 contact_us,how_can_we_help
 islandora/object/alpine:482,node/1089
