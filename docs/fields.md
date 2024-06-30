@@ -50,6 +50,7 @@ Things to note about URLs as `file` values:
 * Files identified by URLs must be accessible to the Workbench script, which means they must not require a username/password; however, they can be protected by a firewall, etc. as long as the computer running Workbench is allowed to retrieve the files without authenticating.
 * Currently Workbench requires that the URLs point directly to a file or a service that generates a file, and not a wrapper page or other indirect route to the file.
 
+
 ## Required columns
 
 A small number of columns are required in your CSV, depending on the task you are performing:
@@ -628,3 +629,15 @@ This configuration defines the paragraph field on the node (`field_full_title`) 
     Note that Workbench assumes all fields within a paragraph are single-valued.
 
 When using Workbench to update paragraphs using `update_mode: replace`, any null values for fields within the paragraph (such as the null subtitle in the second "Alternate Title" instance in the example) will null out existing field values. However, considering each paragraph as a whole field value, Workbench behaves the same as for all other fields - `update_mode: replace` will replace all paragraph entities with the ones in the CSV, but if the CSV does not contain any values for this field then the field will be left as is.
+
+
+## Values in the "field_member_of" column
+
+The `field_member_of` column can take a node ID, a full URL to a node, or a URL alias. For instance, all of these refer to the same node and can be used in `field_member_of`:
+
+- `648` (node ID)
+- `https://islandora.traefik.me/node/648` (full URL)
+- `https://islandora.traefik.me/mycollection` (full URL using an alias)
+- `/mycollection` (URL alias)
+
+If you use any of these types of values other than the bare node ID, Workbench will look up the node ID based on the URL or alias.
