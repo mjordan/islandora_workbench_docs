@@ -358,13 +358,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#values-in-the-field_member_of-column" class="md-nav__link">
-    Values in the "field_member_of" column
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -564,6 +557,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#values-in-the-field_member_of-column" class="md-nav__link">
+    Values in the "field_member_of" column
+  </a>
   
 </li>
       
@@ -1184,13 +1184,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#values-in-the-field_member_of-column" class="md-nav__link">
-    Values in the "field_member_of" column
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1393,6 +1386,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#values-in-the-field_member_of-column" class="md-nav__link">
+    Values in the "field_member_of" column
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1508,15 +1508,6 @@ If you are using a spreadsheet application, it will take care of wrapping the CS
 <li>Files identified by URLs must be accessible to the Workbench script, which means they must not require a username/password; however, they can be protected by a firewall, etc. as long as the computer running Workbench is allowed to retrieve the files without authenticating.</li>
 <li>Currently Workbench requires that the URLs point directly to a file or a service that generates a file, and not a wrapper page or other indirect route to the file.</li>
 </ul>
-<h3 id="values-in-the-field_member_of-column">Values in the "field_member_of" column</h3>
-<p>The <code>field_member_of</code> column can take a node ID, a full URL to a node, or a URL alias. For instance, all of these refer to the same node and can be used in <code>field_member_of</code>:</p>
-<ul>
-<li><code>648</code> (node ID)</li>
-<li><code>https://islandora.traefik.me/node/648</code> (full URL)</li>
-<li><code>https://islandora.traefik.me/mycollection</code> (full URL using an alias)</li>
-<li><code>/mycollection</code> (URL alias)</li>
-</ul>
-<p>If you use any of these types of values other than the bare node ID, Workbench will look up the node ID based on the URL or alias.</p>
 <h2 id="required-columns">Required columns</h2>
 <p>A small number of columns are required in your CSV, depending on the task you are performing:</p>
 <table>
@@ -2048,6 +2039,15 @@ My Title: A Subtitle|Alternate Title
 <p>Note that Workbench assumes all fields within a paragraph are single-valued.</p>
 </div>
 <p>When using Workbench to update paragraphs using <code>update_mode: replace</code>, any null values for fields within the paragraph (such as the null subtitle in the second "Alternate Title" instance in the example) will null out existing field values. However, considering each paragraph as a whole field value, Workbench behaves the same as for all other fields - <code>update_mode: replace</code> will replace all paragraph entities with the ones in the CSV, but if the CSV does not contain any values for this field then the field will be left as is.</p>
+<h2 id="values-in-the-field_member_of-column">Values in the "field_member_of" column</h2>
+<p>The <code>field_member_of</code> column can take a node ID, a full URL to a node, or a URL alias. For instance, all of these refer to the same node and can be used in <code>field_member_of</code>:</p>
+<ul>
+<li><code>648</code> (node ID)</li>
+<li><code>https://islandora.traefik.me/node/648</code> (full URL)</li>
+<li><code>https://islandora.traefik.me/mycollection</code> (full URL using an alias)</li>
+<li><code>/mycollection</code> (URL alias)</li>
+</ul>
+<p>If you use any of these types of values other than the bare node ID, Workbench will look up the node ID based on the URL or alias.</p>
 
 
 
