@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* July 3, 2024: (commit d32acdb): Relocated `"` in console output version of the 'Node for "[title]"' log entry to match the console output.
 * June 30, 2024: (commit ecd5d86): Resolved [issue 795](https://github.com/mjordan/islandora_workbench/issues/795).
 * June 24, 2024: (commit 90c112c): Resolved [issue 793](https://github.com/mjordan/islandora_workbench/issues/793).
 * June 20, 2024: (commit 5a049bb): Resolved [issue 398](https://github.com/mjordan/islandora_workbench/issues/398).
