@@ -1266,7 +1266,14 @@
 </code></pre>
 <p>With this setting in place, Workbench will ignore the <code>date_generated</code> column in the input CSV. More information on this feature <a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/#ignoring-csv-columns">is available</a>.</p>
 <h3 id="sharing-configuration-files-with-other-applications">Sharing configuration files with other applications</h3>
-<p>Islandora Workbench ignores entries in its YAML configuration files it doesn't recognize. This means that you can include YAML data that you may need for an application you are using in conjuction with Workbench. For example, in an automated deployment, you may need to unzip an archive containing images, PDFs, etc. that you want to load into Islandora as part of the deployment. If you put something like <code>mylib_zip_location: https://static.mylibrary.ca/sample_data.zip</code> in your config file, your deployment scripts could read the same config file used by Workbench, pick out the <code>mylib_zip_location</code> entry and get its value, download and unpack the content of the file into the Workbench <code>input_dir</code> location, and then run Workbench.</p>
+<p>Islandora Workbench ignores entries in its YAML configuration files it doesn't recognize. This means that you can include YAML data that you may need for an application you are using in conjuction with Workbench. For example, in an automated deployment, you may need to unzip an archive containing images, PDFs, etc. that you want to load into Islandora as part of the deployment. If you put something like <code>mylib_zip_location: https://static.mylibrary.ca/sample_data.zip</code> in your config file, your deployment scripts could read the same config file used by Workbench, pick out the <code>mylib_zip_location</code> entry and get its value, download and unpack the content of the file into the Workbench <code>input_dir</code> location, and then run Workbench:</p>
+<pre><code>task: create
+host: https://islandora.traefik.me
+username: admin
+password: password
+input_dir: /tmp
+mylib_zip_location: https://static.mylibrary.ca/sample_data.zip
+</code></pre>
 <p>It's probably a good idea to namespace your custom/non-Workbench config entries so they are easy to identify and to reduce the chance they conflict with Workbench config settings, but it's not necessary to do so.</p>
 <h3 id="case-study">Case study</h3>
 <p>Simon Fraser University Library uses Islandora Workbench to automate the transfer of theses from its locally developed thesis registration application (called, unsurprisingly, the <a href="https://theses.lib.sfu.ca">Thesis Registration System</a>, or TRS) to <a href="https://summit.sfu.ca">Summit</a>, the SFU institutional research repository running Islandora. This transfer happens through a series of scheduled tasks that run every evening.</p>
