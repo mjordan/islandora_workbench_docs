@@ -52,6 +52,39 @@ Important things to note when using this method:
 * The Drupal content type for page nodes is inherited from the parent, unless you specify a different content type in the `paged_content_page_content_type` setting in your configuration file.
 * If your page directories contain files other than page images, you need to include the `paged_content_image_file_extension` setting in your configuration. Otherwise, Workbench can't tell which files to create pages from.
 
+#### Ingesting pages, their parents, and their "grandparents" using a single CSV file
+
+In the "books" example above, each row in the CSV (i.e., book1, book2) describes a "Paged Content" node; each of the books is the direct parent of the individual page nodes. However, in some cases, you may want to create paged content (the pages), their direct parents (each book), and *a parent of the parents* (let's call it a "grandparent") at the same time, using the same Workbench job and the same input CSV. Some common use cases for this ability are 1) creating a node describing a book series, a set of books in the series, and pages for each book and 2) creating a node describing a periodical, some issues of the periodical, and the pages of each issue.
+
+The presence of `paged_content_from_directories: true` in your config files assumes that each row in your input CSV has a corresponding directory containing page files. If you want to include the pages, the immediate parent of the pages, and the grandparent of the pages in the same CSV, all you need to do is include in the `input_dir` directory an empty directory for the grandparent node, named after its `id` field like the other items in your CSV. In addition, and importantly, you also need to include a `parent_id` column in your CSV to define the relationship between the grandparent and its direct children, the books. (The parent-child relationship between the books and their pages is created automatically, like it is in the "books" example above.)
+
+As an example, let's extend the "books" example above to include a higher-level (grandparent) node that describes the series of books used in that example. Here is the CSV with the new top-level item (with the addition of the `parent_id` column to indicate that the paged content items are children of the new "book000" node):
+
+```text
+id,parent_id,title,field_model
+book000,,How-to Books: A Best-Selling Genre of Books,Compound Object
+book1,book000,How to Use Islandora Workbench like a Pro,Paged Content
+book2,book000,Using Islandora Workbench for Fun and Profit,Paged Content
+```
+
+And the directory structure (note that `book000` should be empty since it doesn't have any pages as direct children):
+
+```text
+books/
+├── book000
+├── book1
+│   ├── page-001.jpg
+│   ├── page-002.jpg
+│   └── page-003.jpg
+├── book2
+│   ├── isbn-1843341778-001.jpg
+│   ├── using-islandora-workbench-page-002.jpg
+│   └── page-003.jpg
+└── metadata.csv
+```
+
+Workbench will warn you that the `book000` directory is empty, but that's OK. It will look for, but not find, any pages for that item. The node corresponding to that directory will be created as expected, and the `parent_id` column will ensure that the intended hierarchical relationship between "book000" and its child items is created.
+
 #### Ingesting OCR (and other) files with page images
 
 You can tell Workbench to add OCR and other media related to page images when using the "Using subdirectories" method of creating paged content. To do this, add the OCR files to your subdirectories, using the base filenames of each page image plus an extension like `.txt`:

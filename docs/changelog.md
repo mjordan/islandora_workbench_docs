@@ -130,6 +130,8 @@
 
 ### Documentation
 
+* July 4, 2024: Added "[Ingesting pages, their parents, and their 'grandparents' using a single CSV file](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#ingesting-pages-their-parents-and-their-grandparents-using-a-single-csv-file)".
+* July 3, 2024: Added "[Sharing configuration files with other applications](https://mjordan.github.io/islandora_workbench_docs/workflows/#sharing-configuration-files-with-other-applications)".
 * June 30, 2024: Added [docs](https://mjordan.github.io/islandora_workbench_docs/fields/#values-in-the-field_member_of-column) on using values other than node IDs in `field_member_of`.
 * June 20, 2024: Started docs on "[Creating redirects](https://mjordan.github.io/islandora_workbench_docs/redirects/)".
 * June 7, 2024: Updated docs on "[Exporting Islandora 7 content](https://mjordan.github.io/islandora_workbench_docs/exporting_islandora_7_content/)".

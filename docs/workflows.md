@@ -97,6 +97,22 @@ ignore_csv_columns: ['date_generated', 'qa by']
 
 With this setting in place, Workbench will ignore the `date_generated` column in the input CSV. More information on this feature [is available](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#ignoring-csv-columns).
 
+### Sharing configuration files with other applications
+
+Islandora Workbench ignores entries in its YAML configuration files it doesn't recognize. This means that you can include YAML data that you may need for an application you are using in conjuction with Workbench. For example, in an automated deployment, you may need to unzip an archive containing inut CSV and sample images, PDFs, etc. that you want to load into Islandora as part of the deployment. If you put something like `mylib_zip_location: https://static.mylibrary.ca/deployment_sample_data.zip` in your config file, your deployment scripts could read the same config file used by Workbench, pick out the `mylib_zip_location` entry and get its value, download and unpack the content of the file into the Workbench `input_dir` location, and then run Workbench:
+
+```
+task: create
+host: https://islandora.traefik.me
+username: admin
+password: password
+input_dir: /tmp
+input_csv: deployment_sample_data.csv
+mylib_zip_location: https://static.mylibrary.ca/deployment_sample_data.zip
+```
+
+It's probably a good idea to namespace your custom/non-Workbench config entries so they are easy to identify and to reduce the chance they conflict with Workbench config settings, but it's not necessary to do so.
+
 ### Case study
 
 Simon Fraser University Library uses Islandora Workbench to automate the transfer of theses from its locally developed thesis registration application (called, unsurprisingly, the [Thesis Registration System](https://theses.lib.sfu.ca), or TRS) to [Summit](https://summit.sfu.ca), the SFU institutional research repository running Islandora. This transfer happens through a series of scheduled tasks that run every evening.
