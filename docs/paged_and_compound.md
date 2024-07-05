@@ -67,7 +67,7 @@ book1,book000,How to Use Islandora Workbench like a Pro,Paged Content
 book2,book000,Using Islandora Workbench for Fun and Profit,Paged Content
 ```
 
-And the directory structure (note that `book000` should be empty since it doesn't have any pages as direct children):
+And the directory structure (note that `book000` directory should be empty since it doesn't have any pages as direct children):
 
 ```text
 books/
