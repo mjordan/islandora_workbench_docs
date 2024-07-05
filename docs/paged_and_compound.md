@@ -83,7 +83,7 @@ books/
 └── metadata.csv
 ```
 
-Workbench will warn you that the `book000` directory is empty, but that's OK. It will look for, but not find, any pages for that item. The node corresponding to that directory will be created as expected, and the `parent_id` column will ensure that the intended hierarchical relationship between "book000" and its child items is created.
+Workbench will warn you that the `book000` directory is empty, but that's OK. It will look for, but not find, any pages for that item. The node corresponding to that directory will be created as expected, and the `parent_id` column will ensure that the intended hierarchical relationship between "book000" and its child items (the book nodes) is created.
 
 #### Ingesting OCR (and other) files with page images
 
