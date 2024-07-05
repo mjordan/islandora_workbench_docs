@@ -427,6 +427,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ingesting-parents-of-paged-content-and-paged-content-using-a-single-csv-file" class="md-nav__link">
+    Ingesting parents of paged content and paged content using a single CSV file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ingesting-ocr-and-other-files-with-page-images" class="md-nav__link">
     Ingesting OCR (and other) files with page images
   </a>
@@ -1022,6 +1029,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ingesting-parents-of-paged-content-and-paged-content-using-a-single-csv-file" class="md-nav__link">
+    Ingesting parents of paged content and paged content using a single CSV file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ingesting-ocr-and-other-files-with-page-images" class="md-nav__link">
     Ingesting OCR (and other) files with page images
   </a>
@@ -1148,6 +1162,28 @@ book2,Using Islandora Workbench for Fun and Profit,Paged Content
 <li>The Drupal content type for page nodes is inherited from the parent, unless you specify a different content type in the <code>paged_content_page_content_type</code> setting in your configuration file.</li>
 <li>If your page directories contain files other than page images, you need to include the <code>paged_content_image_file_extension</code> setting in your configuration. Otherwise, Workbench can't tell which files to create pages from.</li>
 </ul>
+<h4 id="ingesting-parents-of-paged-content-and-paged-content-using-a-single-csv-file">Ingesting parents of paged content and paged content using a single CSV file</h4>
+<p>In the "books" example above, each row in the CSV (i.e., book1, book2) describes a "Paged Content" node; each of the books is the direct parent of the individual page nodes. However, in some cases, you may want to create paged content nodes along with their parent at the same time, using the same Workbench job and the same input CSV.</p>
+<p><code>paged_content_from_directories: true</code> assumes that each row in your input CSV has a corresponding directory containing page files. If you want to include a parent of paged content items in the same CSV as your paged content items, all you need to do is include in the <code>input_dir</code> directory an empty directory for that node, named after its <code>id</code> field like the other items in your CSV. As an example, let's extend the one we used above to include a higher-level node that describes the series of books used in that example. Here is the CSV with the new top-level item (with the addition of the <code>parent_id</code> column to indicate that the paged content items are children of the new "book000" node):</p>
+<pre><code class="language-text">id,parent_id,title,field_model
+book000,How to Books,Compound Object
+book1,book000,How to Use Islandora Workbench like a Pro,Paged Content
+book2,book000,Using Islandora Workbench for Fun and Profit,Paged Content
+</code></pre>
+<p>And the directory structure:</p>
+<pre><code class="language-text">books/
+├── book000
+├── book1
+│   ├── page-001.jpg
+│   ├── page-002.jpg
+│   └── page-003.jpg
+├── book2
+│   ├── isbn-1843341778-001.jpg
+│   ├── using-islandora-workbench-page-002.jpg
+│   └── page-003.jpg
+└── metadata.csv
+</code></pre>
+<p>Workbench will warn you that the <code>book000</code> directory is empty, but that's OK. It will look for, but not find, any pages for that item. The node corresponding to that directory will be created as expected, and the <code>parent_id</code> column will ensure that the intended hierarchical relationship between "book000" and its child items is created.</p>
 <h4 id="ingesting-ocr-and-other-files-with-page-images">Ingesting OCR (and other) files with page images</h4>
 <p>You can tell Workbench to add OCR and other media related to page images when using the "Using subdirectories" method of creating paged content. To do this, add the OCR files to your subdirectories, using the base filenames of each page image plus an extension like <code>.txt</code>:</p>
 <pre><code class="language-text">books/
