@@ -58,7 +58,7 @@ In the "books" example above, each row in the CSV (i.e., book1, book2) describes
 
 The presence of `paged_content_from_directories: true` in your config files assumes that each row in your input CSV has a corresponding directory containing page files. If you want to include the pages, the immediate parent of the pages, and the grandparent of the pages in the same CSV, all you need to do is include in the `input_dir` directory an empty directory for the grandparent node, named after its `id` field like the other items in your CSV. In addition, and importantly, you also need to include a `parent_id` column in your CSV to define the relationship between the grandparent and its direct children, the books. (The parent-child relationship between the books and their pages is created automatically, like it is in the "books" example above.)
 
-As an example, let's extend the "books" example above to include a higher-level (grandparent) node that describes the series of books used in that example. Here is the CSV with the new top-level item (with the addition of the `parent_id` column to indicate that the paged content items are children of the new "book000" node):
+Let's extend the "books" example above to include a higher-level (grandparent to the pages) node that describes the series of books used in that example. Here is the CSV with the new top-level item (with the addition of the `parent_id` column to indicate that the paged content items are children of the new "book000" node):
 
 ```text
 id,parent_id,title,field_model
