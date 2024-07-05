@@ -1184,7 +1184,7 @@ book2,book000,Using Islandora Workbench for Fun and Profit,Paged Content
 │   └── page-003.jpg
 └── metadata.csv
 </code></pre>
-<p>Workbench will warn you that the <code>book000</code> directory is empty, but that's OK. It will look for, but not find, any pages for that item. The node corresponding to that directory will be created as expected, and the <code>parent_id</code> column will ensure that the intended hierarchical relationship between "book000" and its child items is created.</p>
+<p>Workbench will warn you that the <code>book000</code> directory is empty, but that's OK. It will look for, but not find, any pages for that item. The node corresponding to that directory will be created as expected, and the <code>parent_id</code> column will ensure that the intended hierarchical relationship between "book000" and its child items (the book nodes) is created.</p>
 <h4 id="ingesting-ocr-and-other-files-with-page-images">Ingesting OCR (and other) files with page images</h4>
 <p>You can tell Workbench to add OCR and other media related to page images when using the "Using subdirectories" method of creating paged content. To do this, add the OCR files to your subdirectories, using the base filenames of each page image plus an extension like <code>.txt</code>:</p>
 <pre><code class="language-text">books/
