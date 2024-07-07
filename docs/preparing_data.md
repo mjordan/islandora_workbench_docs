@@ -164,6 +164,20 @@ id,file,title
 
 [More information](/islandora_workbench_docs/fields/#values-in-the-file-column) is available on using URLs in your `file` column.
 
+## Using a local or remote .zip archive as input data
+
+If you register the location of a local .zip archive or a remote (available over http) .zip archive in your configuration file, Workbench will unzip the contents of the archive into the directory defined in your `input_dir` setting:
+
+```
+input_data_zip_archives:
+  - /tmp/mytest.zip
+  - https://1sfu-my.sharepoint.com/:u:/g/personal/mjordan_sfu_ca/ESc_Q4_Z1OBNtfy6bNVvM8EBad1YcLZOrbhWPp2bilgpmQ?download=1
+```
+
+Workbench will automatically delete the archive file after extracting it unless you add `delete_zip_archive_after_extraction: false` to your config file.
+
+Note that remote URLs to zip archives do not need to end in ".zip", but the remote files must be accessible to Workbench without any authentication.
+
 ## Using a Google Sheet as the input CSV file
 
 With this option, your configuration's `input_csv` option contains the URL to a publicly readable Google Sheet. To do this, simply provide the URL to the Google spreadsheet in your configuration file's `input_csv` option, like this:
