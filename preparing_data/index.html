@@ -1289,6 +1289,7 @@ input_csv: /tmp/input.csv
 </code></pre>
 <p>The archive is unzipped with its internal directory structure intact; for example, if your zip has the following structure:</p>
 <pre><code>rungh/
+├── rungh.csv
 ├── rungh_v2_n1-2
 │   ├── Vol.2-1-2-001.tif
 │   ├── Vol.2-1-2-002.tif
@@ -1306,6 +1307,7 @@ input_csv: /tmp/input.csv
 <p>and your <code>input_dir</code> value is "input_data", the archive will be unzipped into:</p>
 <pre><code>input_data/
 └── rungh/
+    ├── rungh.csv
     ├── rungh_v2_n1-2
     │   ├── Vol.2-1-2-001.tif
     │   ├── Vol.2-1-2-002.tif
@@ -1320,8 +1322,12 @@ input_csv: /tmp/input.csv
         ├── Vol.2-3-05.tif
         └── Vol.2-3-07.tif
 </code></pre>
-<p>Workbench will automatically delete the archive file after extracting it unless you add <code>delete_zip_archive_after_extraction: false</code> to your config file.</p>
-<p>Note that remote URLs to zip archives do not need to end in ".zip", but the remote files must be accessible to Workbench without any authentication.</p>
+<p>A few things to note if you are using a zip archive as your input data:</p>
+<ul>
+<li>You can include your CSV or Excel input file in the zip archive (as illustrated in the Rungh example above), as long as your <code>input_csv</code> setting points to the file after the archive has been extracted.</li>
+<li>Workbench will automatically delete the archive file after extracting it unless you add <code>delete_zip_archive_after_extraction: false</code> to your config file.</li>
+<li>Remote URLs to zip archives do not need to end in ".zip", but the remote files must be accessible to Workbench without any authentication.</li>
+</ul>
 <h2 id="using-a-google-sheet-as-the-input-csv-file">Using a Google Sheet as the input CSV file</h2>
 <p>With this option, your configuration's <code>input_csv</code> option contains the URL to a publicly readable Google Sheet. To do this, simply provide the URL to the Google spreadsheet in your configuration file's <code>input_csv</code> option, like this:</p>
 <pre><code class="language-yaml">task: create
