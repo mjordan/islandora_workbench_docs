@@ -174,6 +174,45 @@ input_data_zip_archives:
   - https://myremote.host.org/zips/another_zip.zip
 ```
 
+The archive is unzipped with its internal directory structure intact; for example, if your zip has the following structure:
+
+```
+rungh/
+├── rungh_v2_n1-2
+│   ├── Vol.2-1-2-001.tif
+│   ├── Vol.2-1-2-002.tif
+│   ├── Vol.2-1-2-003.tif
+│   ├── Vol.2-1-2-004.tif
+│   └── Vol.2-1-2-005.tif
+└── rungh_v2_n3
+    ├── Vol.2-3-01.tif
+    ├── Vol.2-3-02.tif
+    ├── Vol.2-3-03.tif
+    ├── Vol.2-3-04.tif
+    ├── Vol.2-3-05.tif
+    └── Vol.2-3-07.tif
+```
+
+and your `input_dir` value is "input_data", the archive will be unzipped into:
+
+```
+input_data/
+└── rungh/
+    ├── rungh_v2_n1-2
+    │   ├── Vol.2-1-2-001.tif
+    │   ├── Vol.2-1-2-002.tif
+    │   ├── Vol.2-1-2-003.tif
+    │   ├── Vol.2-1-2-004.tif
+    │   └── Vol.2-1-2-005.tif
+    └── rungh_v2_n3
+        ├── Vol.2-3-01.tif
+        ├── Vol.2-3-02.tif
+        ├── Vol.2-3-03.tif
+        ├── Vol.2-3-04.tif
+        ├── Vol.2-3-05.tif
+        └── Vol.2-3-07.tif
+```
+
 Workbench will automatically delete the archive file after extracting it unless you add `delete_zip_archive_after_extraction: false` to your config file.
 
 Note that remote URLs to zip archives do not need to end in ".zip", but the remote files must be accessible to Workbench without any authentication.
