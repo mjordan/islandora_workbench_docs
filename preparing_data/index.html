@@ -1285,7 +1285,7 @@ input_csv: /tmp/input.csv
 <p>If you register the location of a local .zip archive or a remote (available over http) .zip archive in your configuration file, Workbench will unzip the contents of the archive into the directory defined in your <code>input_dir</code> setting:</p>
 <pre><code>input_data_zip_archives:
   - /tmp/mytest.zip
-  - https://1sfu-my.sharepoint.com/:u:/g/personal/mjordan_sfu_ca/ESc_Q4_Z1OBNtfy6bNVvM8EBad1YcLZOrbhWPp2bilgpmQ?download=1
+  - https://myremote.host.org/zips/another_zip.zip
 </code></pre>
 <p>Workbench will automatically delete the archive file after extracting it unless you add <code>delete_zip_archive_after_extraction: false</code> to your config file.</p>
 <p>Note that remote URLs to zip archives do not need to end in ".zip", but the remote files must be accessible to Workbench without any authentication.</p>
