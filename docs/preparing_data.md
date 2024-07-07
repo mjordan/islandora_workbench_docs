@@ -171,7 +171,7 @@ If you register the location of a local .zip archive or a remote (available over
 ```
 input_data_zip_archives:
   - /tmp/mytest.zip
-  - https://1sfu-my.sharepoint.com/:u:/g/personal/mjordan_sfu_ca/ESc_Q4_Z1OBNtfy6bNVvM8EBad1YcLZOrbhWPp2bilgpmQ?download=1
+  - https://myremote.host.org/zips/another_zip.zip
 ```
 
 Workbench will automatically delete the archive file after extracting it unless you add `delete_zip_archive_after_extraction: false` to your config file.
