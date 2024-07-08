@@ -1325,7 +1325,7 @@ input_csv: /tmp/input.csv
 <p>A few things to note if you are using a zip archive as your input data:</p>
 <ul>
 <li>You can include a single or multiple zip archives in your <code>input_data_zip_archives</code> setting. Workbench doesn't check for the existence of file from archives while it extracts them, so if a file with the same path exists in more than one archive, the file from the last archive in the list will overwrite existing files at the same path.</li>
-<li>You can include your CSV or Excel input file in the zip archive (as illustrated in the Rungh example above), as long as your <code>input_csv</code> setting points to the file after the archive has been extracted.</li>
+<li>You can include in your zip archive(s) any files that you want to put in the directory indicated in your <code>input_dir</code> config setting, including files named in your CSV <code>file</code> column, files named in your <code>additional_files</code> configuration, or even the CSV or Excel file named in your <code>input_csv</code> setting (as illustrated in the Rungh example above).</li>
 <li>Workbench will automatically delete the archive file after extracting it unless you add <code>delete_zip_archive_after_extraction: false</code> to your config file.</li>
 <li>Remote URLs to zip archives do not need to end in ".zip", but the remote files must be accessible for downloading without any authentication.</li>
 </ul>
