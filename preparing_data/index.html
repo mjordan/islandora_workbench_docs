@@ -1282,7 +1282,7 @@ input_csv: /tmp/input.csv
 </code></pre>
 <p><a href="/islandora_workbench_docs/fields/#values-in-the-file-column">More information</a> is available on using URLs in your <code>file</code> column.</p>
 <h2 id="using-a-local-or-remote-zip-archive-as-input-data">Using a local or remote .zip archive as input data</h2>
-<p>If you register the location of a local .zip archive or a remote (available over http) .zip archive in your configuration file, Workbench will unzip the contents of the archive into the directory defined in your <code>input_dir</code> setting:</p>
+<p>If you register the location of a local .zip archive or a remote (available over http(s)) .zip archive in your configuration file, Workbench will unzip the contents of the archive into the directory defined in your <code>input_dir</code> setting:</p>
 <pre><code>input_data_zip_archives:
   - /tmp/mytest.zip
   - https://myremote.host.org/zips/another_zip.zip
@@ -1324,7 +1324,7 @@ input_csv: /tmp/input.csv
 </code></pre>
 <p>A few things to note if you are using a zip archive as your input data:</p>
 <ul>
-<li>Remote URLs to zip archives do not need to end in ".zip", but the remote files must be accessible for downloading without any authentication.</li>
+<li>Remote URLs to zip archives do not need to end in ".zip", but the remote files must be directly accessible for downloading without any authentication.</li>
 <li>You can register a single or multiple zip file in your <code>input_data_zip_archives</code> setting. Workbench doesn't check for the existence of files at extracted destination paths, so if a file with the same extracted path exists in more than one archive (or is already at a path the same as that of a file from an archive), the file from the last archive in the <code>input_data_zip_archives</code> list will overwrite existing files at the same path.</li>
 <li>You can include in your zip archive(s) any files that you want to put in the directory indicated in your <code>input_dir</code> config setting, including files named in your CSV <code>file</code> column, files named in columns defined by your <code>additional_files</code> configuration, or the CSV or Excel file named in your <code>input_csv</code> setting (as illustrated in the Rungh example above).</li>
 <li>Workbench will automatically delete the archive file after extracting it unless you add <code>delete_zip_archive_after_extraction: false</code> to your config file.</li>
