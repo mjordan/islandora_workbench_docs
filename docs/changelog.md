@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* July 9, 2024: Resolved [issue 337](https://github.com/mjordan/islandora_workbench/issues/337).
 * July 7, 2024: Resolved [issue 798](https://github.com/mjordan/islandora_workbench/issues/798).
 * July 3, 2024: (commit d32acdb): Relocated `"` in console output version of the 'Node for "[title]"' log entry to match the console output.
 * June 30, 2024: (commit ecd5d86): Resolved [issue 795](https://github.com/mjordan/islandora_workbench/issues/795).
@@ -131,6 +132,7 @@
 
 ### Documentation
 
+* July 9, 2024: Added "[Using numbers as term names](/islandora_workbench_docs/fields/#using-numbers-as-term-names)".
 * July 7, 2024: Added "[Using a local or remote .zip archive as input data](https://mjordan.github.io/islandora_workbench_docs/preparing_data/#using-a-local-or-remote-zip-archive-as-input-data)".
 * July 4, 2024: Added "[Ingesting pages, their parents, and their 'grandparents' using a single CSV file](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#ingesting-pages-their-parents-and-their-grandparents-using-a-single-csv-file)".
 * July 3, 2024: Added "[Sharing configuration files with other applications](https://mjordan.github.io/islandora_workbench_docs/workflows/#sharing-configuration-files-with-other-applications)".

@@ -345,6 +345,20 @@ Using term URIs has some constraints:
 * You cannot create a new term by providing a URI like you can by providing a term name.
 * If the same URI is registered with more than one term, Workbench will choose one and write a warning to the log indicating which term it chose and which terms the URI is registered with. However, `--check` will detect that a URI is registered with more than one term and warn you. At that point you can edit your CSV file to use the correct term ID rather than the URI.
 
+##### Using numbers as term names
+
+If you want to use a term name like "1990" in your CSV, you need to tell Workbench to not interpret that term name as a term ID. To do this, add a list of CSV columns to your config file using the `columns_with_term_names` config setting that will only contain term names (and not IDs or URIs, as explained next):
+
+```
+columns_with_term_names:
+ - field_subject
+ - field_tags
+```
+
+If you register a column name here, it can contain *only* terms names. Any term ID or URIs will be interpreted as term names.
+
+Note that this is only necessary if your term names are comprises entirely of integers. If they contain decimals (like "1990.3"), Workbench will not interpret them as term IDs and you will not need to tell Workbench to do otherwise.
+
 #### Entity Reference Views fields
 
 Islandora Workbench fully supports taxonomy reference fields that use the "Default" reference type, but only partially supports "Views: Filter by an entity reference View" taxonomy reference fields. To populate this type of entity reference in "create" and "update" tasks, you have two options.
