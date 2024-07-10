@@ -1301,19 +1301,20 @@ input_csv: /tmp/input.csv
 <p>In this case, your CSV <code>file</code> column values should include the intermediate directory's path, e.g. <code>bpnicol/003 Partial Side A.mp3</code>.</p>
 <p>You can also include an input CSV in your zip archive if you want:</p>
 <pre><code>bpnichol
-├── bpnichol.csv
+├── bpn_metadata.csv
 ├── 003 Partial Side A.mp3
 └── MsC12.Nichol.Tape15.mp3
 </code></pre>
 <p>Within <code>input_data</code>, the unzipped content would look like:</p>
 <pre><code>input_data/
    ├──bpnichol
-      ├── bpnichol.csv
+      ├── bpn_metadata.csv
       ├── 003 Partial Side A.mp3
       └── MsC12.Nichol.Tape15.mp3
 </code></pre>
 <p>Alternatively, all of your files can also be at the root of the zip archive:</p>
-<pre><code>├── 003 Partial Side A.mp3
+<pre><code>├── bpn_metadata.csv
+├── 003 Partial Side A.mp3
 └── MsC12.Nichol.Tape15.mp3
 </code></pre>
 <p>If you are zipping up directories to create <a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">paged content</a>, all of the directories containing page files should be at the root of your zip archive, with no intermediate parent directory:</p>
@@ -1349,7 +1350,7 @@ input_csv: /tmp/input.csv
         ├── Vol.2-3-05.tif
         └── Vol.2-3-07.tif
 </code></pre>
-<p>This is because if you include <code>paged_content_from_directories: true</code> in your configuration file, Workbench looks within your <code>input_dir</code> for a directory named after the paged content item's <code>id</code> value, without an intermediate directory. If you wanted to include an intermediate directory in your zip archive, you would have to adjust the value of your <code>input_dir</code> setting to include the intermediate directory.</p>
+<p>This is because if you include <code>paged_content_from_directories: true</code> in your configuration file, Workbench looks within your <code>input_dir</code> for a directory named after the paged content item's <code>id</code> value, without an intermediate directory.</p>
 <p>A few things to note if you are using a zip archive as your input data:</p>
 <ul>
 <li>Remote URLs to zip archives do not need to end in ".zip", but the remote files must be directly accessible for downloading without any authentication.</li>
