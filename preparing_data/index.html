@@ -1298,7 +1298,7 @@ input_csv: /tmp/input.csv
       ├── 003 Partial Side A.mp3
       └── MsC12.Nichol.Tape15.mp3
 </code></pre>
-<p>In this case, your CSV <code>file</code> column values should include the intermediate directory's path, e.g. <code>bpnicol/003 Partial Side A.mp3</code>.</p>
+<p>In this case, your CSV <code>file</code> column values should include the intermediate directory's path, e.g. <code>bpnichol/003 Partial Side A.mp3</code>.</p>
 <p>You can also include an input CSV in your zip archive if you want:</p>
 <pre><code>bpnichol
 ├── bpn_metadata.csv
@@ -1312,10 +1312,16 @@ input_csv: /tmp/input.csv
       ├── 003 Partial Side A.mp3
       └── MsC12.Nichol.Tape15.mp3
 </code></pre>
-<p>Alternatively, all of your files can also be at the root of the zip archive:</p>
+<p>Alternatively, all of your files can also be at the root of the zip archive. In that case, they would be unzipped into the directory named in your <code>input_dir</code> setting. A zip archive with this structure:</p>
 <pre><code>├── bpn_metadata.csv
 ├── 003 Partial Side A.mp3
 └── MsC12.Nichol.Tape15.mp3
+</code></pre>
+<p>would be unzipped into:</p>
+<pre><code>input_data/
+    ├── bpn_metadata.csv
+    ├── 003 Partial Side A.mp3
+    └── MsC12.Nichol.Tape15.mp3
 </code></pre>
 <p>If you are zipping up directories to create <a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">paged content</a>, all of the directories containing page files should be at the root of your zip archive, with no intermediate parent directory:</p>
 <pre><code>├── rungh.csv
