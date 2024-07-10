@@ -1294,23 +1294,23 @@ input_csv: /tmp/input.csv
 </code></pre>
 <p>and your <code>input_dir</code> value is "input_data", the archive will be unzipped into:</p>
 <pre><code>input_data/
-├──bpnicol
-   ├── 003 Partial Side A.mp3
-   └── MsC12.Nichol.Tape15.mp3
+   ├──bpnicol
+      ├── 003 Partial Side A.mp3
+      └── MsC12.Nichol.Tape15.mp3
 </code></pre>
 <p>In this case, your CSV <code>file</code> column values should include the intermediate directory's path, e.g. <code>bpnicol/003 Partial Side A.mp3</code>.</p>
 <p>You can also include an input CSV in your Zip archive if you want:</p>
 <pre><code>bpnicol
-├──bpnicol.csv
+├── bpnicol.csv
 ├── 003 Partial Side A.mp3
 └── MsC12.Nichol.Tape15.mp3
 </code></pre>
 <p>Within <code>input_data</code>, the unzipped content would look like:</p>
 <pre><code>input_data/
-├──bpnicol
-   ├── bpnicol.csv
-   ├── 003 Partial Side A.mp3
-   └── MsC12.Nichol.Tape15.mp3
+   ├──bpnicol
+      ├── bpnicol.csv
+      ├── 003 Partial Side A.mp3
+      └── MsC12.Nichol.Tape15.mp3
 </code></pre>
 <p>Alternatively, all of your files can also be at the root of the Zip archive:</p>
 <pre><code>├── 003 Partial Side A.mp3
