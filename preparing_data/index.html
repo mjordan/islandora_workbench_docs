@@ -1288,8 +1288,36 @@ input_csv: /tmp/input.csv
   - https://myremote.host.org/zips/another_zip.zip
 </code></pre>
 <p>The archive is unzipped with its internal directory structure intact; for example, if your zip has the following structure:</p>
-<pre><code>rungh/
-├── rungh.csv
+<pre><code>bpnicol
+├── 003 Partial Side A.mp3
+└── MsC12.Nichol.Tape15.mp3
+</code></pre>
+<p>and your <code>input_dir</code> value is "input_data", the archive will be unzipped into:</p>
+<pre><code>input_data/
+├──bpnicol
+   ├── 003 Partial Side A.mp3
+   └── MsC12.Nichol.Tape15.mp3
+</code></pre>
+<p>In this case, your CSV <code>file</code> column values should include the intermediate directory's path, e.g. <code>bpnicol/003 Partial Side A.mp3</code>.</p>
+<p>You can also include an input CSV in your Zip archive if you want:</p>
+<pre><code>bpnicol
+├──bpnicol.csv
+├── 003 Partial Side A.mp3
+└── MsC12.Nichol.Tape15.mp3
+</code></pre>
+<p>Within <code>input_data</code>, the unzipped content would look like:</p>
+<pre><code>input_data/
+├──bpnicol
+   ├── bpnicol.csv
+   ├── 003 Partial Side A.mp3
+   └── MsC12.Nichol.Tape15.mp3
+</code></pre>
+<p>Alternatively, all of your files can also be at the root of the Zip archive:</p>
+<pre><code>├── 003 Partial Side A.mp3
+└── MsC12.Nichol.Tape15.mp3
+</code></pre>
+<p>If you are zipping up directories to create <a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">paged content</a>, all of the directories containing page files should be at the root of your Zip archive, with no intermediate parent directory:</p>
+<pre><code>├── rungh.csv
 ├── rungh_v2_n1-2
 │   ├── Vol.2-1-2-001.tif
 │   ├── Vol.2-1-2-002.tif
@@ -1306,8 +1334,7 @@ input_csv: /tmp/input.csv
 </code></pre>
 <p>and your <code>input_dir</code> value is "input_data", the archive will be unzipped into:</p>
 <pre><code>input_data/
-└── rungh/
-    ├── rungh.csv      &lt;-- Explained below.
+    ├── rungh.csv
     ├── rungh_v2_n1-2
     │   ├── Vol.2-1-2-001.tif
     │   ├── Vol.2-1-2-002.tif
@@ -1322,6 +1349,7 @@ input_csv: /tmp/input.csv
         ├── Vol.2-3-05.tif
         └── Vol.2-3-07.tif
 </code></pre>
+<p>This is because if you include <code>paged_content_from_directories: true</code> in your configuration file, Workbench looks within your <code>input_dir</code> for a directory named after the paged content item's <code>id</code> value, without an intermediate directory. If you wanted to include an intermediate directory in your Zip archive, you would have to adjust the value of your <code>input_dir</code> setting to include the intermediate directory.</p>
 <p>A few things to note if you are using a zip archive as your input data:</p>
 <ul>
 <li>Remote URLs to zip archives do not need to end in ".zip", but the remote files must be directly accessible for downloading without any authentication.</li>
