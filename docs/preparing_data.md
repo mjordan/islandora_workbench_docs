@@ -166,7 +166,7 @@ id,file,title
 
 ## Using a local or remote .zip archive as input data
 
-If you register the location of a local .zip archive or a remote (available over http(s)) .zip archive in your configuration file, Workbench will unzip the contents of the archive into the directory defined in your `input_dir` setting:
+If you register the location of a local .zip archive or a remote (available over http(s)) zip archive in your configuration file, Workbench will unzip the contents of the archive into the directory defined in your `input_dir` setting:
 
 ```
 input_data_zip_archives:
@@ -177,7 +177,59 @@ input_data_zip_archives:
 The archive is unzipped with its internal directory structure intact; for example, if your zip has the following structure:
 
 ```
-rungh/
+bpnichol
+├── 003 Partial Side A.mp3
+└── MsC12.Nichol.Tape15.mp3
+```
+and your `input_dir` value is "input_data", the archive will be unzipped into:
+
+```
+input_data/
+   ├──bpnichol
+      ├── 003 Partial Side A.mp3
+      └── MsC12.Nichol.Tape15.mp3
+```
+
+In this case, your CSV `file` column values should include the intermediate directory's path, e.g. `bpnichol/003 Partial Side A.mp3`.
+
+You can also include an input CSV in your zip archive if you want:
+
+```
+bpnichol
+├── bpn_metadata.csv
+├── 003 Partial Side A.mp3
+└── MsC12.Nichol.Tape15.mp3
+```
+Within `input_data`, the unzipped content would look like:
+
+```
+input_data/
+   ├──bpnichol
+      ├── bpn_metadata.csv
+      ├── 003 Partial Side A.mp3
+      └── MsC12.Nichol.Tape15.mp3
+```
+
+Alternatively, all of your files can also be at the root of the zip archive. In that case, they would be unzipped into the directory named in your `input_dir` setting. A zip archive with this structure:
+
+```
+├── bpn_metadata.csv
+├── 003 Partial Side A.mp3
+└── MsC12.Nichol.Tape15.mp3
+```
+would be unzipped into:
+
+```
+input_data/
+    ├── bpn_metadata.csv
+    ├── 003 Partial Side A.mp3
+    └── MsC12.Nichol.Tape15.mp3
+```
+
+If you are zipping up directories to create [paged content](/islandora_workbench_docs/paged_and_compound/#using-subdirectories), all of the directories containing page files should be at the root of your zip archive, with no intermediate parent directory:
+
+
+```
 ├── rungh.csv
 ├── rungh_v2_n1-2
 │   ├── Vol.2-1-2-001.tif
@@ -198,8 +250,7 @@ and your `input_dir` value is "input_data", the archive will be unzipped into:
 
 ```
 input_data/
-└── rungh/
-    ├── rungh.csv      <-- Explained below.
+    ├── rungh.csv
     ├── rungh_v2_n1-2
     │   ├── Vol.2-1-2-001.tif
     │   ├── Vol.2-1-2-002.tif
@@ -214,6 +265,8 @@ input_data/
         ├── Vol.2-3-05.tif
         └── Vol.2-3-07.tif
 ```
+
+This is because if you include `paged_content_from_directories: true` in your configuration file, Workbench looks within your `input_dir` for a directory named after the paged content item's `id` value, without an intermediate directory.
 
 A few things to note if you are using a zip archive as your input data:
 
