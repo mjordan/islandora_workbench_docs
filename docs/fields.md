@@ -357,7 +357,7 @@ columns_with_term_names:
 
 If you register a column name here, it can contain *only* terms names. Any term ID or URIs will be interpreted as term names.
 
-Note that this is only necessary if your term names are comprises entirely of integers. If they contain decimals (like "1990.3"), Workbench will not interpret them as term IDs and you will not need to tell Workbench to do otherwise.
+Note that this is only necessary if your term names are comprised entirely of integers. If they contain decimals (like "1990.3"), Workbench will not interpret them as term IDs and you will not need to tell Workbench to do otherwise.
 
 #### Entity Reference Views fields
 
