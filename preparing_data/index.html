@@ -424,6 +424,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#encoding-of-text-files" class="md-nav__link">
+    Encoding of text files
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1137,6 +1144,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#encoding-of-text-files" class="md-nav__link">
+    Encoding of text files
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1459,6 +1473,8 @@ excel_worksheet: Second sheet
 <p>By default, if the <code>file</code> value for a row is empty, Workbench's <code>--check</code> option will show an error. But, in some cases you may want to create nodes but not add any media. If you add <code>allow_missing_files: true</code> to your config file for "create" tasks, you can leave the <code>file</code> column in your CSV empty.</p>
 <h2 id="creating-nodes-but-not-media">Creating nodes but not media</h2>
 <p>If you want to only create nodes and not media, you can do so by including <code>nodes_only: true</code> in your configuration file. More detail <a href="/islandora_workbench_docs/nodes_only/">is available</a>.</p>
+<h2 id="encoding-of-text-files">Encoding of text files</h2>
+<p>All text files used as input to Islandora Workbench, including CSV data, files that are going to be use to create "Extracted Text" media such as OCR/hOCR files, and media track files, must use a standard UTF-8 encoding. This is generally not a problem other than if you have created any of these files on Microsoft Windows. Even on Windows, UTF-8 files can contain a Microsoft-specifc feature called a "Byte-order mark", or "BOM". This type of UTF-8 file is not valid; only standard UTF-8 files are.</p>
 
 
 
