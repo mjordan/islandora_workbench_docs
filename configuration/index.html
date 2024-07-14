@@ -1480,7 +1480,13 @@ csv_field_templates:
 <td>allow_adding_terms</td>
 <td></td>
 <td>false</td>
-<td>In <code>create</code> and <code>update</code> tasks, determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "<a href="/islandora_workbench_docs/fields/#field-types">Taxonomy reference fields</a>" section. Note: this setting is not required in <code>create_terms</code> tasks.</td>
+<td>In <code>create</code>, <code>update</code>, <code>add_media</code>, <code>update_media</code>, <code>create_terms</code>, and <code>update_terms</code> tasks, determines if Workbench will add taxonomy terms if they do not exist in the target vocabulary. See more information in the "<a href="/islandora_workbench_docs/fields/#taxonomy-reference-fields">Taxonomy reference fields</a>" section. Note: this setting is not required in <code>create_terms</code> tasks unless you are adding new terms to a taxonomy reference field on the term entries.</td>
+</tr>
+<tr>
+<td>protected_vocabularies</td>
+<td></td>
+<td>[] (empty list)</td>
+<td>Allows you to exclude vocabularies from having new terms added via <code>allow_adding_terms</code>. See more information in the "<a href="/islandora_workbench_docs/fields/#taxonomy-reference-fields">Taxonomy reference fields</a>" section. Note: this setting is not required in <code>create_terms</code> tasks.</td>
 </tr>
 <tr>
 <td>vocab_id</td>
