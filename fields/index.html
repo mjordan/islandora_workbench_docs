@@ -1714,7 +1714,7 @@ img003.png,Picture of yarn and needles,&quot;Yarn, Balls of|Knitting needles&quo
 <p>Terms can be from any level in a vocabulary's hierarchy. In other words, if you have a vocabulary whose structure looks like this:</p>
 <p><img alt="Hierarchical_vocabulary" src="../images/hierarchical_vocab.png" /></p>
 <p>you can use the terms IDs or labels for "Automobiles", "Sports cars", or "Land Rover" in your CSV. The term name (or ID) is all you need; no indication of the term's place in the hierarchy is required.</p>
-<p>If you add <code>allow_adding_terms: true</code> to your configuration file for <code>create</code> and <code>update</code> tasks, Workbench will create the new term the first time it is used in the CSV file following these rules:</p>
+<p>If you add <code>allow_adding_terms: true</code> to your configuration file for any of the entity "create" or "update" tasks, Workbench will create the new term the first time it is used in the CSV file following these rules:</p>
 <ul>
 <li>If multiple records in your CSV contain the same new term name in the same field, the term is only created once.</li>
 <li>When Workbench checks to see if the term with the new name exists in the target vocabulary, it queries Drupal for the new term name, looking for an exact match against an existing term in the specified vocabulary. Therefore it is important that term names used in your CSV are identical to existing term names. The query to find existing term names follows these two rules:<ul>
@@ -1724,6 +1724,16 @@ img003.png,Picture of yarn and needles,&quot;Yarn, Balls of|Knitting needles&quo
 </li>
 <li>If the term name you provide in the CSV file does not match an existing term name in its vocabulary, the term name from the CSV data is used to create a new term. If it does match, Workbench populates the field in your nodes with a reference to the matching term.</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>allow_adding_terms</code> applies to <em>all</em> vocabularyies. In general, you do not want to add new terms to vocabularies used by Islandora for system functions such as Islandora Models and Islandora Media Use. In order to exclude vocabularies from being added to, you can register vocabulary machine names in the <code>protected_vocabularies</code> setting, like this:</p>
+<p>```
+protected_vocabularies:
+ - islandora_model
+ - islandora_display
+ - islandora_media_use</p>
+</div>
+<p>```</p>
 <p>Adding new terms has some constraints:</p>
 <ul>
 <li>Terms created in this way do not have any external URIs. If you want your terms to have external URIs, you will need to either create the terms manually or add the URIs manually after the terms are created by Islandora Workbench.</li>
