@@ -1298,6 +1298,7 @@ mylib_zip_location: https://static.mylibrary.ca/deployment_sample_data.zip
 <li>Using a <a href="/islandora_workbench_docs/preparing_data/#using-a-google-sheet-as-the-input-csv-file">Google Sheet</a> as the <code>input_csv</code> value</li>
 <li>Using a <a href="/islandora_workbench_docs/preparing_data/#using-a-local-or-remote-zip-archive-as-input-data">remote Zip archive</a> as the input images, PDFs, etc. This Zip archive can also contain in input CSV, eliminating the need to point to a Google Sheet.</li>
 <li>Using <a href="/islandora_workbench_docs/fields/#values-in-the-field_member_of-column">URL aliases</a> in your <code>field_member_of</code> CSV column.</li>
+<li>Configuring a View to <a href="/islandora_workbench_docs/checking_if_nodes_exist/">check if nodes already exist</a>, if you want to rerun Workbench using the same input data but avoid creating duplicate nodes and media.</li>
 </ul>
 <p>The same capabilities apply to using Workbench to load data for automated testing during Continuous Integration workflows and configurations.</p>
 <p>An interesting facet of using the combination of remote Zip and (optionally) a Google Sheet as input is that people other than developers, such as content managers or testers, can add content to ingest without having to commit to the Git repository. All they need to do is update the Google Sheet and Zip file. As long as the URLs of these inputs do not change, the next time the developers run Workbench, the new content will be ingested.</p>
