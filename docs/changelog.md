@@ -132,6 +132,7 @@
 
 ### Documentation
 
+* July 16, 2024: Added "[Cross-environment deployment / Continuous Integration](/islandora_workbench_docs/workflows/#cross-environment-deployment-continuous-integration)".
 * July 14, 2024: Added docs on the new `protected_vocabularies` config setting to "[Taxonomy reference fields](/islandora_workbench_docs/fields/#taxonomy-reference-fields)" and removed some cruft; added docs on "[Encoding of text files](/islandora_workbench_docs/preparing_data/#encoding-of-text-files)".
 * July 9, 2024: Added "[Using numbers as term names](/islandora_workbench_docs/fields/#using-numbers-as-term-names)".
 * July 7, 2024: Added "[Using a local or remote .zip archive as input data](https://mjordan.github.io/islandora_workbench_docs/preparing_data/#using-a-local-or-remote-zip-archive-as-input-data)".

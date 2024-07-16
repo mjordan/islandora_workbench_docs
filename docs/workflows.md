@@ -113,6 +113,25 @@ mylib_zip_location: https://static.mylibrary.ca/deployment_sample_data.zip
 
 It's probably a good idea to namespace your custom/non-Workbench config entries so they are easy to identify and to reduce the chance they conflict with Workbench config settings, but it's not necessary to do so.
 
+### Cross-environment deployment / Continuous Integration
+
+Workbench can be used to create the same content across different development, testing, and deployment environments. One application of this is to allow a team of developers can be sure they are all using the same Islandora content. For example, it is possible to commit one or more Workbench config files to a shared Git repository, and when a developer rebuilds their envrionment, automatically run Workbench using those configuration files to load the shared content.
+
+Some tips on making Islandora more portable across environments include:
+
+- Adding the Workbench user's password to an [envrionment variable](/islandora_workbench_docs/installation/#password-management), eliminating the need to include the password in the configuration file
+- Using a [Google Sheet](/islandora_workbench_docs/preparing_data/#using-a-google-sheet-as-the-input-csv-file) as the `input_csv` value
+- Using a [remote Zip archive](/islandora_workbench_docs/preparing_data/#using-a-local-or-remote-zip-archive-as-input-data) as the input images, PDFs, etc. This Zip archive can also contain in input CSV, eliminating the need to point to a Google Sheet.
+- Using [URL aliases](/islandora_workbench_docs/fields/#values-in-the-field_member_of-column) in your `field_member_of` CSV column.
+
+The same capabilities apply to using Workbench to load data for automated testing during Continuous Integration workflows and configurations.
+
+An interesting facet of using the combination of remote Zip and (optionally) a Google Sheet as input is that people other than developers, such as content managers or testers, can add content to ingest without having to commit to the Git repository. All they need to do is update the Google Sheet and Zip file. As long as the URLs of these inputs do not change, the next time the developers run Workbench, the new content will be ingested.
+
+Automatically populating staging and production environments on build is a useful way to test that these environments have deployed successfully. Running a [rollback](/islandora_workbench_docs/rolling_back/) task can then delete the sample content once deployment has been confirmed.
+
+The [Islandora Sandbox](https://sandbox.islandora.ca/) is populated on build using Workbench.
+
 ### Case study
 
 Simon Fraser University Library uses Islandora Workbench to automate the transfer of theses from its locally developed thesis registration application (called, unsurprisingly, the [Thesis Registration System](https://theses.lib.sfu.ca), or TRS) to [Summit](https://summit.sfu.ca), the SFU institutional research repository running Islandora. This transfer happens through a series of scheduled tasks that run every evening.
