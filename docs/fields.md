@@ -266,7 +266,7 @@ Terms can be from any level in a vocabulary's hierarchy. In other words, if you 
 
 you can use the terms IDs or labels for "Automobiles", "Sports cars", or "Land Rover" in your CSV. The term name (or ID) is all you need; no indication of the term's place in the hierarchy is required.
 
-If you add `allow_adding_terms: true` to your configuration file for `create` and `update` tasks, Workbench will create the new term the first time it is used in the CSV file following these rules:
+If you add `allow_adding_terms: true` to your configuration file for any of the entity "create" or "update" tasks, Workbench will create the new term the first time it is used in the CSV file following these rules:
 
 * If multiple records in your CSV contain the same new term name in the same field, the term is only created once.
 * When Workbench checks to see if the term with the new name exists in the target vocabulary, it queries Drupal for the new term name, looking for an exact match against an existing term in the specified vocabulary. Therefore it is important that term names used in your CSV are identical to existing term names. The query to find existing term names follows these two rules:
@@ -274,19 +274,23 @@ If you add `allow_adding_terms: true` to your configuration file for `create` an
     * Case is ignored.
 * If the term name you provide in the CSV file does not match an existing term name in its vocabulary, the term name from the CSV data is used to create a new term. If it does match, Workbench populates the field in your nodes with a reference to the matching term.
 
+`allow_adding_terms` applies to *all* vocabularies. In general, you do not want to add new terms to vocabularies used by Islandora for system functions such as Islandora Models and Islandora Media Use. In order to exclude vocabularies from being added to, you can register vocabulary machine names in the `protected_vocabularies` setting, like this:
+
+```
+protected_vocabularies:
+ - islandora_model
+ - islandora_display
+ - islandora_media_use
+```
+
 Adding new terms has some constraints:
 
-* Terms created in this way do not have any external URIs. If you want your terms to have external URIs, you will need to either create the terms manually or add the URIs manually after the terms are created by Islandora Workbench.
+* Terms created in this way do not have any external URIs, other fields, or if they are hierarchical. If you want your terms that have any of these features, you will need to either create the terms manually, through a `create_terms` task, or using a third-party module like [Taxonomy Import](https://www.drupal.org/project/taxonomy_import) prior to using their term names in an input CSV.
 * Workbench cannot distinguish between identical term names within the same vocabulary. This means you cannot create two different terms that have the same term name (for example, two terms in the Person vocabulary that are identical but refer to two different people). The workaround for this is to create one of the terms before using Workbench and use the term ID instead of the term string.
     * Related to this, if the same term name exists multiple times in the same vocabulary (again using the example of two Person terms that describe two different people) you should be aware that when you use these identical term names within the same vocabulary in your CSV, Workbench will always choose the first one it encounters when it converts from term names to term IDs while populating your nodes. The workaround for this is to use the term ID for one (or both) of the identical terms, or to use URIs for one (or both) of the identical terms.
 * `--check` will identify any new terms that exceed Drupal's maximum allowed length for term names, 255 characters. If a term name is longer than 255 characters, Workbench will truncate it at that length, log that it has done so, and create the term.
 * Taxonomy terms created with new nodes are not removed when you delete the nodes.
-* Currently, Islandora Workbench has the following limitations:
-    * It cannot create new taxonomy terms that have required fields other than the core term name field. [This issue](https://github.com/mjordan/islandora_workbench/issues/111) addresses that limitation. As that issue documents, in order to support additional fields on taxonomy terms (both required and optional), Workbench will need a way to express complex term data in its input CSV. If you have an opinion on how this can be done, please leave a comment at that issue.
-    * Workbench cannot currently create a new term that has another term as its parent (i.e. terms below the top level of a hierarchical taxonomy). However, for existing terms, Workbench doesn't care where they are in a taxonomy's hierarchy. [Issue 236](https://github.com/mjordan/islandora_workbench/issues/236) will provide the ability to create terms at any level of a vocabulary's hierarchy. Creating taxonomy terms by including them in your CSV file adds new terms to the root of the applicable vocabulary.
 
-!!! note
-    If you would rather import vocabularies before referencing them using Workbench, check out the [Taxonomy Import](https://www.drupal.org/project/taxonomy_import) contrib module.
 
 ##### Using term names in multi-vocabulary fields
 

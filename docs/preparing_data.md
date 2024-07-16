@@ -402,3 +402,7 @@ By default, if the `file` value for a row is empty, Workbench's `--check` option
 ## Creating nodes but not media
 
 If you want to only create nodes and not media, you can do so by including `nodes_only: true` in your configuration file. More detail [is available](/islandora_workbench_docs/nodes_only/).
+
+## Encoding of text files
+
+All text files used as input to Islandora Workbench, including CSV data, files that are going to be use to create "Extracted Text" media such as OCR/hOCR files, and media track files, must use a standard UTF-8 encoding. This is generally not a problem other than if you have created any of these files on Microsoft Windows. Even on Windows, UTF-8 files can contain a Microsoft-specifc feature called a "Byte-order mark", or "BOM". This type of UTF-8 file is not valid; only standard UTF-8 files are.
