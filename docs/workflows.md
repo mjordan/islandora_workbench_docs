@@ -122,8 +122,8 @@ Some tips on making Islandora more portable across environments include:
 - Adding the Workbench user's password to an [envrionment variable](/islandora_workbench_docs/installation/#password-management), eliminating the need to include the password in the configuration file
 - Using a [Google Sheet](/islandora_workbench_docs/preparing_data/#using-a-google-sheet-as-the-input-csv-file) as the `input_csv` value
 - Using a [remote Zip archive](/islandora_workbench_docs/preparing_data/#using-a-local-or-remote-zip-archive-as-input-data) as the input images, PDFs, etc. This Zip archive can also contain in input CSV, eliminating the need to point to a Google Sheet.
-- Using [URL aliases](/islandora_workbench_docs/fields/#values-in-the-field_member_of-column) in your `field_member_of` CSV column.
-- Configuring a View to [check if nodes already exist](/islandora_workbench_docs/checking_if_nodes_exist/), if you want to rerun Workbench using the same input data but avoid creating duplicate nodes and media.
+- Using [URL aliases](/islandora_workbench_docs/fields/#values-in-the-field_member_of-column) in your `field_member_of` CSV column to avoid relying on Drupal instance-specific node IDs (note that this assumes the node aliases will be consistent across Drupal instances)
+- Configuring a View to [check if nodes already exist](/islandora_workbench_docs/checking_if_nodes_exist/), if you want to rerun Workbench using the same input data but avoid creating duplicate nodes and media
 
 The same capabilities apply to using Workbench to load data for automated testing during Continuous Integration workflows and configurations.
 
