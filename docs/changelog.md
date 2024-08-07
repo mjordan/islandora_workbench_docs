@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* August 6, 2024: Resolved (commit ff901d8) [issue 791](https://github.com/mjordan/islandora_workbench/issues/791) and (commit ef01052) [issue 808](https://github.com/mjordan/islandora_workbench/issues/808).
 * July 9, 2024: Resolved (commit 7f5f814) [issue 337](https://github.com/mjordan/islandora_workbench/issues/337) and [issue 752](https://github.com/mjordan/islandora_workbench/issues/752).
 * July 7, 2024: Resolved [issue 798](https://github.com/mjordan/islandora_workbench/issues/798).
 * July 3, 2024: (commit d32acdb): Relocated `"` in console output version of the 'Node for "[title]"' log entry to match the console output.
@@ -132,6 +133,7 @@
 
 ### Documentation
 
+* August 6, 2024: Updated "[Ingesting OCR (and other) files with page images](/islandora_workbench_docs/paged_and_compound/#ingesting-ocr-and-other-files-with-page-images)".
 * July 16, 2024: Added "[Cross-environment deployment / Continuous Integration](/islandora_workbench_docs/workflows/#cross-environment-deployment-continuous-integration)".
 * July 14, 2024: Added docs on the new `protected_vocabularies` config setting to "[Taxonomy reference fields](/islandora_workbench_docs/fields/#taxonomy-reference-fields)" and removed some cruft; added docs on "[Encoding of text files](/islandora_workbench_docs/preparing_data/#encoding-of-text-files)".
 * July 9, 2024: Added "[Using numbers as term names](/islandora_workbench_docs/fields/#using-numbers-as-term-names)".

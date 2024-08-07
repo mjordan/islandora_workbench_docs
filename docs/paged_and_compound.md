@@ -140,7 +140,7 @@ You can add multiple additional files (for example, OCR and hOCR) if you provide
 ```yaml
 paged_content_additional_page_media:
  - http://pcdm.org/use#ExtractedText: txt
- - https://www.wikidata.org/wiki/Q288405: hocr
+ - https://discoverygarden.ca/use#hocr: hocr
 ```
 
 You can also use your Drupal's numeric Media Use term IDs in the mappings, like:
