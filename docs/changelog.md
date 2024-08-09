@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* August 9, 2024: Resolved (commit 8117024) [issue 806](https://github.com/mjordan/islandora_workbench/issues/806).
 * August 6, 2024: Resolved (commit ff901d8) [issue 791](https://github.com/mjordan/islandora_workbench/issues/791) and (commit ef01052) [issue 808](https://github.com/mjordan/islandora_workbench/issues/808).
 * July 9, 2024: Resolved (commit 7f5f814) [issue 337](https://github.com/mjordan/islandora_workbench/issues/337) and [issue 752](https://github.com/mjordan/islandora_workbench/issues/752).
 * July 7, 2024: Resolved [issue 798](https://github.com/mjordan/islandora_workbench/issues/798).
