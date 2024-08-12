@@ -598,6 +598,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#overriding-workbenchs-default-file-extension-to-mime-type-mappings" class="md-nav__link">
+    Overriding Workbench's default file extension to MIME type mappings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuring-a-custom-media-type" class="md-nav__link">
     Configuring a custom media type
   </a>
@@ -981,6 +988,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#overriding-workbenchs-default-file-extension-to-mime-type-mappings" class="md-nav__link">
+    Overriding Workbench's default file extension to MIME type mappings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#configuring-a-custom-media-type" class="md-nav__link">
     Configuring a custom media type
   </a>
@@ -1070,6 +1084,12 @@
 <pre><code class="language-yaml">mimetype_extensions:
   'image/jp2': '.foo'
   'image/jpeg': '.bar'
+</code></pre>
+<h2 id="overriding-workbenchs-default-file-extension-to-mime-type-mappings">Overriding Workbench's default file extension to MIME type mappings</h2>
+<p>It may be necessary to assign a media a MIME type that is different from the MIME type that Drupal ordinarily derives from a given extension. The best example of this is that media for hOCR files need to have the MIME type <code>text/vnd.hocr+html</code>. Without explicitly indicating that MIME type, Drupal will assign the media for an .hocr file, on creation, the catch-all MIME type <code>application/octet-stream</code>.</p>
+<p>Workbench automatically assigns files ending in <code>.hocr</code> the correct MIME type. But, if you want to override that for some reason, or want to tell Workbench to create a media with a specific MIME type from a file with a specific extension, you can add to your configuration file a an extension-to-MIME-type mapping like this (the leading <code>.</code> in the extension on the left is optional):</p>
+<pre><code class="language-yaml">extensions_to_mimetypes:
+  'mbox': 'application/mbox'
 </code></pre>
 <h2 id="configuring-a-custom-media-type">Configuring a custom media type</h2>
 <p>Islandora ships with a set of default media types, including audio, document, extracted text, file, FITS technical metadata, image, and video. If you want to add your own custom media type, you need to tell Workbench two things:</p>
