@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#applying-csv-calue-templates-to-rows-in-your-input-csv" class="md-skip">
+        <a href="#applying-csv-value-templates-to-rows-in-your-input-csv" class="md-skip">
           Skip to content
         </a>
       
@@ -404,15 +404,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#applying-csv-calue-templates-to-rows-in-your-input-csv" class="md-nav__link">
-    Applying CSV calue templates to rows in your input CSV
+  <a href="#applying-csv-value-templates-to-rows-in-your-input-csv" class="md-nav__link">
+    Applying CSV value templates to rows in your input CSV
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#applying-csv-calue-templates-to-paged-content" class="md-nav__link">
-    Applying CSV calue templates to paged content
+  <a href="#applying-csv-value-templates-to-paged-content" class="md-nav__link">
+    Applying CSV value templates to paged content
   </a>
   
 </li>
@@ -960,15 +960,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#applying-csv-calue-templates-to-rows-in-your-input-csv" class="md-nav__link">
-    Applying CSV calue templates to rows in your input CSV
+  <a href="#applying-csv-value-templates-to-rows-in-your-input-csv" class="md-nav__link">
+    Applying CSV value templates to rows in your input CSV
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#applying-csv-calue-templates-to-paged-content" class="md-nav__link">
-    Applying CSV calue templates to paged content
+  <a href="#applying-csv-value-templates-to-paged-content" class="md-nav__link">
+    Applying CSV value templates to paged content
   </a>
   
 </li>
@@ -999,7 +999,7 @@
 <p class="admonition-title">Note</p>
 <p>This section describes using CSV <em>value</em> templates in your configuration file. For information on CSV <em>field</em> templates, see the "<a href="/islandora_workbench_docs/field_templates.md">CSV field templates</a>". For information on CSV <em>file</em> templates, see the "<a href="/islandora_workbench_docs/generating_csv_files/#csv-file-templates">CSV file templates</a>" section.</p>
 </div>
-<h2 id="applying-csv-calue-templates-to-rows-in-your-input-csv">Applying CSV calue templates to rows in your input CSV</h2>
+<h2 id="applying-csv-value-templates-to-rows-in-your-input-csv">Applying CSV value templates to rows in your input CSV</h2>
 <p>In <code>create</code> and <code>update</code> tasks, you can configure templates that are applied to all the values in a CSV column (or to each subvalue if you have multiple values in a single field) as if the templated text were present in the values in your CSV file. The templates are configured in the <code>csv_value_templates</code> option. An example looks like this:</p>
 <pre><code class="language-text">csv_value_templates:
   - field_linked_agent: relators:aut:person:$csv_value
@@ -1036,8 +1036,8 @@ IMG_2940.JPG,03,Looking across Burrard Inlet,25,&quot;relators:aut:person:Jordan
 <li>Values in the templated CSV output are validated against Drupal's configuration in the same way that values present in your CSV are validated.</li>
 <li>By default, CSV value templates won't be applied to empty fields. However, if you want a template to be applied to a field if that field is empty, you can include the <code>allow_csv_value_templates_if_field_empty</code> setting in your config file defining a list of column names. For example, <code>allow_csv_value_templates_if_field_empty: [field_identifier]</code> will apply any templates defined for <code>field_identifier</code> in your <code>csv_value_templates</code> setting, even if <code>field_identifier</code> is empty in your input CSV.</li>
 </ul>
-<h2 id="applying-csv-calue-templates-to-paged-content">Applying CSV calue templates to paged content</h2>
-<p>Paged content (or as sometimes referred to, children) created using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a> method do not have their own rows in input CSV files. However, you can apply CSV value templates to their node fields using. In this case:</p>
+<h2 id="applying-csv-value-templates-to-paged-content">Applying CSV value templates to paged content</h2>
+<p>Paged content (or as sometimes referred to, children) created using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method do not have their own rows in input CSV files. However, you can apply CSV value templates to their node fields using. In this case:</p>
 <ul>
 <li>the CSV row that is used as the source of <code>$csv_value</code> is the page's (or child's) parent row</li>
 <li>the <code>$file</code> variable is the name of the page/child's filename (and <code>filename_without_extension</code> is derived from this value)</li>
@@ -1051,7 +1051,7 @@ IMG_2940.JPG,03,Looking across Burrard Inlet,25,&quot;relators:aut:person:Jordan
 </code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Fields that are configured to be required in a content type are automatically applied to paged/child items created using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a> method. However, you may still configure templates using the <code>csv_value_templates_for_paged_content</code> setting if you wish. If you do, the templates are applied in the same way as they would be if the field was configured to be optional.</p>
+<p>Fields that are configured to be required in a content type are automatically applied to paged/child items created using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a> method using the same values for those fields as their parents' rows in the CSV input file. However, you can also configure templates using the <code>csv_value_templates_for_paged_content</code> setting if you wish.</p>
 </div>
 
 
