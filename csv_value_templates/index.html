@@ -952,15 +952,25 @@ IMG_2940.JPG,03,Looking across Burrard Inlet,25,&quot;relators:aut:person:Jordan
 <pre><code class="language-text">csv_value_templates:
   - field_linked_agent: relators:aut:person:$csv_value
   - field_subject: subject:$csv_value
-  - field_local_identifier: SFU-$csv_value
+  - field_local_identifier: SFU-$uuid_string
 </code></pre>
+<p>The following template variables are available:</p>
+<ul>
+<li><code>$csv_value</code>: The verbatim string value of the field.</li>
+<li><code>$file</code>: The verbatim value of the <code>file</code> column in the row.</li>
+<li><code>$filename_without_extension</code>: The filename portion only (with no leading directory path or file extension) in the <code>file</code> column in the row.</li>
+<li><code>$weight</code>: The value of the <code>field_weight</code> column in the CSV, or for paged content created using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" option, the sequence number embedded in the page's filenme.</li>
+<li><code>$random_alphanumeric_string</code>: A randomly generated string containing numbers and mixed-case letters. This string's default length is 5 characters, but this can be overridden by including <code>csv_value_templates_rand_length</code> in your configuration file, e.g. <code>csv_value_templates_rand_length: 10</code>.</li>
+<li><code>$random_number_string</code>: A randomly generated string containing only numbers. This string's default length is 5 characters, but this can be overridden by including <code>csv_value_templates_rand_length</code> in your configuration file, e.g. <code>csv_value_templates_rand_length: 10</code>.</li>
+<li><code>$uuid_string</code>: A valid version 4 UUID.</li>
+</ul>
 <p>A few things to note about CSV value templates:</p>
 <ul>
-<li><code>$csv_value</code> is the only variable available in a template.</li>
-<li>Your templated text can be appended or prepended to <code>$csv_value</code>.</li>
+<li>The variable can be anywhere in your template (beginning, middle, or end).</li>
+<li>You can only define a single template for a given field in <code>csv_value_templates</code>, but you can include multiple variables in a single template. If multiple variables are present in a template, they are applied in the order listed above.</li>
 <li>If a CSV field contains multiple subvalues, the same template is applied to all subvalues in the field (as illustrated above).</li>
-<li>You can only apply a single template to the value(s) in the configured field.</li>
 <li>Values in the templated CSV output are validated against Drupal's configuration in the same way that values present in your CSV are validated.</li>
+<li>By default, CSV value templates won't be applied to empty fields. However, if you want a template to be applied to a field if that field is empty, you can include the <code>allow_csv_value_templates_if_field_empty</code> setting in your config file defining a list of column names. For example, <code>allow_csv_value_templates_if_field_empty: [field_identifier]</code> will apply any templates defined for <code>field_identifier</code> in your <code>csv_value_templates</code> setting, even if <code>field_identifier</code> is empty in your input CSV.</li>
 </ul>
 
 
