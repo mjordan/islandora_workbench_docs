@@ -43,6 +43,17 @@ mimetype_extensions:
   'image/jpeg': '.bar'
 ```
 
+## Overriding Workbench's default file extension to MIME type mappings
+
+It may be necessary to assign a media a MIME type that is different from the MIME type that Drupal ordinarily derives from a given extension. The best example of this is that media for hOCR files need to have the MIME type `text/vnd.hocr+html`. Without explicitly indicating that MIME type, Drupal will assign the media for an .hocr file, on creation, the catch-all MIME type `application/octet-stream`.
+
+Workbench automatically assigns files ending in `.hocr` the correct MIME type. But, if you want to override that for some reason, or want to tell Workbench to create a media with a specific MIME type from a file with a specific extension, you can add to your configuration file a an extension-to-MIME-type mapping like this (the leading `.` in the extension on the left is optional):
+
+```yaml
+extensions_to_mimetypes:
+  'mbox': 'application/mbox'
+```
+
 ## Configuring a custom media type
 
 Islandora ships with a set of default media types, including audio, document, extracted text, file, FITS technical metadata, image, and video. If you want to add your own custom media type, you need to tell Workbench two things:

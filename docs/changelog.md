@@ -134,6 +134,7 @@
 
 ### Documentation
 
+* August 12, 2024: Added "[Overriding Workbench's default file extension to MIME type mappings](/islandora_workbench_docs/media_types/#overriding-workbenchs-default-file-extension-to-mime-type-mappings)"; updated "[CSV value templates](/islandora_workbench_docs/csv_value_templates/); updated "[Taxonomy reference fields](/islandora_workbench_docs/fields/#taxonomy-reference-fields)".
 * August 6, 2024: Updated "[Ingesting OCR (and other) files with page images](/islandora_workbench_docs/paged_and_compound/#ingesting-ocr-and-other-files-with-page-images)".
 * July 16, 2024: Added "[Cross-environment deployment / Continuous Integration](/islandora_workbench_docs/workflows/#cross-environment-deployment-continuous-integration)".
 * July 14, 2024: Added docs on the new `protected_vocabularies` config setting to "[Taxonomy reference fields](/islandora_workbench_docs/fields/#taxonomy-reference-fields)" and removed some cruft; added docs on "[Encoding of text files](/islandora_workbench_docs/preparing_data/#encoding-of-text-files)".

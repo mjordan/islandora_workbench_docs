@@ -272,6 +272,7 @@ If you add `allow_adding_terms: true` to your configuration file for any of the 
 * When Workbench checks to see if the term with the new name exists in the target vocabulary, it queries Drupal for the new term name, looking for an exact match against an existing term in the specified vocabulary. Therefore it is important that term names used in your CSV are identical to existing term names. The query to find existing term names follows these two rules:
     * Leading and trailing whitespace on term names is ignored. Internal whitespace is significant.
     * Case is ignored.
+    * Note that Drupal does not distinguish between diacritics. For example, it does not distinguish between "Chylek" and "Chýlek".
 * If the term name you provide in the CSV file does not match an existing term name in its vocabulary, the term name from the CSV data is used to create a new term. If it does match, Workbench populates the field in your nodes with a reference to the matching term.
 
 `allow_adding_terms` applies to *all* vocabularies. In general, you do not want to add new terms to vocabularies used by Islandora for system functions such as Islandora Models and Islandora Media Use. In order to exclude vocabularies from being added to, you can register vocabulary machine names in the `protected_vocabularies` setting, like this:
@@ -287,10 +288,9 @@ Adding new terms has some constraints:
 
 * Terms created in this way do not have any external URIs, other fields, or if they are hierarchical. If you want your terms that have any of these features, you will need to either create the terms manually, through a `create_terms` task, or using a third-party module like [Taxonomy Import](https://www.drupal.org/project/taxonomy_import) prior to using their term names in an input CSV.
 * Workbench cannot distinguish between identical term names within the same vocabulary. This means you cannot create two different terms that have the same term name (for example, two terms in the Person vocabulary that are identical but refer to two different people). The workaround for this is to create one of the terms before using Workbench and use the term ID instead of the term string.
-    * Related to this, if the same term name exists multiple times in the same vocabulary (again using the example of two Person terms that describe two different people) you should be aware that when you use these identical term names within the same vocabulary in your CSV, Workbench will always choose the first one it encounters when it converts from term names to term IDs while populating your nodes. The workaround for this is to use the term ID for one (or both) of the identical terms, or to use URIs for one (or both) of the identical terms.
+    * If the same term name exists multiple times in the same vocabulary (again using the example of two Person terms that describe two different people) you should be aware that when you use these identical term names within the same vocabulary in your CSV, Workbench will always choose the first one it encounters when it converts from term names to term IDs while populating your nodes. The workaround for this is to use the term ID for one (or both) of the identical terms, or to use URIs for one (or both) of the identical terms.
 * `--check` will identify any new terms that exceed Drupal's maximum allowed length for term names, 255 characters. If a term name is longer than 255 characters, Workbench will truncate it at that length, log that it has done so, and create the term.
 * Taxonomy terms created with new nodes are not removed when you delete the nodes.
-
 
 ##### Using term names in multi-vocabulary fields
 
