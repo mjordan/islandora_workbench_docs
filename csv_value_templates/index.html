@@ -1036,7 +1036,8 @@ IMG_2940.JPG,03,Looking across Burrard Inlet,25,&quot;relators:aut:person:Jordan
 <li>Values in the templated CSV output are validated against Drupal's configuration in the same way that values present in your CSV are validated.</li>
 <li>By default, CSV value templates won't be applied to empty fields. However, if you want a template to be applied to a field if that field is empty, you can include the <code>allow_csv_value_templates_if_field_empty</code> setting in your config file defining a list of column names. For example, <code>allow_csv_value_templates_if_field_empty: [field_identifier]</code> will apply any templates defined for <code>field_identifier</code> in your <code>csv_value_templates</code> setting, even if <code>field_identifier</code> is empty in your input CSV; for example, the following will apply templated defined in the above example configuration even if the named fields are empty:</li>
 </ul>
-<p><code>allow_csv_value_templates_if_field_empty: ['field_local_identifier', 'field_subject']</code></p>
+<pre><code>allow_csv_value_templates_if_field_empty: ['field_local_identifier', 'field_subject']
+</code></pre>
 <h2 id="applying-csv-value-templates-to-paged-content">Applying CSV value templates to paged content</h2>
 <p>Paged content (or as sometimes referred to, children) created using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method do not have their own rows in input CSV files. However, you can apply CSV value templates to their node fields using. In this case:</p>
 <ul>
