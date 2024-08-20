@@ -380,6 +380,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#processing-or-ignoring-rows-based-on-field-values" class="md-nav__link">
+    Processing or ignoring rows based on field values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ignoring-csv-columns" class="md-nav__link">
     Ignoring CSV columns
   </a>
@@ -995,6 +1002,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#processing-or-ignoring-rows-based-on-field-values" class="md-nav__link">
+    Processing or ignoring rows based on field values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ignoring-csv-columns" class="md-nav__link">
     Ignoring CSV columns
   </a>
@@ -1075,6 +1089,32 @@ csv_stop_row: 100
 <p>You can tell Workbench to process only specific rows in your CSV file (or, looked at from another perspective, to ignore all rows other than the specified ones). To do this, add the <code>csv_rows_to_process</code> setting to your config file with a list of "id" column values, e.g.:</p>
 <p><code>csv_rows_to_process: ["test_001", "test_007", "test_103"]</code></p>
 <p>This will tell Workbench to process only the CSV rows that have those values in their "id" column. This works with whatever you have configured as your "id" column header using the <code>id_field</code> configuration setting.</p>
+<h2 id="processing-or-ignoring-rows-based-on-field-values">Processing or ignoring rows based on field values</h2>
+<p>Workbench provides a simple mechanism to filter rows in your input CSV. For example, you can tell it to process only CSV rows that have a <code>field_model</code> of "Image", or fields that have a <code>field_model</code> of either "Image" or "Digital document". This is done using the <code>csv_row_filters</code> config setting, which defines a set of filters that are applied to your CSV at runtime.</p>
+<p>There are two types of filters, <code>is</code> and <code>isnot</code>. Here is an example configuration using an <code>is</code> filter to reduce the input CSV to only rows that have a <code>field_model</code> of "Image":</p>
+<pre><code>csv_row_filters:
+ - field_model:is:Image
+</code></pre>
+<p>This example filters the CSV input to only rows that have a <code>field_model</code> of "Image" or "Digital document":</p>
+<pre><code>csv_row_filters:
+ - field_model:is:Image
+ - field_model:is:Digital document
+</code></pre>
+<p>Multiple filters are ORed together, i.e. in the above example, the row in kept in the input if its <code>field_model</code> is either "Image" or "Digital document".</p>
+<p><code>isnot</code> filters work similarly, but they exclude rows that match (<code>is</code> filters include rows that match). For example,</p>
+<pre><code>csv_row_filters:
+ - field_model:isnot:Image
+</code></pre>
+<p>will filter out rows that have a <code>field_model</code> of "Image".</p>
+<p>Some things to keep in mind when using CSV row filters:</p>
+<ul>
+<li>You can filter on any column in your input CSV, not just <code>field_model</code> as used in examples above.</li>
+<li>You can use filters on multivalued fields; Workbench will check each value in the field against each filter.</li>
+<li>You can add as many filters as you want (both <code>is</code> and <code>isnot</code>) but as the number of filters increases, the contents of your resulting input CSV becomes less predictable. In other words, these filters are intended for, and work best in, configurations that have a small number (e.g., one, two, or three) filters.</li>
+<li><code>isnot</code> filters are applied before <code>is</code> filters. Within <code>is</code> and <code>isnot</code> filters, each filter is not necessarily applied in the order they appear in your configuration file.</li>
+<li>Filters are applied every time you run Workbench, regardless of whether you are in <code>--check</code> mode or not.</li>
+</ul>
+<p>Regardless of whether you are using CSV row filters, or any other technique of ignoring CSV rows or columns, Workbench converts your input CSV into a "preprocessed" version and uses it to perform its task. This file can be found in the temporary directory defined in your Workbench config's <code>temp_dir</code> setting, which by default is your computer's temporary directory. If you want to inspect this file after running <code>--check</code>, you can see which rows result after the filters have been applied.</p>
 <h2 id="ignoring-csv-columns">Ignoring CSV columns</h2>
 <p>Islandora Workbench strictly validates the columns in the input CSV to ensure that they match Drupal field names and reserved Workbench column names. To accommodate CSV columns that do not correspond to either of those types, or to eliminate a column during testing or troubleshooting, you can tell Workbench to ignore specific columns that are present in the CSV. To do this, list the column headers in the <code>ignore_csv_columns</code> configuration setting. The value of this setting is a list. For example, if you want to include a <code>date_generated</code> column in your CSV (which is neither a Workbench reserved column or a Drupal field name), include the following in your Workbench configuration file:</p>
 <pre><code>ignore_csv_columns: ['date_generated']
