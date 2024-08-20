@@ -80,6 +80,46 @@ You can tell Workbench to process only specific rows in your CSV file (or, looke
 
 This will tell Workbench to process only the CSV rows that have those values in their "id" column. This works with whatever you have configured as your "id" column header using the `id_field` configuration setting.
 
+## Processing or ignoring rows based on field values
+
+Workbench provides a simple mechanism to filter rows in your input CSV. For example, you can tell it to process only CSV rows that have a `field_model` of "Image", or fields that have a `field_model` of either "Image" or "Digital document". This is done using the `csv_row_filters` config setting, which defines a set of filters that are applied to your CSV at runtime.
+
+There are two types of filters, `is` and `isnot`. Here is an example configuration using an `is` filter to reduce the input CSV to only rows that have a `field_model` of "Image":
+
+```
+csv_row_filters:
+ - field_model:is:Image
+```
+
+This example filters the CSV input to only rows that have a `field_model` of "Image" or "Digital document":
+
+```
+csv_row_filters:
+ - field_model:is:Image
+ - field_model:is:Digital document
+```
+
+Multiple filters are ORed together, i.e. in the above example, the row in kept in the input if its `field_model` is either "Image" or "Digital document".
+
+`isnot` filters work similarly, but they exclude rows that match (`is` filters include rows that match). For example,
+
+```
+csv_row_filters:
+ - field_model:isnot:Image
+```
+
+will filter out rows that have a `field_model` of "Image".
+
+Some things to keep in mind when using CSV row filters:
+
+ - You can filter on any column in your input CSV, not just `field_model` as used in examples above.
+ - You can use filters on multivalued fields; Workbench will check each value in the field against each filter.
+ - You can add as many filters as you want (both `is` and `isnot`) but as the number of filters increases, the contents of your resulting input CSV becomes less predictable. In other words, these filters are intended for, and work best in, configurations that have a small number (e.g., one, two, or three) filters.
+ - `isnot` filters are applied before `is` filters. Within `is` and `isnot` filters, each filter is not necessarily applied in the order they appear in your configuration file.
+ - Filters are applied every time you run Workbench, regardless of whether you are in `--check` mode or not.
+
+Regardless of whether you are using CSV row filters, or any other technique of ignoring CSV rows or columns, Workbench converts your input CSV into a "preprocessed" version and uses it to perform its task. This file can be found in the temporary directory defined in your Workbench config's `temp_dir` setting, which by default is your computer's temporary directory. If you want to inspect this file after running `--check`, you can see which rows result after the filters have been applied.
+
 ## Ignoring CSV columns
 
 Islandora Workbench strictly validates the columns in the input CSV to ensure that they match Drupal field names and reserved Workbench column names. To accommodate CSV columns that do not correspond to either of those types, or to eliminate a column during testing or troubleshooting, you can tell Workbench to ignore specific columns that are present in the CSV. To do this, list the column headers in the `ignore_csv_columns` configuration setting. The value of this setting is a list. For example, if you want to include a `date_generated` column in your CSV (which is neither a Workbench reserved column or a Drupal field name), include the following in your Workbench configuration file:
