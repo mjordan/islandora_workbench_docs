@@ -427,8 +427,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#directory-structure" class="md-nav__link">
-    Directory structure
+  <a href="#csv-and-directory-structure" class="md-nav__link">
+    CSV and directory structure
   </a>
   
 </li>
@@ -1050,8 +1050,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#directory-structure" class="md-nav__link">
-    Directory structure
+  <a href="#csv-and-directory-structure" class="md-nav__link">
+    CSV and directory structure
   </a>
   
 </li>
@@ -1171,7 +1171,7 @@
 <p>Information in this section applies to all compound content, not just "paged content". That term is used here since the most common use of this method will be for creating paged content. In other words, where "page" is used below, it can be substituted with "child".</p>
 </div>
 <p>Enable this method by including <code>paged_content_from_directories: true</code> in your configuration file. Use this method when you are creating books, newspaper issues, or other paged content where your pages don't have their own metadata.</p>
-<h4 id="directory-structure">Directory structure</h4>
+<h4 id="csv-and-directory-structure">CSV and directory structure</h4>
 <p>This method groups page-level files into subdirectories that correspond to each parent, and does not require (or allow) page-level metadata in the CSV file. Only the parent (book, newspaper issue, etc.) has a row on the CSV file, e.g.:</p>
 <pre><code class="language-text">id,title,field_model
 book1,How to Use Islandora Workbench like a Pro,Paged Content
@@ -1179,7 +1179,7 @@ book2,Using Islandora Workbench for Fun and Profit,Paged Content
 </code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Unlike every other Islandora Workbench "create" configuration, the metadata CSV should not contain a <code>file</code> column. This means that content created using this method cannot be created using the same CSV file as other content.</p>
+<p>Unlike every other Islandora Workbench "create" configuration, the metadata CSV should not contain a <code>file</code> column (however, you can include a <code>directory</code> column as described below). This means that content created using this method cannot be created using the same CSV file as other content.</p>
 </div>
 <p>Each parent's pages are located in a subdirectory of the input directory that is named by default to match the value of the <code>id</code> field of the parent item they are pages of:</p>
 <pre><code class="language-text">books/
