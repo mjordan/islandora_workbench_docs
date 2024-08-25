@@ -20,7 +20,7 @@ book2,Using Islandora Workbench for Fun and Profit,Paged Content
 !!! note
     Unlike every other Islandora Workbench "create" configuration, the metadata CSV should not contain a `file` column. This means that content created using this method cannot be created using the same CSV file as other content.
 
-Each parent's pages are located in a subdirectory of the input directory that is named to match the value of the `id` field of the parent item they are pages of:
+Each parent's pages are located in a subdirectory of the input directory that is named by default to match the value of the `id` field of the parent item they are pages of:
 
 ```text
 books/
@@ -34,6 +34,8 @@ books/
 │   └── page-003.jpg
 └── metadata.csv
 ```
+
+If you don't want to use your `id` column to name the directory that stores pages, you can include a `directory` column in your input CSV if you add the `page_files_source_dir_field: directory` setting to your config file to name those directories.
 
 The page filenames have significance. The sequence of the page is determined by the last segment of each filename before the extension, and is separated from the rest of the filename by a dash (`-`), although you can use another character by setting the `paged_content_sequence_separator` option in your configuration file. These sequence indicators are essentially physical page numbers, starting a "1" (not "0"). For example, using the filenames for "book1" above, the sequence of "page-001.jpg" is "001". Dashes (or whatever your separator character is) can exist elsewhere in filenames, since Workbench will always use the string after the *last* dash as the sequence number; for example, the sequence of "isbn-1843341778-001.jpg" for "book2" is also "001". Workbench takes this sequence number, strips all leading zeros, and uses it to populate the `field_weight` in the page nodes, so "001" becomes a weight value of 1, "002" becomes a weight value of 2, and so on.
 
@@ -52,6 +54,7 @@ Important things to note when using this method:
 * `id` can be defined as another field name using the `id_field` configuration option. If you do define a different ID field using the `id_field` option, creating the parent/paged item relationships will still work.
 * The Drupal content type for page nodes is inherited from the parent, unless you specify a different content type in the `paged_content_page_content_type` setting in your configuration file.
 * If your page directories contain files other than page images, you need to include the `paged_content_image_file_extension` setting in your configuration. Otherwise, Workbench can't tell which files to create pages from.
+* If you don't want to use your `id` column to name the directories that contain each item's pages, you can include `page_files_source_dir_field: directory` to your config file and add a `directory` column to your input CSV to name the directories.
 
 #### Ingesting pages, their parents, and their "grandparents" using a single CSV file
 

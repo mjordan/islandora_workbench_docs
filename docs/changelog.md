@@ -136,6 +136,7 @@
 
 ### Documentation
 
+* August 25, 2024: Updated "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" to document the new `page_files_source_dir_field` config setting.
 * August 20, 2024: Added "[Processing or ignoring rows based on field values](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#processing-or-ignoring-rows-based-on-field-values)".
 * August 12, 2024: Added "[Overriding Workbench's default file extension to MIME type mappings](/islandora_workbench_docs/media_types/#overriding-workbenchs-default-file-extension-to-mime-type-mappings)"; updated "[CSV value templates](/islandora_workbench_docs/csv_value_templates/); updated "[Taxonomy reference fields](/islandora_workbench_docs/fields/#taxonomy-reference-fields)".
 * August 6, 2024: Updated "[Ingesting OCR (and other) files with page images](/islandora_workbench_docs/paged_and_compound/#ingesting-ocr-and-other-files-with-page-images)".
