@@ -9,7 +9,11 @@ Islandora Workbench provides three ways to create paged and compound content:
 !!! note
     Information in this section applies to all compound content, not just "paged content". That term is used here since the most common use of this method will be for creating paged content. In other words, where "page" is used below, it can be substituted with "child".
 
-Enable this method by including `paged_content_from_directories: true` in your configuration file. Use this method when you are creating books, newspaper issues, or other paged content where your pages don't have their own metadata. This method groups page-level files into subdirectories that correspond to each parent, and does not require (or allow) page-level metadata in the CSV file. Only the parent (book, newspaper issue, etc.) has a row on the CSV file, e.g.:
+Enable this method by including `paged_content_from_directories: true` in your configuration file. Use this method when you are creating books, newspaper issues, or other paged content where your pages don't have their own metadata.
+
+#### CSV and directory structure
+
+This method groups page-level files into subdirectories that correspond to each parent, and does not require (or allow) page-level metadata in the CSV file. Only the parent (book, newspaper issue, etc.) has a row on the CSV file, e.g.:
 
 ```text
 id,title,field_model
@@ -18,7 +22,7 @@ book2,Using Islandora Workbench for Fun and Profit,Paged Content
 ```
 
 !!! note
-    Unlike every other Islandora Workbench "create" configuration, the metadata CSV should not contain a `file` column. This means that content created using this method cannot be created using the same CSV file as other content.
+    Unlike every other Islandora Workbench "create" configuration, the metadata CSV should not contain a `file` column (however, you can include a `directory` column as described below). This means that content created using this method cannot be created using the same CSV file as other content.
 
 Each parent's pages are located in a subdirectory of the input directory that is named by default to match the value of the `id` field of the parent item they are pages of:
 
@@ -35,9 +39,20 @@ books/
 └── metadata.csv
 ```
 
-If you don't want to use your `id` column to name the directory that stores pages, you can include a `directory` column in your input CSV if you add the `page_files_source_dir_field: directory` setting to your config file to name those directories.
+If you don't want to use your `id` column to name the directory that stores pages, you can include a `directory` column in your input CSV and add the `page_files_source_dir_field: directory` setting to your config file. The values in the `directory` column can then contain the names of the page directories. If you do that, your CSV would look like this:
+
+```text
+id,title,field_model,directory
+sfu_book_1,How to Use Islandora Workbench like a Pro,Paged Content,book1
+sfu_book_2,Using Islandora Workbench for Fun and Profit,Paged Content,book2
+```
+
+#### Filename conventions
 
 The page filenames have significance. The sequence of the page is determined by the last segment of each filename before the extension, and is separated from the rest of the filename by a dash (`-`), although you can use another character by setting the `paged_content_sequence_separator` option in your configuration file. These sequence indicators are essentially physical page numbers, starting a "1" (not "0"). For example, using the filenames for "book1" above, the sequence of "page-001.jpg" is "001". Dashes (or whatever your separator character is) can exist elsewhere in filenames, since Workbench will always use the string after the *last* dash as the sequence number; for example, the sequence of "isbn-1843341778-001.jpg" for "book2" is also "001". Workbench takes this sequence number, strips all leading zeros, and uses it to populate the `field_weight` in the page nodes, so "001" becomes a weight value of 1, "002" becomes a weight value of 2, and so on.
+
+
+#### Field data applied to pages/children
 
 Titles for pages are generated automatically using the pattern `parent_title` + `, page` + `sequence_number`, where "parent title" is inherited from the page's parent node and "sequence number" is the page's sequence. For example, if a page's parent has the title "How to Write a Book" and its sequence number is 450, its automatically generated title will be "How to Write a Book, page 450". You can override this pattern by including the `page_title_template`  setting in your configuration file. The value of this setting is a simple string template. The default, which generates the page title pattern described above, is `'$parent_title, page $weight'`. There are only two variables you can include in the template, `$parent_title` and `$weight`, although you do not need to include either one if you don't want that information appearing in your page titles.
 
