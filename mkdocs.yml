@@ -46,6 +46,7 @@ nav:
     - Generating a contact sheet: contact_sheet.md
     - Reducing Workbench's impact on Drupal: reducing_load.md
     - Creating nodes from the sample data: sample_data.md
+    - Prompting the user: prompts.md
     - Generating sample Islandora content: generating_sample_content.md
     - Known limitations: limitations.md
     - Roadmap (Fall 2021): roadmap.md

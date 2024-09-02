@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* September 2, 2024: Resolved (commit d70e8b5) [issue 820](https://github.com/mjordan/islandora_workbench/issues/820).
 * August 26, 2024: Resolved (commit fe614563) [issue 819](https://github.com/mjordan/islandora_workbench/issues/819).
 * August 23, 2024: Merged (commit 2e0f7f5) [PR 815](https://github.com/mjordan/islandora_workbench/pull/815) and resolved (commit 3c14eac) [issue 817](https://github.com/mjordan/islandora_workbench/issues/817).
 * August 20, 2024: Resolved (commit 525c1c9) [issue 812](https://github.com/mjordan/islandora_workbench/issues/812).
@@ -137,6 +138,7 @@
 
 ### Documentation
 
+* September 2, 2024: Added "[Prompting the user](/islandora_workbench_docs/prompts/)".
 * August 25, 2024: Updated "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" to document the new `page_files_source_dir_field` config setting.
 * August 20, 2024: Added "[Processing or ignoring rows based on field values](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#processing-or-ignoring-rows-based-on-field-values)".
 * August 12, 2024: Added "[Overriding Workbench's default file extension to MIME type mappings](/islandora_workbench_docs/media_types/#overriding-workbenchs-default-file-extension-to-mime-type-mappings)"; updated "[CSV value templates](/islandora_workbench_docs/csv_value_templates/); updated "[Taxonomy reference fields](/islandora_workbench_docs/fields/#taxonomy-reference-fields)".
