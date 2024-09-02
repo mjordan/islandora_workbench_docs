@@ -948,22 +948,22 @@
   <h1>Prompting the user</h1>
 
 <p>You can define prompts to the user within your configuration file. There are two types: 1) a prompt to ask the user whether they have run <code>--check</code>, and 2) configurable prompts that allow you to define your own "y/n" questions to the user.</p>
-<p>The "Have you run --check?" prompt simply displays that question to the end user and asks for a "y" or "n" response. "y" resumes normal operation, "n" (or any other response) causes Workbench to exit. To configure this prompt, add the following to your config file:</p>
+<p>The "Have you run --check? (y/n)" prompt simply displays that question to the end user and asks for a "y" or "n" response. "y" resumes normal operation, "n" (or any other response) causes Workbench to exit. To configure this prompt, add the following to your config file:</p>
 <p><code>remind_user_to_run_check: true</code></p>
 <p>If this configuration setting is present, the user will be prompted to answer "Have you run --check? (y/n)" when Workbench is run without the <code>--check</code> argumement.</p>
-<p>The second type of prompts, the configurable prompts, allow the creation of custom "y/n" questions that the user must answer "y" to in order to proceed. These prompts are shown  to the user regardless of whether they are running Workbench with the <code>--check</code> argument. A situation where you may want to ask the user a question of this sort is when creating media that are normally created by Islandora as derivatives. In that case, the Contexts that generate the derivatives should be temporarily disabled.</p>
+<p>The second type of prompt, the configurable prompts, allow the creation of custom "y/n" questions that the user must answer "y" to in order to proceed. These prompts are shown  to the user regardless of whether they are running Workbench with the <code>--check</code> argument. A situation where you may want to ask the user a question of this sort is when creating media that are normally created by Islandora as derivatives. In that case, the Contexts that generate the derivatives should be temporarily disabled.</p>
 <p>These "y/n" questions you want to prompt users with are listed within the <code>user_prompts</code> config setting like this:</p>
 <pre><code>user_prompts:
   - Have you prepared your &quot;additional files&quot;? (y/n)
   - Have you temporarily disabled the applicable Contexts? (y/n)
 </code></pre>
-<p>Each one is shown to the user in the order they are listed. If the users responds by entering "y", the next prompt is shown. If they respond with "n" or any other key, Workbench logs the prompt and exits.</p>
+<p>Each one is shown to the user in the order they are listed, each asking for a "y/n" response. If the users responds by entering "y", the next prompt is shown. If they respond with "n" or any other key, Workbench logs the prompt and exits.</p>
 <p>A couple notes:</p>
 <ul>
 <li>The user must hit Enter after entering "y" or "n".</li>
-<li>The "Have you run --check?" prompt is completely independent of the configurable prompts; it's the only built-in prompt Workbench provides. This prompt contains special logic such that it is never presented to the user in <code>--check</code> mode.</li>
+<li>The "Have you run --check?" prompt is completely independent of the configurable prompts; it's the only built-in prompt Workbench provides; it contains special logic such that it is never presented to the user in <code>--check</code> mode.</li>
 <li>You can include both the <code>remind_user_to_run_check</code> setting and the <code>user_prompts</code> setting without them conflicting with each other. If you include both, "Have you run --check? (y/n)" is shown first, then the customizable prompts.</li>
-<li>If the user responds with "n" for any prompt (or any response other than "y"), that fact is logged before Workbench exits.</li>
+<li>If the user responds  "n" to any prompt (or any response other than "y"), thep prompt along with their response is logged before Workbench exits.</li>
 <li>Prompts can be overridden with an implied "y" answer by including the <code>--skip_user_prompts</code> argument when running Workbench. This is useful if your config file includes either the <code>remind_user_to_run_check</code> or <code>user_prompts</code> during testing or scripted use of Workbench.</li>
 </ul>
 
