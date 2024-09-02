@@ -15,7 +15,7 @@
     
     
       
-        <title>Generating a contact sheet - Islandora Workbench</title>
+        <title>Prompting the user - Islandora Workbench</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Generating a contact sheet
+              Prompting the user
             
           </span>
         </div>
@@ -757,19 +757,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../contact_sheet/" class="md-nav__link">
         Generating a contact sheet
       </a>
-      
     </li>
   
 
@@ -810,11 +802,19 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../prompts/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Prompting the user
       </a>
+      
     </li>
   
 
@@ -939,37 +939,33 @@
                 
                   
 
-  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/contact_sheet.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/prompts.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-  <h1>Generating a contact sheet</h1>
+  <h1>Prompting the user</h1>
 
-<p>During <code>--check</code> in <code>create</code> tasks, you can generate a contact sheet from your input CSV by adding the command-line option <code>--contactsheet</code>, like this:</p>
-<p><code>./workbench --config somecreatetask.yml --check --contactsheet</code></p>
-<p>If you use this option, Workbench will tell you the location of your contact sheet, e.g. <code>Contact sheet is at /home/mark/hacking/islandora_workbench/contact_sheet_output/contact_sheet.htm</code>, which you can then open in your web browser.</p>
-<p>Contact sheets looks like this:</p>
-<p><img alt="Example contact sheet" src="../images/contact_sheet_no_compounds.png" /></p>
-<p>The icons (courtesy of <a href="https://icons8.com/">icons8</a>) indicate if the item in the CSV is an:</p>
+<p>You can define prompts to the user within your configuration file. There are two types: 1) a prompt to ask the user whether they have run <code>--check</code>, and 2) configurable prompts that allow you to define your own "y/n" questions to the user.</p>
+<p>The "Have you run --check?" prompt simply displays that question to the end user and asks for a "y" or "n" response. "y" resumes normal operation, "n" (or any other response) causes Workbench to exit. To configure this prompt, add the following to your config file:</p>
+<p><code>remind_user_to_run_check: true</code></p>
+<p>If this configuration setting is present, the user will be prompted to answer "Have you run --check? (y/n)" when Workbench is run without the <code>--check</code> argumement.</p>
+<p>The second type of prompts, the configurable prompts, allow the creation of custom "y/n" questions that the user must answer "y" to in order to proceed. These prompts are shown  to the user regardless of whether they are running Workbench with the <code>--check</code> argument. A situation where you may want to ask the user a question of this sort is when creating media that are normally created by Islandora as derivatives. In that case, the Contexts that generate the derivatives should be temporarily disabled.</p>
+<p>These "y/n" questions you want to prompt users with are listed within the <code>user_prompts</code> config setting like this:</p>
+<pre><code>user_prompts:
+  - Have you prepared your &quot;additional files&quot;? (y/n)
+  - Have you temporarily disabled the applicable Contexts? (y/n)
+</code></pre>
+<p>Each one is shown to the user in the order they are listed. If the users responds by entering "y", the next prompt is shown. If they respond with "n" or any other key, Workbench logs the prompt and exits.</p>
+<p>A couple notes:</p>
 <ul>
-<li>image</li>
-<li>video</li>
-<li>audio</li>
-<li>PDF</li>
-<li>miscellaneous binary file</li>
-<li>compound item</li>
+<li>The user must hit Enter after entering "y" or "n".</li>
+<li>The "Have you run --check?" prompt is completely independent of the configurable prompts; it's the only built-in prompt Workbench provides. This prompt contains special logic such that it is never presented to the user in <code>--check</code> mode.</li>
+<li>You can include both the <code>remind_user_to_run_check</code> setting and the <code>user_prompts</code> setting without them conflicting with each other. If you include both, "Have you run --check? (y/n)" is shown first, then the customizable prompts.</li>
+<li>If the user responds with "n" for any prompt (or any response other than "y"), that fact is logged before Workbench exits.</li>
+<li>Prompts can be overridden with an implied "y" answer by including the <code>--skip_user_prompts</code> argument when running Workbench. This is useful if your config file includes either the <code>remind_user_to_run_check</code> or <code>user_prompts</code> during testing or scripted use of Workbench.</li>
 </ul>
-<p>There is also an icon that indicates that there is no file in the input CSV for the item.</p>
-<p>Fields with long values are indicated by link formatted like "[...]". Placing your pointer over this link will show a popup that contains the full value. Also, in fields that have multiple values, the subdelimiter defined in your configuration file is replaced by a small square (&square;), to improve readability.</p>
-<p>Compound items in the input CSV sheet are represented by a "compound" icon and a link to a separate contact sheet containing the item's members:</p>
-<p><img alt="Example contact sheet with compound items" src="../images/contact_sheet_with_compounds.png" /></p>
-<p>The members contact sheet looks like this:</p>
-<p><img alt="Example contact sheet with compound items" src="../images/contact_sheet_members.png" /></p>
-<p>You can define where your contact sheet is written to using the <code>contact_sheet_output_dir</code> configuration setting. If the directory doesn't exist, Workbench will create it. All the HTML, CSS, and image files that are part of the contact sheet(s) is written to this directory, so if you want to share it with someone (for quality assurance purposes, for example), you can zip up the directory and its contents and give them a copy. All the files required to render the contact sheet are in this directory:</p>
-<p><img alt="Example contact sheet directory" src="../images/contact_sheet_directory.png" /></p>
-<p>You can also define the path to an alternative CSS stylesheet to use for your contact sheets. The default CSS file is a <code>assets/contact_sheet/contact-sheet.css</code> within the Workbench directory. To specify your own CSS file, include its relative (to the Workbench directory) or absolute path in the <code>contact_sheet_css_path</code> config setting. If you use an alternative CSS file, you should base yours on a copy of the default one, since the layout of the contact sheets depends heavily on the default CSS.</p>
 
 
 
@@ -990,7 +986,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../workflows/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Workflows" rel="prev">
+        <a href="../sample_data/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Creating nodes from the sample data" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -999,20 +995,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Workflows
+              Creating nodes from the sample data
             </div>
           </div>
         </a>
       
       
         
-        <a href="../reducing_load/" class="md-footer__link md-footer__link--next" aria-label="Next: Reducing Workbench&#39;s impact on Drupal" rel="next">
+        <a href="../generating_sample_content/" class="md-footer__link md-footer__link--next" aria-label="Next: Generating sample Islandora content" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Reducing Workbench's impact on Drupal
+              Generating sample Islandora content
             </div>
           </div>
           <div class="md-footer__button md-icon">
