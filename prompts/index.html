@@ -961,7 +961,7 @@
 <p>A couple notes:</p>
 <ul>
 <li>The user must hit Enter after entering "y" or "n".</li>
-<li>You can include both the <code>remind_user_to_run_check</code> setting and the <code>user_prompts</code> settings. If you include both, "Have you run --check? (y/n)" is presented to the user first, then the customizable prompts.</li>
+<li>You can include both the <code>remind_user_to_run_check</code> setting and the <code>user_prompts</code> settings in your config file. If you include both, "Have you run --check? (y/n)" is presented to the user first, then the customizable prompts.</li>
 <li>If the user responds  "n" to any prompt (or any response other than "y"), the prompt along with their response is logged before Workbench exits.</li>
 <li>Prompts can be overridden with an implied "y" answer by including the <code>--skip_user_prompts</code> argument when running Workbench. This is useful if your config file includes either the <code>remind_user_to_run_check</code> or <code>user_prompts</code> during testing or scripted use of Workbench.</li>
 </ul>
