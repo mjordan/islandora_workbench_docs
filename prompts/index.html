@@ -947,12 +947,11 @@
 
   <h1>Prompting the user</h1>
 
-<p>You can define prompts to the user within your configuration file. There are two types: 1) a prompt to ask the user whether they have run <code>--check</code>, and 2) configurable prompts that allow you to define your own "y/n" questions to the user.</p>
-<p>The "Have you run --check? (y/n)" prompt simply displays that question to the end user and asks for a "y" or "n" response. "y" resumes normal operation, "n" (or any other response) causes Workbench to exit. To configure this prompt, add the following to your config file:</p>
+<p>You can define prompts to the user by adding settings to your configuration file. There are two types: 1) a prompt to ask the user whether they have run <code>--check</code>, and 2) configurable prompts that allow you to define your own "y/n" questions to the user.</p>
+<p>The "Have you run --check? (y/n)" prompt simply displays that question to the end user and asks for a "y" or "n" response. "y" resumes normal operation, "n" (or any other response) causes Workbench to exit. To show the user this prompt, add the following to your config file:</p>
 <p><code>remind_user_to_run_check: true</code></p>
-<p>If this configuration setting is present, the user will be prompted to answer "Have you run --check? (y/n)" when Workbench is run without the <code>--check</code> argumement.</p>
-<p>This prompt is separate from the next type of prompt because it contains special logic such that it is never presented to the user in <code>--check</code> mode.</p>
-<p>The second type of prompt, the configurable prompts, allow the creation of custom "y/n" questions that the user must answer "y" to in order to proceed. These prompts are shown to the user regardless of whether they are running Workbench with the <code>--check</code> argument. A situation where you may want to ask the user a question of this sort is when creating media that are normally created by Islandora as derivatives. In that case, the Contexts that generate the derivatives should be temporarily disabled.</p>
+<p>If this configuration setting is present, the user will be prompted to answer "Have you run --check? (y/n)" when Workbench is run without the <code>--check</code> argumement. (This prompt is separate from the next type of prompt because it contains special logic such that it is never presented to the user in <code>--check</code> mode.)</p>
+<p>The second type of prompt, the configurable prompts, allow the creation of custom "y/n" questions that the user must answer "y" to in order to proceed. These prompts are shown to the user regardless of whether they are running Workbench with the <code>--check</code> argument. A situation where you may want to ask the user a question of this sort is when creating media that are normally created by Islandora as derivatives. In that case, it is usefult to remind the user that they need to temporarily disable the Contexts that generate the derivatives.</p>
 <p>These "y/n" questions you want to prompt users with are listed within the <code>user_prompts</code> config setting like this:</p>
 <pre><code>user_prompts:
   - Have you inspected your Workbench log to look for issues you can fix? (y/n)
