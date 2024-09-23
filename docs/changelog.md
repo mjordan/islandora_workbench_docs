@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* September 23, 2024: Resolved (commit e855926) [issue 825](https://github.com/mjordan/islandora_workbench/issues/825) and (commit 538b10a) [issue 826](https://github.com/mjordan/islandora_workbench/issues/826).
 * September 3, 2024: Resolved (commit c787245) [issue 807](https://github.com/mjordan/islandora_workbench/issues/807).
 * September 2, 2024: Resolved (commit 8fe842c) [issue 816](https://github.com/mjordan/islandora_workbench/issues/816) and (commit d70e8b5) [issue 820](https://github.com/mjordan/islandora_workbench/issues/820).
 * August 26, 2024: Resolved (commit fe614563) [issue 819](https://github.com/mjordan/islandora_workbench/issues/819).
@@ -139,6 +140,7 @@
 
 ### Documentation
 
+* September 23, 2024: Updated docs on "[Checking configuration and input data](/islandora_workbench_docs/check/)" to include new config setting `check_lock_file_path`.
 * September 2, 2024: Added "[Prompting the user](/islandora_workbench_docs/prompts/)".
 * August 25, 2024: Updated "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" to document the new `page_files_source_dir_field` config setting.
 * August 20, 2024: Added "[Processing or ignoring rows based on field values](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#processing-or-ignoring-rows-based-on-field-values)".

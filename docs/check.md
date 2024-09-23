@@ -79,4 +79,16 @@ It's also a good idea to check the Workbench log file after running `--check`. A
 
 Once you have used `--check` to detect all of the problems with your CSV data, committing it to Islandora will work very reliably.
 
-Also, it is good practice to check your log after each time you run Islandora Workbench, since it may contain information that is not printed to the console.
+Also, it is good practice to check your log after each time you run Islandora Workbench, since it may contain information that is not printed to the console.`
+
+## Prompting the user to run --check
+
+As decribed [elsewhere](https://mjordan.github.io/islandora_workbench_docs/prompts/), you can configure Workbench to prompt the user to remind them to run `--check`. To do so, include `remind_user_to_run_check: true` in your config file. If this setting is present, the user will be prompted "Have you run --check? (y/n)". Responding "y" resumes normal operation, "n" (or any other response) causes Workbench to exit. Note that this setting does not force the user to run `--check`, it merely ask them if they have run it.
+
+## Requiring --check
+
+You can require a successful `--check` to have to have been run by including `check_lock_file_path` with the name (or path) of a file as its value, for example `check_lock_file_path: checklock.txt`. If this setting is present in your config file, and it has a file name or path as its value, when Workbench is run without `--check` using the same configuration file, it will look for the "lock" file. It compares the data in this lock file with an expected value, and if they are the same, Workbench executes normally. If they differ, Workbench logs this difference and exits.
+
+If `--check` has detected any errors, Workbench will not execute.
+
+This can be useful if you want to *force* the user to run check, or if you are running Workbench in a scheduled or scripted environment and you want to only execute Workbench if `--check` has been successful.
