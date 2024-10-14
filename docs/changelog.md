@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* October 14, 2024: Resolved (c1f6cd4) [issue 796](https://github.com/mjordan/islandora_workbench/issues/796). Thanks g011um!
 * September 23, 2024: Resolved (commit e855926) [issue 825](https://github.com/mjordan/islandora_workbench/issues/825) and (commit 538b10a) [issue 826](https://github.com/mjordan/islandora_workbench/issues/826).
 * September 17, 2024: Resolved (commit 4f3b5e0) [issue 822](https://github.com/mjordan/islandora_workbench/issues/822).
 * September 3, 2024: Resolved (commit c787245) [issue 807](https://github.com/mjordan/islandora_workbench/issues/807).
@@ -141,6 +142,7 @@
 
 ### Documentation
 
+* October 14, 2024: Added docs on populating the "[field_domain_access](/islandora_workbench_docs/fields/#values-in-the-field_domain_access-column)" CSV column. Thanks for the docs @dara2!
 * September 23, 2024: Updated docs on "[Checking configuration and input data](/islandora_workbench_docs/check/)" to include new config setting `check_lock_file_path`.
 * September 2, 2024: Added "[Prompting the user](/islandora_workbench_docs/prompts/)".
 * August 25, 2024: Updated "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" to document the new `page_files_source_dir_field` config setting.
