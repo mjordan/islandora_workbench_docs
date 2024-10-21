@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* October 20, 2024: Resolved (commit 4358d41) [issue 832](https://github.com/mjordan/islandora_workbench/issues/832) and [issue 833](https://github.com/mjordan/islandora_workbench/issues/833).
 * October 15, 2024: Merged (c1f6cd4) [PR 828](https://github.com/mjordan/islandora_workbench/pull/828). Thanks newzealandpaul!
 * October 14, 2024: Resolved (c1f6cd4) [issue 796](https://github.com/mjordan/islandora_workbench/issues/796). Thanks g011um!
 * September 23, 2024: Resolved (commit e855926) [issue 825](https://github.com/mjordan/islandora_workbench/issues/825) and (commit 538b10a) [issue 826](https://github.com/mjordan/islandora_workbench/issues/826).
@@ -143,6 +144,7 @@
 
 ### Documentation
 
+* October 20, 2024: Updated docs on "[Creating redirects](/islandora_workbench_docs/redirects/)".
 * October 14, 2024: Added docs on populating the "[field_domain_access](/islandora_workbench_docs/fields/#values-in-the-field_domain_access-column)" CSV column. Thanks for the docs @dara2!
 * September 23, 2024: Updated docs on "[Checking configuration and input data](/islandora_workbench_docs/check/)" to include new config setting `check_lock_file_path`.
 * September 2, 2024: Added "[Prompting the user](/islandora_workbench_docs/prompts/)".
