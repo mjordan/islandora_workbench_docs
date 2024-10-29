@@ -54,6 +54,15 @@ extensions_to_mimetypes:
   'mbox': 'application/mbox'
 ```
 
+## Assigning a media type by Media Use Url
+
+We typically assign a media type that corresponds with the asset's MIME type. However, there are instances where two media types share the same MIME type. A notable example is FITS XML: while assets with the MIME type `application/xml` are usually assigned a `file` media type, the `fits_technical_metadata` designation is more suitable in this case. To assign a specific media to an asset type based on its intended use, use `media_type_by_media_use`. Below is an example demonstrating how to assign a FITS-tagged XML file to the `fits_technical_metadata media type`.
+
+```yaml
+media_type_by_media_use:
+  - https://projects.iq.harvard.edu/fits: fits_technical_metadata
+```
+
 ## Configuring a custom media type
 
 Islandora ships with a set of default media types, including audio, document, extracted text, file, FITS technical metadata, image, and video. If you want to add your own custom media type, you need to tell Workbench two things:
