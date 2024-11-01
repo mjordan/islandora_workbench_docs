@@ -144,6 +144,7 @@
 
 ### Documentation
 
+* November 1, 2024: Updated docs on "[Adding alt text to images](/islandora_workbench_docs/alt_text/)".
 * October 20, 2024: Updated docs on "[Creating redirects](/islandora_workbench_docs/redirects/)".
 * October 14, 2024: Added docs on populating the "[field_domain_access](/islandora_workbench_docs/fields/#values-in-the-field_domain_access-column)" CSV column. Thanks for the docs @dara2!
 * September 23, 2024: Updated docs on "[Checking configuration and input data](/islandora_workbench_docs/check/)" to include new config setting `check_lock_file_path`.
