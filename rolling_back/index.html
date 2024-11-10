@@ -589,6 +589,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#adding-custom-comments-to-your-rollback-configuration-and-csv-files" class="md-nav__link">
+    Adding custom comments to your rollback configuration and CSV files
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1002,6 +1009,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#adding-custom-comments-to-your-rollback-configuration-and-csv-files" class="md-nav__link">
+    Adding custom comments to your rollback configuration and CSV files
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1049,6 +1063,7 @@
 <h2 id="adding-a-timestamp-to-the-rollback-filenames">Adding a timestamp to the rollback filenames</h2>
 <p>By default, Workbench overwrites the rollback configuration and CSV files each time it runs, so these files only apply to the most recent <code>create</code> and <code>create_from_files</code> runs. If you add <code>timestamp_rollback: true</code> to your configuration file, a (to-the-second) timestamp will be added to the <code>rollback.yml</code> and corresponding <code>rollback.csv</code> files, for example, <code>rollback.2024_11_03_21_10_28.yml</code> and <code>rollback.2024_11_03_21_10_28.csv</code>. The name of the CSV is also written to <code>workbench.log</code>. Running <code>./workbench --config rollback.2024_11_03_21_10_28.yml</code> will delete the nodes identified in <code>input_data/rollback.2024_11_03_21_10_28.csv</code>.</p>
 <p>Timestamps are added in the same way to custom rollback configuration and CSV filenames create using templates.</p>
+<h2 id="adding-custom-comments-to-your-rollback-configuration-and-csv-files">Adding custom comments to your rollback configuration and CSV files</h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When secondary tasks are configured, each task will get its own rollback file. Each secondary task's rollback file will have a normalized version of the path to the task's configuration file appended to the rollback filename, e.g., <code>rollback.csv.home_mark_hacking_islandora_workbench_example_secondary_task</code>. Using these separate rollback files, you can delete only the nodes created in a specific secondary task.</p>
