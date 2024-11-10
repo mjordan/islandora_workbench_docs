@@ -398,6 +398,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#rollback-configuration-and-csv-file-settings" class="md-nav__link">
+    Rollback configuration and CSV file settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#miscellaneous-settings" class="md-nav__link">
     Miscellaneous settings
   </a>
@@ -1256,6 +1263,13 @@
           <li class="md-nav__item">
   <a href="#http-settings" class="md-nav__link">
     HTTP settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollback-configuration-and-csv-file-settings" class="md-nav__link">
+    Rollback configuration and CSV file settings
   </a>
   
 </li>
@@ -2176,6 +2190,14 @@ csv_field_templates:
 </tr>
 </tbody>
 </table>
+<h3 id="rollback-configuration-and-csv-file-settings">Rollback configuration and CSV file settings</h3>
+<p>See "<a href="/islandora_workbench_docs/rolling_back/">Rolling back</a>" for more information.</p>
+<p>| Setting | Required | Default value | Description |
+| rollback_dir |  | Value of <code>input_dir</code> setting | Absolute path to the directory where you want your "rollback.csv" file to be written. See "<a href="/islandora_workbench_docs/rolling_back/">Rolling back</a>" for more information. |
+| timestamp_rollback |  | false | Set to <code>true</code> to add a timestamp to the "rollback.yml" and corresponding "rollback.csv" generated in "create" and "create_from_files" tasks. |
+| rollback_config_filename_template |  | | Defines a template that will be used to create the rollback configuration file. The two placeholders availalble in this template are <code>$config_filename</code> and <code>$input_csv_filename</code>. |
+| rollback_csv_filename_template |  | | Defines a template that will be used to create the rollback CSV file. The two placeholders availalble in this template are <code>$config_filename</code> and <code>$input_csv_filename</code>. |
+| rollback_file_comments |  | | Defines a list of lines to be added to both the rollback config and CSV file as comments. |</p>
 <h3 id="miscellaneous-settings">Miscellaneous settings</h3>
 <table>
 <thead>
@@ -2204,18 +2226,6 @@ csv_field_templates:
 <td></td>
 <td>[temp_dir]/workbench_temp_data.db</td>
 <td>Name of the SQLite database filename used to store session data.</td>
-</tr>
-<tr>
-<td>rollback_dir</td>
-<td></td>
-<td>Value of <code>input_dir</code> setting</td>
-<td>Absolute path to the directory where you want your "rollback.csv" file to be written. See "<a href="/islandora_workbench_docs/rolling_back/">Rolling back</a>" for more information.</td>
-</tr>
-<tr>
-<td>timestamp_rollback</td>
-<td></td>
-<td>false</td>
-<td>Set to <code>true</code> to add a timestamp to the "rollback.yml" and corresponding "rollback.csv" generated in "create" and "create_from_files" tasks. See "<a href="/islandora_workbench_docs/rolling_back/">Rolling back</a>" for more information.</td>
 </tr>
 <tr>
 <td>pause</td>
