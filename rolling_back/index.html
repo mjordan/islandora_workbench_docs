@@ -1039,6 +1039,10 @@
   <h1>Rolling back nodes and media</h1>
 
 <p>In the <code>create</code> and <code>create_from_files</code> tasks, Workbench generates a configuration file and accompanying input CSV file in the format described in "Deleting nodes" documentation. These files allow you to easily roll back (i.e., delete) all the nodes and accompanying media you just created. Specifically, this configuration file defines a <code>delete</code> task. See the "<a href="/islandora_workbench_docs/deleting_nodes/">Deleting nodes</a>" section for more information.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The rollback configuration file contains the username and password used in the <code>create</code> or <code>create_from_files</code> task that generates it.</p>
+</div>
 <p>By default, the configuration file is named "rollback.yml" and is written into the Workbench directory. The input CSV file is named "rollback.csv" and is written into the directory defined in your <code>input_dir</code> configuration setting. If either of these files exist, they are overwritten during the next <code>create</code> or <code>create_from_files</code> task.</p>
 <p>To roll back all the nodes and media you just created, run <code>./workbench --config rollback.yml</code>.</p>
 <p>There are several configuration settings that let you control the names of these two files, and there is also an option to include comments in the files.</p>
@@ -1054,11 +1058,11 @@
 <p>For the rollback configuration file:</p>
 <pre><code>rollback_config_filename_template: my-custom_filename_$config_filename_$input_csv_filename
 </code></pre>
-<p>Assuming the configuration file for the <code>create</code> task that generates this rollback configuration has the name "mjtest.yml", and the <code>input_csv</code> filename has the filename "sample.csv", this template will result in a configuration file named <code>my-custom_filename_mjtest_sample.yml</code>.</p>
+<p>Assuming the configuration file for the <code>create</code> task that generates this rollback configuration has the name "mjtest.yml", and the <code>input_csv</code> filename has the filename "sample.csv", this template will result in a configuration file named <code>my-custom_filename_mjtest_sample.yml</code>. Note that the ".yml" extension is added automatically; you do not need to include it in your template.</p>
 <p>For the rollback CSV file:</p>
 <pre><code>rollback_csv_filename_template: my_custom_rollback_filename_$config_filename_$input_csv_filename
 </code></pre>
-<p>Using the same <code>create</code> task configuration filename and input CSV filename as in the previous example, this template will result in a CSV file named <code>my_custom_rollback_filename_mjtest_sample.csv</code>.</p>
+<p>Using the same <code>create</code> task configuration filename and input CSV filename as in the previous example, this template will result in a CSV file named <code>my_custom_rollback_filename_mjtest_sample.csv</code>. The ".csv" extension is added automatically; you do not need to include it in your template.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Python's built-in templating system has a quirk where when a character that is valid in a Python variable name follows a template placeholder, that character is added to the template placeholder. If this happens to you, Workbench will exit with the error message "One or more parts of the configured rollback configuration filename template ([your template here]) need adjusting."</p>
