@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* November 10, 2024: Resolved (commit 12a81dc) [issue 844](https://github.com/mjordan/islandora_workbench/issues/844).
 * October 20, 2024: Resolved (commit 4358d41) [issue 832](https://github.com/mjordan/islandora_workbench/issues/832) and [issue 833](https://github.com/mjordan/islandora_workbench/issues/833).
 * October 15, 2024: Merged (c1f6cd4) [PR 828](https://github.com/mjordan/islandora_workbench/pull/828). Thanks newzealandpaul!
 * October 14, 2024: Resolved (c1f6cd4) [issue 796](https://github.com/mjordan/islandora_workbench/issues/796). Thanks g011um!
@@ -144,6 +145,7 @@
 
 ### Documentation
 
+* November 10, 2024: Updated docs on "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)" to include new settings, and added a dedicated section for rollbacks to the "[Configuration](/islandora_workbench_docs/configuration/#rollback-configuration-and-csv-file-settings)" page.
 * November 1, 2024: Updated docs on "[Adding alt text to images](/islandora_workbench_docs/alt_text/)" and "[Known limitations](/islandora_workbench_docs/limitations/)".
 * October 20, 2024: Updated docs on "[Creating redirects](/islandora_workbench_docs/redirects/)".
 * October 14, 2024: Added docs on populating the "[field_domain_access](/islandora_workbench_docs/fields/#values-in-the-field_domain_access-column)" CSV column. Thanks for the docs @dara2!

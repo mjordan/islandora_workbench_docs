@@ -233,6 +233,19 @@ See the "[Logging](/islandora_workbench_docs/logging/)" section for more informa
 | http_cache_storage |  | memory | The backend storage type for the client-side cache. Set to `sqlite` if you are getting out of memory errors while running Islandora Workbench. |
 | http_cache_storage_expire_after |  | 1200 | Length of the client-side cache lifespan (in seconds). Reduce this number if you are using the `sqlite` storage backend and the database is using too much disk space. Note that reducing the cache lifespan will result in increased load on your Drupal server. |
 
+### Rollback configuration and CSV file settings
+
+See "[Rolling back](/islandora_workbench_docs/rolling_back/)" for more information.
+
+| Setting | Required | Default value | Description |
+| --- | --- | --- | --- |
+| rollback_dir |  | Value of `input_dir` setting | Absolute path to the directory where you want your "rollback.csv" file to be written. |
+| timestamp_rollback |  | false | Set to `true` to add a timestamp to the "rollback.yml" and corresponding "rollback.csv" generated in "create" and "create_from_files" tasks. |
+| rollback_config_filename_template |  | | Defines a template that will be used to create the rollback configuration file. The two placeholders availalble in this template are `$config_filename` and `$input_csv_filename`. |
+| rollback_csv_filename_template |  | | Defines a template that will be used to create the rollback CSV file. The two placeholders availalble in this template are `$config_filename` and `$input_csv_filename`. |
+| rollback_file_comments |  | | Defines a list of lines to be added to both the rollback config and CSV file as comments. |
+
+
 ### Miscellaneous settings
 
 | Setting | Required | Default value | Description |
@@ -240,8 +253,6 @@ See the "[Logging](/islandora_workbench_docs/logging/)" section for more informa
 | perform_soft_checks |  | false | If set to true, `--check` will not exit when it encounters an error with parent/child order, file extension registration with Drupal media file fields, missing files named in the `files` CSV column, or EDTF validation. Instead, it will log any errors it encounters and exit after it has checked all rows in the CSV input file. Note: this setting replaces `strict_check` as of commit dfa60ff (July 14, 2023). |
 | temp_dir |  | Value of the temporary directory defined by your system as defined by Python's [gettempdir()](https://docs.python.org/3/library/tempfile.html#tempfile.gettempdir) function. | Relative or absolute path to the directory where you want Workbench's temporary files to be written. These include the ".preprocessed" version of the your input CSV, remote files temporarily downloaded to create media, and the CSV ID to node ID map database. |
 | sqlite_db_filename |  | [temp_dir]/workbench_temp_data.db | Name of the SQLite database filename used to store session data. |
-| rollback_dir |  | Value of `input_dir` setting | Absolute path to the directory where you want your "rollback.csv" file to be written. See "[Rolling back](/islandora_workbench_docs/rolling_back/)" for more information. |
-| timestamp_rollback |  | false | Set to `true` to add a timestamp to the "rollback.yml" and corresponding "rollback.csv" generated in "create" and "create_from_files" tasks. See "[Rolling back](/islandora_workbench_docs/rolling_back/)" for more information. |
 | pause |  | | Defines the number of seconds to pause between all 'POST', 'PUT', 'PATCH', 'DELETE' requests to Drupal. Include it in your configuration to lessen the impact of Islandora Workbench on your site during large jobs, for example pause: 1.5. More information is available in the "[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/)" documentation. |
 | adaptive_pause |  | | Defines the number of seconds to pause between each REST request to Drupal. Works like "pause" but only takes effect when the Drupal server's response to the most recent request is slower (determined by the "adaptive_pause_threshold" value) than the average response time for the last 20 requests. More information is available in the "[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/)" documentation. |
 | adaptive_pause_threshold |  | 2 | A weighting of the response time for the most recent request, relative to the average response times of the last 20 requests. This weighting determines how much slower the Drupal server's response to the most recent Workbench request must be in order for adaptive pausing to take effect for the next request. For example, if set to "1", adaptive pausing will happen when the response time is equal to the average of the last 20 response times; if set to "2", adaptive pausing will take effect if the last requests's response time is double the average. |
