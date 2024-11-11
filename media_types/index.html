@@ -605,8 +605,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#assigning-a-media-type-by-media-use-url" class="md-nav__link">
-    Assigning a media type by Media Use Url
+  <a href="#assigning-a-media-type-by-media-use-uri" class="md-nav__link">
+    Assigning a media type by Media Use URI
   </a>
   
 </li>
@@ -1017,8 +1017,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#assigning-a-media-type-by-media-use-url" class="md-nav__link">
-    Assigning a media type by Media Use Url
+  <a href="#assigning-a-media-type-by-media-use-uri" class="md-nav__link">
+    Assigning a media type by Media Use URI
   </a>
   
 </li>
@@ -1120,7 +1120,7 @@
 <pre><code class="language-yaml">extensions_to_mimetypes:
   'mbox': 'application/mbox'
 </code></pre>
-<h2 id="assigning-a-media-type-by-media-use-url">Assigning a media type by Media Use Url</h2>
+<h2 id="assigning-a-media-type-by-media-use-uri">Assigning a media type by Media Use URI</h2>
 <p>We typically assign a media type that corresponds with the asset's MIME type. However, there are instances where two media types share the same MIME type. A notable example is FITS XML: while assets with the MIME type <code>application/xml</code> are usually assigned a <code>file</code> media type, the <code>fits_technical_metadata</code> designation is more suitable in this case. To assign a specific media to an asset type based on its intended use, use <code>media_type_by_media_use</code>. Below is an example demonstrating how to assign a FITS-tagged XML file to the <code>fits_technical_metadata media type</code>.</p>
 <pre><code class="language-yaml">media_type_by_media_use:
   - https://projects.iq.harvard.edu/fits: fits_technical_metadata
