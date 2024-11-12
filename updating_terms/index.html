@@ -954,7 +954,11 @@
 <li><code>delete</code> will delete all values in a field.</li>
 </ul>
 <p>Islandora Workbench will never allow a field to contain more values than the field's configuration allows. Attempts to update a field with more values than the maximum number allowed will result in the surplus values being ignored during the "update" task. If Workbench does this, it will write an entry to the log indicating it has done so.</p>
-<p>The column headings in the CSV file other than <code>term_id</code> must match either the machine names of fields that exist in the target Islandora content type, or their human-readable labels, with exceptions for the following fields: <code>term_name</code>, <code>description</code>, <code>parent</code>, and <code>weight</code> (more information about these fields is available in the "<a href="/islandora_workbench_docs/creating_taxonomy_terms/">Creating taxonomy terms</a>" documentation). Only include fields that you want to update. Currently, fields with the data types as described in the "<a href="/islandora_workbench_docs/fields/">Fields</a>" documentation can be updated.</p>
+<p>The column headings in the CSV file other than <code>term_id</code> must match either the machine names of fields that exist in the target Islandora content type, or their human-readable labels, with exceptions for the following fields: <code>term_name</code>, <code>description</code>, <code>parent</code>, <code>weight</code>, and <code>published</code> (more information about these fields is available in the "<a href="/islandora_workbench_docs/creating_taxonomy_terms/">Creating taxonomy terms</a>" documentation). Only include fields that you want to update. Currently, fields with the data types as described in the "<a href="/islandora_workbench_docs/fields/">Fields</a>" documentation can be updated.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are going to use <code>published</code> in your <code>update_terms</code> tasks, you need to remove the "Published" filter from the "Term from term name" View.</p>
+</div>
 <p>For example, using the fields defined by the Islandora Defaults module for the "Person" vocabulary, your CSV file could look like this:</p>
 <pre><code class="language-text">term_id,term_name,description,field_authority_link
 100,&quot;Jordan, Mark&quot;,Mark Jordan's Person term.,http://viaf.org/viaf/106468077%%VIAF Record
