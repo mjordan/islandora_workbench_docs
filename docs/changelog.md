@@ -1,6 +1,7 @@
 ### main branch (no tag/release)
 
-* October 15, 2024: Merged (c1f6cd4) [PR 837](https://github.com/mjordan/islandora_workbench/pull/837). Thanks ajstanley! Resolved (commit c8bc120) [issue 847](https://github.com/mjordan/islandora_workbench/issues/847).
+* November 12, 2024: Resolved (commit 584ca09) [issue 838](https://github.com/mjordan/islandora_workbench/issues/838).
+* November 11, 2024: Merged (c1f6cd4) [PR 837](https://github.com/mjordan/islandora_workbench/pull/837). Thanks ajstanley! Resolved (commit c8bc120) [issue 847](https://github.com/mjordan/islandora_workbench/issues/847).
 * November 10, 2024: Resolved (commit 12a81dc) [issue 844](https://github.com/mjordan/islandora_workbench/issues/844).
 * October 20, 2024: Resolved (commit 4358d41) [issue 832](https://github.com/mjordan/islandora_workbench/issues/832) and [issue 833](https://github.com/mjordan/islandora_workbench/issues/833).
 * October 15, 2024: Merged (c1f6cd4) [PR 828](https://github.com/mjordan/islandora_workbench/pull/828). Thanks newzealandpaul!
@@ -146,6 +147,7 @@
 
 ### Documentation
 
+* November 12, 2024: Updated docs on "[Creating taxonomy terms](/islandora_workbench_docs/creating_taxonomy_terms/)" and "[Updating taxonomy terms](/islandora_workbench_docs/updating_terms/)" to include use of the `published` CSV column.
 * November 11, 2024: Updated docs on "[Configuring media types](/islandora_workbench_docs/media_types/)".newzealandpaul
 * November 10, 2024: Updated docs on "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)" to include new settings, and added a dedicated section for rollbacks to the "[Configuration](/islandora_workbench_docs/configuration/#rollback-configuration-and-csv-file-settings)" page.
 * November 1, 2024: Updated docs on "[Adding alt text to images](/islandora_workbench_docs/alt_text/)" and "[Known limitations](/islandora_workbench_docs/limitations/)".

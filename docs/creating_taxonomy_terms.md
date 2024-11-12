@@ -19,7 +19,7 @@ input_csv: my_term_data.csv
 vocab_id: myvocabulary
 ```
 
-The `vocab_id` config option is required. It contains the machine name of the vocabulary you are adding the terms to. 
+The `vocab_id` config option is required. It contains the machine name of the vocabulary you are adding the terms to.
 
 The CSV file identified in the `input_csv` option has one required column, `term_name`, which contains each term's name:
 
@@ -34,16 +34,20 @@ Land Rover
 ```
 
 !!! note
-    Unlike input CSV files used during `create` tasks, input CSV files for `create_terms` tasks do not have an "id" column. Instead, `term_name` is the column whose values are the unique identifier for each term. Workbench assumes that term names are unique within a vocabulary. If the terms in the `term_name` column aren't unique, Workbench only creates the term the first time it encounters it in the CSV file. 
+    Unlike input CSV files used during `create` tasks, input CSV files for `create_terms` tasks do not have an "id" column. Instead, `term_name` is the column whose values are the unique identifier for each term. Workbench assumes that term names are unique within a vocabulary. If the terms in the `term_name` column aren't unique, Workbench only creates the term the first time it encounters it in the CSV file.
 
 Two reserved but optional columns, `weight`, and `description`, are described next. A third reserved column header, `parent` is described in the "Hierarchical vocabularies" section. You can also add columns that correspond to a vocabulary's field names, just like you do when you assemble your CSV for `create` tasks, as described in the "Vocabularies with custom fields" section below.
 
-### Term weight and description
+### Term weight, description, and published columns
 
-Two other reserved CSV column headers are `weight` and `description`. All Drupal taxonomy terms have these two fields but populating them is optional.
+Three other reserved CSV column headers are `weight`, `description`, and `published`. All Drupal taxonomy terms have these two fields but populating them is optional.
 
 * `weight` is used to sort the terms in the vocabulary overview page in relation to their parent term (or the vocabulary root if a term has no parent). Values in the `weight` field are integers. The lower the weight, the earlier the term sorts. For example, a value of "0" (zero) sorts the term at the top in relation to its parent, and a value of "100" sorts the term much lower.
 * `description` is, as the name suggests, a field that contains a description of the term.
+* `published` takes a "0" or a "1" (like it does in `create` tasks for nodes) to indicate that the term is published or not. If absent, defaults to "1" (published).
+
+!!! note
+    If you are going to use `published` in your `create_terms` tasks, you need to remove the "Published" filter from the "Term from term name" View.
 
 If you do not add `weight` values, Drupal sorts the terms in the vocabulary alphabetically.
 
@@ -83,7 +87,7 @@ Porche,Sports cars
 Land Rover,SUVs
 ```
 
-One important aspect of creating a hierarchical vocabulary is that all parents must exist before their children are added. That means that within your CSV file, the rows for terms used as parents should be placed earlier in the file than the rows for their children. If a term is named as a parent but doesn't exist yet because it came after the child term in the CSV, Workbench will create the child term and write a warning in the log indicating that the parent didn't exist at the time of creating the child. In these cases, you can manually assign a parent to the terms using Drupal's taxonomy administration tools. 
+One important aspect of creating a hierarchical vocabulary is that all parents must exist before their children are added. That means that within your CSV file, the rows for terms used as parents should be placed earlier in the file than the rows for their children. If a term is named as a parent but doesn't exist yet because it came after the child term in the CSV, Workbench will create the child term and write a warning in the log indicating that the parent didn't exist at the time of creating the child. In these cases, you can manually assign a parent to the terms using Drupal's taxonomy administration tools.
 
 You can include the `parent` column in your CSV along with Drupal field names. Workbench will not only create the hierarchy, it will also add the field data to the terms:
 
