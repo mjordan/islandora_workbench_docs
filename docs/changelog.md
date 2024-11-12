@@ -1,6 +1,6 @@
 ### main branch (no tag/release)
 
-* October 15, 2024: Merged (c1f6cd4) [PR 837](https://github.com/mjordan/islandora_workbench/pull/837). Thanks ajstanley!
+* October 15, 2024: Merged (c1f6cd4) [PR 837](https://github.com/mjordan/islandora_workbench/pull/837). Thanks ajstanley! Resolved (commit c8bc120) [issue 847](https://github.com/mjordan/islandora_workbench/issues/847).
 * November 10, 2024: Resolved (commit 12a81dc) [issue 844](https://github.com/mjordan/islandora_workbench/issues/844).
 * October 20, 2024: Resolved (commit 4358d41) [issue 832](https://github.com/mjordan/islandora_workbench/issues/832) and [issue 833](https://github.com/mjordan/islandora_workbench/issues/833).
 * October 15, 2024: Merged (c1f6cd4) [PR 828](https://github.com/mjordan/islandora_workbench/pull/828). Thanks newzealandpaul!
