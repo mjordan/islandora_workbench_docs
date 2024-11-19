@@ -764,6 +764,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../configuration_settings_on_the_command_line/" class="md-nav__link">
+        Specifying configuration settings on the command line
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../contact_sheet/" class="md-nav__link">
         Generating a contact sheet
       </a>
@@ -1260,7 +1275,7 @@
 <p>If git tells you it has pulled in any changes to Workbench, you will be running the latest code. If you get an error while running git, ask for help.</p>
 <p>Also, you might be asked to provide one or more of the following:</p>
 <ul>
-<li>your configuration file (without username and password!)</li>
+<li>your configuration file (without username and password!). You can also print your configuration to your terminal by includeing the <code>--print_config</code> argument to workbench, e.g. <code>python workbench --config test.yml --check --print_config</code>.</li>
 <li>some sample input CSV</li>
 <li>your Workbench log file</li>
 <li>details from your Drupal log, available at Admin &gt; Reports &gt; Recent log messages</li>
@@ -1288,7 +1303,7 @@
 <p>This is probably caused by unexpected data in your CSV file that Workbench's <code>--check</code> validation is not finding. If you encounter these messages, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a> and share any relevant entries in your Workbench log and Drupal log (as an admin user, go to Admin &gt; Reports &gt; Recent log messages) so we can track down the problem.</p>
 <p>One of the most common causes of this error is that one or more of the vocabularies being populated in your <code>create</code> task CSV contain required fields other than the default term name. It is possible to have Workbench create these fields, but you must do so as a separate <code>create_terms</code> task. See "<a href="/islandora_workbench_docs/creating_taxonomy_terms">Creating taxonomy terms</a>" for more information.</p>
 <h3 id="workbench-is-crashing-and-telling-me-there-are-problems-with-ssl-certificates">Workbench is crashing and telling me there are problems with SSL certificates.</h3>
-<p>To determine if this issue is specific to Workbench, from the same computer Workbench is running on, try hitting your Drupal server (or server your remote files are on) with <code>curl</code>. If <code>curl</code> also complains about SSL certificates, the problem lies in the SSL/HTTPS configuration on the server. An example <code>curl</code> command is <code>curl https://wwww.lib.sfu.ca</code>. </p>
+<p>To determine if this issue is specific to Workbench, from the same computer Workbench is running on, try hitting your Drupal server (or server your remote files are on) with <code>curl</code>. If <code>curl</code> also complains about SSL certificates, the problem lies in the SSL/HTTPS configuration on the server. An example <code>curl</code> command is <code>curl https://wwww.lib.sfu.ca</code>.</p>
 <p>If <code>curl</code> doesn't complain, the problem is specific to Workbench.</p>
 <h3 id="-check-is-telling-me-that-one-the-rows-in-my-csv-file-has-more-columns-than-headers">--check is telling me that one the rows in my CSV file has more columns than headers.</h3>
 <p>The most likely problem is that one of your CSV values contains a comma but is not wrapped in double quotes.</p>
