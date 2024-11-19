@@ -43,6 +43,7 @@ nav:
     - Logging: logging.md
     - Cancelling Workbench: cancelling.md
     - Workflows: workflows.md
+    - Specifying configuration settings on the command line: configuration_settings_on_the_command_line.md
     - Generating a contact sheet: contact_sheet.md
     - Reducing Workbench's impact on Drupal: reducing_load.md
     - Creating nodes from the sample data: sample_data.md

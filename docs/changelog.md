@@ -1,10 +1,11 @@
 ### main branch (no tag/release)
 
+* November 19, 2024: Resolved (commit 12a81dc) [issue 844](https://github.com/mjordan/islandora_workbench/issues/844), (commit 53801bb) [issue 847](https://github.com/mjordan/islandora_workbench/issues/847), (commit f86d56d) [issue 850](https://github.com/mjordan/islandora_workbench/issues/850), (commit 9b15fb4) [issue 852](https://github.com/mjordan/islandora_workbench/issues/852), and (commit 72ccb97) [issue 792](https://github.com/mjordan/islandora_workbench/issues/792).
 * November 12, 2024: Resolved (commit 584ca09) [issue 838](https://github.com/mjordan/islandora_workbench/issues/838).
 * November 11, 2024: Merged (c1f6cd4) [PR 837](https://github.com/mjordan/islandora_workbench/pull/837). Thanks ajstanley! Resolved (commit c8bc120) [issue 847](https://github.com/mjordan/islandora_workbench/issues/847).
 * November 10, 2024: Resolved (commit 12a81dc) [issue 844](https://github.com/mjordan/islandora_workbench/issues/844).
 * October 20, 2024: Resolved (commit 4358d41) [issue 832](https://github.com/mjordan/islandora_workbench/issues/832) and [issue 833](https://github.com/mjordan/islandora_workbench/issues/833).
-* October 15, 2024: Merged (c1f6cd4) [PR 828](https://github.com/mjordan/islandora_workbench/pull/828). Thanks newzealandpaul!
+* October 15, 2024: Merged (c1f6cd4) [PR 828](https://github.com/mjordan/islandora_workbench/pull/828). Thanks @newzealandpaul!
 * October 14, 2024: Resolved (c1f6cd4) [issue 796](https://github.com/mjordan/islandora_workbench/issues/796). Thanks g011um!
 * September 23, 2024: Resolved (commit e855926) [issue 825](https://github.com/mjordan/islandora_workbench/issues/825) and (commit 538b10a) [issue 826](https://github.com/mjordan/islandora_workbench/issues/826).
 * September 17, 2024: Resolved (commit 4f3b5e0) [issue 822](https://github.com/mjordan/islandora_workbench/issues/822).
@@ -147,6 +148,7 @@
 
 ### Documentation
 
+* November 19, 2024: Updated docs on "[Creating media track files](/islandora_workbench_docs/media_track_files/)"; updated "[Troubleshooting](/troubleshooting/)" to include the new `--print_config` argument.
 * November 12, 2024: Updated docs on "[Creating taxonomy terms](/islandora_workbench_docs/creating_taxonomy_terms/)" and "[Updating taxonomy terms](/islandora_workbench_docs/updating_terms/)" to include use of the `published` CSV column.
 * November 11, 2024: Updated docs on "[Configuring media types](/islandora_workbench_docs/media_types/)".newzealandpaul
 * November 10, 2024: Updated docs on "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)" to include new settings, and added a dedicated section for rollbacks to the "[Configuration](/islandora_workbench_docs/configuration/#rollback-configuration-and-csv-file-settings)" page.

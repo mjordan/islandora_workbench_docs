@@ -19,7 +19,7 @@ If git tells you it has pulled in any changes to Workbench, you will be running 
 
 Also, you might be asked to provide one or more of the following:
 
-* your configuration file (without username and password!)
+* your configuration file (without username and password!). You can also print your configuration to your terminal by includeing the `--print_config` argument to workbench, e.g. `python workbench --config test.yml --check --print_config`.
 * some sample input CSV
 * your Workbench log file
 * details from your Drupal log, available at Admin > Reports > Recent log messages
@@ -60,7 +60,7 @@ One of the most common causes of this error is that one or more of the vocabular
 
 ### Workbench is crashing and telling me there are problems with SSL certificates.
 
-To determine if this issue is specific to Workbench, from the same computer Workbench is running on, try hitting your Drupal server (or server your remote files are on) with `curl`. If `curl` also complains about SSL certificates, the problem lies in the SSL/HTTPS configuration on the server. An example `curl` command is `curl https://wwww.lib.sfu.ca`. 
+To determine if this issue is specific to Workbench, from the same computer Workbench is running on, try hitting your Drupal server (or server your remote files are on) with `curl`. If `curl` also complains about SSL certificates, the problem lies in the SSL/HTTPS configuration on the server. An example `curl` command is `curl https://wwww.lib.sfu.ca`.
 
 If `curl` doesn't complain, the problem is specific to Workbench.
 
