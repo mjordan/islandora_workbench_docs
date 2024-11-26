@@ -108,6 +108,15 @@ books/
 
 Workbench will warn you that the `book000` directory is empty, but that's OK - it will look for, but not find, any pages for that item. The node corresponding to that directory will be created as expected, and values in the `parent_id` column will ensure that the intended hierarchical relationship between "book000" and its child items (the book nodes) is created.
 
+#### Ignoring files in page directories
+
+Sometimes files such as "Thumbs.db" (on Windows) can creep into page directories. You can tell Workbench to ignore specific files within directories by including the `paged_content_ignore_files` configuration setting in your config file. Note that the default setting is to ignore "Thumbs.db" files. If you want to add additional files, or override that default setting, include the `paged_content_ignore_files` followed by a list of filenames, e.g.:
+
+`paged_content_ignore_files: ["Thumbs.db", "scanning_manifest.txt"]`
+
+Note that Workbench converts all filenames in the directories and filenames listed in the `paged_content_ignore_files` setting to lower case before checking to see if they are in this list. For example, if Workbench encounters a filename `Scanning_Manifest.TXT`, it will match "scanning_manifest.txt" in the configuration above configuration.
+
+
 #### Ingesting OCR (and other) files with page images
 
 You can tell Workbench to add OCR and other media related to page images when using the "Using subdirectories" method of creating paged content. To do this, add the OCR files to your subdirectories, using the base filenames of each page image plus an extension like `.txt`:
