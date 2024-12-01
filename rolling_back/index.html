@@ -1054,6 +1054,7 @@
   <h1>Rolling back nodes and media</h1>
 
 <p>In the <code>create</code> and <code>create_from_files</code> tasks, Workbench generates a configuration file and accompanying input CSV file in the format described in "Deleting nodes" documentation. These files allow you to easily roll back (i.e., delete) all the nodes and accompanying media you just created. Specifically, this configuration file defines a <code>delete</code> task. See the "<a href="/islandora_workbench_docs/deleting_nodes/">Deleting nodes</a>" section for more information.</p>
+<p><code>--check</code> it will also write an entry in your log file indicating the location of the rollback config and CSV files, and it will test to ensure that the rollback config and CSV files can be written. If either one cannot, Workbench exists with an error.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The rollback configuration file contains the username used in the <code>create</code> or <code>create_from_files</code> task that generates it. If you also want to include the accompanying password, add <code>include_password_in_rollback_config_file: true</code> to your configuration.</p>
