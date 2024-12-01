@@ -150,7 +150,7 @@
 
 ### Documentation
 
-* December 1, 2024: Updated docs on "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)" to include new settings added in [issue 855](https://github.com/mjordan/islandora_workbench/issues/855).
+* December 1, 2024: Updated docs on "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)" to include new settings added in [issue 855](https://github.com/mjordan/islandora_workbench/issues/855). Updated docs on "[Field data applied to pages/children](/islandora_workbench_docs/paged_and_compound/#field-data-applied-to-pageschildren)" to include link to "[Applying CSV value templates to paged content](/islandora_workbench_docs/csv_value_templates/#applying-csv-value-templates-to-paged-content)."
 * November 26, 2024: Resolved [issue 853](https://github.com/mjordan/islandora_workbench/issues/853); added docs on new `paged_content_ignore_files` config setting.
 * November 19, 2024: Updated docs on "[Creating media track files](/islandora_workbench_docs/media_track_files/)"; updated "[Troubleshooting](/troubleshooting/)" to include the new `--print_config` argument.
 * November 12, 2024: Updated docs on "[Creating taxonomy terms](/islandora_workbench_docs/creating_taxonomy_terms/)" and "[Updating taxonomy terms](/islandora_workbench_docs/updating_terms/)" to include use of the `published` CSV column.

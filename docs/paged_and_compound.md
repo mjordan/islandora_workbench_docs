@@ -56,9 +56,9 @@ The page filenames have significance. The sequence of the page is determined by 
 
 Titles for pages are generated automatically using the pattern `parent_title` + `, page` + `sequence_number`, where "parent title" is inherited from the page's parent node and "sequence number" is the page's sequence. For example, if a page's parent has the title "How to Write a Book" and its sequence number is 450, its automatically generated title will be "How to Write a Book, page 450". You can override this pattern by including the `page_title_template`  setting in your configuration file. The value of this setting is a simple string template. The default, which generates the page title pattern described above, is `'$parent_title, page $weight'`. There are only two variables you can include in the template, `$parent_title` and `$weight`, although you do not need to include either one if you don't want that information appearing in your page titles.
 
-Fields on pages that are configured to be required in the parent and page content type are automatically inherited from the parent. No special confifguration is necessary.
+Fields on pages that are configured to be required in the parent and page content type are automatically inherited from the parent. No special configuration is necessary.
 
-Finally, even though only minimal metadata is assigned to pages using this method (i.e., the automatically generated title and Islandora model), you can add additional metadata to pages using a separate `update` task.
+Finally, even though the automatically generated title and Islandora model are automatically added to pages/children, you can add additional metadata to pages/children using [CSV value templates](/islandora_workbench_docs/csv_value_templates/#applying-csv-value-templates-to-paged-content), or, after you run your `create task, a separate `update` task.
 
 Important things to note when using this method:
 
