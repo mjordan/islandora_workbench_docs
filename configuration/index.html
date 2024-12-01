@@ -2206,6 +2206,18 @@ csv_field_templates:
 <td>Absolute path to the directory where you want your "rollback.csv" file to be written.</td>
 </tr>
 <tr>
+<td>rollback_config_file_path</td>
+<td></td>
+<td>rollback.yml</td>
+<td>Relative (to workbench) or absolute path to write the rollback config YAML file to.</td>
+</tr>
+<tr>
+<td>rollback_csv_file_path</td>
+<td></td>
+<td>[input_dir/rollback.csv]</td>
+<td>Relative (to workbench) or absolute path to write the rollback CSV file to.</td>
+</tr>
+<tr>
 <td>timestamp_rollback</td>
 <td></td>
 <td>false</td>
@@ -2228,6 +2240,12 @@ csv_field_templates:
 <td></td>
 <td></td>
 <td>Defines a list of lines to be added to both the rollback config and CSV file as comments.</td>
+</tr>
+<tr>
+<td>include_password_in_rollback_config_file</td>
+<td></td>
+<td><code>false</code></td>
+<td>Set to <code>true</code> to include the value of the <code>password</code> configuration setting in your rollback config YAML file.</td>
 </tr>
 </tbody>
 </table>

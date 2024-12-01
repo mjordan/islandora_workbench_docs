@@ -1056,9 +1056,10 @@
 <p>In the <code>create</code> and <code>create_from_files</code> tasks, Workbench generates a configuration file and accompanying input CSV file in the format described in "Deleting nodes" documentation. These files allow you to easily roll back (i.e., delete) all the nodes and accompanying media you just created. Specifically, this configuration file defines a <code>delete</code> task. See the "<a href="/islandora_workbench_docs/deleting_nodes/">Deleting nodes</a>" section for more information.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The rollback configuration file contains the username and password used in the <code>create</code> or <code>create_from_files</code> task that generates it.</p>
+<p>The rollback configuration file contains the username used in the <code>create</code> or <code>create_from_files</code> task that generates it. If you also want to include the accompanying password, add <code>include_password_in_rollback_config_file: true</code> to your configuration.</p>
 </div>
 <p>By default, the configuration file is named "rollback.yml" and is written into the Workbench directory. The input CSV file is named "rollback.csv" and is written into the directory defined in your <code>input_dir</code> configuration setting. If either of these files exist, they are overwritten during the next <code>create</code> or <code>create_from_files</code> task.</p>
+<p>You can also specify the relative (to workbench) or abolute path to your rollback config and CSV files, by including <code>rollback_config_file_path</code> and <code>rollback_csv_file_path</code>, respectively, in your configuration.</p>
 <p>To roll back all the nodes and media you just created, run <code>./workbench --config rollback.yml</code>.</p>
 <p>There are several configuration settings that let you control the names of these two files, and there is also an option to include comments in the files.</p>
 <div class="admonition note">
@@ -1067,7 +1068,7 @@
 </div>
 <h2 id="setting-the-directory-where-the-rollback-cvs-file-is-written">Setting the directory where the rollback CVS file is written</h2>
 <p>You can determine where the rollback CSV file is written by including the <code>rollback_dir</code> in your configuration. This overrides the default location defined in <code>input_dir</code>.</p>
-<p>The rollback configuration file is always written to the Workbench working directory.</p>
+<p>The rollback configuration file is always written to the Workbench working directory unless that behavior is overwritten by <code>rollback_config_file_path</code>.</p>
 <h2 id="using-rollback-filename-templates">Using rollback filename templates</h2>
 <p>For both the rollback config file and the rollback CSV file, you can define a template that provides two placeholders, <code>$config_filename</code> and <code>$input_csv_filename</code>, which contain the names of the <code>create</code> (or <code>create_from_files</code>) configuration file and the name of the input CSV file used in <code>create</code> tasks. You can embed these two placeholders in your template, which is then used to create the names of the two files. The templates for the two filenames are defined in two separate configuration settings:</p>
 <p>For the rollback configuration file:</p>
