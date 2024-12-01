@@ -17,6 +17,8 @@ If you do this, Workbench will check the following conditions and report any err
     * Whether the `host` you provided will accept the `username` and `password` you provided.
 * Input directory
     * Whether the directory named in the `input_dir` configuration setting exists.
+* Rollback files
+    * Whether the rollback config file and CSV file can be written.
 * CSV file
     * Whether the CSV file is encoded in either ASCII or UTF-8.
     * Whether each row contains the same number of columns as there are column headers.

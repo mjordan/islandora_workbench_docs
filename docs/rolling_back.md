@@ -1,9 +1,13 @@
 In the `create` and `create_from_files` tasks, Workbench generates a configuration file and accompanying input CSV file in the format described in "Deleting nodes" documentation. These files allow you to easily roll back (i.e., delete) all the nodes and accompanying media you just created. Specifically, this configuration file defines a `delete` task. See the "[Deleting nodes](/islandora_workbench_docs/deleting_nodes/)" section for more information.
 
+`--check` it will also write an entry in your log file indicating the location of the rollback config and CSV files, and it will test to ensure that the rollback config and CSV files can be written. If either one cannot, Workbench exists with an error.
+
 !!! warning
-    The rollback configuration file contains the username and password used in the `create` or `create_from_files` task that generates it.
+    The rollback configuration file contains the username used in the `create` or `create_from_files` task that generates it. If you also want to include the accompanying password, add `include_password_in_rollback_config_file: true` to your configuration.
 
 By default, the configuration file is named "rollback.yml" and is written into the Workbench directory. The input CSV file is named "rollback.csv" and is written into the directory defined in your `input_dir` configuration setting. If either of these files exist, they are overwritten during the next `create` or `create_from_files` task.
+
+You can also specify the relative (to workbench) or abolute path to your rollback config and CSV files, by including `rollback_config_file_path` and `rollback_csv_file_path`, respectively, in your configuration.
 
 To roll back all the nodes and media you just created, run `./workbench --config rollback.yml`.
 
@@ -16,7 +20,7 @@ There are several configuration settings that let you control the names of these
 
 You can determine where the rollback CSV file is written by including the `rollback_dir` in your configuration. This overrides the default location defined in `input_dir`.
 
-The rollback configuration file is always written to the Workbench working directory.
+The rollback configuration file is always written to the Workbench working directory unless that behavior is overwritten by `rollback_config_file_path`.
 
 ## Using rollback filename templates
 

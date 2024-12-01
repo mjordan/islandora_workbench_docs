@@ -238,10 +238,13 @@ See "[Rolling back](/islandora_workbench_docs/rolling_back/)" for more informati
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
 | rollback_dir |  | Value of `input_dir` setting | Absolute path to the directory where you want your "rollback.csv" file to be written. |
+| rollback_config_file_path |  | rollback.yml | Relative (to workbench) or absolute path to write the rollback config YAML file to. |
+| rollback_csv_file_path |  | [input_dir/rollback.csv] | Relative (to workbench) or absolute path to write the rollback CSV file to. |
 | timestamp_rollback |  | false | Set to `true` to add a timestamp to the "rollback.yml" and corresponding "rollback.csv" generated in "create" and "create_from_files" tasks. |
 | rollback_config_filename_template |  | | Defines a template that will be used to create the rollback configuration file. The two placeholders availalble in this template are `$config_filename` and `$input_csv_filename`. |
 | rollback_csv_filename_template |  | | Defines a template that will be used to create the rollback CSV file. The two placeholders availalble in this template are `$config_filename` and `$input_csv_filename`. |
 | rollback_file_comments |  | | Defines a list of lines to be added to both the rollback config and CSV file as comments. |
+| include_password_in_rollback_config_file |  | `false` | Set to `true` to include the value of the `password` configuration setting in your rollback config YAML file. |
 
 
 ### Miscellaneous settings

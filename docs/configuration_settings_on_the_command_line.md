@@ -4,6 +4,8 @@ You can override the following settings in configuration files by including them
 - `input_csv`
 - `google_sheets_gid`
 - `log_file_path`
+- `rollback_csv_file_path`
+- `rollback_config_file_path`
 
 In all cases, you need to add `--` to conform with Python's command-line argument syntax.
 

@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* December 1, 2024: Resolved (commit f50e9c2) [issue 855](https://github.com/mjordan/islandora_workbench/issues/855).
 * November 26, 2024: Resolved (commit d1b6ea4) [issue 845](https://github.com/mjordan/islandora_workbench/issues/845).
 * November 19, 2024: Resolved (commit 12a81dc) [issue 844](https://github.com/mjordan/islandora_workbench/issues/844), (commit 53801bb) [issue 847](https://github.com/mjordan/islandora_workbench/issues/847), (commit f86d56d) [issue 850](https://github.com/mjordan/islandora_workbench/issues/850), (commit 9b15fb4) [issue 852](https://github.com/mjordan/islandora_workbench/issues/852), and (commit 72ccb97) [issue 792](https://github.com/mjordan/islandora_workbench/issues/792).
 * November 12, 2024: Resolved (commit 584ca09) [issue 838](https://github.com/mjordan/islandora_workbench/issues/838).
@@ -149,6 +150,7 @@
 
 ### Documentation
 
+* December 1, 2024: Updated docs on "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)" to include new settings added in [issue 855](https://github.com/mjordan/islandora_workbench/issues/855).
 * November 26, 2024: Resolved [issue 853](https://github.com/mjordan/islandora_workbench/issues/853); added docs on new `paged_content_ignore_files` config setting.
 * November 19, 2024: Updated docs on "[Creating media track files](/islandora_workbench_docs/media_track_files/)"; updated "[Troubleshooting](/troubleshooting/)" to include the new `--print_config` argument.
 * November 12, 2024: Updated docs on "[Creating taxonomy terms](/islandora_workbench_docs/creating_taxonomy_terms/)" and "[Updating taxonomy terms](/islandora_workbench_docs/updating_terms/)" to include use of the `published` CSV column.
