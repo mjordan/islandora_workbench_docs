@@ -1069,9 +1069,9 @@ IMG_2940.JPG,03,Looking across Burrard Inlet,25,&quot;relators:aut:person:Jordan
 <pre><code>allow_csv_value_templates_if_field_empty: ['field_local_identifier', 'field_subject']
 </code></pre>
 <h2 id="applying-csv-value-templates-to-paged-content">Applying CSV value templates to paged content</h2>
-<p>Paged content (or as sometimes referred to, children) created using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method do not have their own rows in input CSV files. However, you can apply CSV value templates to their node fields using. In this case:</p>
+<p>Paged content (or as sometimes referred to, children) created using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method do not have their own rows in input CSV files. Any fields that are configured to be "required" in the parent and child's content type are copied from the parent's CSV row and applied to all that parent's pages/children. If you want to add non-required field data to pages/children, However, you can use CSV value templates to do that. In this case:</p>
 <ul>
-<li>the CSV row that is used as the source of <code>$csv_value</code> is the page's (or child's) parent row</li>
+<li>the CSV row that is used as the source of <code>$csv_value</code> is the page's (or child's) parent row; the value is inherited from this parent row</li>
 <li>the <code>$file</code> variable is the name of the page/child's filename (and <code>$filename_without_extension</code> is derived from this value)</li>
 <li>the <code>$weight</code> variable is taken from the page/child's sequence indicator, e.g. a filename of <code>page-002.jpg</code> would result in a <code>$weight</code> value of "2".</li>
 </ul>
@@ -1081,10 +1081,20 @@ IMG_2940.JPG,03,Looking across Burrard Inlet,25,&quot;relators:aut:person:Jordan
   - field_edtf_date_issued: $csv_value
   - field_local_identifier: $csv_value-$weight
 </code></pre>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Fields that are configured to be required in a content type are automatically applied to paged/child items created using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method using the same values for those fields as their parents' rows in the CSV input file. However, you can also configure templates using the <code>csv_value_templates_for_paged_content</code> setting if you wish.</p>
-</div>
+<p>Note that since non-required fields on pages/children will be empty, you <em>also</em> need to register non-required fields you want applied to pages/children in the <code>allow_csv_value_templates_if_field_empty</code> config setting. So, the complete configuration block to add the three fields <code>field_linked_agent</code>, <code>field_edtf_date_issued</code>, and <code>field_local_identifier</code> would be:</p>
+<pre><code class="language-yaml">csv_value_templates_for_paged_content:
+  - field_linked_agent: relators:aut:person:$csv_value
+  - field_edtf_date_issued: $csv_value
+  - field_local_identifier: $csv_value-$weight
+
+allow_csv_value_templates_if_field_empty: [&quot;field_linked_agent&quot;, &quot;field_edtf_date_issued&quot;, &quot;field_local_identifier&quot;]
+</code></pre>
+<p>Even though this section documents how to apply templates with variables, you can also apply "templates" to pages/child items that do not use variables. For example, if you want to add "Newspapers" to each page in a newspaper issue, you can register that string as your "template", e.g.</p>
+<pre><code class="language-yaml">csv_value_templates_for_paged_content:
+  - field_genre: Newspapers
+
+allow_csv_value_templates_if_field_empty: [&quot;field_genre&quot;]
+</code></pre>
 
 
 
