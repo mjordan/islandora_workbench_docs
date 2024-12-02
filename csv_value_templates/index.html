@@ -1089,7 +1089,7 @@ IMG_2940.JPG,03,Looking across Burrard Inlet,25,&quot;relators:aut:person:Jordan
 
 allow_csv_value_templates_if_field_empty: [&quot;field_linked_agent&quot;, &quot;field_edtf_date_issued&quot;, &quot;field_local_identifier&quot;]
 </code></pre>
-<p>Even though this section documents how to apply templates with variables, you can also apply "templates" to pages/child items that do not use variables. For example, if you want to add "Newspapers" to each page in a newspaper issue, you can register that string as your "template", e.g.</p>
+<p>Even though this section documents how to apply templates with variables, you can also apply "templates" to pages/child items that are complete values, that do not use variables. For example, if you want to add "Newspapers" to each page in a newspaper issue, you can register that string as your "template", e.g.</p>
 <pre><code class="language-yaml">csv_value_templates_for_paged_content:
   - field_genre: Newspapers
 
