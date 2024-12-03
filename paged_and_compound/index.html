@@ -441,8 +441,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#field-data-applied-to-pageschildren-created-from-subdirectories" class="md-nav__link">
-    Field data applied to pages/children created from subdirectories
+  <a href="#applying-field-data-to-pageschildren-created-from-subdirectories" class="md-nav__link">
+    Applying field data to pages/children created from subdirectories
   </a>
   
 </li>
@@ -1101,8 +1101,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#field-data-applied-to-pageschildren-created-from-subdirectories" class="md-nav__link">
-    Field data applied to pages/children created from subdirectories
+  <a href="#applying-field-data-to-pageschildren-created-from-subdirectories" class="md-nav__link">
+    Applying field data to pages/children created from subdirectories
   </a>
   
 </li>
@@ -1255,7 +1255,7 @@ sfu_book_2,Using Islandora Workbench for Fun and Profit,Paged Content,book2
 <li>If your page directories contain files other than page images, you need to include the <code>paged_content_image_file_extension</code> setting in your configuration. Otherwise, Workbench can't tell which files to create pages from.</li>
 <li>If you don't want to use your <code>id</code> column to name the directories that contain each item's pages, you can include <code>page_files_source_dir_field: directory</code> to your config file and add a <code>directory</code> column to your input CSV to name the directories.</li>
 </ul>
-<h4 id="field-data-applied-to-pageschildren-created-from-subdirectories">Field data applied to pages/children created from subdirectories</h4>
+<h4 id="applying-field-data-to-pageschildren-created-from-subdirectories">Applying field data to pages/children created from subdirectories</h4>
 <p>Titles for pages are generated automatically using the pattern <code>parent_title</code> + <code>, page</code> + <code>sequence_number</code>, where "parent title" is inherited from the page's parent node and "sequence number" is the page's sequence. For example, if a page's parent has the title "How to Write a Book" and its sequence number is 450, its automatically generated title will be "How to Write a Book, page 450". You can override this pattern by including the <code>page_title_template</code>  setting in your configuration file. The value of this setting is a simple string template. The default, which generates the page title pattern described above, is <code>'$parent_title, page $weight'</code>. There are only two variables you can include in the template, <code>$parent_title</code> and <code>$weight</code>, although you do not need to include either one if you don't want that information appearing in your page titles.</p>
 <p>Fields on pages that are configured to be required in the parent and page content type are automatically inherited from the parent. No special configuration is necessary.</p>
 <p>Finally, even though title and Islandora model (along with required fields) are automatically added to pages/children, you can add additional (non-required field) metadata to pages/children using <a href="/islandora_workbench_docs/csv_value_templates/#applying-csv-value-templates-to-paged-content">CSV value templates</a> during the <code>create</code> task that creates the pages.</p>
