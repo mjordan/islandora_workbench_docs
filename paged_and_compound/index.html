@@ -455,15 +455,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ignoring-files-in-page-directories" class="md-nav__link">
-    Ignoring files in page directories
+  <a href="#ingesting-ocr-and-other-files-with-page-images" class="md-nav__link">
+    Ingesting OCR (and other) files with page images
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ingesting-ocr-and-other-files-with-page-images" class="md-nav__link">
-    Ingesting OCR (and other) files with page images
+  <a href="#ignoring-files-in-page-directories" class="md-nav__link">
+    Ignoring files in page directories
   </a>
   
 </li>
@@ -1115,15 +1115,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ignoring-files-in-page-directories" class="md-nav__link">
-    Ignoring files in page directories
+  <a href="#ingesting-ocr-and-other-files-with-page-images" class="md-nav__link">
+    Ingesting OCR (and other) files with page images
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ingesting-ocr-and-other-files-with-page-images" class="md-nav__link">
-    Ingesting OCR (and other) files with page images
+  <a href="#ignoring-files-in-page-directories" class="md-nav__link">
+    Ignoring files in page directories
   </a>
   
 </li>
@@ -1287,10 +1287,6 @@ book2,book000,Using Islandora Workbench for Fun and Profit,Paged Content
 └── metadata.csv
 </code></pre>
 <p>Workbench will warn you that the <code>book000</code> directory is empty, but that's OK - it will look for, but not find, any pages for that item. The node corresponding to that directory will be created as expected, and values in the <code>parent_id</code> column will ensure that the intended hierarchical relationship between "book000" and its child items (the book nodes) is created.</p>
-<h4 id="ignoring-files-in-page-directories">Ignoring files in page directories</h4>
-<p>Sometimes files such as "Thumbs.db" (on Windows) can creep into page directories. You can tell Workbench to ignore specific files within directories by including the <code>paged_content_ignore_files</code> configuration setting in your config file. Note that the default setting is to ignore "Thumbs.db" files. If you want to add additional files, or override that default setting, include the <code>paged_content_ignore_files</code> followed by a list of filenames, e.g.:</p>
-<p><code>paged_content_ignore_files: ["Thumbs.db", "scanning_manifest.txt"]</code></p>
-<p>Note that Workbench converts all filenames in the directories and filenames listed in the <code>paged_content_ignore_files</code> setting to lower case before checking to see if they are in this list. For example, if Workbench encounters a filename <code>Scanning_Manifest.TXT</code>, it will match "scanning_manifest.txt" in the configuration above configuration.</p>
 <h4 id="ingesting-ocr-and-other-files-with-page-images">Ingesting OCR (and other) files with page images</h4>
 <p>You can tell Workbench to add OCR and other media related to page images when using the "Using subdirectories" method of creating paged content. To do this, add the OCR files to your subdirectories, using the base filenames of each page image plus an extension like <code>.txt</code>:</p>
 <pre><code class="language-text">books/
@@ -1361,6 +1357,10 @@ paged_content_additional_page_media:
 <p class="admonition-title">Warning</p>
 <p>It is important to temporarily disable actions in Contexts that generate media/derivatives that would conflict with additional media you are adding using the method described here. For example, if you are adding OCR files, in the "Page Derivatives" Context listed at <code>/admin/structure/context</code>, disable the "Extract text from PDF or image" action prior to running Workbench, and be sure to re-enable it afterwards. If you do not do this, the OCR media added by Workbench will get overwritten with the one that Islandora generates using the "Extract text from PDF or image" action.</p>
 </div>
+<h4 id="ignoring-files-in-page-directories">Ignoring files in page directories</h4>
+<p>Sometimes files such as "Thumbs.db" (on Windows) can creep into page directories. You can tell Workbench to ignore specific files within directories by including the <code>paged_content_ignore_files</code> configuration setting in your config file. Note that the default setting is to ignore "Thumbs.db" files. If you want to add additional files, or override that default setting, include the <code>paged_content_ignore_files</code> followed by a list of filenames, e.g.:</p>
+<p><code>paged_content_ignore_files: ["Thumbs.db", "scanning_manifest.txt"]</code></p>
+<p>Note that Workbench converts all filenames in the directories and filenames listed in the <code>paged_content_ignore_files</code> setting to lower case before checking to see if they are in this list. For example, if Workbench encounters a filename <code>Scanning_Manifest.TXT</code>, it will match "scanning_manifest.txt" in the configuration above configuration.</p>
 <h3 id="with-pagechild-level-metadata">With page/child-level metadata</h3>
 <p>Using this method, the metadata CSV file contains a row for every item, both parents and children. You should use this method when you are creating books, newspaper issues, or other paged or compound content where each page has its own metadata, or when you are creating compound objects of any Islandora model. The file for each page/child is named explicitly in the page/child's <code>file</code> column rather than being in a subdirectory. To link the pages to the parent, Workbench establishes parent/child relationships between items with  a special <code>parent_id</code> CSV column.</p>
 <p>Values in the <code>parent_id</code> column, which only apply to rows describing pages/children, are the <code>id</code> value of their parent. For this to work, your CSV file must contain a <code>parent_id</code> field <em>plus</em> the standard Islandora fields <code>field_weight</code>, <code>field_member_of</code>, and <code>field_model</code> (the role of these last three fields will be explained below). The <code>id</code> field is required in all CSV files used to create content, so in this case, your CSV needs both an <code>id</code> field and a <code>parent_id</code> field.</p>
