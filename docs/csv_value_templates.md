@@ -57,7 +57,9 @@ allow_csv_value_templates_if_field_empty: ['field_local_identifier', 'field_subj
 
 ## Applying CSV value templates to paged content
 
-Paged content (or as sometimes referred to, children) created using the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method do not have their own rows in input CSV files. Any fields that are configured to be "required" in the parent and child's content type are copied from the parent's CSV row and applied to all that parent's pages/children. If you want to add non-required field data to pages/children, However, you can use CSV value templates to do that. In this case:
+Paged content (or as sometimes referred to, children) created using the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method do not have their own rows in input CSV files. Any fields that are configured to be "required" in the parent and child's content type are copied from the parent's CSV row and applied to all that parent's pages/children.
+
+If you want to add non-required field data to pages/children, you can use CSV value templates to do that:
 
 * the CSV row that is used as the source of `$csv_value` is the page's (or child's) parent row; in other words, the value of `$csv_value` is inherited from a page/child's parent row
 * the `$file` variable is the name of the page/child's filename (and `$filename_without_extension` is derived from this value)
