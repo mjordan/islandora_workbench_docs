@@ -1058,6 +1058,7 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The rollback configuration file contains the username used in the <code>create</code> or <code>create_from_files</code> task that generates it. If you also want to include the accompanying password, add <code>include_password_in_rollback_config_file: true</code> to your configuration.</p>
+<p>Also note, rollback configuration and CSV files are overwritten every time you run a <code>create</code> or <code>create_from_files</code> task. It is highly recommended that you timestamp your rollback files (see below) to produce unique filenames.</p>
 </div>
 <p>By default, the configuration file is named "rollback.yml" and is written into the Workbench directory. The input CSV file is named "rollback.csv" and is written into the directory defined in your <code>input_dir</code> configuration setting. If either of these files exist, they are overwritten during the next <code>create</code> or <code>create_from_files</code> task.</p>
 <p>You can also specify the relative (to workbench) or abolute path to your rollback config and CSV files, by including <code>rollback_config_file_path</code> and <code>rollback_csv_file_path</code>, respectively, in your configuration.</p>
@@ -1071,7 +1072,14 @@
 <p>You can determine where the rollback CSV file is written by including the <code>rollback_dir</code> in your configuration. This overrides the default location defined in <code>input_dir</code>.</p>
 <p>The rollback configuration file is always written to the Workbench working directory unless that behavior is overwritten by <code>rollback_config_file_path</code>.</p>
 <h2 id="using-rollback-filename-templates">Using rollback filename templates</h2>
-<p>For both the rollback config file and the rollback CSV file, you can define a template that provides two placeholders, <code>$config_filename</code> and <code>$input_csv_filename</code>, which contain the names of the <code>create</code> (or <code>create_from_files</code>) configuration file and the name of the input CSV file used in <code>create</code> tasks. You can embed these two placeholders in your template, which is then used to create the names of the two files. The templates for the two filenames are defined in two separate configuration settings:</p>
+<p>For both the rollback config file and the rollback CSV file, you can define a template that provides four placeholders:</p>
+<ul>
+<li><code>$config_filename</code>, which contains the name of the <code>create</code> (or <code>create_from_files</code>) configuration file</li>
+<li><code>$input_csv_filename</code>, which contain the name of the input CSV file used in <code>create</code> tasks</li>
+<li><code>csv_start_row</code>, which contains the value of the <code>csv_start_row</code> configuration setting, or "0" if none is set (only available in <code>create</code> tasks)</li>
+<li><code>csv_stop_row</code>, which contains the value of the <code>csv_stop_row</code> configuration setting, or "None" if not set (only available in <code>create</code> tasks).</li>
+</ul>
+<p>You can embed these placeholders in your template, which is then used to create the names of the two files. The templates for the two filenames are defined in two separate configuration settings:</p>
 <p>For the rollback configuration file:</p>
 <pre><code>rollback_config_filename_template: my-custom_filename_$config_filename_$input_csv_filename
 </code></pre>
@@ -1083,7 +1091,7 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Python's built-in templating system has a quirk where when a character that is valid in a Python variable name follows a template placeholder, that character is added to the template placeholder. If this happens to you, Workbench will exit with the error message "One or more parts of the configured rollback configuration filename template ([your template here]) need adjusting."</p>
-<p>You can work around this behavior by wrapping your template variable in <code>{}</code>. The example rollback config filename template above (<code>my-custom_filename_$config_filename_$input_csv_filename</code>) will trigger this error because the <code>_</code> following the <code>$config_filename</code> placeholder is valid in Python variable names. If you see this type of message, adjust your template to <code>my-custom_filename_${config_filename}_$input_csv_filename</code>.</p>
+<p>You can work around this behavior by wrapping your template variable name, without the leading <code>$</code>, in <code>{}</code>. The example rollback config filename template above (<code>my-custom_filename_$config_filename_$input_csv_filename</code>) will trigger this error because the <code>_</code> following the <code>$config_filename</code> placeholder is valid in Python variable names. If you see this type of message, adjust your template to <code>my-custom_filename_${config_filename}_$input_csv_filename</code>.</p>
 </div>
 <h2 id="adding-a-timestamp-to-the-rollback-filenames">Adding a timestamp to the rollback filenames</h2>
 <p>By default, Workbench overwrites the rollback configuration and CSV files each time it runs, so these files only apply to the most recent <code>create</code> and <code>create_from_files</code> runs. If you add <code>timestamp_rollback: true</code> to your configuration file, a (to-the-second) timestamp will be added to the <code>rollback.yml</code> and corresponding <code>rollback.csv</code> files, for example, <code>rollback.2024_11_03_21_10_28.yml</code> and <code>rollback.2024_11_03_21_10_28.csv</code>. The name of the CSV is also written to <code>workbench.log</code>. Running <code>./workbench --config rollback.2024_11_03_21_10_28.yml</code> will delete the nodes identified in <code>input_data/rollback.2024_11_03_21_10_28.csv</code>.</p>
