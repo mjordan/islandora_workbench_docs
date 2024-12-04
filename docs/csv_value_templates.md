@@ -74,11 +74,19 @@ csv_value_templates_for_paged_content:
   - field_local_identifier: $csv_value-$weight
 ```
 
+The template is applied to each value in the source field, so
 
 Even though this section documents how to apply templates with variables, you can also apply "templates" to pages/child items that are complete values, that do not use variables. For example, if you want to add the term "Newspapers" to the `field_genre` field in each page in a newspaper issue, you can register that string as your "template", e.g.
 
 ```yaml
 csv_value_templates_for_paged_content:
   - field_genre: Newspapers
-
 ```
+
+If you use a template that contains no variables, you can use multiple hard-coded values (separated with the `|` or whatever you have configure in the `subdelimiter` setting) provided the target field supports multiple values:
+
+```yaml
+csv_value_templates_for_paged_content:
+  - field_genre: Newspapers|Text
+```
+
