@@ -2,7 +2,7 @@
 
 Islandora Workbench offers three "hooks" that can be used to run scripts at specific points in the Workbench execution lifecycle. The three hooks are:
 
-1. Bootstrap
+1. Bootstrap and shutdown
 1. CSV preprocessor
 1. Post-action
 
