@@ -1063,7 +1063,7 @@
 <p>By default, the configuration file is named "rollback.yml" and is written into the Workbench directory. The input CSV file is named "rollback.csv" and is written into the directory defined in your <code>input_dir</code> configuration setting. If either of these files exist, they are overwritten during the next <code>create</code> or <code>create_from_files</code> task.</p>
 <p>You can also specify the relative (to workbench) or abolute path to your rollback config and CSV files, by including <code>rollback_config_file_path</code> and <code>rollback_csv_file_path</code>, respectively, in your configuration.</p>
 <p>To roll back all the nodes and media you just created, run <code>./workbench --config rollback.yml</code>.</p>
-<p>There are several configuration settings that let you control the names of these two files, and there is also an option to include comments in the files.</p>
+<p>There are several configuration settings that let you control the names of these two files, and there is also an option to include comments in the files, as described below.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When secondary tasks are configured, each task will get its own rollback file. Each secondary task's rollback file will have a normalized version of the path to the task's configuration file appended to the rollback filename, e.g., <code>rollback.csv.home_mark_hacking_islandora_workbench_example_secondary_task</code>. Using these separate rollback files, you can delete only the nodes created in a specific secondary task.</p>
@@ -1075,17 +1075,16 @@
 <p>For both the rollback config file and the rollback CSV file, you can define a template that provides four placeholders:</p>
 <ul>
 <li><code>$config_filename</code>, which contains the name of the <code>create</code> (or <code>create_from_files</code>) configuration file</li>
-<li><code>$input_csv_filename</code>, which contain the name of the input CSV file used in <code>create</code> tasks</li>
+<li><code>$input_csv_filename</code>, which contain the name of the input CSV file (only available in <code>create</code> tasks)</li>
 <li><code>csv_start_row</code>, which contains the value of the <code>csv_start_row</code> configuration setting, or "0" if none is set (only available in <code>create</code> tasks)</li>
 <li><code>csv_stop_row</code>, which contains the value of the <code>csv_stop_row</code> configuration setting, or "None" if not set (only available in <code>create</code> tasks).</li>
 </ul>
-<p>You can embed these placeholders in your template, which is then used to create the names of the two files. The templates for the two filenames are defined in two separate configuration settings:</p>
-<p>For the rollback configuration file:</p>
-<pre><code>rollback_config_filename_template: my-custom_filename_$config_filename_$input_csv_filename
+<p>You can embed these placeholders in your template, which is then used to create the names of the two files. The templates for the two filenames are defined in two separate configuration settings. For the rollback configuration file, this setting is <code>rollback_config_filename_template</code>, e.g.:</p>
+<pre><code>rollback_config_filename_template: my-custom_filename_${config_filename}_$input_csv_filename
 </code></pre>
 <p>Assuming the configuration file for the <code>create</code> task that generates this rollback configuration has the name "mjtest.yml", and the <code>input_csv</code> filename has the filename "sample.csv", this template will result in a configuration file named <code>my-custom_filename_mjtest_sample.yml</code>. Note that the ".yml" extension is added automatically; you do not need to include it in your template.</p>
-<p>For the rollback CSV file:</p>
-<pre><code>rollback_csv_filename_template: my_custom_rollback_filename_$config_filename_$input_csv_filename
+<p>For the rollback CSV file, the configuration setting is <code>rollback_csv_filename_template</code>, e.g.:</p>
+<pre><code>rollback_csv_filename_template: my_custom_rollback_filename_${config_filename}_$input_csv_filename
 </code></pre>
 <p>Using the same <code>create</code> task configuration filename and input CSV filename as in the previous example, this template will result in a CSV file named <code>my_custom_rollback_filename_mjtest_sample.csv</code>. The ".csv" extension is added automatically; you do not need to include it in your template.</p>
 <div class="admonition warning">
