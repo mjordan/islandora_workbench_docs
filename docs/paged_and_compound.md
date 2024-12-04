@@ -51,15 +51,6 @@ sfu_book_2,Using Islandora Workbench for Fun and Profit,Paged Content,book2
 
 The page filenames have significance. The sequence of the page is determined by the last segment of each filename before the extension, and is separated from the rest of the filename by a dash (`-`), although you can use another character by setting the `paged_content_sequence_separator` option in your configuration file. These sequence indicators are essentially physical page numbers, starting a "1" (not "0"). For example, using the filenames for "book1" above, the sequence of "page-001.jpg" is "001". Dashes (or whatever your separator character is) can exist elsewhere in filenames, since Workbench will always use the string after the *last* dash as the sequence number; for example, the sequence of "isbn-1843341778-001.jpg" for "book2" is also "001". Workbench takes this sequence number, strips all leading zeros, and uses it to populate the `field_weight` in the page nodes, so "001" becomes a weight value of 1, "002" becomes a weight value of 2, and so on.
 
-
-#### Field data applied to pages/children
-
-Titles for pages are generated automatically using the pattern `parent_title` + `, page` + `sequence_number`, where "parent title" is inherited from the page's parent node and "sequence number" is the page's sequence. For example, if a page's parent has the title "How to Write a Book" and its sequence number is 450, its automatically generated title will be "How to Write a Book, page 450". You can override this pattern by including the `page_title_template`  setting in your configuration file. The value of this setting is a simple string template. The default, which generates the page title pattern described above, is `'$parent_title, page $weight'`. There are only two variables you can include in the template, `$parent_title` and `$weight`, although you do not need to include either one if you don't want that information appearing in your page titles.
-
-Fields on pages that are configured to be required in the parent and page content type are automatically inherited from the parent. No special configuration is necessary.
-
-Finally, even though the automatically generated title and Islandora model are automatically added to pages/children, you can add additional metadata to pages/children using [CSV value templates](/islandora_workbench_docs/csv_value_templates/#applying-csv-value-templates-to-paged-content), or, after you run your `create task, a separate `update` task.
-
 Important things to note when using this method:
 
 * To use this method of creating paged content, you must include `paged_content_page_model_tid` in your configuration file and set it to your Islandora's term ID for the "Page" term in the Islandora Models vocabulary (or to `http://id.loc.gov/ontologies/bibframe/part`).
@@ -70,6 +61,16 @@ Important things to note when using this method:
 * The Drupal content type for page nodes is inherited from the parent, unless you specify a different content type in the `paged_content_page_content_type` setting in your configuration file.
 * If your page directories contain files other than page images, you need to include the `paged_content_image_file_extension` setting in your configuration. Otherwise, Workbench can't tell which files to create pages from.
 * If you don't want to use your `id` column to name the directories that contain each item's pages, you can include `page_files_source_dir_field: directory` to your config file and add a `directory` column to your input CSV to name the directories.
+
+#### Applying field data to pages/children created from subdirectories
+
+Titles for pages/children created from subdirectories are generated automatically using the pattern `parent_title` + `, page` + `sequence_number`, where "parent title" is inherited from the page's parent node and "sequence number" is the page's sequence. For example, if a page's parent has the title "How to Write a Book" and its sequence number is 450, its automatically generated title will be "How to Write a Book, page 450". You can override this pattern by including the `page_title_template`  setting in your configuration file. The value of this setting is a simple string template. The default, which generates the page title pattern described above, is `'$parent_title, page $weight'`. There are only two variables you can include in the template, `$parent_title` and `$weight`, although you do not need to include either one if you don't want that information appearing in your page titles.
+
+The Islandora Model applied to all page/child nodes is the one defined in the `paged_content_page_model_tid` configuration setting. This model is automatically applied to all pages/children created from subdirectories.
+
+Fields on pages/children that are configured as required in the parent and page content type are automatically inherited from the parent. No special configuration is necessary.
+
+You can add additional (non-required field) metadata to pages/children using [CSV value templates](/islandora_workbench_docs/csv_value_templates/#applying-csv-value-templates-to-paged-content) during the `create` task that creates the pages/children from subdirectories.
 
 #### Ingesting pages, their parents, and their "grandparents" using a single CSV file
 
@@ -107,15 +108,6 @@ books/
 ```
 
 Workbench will warn you that the `book000` directory is empty, but that's OK - it will look for, but not find, any pages for that item. The node corresponding to that directory will be created as expected, and values in the `parent_id` column will ensure that the intended hierarchical relationship between "book000" and its child items (the book nodes) is created.
-
-#### Ignoring files in page directories
-
-Sometimes files such as "Thumbs.db" (on Windows) can creep into page directories. You can tell Workbench to ignore specific files within directories by including the `paged_content_ignore_files` configuration setting in your config file. Note that the default setting is to ignore "Thumbs.db" files. If you want to add additional files, or override that default setting, include the `paged_content_ignore_files` followed by a list of filenames, e.g.:
-
-`paged_content_ignore_files: ["Thumbs.db", "scanning_manifest.txt"]`
-
-Note that Workbench converts all filenames in the directories and filenames listed in the `paged_content_ignore_files` setting to lower case before checking to see if they are in this list. For example, if Workbench encounters a filename `Scanning_Manifest.TXT`, it will match "scanning_manifest.txt" in the configuration above configuration.
-
 
 #### Ingesting OCR (and other) files with page images
 
@@ -200,6 +192,14 @@ books/
 
 !!! warning
     It is important to temporarily disable actions in Contexts that generate media/derivatives that would conflict with additional media you are adding using the method described here. For example, if you are adding OCR files, in the "Page Derivatives" Context listed at `/admin/structure/context`, disable the "Extract text from PDF or image" action prior to running Workbench, and be sure to re-enable it afterwards. If you do not do this, the OCR media added by Workbench will get overwritten with the one that Islandora generates using the "Extract text from PDF or image" action.
+
+#### Ignoring files in page directories
+
+Sometimes files such as "Thumbs.db" (on Windows) can creep into page directories. You can tell Workbench to ignore specific files within directories by including the `paged_content_ignore_files` configuration setting in your config file. Note that the default setting is to ignore "Thumbs.db" files. If you want to add additional files, or override that default setting, include the `paged_content_ignore_files` followed by a list of filenames, e.g.:
+
+`paged_content_ignore_files: ["Thumbs.db", "scanning_manifest.txt"]`
+
+Note that Workbench converts all filenames in the directories and filenames listed in the `paged_content_ignore_files` setting to lower case before checking to see if they are in this list. For example, if Workbench encounters a filename `Scanning_Manifest.TXT`, it will match "scanning_manifest.txt" in the configuration above configuration.
 
 
 ### With page/child-level metadata

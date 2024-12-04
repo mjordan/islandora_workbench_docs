@@ -49,7 +49,7 @@ A few things to note about CSV value templates:
 * You can only define a single template for a given field in `csv_value_templates`, but you can include multiple variables in a single template. If multiple variables are present in a template, they are applied in the order listed above.
 * If a CSV field contains multiple subvalues, the same template is applied to all subvalues in the field (as illustrated above).
 * Values in the templated CSV output are validated against Drupal's configuration in the same way that values present in your CSV are validated.
-* By default, CSV value templates won't be applied to empty fields. However, if you want a template to be applied to a field if that field is empty, you can include the `allow_csv_value_templates_if_field_empty` setting in your config file defining a list of column names. For example, `allow_csv_value_templates_if_field_empty: [field_identifier]` will apply any templates defined for `field_identifier` in your `csv_value_templates` setting, even if `field_identifier` is empty in your input CSV; for example, the following will apply templated defined in the above example configuration even if the named fields are empty:
+* By default, CSV value templates won't be applied to empty fields. However, if you want a template to be applied to a field if that field is empty, you can include the `allow_csv_value_templates_if_field_empty` setting in your config file defining a list of column names. For example, `allow_csv_value_templates_if_field_empty: [field_identifier]` will apply any templates defined for `field_identifier` in your `csv_value_templates` setting, even if `field_identifier` is empty in your input CSV; for example, the following will apply the template defined in the above example configuration even if the named fields are empty:
 
 ```
 allow_csv_value_templates_if_field_empty: ['field_local_identifier', 'field_subject']
@@ -57,9 +57,9 @@ allow_csv_value_templates_if_field_empty: ['field_local_identifier', 'field_subj
 
 ## Applying CSV value templates to paged content
 
-Paged content (or as sometimes referred to, children) created using the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method do not have their own rows in input CSV files. However, you can apply CSV value templates to their node fields using. In this case:
+Paged content (or as sometimes referred to, children) created using the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method do not have their own rows in input CSV files. Any fields that are configured to be "required" in the parent and child's content type are copied from the parent's CSV row and applied to all that parent's pages/children. If you want to add non-required field data to pages/children, However, you can use CSV value templates to do that. In this case:
 
-* the CSV row that is used as the source of `$csv_value` is the page's (or child's) parent row
+* the CSV row that is used as the source of `$csv_value` is the page's (or child's) parent row; in other words, the value of `$csv_value` is inherited from a page/child's parent row
 * the `$file` variable is the name of the page/child's filename (and `$filename_without_extension` is derived from this value)
 * the `$weight` variable is taken from the page/child's sequence indicator, e.g. a filename of `page-002.jpg` would result in a `$weight` value of "2".
 
@@ -72,6 +72,11 @@ csv_value_templates_for_paged_content:
   - field_local_identifier: $csv_value-$weight
 ```
 
-!!! note
-    Fields that are configured to be required in a content type are automatically applied to paged/child items created using the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method using the same values for those fields as their parents' rows in the CSV input file. However, you can also configure templates using the `csv_value_templates_for_paged_content` setting if you wish.
 
+Even though this section documents how to apply templates with variables, you can also apply "templates" to pages/child items that are complete values, that do not use variables. For example, if you want to add the term "Newspapers" to the `field_genre` field in each page in a newspaper issue, you can register that string as your "template", e.g.
+
+```yaml
+csv_value_templates_for_paged_content:
+  - field_genre: Newspapers
+
+```
