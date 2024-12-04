@@ -1069,7 +1069,8 @@ IMG_2940.JPG,03,Looking across Burrard Inlet,25,&quot;relators:aut:person:Jordan
 <pre><code>allow_csv_value_templates_if_field_empty: ['field_local_identifier', 'field_subject']
 </code></pre>
 <h2 id="applying-csv-value-templates-to-paged-content">Applying CSV value templates to paged content</h2>
-<p>Paged content (or as sometimes referred to, children) created using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method do not have their own rows in input CSV files. Any fields that are configured to be "required" in the parent and child's content type are copied from the parent's CSV row and applied to all that parent's pages/children. If you want to add non-required field data to pages/children, However, you can use CSV value templates to do that. In this case:</p>
+<p>Paged content (or as sometimes referred to, children) created using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method do not have their own rows in input CSV files. Any fields that are configured to be "required" in the parent and child's content type are copied from the parent's CSV row and applied to all that parent's pages/children.</p>
+<p>If you want to add non-required field data to pages/children, you can use CSV value templates to do that:</p>
 <ul>
 <li>the CSV row that is used as the source of <code>$csv_value</code> is the page's (or child's) parent row; in other words, the value of <code>$csv_value</code> is inherited from a page/child's parent row</li>
 <li>the <code>$file</code> variable is the name of the page/child's filename (and <code>$filename_without_extension</code> is derived from this value)</li>
