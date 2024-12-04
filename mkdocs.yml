@@ -11,6 +11,7 @@ nav:
     - Requirements and installation: installation.md
     - Choosing a task: choosing_a_task.md
     - Configuration: configuration.md
+    - Specifying configuration settings on the command line: configuration_settings_on_the_command_line.md
     - Checking configuration and input data: check.md
     - Preparing your data: preparing_data.md
     - Field data (Drupal and CSV): fields.md
@@ -43,7 +44,6 @@ nav:
     - Logging: logging.md
     - Cancelling Workbench: cancelling.md
     - Workflows: workflows.md
-    - Specifying configuration settings on the command line: configuration_settings_on_the_command_line.md
     - Generating a contact sheet: contact_sheet.md
     - Reducing Workbench's impact on Drupal: reducing_load.md
     - Creating nodes from the sample data: sample_data.md

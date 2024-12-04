@@ -1,4 +1,4 @@
-You can override the following settings in configuration files by including them as command-line arguments to Workbench:
+You can define some configuration settings by including them as command-line arguments to Workbench. If the command-line setting exists in your configuration file, it will override the value in the file; if it doesn't exist in your configuration file, it is added to the configuration as if it were in the config file. The settings available as command-line arguements are:
 
 - `input_dir`
 - `input_csv`
@@ -9,9 +9,7 @@ You can override the following settings in configuration files by including them
 - `csv_start_row`
 - `csv_stop_row`
 
-In all cases, you need to add `--` to conform with Python's command-line argument syntax.
-
-For example, if you want to specify an input CSV file different from the one registered in your configuration file, include `--input_csv` as a command-line argument to Worbkench:
+In all cases, you need to prepend the setting with `--` to conform with Python's command-line argument syntax. For example, if you want to specify an input CSV file different from the one registered in your configuration file, include `--input_csv` as a command-line argument to Worbkench:
 
 `python workbench --config example.yml --input_csv alternate.csv`
 

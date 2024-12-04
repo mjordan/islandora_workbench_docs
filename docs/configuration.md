@@ -15,6 +15,8 @@ In this example, the `task` being performed is creating nodes (and optionally me
 
 The settings defined in a configuration file are documented in the tables below, grouped into broad functional categories for easier reference. The order of the options in the configuration file doesn't matter, and settings do not need to be grouped together in any specific way in the configuration file.
 
+Note that you can define [some configuration settings](/islandora_workbench_docs/configuration_settings_on_the_command_line/) as command-line arguments to the workbench script. If they are provided as command-line arguments, they override the same settings in the configuration file.
+
 ### Use of quotation marks
 
 Generally speaking, you do not need to use quotation marks around values in your configuration file. You may wrap values in quotation marks if you wish, and many examples in this documentation do that (especially the `host` setting), but the only values that should not be wrapped in quotation marks are those that take `true` or `false` as values because in YAML, and many other computer/markup languages,`"true"` is a string (in this case, an English word that can mean many things) and `true` is a reserved symbol that can mean one thing and one thing only, the boolean opposite of `false` (I'm sorry for this explanation, I can't describe the distinction in any other way without writing a primer on symbolic logic).
