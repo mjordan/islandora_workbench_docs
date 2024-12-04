@@ -1,6 +1,6 @@
 ### main branch (no tag/release)
 
-* December 3, 2024: Resolved (commit eb5a849) [issue 856](https://github.com/mjordan/islandora_workbench/issues/856).
+* December 3, 2024: Resolved (commit eb5a849) [issue 856](https://github.com/mjordan/islandora_workbench/issues/856); resolved (commit 22e5d1e) [issue 857](https://github.com/mjordan/islandora_workbench/issues/857) and [issue 858](https://github.com/mjordan/islandora_workbench/issues/858).
 * December 1, 2024: Resolved (commit f50e9c2) [issue 855](https://github.com/mjordan/islandora_workbench/issues/855).
 * November 26, 2024: Resolved (commit d1b6ea4) [issue 845](https://github.com/mjordan/islandora_workbench/issues/845).
 * November 19, 2024: Resolved (commit 12a81dc) [issue 844](https://github.com/mjordan/islandora_workbench/issues/844), (commit 53801bb) [issue 847](https://github.com/mjordan/islandora_workbench/issues/847), (commit f86d56d) [issue 850](https://github.com/mjordan/islandora_workbench/issues/850), (commit 9b15fb4) [issue 852](https://github.com/mjordan/islandora_workbench/issues/852), and (commit 72ccb97) [issue 792](https://github.com/mjordan/islandora_workbench/issues/792).
@@ -151,7 +151,7 @@
 
 ### Documentation
 
-* December 3, 2024: Update docs on "[Applying CSV value templates to rows in your input CSV](https://mjordan.github.io/islandora_workbench_docs/csv_value_templates/#applying-csv-value-templates-to-paged-content)".
+* December 3, 2024: Update docs on "[Applying CSV value templates to rows in your input CSV](https://mjordan.github.io/islandora_workbench_docs/csv_value_templates/#applying-csv-value-templates-to-paged-content)"; updated docs on "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)."
 * December 1, 2024: Updated docs on "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)" to include new settings added in [issue 855](https://github.com/mjordan/islandora_workbench/issues/855). Updated docs on "[Field data applied to pages/children](/islandora_workbench_docs/paged_and_compound/#field-data-applied-to-pageschildren)" to include link to "[Applying CSV value templates to paged content](/islandora_workbench_docs/csv_value_templates/#applying-csv-value-templates-to-paged-content)."
 * November 26, 2024: Resolved [issue 853](https://github.com/mjordan/islandora_workbench/issues/853); added docs on new `paged_content_ignore_files` config setting.
 * November 19, 2024: Updated docs on "[Creating media track files](/islandora_workbench_docs/media_track_files/)"; updated "[Troubleshooting](/troubleshooting/)" to include the new `--print_config` argument.

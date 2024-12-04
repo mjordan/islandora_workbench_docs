@@ -6,6 +6,8 @@ You can override the following settings in configuration files by including them
 - `log_file_path`
 - `rollback_csv_file_path`
 - `rollback_config_file_path`
+- `csv_start_row`
+- `csv_stop_row`
 
 In all cases, you need to add `--` to conform with Python's command-line argument syntax.
 
