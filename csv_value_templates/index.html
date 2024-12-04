@@ -1082,10 +1082,14 @@ IMG_2940.JPG,03,Looking across Burrard Inlet,25,&quot;relators:aut:person:Jordan
   - field_edtf_date_issued: $csv_value
   - field_local_identifier: $csv_value-$weight
 </code></pre>
+<p>The template is applied to each value in the source field, so</p>
 <p>Even though this section documents how to apply templates with variables, you can also apply "templates" to pages/child items that are complete values, that do not use variables. For example, if you want to add the term "Newspapers" to the <code>field_genre</code> field in each page in a newspaper issue, you can register that string as your "template", e.g.</p>
 <pre><code class="language-yaml">csv_value_templates_for_paged_content:
   - field_genre: Newspapers
-
+</code></pre>
+<p>If you use a template that contains no variables, you can use multiple hard-coded values (separated with the <code>|</code> or whatever you have configure in the <code>subdelimiter</code> setting) provided the target field supports multiple values:</p>
+<pre><code class="language-yaml">csv_value_templates_for_paged_content:
+  - field_genre: Newspapers|Text
 </code></pre>
 
 
