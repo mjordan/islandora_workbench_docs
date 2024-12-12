@@ -201,6 +201,8 @@ Sometimes files such as "Thumbs.db" (on Windows) can creep into page directories
 
 Note that Workbench converts all filenames in the directories and filenames listed in the `paged_content_ignore_files` setting to lower case before checking to see if they are in this list. For example, if Workbench encounters a filename `Scanning_Manifest.TXT`, it will match "scanning_manifest.txt" in the configuration above configuration.
 
+Workbench ignores all subdirectories within page directories.
+
 
 ### With page/child-level metadata
 
