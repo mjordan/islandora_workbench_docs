@@ -1,7 +1,7 @@
 Workbench can put substantial stress on Drupal. In some cases, this stress can lead to instability and errors.
 
 !!! note
-    The options described below modify Workbench's interaction with Drupal. They do not have a direct impact on the load experienced by the microservices Islandora uses to do things like indexing node metadata in its triplestore, extracting full text for indexing, and generating thumbnails. However, since Drupal is the "controller" for these microservices, reducing the number of Workbench requests to Drupal will also indirectly reduce the load experienced by Islandora's microservices. 
+    The options described below modify Workbench's interaction with Drupal. They do not have a direct impact on the load experienced by the microservices Islandora uses to do things like indexing node metadata in its triplestore, extracting full text for indexing, and generating thumbnails. However, since Drupal is the "controller" for these microservices, reducing the number of Workbench requests to Drupal will also indirectly reduce the load experienced by Islandora's microservices.
 
 Workbench provides two ways to reduce this stress:
 
@@ -41,7 +41,7 @@ In the next example, we override `adaptive_pause_threshold`'s default by includi
 
 ```yaml
 adaptive_pause: 2
-adaptive_pause_threshold: 2.5 
+adaptive_pause_threshold: 2.5
 ```
 
 In this example, adaptive pausing kicks in only if the response time for the most recent request is 2.5 times the average of the response time for the last 20 requests. You can increment `adaptive_pause_threshold`'s value by .5 (e.g., 2.5, 3, 3.5, etc.) until you find a sweet spot that balances reliability with overall execution time. You can also decrease or increase the value of `adaptive_pause` incrementally by intervals of .5 to further refine the balance - increasing `adaptive_pause`'s value lessens Workbench's impact on Drupal at the expense of speed, and decreasing its value increases speed but also impact on Drupal.
@@ -57,6 +57,12 @@ doesn't do anything because `adaptive_pause` has no value. In other words, you c
 #### Logging Drupal's response time
 
 If a request if paused by adaptive pausing, Workbench will automatically log the response time for the next request, indicating that `adaptive_pause` has temporarily halted execution. If you want to log Drupal's response time regardless of whether `adaptive_pause` had kicked in or not, add `log_response_time: true` to your configuration file. All logging of response time includes variation from the average of the last 20 response times.
+
+### Ingesting pregenerated derivatives
+
+Islandora's system for generating [derivatives](https://islandora.github.io/documentation/concepts/derivatives/) uses Drupal Actions to communicate with microservices such as Crayfits, Homarus and Hypercube. Even though these microservices typically run in their own Docker containers, they can get overwhelmed and result in failed derivative creation. Sometimes the load on these microservices manifests itself as load on the Drupal server, sometimes it doesn't. At a minimum, the Action that initiates Drupal's communication with the microservices will add additional load.
+
+A strategy for reducing the use of derivative-generating microservices is to ingest the derivatives (OCR/hOCR, thumbnails, FITS XML, etc.) along with the original file. Workbench can do this in two main ways, 1) through the use of the `additional_files` configuration setting (docs [here](/islandora_workbench_docs/adding_multiple_media/)) and, when 2) ingesting paged content, ingesting pregenerated OCR and hOCR (docs [here](/islandora_workbench_docs/paged_and_compound/#ingesting-ocr-and-other-files-with-page-images)).
 
 ### Caching
 
