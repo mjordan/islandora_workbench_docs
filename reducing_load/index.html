@@ -858,6 +858,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ingesting-pregenerated-derivatives" class="md-nav__link">
+    Ingesting pregenerated derivatives
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#caching" class="md-nav__link">
     Caching
   </a>
@@ -1051,6 +1058,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ingesting-pregenerated-derivatives" class="md-nav__link">
+    Ingesting pregenerated derivatives
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#caching" class="md-nav__link">
     Caching
   </a>
@@ -1082,7 +1096,7 @@
 <p>Workbench can put substantial stress on Drupal. In some cases, this stress can lead to instability and errors.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The options described below modify Workbench's interaction with Drupal. They do not have a direct impact on the load experienced by the microservices Islandora uses to do things like indexing node metadata in its triplestore, extracting full text for indexing, and generating thumbnails. However, since Drupal is the "controller" for these microservices, reducing the number of Workbench requests to Drupal will also indirectly reduce the load experienced by Islandora's microservices. </p>
+<p>The options described below modify Workbench's interaction with Drupal. They do not have a direct impact on the load experienced by the microservices Islandora uses to do things like indexing node metadata in its triplestore, extracting full text for indexing, and generating thumbnails. However, since Drupal is the "controller" for these microservices, reducing the number of Workbench requests to Drupal will also indirectly reduce the load experienced by Islandora's microservices.</p>
 </div>
 <p>Workbench provides two ways to reduce this stress:</p>
 <ul>
@@ -1108,7 +1122,7 @@
 </code></pre>
 <p>In the next example, we override <code>adaptive_pause_threshold</code>'s default by including the setting in the configuration:</p>
 <pre><code class="language-yaml">adaptive_pause: 2
-adaptive_pause_threshold: 2.5 
+adaptive_pause_threshold: 2.5
 </code></pre>
 <p>In this example, adaptive pausing kicks in only if the response time for the most recent request is 2.5 times the average of the response time for the last 20 requests. You can increment <code>adaptive_pause_threshold</code>'s value by .5 (e.g., 2.5, 3, 3.5, etc.) until you find a sweet spot that balances reliability with overall execution time. You can also decrease or increase the value of <code>adaptive_pause</code> incrementally by intervals of .5 to further refine the balance - increasing <code>adaptive_pause</code>'s value lessens Workbench's impact on Drupal at the expense of speed, and decreasing its value increases speed but also impact on Drupal.</p>
 <p>Since <code>adaptive_pause</code> doesn't have a default value, you need to define its value in your configuration file. Because of this, using <code>adaptive_pause_threshold</code> on its own in a configuration, e.g.:</p>
@@ -1117,6 +1131,9 @@ adaptive_pause_threshold: 2.5
 <p>doesn't do anything because <code>adaptive_pause</code> has no value. In other words, you can use <code>adaptive_pause</code> on its own, or you can use <code>adaptive_pause</code> and <code>adaptive_pause_threshold</code> together, but it's pointless to use <code>adaptive_pause_threshold</code> on its own.</p>
 <h4 id="logging-drupals-response-time">Logging Drupal's response time</h4>
 <p>If a request if paused by adaptive pausing, Workbench will automatically log the response time for the next request, indicating that <code>adaptive_pause</code> has temporarily halted execution. If you want to log Drupal's response time regardless of whether <code>adaptive_pause</code> had kicked in or not, add <code>log_response_time: true</code> to your configuration file. All logging of response time includes variation from the average of the last 20 response times.</p>
+<h3 id="ingesting-pregenerated-derivatives">Ingesting pregenerated derivatives</h3>
+<p>Islandora's system for generating <a href="https://islandora.github.io/documentation/concepts/derivatives/">derivatives</a> uses microservices such as Crayfits, Homarus and Hypercube. Even though these microservices typically run in their own Docker containers, they can get overwhelmed and result in failed derivative creation. Sometimes the load on these microservices manifests itself as load on the Drupal server, sometimes it doesn't. At a minimum, the Action that initiates Drupal's communication with the microservices will add additional load.</p>
+<p>A strategy for reducing the use of derivative-generating microservices is to ingest the derivatives (OCR/hOCR, thumbnails, FITS XML, etc.) along with the original file. Workbench can do this in two main ways, 1) through the use of the <code>additional_files</code> configuration setting (docs <a href="/islandora_workbench_docs/adding_multiple_media/">here</a>) and, when 2) ingesting paged content, ingesting pregenerated OCR and hOCR (docs <a href="/islandora_workbench_docs/paged_and_compound/#ingesting-ocr-and-other-files-with-page-images">here</a>).</p>
 <h3 id="caching">Caching</h3>
 <p>The second way that Workbench reduces stress on Drupal is by caching its outbound HTTP requests, thereby reducing the overall number of requests. This caching both reduces the load on Drupal and speeds up Workbench considerably.</p>
 <p>By default, this caching is enabled for requests that Workbench makes more than once and that are expected to have the same response each time, such as requests for field configurations or for checks for the existence of taxonomy terms. Note that you should not normally have to disable this caching, but if you do (for example, if you are asked to during troubleshooting), you can do so by including the following setting in your configuration file:</p>
