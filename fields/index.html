@@ -2112,6 +2112,7 @@ My Title: A Subtitle|Alternate Title
 <li><code>/mycollection</code> (URL alias)</li>
 </ul>
 <p>If you use any of these types of values other than the bare node ID, Workbench will look up the node ID based on the URL or alias.</p>
+<p>"field_member_of" is multivalued; you can include any combination of the above types of values in the same CSV cell.</p>
 <h2 id="values-in-the-field_domain_access-column">Values in the "field_domain_access" column</h2>
 <p>The Domain Access module, part of the <a href="https://www.drupal.org/project/domain">Domain</a> suite of modules, creates a required, multivalued field with the machine name <code>field_domain_access</code> that controls, at the node level, which domains the node shows up in. When populating this field in your Workbench CSV, replace the periods in domain names with <code>_</code>. For example, if the domains you want to allow a node to show up in are <code>test1.testing.edu</code> and <code>test2.testing.edu</code>, the values in your <code>field_domain_access</code> field look like this:</p>
 <pre><code class="language-text">test1_testing_edu

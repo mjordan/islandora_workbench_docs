@@ -611,6 +611,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#including-additional-node-level-data-in-the-rollbackcsv-file" class="md-nav__link">
+    Including additional node-level data in the rollback.csv file
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1031,6 +1038,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#including-additional-node-level-data-in-the-rollbackcsv-file" class="md-nav__link">
+    Including additional node-level data in the rollback.csv file
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1111,6 +1125,9 @@
 # Keep this file! It might be useful if something goes wrong with this job.
 # Have a nice day!
 </code></pre>
+<h2 id="including-additional-node-level-data-in-the-rollbackcsv-file">Including additional node-level data in the rollback.csv file</h2>
+<p>By default, only node IDs are included in the rollback.csv file. However, if you include <code>rollback_file_include_node_info: true</code> in your configuration, Workbench will add a <code>title</code>, <code>field_member_of</code>, and <code>file</code> column.</p>
+<p>You do not need to remove these columns from the rollback CSV file before using it.</p>
 
 
 
