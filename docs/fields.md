@@ -660,6 +660,8 @@ The `field_member_of` column can take a node ID, a full URL to a node, or a URL 
 
 If you use any of these types of values other than the bare node ID, Workbench will look up the node ID based on the URL or alias.
 
+"field_member_of" is multivalued; you can include any combination of the above types of values in the same CSV cell.
+
 ## Values in the "field_domain_access" column
 
 The Domain Access module, part of the [Domain](https://www.drupal.org/project/domain) suite of modules, creates a required, multivalued field with the machine name `field_domain_access` that controls, at the node level, which domains the node shows up in. When populating this field in your Workbench CSV, replace the periods in domain names with `_`. For example, if the domains you want to allow a node to show up in are `test1.testing.edu` and `test2.testing.edu`, the values in your `field_domain_access` field look like this:

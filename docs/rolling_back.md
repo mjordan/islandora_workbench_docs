@@ -85,3 +85,8 @@ This will result in the following comments in your rollback configuration and CS
 # Have a nice day!
 ```
 
+## Including additional node-level data in the rollback CSV file
+
+By default, rollback CSV files have only a single column, `node_id`. However, if you include `rollback_file_include_node_info: true` in your configuration, Workbench will add `title`, `field_member_of`, and `file` columns containing relevant info for each created node.
+
+You do not need to remove these columns from the rollback CSV file before using it.

@@ -1,5 +1,8 @@
 ### main branch (no tag/release)
 
+* January 1, 2025: Resolved (commit f8dce4c) [issue 799](https://github.com/mjordan/islandora_workbench/issues/799).
+* December 31, 2024: Resolved (commit b512b7d) [issue 868](https://github.com/mjordan/islandora_workbench/issues/848).
+* December 28, 2024: Resolved (commit d02e140) [issue 848](https://github.com/mjordan/islandora_workbench/issues/868).
 * December 11, 2024: Resolved (commit c00af94) [issue 864](https://github.com/mjordan/islandora_workbench/issues/864).
 * December 4, 2024: Resolved (commit 9357ea6) [issue 859](https://github.com/mjordan/islandora_workbench/issues/859).
 * December 3, 2024: Resolved (commit eb5a849) [issue 856](https://github.com/mjordan/islandora_workbench/issues/856); resolved (commit 22e5d1e) [issue 857](https://github.com/mjordan/islandora_workbench/issues/857) and [issue 858](https://github.com/mjordan/islandora_workbench/issues/858).
@@ -153,6 +156,7 @@
 
 ### Documentation
 
+* January 1, 2025: Updated docs on "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)" to include new settings added in [issue 868](https://github.com/mjordan/islandora_workbench/issues/868).
 * December 28, 2024: Update docs on "[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/)"; updated docs on "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/)."
 * December 3, 2024: Update docs on "[Applying CSV value templates to rows in your input CSV](/islandora_workbench_docs/csv_value_templates/#applying-csv-value-templates-to-paged-content)"; updated docs on "[](/islandora_workbench_docs/paged_and_compound/)."
 * December 1, 2024: Updated docs on "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)" to include new settings added in [issue 855](https://github.com/mjordan/islandora_workbench/issues/855). Updated docs on "[Field data applied to pages/children](/islandora_workbench_docs/paged_and_compound/#field-data-applied-to-pageschildren)" to include link to "[Applying CSV value templates to paged content](/islandora_workbench_docs/csv_value_templates/#applying-csv-value-templates-to-paged-content)."
