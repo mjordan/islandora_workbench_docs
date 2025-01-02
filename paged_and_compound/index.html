@@ -1254,7 +1254,7 @@
 <p>Information in this section applies to all compound content, not just "paged content". That term is used here since the most common use of this method will be for creating paged content. In other words, where "page" is used below, it can be substituted with "child".</p>
 </div>
 <p>Enable this method by including <code>paged_content_from_directories: true</code> in your configuration file. Use this method when you are creating books, newspaper issues, or other paged content where your pages don't have their own metadata.</p>
-<p>Another application of this method is if you have a video (for example) that you have split into multiple file; putting all files that make up the video in a directory will tell Workbench to load them as children of the item described in the CSV file (i.e., the "parent" of these video "children").</p>
+<p>Another application of this method is if you have a video (for example) that you have split into multiple files. Putting all files that make up the video in a directory, and naming the the files so they will be presented in the right order, will tell Workbench to load them as children of the item described in the CSV file (i.e., the "parent" of these video "children").</p>
 <h4 id="csv-and-directory-structure">CSV and directory structure</h4>
 <p>This method groups page-level files into subdirectories that correspond to each parent, and does not require (or allow) page-level metadata in the CSV file. Only the parent (book, newspaper issue, etc.) has a row on the CSV file, e.g.:</p>
 <pre><code class="language-text">id,title,field_model
