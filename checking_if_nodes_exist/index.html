@@ -1042,12 +1042,12 @@
 <li>In the Filter criteria configuration, add the field in your content type that you want to use as the lookup field, e.g. Local Identifier.</li>
 <li>Check "Expose this filter".</li>
 <li>Choose "Single filter".</li>
-<li>In the Operator configuration, select "Contains any word" and in the Value field, enter the machine name of your field (e.g. <code>field_local_identifier</code>)</li>
+<li>In the Operator configuration, select "Is equal to" and in the Value field, enter the machine name of your field (e.g. <code>field_local_identifier</code>)</li>
 <li>In the Filter identifier section, enter the name of the URL parameter requests to this View will use to identify the CSV values. You should use the same string that you used in Operator configuration (which is also the same as your field's machine name), e.g. <code>field_local_identifier</code>.</li>
 <li>In the Path settings, provide a path, e.g. <code>local_identifier_lookup</code> (do not add the leading <code>/</code>)</li>
 <li>Assign this path Basic authentication.</li>
 <li>Access should be by Permission &gt; View published content.</li>
-<li>In the Pager settings, choose "Display all items".</li>
+<li>In the Pager settings, choose "Display all items". Note that in large Islandora repositories, querying this View might cause out of memory errors; if this happens to you, adding a pager to this View should help.</li>
 <li>Save your View.</li>
 </ol>
 <p>Here is a screenshot of an example View's configuration:</p>
