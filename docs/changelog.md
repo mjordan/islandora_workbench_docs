@@ -156,6 +156,7 @@
 
 ### Documentation
 
+* January 6, 2025: Updated docs on "[Checking if nodes already exist](/islandora_workbench_docs/checking_if_nodes_exist/)".
 * January 1, 2025: Updated docs on "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)" to include new settings added in [issue 868](https://github.com/mjordan/islandora_workbench/issues/868).
 * December 28, 2024: Update docs on "[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/)"; updated docs on "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/)."
 * December 3, 2024: Update docs on "[Applying CSV value templates to rows in your input CSV](/islandora_workbench_docs/csv_value_templates/#applying-csv-value-templates-to-paged-content)"; updated docs on "[](/islandora_workbench_docs/paged_and_compound/)."

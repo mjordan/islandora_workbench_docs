@@ -19,12 +19,12 @@ To use this feature, you first need to create a View that Workbench will query. 
 1. In the Filter criteria configuration, add the field in your content type that you want to use as the lookup field, e.g. Local Identifier.
   - Check "Expose this filter".
   - Choose "Single filter".
-  - In the Operator configuration, select "Contains any word" and in the Value field, enter the machine name of your field (e.g. `field_local_identifier`)
+  - In the Operator configuration, select "Is equal to" and in the Value field, enter the machine name of your field (e.g. `field_local_identifier`)
   - In the Filter identifier section, enter the name of the URL parameter requests to this View will use to identify the CSV values. You should use the same string that you used in Operator configuration (which is also the same as your field's machine name), e.g. `field_local_identifier`.
 1. In the Path settings, provide a path, e.g. `local_identifier_lookup` (do not add the leading `/`)
   - Assign this path Basic authentication.
   - Access should be by Permission > View published content.
-1. In the Pager settings, choose "Display all items".
+1. In the Pager settings, choose "Display all items". Note that in large Islandora repositories, querying this View might cause out of memory errors; if this happens to you, adding a pager to this View should help.
 1. Save your View.
 
 Here is a screenshot of an example View's configuration:
