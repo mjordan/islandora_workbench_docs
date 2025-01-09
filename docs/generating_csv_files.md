@@ -202,10 +202,10 @@ By default, Workbench maintains a simple database that maps values in your CSV's
     ![CSV to node ID map sample data in DB Browser](images/sqlite_db_browser.png)
 
 
-Workbench optionally uses this database to determine the node ID of parent nodes when creating paged and compound content, so, for example, you can use `parent_id` values in your input CSV that refer to parents created in earlier Workbench sessions. But, you may find other uses for this data. Since it is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the `dump_id_map.py` script provided in Workbench's `scripts` directory.
+Workbench optionally uses this database to determine the node ID of parent nodes when creating paged and compound content, so, for example, you can use `parent_id` values in your input CSV that refer to parents created in earlier Workbench sessions. But, you may find other uses for this data. Since it is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the `manage_csv_to_node_id_map.py` script provided in Workbench's `scripts` directory.
 
 !!! note
-    In `create_from_files` tasks, which don't use an input CSV file, the filename is recorded instead of an "id".
+    In `create_from_files` tasks, which don't use an input CSV file, and when creating paged content from directories using the `paged_content_from_directories: true` setting, the filename is recorded instead of an "id".
 
 One configuration setting applies to this feature, `csv_id_to_node_id_map_path`. By default, its value is `[your temporary directory]/csv_id_to_node_id_map.db` (see the [temp_dir](/islandora_workbench_docs/configuration/#miscellaneous-settings) config setting's documentation for more information on where that directory is). This default can be overridden in your config file. If you want to disable population of this database completely, set `csv_id_to_node_id_map_path` to `false`.
 
