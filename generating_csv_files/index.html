@@ -1257,10 +1257,10 @@ view_parameters:
 <p>A useful third-party tool for viewing and modifying SQLite databases is <a href="https://sqlitebrowser.org/">DB Browser for SQLite</a>. Here is a sample screenshot illustrating the CSV to node ID map database table in DB Browser for SQLite (CSV ID and node ID are the two right-most columns):</p>
 <p><img alt="CSV to node ID map sample data in DB Browser" src="../images/sqlite_db_browser.png" /></p>
 </div>
-<p>Workbench optionally uses this database to determine the node ID of parent nodes when creating paged and compound content, so, for example, you can use <code>parent_id</code> values in your input CSV that refer to parents created in earlier Workbench sessions. But, you may find other uses for this data. Since it is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the <code>dump_id_map.py</code> script provided in Workbench's <code>scripts</code> directory.</p>
+<p>Workbench optionally uses this database to determine the node ID of parent nodes when creating paged and compound content, so, for example, you can use <code>parent_id</code> values in your input CSV that refer to parents created in earlier Workbench sessions. But, you may find other uses for this data. Since it is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the <code>manage_csv_to_node_id_map.py</code> script provided in Workbench's <code>scripts</code> directory.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In <code>create_from_files</code> tasks, which don't use an input CSV file, the filename is recorded instead of an "id".</p>
+<p>In <code>create_from_files</code> tasks, which don't use an input CSV file, and when creating paged content from directories using the <code>paged_content_from_directories: true</code> setting, the filename is recorded instead of an "id".</p>
 </div>
 <p>One configuration setting applies to this feature, <code>csv_id_to_node_id_map_path</code>. By default, its value is <code>[your temporary directory]/csv_id_to_node_id_map.db</code> (see the <a href="/islandora_workbench_docs/configuration/#miscellaneous-settings">temp_dir</a> config setting's documentation for more information on where that directory is). This default can be overridden in your config file. If you want to disable population of this database completely, set <code>csv_id_to_node_id_map_path</code> to <code>false</code>.</p>
 <div class="admonition warning">
