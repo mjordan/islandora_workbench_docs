@@ -869,21 +869,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../roadmap/" class="md-nav__link">
-        Roadmap (Fall 2021)
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../troubleshooting/" class="md-nav__link">
         Troubleshooting
       </a>
@@ -939,6 +924,26 @@
   <a href="#running-tests" class="md-nav__link">
     Running tests
   </a>
+  
+    <nav class="md-nav" aria-label="Running tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unit-tests-that-do-not-require-a-live-islandora-instance" class="md-nav__link">
+    Unit tests that do not require a live Islandora instance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-tests-that-require-a-live-islandora-instance" class="md-nav__link">
+    Integration tests that require a live Islandora instance
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1069,6 +1074,26 @@
     Running tests
   </a>
   
+    <nav class="md-nav" aria-label="Running tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unit-tests-that-do-not-require-a-live-islandora-instance" class="md-nav__link">
+    Unit tests that do not require a live Islandora instance
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-tests-that-require-a-live-islandora-instance" class="md-nav__link">
+    Integration tests that require a live Islandora instance
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1171,29 +1196,32 @@
 <li>All code must be formatted using <a href="https://black.readthedocs.io/en/stable/usage_and_configuration/the_basics.html">Black</a>. You can automatically style your code <a href="https://black.readthedocs.io/en/stable/integrations/editors.html">using Black in your IDE of choice</a>.</li>
 <li>Where applicable, unit and integration tests to accompany your code are very appreciated. Tests in Workbench fall into two categories:<ul>
 <li><em>Unit tests</em> that do not require a live Islandora instance.</li>
-<li><em>Integration tests</em> that require a live Islandora instance running at <code>https://islandora.traefik.me/</code>.</li>
+<li><em>Integration tests</em> that require a live Islandora instance running at <code>https://islandora.dev</code> (or some other local URL).</li>
 </ul>
 </li>
-<li><code>workbench_utils.py</code> provides a lot of utility functions. Before writing a new utility function, please ensure that something similar to what you want to write doesn't already exist.</li>
+<li><code>workbench_utils.py</code> provides a lot of utility functions or functions used across the application. Before writing a new utility function, please ensure that something similar to what you want to write doesn't already exist.</li>
 </ul>
 <h2 id="running-tests">Running tests</h2>
 <p>While developing code for Islandora Workbench, you should run tests frequently to ensure that your code hasn't introduced any regression errors. Workbench is a fairly large and complex application, and has many configuration settings. Even minor changes in the code can break things.</p>
-<ol>
-<li>To run unit tests that do not require a live Islandora instance:<ul>
-<li>Unit tests in <code>tests/unit_tests.py</code> (run with <code>python tests/unit_tests.py</code>)</li>
-<li>Unit tests for Workbench's Drupal fields handlers in <code>tests/field_tests.py</code> (run with <code>python tests/field_tests.py</code>)</li>
-<li>Note that these tests are run automatically as GitHub actions when you push to the Islandora Workbench repo or when a merge request is merged.</li>
-</ul>
-</li>
-<li>To run integration tests that require a live Islandora instance running at <code>https://islandora.traefik.me/</code><ul>
-<li><code>tests/islandora_tests.py</code>, <code>tests/islandora_tests_check.py</code>,  <code>tests/islandora_tests_hooks.py</code>, and <code>tests/islandora_tests_paged_content.py</code> can be run with <code>python tests/islandora_tests.py</code>, etc.</li>
-<li>The Islandora Starter Site deployed with <a href="https://github.com/Islandora-Devops/isle-dc">ISLE</a> is recommended way to deploy the Islandora used in these tests. Integration tests remove all nodes and media added during the tests, unless a test fails. Taxonomy terms created by tests are not removed.</li>
-<li>Some integration and field tests output text that beings with "Error:." This is normal, it's the text that Workbench outputs when it finds something wrong (which is probably what the test is testing). Successful test (whether they test for success or failure) runs will exit with "OK". If you can figure out how to suppress this output, please visit <a href="https://github.com/mjordan/islandora_workbench/issues/160">this issue</a>.</li>
-</ul>
-</li>
-</ol>
-<p>If you want to run the tests within a specific class, include the class name as an argument like this: <code>python tests/unit_tests.py TestCompareStings</code></p>
-<p>You can also specify multiple test classes within a single test file: <code>python tests/islandora_tests.py TestMyNewTest TestMyOtherNewTest</code></p>
+<h3 id="unit-tests-that-do-not-require-a-live-islandora-instance">Unit tests that do not require a live Islandora instance</h3>
+<p>There are several test class files containing tests that do not require a live Islandora instance to run:</p>
+<pre><code>* Unit tests in `tests/unit_tests.py` (run with `python tests/unit_tests.py`)
+* Unit tests for Workbench's Drupal fields handlers in `tests/field_tests.py` (run with `python tests/field_tests.py`)
+* Note that these tests are run automatically as GitHub actions when you push to the Islandora Workbench repo or when a merge request is merged.
+</code></pre>
+<h3 id="integration-tests-that-require-a-live-islandora-instance">Integration tests that require a live Islandora instance</h3>
+<p>Integration tests are configured to interact with an Islandora instance running at <code>https://islandora.dev</code> with the username <code>admin</code> and password <code>password</code>. If those configuration settings match your local Islandora configuration (e.g. running in Docker), you can run these tests without building a set of local test files. If your local setup requires different settings, you can run the tests after building a set of local tests (explained below).</p>
+<p>Assuming you have an Islandora instance running at <code>https://islandora.dev</code>, <code>tests/islandora_tests.py</code>, <code>tests/islandora_tests_check.py</code>,  <code>tests/islandora_tests_hooks.py</code>, and <code>tests/islandora_tests_paged_content.py</code> can be run with <code>python tests/islandora_tests.py</code>, etc.</p>
+<p>If your local setup requires different <code>host</code>, <code>username</code> or <code>password</code> configuration settings, you will need to first build a copy of the test code and data files that uses your settings. To do so, from within the Islandora Workbench directory (by default <code>islandora_workbench</code>), run <code>python scripts/make_local_tests.py</code>. This script will create a copy of Workbench's <code>tests</code> directory at <code>tests_local</code> and modify the <code>host</code>, <code>username</code>, and <code>password</code> configuration settings to <code>https://islandora.traefik.me</code>, <code>admin</code>, and <code>password</code> respectively. If you want to use other values for those settings, pass them into the script using the following command-line arguments (which are all optional but are shown here for reference):</p>
+<p><code>python scripts/make_local_tests.py --host http://mylocalislandora.dev --username mark --password foo</code></p>
+<p>Then, to run the tests, simply change the test directory from <code>tests</code> to <code>tests_local</code>, e.g. <code>python tests_local/islandora_tests.py</code></p>
+<p>A few notes about running integration tests:</p>
+<pre><code>* The Islandora Starter Site deployed with [ISLE](https://github.com/Islandora-Devops/isle-dc) is recommended way to deploy the Islandora used in these tests. Integration tests remove all nodes and media added during the tests, unless a test fails. Taxonomy terms created by tests are not removed.
+* Some integration and field tests output text that beings with "Error:." This is normal, it's the text that Workbench outputs when it finds something wrong (which is probably what the test is testing). Successful test (whether they test for success or failure) runs will exit with "OK". If you can figure out how to suppress this output, please visit [this issue](https://github.com/mjordan/islandora_workbench/issues/160).
+* If you want to run the tests within a specific class, include the class name as an argument like this: `python tests_local/unit_tests.py TestCompareStings`
+* You can also specify multiple test classes within a single test file: `python tests_local/islandora_tests.py TestMyNewTest TestMyOtherNewTest`
+* Running `scripts/make_local_tests.py` overwrites the entire `tests_local` directory before generating a new set of test code and data.
+</code></pre>
 <h2 id="writing-tests">Writing tests</h2>
 <p>Islandora Workbench's tests are written using the Python built-in <a href="https://docs.python.org/3/library/unittest.html">module</a> <code>unittest</code>, and as explained above, fall into two categories:</p>
 <ul>
@@ -1201,6 +1229,7 @@
 <li>Integration tests that require a live Islandora instance running at <code>https://islandora.traefik.me/</code>.</li>
 </ul>
 <p><code>unittest</code> groups tests into classes. A single test file can contain one or more test classes. Within each test class, you can put one or more test methods. As shown in the second example below, two reserved methods, <code>setUp()</code> and <code>tearDown()</code>, are reserved for setup and cleanup tasks, respectively, within each class. If you are new to using <code>unittest</code>, <a href="https://www.pythontutorial.net/python-unit-testing/">this</a> is a good tutorial.</p>
+<p>Always add new tests to Workbench's <code>tests</code> directory, not <code>tests_local</code>. <code>tests</code> is used by Github's CI runners, so new tests must be present in that directory during merge requests. Since running <code>scripts/make_local_tests.py</code> copies everthing in <code>tests</code> to <code>tests_local</code>, any changes you make (or additions) to files in <code>tests</code> will be copied over to <code>tests_local</code> intact.</p>
 <h3 id="a-simple-unit-test">A simple unit test</h3>
 <p>Islandora Workbench unit tests are much like unit tests in any Python application. The sample test below, from <code>tests/unit_tests.py</code>, tests the <code>validate_latlong_value()</code> method from the <code>workbench_utils.py</code> module. Since <code>workbench_utils.validate_latlong_value()</code> doesn't interact with Islandora, <code>https://islandora.traefik.me/</code> doesn't need to be available to run this unit test.</p>
 <pre><code class="language-python">class TestValidateLatlongValue(unittest.TestCase):
