@@ -1,7 +1,7 @@
 ## Requirements
 
-* An [Islandora](https://islandora.ca/) repository using Drupal 8 or 9, with the [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module enabled. If you are using Drupal 8.5 or earlier, please refer to the "Using Drupal 8.5 or earlier" section below.
-* Python 3.7 or higher
+* An modern [Islandora](https://islandora.ca/) repository, with the [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module enabled.
+* Python 3.9 or higher
 * The following Python libraries:
     * [ruamel.yaml](https://yaml.readthedocs.io/en/latest/index.html)
     * [Requests](https://2.python-requests.org/en/master/)
@@ -19,6 +19,8 @@ Islandora Workbench has been installed and used on Linux, Mac, and Windows.
     Some systems have both Python 2 and Python 3 installed. It's a good idea to check which version is used when you run `python`. To do this, run `python --version`, which will output something like "Python 2.7.17" or "Python 3.8.10". If `python --version` indicates you're running version 2, try running `python3 --version` to see if you have version 3 installed.
 
     Also, if you installed an alternate version of Python 3.x on your system (for example via Homebrew on a Mac), you may need to run Workbench by calling that Python interpreter directly. For Python 3.x installed via Homebrew, that will be at `/opt/homebrew/bin/python3`, so to run Workbench you would use `/opt/homebrew/bin/python3 workbench` while in the `islandora_workbench` directory.
+
+If you are using Drupal 8.5 or earlier, please refer to the "Using Drupal 8.5 or earlier" section below. If you are using Python 3.8, please refer to that section below.
 
 ## Installing Islandora Workbench
 
@@ -89,6 +91,10 @@ To avoid these issues, you need to be running Drupal version 8.6 or higher.
 
 !!! warning
     If you are using Drupal 8.5 or earlier, you need to use the version of Workbench tagged with `drupal_8.5_and_lower` (commit 542325fb6d44c2ac84a4e2965289bb9f9ed9bf68). Later versions no longer support Drupal 8.5 and earlier.
+
+# Using Python 3.8
+
+Python 3.8 reached end of life in October 2024. If you cannot upgrade from Python 3.8, you may be interested in the [Python 3.8 EOL release](https://github.com/mjordan/islandora_workbench/releases/tag/python38eol) of Islandora Workbbench.
 
 ## Password management
 

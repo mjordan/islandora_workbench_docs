@@ -50,7 +50,6 @@ nav:
     - Prompting the user: prompts.md
     - Generating sample Islandora content: generating_sample_content.md
     - Known limitations: limitations.md
-    - Roadmap (Fall 2021): roadmap.md
     - Troubleshooting: troubleshooting.md
     - Development guide: development_guide.md
     - Change log: changelog.md

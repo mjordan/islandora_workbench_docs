@@ -1,5 +1,8 @@
 ### main branch (no tag/release)
 
+* January 16, 2025: Resolved (commit 3c58532) [issue 747](https://github.com/mjordan/islandora_workbench/issues/747). Thank you @joecorall!
+* January 12, 2025: Resolved (commit 49853cb) [issue 875](https://github.com/mjordan/islandora_workbench/issues/875).
+* January 9, 2025: Resolved (commit 8fb1290) [issue 873](https://github.com/mjordan/islandora_workbench/issues/873).
 * January 1, 2025: Resolved (commit f8dce4c) [issue 799](https://github.com/mjordan/islandora_workbench/issues/799).
 * December 31, 2024: Resolved (commit b512b7d) [issue 868](https://github.com/mjordan/islandora_workbench/issues/848).
 * December 28, 2024: Resolved (commit d02e140) [issue 848](https://github.com/mjordan/islandora_workbench/issues/868).
@@ -156,6 +159,7 @@
 
 ### Documentation
 
+* January 16, 2025: Updated "[Requirements and installation](/islandora_workbench_docs/installation/)" and "[Development guide](/islandora_workbench_docs/development_guide/)" to reflect changes introduced in [merge request 849](https://github.com/mjordan/islandora_workbench/pull/849) (adding CI integration tests). Removed the Roadmap since it was out of date.
 * January 6, 2025: Updated docs on "[Using the CSV ID to node ID map](islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map)".
 * January 6, 2025: Updated docs on "[Checking if nodes already exist](/islandora_workbench_docs/checking_if_nodes_exist/)".
 * January 1, 2025: Updated docs on "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)" to include new settings added in [issue 868](https://github.com/mjordan/islandora_workbench/issues/868).
