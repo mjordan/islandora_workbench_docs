@@ -11,7 +11,7 @@
     * [unidecode](https://pypi.org/project/Unidecode/)
     * [edtf-validate](https://pypi.org/project/edtf-validate/)
     * [rich](https://pypi.org/project/rich/)
-    * If you want to have these libraries automatically installed, you will need Python's [setuptools](https://pypi.org/project/setuptools/)
+    * If you want to have these libraries automatically installed, you will need [pip](https://pypi.org/project/pip/) version 19 or higher.
 
 Islandora Workbench has been installed and used on Linux, Mac, and Windows.
 
@@ -27,7 +27,7 @@ If you are using Drupal 8.5 or earlier, please refer to the "Using Drupal 8.5 or
 Installation involves two steps:
 
 1. cloning the Islandora Workbench Github repo
-1. running `setup.py` to install the required Python libraries (listed above)
+1. running `python -m pip install .` to install the required Python libraries (listed above)
 
 ### Step 1: cloning the Islandora Workbench Github repo
 
@@ -41,11 +41,13 @@ This will create a directory named `islandora_workbench` where you will run the 
 
 For most people, the preferred place to install Python libraries is in your user directory. To do this, change into the "islandora_workbench" directory created by cloning the repo, and run the following command:
 
-`python3 setup.py install --user`
+`python -m pip install --user .`
 
 A less common method is to install the required Python libraries into your computer's central Python environment. To do this, omit the `--user` (note: you must have administrator privileges on the computer to do this):
 
-`sudo python3 setup.py install`
+`sudo python -m pip install .`
+
+`sudo` is only required on Linux and Macs, on Windows you will need to run `python -m pip install .` as administrator.
 
 ## Updating Islandora Workbench
 
@@ -55,11 +57,11 @@ Since Islandora Workbench is under development, you will want to update it often
 
 After you pull in the latest changes using `git`, it's a good idea to rerun the setup tools in case new Python libraries have been added since you last ran the setup tools (same command as above):
 
-`python3 setup.py install --user`
+`python -m pip install --user --upgrade .`
 
 or if you originally installed the required Python libraries centrally, without the `--user` option (again, you will need administrator privileges on the machine):
 
-`sudo python3 setup.py install`
+`sudo python -m pip install --upgrade .`
 
 ## Keeping the Islandora Workbench Integration Drupal module up to date
 

@@ -159,6 +159,7 @@
 
 ### Documentation
 
+* January 22, 2025: Updated "[Requirements and installation](/islandora_workbench_docs/installation/)" to document preferred way of installing libraries used by Workbench (issue [879](https://github.com/mjordan/islandora_workbench/issues/879)).
 * January 16, 2025: Updated "[Requirements and installation](/islandora_workbench_docs/installation/)" and "[Development guide](/islandora_workbench_docs/development_guide/)" to reflect changes introduced in [merge request 849](https://github.com/mjordan/islandora_workbench/pull/849) (adding CI integration tests). Removed the Roadmap since it was out of date.
 * January 6, 2025: Updated docs on "[Using the CSV ID to node ID map](islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map)".
 * January 6, 2025: Updated docs on "[Checking if nodes already exist](/islandora_workbench_docs/checking_if_nodes_exist/)".
