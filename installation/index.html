@@ -1157,7 +1157,7 @@
 <li><a href="https://pypi.org/project/Unidecode/">unidecode</a></li>
 <li><a href="https://pypi.org/project/edtf-validate/">edtf-validate</a></li>
 <li><a href="https://pypi.org/project/rich/">rich</a></li>
-<li>If you want to have these libraries automatically installed, you will need Python's <a href="https://pypi.org/project/setuptools/">setuptools</a></li>
+<li>If you want to have these libraries automatically installed, you will need <a href="https://pypi.org/project/pip/">pip</a> version 19 or higher.</li>
 </ul>
 </li>
 </ul>
@@ -1172,7 +1172,7 @@
 <p>Installation involves two steps:</p>
 <ol>
 <li>cloning the Islandora Workbench Github repo</li>
-<li>running <code>setup.py</code> to install the required Python libraries (listed above)</li>
+<li>running <code>python -m pip install .</code> to install the required Python libraries (listed above)</li>
 </ol>
 <h3 id="step-1-cloning-the-islandora-workbench-github-repo">Step 1: cloning the Islandora Workbench Github repo</h3>
 <p>In a terminal, run:</p>
@@ -1180,16 +1180,16 @@
 <p>This will create a directory named <code>islandora_workbench</code> where you will run the <code>./workbench</code> command.</p>
 <h3 id="step-2-running-setuppy-to-install-the-required-python-libraries">Step 2: running setup.py to install the required Python libraries</h3>
 <p>For most people, the preferred place to install Python libraries is in your user directory. To do this, change into the "islandora_workbench" directory created by cloning the repo, and run the following command:</p>
-<p><code>python3 setup.py install --user</code></p>
+<p><code>python -m pip install --user .</code></p>
 <p>A less common method is to install the required Python libraries into your computer's central Python environment. To do this, omit the <code>--user</code> (note: you must have administrator privileges on the computer to do this):</p>
 <p><code>sudo python3 setup.py install</code></p>
 <h2 id="updating-islandora-workbench">Updating Islandora Workbench</h2>
 <p>Since Islandora Workbench is under development, you will want to update it often. To do this, within the <code>islandora_workbench</code> directory, run the following <code>git</code> command:</p>
 <p><code>git pull origin main</code></p>
 <p>After you pull in the latest changes using <code>git</code>, it's a good idea to rerun the setup tools in case new Python libraries have been added since you last ran the setup tools (same command as above):</p>
-<p><code>python3 setup.py install --user</code></p>
+<p><code>python -m pip install --user --upgrade .</code></p>
 <p>or if you originally installed the required Python libraries centrally, without the <code>--user</code> option (again, you will need administrator privileges on the machine):</p>
-<p><code>sudo python3 setup.py install</code></p>
+<p><code>python -m pip install --upgrade .</code></p>
 <h2 id="keeping-the-islandora-workbench-integration-drupal-module-up-to-date">Keeping the Islandora Workbench Integration Drupal module up to date</h2>
 <p>Islandora Workbench communicates with Drupal using REST endpoints and Views. The Islandora Workbench Integration module (linked above in the "Requirements" section) ensures that the target Drupal has all required REST endpoints and Views enabled. Therefore, keeping it in sync with Islandora Workbench is important.</p>
 <p>Workbench checks the version of the Integration module and tells you if you need to upgrade it. To upgrade the module, update its code via Git or Composer, and follow the instructions in the "Updates" section of its <a href="https://github.com/mjordan/islandora_workbench_integration/blob/main/README.md">README</a>.</p>
