@@ -1182,14 +1182,15 @@
 <p>For most people, the preferred place to install Python libraries is in your user directory. To do this, change into the "islandora_workbench" directory created by cloning the repo, and run the following command:</p>
 <p><code>python -m pip install --user .</code></p>
 <p>A less common method is to install the required Python libraries into your computer's central Python environment. To do this, omit the <code>--user</code> (note: you must have administrator privileges on the computer to do this):</p>
-<p><code>sudo python3 setup.py install</code></p>
+<p><code>sudo python -m pip install .</code></p>
+<p><code>sudo</code> is only required on Linux and Macs, on Windows you will need to run <code>python -m pip install .</code> as administrator.</p>
 <h2 id="updating-islandora-workbench">Updating Islandora Workbench</h2>
 <p>Since Islandora Workbench is under development, you will want to update it often. To do this, within the <code>islandora_workbench</code> directory, run the following <code>git</code> command:</p>
 <p><code>git pull origin main</code></p>
 <p>After you pull in the latest changes using <code>git</code>, it's a good idea to rerun the setup tools in case new Python libraries have been added since you last ran the setup tools (same command as above):</p>
 <p><code>python -m pip install --user --upgrade .</code></p>
 <p>or if you originally installed the required Python libraries centrally, without the <code>--user</code> option (again, you will need administrator privileges on the machine):</p>
-<p><code>python -m pip install --upgrade .</code></p>
+<p><code>sudo python -m pip install --upgrade .</code></p>
 <h2 id="keeping-the-islandora-workbench-integration-drupal-module-up-to-date">Keeping the Islandora Workbench Integration Drupal module up to date</h2>
 <p>Islandora Workbench communicates with Drupal using REST endpoints and Views. The Islandora Workbench Integration module (linked above in the "Requirements" section) ensures that the target Drupal has all required REST endpoints and Views enabled. Therefore, keeping it in sync with Islandora Workbench is important.</p>
 <p>Workbench checks the version of the Integration module and tells you if you need to upgrade it. To upgrade the module, update its code via Git or Composer, and follow the instructions in the "Updates" section of its <a href="https://github.com/mjordan/islandora_workbench_integration/blob/main/README.md">README</a>.</p>
