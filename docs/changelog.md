@@ -1,5 +1,7 @@
 ### main branch (no tag/release)
 
+* February 3, 2025: Resolved (commit 57d9de1) [issue 883](https://github.com/mjordan/islandora_workbench/issues/883) and (commit 95eaef3) [issue 884](https://github.com/mjordan/islandora_workbench/issues/884).
+* January 30, 2025: Merged in fix for [issue 882](https://github.com/mjordan/islandora_workbench/issues/882). Thanks Born-Digital!
 * January 16, 2025: Resolved (commit 3c58532) [issue 747](https://github.com/mjordan/islandora_workbench/issues/747). Thank you @joecorall!
 * January 12, 2025: Resolved (commit 49853cb) [issue 875](https://github.com/mjordan/islandora_workbench/issues/875).
 * January 9, 2025: Resolved (commit 8fb1290) [issue 873](https://github.com/mjordan/islandora_workbench/issues/873).
@@ -159,6 +161,7 @@
 
 ### Documentation
 
+* February 3, 2025: Added `completion_message` to the "Miscellaneous" section of the "[Configuration settings](/islandora_workbench_docs/configuration/#miscellaneous-settings)" list.
 * January 22, 2025: Updated "[Requirements and installation](/islandora_workbench_docs/installation/)" to document preferred way of installing libraries used by Workbench (issue [879](https://github.com/mjordan/islandora_workbench/issues/879)).
 * January 16, 2025: Updated "[Requirements and installation](/islandora_workbench_docs/installation/)" and "[Development guide](/islandora_workbench_docs/development_guide/)" to reflect changes introduced in [merge request 849](https://github.com/mjordan/islandora_workbench/pull/849) (adding CI integration tests). Removed the Roadmap since it was out of date.
 * January 6, 2025: Updated docs on "[Using the CSV ID to node ID map](islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map)".
@@ -170,7 +173,7 @@
 * November 26, 2024: Resolved [issue 853](https://github.com/mjordan/islandora_workbench/issues/853); added docs on new `paged_content_ignore_files` config setting.
 * November 19, 2024: Updated docs on "[Creating media track files](/islandora_workbench_docs/media_track_files/)"; updated "[Troubleshooting](/troubleshooting/)" to include the new `--print_config` argument.
 * November 12, 2024: Updated docs on "[Creating taxonomy terms](/islandora_workbench_docs/creating_taxonomy_terms/)" and "[Updating taxonomy terms](/islandora_workbench_docs/updating_terms/)" to include use of the `published` CSV column.
-* November 11, 2024: Updated docs on "[Configuring media types](/islandora_workbench_docs/media_types/)".newzealandpaul
+* November 11, 2024: Updated docs on "[Configuring media types](/islandora_workbench_docs/media_types/)". Thanks @newzealandpaul!
 * November 10, 2024: Updated docs on "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)" to include new settings, and added a dedicated section for rollbacks to the "[Configuration](/islandora_workbench_docs/configuration/#rollback-configuration-and-csv-file-settings)" page.
 * November 1, 2024: Updated docs on "[Adding alt text to images](/islandora_workbench_docs/alt_text/)" and "[Known limitations](/islandora_workbench_docs/limitations/)".
 * October 20, 2024: Updated docs on "[Creating redirects](/islandora_workbench_docs/redirects/)".
