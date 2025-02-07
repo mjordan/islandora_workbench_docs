@@ -614,7 +614,7 @@ In order to populate paragraph entites using Workbench in `create` and `update` 
     * formats: json
     * authentication: jwt_auth, basic_auth, cookie
 
-    !!! note
+!!! note
     Pargraphs are locked down from REST updates by default. To add new and update paragraph values you must enable the `paragraphs_type_permissions` submodule and ensure the Drupal user in your configuration file has sufficient privledges granted at `/admin/people/permissions/module/paragraphs_type_permissions`.
 
 

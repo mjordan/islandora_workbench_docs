@@ -161,6 +161,7 @@
 
 ### Documentation
 
+* February 7, 2025: Fixed the broken "Note" on the section on using [Paragraph fields](/islandora_workbench_docs/fields/#paragraphs-entity-reference-revisions-fields).
 * February 3, 2025: Added `completion_message` to the "Miscellaneous" section of the "[Configuration settings](/islandora_workbench_docs/configuration/#miscellaneous-settings)" list.
 * January 22, 2025: Updated "[Requirements and installation](/islandora_workbench_docs/installation/)" to document preferred way of installing libraries used by Workbench (issue [879](https://github.com/mjordan/islandora_workbench/issues/879)).
 * January 16, 2025: Updated "[Requirements and installation](/islandora_workbench_docs/installation/)" and "[Development guide](/islandora_workbench_docs/development_guide/)" to reflect changes introduced in [merge request 849](https://github.com/mjordan/islandora_workbench/pull/849) (adding CI integration tests). Removed the Roadmap since it was out of date.
