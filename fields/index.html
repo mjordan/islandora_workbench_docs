@@ -2054,18 +2054,16 @@ viaf%%http://viaf.org/viaf/10646807|other%%https://github.com/mjordan%%Github
 <li>authentication: jwt_auth, basic_auth, cookie</li>
 </ul>
 </li>
-<li>
-<p>PATCH</p>
-<ul>
+<li>PATCH<ul>
 <li>formats: json</li>
 <li>authentication: jwt_auth, basic_auth, cookie</li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
-<p>Pargraphs are locked down from REST updates by default. To add new and update paragraph values you must enable the <code>paragraphs_type_permissions</code> submodule and ensure the Drupal user in your configuration file has sufficient privledges granted at <code>/admin/people/permissions/module/paragraphs_type_permissions</code>.</p>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pargraphs are locked down from REST updates by default. To add new and update paragraph values you must enable the <code>paragraphs_type_permissions</code> submodule and ensure the Drupal user in your configuration file has sufficient privledges granted at <code>/admin/people/permissions/module/paragraphs_type_permissions</code>.</p>
+</div>
 <p>Paragraphs are handy for Islandora as they provide flexibility in the creation of more complex metadata (such as complex titles, typed notes, or typed identifiers) by adding Drupal fields to paragraph entities, unlike the Typed Relationship field which hard-codes properties. However, this flexibility makes creating an Workbench import more complicated and, as such, requires additional configration.</p>
 <p>For example, suppose you have a "Full Title" field (<code>field_full_title</code>) on your Islandora Object content type referencing a paragraph type called "Complex Title" (<code>complex_title</code>) that contains "main title" (<code>field_main_title</code>) and "subtitle" (<code>field_subtitle</code>) text fields. The input CSV would look like:</p>
 <pre><code class="language-text">field_full_title
