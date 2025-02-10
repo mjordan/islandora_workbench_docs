@@ -405,6 +405,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#csv-id-to-node-id-map-settings" class="md-nav__link">
+    CSV ID to node ID map settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#miscellaneous-settings" class="md-nav__link">
     Miscellaneous settings
   </a>
@@ -1285,6 +1292,13 @@
           <li class="md-nav__item">
   <a href="#rollback-configuration-and-csv-file-settings" class="md-nav__link">
     Rollback configuration and CSV file settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csv-id-to-node-id-map-settings" class="md-nav__link">
+    CSV ID to node ID map settings
   </a>
   
 </li>
@@ -2256,6 +2270,50 @@ csv_field_templates:
 </tr>
 </tbody>
 </table>
+<h3 id="csv-id-to-node-id-map-settings">CSV ID to node ID map settings</h3>
+<p>See "<a href="/islandora_workbench_docs/csv_id_to_node_id_map/">The CSV ID to node ID map</a>" documentation for more information.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Required</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>csv_id_to_node_id_map_path</td>
+<td></td>
+<td>[temp_dir]/csv_id_to_node_id_map.db</td>
+<td>Directory path to the SQLite database filename used to store CSV row ID to node ID mappings for nodes created during <code>create</code> and <code>create_from_files</code> tasks. If you want to store your map database outside of the temporary directory, use an absolute path to the database file for this setting. If you want to disable population of this database, set this config setting to <code>false</code>.</td>
+</tr>
+<tr>
+<td>csv_id_to_node_id_map_dir</td>
+<td></td>
+<td>Value of the <code>temp_dir</code> setting.</td>
+<td>Directory path to the SQLite database filename used to store CSV row ID to node ID mappings for nodes created during <code>create</code> and <code>create_from_files</code> tasks. This setting does the same thing as <code>csv_id_to_node_id_map_path</code> but is named more descriptively and will likely replace <code>csv_id_to_node_id_map_path</code> in the future.</td>
+</tr>
+<tr>
+<td>csv_id_to_node_id_map_filename</td>
+<td></td>
+<td>Filename of the SQLite database file. Does not require a <code>.db</code> extension.</td>
+<td></td>
+</tr>
+<tr>
+<td>query_csv_id_to_node_id_map_for_parents</td>
+<td></td>
+<td>false</td>
+<td>Queries the CSV ID to node ID map when creating compound content. Set to <code>true</code> if you want to use parent IDs from previous Workbench sessions. Note: this setting is automatically set to true in secondary task config files. See "<a href="/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions">Creating parent/child relationships across Workbench sessions</a> for more information."</td>
+</tr>
+<tr>
+<td>ignore_duplicate_parent_ids</td>
+<td></td>
+<td>true</td>
+<td>Tells Workbench to ignore entries in the CSV ID to node ID map that have the same parent ID value. Set to <code>false</code> if you want Workbench to warn you that there are duplicate parent IDs in your CSV ID to node ID map. See "<a href="/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions">Creating parent/child relationships across Workbench sessions</a> for more information."</td>
+</tr>
+</tbody>
+</table>
 <h3 id="miscellaneous-settings">Miscellaneous settings</h3>
 <table>
 <thead>
@@ -2422,24 +2480,6 @@ csv_field_templates:
 <td></td>
 <td></td>
 <td>A list of configuration file names that are executed as secondary tasks after the primary task to create compound objects. See "<a href="/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task">Using a secondary task</a>" for more information.</td>
-</tr>
-<tr>
-<td>csv_id_to_node_id_map_path</td>
-<td></td>
-<td>[temp_dir]/csv_id_to_node_id_map.db</td>
-<td>Name of the SQLite database filename used to store CSV row ID to node ID mappings for nodes created during <code>create</code> and <code>create_from_files</code> tasks. If you want to store your map database outside of a temporary directory, use an absolute path to the database file for this setting. If you want to disable population of this database, set this config setting to <code>false</code>. See "<a href="/islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map">Generating CSV files</a>" for more information.</td>
-</tr>
-<tr>
-<td>query_csv_id_to_node_id_map_for_parents</td>
-<td></td>
-<td>false</td>
-<td>Queries the CSV ID to node ID map when creating compound content. Set to <code>true</code> if you want to use parent IDs from previous Workbench sessions. Note: this setting is automatically set to true in secondary task config files. See "<a href="/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions">Creating parent/child relationships across Workbench sessions</a> for more information."</td>
-</tr>
-<tr>
-<td>ignore_duplicate_parent_ids</td>
-<td></td>
-<td>true</td>
-<td>Tells Workbench to ignore entries in the CSV ID to node ID map that have the same parent ID value. Set to <code>false</code> if you want Workbench to warn you that there are duplicate parent IDs in your CSV ID to node ID map. See "<a href="/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions">Creating parent/child relationships across Workbench sessions</a> for more information."</td>
 </tr>
 </tbody>
 </table>
