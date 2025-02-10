@@ -1250,56 +1250,7 @@ view_parameters:
 </ul>
 <p>Note that currently only a single file per node can be exported, and that files need to be accessible to the anonymous Drupal user to be exported.</p>
 <h3 id="using-the-csv-id-to-node-id-map">Using the CSV ID to node ID map</h3>
-<p>By default, Workbench maintains a simple database that maps values in your CSV's ID column (or whatever column you define in the <code>id_field</code> config setting) to node IDs created in <code>create</code> tasks.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You do not need to install anything extra for Workbench to create this database. Workbench provides a utility script, <code>manage_csv_to_node_id_map.py</code> (described below), for exporting and pruning the data. You only need to install the <code>sqlite3</code> client or a third-party utility if you want to access the database in ways that surpass the capabilities of the <code>manage_csv_to_node_id_map.py</code> script.</p>
-<p>A useful third-party tool for viewing and modifying SQLite databases is <a href="https://sqlitebrowser.org/">DB Browser for SQLite</a>. Here is a sample screenshot illustrating the CSV to node ID map database table in DB Browser for SQLite (CSV ID and node ID are the two right-most columns):</p>
-<p><img alt="CSV to node ID map sample data in DB Browser" src="../images/sqlite_db_browser.png" /></p>
-</div>
-<p>Workbench optionally uses this database to determine the node ID of parent nodes when creating paged and compound content, so, for example, you can use <code>parent_id</code> values in your input CSV that refer to parents created in earlier Workbench sessions. But, you may find other uses for this data. Since it is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the <code>manage_csv_to_node_id_map.py</code> script provided in Workbench's <code>scripts</code> directory.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In <code>create_from_files</code> tasks, which don't use an input CSV file, and when creating paged content from directories using the <code>paged_content_from_directories: true</code> setting, the filename is recorded instead of an "id".</p>
-</div>
-<p>One configuration setting applies to this feature, <code>csv_id_to_node_id_map_path</code>. By default, its value is <code>[your temporary directory]/csv_id_to_node_id_map.db</code> (see the <a href="/islandora_workbench_docs/configuration/#miscellaneous-settings">temp_dir</a> config setting's documentation for more information on where that directory is). This default can be overridden in your config file. If you want to disable population of this database completely, set <code>csv_id_to_node_id_map_path</code> to <code>false</code>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Some systems clear out their temporary directories on restart. You may want to define the absolute path to your ID map database in the <code>csv_id_to_node_id_map_path</code> configuration setting so it is stored in a location that will not get deleted on system restart.</p>
-</div>
-<p>The SQLite database contains one table, "csv_id_to_node_id_map". This table has five columns:</p>
-<ul>
-<li><code>timestamp</code>: the current timestamp in <code>yyyy-mm-dd hh:mm:ss</code> format or a truncated version of that format</li>
-<li><code>config_file</code>: the name of the Workbench configuration file active when the row was added</li>
-<li><code>parent_csv_id</code>: if the node was created along with its parent, the parent's CSV ID</li>
-<li><code>parent_node_id</code>: if the node was create along with its parent, the parent's node ID</li>
-<li><code>csv_id</code>: the value in the node's CSV ID field (or in <code>create_from_files</code> tasks, which don't use an input CSV file, the filename)</li>
-<li><code>node_id</code>: the node's Drupal node ID</li>
-</ul>
-<p>If you don't want to query the database directly, you can use <code>scripts/manage_csv_to_node_id_map.py</code> to:</p>
-<ul>
-<li>Export the contents of the entire database to a CSV file.<ul>
-<li>To do this, in the Workbench directory, run the script, specifying the path to the database file and the path to the CSV output: <code>python scripts/manage_csv_to_node_id_map.py --db_path /tmp/csv_id_to_node_id_map.db --csv_path /tmp/output.csv</code></li>
-</ul>
-</li>
-<li>Export the rows that have duplicate (i.e., identical) CSV ID values, or duplicate values in any specific field.<ul>
-<li>To limit the rows that are dumped to those with duplicate values in a specific database field, add the <code>--nonunique</code> argument and the name of the field, e.g., <code>--nonunique csv_id</code>. The resulting CSV will only contain those entries from your database.</li>
-</ul>
-</li>
-<li>Delete entries from the database that have a specific value in their <code>config_file</code> column.<ul>
-<li>To do this, provide the script with the <code>--remove_entries_with_config_files</code> argument, e.g., <code>python scripts/manage_csv_to_node_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_with_config_files create.yml</code>. You can also specify a comma-separated list of config file names (for example <code>--remove_entries_with_config_files create.yml,create_testing.yml</code>) to remove all entries with those config file names with one command.</li>
-</ul>
-</li>
-<li>Delete entries from the database create before a specific date.<ul>
-<li>To do this, provide the script with the <code>--remove_entries_before</code> argument, e.g., <code>python scripts/manage_csv_to_node_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_before "2023-05-29 19:17"</code>.</li>
-</ul>
-</li>
-<li>Delete entries from the database created after a specific date.<ul>
-<li>To do this, provide the script with the <code>--remove_entries_after</code> argument, e.g., <code>python scripts/manage_csv_to_node_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_after "2023-05-29 19:17"</code>.</li>
-</ul>
-</li>
-</ul>
-<p>The value of the <code>--remove_entries_before</code> and <code>--remove_entries_after</code> arguments is a date string that can take the form <code>yyyy-mm-dd hh:mm:ss</code> or any truncated version of that format, e.g. <code>yyyy-mm-dd hh:mm</code>, <code>yyyy-mm-dd hh</code>, or <code>yyyy-mm-dd</code>. Any rows in the database table that have a <code>timestamp</code> value that matches the date value will be deleted from the database. Note that if your timestamp value has a space in it, you need to wrap it quotation marks as illustrated above; if you don't, the script will delete all the entries on the timestamp value before the space, in other words, that day.</p>
+<p>The "<a href="/islandora_workbench_docs/csv_id_to_node_id_map/">CSV ID to node ID map</a>" contains data that relates the value of the "id" column in <code>create</code> task CSV to corrsponding node ID. It also comes with a script that lets you export this data for reuse, for example as the basis for <code>update</code> tasks.</p>
 
 
 
