@@ -18,7 +18,8 @@ Workbench optionally uses this database to determine the node ID of parent nodes
 One configuration setting applies to this feature, `csv_id_to_node_id_map_path`. By default, its value is `[your temporary directory]/csv_id_to_node_id_map.db` (see the [temp_dir](/islandora_workbench_docs/configuration/#miscellaneous-settings) config setting's documentation for more information on where that directory is). This default can be overridden in your config file. If you want to disable population of this database completely, set `csv_id_to_node_id_map_path` to `false`.
 
 !!! warning
-    Some systems clear out their temporary directories on restart. You may want to define the absolute path to your ID map database in the `csv_id_to_node_id_map_dir` configuration setting so it is stored in a location that will not get deleted on system restart.
+    Some systems clear out their temporary directories on restart. You may want to define the path to your ID map database in the `csv_id_to_node_id_map_dir` configuration setting so it is stored in a location that will not get deleted on system restart, and, if you wish, define the name of the database file in the `csv_id_to_node_id_map_filename` configuration setting as well. More information on doing this is provided below.
+
 
 The SQLite database contains one table, "csv_id_to_node_id_map". This table has five columns:
 
@@ -44,3 +45,20 @@ If you don't want to query the database directly, you can use `scripts/manage_cs
 
 
 The value of the `--remove_entries_before` and `--remove_entries_after` arguments is a date string that can take the form `yyyy-mm-dd hh:mm:ss` or any truncated version of that format, e.g. `yyyy-mm-dd hh:mm`, `yyyy-mm-dd hh`, or `yyyy-mm-dd`. Any rows in the database table that have a `timestamp` value that matches the date value will be deleted from the database. Note that if your timestamp value has a space in it, you need to wrap it quotation marks as illustrated above; if you don't, the script will delete all the entries on the timestamp value before the space, in other words, that day.
+
+
+### Defining the location of your CSV ID to node ID map file
+
+As noted above, the default location for the CSV ID to node ID map database file is in the computer's temporary directory. It is a good idea to define the location of this file somewhere where 1) it will not be delete on system restart and 2) optionally, it is accessible by multiple users.
+
+Some systems, for example many Linux distibutions such as Ubuntu, wipe the `/tmp` directory on reboot. If your map database file is in that directory, all of its contents will be lost.
+
+On many Windows computers, the system temporary directory is specific to each user (e.g. `c:\users\mjordan\AppData\Local\Temp`). If you are using Islandora Workbench in an environment where multiple users are using it to create content, you may want to have all users share a common map database file, for example on a shared Windows drive.
+
+```
+# '.' is the current Workbench directory, but any relative or absolute path is OK.
+csv_id_to_node_id_map_dir: .
+csv_id_to_node_id_map_filename: mymap.db
+```
+
+You can easily move a database file into another directory (from the default temporary directory location) as long as you configure Workbench to use that new location going forward. You can even combine the data in multiple database files by exporting the data to CSV from a database and then importing it into the consolidated database using commonly available SQLite3 utilities.
