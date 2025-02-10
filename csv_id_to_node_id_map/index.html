@@ -1085,11 +1085,11 @@
 <p>As warned above, the default location for the CSV ID to node ID map database file is in the user's temporary directory. It is a good idea to define the location of this file somewhere where 1) it will not be delete on system restart and 2) optionally, it is accessible by multiple users.</p>
 <p>Some systems, for example many Linux distibutions such as Ubuntu, wipe the <code>/tmp</code> directory on reboot. If your map database file is in that directory, all of its contents will be lost.</p>
 <p>On many Windows computers, the system temporary directory is specific to each user (e.g. <code>c:\users\mjordan\AppData\Local\Temp</code>). If you are using Islandora Workbench in an environment where multiple users are using it to create content, you may want to have all users share a common map database file.</p>
-<pre><code># '.' is the current Workbench directory, but any relative or absolute path is OK):
+<pre><code># '.' is the current Workbench directory, but any relative or absolute path is OK.
 csv_id_to_node_id_map_dir: .
 csv_id_to_node_id_map_filename: mymap.db
 </code></pre>
-<p>You can easily move a database file into another directory as long as you configure Workbench to use that new location going forward. You can even combine the data in multiple database files by exporting the data to CSV from a database and then importing it into the consolidated database using commonly available SQLite3 utilities.</p>
+<p>You can easily move a database file into another directory (from the default temporary directory location) as long as you configure Workbench to use that new location going forward. You can even combine the data in multiple database files by exporting the data to CSV from a database and then importing it into the consolidated database using commonly available SQLite3 utilities.</p>
 
 
 
