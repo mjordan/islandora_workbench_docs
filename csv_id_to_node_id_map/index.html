@@ -1001,8 +1001,8 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Some systems clear out their temporary directories on restart. You may want to define the path to your ID map database in the <code>csv_id_to_node_id_map_dir</code> configuration setting so it is stored in a location that will not get deleted on system restart, and, if you wish, define the name of the database file in the <code>csv_id_to_node_id_map_filename</code> configuration setting as well. For example ('.' is the current Workbench directory, but any relative or absolute path is OK):</p>
-<p><code>csv_id_to_node_id_map_dir: .
-csv_id_to_node_id_map_filename: mymap.db</code></p>
+<p><code>csv_id_to_node_id_map_dir: .</code>
+<code>csv_id_to_node_id_map_filename: mymap.db</code></p>
 </div>
 <p>The SQLite database contains one table, "csv_id_to_node_id_map". This table has five columns:</p>
 <ul>
