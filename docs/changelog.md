@@ -1,5 +1,6 @@
 ### main branch (no tag/release)
 
+* February 7, 2025: Resolved Resolved (commit cb25ee9) [issue 872](https://github.com/mjordan/islandora_workbench/issues/872) and [issue 878](https://github.com/mjordan/islandora_workbench/issues/878).
 * February 3, 2025: Resolved (commit 57d9de1) [issue 883](https://github.com/mjordan/islandora_workbench/issues/883) and (commit 95eaef3) [issue 884](https://github.com/mjordan/islandora_workbench/issues/884).
 * January 30, 2025: Merged in fix for [issue 882](https://github.com/mjordan/islandora_workbench/issues/882). Thanks Born-Digital!
 * January 16, 2025: Resolved (commit 3c58532) [issue 747](https://github.com/mjordan/islandora_workbench/issues/747). Thank you @joecorall!
@@ -161,6 +162,7 @@
 
 ### Documentation
 
+* February 10, 2025: Added "[Recovering from interrupted create tasks](/islandora_workbench_docs/recovery_mode/)" and updated associated other pages; moved "[The CSV ID to node ID map](/islandora_workbench_docs/csv_id_to_node_id_map/)" from "[Generating CSV Files](/islandora_workbench_docs/generating_csv_files/)" into its own page.
 * February 7, 2025: Fixed the broken "Note" on the section on using [Paragraph fields](/islandora_workbench_docs/fields/#paragraphs-entity-reference-revisions-fields).
 * February 3, 2025: Added `completion_message` to the "Miscellaneous" section of the "[Configuration settings](/islandora_workbench_docs/configuration/#miscellaneous-settings)" list.
 * January 22, 2025: Updated "[Requirements and installation](/islandora_workbench_docs/installation/)" to document preferred way of installing libraries used by Workbench (issue [879](https://github.com/mjordan/islandora_workbench/issues/879)).

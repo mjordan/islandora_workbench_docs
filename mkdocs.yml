@@ -22,6 +22,7 @@ nav:
     - Creating paged, compound, and collection content: paged_and_compound.md
     - Creating nodes without media: nodes_only.md
     - Creating nodes from files: creating_nodes_from_files.md
+    - Recovering from interrupted create tasks: recovery_mode.md
     - Updating nodes: updating_nodes.md
     - Deleting nodes: deleting_nodes.md
     - Creating taxonomy terms: creating_taxonomy_terms.md
@@ -42,6 +43,7 @@ nav:
     - Hooks: hooks.md
     - Fixity checking: fixity.md
     - Logging: logging.md
+    - The CSV ID to node ID map: csv_id_to_node_id_map.md
     - Cancelling Workbench: cancelling.md
     - Workflows: workflows.md
     - Generating a contact sheet: contact_sheet.md
