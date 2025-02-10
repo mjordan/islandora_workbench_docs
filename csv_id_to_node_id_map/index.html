@@ -15,7 +15,7 @@
     
     
       
-        <title>Creating nodes without media - Islandora Workbench</title>
+        <title>The CSV ID to node ID map - Islandora Workbench</title>
       
     
     
@@ -65,6 +65,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#the-csv-id-to-node-id-map" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -94,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Creating nodes without media
+              The CSV ID to node ID map
             
           </span>
         </div>
@@ -412,19 +417,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../nodes_only/" class="md-nav__link">
         Creating nodes without media
       </a>
-      
     </li>
   
 
@@ -750,11 +747,21 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../csv_id_to_node_id_map/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         The CSV ID to node ID map
       </a>
+      
     </li>
   
 
@@ -941,6 +948,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -954,22 +963,63 @@
                 
                   
 
-  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/nodes_only.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/csv_id_to_node_id_map.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-  <h1>Creating nodes without media</h1>
-
-<p>During a <code>create</code> task, if you want to create nodes but not any accompanying media, for example if you are testing your metadata values or creating collection nodes, you can include the <code>nodes_only: true</code> option in your configuration file:</p>
-<pre><code class="language-yaml">task: create
-host: &quot;http://localhost:8000&quot;
-username: admin
-password: islandora
-nodes_only: true
-</code></pre>
-<p>If this is present, Islandora Workbench will only create nodes and will skip all media creation. During <code>--check</code>, it will ignore anything in your CSV's <code>files</code> field (in fact, your CSV doesn't even need a <code>file</code> column). If <code>nodes_only</code> is <code>true</code>, your configuration file for the <code>create</code> task doesn't need a <code>media_use_tid</code>, <code>drupal_filesystem</code>, or <code>media_type</code>/<code>media_types_override</code> option.</p>
+<h1 id="the-csv-id-to-node-id-map">The CSV ID to node ID map</h1>
+<p>By default, Workbench maintains a simple database that maps values in your CSV's ID column (or whatever column you define in the <code>id_field</code> config setting) to node IDs created in <code>create</code> tasks.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You do not need to install anything extra for Workbench to create this database. Workbench provides a utility script, <code>manage_csv_to_node_id_map.py</code> (described below), for exporting and pruning the data. You only need to install the <code>sqlite3</code> client or a third-party utility if you want to access the database in ways that surpass the capabilities of the <code>manage_csv_to_node_id_map.py</code> script.</p>
+<p>A useful third-party tool for viewing and modifying SQLite databases is <a href="https://sqlitebrowser.org/">DB Browser for SQLite</a>. Here is a sample screenshot illustrating the CSV to node ID map database table in DB Browser for SQLite (CSV ID and node ID are the two right-most columns):</p>
+<p><img alt="CSV to node ID map sample data in DB Browser" src="../images/sqlite_db_browser.png" /></p>
+</div>
+<p>Workbench optionally uses this database to determine the node ID of parent nodes when creating paged and compound content, so, for example, you can use <code>parent_id</code> values in your input CSV that refer to parents created in earlier Workbench sessions. But, you may find other uses for this data. Since it is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the <code>manage_csv_to_node_id_map.py</code> script provided in Workbench's <code>scripts</code> directory.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In <code>create_from_files</code> tasks, which don't use an input CSV file, and when creating paged content from directories using the <code>paged_content_from_directories: true</code> setting, the filename is recorded instead of an "id".</p>
+</div>
+<p>One configuration setting applies to this feature, <code>csv_id_to_node_id_map_path</code>. By default, its value is <code>[your temporary directory]/csv_id_to_node_id_map.db</code> (see the <a href="/islandora_workbench_docs/configuration/#miscellaneous-settings">temp_dir</a> config setting's documentation for more information on where that directory is). This default can be overridden in your config file. If you want to disable population of this database completely, set <code>csv_id_to_node_id_map_path</code> to <code>false</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Some systems clear out their temporary directories on restart. You may want to define the absolute path to your ID map database in the <code>csv_id_to_node_id_map_path</code> configuration setting so it is stored in a location that will not get deleted on system restart.</p>
+</div>
+<p>The SQLite database contains one table, "csv_id_to_node_id_map". This table has five columns:</p>
+<ul>
+<li><code>timestamp</code>: the current timestamp in <code>yyyy-mm-dd hh:mm:ss</code> format or a truncated version of that format</li>
+<li><code>config_file</code>: the name of the Workbench configuration file active when the row was added</li>
+<li><code>parent_csv_id</code>: if the node was created along with its parent, the parent's CSV ID</li>
+<li><code>parent_node_id</code>: if the node was create along with its parent, the parent's node ID</li>
+<li><code>csv_id</code>: the value in the node's CSV ID field (or in <code>create_from_files</code> tasks, which don't use an input CSV file, the filename)</li>
+<li><code>node_id</code>: the node's Drupal node ID</li>
+</ul>
+<p>If you don't want to query the database directly, you can use <code>scripts/manage_csv_to_node_id_map.py</code> to:</p>
+<ul>
+<li>Export the contents of the entire database to a CSV file.<ul>
+<li>To do this, in the Workbench directory, run the script, specifying the path to the database file and the path to the CSV output: <code>python scripts/manage_csv_to_node_id_map.py --db_path /tmp/csv_id_to_node_id_map.db --csv_path /tmp/output.csv</code></li>
+</ul>
+</li>
+<li>Export the rows that have duplicate (i.e., identical) CSV ID values, or duplicate values in any specific field.<ul>
+<li>To limit the rows that are dumped to those with duplicate values in a specific database field, add the <code>--nonunique</code> argument and the name of the field, e.g., <code>--nonunique csv_id</code>. The resulting CSV will only contain those entries from your database.</li>
+</ul>
+</li>
+<li>Delete entries from the database that have a specific value in their <code>config_file</code> column.<ul>
+<li>To do this, provide the script with the <code>--remove_entries_with_config_files</code> argument, e.g., <code>python scripts/manage_csv_to_node_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_with_config_files create.yml</code>. You can also specify a comma-separated list of config file names (for example <code>--remove_entries_with_config_files create.yml,create_testing.yml</code>) to remove all entries with those config file names with one command.</li>
+</ul>
+</li>
+<li>Delete entries from the database create before a specific date.<ul>
+<li>To do this, provide the script with the <code>--remove_entries_before</code> argument, e.g., <code>python scripts/manage_csv_to_node_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_before "2023-05-29 19:17"</code>.</li>
+</ul>
+</li>
+<li>Delete entries from the database created after a specific date.<ul>
+<li>To do this, provide the script with the <code>--remove_entries_after</code> argument, e.g., <code>python scripts/manage_csv_to_node_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_after "2023-05-29 19:17"</code>.</li>
+</ul>
+</li>
+</ul>
+<p>The value of the <code>--remove_entries_before</code> and <code>--remove_entries_after</code> arguments is a date string that can take the form <code>yyyy-mm-dd hh:mm:ss</code> or any truncated version of that format, e.g. <code>yyyy-mm-dd hh:mm</code>, <code>yyyy-mm-dd hh</code>, or <code>yyyy-mm-dd</code>. Any rows in the database table that have a <code>timestamp</code> value that matches the date value will be deleted from the database. Note that if your timestamp value has a space in it, you need to wrap it quotation marks as illustrated above; if you don't, the script will delete all the entries on the timestamp value before the space, in other words, that day.</p>
 
 
 
@@ -990,7 +1040,7 @@ nodes_only: true
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../paged_and_compound/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Creating paged, compound, and collection content" rel="prev">
+        <a href="../logging/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Logging" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -999,20 +1049,20 @@ nodes_only: true
               <span class="md-footer__direction">
                 Previous
               </span>
-              Creating paged, compound, and collection content
+              Logging
             </div>
           </div>
         </a>
       
       
         
-        <a href="../creating_nodes_from_files/" class="md-footer__link md-footer__link--next" aria-label="Next: Creating nodes from files" rel="next">
+        <a href="../cancelling/" class="md-footer__link md-footer__link--next" aria-label="Next: Cancelling Workbench" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Creating nodes from files
+              Cancelling Workbench
             </div>
           </div>
           <div class="md-footer__button md-icon">
