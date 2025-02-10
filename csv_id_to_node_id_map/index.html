@@ -449,6 +449,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../recovery_mode/" class="md-nav__link">
+        Recovering from interrupted create tasks
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../updating_nodes/" class="md-nav__link">
         Updating nodes
       </a>
@@ -985,7 +1000,7 @@
 <p>One configuration setting applies to this feature, <code>csv_id_to_node_id_map_path</code>. By default, its value is <code>[your temporary directory]/csv_id_to_node_id_map.db</code> (see the <a href="/islandora_workbench_docs/configuration/#miscellaneous-settings">temp_dir</a> config setting's documentation for more information on where that directory is). This default can be overridden in your config file. If you want to disable population of this database completely, set <code>csv_id_to_node_id_map_path</code> to <code>false</code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Some systems clear out their temporary directories on restart. You may want to define the absolute path to your ID map database in the <code>csv_id_to_node_id_map_path</code> configuration setting so it is stored in a location that will not get deleted on system restart.</p>
+<p>Some systems clear out their temporary directories on restart. You may want to define the absolute path to your ID map database in the <code>csv_id_to_node_id_map_dir</code> configuration setting so it is stored in a location that will not get deleted on system restart.</p>
 </div>
 <p>The SQLite database contains one table, "csv_id_to_node_id_map". This table has five columns:</p>
 <ul>
