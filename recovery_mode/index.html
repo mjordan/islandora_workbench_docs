@@ -984,7 +984,7 @@
   </a>
 
 
-<h1 id="recovering-from-interrupted-create-tasks">Recovering from interrupted create tasks</h1>
+<h1 id="recovering-from-interrupted-create-tasks">Recovering from interrupted "create" tasks</h1>
 <p>Islandora Workbench provides a way to recover from <code>create</code> tasks that fail part way through, whether the failure is caused by a fatal exception in Workbench, a network or Drupal server timeout, or as the result of <a href="/islandora_workbench_docs/cancelling">cancelling Workbench</a>.</p>
 <p>Assuming that your CSV ID to node ID map has been populuated during the <code>create</code> task that was interrupted (and it will be by default), all you need to do to use "recovery mode" is to add a single configuration setting to the config file of the task that failed indicating the node ID of the <em>first</em> node created during the failed job:</p>
 <p><code>recovery_mode_starting_from_node_id: 12678</code></p>
