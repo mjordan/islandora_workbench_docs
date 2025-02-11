@@ -2,9 +2,9 @@
 
 ### What the map does, and how it works
 
-By default, Workbench maintains a simple database that maps values in your CSV's ID column (or whatever column you define in the `id_field` config setting) to node IDs created in `create` tasks. Workbench uses this data while operating in [recovery mode](/islandora_workbench_docs/recovery_mode/), and also uses it to determine the node ID of parent nodes named in the `parent_id` column when creating paged and compound content [across Workbench sessions](/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions) and during [secondary tasks](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task).
+By default, Workbench maintains a simple database that maps values in your CSV's ID column (or whatever column you define in the `id_field` config setting) to node IDs created in `create` tasks. Every time Workbench creates a node, it writes a row corresponding to that node to this database. Workbench subsequently reads this data while operating in [recovery mode](/islandora_workbench_docs/recovery_mode/), and uses it to determine the node ID of parent nodes named in the `parent_id` column when creating paged and compound content [across Workbench sessions](/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions) and during [secondary tasks](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task).
 
-You may find other uses for this data. Since it is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the `manage_csv_to_node_id_map.py` script provided in Workbench's `scripts` directory.
+You may find other uses for this data. Since it is stored in an embedded SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the `manage_csv_to_node_id_map.py` script provided in Workbench's `scripts` directory. Information on using this script is provided below.
 
 !!! note
     You do not need to install anything extra for Workbench to create this database. Workbench provides a utility script, `manage_csv_to_node_id_map.py` (described below), for exporting and pruning the data. You only need to install the `sqlite3` client or a third-party utility if you want to access the database in ways that surpass the capabilities of the `manage_csv_to_node_id_map.py` script.
@@ -28,7 +28,9 @@ The SQLite database contains one table, "csv_id_to_node_id_map". This table has 
 * `csv_id`: the value in the node's CSV ID field (or in `create_from_files` tasks, which don't use an input CSV file, the filename); when creating paged content from directories using the `paged_content_from_directories: true` setting, the filename is recorded instead of an "id".
 * `node_id`: the node's Drupal node ID
 
-If you don't want to query the database directly, you can use `scripts/manage_csv_to_node_id_map.py` to:
+### Extracting data from and maintaining the map
+
+As noted above, you can use SQLite to query the CSV ID to node ID map, but if you don't want to query the database directly, you can use `scripts/manage_csv_to_node_id_map.py` to:
 
 * Export the contents of the entire database to a CSV file.
     * To do this, in the Workbench directory, run the script, specifying the path to the database file and the path to the CSV output: `python scripts/manage_csv_to_node_id_map.py --db_path /tmp/csv_id_to_node_id_map.db --csv_path /tmp/output.csv`
@@ -47,9 +49,9 @@ The value of the `--remove_entries_before` and `--remove_entries_after` argument
 
 ### Defining the location of your CSV ID to node ID map file
 
-As noted above, the default location for the CSV ID to node ID map database file is in the computer's temporary directory. It is a good idea to define the location of this file somewhere where 1) it will not be delete on system restart and 2) optionally, it is accessible by multiple users.
+As noted above, the default location for the CSV ID to node ID map database file is in the computer's temporary directory. It is a good idea to define the location of this file somewhere where 1) it will not be delete on system restart and 2) optionally, it is accessible by multiple Workbench users.
 
-Some systems, for example many Linux distibutions such as Ubuntu, wipe the `/tmp` directory on reboot. If your map database file is in that directory, all of its contents will be lost.
+Some systems, for example Linux distibutions based on Ubuntu, wipe the `/tmp` directory on reboot. If your map database file is in that directory, all of its contents will be lost.
 
 On many Windows computers, the system temporary directory is specific to each user (e.g. `c:\users\mjordan\AppData\Local\Temp`). If you are using Islandora Workbench in an environment where multiple users are using it to create content, you may want to have all users share a common map database file, for example on a shared Windows drive.
 
