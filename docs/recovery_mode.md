@@ -14,11 +14,12 @@ The node ID of the first node created during the successful part of the task tel
 
 To summarize, to use recovery mode, you do not need to remove rows from the input CSV, remove files from paged content directories, or modify your input data in any other way. All you need to do is provide the node ID of the first node in the interrupted job using the `recovery_mode_starting_from_node_id` config setting.
 
-!!! note
-    As an alternative to changing the configuration file of the failed job, you can also provide `recovery_mode_starting_from_node_id` as a command-line argument to Workbench, e.g. `./workbench --config mycreatejob.yml --recovery_mode_starting_from_node_id 12687`.
-
-!!! note
-    Also, In recovery mode, Workbench will create a new rollback configuration and CSV file using the same naming configuration but will add both a timestamp and "recovery_mode" to the filenames.
-
 !!! warning
     In order for recovery mode to work, the rows for the items successfully ingested during the interrupted `create` task need to be in the CSV ID to node ID map. To prepare for using recovery mode, you should move the map's database file out of its default location with your temporary directory into a location that will ensure that the file will not be deleted on system reboot. Information on doing this is available in the documentation for the [CSV ID to node ID map](/islandora_workbench_docs/csv_id_to_node_id_map/#defining-the-location-of-your-csv-id-to-node-id-map-file).
+
+A few notes about recovery mode:
+
+-  As an alternative to changing the configuration file of the failed job, you can also provide `recovery_mode_starting_from_node_id` as a command-line argument to Workbench, e.g. `./workbench --config mycreatejob.yml --recovery_mode_starting_from_node_id 12687`.
+- In recovery mode, Workbench will create a new rollback configuration and CSV file using the same naming configuration but will add both a timestamp and "recovery_mode" to the filenames. This is ensure that you do not overwrite the rollback files created during the earlier, interrupted part of your job.
+- In rare circumstances, a node may be created but not registered in the CSV ID to node ID map before Workbench stops executing. If this happens, the last node created prior to the interruption may be created again (duplicated) when you restart your job in recovery mode. It is always a good idea to check the "boundary" between the end of the interrupted part of the job and the start of the resumed recovery-mode part of the job, and if necessary, delete the duplicate node.
+- A related caveat applies to media attached to a boundary node: if the job was interrupted before the media attached to a node were created, the media will not be created when you resume your job in recovery mode.

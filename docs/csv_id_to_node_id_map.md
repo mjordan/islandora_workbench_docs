@@ -1,6 +1,10 @@
 # The CSV ID to node ID map
 
-By default, Workbench maintains a simple database that maps values in your CSV's ID column (or whatever column you define in the `id_field` config setting) to node IDs created in `create` tasks.
+### What the map does, and how it works
+
+By default, Workbench maintains a simple database that maps values in your CSV's ID column (or whatever column you define in the `id_field` config setting) to node IDs created in `create` tasks. Workbench uses this data while operating in [recovery mode](/islandora_workbench_docs/recovery_mode/), and also uses it to determine the node ID of parent nodes named in the `parent_id` column when creating paged and compound content [across Workbench sessions](/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions) and during [secondary tasks](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task).
+
+You may find other uses for this data. Since it is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the `manage_csv_to_node_id_map.py` script provided in Workbench's `scripts` directory.
 
 !!! note
     You do not need to install anything extra for Workbench to create this database. Workbench provides a utility script, `manage_csv_to_node_id_map.py` (described below), for exporting and pruning the data. You only need to install the `sqlite3` client or a third-party utility if you want to access the database in ways that surpass the capabilities of the `manage_csv_to_node_id_map.py` script.
@@ -9,13 +13,7 @@ By default, Workbench maintains a simple database that maps values in your CSV's
 
     ![CSV to node ID map sample data in DB Browser](images/sqlite_db_browser.png)
 
-
-Workbench optionally uses this database to determine the node ID of parent nodes when creating paged and compound content, so, for example, you can use `parent_id` values in your input CSV that refer to parents created in earlier Workbench sessions. But, you may find other uses for this data. Since it is stored in an SQLite database, it can be queried using SQL, or can be dumped using into a CSV file using the `manage_csv_to_node_id_map.py` script provided in Workbench's `scripts` directory.
-
-!!! note
-    In `create_from_files` tasks, which don't use an input CSV file, and when creating paged content from directories using the `paged_content_from_directories: true` setting, the filename is recorded instead of an "id".
-
-One configuration setting applies to this feature, `csv_id_to_node_id_map_path`. By default, its value is `[your temporary directory]/csv_id_to_node_id_map.db` (see the [temp_dir](/islandora_workbench_docs/configuration/#miscellaneous-settings) config setting's documentation for more information on where that directory is). This default can be overridden in your config file. If you want to disable population of this database completely, set `csv_id_to_node_id_map_path` to `false`.
+[Several configuration settings](/islandora_workbench_docs/configuration/#csv-id-to-node-id-map-settings) apply to the CSV ID to node ID map. The most important determine where the database file is located. By default, its value is `[your temporary directory]/csv_id_to_node_id_map.db`. Additional information on defining the database file's location is provided below.
 
 !!! warning
     Some systems clear out their temporary directories on restart. You may want to define the path to your ID map database in the `csv_id_to_node_id_map_dir` configuration setting so it is stored in a location that will not get deleted on system restart, and, if you wish, define the name of the database file in the `csv_id_to_node_id_map_filename` configuration setting as well. More information on doing this is provided below.
@@ -27,7 +25,7 @@ The SQLite database contains one table, "csv_id_to_node_id_map". This table has 
 * `config_file`: the name of the Workbench configuration file active when the row was added
 * `parent_csv_id`: if the node was created along with its parent, the parent's CSV ID
 * `parent_node_id`: if the node was create along with its parent, the parent's node ID
-* `csv_id`: the value in the node's CSV ID field (or in `create_from_files` tasks, which don't use an input CSV file, the filename)
+* `csv_id`: the value in the node's CSV ID field (or in `create_from_files` tasks, which don't use an input CSV file, the filename); when creating paged content from directories using the `paged_content_from_directories: true` setting, the filename is recorded instead of an "id".
 * `node_id`: the node's Drupal node ID
 
 If you don't want to query the database directly, you can use `scripts/manage_csv_to_node_id_map.py` to:
