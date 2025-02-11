@@ -1053,7 +1053,7 @@
 <p>A useful third-party tool for viewing and modifying SQLite databases is <a href="https://sqlitebrowser.org/">DB Browser for SQLite</a>. Here is a sample screenshot illustrating the CSV to node ID map database table in DB Browser for SQLite (CSV ID and node ID are the two right-most columns):</p>
 <p><img alt="CSV to node ID map sample data in DB Browser" src="../images/sqlite_db_browser.png" /></p>
 </div>
-<p><a href="/islandora_workbench_docs/configuration/#csv-id-to-node-id-map-settings">Several configuration settings</a> apply to the CSV ID to node ID map. The most important determine where the database file is located. By default, its value is <code>[your temporary directory]/csv_id_to_node_id_map.db</code>.</p>
+<p><a href="/islandora_workbench_docs/configuration/#csv-id-to-node-id-map-settings">Several configuration settings</a> apply to the CSV ID to node ID map. The most important determine where the database file is located. By default, its value is <code>[your temporary directory]/csv_id_to_node_id_map.db</code>. Additional information on defining the database file's location is provided below.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Some systems clear out their temporary directories on restart. You may want to define the path to your ID map database in the <code>csv_id_to_node_id_map_dir</code> configuration setting so it is stored in a location that will not get deleted on system restart, and, if you wish, define the name of the database file in the <code>csv_id_to_node_id_map_filename</code> configuration setting as well. More information on doing this is provided below.</p>
