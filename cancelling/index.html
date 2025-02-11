@@ -1071,7 +1071,7 @@ Node for &quot;Manhatten Island&quot; (record 02) created at http://localhost/no
 <p class="admonition-title">Note</p>
 <p>The best way to resume a cancelled job is to use Workbench's <a href="/islandora_workbench_docs/recovery_mode/">recovery mode</a>. But, if you can't use that (for example, your CSV ID to node ID map is not available), you can manually recover by following the instructions below.</p>
 </div>
-<p>The log shows that the last row in the CSV that resulted in a node being created is the row for record 02; after that row was processed, the user issued a <code>ctrl-c</code> to stop Workbench. To process the remaining CSV records ("resume your batch"), you need to remove from the input CSV the rows that were processed (according to the example log above, the rows for record 01 and record 02), and run Workbench on the resulting unprocessed records:</p>
+<p>The log snippet above shows that the last row in the CSV that resulted in a node being created is the row for record 02; after that row was processed, the user issued a <code>ctrl-c</code> to stop Workbench. To process the remaining CSV records ("resume your batch"), you need to remove from the input CSV the rows that were processed (according to the example log above, the rows for record 01 and record 02), and run Workbench on the resulting unprocessed records:</p>
 <pre><code class="language-text">file,id,title
 IMG_2940.JPG,03,Looking across Burrard Inlet
 IMG_2958.JPG,04,Amsterdam waterfront
