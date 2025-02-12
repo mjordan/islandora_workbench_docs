@@ -1,16 +1,19 @@
 # Recovering from interrupted "create" tasks
 
-Islandora Workbench provides a way to recover from `create` tasks that fail part way through, whether the failure is caused by a fatal exception in Workbench, a network or Drupal server timeout, or as the result of [cancelling Workbench](/islandora_workbench_docs/cancelling).
+Islandora Workbench provides a way to recover from `create` tasks that fail part way through, whether the failure is caused by a fatal exception in Workbench, a network or Drupal server timeout, or as the result of [cancelling Workbench](/islandora_workbench_docs/cancelling). Using this "recovery mode" does not require any action _prior_ to the interruption; you only use it _after_ your job has been interrupted.
 
-Assuming that your [CSV ID to node ID map](/islandora_workbench_docs/csv_id_to_node_id_map/) has been populuated during the `create` task that was interrupted (it will be by default), all you need to do to use "recovery mode" is to add a single configuration setting to the config file of the task that failed indicating the node ID of the _first_ node created during the failed job and then rerun the sanme job using the updated configuration file:
+Assuming that your [CSV ID to node ID map](/islandora_workbench_docs/csv_id_to_node_id_map/) has been populuated during the `create` task that was interrupted (it will be by default), all you need to do to use recovery mode is to add a single configuration setting to the config file of the task that failed indicating the node ID of the _first_ node created during the failed job and then rerun the same job using the updated configuration file:
 
 `recovery_mode_starting_from_node_id: 12678`
 
 In this example, the first node created during the `create` job that failed has a node ID of 12687.
 
-Essentially, in recovery mode, when you rerun the interrupted `create` task but prior to ingesting a node, Workbench queries the CSV ID to node ID map for every row in the input CSV file. If it finds an entry in the map (using the row's "id" value) it skips the input CSV row; if it doesn't find a row's ID in the map, it creates the node as usual. This works for input CSV where each row will produce one node, for compound items where the parent and all child items have their own rows and are linked via `parent_id` values, and for paged content created from directories.
+!!! note
+    The first node ID in the failed job can be found in the first entry in your Workbench log.
 
-The node ID of the first node created during the successful part of the task tells Workbench to perform its queries for CSV IDs starting at that node ID. Otherwise, an older duplicate CSV ID in the map would prevent Workbench from reliably querying for that ID. The first node ID in the failed job can be found in your Workbench log.
+When running in recovery mode, for each row in the input CSV, Workbench queries the CSV ID to node ID map using the row's "id" value. If it finds an entry in the map (because the node has already been created) it skips that row; if it doesn't find a row's ID in the map (because that item's entry in the map doesn't exist yet), it creates the node as usual using data in the CSV row. This works for input CSV where each row will produce one node, for compound items where the parent and all child items have their own rows and are linked via `parent_id` values, and for paged content created from directories. Because recovery mode is based on the existence of an item's entry in the CSV ID to node ID map, the same job can be interrupted and resumed multiple times until all the rows in the input CSV have corresponding entries in the map.
+
+The node ID of the first node created during the successful part of the task, specified in the `recovery_mode_starting_from_node_id` configuration setting, tells Workbench  to filter out of its query against the map rows that may have older duplicate CSV IDs in the map. This filter eliminates entries for nodes with lower node IDs, created during previous, unrelated `create` tasks.
 
 To summarize, to use recovery mode, you do not need to remove rows from the input CSV, remove files from paged content directories, or modify your input data in any other way. All you need to do is provide the node ID of the first node in the interrupted job using the `recovery_mode_starting_from_node_id` config setting.
 
