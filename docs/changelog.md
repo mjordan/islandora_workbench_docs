@@ -14,6 +14,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* February 15, 2025: Added documentation on ingesting large files, mainly pointing to [Islandora's documentation](https://islandora.github.io/documentation/user-documentation/uploading-large-files/) on this topic.
 * February 14, 2025: Moved change log entries up to the end of 2024 into their [own page](/islandora_workbench_docs/changelog_up_to_2024/).
 * February 10, 2025: Added "[Recovering from interrupted create tasks](/islandora_workbench_docs/recovery_mode/)" and updated associated other pages; moved "[The CSV ID to node ID map](/islandora_workbench_docs/csv_id_to_node_id_map/)" from "[Generating CSV Files](/islandora_workbench_docs/generating_csv_files/)" into its own page.
 * February 7, 2025: Fixed the broken "Note" on the section on using [Paragraph fields](/islandora_workbench_docs/fields/#paragraphs-entity-reference-revisions-fields).

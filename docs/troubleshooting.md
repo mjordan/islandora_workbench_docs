@@ -58,6 +58,11 @@ This is probably caused by unexpected data in your CSV file that Workbench's `--
 
 One of the most common causes of this error is that one or more of the vocabularies being populated in your `create` task CSV contain required fields other than the default term name. It is possible to have Workbench create these fields, but you must do so as a separate `create_terms` task. See "[Creating taxonomy terms](/islandora_workbench_docs/creating_taxonomy_terms)" for more information.
 
+### I can't upload large files
+
+The maximum size of a file that can be ingested by Workbench is determined by configuration settings in PHP, Drupal and Fedora. THe settings that need to be adjusted are documented in the [Islandora documentation](https://islandora.github.io/documentation/user-documentation/uploading-large-files/). That documentation drew on the experience of Workbench users as shared in [this Github issue](https://github.com/mjordan/islandora_workbench/issues/353). If you need additional assistance configuring your server to ingest large files, ask for help on the Islandora Slack.
+
+
 ### Workbench is crashing and telling me there are problems with SSL certificates.
 
 To determine if this issue is specific to Workbench, from the same computer Workbench is running on, try hitting your Drupal server (or server your remote files are on) with `curl`. If `curl` also complains about SSL certificates, the problem lies in the SSL/HTTPS configuration on the server. An example `curl` command is `curl https://wwww.lib.sfu.ca`.

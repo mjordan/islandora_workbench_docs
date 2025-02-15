@@ -43,6 +43,7 @@ Things to note about `file` values in general:
 * If you want do not want to create media for any of the rows in your CSV file, include `nodes_only: true` in your configuration file. More detail [is available](/islandora_workbench_docs/nodes_only/).
 * `file` values that contain non-ASCII characters are normalized to their ASCII equivalents. See [this issue](https://github.com/mjordan/islandora_workbench/issues/192) for more information.
 * The Drupal filesystem where files are stored is determined by each media type's file field configuration. It is not possible to override that configuration.
+* The maximum size of files that Workbench can ingest is determined by configuration settings on the Drupal server. [More information](/islandora_workbench_docs/preparing_data/#preparing-to-ingest-large-files) on  adjusting these settings is available.
 
 Things to note about URLs as `file` values:
 

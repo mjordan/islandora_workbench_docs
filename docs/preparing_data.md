@@ -402,6 +402,10 @@ Workbench will validate CSV values and skip values that fail its validation test
 
 By default, if the `file` value for a row is empty, Workbench's `--check` option will show an error. But, in some cases you may want to create nodes but not add any media. If you add `allow_missing_files: true` to your config file for "create" tasks, you can leave the `file` column in your CSV empty.
 
+## Preparing to ingest large files
+
+The maximum size of a file that can be ingested by Workbench is determined by server-side configuration settings in PHP, Drupal and Fedora. The settings that need to be adjusted are documented in the [Islandora documentation](https://islandora.github.io/documentation/user-documentation/uploading-large-files/). That documentation drew on the experience of Workbench users as shared in [this Github issue](https://github.com/mjordan/islandora_workbench/issues/353). If you need additional assistance configuring your server to ingest large files, ask for help on the Islandora Slack.
+
 ## Creating nodes but not media
 
 If you want to only create nodes and not media, you can do so by including `nodes_only: true` in your configuration file. More detail [is available](/islandora_workbench_docs/nodes_only/).
