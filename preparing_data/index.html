@@ -433,6 +433,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#preparing-to-ingest-large-files" class="md-nav__link">
+    Preparing to ingest large files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#creating-nodes-but-not-media" class="md-nav__link">
     Creating nodes but not media
   </a>
@@ -1183,6 +1190,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#preparing-to-ingest-large-files" class="md-nav__link">
+    Preparing to ingest large files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#creating-nodes-but-not-media" class="md-nav__link">
     Creating nodes but not media
   </a>
@@ -1518,6 +1532,8 @@ excel_worksheet: Second sheet
 <p>Workbench will validate CSV values and skip values that fail its validation tests. Work is <a href="https://github.com/mjordan/islandora_workbench/issues/424">underway</a> to complete this feature, including skipping of invalid entity reference and typed relation fields.</p>
 <h2 id="blank-or-missing-file-values">Blank or missing "file" values</h2>
 <p>By default, if the <code>file</code> value for a row is empty, Workbench's <code>--check</code> option will show an error. But, in some cases you may want to create nodes but not add any media. If you add <code>allow_missing_files: true</code> to your config file for "create" tasks, you can leave the <code>file</code> column in your CSV empty.</p>
+<h2 id="preparing-to-ingest-large-files">Preparing to ingest large files</h2>
+<p>The maximum size of a file that can be ingested by Workbench is determined by configuration settings in PHP, Drupal and Fedora. THe settings that need to be adjusted are documented in the <a href="https://islandora.github.io/documentation/user-documentation/uploading-large-files/">Islandora documentation</a>. That documentation drew on the experience of Workbench users as shared in <a href="https://github.com/mjordan/islandora_workbench/issues/353">this Github issue</a>. If you need additional assistance configuring your server to ingest large files, ask for help on the Islandora Slack.</p>
 <h2 id="creating-nodes-but-not-media">Creating nodes but not media</h2>
 <p>If you want to only create nodes and not media, you can do so by including <code>nodes_only: true</code> in your configuration file. More detail <a href="/islandora_workbench_docs/nodes_only/">is available</a>.</p>
 <h2 id="encoding-of-text-files">Encoding of text files</h2>
