@@ -42,7 +42,7 @@ id,file,title,field_model,field_description
 
 ## Using CSV row ranges
 
-The `csv_start_row` and `csv_stop_row` configuration settings allow you to tell Workbench to only process a specific subset of input CSV records. Both settings are optional and can be used in any task, and apply when using text CSV, Google Sheets, or Excel input files. Each setting takes as its value a row number (ignoring the header row). For example, row number 2 is the second row of data after the CSV header row. Below are some example configurations.
+In `create` and `update` tasks, you can use the `csv_start_row` and `csv_stop_row` configuration settings to tell Workbench to only process a specific subset of input CSV records. These settings apply when using text CSV, Google Sheets, or Excel input files. Each setting takes as its value a row number (ignoring the header row). For example, row number 2 is the second row of data after the CSV header row. Below are some example configurations.
 
 Process CSV rows 10 to the end of the CSV file (ignoring rows 1-9):
 
