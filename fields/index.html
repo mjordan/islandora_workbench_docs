@@ -1574,13 +1574,13 @@ If you are using a spreadsheet application, it will take care of wrapping the CS
 <li>If you want do not want to create media for any of the rows in your CSV file, include <code>nodes_only: true</code> in your configuration file. More detail <a href="/islandora_workbench_docs/nodes_only/">is available</a>.</li>
 <li><code>file</code> values that contain non-ASCII characters are normalized to their ASCII equivalents. See <a href="https://github.com/mjordan/islandora_workbench/issues/192">this issue</a> for more information.</li>
 <li>The Drupal filesystem where files are stored is determined by each media type's file field configuration. It is not possible to override that configuration.</li>
+<li>The maximum size of files that Workbench can ingest is determined by configuration settings on the Drupal server. <a href="/islandora_workbench_docs/preparing_data/#preparing-to-ingest-large-files">More information</a> on  adjusting these settings is available.</li>
 </ul>
 <p>Things to note about URLs as <code>file</code> values:</p>
 <ul>
 <li>Workbench downloads files identified by URLs and saves them in the directory named in <code>temp_dir</code> before processing them further; within this directory, each file is saved in a subdirectory named after the value in the row's <code>id_field</code> field. It does not delete the files from these locations after they have been ingested into Islandora unless the <code>delete_tmp_upload</code> configuration option is set to <code>true</code>.</li>
 <li>Files identified by URLs must be accessible to the Workbench script, which means they must not require a username/password; however, they can be protected by a firewall, etc. as long as the computer running Workbench is allowed to retrieve the files without authenticating.</li>
 <li>Currently Workbench requires that the URLs point directly to a file or a service that generates a file, and not a wrapper page or other indirect route to the file.</li>
-<li>The maximum size of files that Workbench can ingest is determined by configuration settings on the Drupal server. <a href="/islandora_workbench_docs/preparing_data/#preparing-to-ingest-large-files">More information</a> on  adjusting these settings is available.</li>
 </ul>
 <h2 id="required-columns">Required columns</h2>
 <p>A small number of columns are required in your CSV, depending on the task you are performing:</p>
