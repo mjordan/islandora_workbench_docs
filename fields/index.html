@@ -570,12 +570,18 @@
     Paragraphs (Entity Reference Revisions fields)
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Paragraphs (Entity Reference Revisions fields)">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#using-paragraph-fields-in-create_terms-and-update_terms-tasks" class="md-nav__link">
     Using Paragraph fields in create_terms and update_terms tasks
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1447,12 +1453,18 @@
     Paragraphs (Entity Reference Revisions fields)
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Paragraphs (Entity Reference Revisions fields)">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#using-paragraph-fields-in-create_terms-and-update_terms-tasks" class="md-nav__link">
     Using Paragraph fields in create_terms and update_terms tasks
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2131,8 +2143,8 @@ My Title: A Subtitle|Alternate Title
 <p>Note that Workbench assumes all fields within a paragraph are single-valued. See <a href="https://github.com/mjordan/islandora_workbench/issues/887">this Github issue</a> for updates.</p>
 </div>
 <p>When using Workbench to update paragraphs using <code>update_mode: replace</code>, any null values for fields within the paragraph (such as the null subtitle in the second "Alternate Title" instance in the example) will null out existing field values. However, considering each paragraph as a whole field value, Workbench behaves the same as for all other fields - <code>update_mode: replace</code> will replace all paragraph entities with the ones in the CSV, but if the CSV does not contain any values for this field then the field will be left as is.</p>
-<h4 id="using-paragraph-fields-in-create_terms-and-update_terms-tasks">Using Paragraph fields in <code>create_terms</code> and <code>update_terms</code> tasks</h4>
-<p>Using Paragraphs in <code>create_terms</code> and <code>update_terms</code> tasks works the same way as it does in <code>create</code> and <code>update</code> tasks, with one exception: whereas the the above configuration snippet that defines the fields and their order indicates the <code>node</code> entity type in the second line of the snippet, in when creating or updating terms, the entity type should be <code>taxonomy_term</code>, like this:</p>
+<h5 id="using-paragraph-fields-in-create_terms-and-update_terms-tasks">Using Paragraph fields in <code>create_terms</code> and <code>update_terms</code> tasks</h5>
+<p>Using Paragraphs in <code>create_terms</code> and <code>update_terms</code> tasks works the same way as it does in <code>create</code> and <code>update</code> tasks, with one exception: whereas the the above configuration snippet that defines the fields and their order indicates the <code>node</code> entity type in the second line of the snippet, in configurations for creating or updating terms, the entity type should be <code>taxonomy_term</code>, like this:</p>
 <pre><code class="language-yml">paragraph_fields:
   taxonomy_term:
     field_related_person_paragraph:
