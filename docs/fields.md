@@ -645,9 +645,26 @@ paragraph_fields:
 This configuration defines the paragraph field on the node (`field_full_title`) and its child fields (`field_main_title` and `field_subtitle`), which occur within the paragraph in the order they are named in the `field_order` property. Within the data in the CSV column, the values corresponding to the order of those fields are separated by the character defined in the `field_delimiter` property. `subdelimiter` here is the same as the `subdelimiter` configuration setting used in non-paragraph multi-valued fields; in this example it overrides the default or globally configured value. We use a colon for the field delimiter in this example as it is often used in titles to denote subtitles. Note that in the above example, the space before "A" in the subtitle will be preserved. Whether or not you want a space there in your data will depend on how you display the Full Title field.
 
 !!! warning
-    Note that Workbench assumes all fields within a paragraph are single-valued.
+    Note that Workbench assumes all fields within a paragraph are single-valued. See [this Github issue](https://github.com/mjordan/islandora_workbench/issues/887) for updates.
 
 When using Workbench to update paragraphs using `update_mode: replace`, any null values for fields within the paragraph (such as the null subtitle in the second "Alternate Title" instance in the example) will null out existing field values. However, considering each paragraph as a whole field value, Workbench behaves the same as for all other fields - `update_mode: replace` will replace all paragraph entities with the ones in the CSV, but if the CSV does not contain any values for this field then the field will be left as is.
+
+
+##### Using Paragraph fields in `create_terms` and `update_terms` tasks
+
+Using Paragraphs in `create_terms` and `update_terms` tasks works the same way as it does in `create` and `update` tasks, with one exception: whereas the the above configuration snippet that defines the fields and their order indicates the `node` entity type in the second line of the snippet, in configurations for creating or updating terms, the entity type should be `taxonomy_term`, like this:
+
+```yml
+paragraph_fields:
+  taxonomy_term:
+    field_related_person_paragraph:
+      type: related_person_bundle
+      field_order:
+        - field_related_person
+        - field_related_person_note
+      field_delimiter: '^'
+      subdelimiter: '|'
+```
 
 
 ## Values in the "field_member_of" column

@@ -29,6 +29,10 @@ Only taxonomy reference fields that use the "Default" reference type are current
 
 Note that Workbench will not validate values in fields that are configured to use this type of reference. Also, term IDs that are not in the View results will result in the node not being created (Drupal will return a 422 response).
 
+## Workbench doesn't support multivalued Paragraph fields.
+
+Currently, Workbench assumes that all fields defined within [Paragraphs](/islandora_workbench_docs/fields/#paragraphs-entity-reference-revisions-fields) are single-valued. Please see this [Github issue](https://github.com/mjordan/islandora_workbench/issues/887) for updates.
+
 ## Setting destination filesystem for media is not possible
 
 Drupal's REST interface for file fields does not allow overriding the "upload destination" (filesystem) that is defined in a media type's file field configuration. For example, if a file field is configured to use the "Flysystem: fedora" upload destination, you cannot tell Workbench to use the "Public Files" upload destination instead.
