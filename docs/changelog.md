@@ -2,6 +2,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* February 18, 2025: Resolved (commit 0eb524c) [issue 900](https://github.com/mjordan/islandora_workbench/issues/900) and (commit 850f7fd) [issue 901](https://github.com/mjordan/islandora_workbench/issues/901).
 * February 13, 2025: Resolved (commit 8de8951) [issue 886](https://github.com/mjordan/islandora_workbench/issues/886) and (commit 9da97fb) [issue 877](https://github.com/mjordan/islandora_workbench/issues/877).
 * February 7, 2025: Resolved (commit cb25ee9) [issue 872](https://github.com/mjordan/islandora_workbench/issues/872) and [issue 878](https://github.com/mjordan/islandora_workbench/issues/878).
 * February 3, 2025: Resolved (commit 57d9de1) [issue 883](https://github.com/mjordan/islandora_workbench/issues/883) and (commit 95eaef3) [issue 884](https://github.com/mjordan/islandora_workbench/issues/884).
@@ -14,6 +15,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* February 18, 2025: Updated docs on "[Processing specific CSV rows](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#processing-specific-csv-rows)".
 * February 16, 2025: Updated docs on [using Paragraph fields](/islandora_workbench_docs/fields/#using-paragraph-fields-in-create_terms-and-update_terms-tasks) in `create_terms` and `update_terms` tasks. Thanks @dara2!
 * February 15, 2025: Added documentation on ingesting large files, mainly pointing to [Islandora's documentation](https://islandora.github.io/documentation/user-documentation/uploading-large-files/) on this topic; updated "[Using CSV row ranges](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges)" to clarify that `csv_start_row` and `csv_stop_row` only apply to `create` and `update` tasks.
 * February 14, 2025: Moved change log entries up to the end of 2024 into their [own page](/islandora_workbench_docs/changelog_up_to_2024/).
