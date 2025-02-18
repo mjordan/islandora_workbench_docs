@@ -1138,6 +1138,18 @@ csv_stop_row: 100
 <p>You can tell Workbench to process only specific rows in your CSV file (or, looked at from another perspective, to ignore all rows other than the specified ones). To do this, add the <code>csv_rows_to_process</code> setting to your config file with a list of "id" column values, e.g.:</p>
 <p><code>csv_rows_to_process: ["test_001", "test_007", "test_103"]</code></p>
 <p>This will tell Workbench to process only the CSV rows that have those values in their "id" column. This works with whatever you have configured as your "id" column header using the <code>id_field</code> configuration setting.</p>
+<p><code>csv_rows_to_process</code> also accepts a filename or path. This file should contain one ID value per line and does not need a column heading. For example, the following will work:</p>
+<p><code>csv_rows_to_process: rows_to_test.txt</code></p>
+<p>The "rows_to_test.txt" file looks like this:</p>
+<pre><code>113177
+113178
+113179
+113180
+113181
+113219
+113220
+113221
+</code></pre>
 <h2 id="processing-or-ignoring-rows-based-on-field-values">Processing or ignoring rows based on field values</h2>
 <p>Workbench provides a simple mechanism to filter rows in your input CSV. For example, you can tell it to process only CSV rows that have a <code>field_model</code> of "Image", or fields that have a <code>field_model</code> of either "Image" or "Digital document". This is done using the <code>csv_row_filters</code> config setting, which defines a set of filters that are applied to your CSV at runtime.</p>
 <p>There are two types of filters, <code>is</code> and <code>isnot</code>. Here is an example configuration using an <code>is</code> filter to reduce the input CSV to only rows that have a <code>field_model</code> of "Image":</p>
