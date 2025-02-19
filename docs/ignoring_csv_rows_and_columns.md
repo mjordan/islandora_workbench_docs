@@ -1,7 +1,8 @@
-## Commenting out CSV rows
 
 !!! note
     The settings documented on this page apply only to `create` and `updat` tasks. Please see [this Github issue](https://github.com/mjordan/islandora_workbench/issues/895) for updates.
+
+## Commenting out CSV rows
 
 You can comment out rows in your input CSV, Excel file, or Google Sheet by adding a hash mark (`#`) as the first character of the value in the first column. Workbench ignores these rows, both when it is run with and without `--check`. Commenting out rows works in all tasks that use CSV data.
 
