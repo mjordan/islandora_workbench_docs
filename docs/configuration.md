@@ -232,6 +232,11 @@ See the "[Logging](/islandora_workbench_docs/logging/)" section for more informa
 | enable_http_cache |  | true | Whether or not to enable Workbench's client-side request cache. Set to `false` if you want to disable the cache during troubleshooting, etc. |
 | http_cache_storage |  | memory | The backend storage type for the client-side cache. Set to `sqlite` if you are getting out of memory errors while running Islandora Workbench. |
 | http_cache_storage_expire_after |  | 1200 | Length of the client-side cache lifespan (in seconds). Reduce this number if you are using the `sqlite` storage backend and the database is using too much disk space. Note that reducing the cache lifespan will result in increased load on your Drupal server. |
+| http_backoff_factor |  | 1 | Number of seconds that the HTTP retry mechanism uses to determine how long to pause between retries. See "[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/#http-retries)" for more information. |
+| http_max_retries |  | 3 | Number of times to retry a request. See "[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/#http-retries)" for more information. |
+| http_retry_on_status_codes |  | [500, 502, 503, 504] | List of HTTP response status codes to retry for. You should not normally change this setting. See "[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/#http-retries)" for more information. |
+| http_retry_allowed_methods |  | ["HEAD", "GET", "POST", "PUT", "PATCH", "DELETE"] | List of HTTP request methods to retry for. You should not normally change this setting. See "[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/#http-retries)" for more information. |
+
 
 ### Rollback configuration and CSV file settings
 
