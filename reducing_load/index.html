@@ -1169,7 +1169,7 @@ adaptive_pause_threshold: 2.5
 <pre><code class="language-yaml">enable_http_cache: false
 </code></pre>
 <h3 id="http-retries">HTTP retries</h3>
-<p>Workbench retries failed HTTP requests 3 times (by default). These retries are invisible and automatic, but if you find that the default values for the retry configuration are putting a burden on Drupal, you can configure the retry mechanism using the setting below, at the risk of increasing the probability that Workbench might encounter a fatal exception or time out:</p>
+<p>Workbench retries failed HTTP requests of the "the server failed to fulfil an apparently valid request" variety. These retries are invisible and automatic, but if you find that the default values for the retry configuration are putting a burden on Drupal, you can configure the retry mechanism using the setting below, at the risk of increasing the probability that Workbench might encounter a fatal exception or time out:</p>
 <ul>
 <li><code>http_backoff_factor</code>: Default is 1, which is the number of seconds between retries; increasing this value will likely reduce load on your Drupal server.</li>
 <li><code>http_max_retries</code>: Default is 3 retries; lowering it to 2 or 1 might reduce load on your Drupal server.</li>
