@@ -895,16 +895,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#changing-default-behavior-of-how-workbench-interacts-with-drupal" class="md-nav__link">
+    Changing default behavior of how Workbench interacts with Drupal
+  </a>
+  
+    <nav class="md-nav" aria-label="Changing default behavior of how Workbench interacts with Drupal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#caching" class="md-nav__link">
     Caching
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#http-retries" class="md-nav__link">
     HTTP retries
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1087,16 +1100,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#changing-default-behavior-of-how-workbench-interacts-with-drupal" class="md-nav__link">
+    Changing default behavior of how Workbench interacts with Drupal
+  </a>
+  
+    <nav class="md-nav" aria-label="Changing default behavior of how Workbench interacts with Drupal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#caching" class="md-nav__link">
     Caching
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#http-retries" class="md-nav__link">
     HTTP retries
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1127,13 +1153,8 @@
 <p class="admonition-title">Note</p>
 <p>The options described below modify Workbench's interaction with Drupal. They do not have a direct impact on the load experienced by the microservices Islandora uses to do things like indexing node metadata in its triplestore, extracting full text for indexing, and generating thumbnails. However, since Drupal is the "controller" for these microservices, reducing the number of Workbench requests to Drupal will also indirectly reduce the load experienced by Islandora's microservices.</p>
 </div>
-<p>Workbench provides two ways to reduce this stress:</p>
-<ul>
-<li>pausing between Workbench's requests to Drupal, and</li>
-<li>caching Workbench's requests to Drupal.</li>
-</ul>
-<p>The first way to reduce stress on Drupal is by telling Workbench to pause between each request it makes. There are two types of pausing, 1) basic and 2) adaptive. Both types of pausing improve stability and reliability by slowing down Workbench's overall execution time.</p>
 <h3 id="pausing">Pausing</h3>
+<p>The main way to use Workbench's configuration to reduce load on Drupal is telling it to pause at specific times. There are two types of pausing, 1) basic and 2) adaptive. Both types of pausing improve stability and reliability by slowing down Workbench's overall execution time.</p>
 <h4 id="basic-pause">Basic pause</h4>
 <p>The <code>pause</code> configuration setting tells Workbench to temporarily halt execution before every request, thereby spreading load caused by the requests over a longer period of time. To enable <code>pause</code>, include the setting in your configuration file, indicating the number of seconds to wait between requests:</p>
 <pre><code class="language-yaml">pause: 2
@@ -1159,22 +1180,26 @@ adaptive_pause_threshold: 2.5
 </code></pre>
 <p>doesn't do anything because <code>adaptive_pause</code> has no value. In other words, you can use <code>adaptive_pause</code> on its own, or you can use <code>adaptive_pause</code> and <code>adaptive_pause_threshold</code> together, but it's pointless to use <code>adaptive_pause_threshold</code> on its own.</p>
 <h4 id="logging-drupals-response-time">Logging Drupal's response time</h4>
-<p>If a request if paused by adaptive pausing, Workbench will automatically log the response time for the next request, indicating that <code>adaptive_pause</code> has temporarily halted execution. If you want to log Drupal's response time regardless of whether <code>adaptive_pause</code> had kicked in or not, add <code>log_response_time: true</code> to your configuration file. All logging of response time includes variation from the average of the last 20 response times.</p>
+<p>If a request is paused by adaptive pausing, Workbench will automatically log the response time for the next request, indicating that <code>adaptive_pause</code> has temporarily halted execution.</p>
+<p>You may want to log Drupal's response time regardless of whether <code>adaptive_pause</code> had kicked in or not to aid in troubleshootinn. To do this, add <code>log_response_time: true</code> to your configuration file. All logging of response time, whether logged during adaptive pause or because you have specified response time logging in your config file, includes variation from the average of the last 20 response times.</p>
 <h3 id="ingesting-pregenerated-derivatives">Ingesting pregenerated derivatives</h3>
+<p>The strategy for reducing load on Drupal described in this section is not implemented directly via Workbench configuration, but applies to content-preparartion workflows.</p>
 <p>Islandora's system for generating <a href="https://islandora.github.io/documentation/concepts/derivatives/">derivatives</a> uses Drupal Actions to communicate with microservices such as Crayfits, Homarus and Hypercube. Even though these microservices typically run in their own Docker containers, they can get overwhelmed and result in failed derivative creation. Sometimes the load on these microservices manifests itself as load on the Drupal server, sometimes it doesn't. At a minimum, the Action that initiates Drupal's communication with the microservices will add additional load.</p>
 <p>A strategy for reducing the use of derivative-generating microservices is to ingest the derivatives (OCR/hOCR, thumbnails, FITS XML, etc.) along with the original file. Workbench can do this in two main ways, 1) through the use of the <code>additional_files</code> configuration setting (docs <a href="/islandora_workbench_docs/adding_multiple_media/">here</a>) and, when 2) ingesting paged content, ingesting pregenerated OCR and hOCR (docs <a href="/islandora_workbench_docs/paged_and_compound/#ingesting-ocr-and-other-files-with-page-images">here</a>).</p>
-<h3 id="caching">Caching</h3>
-<p>The second way that Workbench reduces stress on Drupal is by caching its outbound HTTP requests, thereby reducing the overall number of requests. This caching both reduces the load on Drupal and speeds up Workbench considerably.</p>
+<h3 id="changing-default-behavior-of-how-workbench-interacts-with-drupal">Changing default behavior of how Workbench interacts with Drupal</h3>
+<p>Islandora Workbench is basically a command-line REST client for Drupal. In order to improve performance and stability, it implements HTTP request caching and HTTP request retries. While both of these mechanisms are configurable, changing their defaults is not the preferred way to reduce Workbench's load on Drupal. Before changing their defaults, you should exhaust the possibilities of pausing and ingesting pregenerated derivatives as described above.</p>
+<h4 id="caching">Caching</h4>
+<p>Caching outbound HTTP requests minimizes Workbench's overall number of requests to Drupal. This caching reduces the load on Drupal and speeds up Workbench considerably.</p>
 <p>By default, this caching is enabled for requests that Workbench makes more than once and that are expected to have the same response each time, such as requests for field configurations or for checks for the existence of taxonomy terms. Note that you should not normally have to disable this caching, but if you do (for example, if you are asked to during troubleshooting), you can do so by including the following setting in your configuration file:</p>
 <pre><code class="language-yaml">enable_http_cache: false
 </code></pre>
-<h3 id="http-retries">HTTP retries</h3>
-<p>Workbench retries failed HTTP requests of the "the server failed to fulfil an apparently valid request" variety (response status codes 5xx). These retries are invisible and automatic, but if you suspect that the default values for the retry configuration are putting a burden on Drupal, you can configure the retry mechanism using the settings below, at the risk of increasing the probability that Workbench might encounter a fatal exception or time out:</p>
+<h4 id="http-retries">HTTP retries</h4>
+<p>Workbench retries failed HTTP requests of the "server failed to fulfil an apparently valid request" variety (response status codes 5xx). These retries are invisible and automatic, but if you suspect that the default values for the retry configuration are putting a burden on Drupal, you can configure the retry mechanism using the settings below, at the risk of increasing the probability that Workbench might encounter a fatal exception or time out:</p>
 <ul>
-<li><code>http_backoff_factor</code>: Default is <code>1</code>, which is the number of seconds between retries; increasing this value will likely reduce load on your Drupal server.</li>
-<li><code>http_max_retries</code>: Default is <code>3</code>; lowering it to 2 or 1 retries might reduce load on your Drupal server. Set to 0 to disable retries.</li>
-<li><code>http_retry_on_status_codes</code>: Default is <code>[500, 502, 503, 504]</code>; removing one or more of these status code will not likely reduce load on your Drupal server.</li>
-<li><code>http_retry_allowed_methods</code>: Default is <code>["HEAD", "GET", "POST", "PUT", "PATCH", "DELETE"]</code>; removing one or more of these HTTP methods will not likely reduce load on your Drupal server.</li>
+<li><code>http_max_retries</code>: Default is <code>3</code>; lowering it to 2 or 1 retries might reduce load on your Drupal server, depending on how often retries are necessary. Set to 0 to disable retries.</li>
+<li><code>http_backoff_factor</code>: Default is <code>1</code>, which is (basically) the number of seconds between retries; increasing this value will likely reduce load on your Drupal server.</li>
+<li><code>http_retry_on_status_codes</code>: Default is <code>[500, 502, 503, 504]</code>; removing one or more of these status code will not likely reduce load on your Drupal server. You probably don't need to change this setting.</li>
+<li><code>http_retry_allowed_methods</code>: Default is <code>["HEAD", "GET", "POST", "PUT", "PATCH", "DELETE"]</code>; removing one or more of these HTTP methods will not likely reduce load on your Drupal server. You probably don't need to change this setting.</li>
 </ul>
 <p>The only settings that may result in any appreciable reduction in load on your Drupal server are <code>http_backoff_factor</code> and <code>http_max_retries</code>. Generally speaking, however, changing the settings controlling HTTP request retries is not a recommended strategy for reducing load on your Web server.</p>
 

@@ -2216,16 +2216,16 @@ csv_field_templates:
 <td>Length of the client-side cache lifespan (in seconds). Reduce this number if you are using the <code>sqlite</code> storage backend and the database is using too much disk space. Note that reducing the cache lifespan will result in increased load on your Drupal server.</td>
 </tr>
 <tr>
-<td>http_backoff_factor</td>
-<td></td>
-<td>1</td>
-<td>Number of seconds that the HTTP retry mechanism uses to determine how long to pause between retries. See "<a href="/islandora_workbench_docs/reducing_load/#http-retries">Reducing Workbench's impact on Drupal</a>" for more information.</td>
-</tr>
-<tr>
 <td>http_max_retries</td>
 <td></td>
 <td>3</td>
 <td>Number of times to retry a request. Set to 0 to disable retries. See "<a href="/islandora_workbench_docs/reducing_load/#http-retries">Reducing Workbench's impact on Drupal</a>" for more information.</td>
+</tr>
+<tr>
+<td>http_backoff_factor</td>
+<td></td>
+<td>1</td>
+<td>Number of seconds that the HTTP retry mechanism uses to determine how long to pause between retries. See "<a href="/islandora_workbench_docs/reducing_load/#http-retries">Reducing Workbench's impact on Drupal</a>" for more information.</td>
 </tr>
 <tr>
 <td>http_retry_on_status_codes</td>
