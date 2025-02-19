@@ -79,7 +79,7 @@ enable_http_cache: false
 Workbench retries failed HTTP requests of the "the server failed to fulfil an apparently valid request" variety (response status codes 5xx). These retries are invisible and automatic, but if you suspect that the default values for the retry configuration are putting a burden on Drupal, you can configure the retry mechanism using the settings below, at the risk of increasing the probability that Workbench might encounter a fatal exception or time out. Generally speaking, however, changing the settings controlling HTTP request retries are not a practical candidate for reducing load on your Web server.
 
 - `http_backoff_factor`: Default is 1, which is the number of seconds between retries; increasing this value will likely reduce load on your Drupal server.
-- `http_max_retries`: Default is 3 retries; lowering it to 2 or 1 might reduce load on your Drupal server.
+- `http_max_retries`: Default is 3 retries; lowering it to 2 or 1 might reduce load on your Drupal server. Set to 0 to disable retries.
 - `http_retry_on_status_codes`: Default is `[500, 502, 503, 504]`; removing one or more of these status code will not likely reduce load on your Drupal server.
 - `http_retry_allowed_methods`: Default is `["HEAD", "GET", "POST", "PUT", "PATCH", "DELETE"]`; removing one or more of these HTTP methods will not likely reduce load on your Drupal server.
 
