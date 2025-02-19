@@ -1169,14 +1169,14 @@ adaptive_pause_threshold: 2.5
 <pre><code class="language-yaml">enable_http_cache: false
 </code></pre>
 <h3 id="http-retries">HTTP retries</h3>
-<p>Workbench retries failed HTTP requests of the "the server failed to fulfil an apparently valid request" variety. These retries are invisible and automatic, but if you find that the default values for the retry configuration are putting a burden on Drupal, you can configure the retry mechanism using the setting below, at the risk of increasing the probability that Workbench might encounter a fatal exception or time out:</p>
+<p>Workbench retries failed HTTP requests of the "the server failed to fulfil an apparently valid request" variety (response status codes 5xx). These retries are invisible and automatic, but if you suspect that the default values for the retry configuration are putting a burden on Drupal, you can configure the retry mechanism using the settings below, at the risk of increasing the probability that Workbench might encounter a fatal exception or time out. Generally speaking, however, changing the settings controlling HTTP request retries are not a practical candidate for reducing load on your Web server.</p>
 <ul>
 <li><code>http_backoff_factor</code>: Default is 1, which is the number of seconds between retries; increasing this value will likely reduce load on your Drupal server.</li>
 <li><code>http_max_retries</code>: Default is 3 retries; lowering it to 2 or 1 might reduce load on your Drupal server.</li>
 <li><code>http_retry_on_status_codes</code>: Default is <code>[500, 502, 503, 504]</code>; removing one or more of these status code will not likely reduce load on your Drupal server.</li>
 <li><code>http_retry_allowed_methods</code>: Default is <code>["HEAD", "GET", "POST", "PUT", "PATCH", "DELETE"]</code>; removing one or more of these HTTP methods will not likely reduce load on your Drupal server.</li>
 </ul>
-<p>In practice, the only settings that will result in any appreciable reduction in load on your Drupal server and introduce minimal reduction is reliability are <code>http_backoff_factor</code> and <code>http_max_retries</code>.</p>
+<p>In practice, the only settings that will result in any appreciable reduction in load on your Drupal server while introducing minimal reduction is reliability are <code>http_backoff_factor</code> and <code>http_max_retries</code>.</p>
 
 
 
