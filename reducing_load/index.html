@@ -1176,7 +1176,7 @@ adaptive_pause_threshold: 2.5
 <li><code>http_retry_on_status_codes</code>: Default is <code>[500, 502, 503, 504]</code>; removing one or more of these status code will not likely reduce load on your Drupal server.</li>
 <li><code>http_retry_allowed_methods</code>: Default is <code>["HEAD", "GET", "POST", "PUT", "PATCH", "DELETE"]</code>; removing one or more of these HTTP methods will not likely reduce load on your Drupal server.</li>
 </ul>
-<p>The only settings that may result in any appreciable reduction in load on your Drupal server are <code>http_backoff_factor</code> and <code>http_max_retries</code>. Generally speaking, however, changing the settings controlling HTTP request retries are not a practical candidate for reducing load on your Web server.</p>
+<p>The only settings that may result in any appreciable reduction in load on your Drupal server are <code>http_backoff_factor</code> and <code>http_max_retries</code>. Generally speaking, however, changing the settings controlling HTTP request retries is not a recommended strategy for reducing load on your Web server.</p>
 
 
 
