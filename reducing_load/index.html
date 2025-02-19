@@ -901,6 +901,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#http-retries" class="md-nav__link">
+    HTTP retries
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1086,6 +1093,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#http-retries" class="md-nav__link">
+    HTTP retries
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1154,6 +1168,15 @@ adaptive_pause_threshold: 2.5
 <p>By default, this caching is enabled for requests that Workbench makes more than once and that are expected to have the same response each time, such as requests for field configurations or for checks for the existence of taxonomy terms. Note that you should not normally have to disable this caching, but if you do (for example, if you are asked to during troubleshooting), you can do so by including the following setting in your configuration file:</p>
 <pre><code class="language-yaml">enable_http_cache: false
 </code></pre>
+<h3 id="http-retries">HTTP retries</h3>
+<p>Workbench retries failed HTTP requests 3 times (by default). These retries are invisible and automatic, but if you find that the default values for the retry configuration are putting a burden on Drupal, you can configure the retry mechanism using the setting below, at the risk of increasing the probability that Workbench might encounter a fatal exception or time out:</p>
+<ul>
+<li><code>http_backoff_factor</code>: Default is 1, which is the number of seconds between retries; increasing this value will likely reduce load on your Drupal server.</li>
+<li><code>http_max_retries</code>: Default is 3 retries; lowering it to 2 or 1 might reduce load on your Drupal server.</li>
+<li><code>http_retry_on_status_codes</code>: Default is <code>[500, 502, 503, 504]</code>; removing one or more of these status code will not likely reduce load on your Drupal server.</li>
+<li><code>http_retry_allowed_methods</code>: Default is <code>["HEAD", "GET", "POST", "PUT", "PATCH", "DELETE"]</code>; removing one or more of these HTTP methods will not likely reduce load on your Drupal server.</li>
+</ul>
+<p>In practice, the only settings that will result in any appreciable reduction in load on your Drupal server and introduce minimal reduction is reliability are <code>http_backoff_factor</code> and <code>http_max_retries</code>.</p>
 
 
 
