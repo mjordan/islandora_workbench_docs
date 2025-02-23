@@ -73,9 +73,9 @@ csv_stop_row: 100
 ```
 
 !!! note
-    When the `csv_start_row` or `csv_stop_row` options are in use, Workbench will display a message similar to the following when run:
+    When the `csv_start_row` or `csv_stop_row` options are in use, Workbench will display a message similar to the following when run indicating the row number and the value from its ID field:
 
-    `Using a subset of the input CSV (will start at row 10, stop at row 15).`
+    `Using a subset of the input CSV (will start at row 10 / row ID scm_4587, stop at row 15 / row ID 4976).`
 
 
 ## Processing specific CSV rows
