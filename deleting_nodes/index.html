@@ -1004,6 +1004,7 @@ input_csv: delete.csv
 </div>
 <p>If you want the user to be presented with "You are about to delete [number] nodes and their attached media. Continue? (y/n)" (where <code>[number]</code> is the number of node IDs in the input file), add the following to your <code>delete</code> task configuration file:</p>
 <p><code>prompt_user_before_delete_task: true</code></p>
+<p>If they answer "y", Workbench will proceed; if they answer anything else, Workbench will exit.</p>
 
 
 
