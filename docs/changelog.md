@@ -2,6 +2,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* February 24, 2025: Resolved (commit aecb50e) [issue 894](https://github.com/mjordan/islandora_workbench/issues/894) and (comit 73bd6ba) [issue 902](https://github.com/mjordan/islandora_workbench/issues/902).
 * February 23, 2025: Resolved (commit 8f7f03d) [issue 899](https://github.com/mjordan/islandora_workbench/issues/899).
 * February 18, 2025: Resolved (commit 859fc16) [issue 896](https://github.com/mjordan/islandora_workbench/issues/896), (commit 0eb524c) [issue 900](https://github.com/mjordan/islandora_workbench/issues/900), and (commit 850f7fd) [issue 901](https://github.com/mjordan/islandora_workbench/issues/901).
 * February 13, 2025: Resolved (commit 8de8951) [issue 886](https://github.com/mjordan/islandora_workbench/issues/886) and (commit 9da97fb) [issue 877](https://github.com/mjordan/islandora_workbench/issues/877).
@@ -16,6 +17,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* February 24 2025: Updated docs on "[Deleting nodes](/islandora_workbench_docs/deleting_nodes/)".
 * February 23, 2025: Updated docs on "[Configuration](/islandora_workbench_docs/configuration/)" to include new `show_percentage_of_csv_input_processed` setting.
 * February 18, 2025: Updated docs on "[Processing specific CSV rows](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#processing-specific-csv-rows)"; updated "[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/)" and the [HTTP configuration settings](/islandora_workbench_docs/configuration/#http-settings).
 * February 16, 2025: Updated docs on [using Paragraph fields](/islandora_workbench_docs/fields/#using-paragraph-fields-in-create_terms-and-update_terms-tasks) in `create_terms` and `update_terms` tasks. Thanks @dara2!

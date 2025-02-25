@@ -31,3 +31,8 @@ Note that taxonomy terms created with new nodes are not removed when you delete 
 !!! note
     Drupal does not allow a user to delete or modify media files unless the user originally created (or is the owner) of the file. This means that if you created a media using "user1" in your Workbench configuration file, only "user1" can delete or modify those files. For `delete` tasks, the value of `username` will need to be the same as the username used to create the original media attached to nodes. If the username defined in a `delete` task is not the same as the Drupal user who owns the files, Drupal will return a `403` response, which you will see in your Workbench logs.
 
+If you want the user to be presented with "You are about to delete [number] nodes and their attached media. Continue? (y/n)" (where `[number]` is the number of node IDs in the input file), add the following to your `delete` task configuration file:
+
+`prompt_user_before_delete_task: true`
+
+If they answer "y", Workbench will proceed; if they answer anything else, Workbench will exit.
