@@ -1002,6 +1002,8 @@ input_csv: delete.csv
 <p class="admonition-title">Note</p>
 <p>Drupal does not allow a user to delete or modify media files unless the user originally created (or is the owner) of the file. This means that if you created a media using "user1" in your Workbench configuration file, only "user1" can delete or modify those files. For <code>delete</code> tasks, the value of <code>username</code> will need to be the same as the username used to create the original media attached to nodes. If the username defined in a <code>delete</code> task is not the same as the Drupal user who owns the files, Drupal will return a <code>403</code> response, which you will see in your Workbench logs.</p>
 </div>
+<p>If you want the user to be presented with "You are about to delete [number] nodes and their attached media. Continue? (y/n)" (where <code>[number]</code> is the number of node IDs in the input file), add the following to your <code>delete</code> task configuration file:</p>
+<p><code>prompt_user_before_delete_task: true</code></p>
 
 
 
