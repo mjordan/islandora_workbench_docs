@@ -94,7 +94,7 @@ I've been hacking content management in Islandora for a number of years, and was
 
 When Drupal 8 came along, I [did some work](https://github.com/mjordan/drupal_field_limit_tester/blob/master/test_results/results.md) to understand the scalability of its REST interface and started playing around with ingesting and modifying content via REST. As a frequent and often frustrated user of the various Islandora 7.x "batch" modules, which for very large ingests required SSH access to the Drupal server's shell, I realized that REST-based tools offered a lot of potential for content management at scale, in scripted envrionments, and in distributed workflows.
 
-The only existing way to perform batch content management in Drupal 8 was using its Migrate framework, which, while powerful, still required access to the Drupal server's shell. The Islandora community needed something more flexible than that and something that would empower a wider spectrum of users to manage content in their Islandora repositories than Migrate could.
+The only existing way to perform batch content management in Drupal 8 was using its [Migrate](https://www.drupal.org/migrate) framework, which, while powerful, still required access to the Drupal server's shell. The Islandora community needed something simpler, yet more flexible in terms of where it could be run, than Migrate to empower a wider spectrum of users to manage content in their Islandora repositories than Migrate can.
 
 That's where Islandora Workbench came from.
 
