@@ -975,27 +975,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#move-your-csv-id-to-node-id-map-out-of-your-temporary-directory" class="md-nav__link">
-    Move your CSV ID to node ID map out of your temporary directory
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#balance-speed-optimizations-with-convenience" class="md-nav__link">
-    Balance speed optimizations with convenience
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#plan-to-use-your-rollback-csv-files" class="md-nav__link">
-    Plan to use your rollback CSV files
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#run-check" class="md-nav__link">
     Run --check
   </a>
@@ -1006,6 +985,47 @@
   <a href="#run-workbench-on-a-small-sample-first" class="md-nav__link">
     Run Workbench on a small sample first
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-adaptive-pause" class="md-nav__link">
+    Use adaptive pause
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#always-assume-you-will-need-the-node-ids-of-items-you-create" class="md-nav__link">
+    Always assume you will need the node IDs of items you create
+  </a>
+  
+    <nav class="md-nav" aria-label="Always assume you will need the node IDs of items you create">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#your-csv-id-to-node-id-map" class="md-nav__link">
+    Your CSV ID to node ID map
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rollback-csv-files" class="md-nav__link">
+    Rollback CSV files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-output_csv-setting" class="md-nav__link">
+    The output_csv setting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1031,8 +1051,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-the-timestamp_rollback-true-config-setting" class="md-nav__link">
-    Use the timestamp_rollback: true config setting
+  <a href="#balance-speed-optimizations-with-convenience" class="md-nav__link">
+    Balance speed optimizations with convenience
   </a>
   
 </li>
@@ -1047,20 +1067,6 @@
         <li class="md-nav__item">
   <a href="#make-workbench-tell-you-about-its-progress" class="md-nav__link">
     Make Workbench tell you about its progress
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#use-adaptive-pause" class="md-nav__link">
-    Use adaptive pause
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#plan-to-use-your-rollback-csv-files_1" class="md-nav__link">
-    Plan to use your rollback CSV files
   </a>
   
 </li>
@@ -1096,27 +1102,32 @@
 
 <p>This page lists a number of things you can do to make optimize your use of Islandora Workbench. Following these recommendations will decrease the liklihood that you will encounter problems, and increase value you get out of Workbench.</p>
 <h2 id="keep-your-copy-of-workbench-up-to-date">Keep your copy of Workbench up to date</h2>
+<p>Islandora Workbench is under active development, both in terms of bug fixes and new features. It's good practice to <a href="/islandora_workbench_docs/installation/#updating-islandora-workbench">update your copy of Workbench</a> every couple of weeks.</p>
 <h2 id="protect-user-credentials-in-your-config-files">Protect user credentials in your config files</h2>
-<h2 id="move-your-csv-id-to-node-id-map-out-of-your-temporary-directory">Move your CSV ID to node ID map out of your temporary directory</h2>
-<h2 id="balance-speed-optimizations-with-convenience">Balance speed optimizations with convenience</h2>
-<p>Consider techniques for speeding up Workbench as described at https://mjordan.github.io/islandora_workbench_docs/troubleshooting/#workbench-is-slow</p>
-<h2 id="plan-to-use-your-rollback-csv-files">Plan to use your rollback CSV files</h2>
-<p><code>timestamp_rollback</code></p>
-<p><code>rollback_file_include_node_info: true</code></p>
-<p>Also, <code>output_csv</code>.</p>
+<p>Workbench requires the credentials of a Drupal user. You should consult with your local IT group to determine <a href="https://mjordan.github.io/islandora_workbench_docs/installation/#password-management">which option</a> for managing the password of this user is their preference.</p>
 <h2 id="run-check">Run --check</h2>
 <h2 id="run-workbench-on-a-small-sample-first">Run Workbench on a small sample first</h2>
+<h2 id="use-adaptive-pause">Use adaptive pause</h2>
+<h2 id="always-assume-you-will-need-the-node-ids-of-items-you-create">Always assume you will need the node IDs of items you create</h2>
+<p>Having the node IDs generated during <code>create</code> tasks, and being able to relate them to a give Workbench job, is very useful, for example if you need to run an remedial <code>update</code> or <code>add_media</code> task on a large set of new nodes. Workbench provides a few ways to provide those node IDs.</p>
+<h3 id="your-csv-id-to-node-id-map">Your CSV ID to node ID map</h3>
+<p>Workbench's CSV ID to node ID map can make recovering from an interrupted <code>create</code> task very easy. You should configure your <code>create</code> tasks to use a directory for the map's database file that is <em>not</em> your system's temporary directory (which is the default). This is done using the <code>csv_id_to_node_id_map_dir</code> configuration setting. More information is available <a href="/islandora_workbench_docs/csv_id_to_node_id_map/#defining-the-location-of-your-csv-id-to-node-id-map-file">here</a>.</p>
+<h3 id="rollback-csv-files">Rollback CSV files</h3>
+<p>You should always assume that you will need to roll back a set of nodes created during <code>create</code> tasks. Even if you don't need to do that, having the new node IDs easily accessible can be very convenient, for example if you need to do a remedial <code>update</code> task on the new nodes. Using the <a href="/islandora_workbench_docs/rolling_back/">rollback's configuration settings</a>, particulary the following two, can ensure that you have this data intact and ready to use:</p>
+<ul>
+<li><code>timestamp_rollback: true</code></li>
+<li><code>rollback_file_include_node_info: true</code></li>
+</ul>
+<h3 id="the-output_csv-setting">The <code>output_csv</code> setting</h3>
+<p>During <code>create</code> tasks, you can use the <code>output_csv</code> setting to tell Workbench to write a CSV file that contains the new node IDs. More information is available <a href="/islandora_workbench_docs/generating_csv_files/#csv-file-containing-a-row-for-every-newly-created-node">here</a>.</p>
 <h2 id="create-local-shortcuts-and-aliases">Create local shortcuts and aliases</h2>
 <h2 id="use-the-perform_soft_checks-true-config-setting">Use the <code>perform_soft_checks: true</code> config setting</h2>
 <h2 id="break-large-jobs-up-into-smaller-chunks">Break large jobs up into smaller chunks</h2>
 <p>Ingesting subsets or samples from your input CSV using the "Using CSV row ranges" or "Processing specific CSV rows" features</p>
-<h2 id="use-the-timestamp_rollback-true-config-setting">Use the <code>timestamp_rollback: true</code> config setting</h2>
+<h2 id="balance-speed-optimizations-with-convenience">Balance speed optimizations with convenience</h2>
+<p>Consider techniques for speeding up Workbench as described at https://mjordan.github.io/islandora_workbench_docs/troubleshooting/#workbench-is-slow.</p>
 <h2 id="create-a-view-that-allows-you-to-use-the-checking-if-nodes-already-exist-feature">Create a View that allows you to use the "Checking if nodes already exist" feature</h2>
 <h2 id="make-workbench-tell-you-about-its-progress">Make Workbench tell you about its progress</h2>
-<h2 id="use-adaptive-pause">Use adaptive pause</h2>
-<h2 id="plan-to-use-your-rollback-csv-files_1">Plan to use your rollback CSV files</h2>
-<p><code>timestamp_rollback</code></p>
-<p><code>rollback_file_include_node_info: true</code></p>
 <h2 id="use-the-protected_vocabularies-setting">Use the <code>protected_vocabularies</code> setting</h2>
 <p>At Simon Fraser University Library, we use:</p>
 <pre><code class="language-yml">protected_vocabularies:
