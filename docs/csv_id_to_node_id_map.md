@@ -61,4 +61,6 @@ csv_id_to_node_id_map_dir: .
 csv_id_to_node_id_map_filename: mymap.db
 ```
 
+The value of `csv_id_to_node_id_map_dir` doesn't have to be `.` (Workbench's current directory). Any directory path is valid, as long as it exists and is writable by the user running Workbench. If you are working in a distributed environment, where multiple people are running Workbench, the directory and file need to be writable by all users who run Workbench.
+
 You can easily move a database file into another directory (from the default temporary directory location) as long as you configure Workbench to use that new location going forward. You can even combine the data in multiple database files by exporting the data to CSV from a database and then importing it into the consolidated database using commonly available SQLite3 utilities.

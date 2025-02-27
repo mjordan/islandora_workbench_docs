@@ -94,7 +94,7 @@ To avoid these issues, you need to be running Drupal version 8.6 or higher.
 !!! warning
     If you are using Drupal 8.5 or earlier, you need to use the version of Workbench tagged with `drupal_8.5_and_lower` (commit 542325fb6d44c2ac84a4e2965289bb9f9ed9bf68). Later versions no longer support Drupal 8.5 and earlier.
 
-# Using Python 3.8
+## Using Python 3.8
 
 Python 3.8 reached end of life in October 2024. If you cannot upgrade from Python 3.8, you may be interested in the [Python 3.8 EOL release](https://github.com/mjordan/islandora_workbench/releases/tag/python38eol) of Islandora Workbbench.
 
