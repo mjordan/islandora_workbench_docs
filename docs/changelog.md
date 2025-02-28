@@ -17,6 +17,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* February 27 2025: Added "[Optimizing your use of Workbench](/islandora_workbench_docs/optimizing_your_use_of_workbench/)".
 * February 24 2025: Updated docs on "[Deleting nodes](/islandora_workbench_docs/deleting_nodes/)".
 * February 23, 2025: Updated docs on "[Configuration](/islandora_workbench_docs/configuration/)" to include new `show_percentage_of_csv_input_processed` setting.
 * February 18, 2025: Updated docs on "[Processing specific CSV rows](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#processing-specific-csv-rows)"; updated "[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/)" and the [HTTP configuration settings](/islandora_workbench_docs/configuration/#http-settings).
