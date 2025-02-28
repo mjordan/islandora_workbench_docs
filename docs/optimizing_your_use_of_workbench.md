@@ -30,7 +30,7 @@ Workbench is capable of processing a very large set of input data, but many user
 
 ## Defer Solr indexing
 
-Configuring Solr to not index newly added or updated items immediately can result in noticably faster `create` and `update` jobs. To do this, visit `/admin/config/search/search-api/index/default_solr_index/edit` and in the "Index options" fieldset, make sure "Index items immediately" is unchecked and save the form. Indexing will happen during cron runs. Thanks to Born-Digital for suggesting this!
+Configuring Solr to not index newly added or updated items immediately can result in noticably faster `create` and `update` jobs. To do this, visit `/admin/config/search/search-api/index/default_solr_index/edit` and in the "Index options" fieldset, make sure "Index items immediately" is unchecked and save the form. Indexing will happen during cron runs. Thanks to [Born-Digital](https://www.born-digital.com/software/islandora) for suggesting this!
 
 ## Create a View that allows you to use the "Checking if nodes already exist" feature
 
@@ -67,6 +67,10 @@ Once you have configured Workbench to look for the CSV ID to node ID map in a [s
 ## Create local shortcuts and aliases
 
 Some users create aliases for Workbench commands. How to do this depends on your operating system, but on Unix-based systems such as MacOS and Linux, a single command such as `alias wb='workbench --config=config.yml` can let you run `wb` many times without having to use the full command. Thanks to [rosiel](https://github.com/mjordan/islandora_workbench/issues/789#issuecomment-2189446853) for this tip.
+
+## Specify configuration settings on the command line
+
+Managing small changes in a configuration file over multiple runs of Workbench can be tedious. Some configuration settings can be [applied at the command line](/islandora_workbench_docs/configuration_settings_on_the_command_line/), which makes editing the configuration file unnecessary.
 
 
 ## Balance speed optimizations with convenience
