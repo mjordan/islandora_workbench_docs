@@ -49,12 +49,12 @@ parameters can be changed in the user-supplied config file.
     </tr>
     <tr>
         <td>fetch_files</td>
-        <td>true</td>
+        <td>false</td>
         <td>Whether or not to fetch and save the datastream files from the source Islandora 7.x instance.</td>
     </tr>
     <tr>
         <td>get_file_uri</td>
-        <td>false</td>
+        <td>true</td>
         <td>Whether or not to write datastream file URLs to the CSV file instead of fetching the files. One of `get_file_uri` or `fetch_files` can be set  to `true`, but not both.</td>
     </tr>
     <tr>
@@ -101,6 +101,11 @@ parameters can be changed in the user-supplied config file.
         <td>PID of a single collection limiting the objects to fetch from the source Islandora 7.x instance. Only matches objects that have the specified collection as their immediate parent. For recursive collection membership, add `ancestors_ms` as a `solr_filter`, as documented below. Note: the colon in the collection PID must be escaped with a backslash (`\`), e.g., `cartoons\:collection`.</td>
     </tr>
     <tr>
+      <td>collections</td>
+      <td></td>
+      <td>PIDs of multiple collections, has same restrictions and usage as <i>collection</i> argument. Multiple collections are <b>OR</b>ed together.</td>
+    </tr>
+    <tr>
         <td>content_model</td>
         <td></td>
         <td>PID of a single content model limiting the objects to fetch from the source Islandora 7.x instance. Note: the colon in the content model PID must be escaped with a backslash (`\`), e.g., `islandora\:sp_large_image_cmodel`.</td>
@@ -111,9 +116,24 @@ parameters can be changed in the user-supplied config file.
         <td>key:value pairs to add as filters to the Solr query. See examples below.</td>
     </tr>
     <tr>
+      <td>start</td>
+      <td>0</td>
+      <td>The index of the Solr response to begin with.</td>
+    </tr>
+    <tr>
+      <td>rows</td>
+      <td>100000</td>
+      <td>The maximum number of records to return for the Solr query, so also the maximum number of records processed.</td>
+    </tr>
+    <tr>
         <td>pids_to_skip</td>
         <td></td>
-        <td>List of PIDs to not export, e.g. `pids_to_skip: ["foo:234", "bar:7890"]`. Useful if you are aware of problems with specifis Islandora 7 source objects and you don't want those objects to crash out the script.</td>
+        <td>List of PIDs to not export, e.g. `pids_to_skip: ["foo:234", "bar:7890"]`. Useful if you are aware of problems with specific Islandora 7 source objects and you don't want those objects to crash out the script.</td>
+    </tr>
+    <tr>
+      <td>pids_to_use</td>
+      <td></td>
+      <td>List of PIDs to limit query to, useful if you only want specific objects exported.</td>
     </tr>
     <tr>
         <td>debug</td>
@@ -130,6 +150,21 @@ parameters can be changed in the user-supplied config file.
         <td>true</td>
         <td>Whether or not to require valid SSL certificates. Set to `false` if you want to ignore SSL certificates.</td>
     </tr>
+</table>
+
+The following configuration variables are only necessary if **debug** is set to **true**.
+
+<table>
+  <tr>
+    <th>Parameter</th>
+    <th>Default Value</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>failure_report</td>
+    <td>failure_report.txt</td>
+    <td>Path to a file to write the PIDs of all Islandora 7 objects that fail to return data for their RELS-EXT datastream.</td>
+  </tr>
 </table>
 
 ## Analyzing your Islandora 7 Solr index
