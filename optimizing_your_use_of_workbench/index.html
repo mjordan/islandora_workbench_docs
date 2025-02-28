@@ -348,23 +348,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#always-assume-you-will-need-the-node-ids-of-items-you-create" class="md-nav__link">
-    Always assume you will need the node IDs of items you create
+  <a href="#assume-you-will-need-the-node-ids-of-items-you-create" class="md-nav__link">
+    Assume you will need the node IDs of items you create
   </a>
   
-    <nav class="md-nav" aria-label="Always assume you will need the node IDs of items you create">
+    <nav class="md-nav" aria-label="Assume you will need the node IDs of items you create">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#your-csv-id-to-node-id-map" class="md-nav__link">
-    Your CSV ID to node ID map
+  <a href="#1-the-csv-id-to-node-id-map" class="md-nav__link">
+    1) The CSV ID to node ID map
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rollback-csv-files" class="md-nav__link">
-    Rollback CSV files
+  <a href="#2-rollback-csv-files" class="md-nav__link">
+    2) Rollback CSV files
   </a>
   
 </li>
@@ -1179,23 +1179,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#always-assume-you-will-need-the-node-ids-of-items-you-create" class="md-nav__link">
-    Always assume you will need the node IDs of items you create
+  <a href="#assume-you-will-need-the-node-ids-of-items-you-create" class="md-nav__link">
+    Assume you will need the node IDs of items you create
   </a>
   
-    <nav class="md-nav" aria-label="Always assume you will need the node IDs of items you create">
+    <nav class="md-nav" aria-label="Assume you will need the node IDs of items you create">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#your-csv-id-to-node-id-map" class="md-nav__link">
-    Your CSV ID to node ID map
+  <a href="#1-the-csv-id-to-node-id-map" class="md-nav__link">
+    1) The CSV ID to node ID map
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rollback-csv-files" class="md-nav__link">
-    Rollback CSV files
+  <a href="#2-rollback-csv-files" class="md-nav__link">
+    2) Rollback CSV files
   </a>
   
 </li>
@@ -1293,11 +1293,11 @@
 <p>Creating a View that you can use in conjunction with Workbench's <code>node_exists_verification_view_endpoint</code> config setting lets rerun the same job, using the same input CSV, multiple times without worrying about ingesting duplicate nodes. You will find this feature useful if your job crashes part way through. More information on creating this View, and confguring Workbench to use it, is available <a href="/islandora_workbench_docs/checking_if_nodes_exist/">here</a>.</p>
 <h2 id="use-adaptive-pause">Use adaptive pause</h2>
 <p><a href="/islandora_workbench_docs/reducing_load/#adaptive-pause">Adaptive pause</a> is an effective way to decrease the likelihood that Workbench will time out due to excessive load on the Drupal server. Since it only pauses Workbench when needed, the few times it will introduce a small pause in execution time are well worth the increased reliability it introduces.</p>
-<h2 id="always-assume-you-will-need-the-node-ids-of-items-you-create">Always assume you will need the node IDs of items you create</h2>
-<p>Having the node IDs generated during <code>create</code> tasks, and being able to relate them to a give Workbench job, is very useful, for example if you need to run an remedial <code>update</code> or <code>add_media</code> task on a large set of new nodes. Workbench provides a few ways to provide those node IDs.</p>
-<h3 id="your-csv-id-to-node-id-map">Your CSV ID to node ID map</h3>
+<h2 id="assume-you-will-need-the-node-ids-of-items-you-create">Assume you will need the node IDs of items you create</h2>
+<p>Having the node IDs generated during <code>create</code> tasks, and being able to relate them to a given Workbench job, is very useful, for example if you need to run an remedial <code>update</code> or <code>add_media</code> task on a large set of new nodes. Workbench provides a few ways to provide those node IDs.</p>
+<h3 id="1-the-csv-id-to-node-id-map">1) The CSV ID to node ID map</h3>
 <p>Workbench's CSV ID to node ID map can make recovering from an interrupted <code>create</code> task very easy. You should configure your <code>create</code> tasks to use a directory for the map's database file that is <em>not</em> your system's temporary directory (which is the default). This is done using the <code>csv_id_to_node_id_map_dir</code> configuration setting. More information is available <a href="/islandora_workbench_docs/csv_id_to_node_id_map/#defining-the-location-of-your-csv-id-to-node-id-map-file">here</a>.</p>
-<h3 id="rollback-csv-files">Rollback CSV files</h3>
+<h3 id="2-rollback-csv-files">2) Rollback CSV files</h3>
 <p>You should always assume that you will need to roll back a set of nodes created during <code>create</code> tasks. Even if you don't need to do that, having the new node IDs easily accessible can be very convenient, for example if you need to do a remedial <code>update</code> task on the new nodes. Using the <a href="/islandora_workbench_docs/rolling_back/">rollback's configuration settings</a>, particulary the following two, can ensure that you have this data intact and ready to use:</p>
 <ul>
 <li><code>timestamp_rollback: true</code></li>
