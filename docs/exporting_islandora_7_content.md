@@ -103,7 +103,7 @@ parameters can be changed in the user-supplied config file.
     <tr>
       <td>collections</td>
       <td></td>
-      <td>PIDs of multiple collections, has same restrictions and usage as *collection* argument. Multiple collections are **OR**ed together.</td>
+      <td>PIDs of multiple collections, has same restrictions and usage as <i>collection</i> argument. Multiple collections are <b>OR</b>ed together.</td>
     </tr>
     <tr>
         <td>content_model</td>
