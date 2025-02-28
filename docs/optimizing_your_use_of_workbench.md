@@ -28,6 +28,10 @@ Even if `--check` doesn't reveal any problems, running Workbench using a small s
 
 Workbench is capable of processing a very large set of input data, but many users prefer to break up large jobs into several smaller subsets to decrease the chance of overloading their Drupal server, or to avoid possible network glitches, etc. Splitting up your input CSV into smaller files is one way of doing this, but Workbench's  "[Using CSV row ranges](https://mjordan.github.io/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges)" or "[Processing specific CSV rows](https://mjordan.github.io/islandora_workbench_docs/ignoring_csv_rows_and_columns/#processing-specific-csv-rows)" features let you use a single input CSV and define the subsets in your configuration file.
 
+## Defer Solr indexing
+
+Configuring Solr to not index newly added or updated items immediately can result in noticably faster `create` and `update` jobs. To do this, visit `/admin/config/search/search-api/index/default_solr_index/edit` and in the "Index options" fieldset, make sure "Index items immediately" is unchecked and save the form. Indexing will happen during cron runs. Thanks to Born-Digital for suggesting this!
+
 ## Create a View that allows you to use the "Checking if nodes already exist" feature
 
 Creating a View that you can use in conjunction with Workbench's `node_exists_verification_view_endpoint` config setting lets rerun the same job, using the same input CSV, multiple times without worrying about ingesting duplicate nodes. You will find this feature useful if your job crashes part way through. More information on creating this View, and confguring Workbench to use it, is available [here](/islandora_workbench_docs/checking_if_nodes_exist/).
