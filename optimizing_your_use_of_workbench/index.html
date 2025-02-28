@@ -352,14 +352,7 @@
     Always assume you will need the node IDs of items you create
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rely-on-recovery-mode" class="md-nav__link">
-    Rely on recovery mode
-  </a>
-  
-    <nav class="md-nav" aria-label="Rely on recovery mode">
+    <nav class="md-nav" aria-label="Always assume you will need the node IDs of items you create">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -375,6 +368,19 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rely-on-recovery-mode" class="md-nav__link">
+    Rely on recovery mode
+  </a>
+  
+    <nav class="md-nav" aria-label="Rely on recovery mode">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#the-output_csv-setting" class="md-nav__link">
@@ -1177,14 +1183,7 @@
     Always assume you will need the node IDs of items you create
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rely-on-recovery-mode" class="md-nav__link">
-    Rely on recovery mode
-  </a>
-  
-    <nav class="md-nav" aria-label="Rely on recovery mode">
+    <nav class="md-nav" aria-label="Always assume you will need the node IDs of items you create">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1200,6 +1199,19 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rely-on-recovery-mode" class="md-nav__link">
+    Rely on recovery mode
+  </a>
+  
+    <nav class="md-nav" aria-label="Rely on recovery mode">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#the-output_csv-setting" class="md-nav__link">
@@ -1283,8 +1295,6 @@
 <p><a href="/islandora_workbench_docs/reducing_load/#adaptive-pause">Adaptive pause</a> is an effective way to decrease the likelihood that Workbench will time out due to excessive load on the Drupal server. Since it only pauses Workbench when needed, the few times it will introduce a small pause in execution time are well worth the increased reliability it introduces.</p>
 <h2 id="always-assume-you-will-need-the-node-ids-of-items-you-create">Always assume you will need the node IDs of items you create</h2>
 <p>Having the node IDs generated during <code>create</code> tasks, and being able to relate them to a give Workbench job, is very useful, for example if you need to run an remedial <code>update</code> or <code>add_media</code> task on a large set of new nodes. Workbench provides a few ways to provide those node IDs.</p>
-<h2 id="rely-on-recovery-mode">Rely on recovery mode</h2>
-<p>Once you have configured Workbench to look for the CSV ID to node ID map in a <a href="/islandora_workbench_docs/csv_id_to_node_id_map/#defining-the-location-of-your-csv-id-to-node-id-map-file">stable location</a>, you ready to use <a href="/islandora_workbench_docs/recovery_mode/">recover mode</a>! You may never need to use it, but like insurance, you don't need it until you need it.</p>
 <h3 id="your-csv-id-to-node-id-map">Your CSV ID to node ID map</h3>
 <p>Workbench's CSV ID to node ID map can make recovering from an interrupted <code>create</code> task very easy. You should configure your <code>create</code> tasks to use a directory for the map's database file that is <em>not</em> your system's temporary directory (which is the default). This is done using the <code>csv_id_to_node_id_map_dir</code> configuration setting. More information is available <a href="/islandora_workbench_docs/csv_id_to_node_id_map/#defining-the-location-of-your-csv-id-to-node-id-map-file">here</a>.</p>
 <h3 id="rollback-csv-files">Rollback CSV files</h3>
@@ -1293,6 +1303,8 @@
 <li><code>timestamp_rollback: true</code></li>
 <li><code>rollback_file_include_node_info: true</code></li>
 </ul>
+<h2 id="rely-on-recovery-mode">Rely on recovery mode</h2>
+<p>Once you have configured Workbench to look for the CSV ID to node ID map in a <a href="/islandora_workbench_docs/csv_id_to_node_id_map/#defining-the-location-of-your-csv-id-to-node-id-map-file">stable location</a>, you ready to use <a href="/islandora_workbench_docs/recovery_mode/">recover mode</a>! You may never need to use it, but like insurance, you don't need it until you need it.</p>
 <h3 id="the-output_csv-setting">The <code>output_csv</code> setting</h3>
 <p>During <code>create</code> tasks, you can use the <code>output_csv</code> setting to tell Workbench to write a CSV file that contains the new node IDs. More information is available <a href="/islandora_workbench_docs/generating_csv_files/#csv-file-containing-a-row-for-every-newly-created-node">here</a>.</p>
 <h2 id="create-local-shortcuts-and-aliases">Create local shortcuts and aliases</h2>
