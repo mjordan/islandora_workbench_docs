@@ -113,3 +113,9 @@ If the `password` setting is present in your configuration files, Workbench will
 !!! warning
     If you put the password in configuration files, you should not leave the files in directories that are widely readable, send them in emails or share them in Slack, commit the configuration files to public Git repositories, etc.
 
+### The `remove_password_from_config_file` configuration setting
+
+If you include `remove_password_from_config_file: true` in your configuration file, Workbench will remove the `password` entry from the configuration file immediately after it reads it. All other configuration settings remain as they were in the original version of the file. Adding `remove_password_from_config_file: true` to your configuration files removes the security risk of having passwords exposed to anyone who can read the files, but will mean that, unless you add the `password` setting back into a configuration file prior to the next time you run Workbench using that configuration file, it will prompt you for the password as described above.
+
+This setting will interfere with automated or scripted workflows since Workbench will not continue until the password is entered in response to the prompt. If you don't want to include `password` in your configuration files in these workflows, configure your `ISLANDORA_WORKBENCH_PASSWORD` environment variable to contain the password.
+
