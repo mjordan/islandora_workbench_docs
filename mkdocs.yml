@@ -10,6 +10,7 @@ nav:
     - Workbench's relationship to Drupal and Islandora: drupal_and_workbench.md
     - Requirements and installation: installation.md
     - Choosing a task: choosing_a_task.md
+    - Optimizing your use of Workbench: optimizing_your_use_of_workbench.md
     - Configuration: configuration.md
     - Specifying configuration settings on the command line: configuration_settings_on_the_command_line.md
     - Checking configuration and input data: check.md
