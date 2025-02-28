@@ -342,6 +342,19 @@
     Password management
   </a>
   
+    <nav class="md-nav" aria-label="Password management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-remove_password_from_config_file-configuration-setting" class="md-nav__link">
+    The remove_password_from_config_file configuration setting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1155,6 +1168,19 @@
     Password management
   </a>
   
+    <nav class="md-nav" aria-label="Password management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-remove_password_from_config_file-configuration-setting" class="md-nav__link">
+    The remove_password_from_config_file configuration setting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1264,6 +1290,9 @@
 <p class="admonition-title">Warning</p>
 <p>If you put the password in configuration files, you should not leave the files in directories that are widely readable, send them in emails or share them in Slack, commit the configuration files to public Git repositories, etc.</p>
 </div>
+<h3 id="the-remove_password_from_config_file-configuration-setting">The <code>remove_password_from_config_file</code> configuration setting</h3>
+<p>If you include <code>remove_password_from_config_file: true</code> in your configuration file, Workbench will remove the <code>password</code> entry from the configuration file immediately after it reads it. All other configuration settings remain as they were in the original version of the file. Adding <code>remove_password_from_config_file: true</code> to your configuration files removes the security risk of having passwords exposed to anyone who can read the files, but will mean that, unless you add the <code>password</code> setting back into a configuration file, the next time you run Workbench using the file, it will prompt you for the password.</p>
+<p>This setting will interfere with automated or scripted workflows since Workbench will not continue until the password is entered in response to the prompt. If you don't want to include <code>password</code> in your configuration files in these workflows, configure your <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable to contain the password.</p>
 
 
 
