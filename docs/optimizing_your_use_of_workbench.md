@@ -36,7 +36,7 @@ Creating a View that you can use in conjunction with Workbench's `node_exists_ve
 
 [Adaptive pause](/islandora_workbench_docs/reducing_load/#adaptive-pause) is an effective way to decrease the likelihood that Workbench will time out due to excessive load on the Drupal server. Since it only pauses Workbench when needed, the few times it will introduce a small pause in execution time are well worth the increased reliability it introduces.
 
-## Assume you will need the node IDs of items you create
+## Assume you will need the node IDs of items you create later
 
 Having the node IDs generated during `create` tasks, and being able to relate them to a given Workbench job, is very useful, for example if you need to run an remedial `update` or `add_media` task on a large set of new nodes. Workbench provides a few ways to provide those node IDs.
 
@@ -62,12 +62,12 @@ Once you have configured Workbench to look for the CSV ID to node ID map in a [s
 
 ## Create local shortcuts and aliases
 
-Some users create aliases for Workbench commands. Specifically how to do this depends on your operating system, but on Unix-based systems such as MacOS and Linux, a single command such as `alias wb='workbench --config=config.yml` can let you run `wb` many times without having to use the full command. Thanks to [rosiel](https://github.com/mjordan/islandora_workbench/issues/789#issuecomment-2189446853) for this tip.
+Some users create aliases for Workbench commands. How to do this depends on your operating system, but on Unix-based systems such as MacOS and Linux, a single command such as `alias wb='workbench --config=config.yml` can let you run `wb` many times without having to use the full command. Thanks to [rosiel](https://github.com/mjordan/islandora_workbench/issues/789#issuecomment-2189446853) for this tip.
 
 
 ## Balance speed optimizations with convenience
 
-Consider techniques for speeding up Workbench as described at https://mjordan.github.io/islandora_workbench_docs/troubleshooting/#workbench-is-slow. However, they all come at the cost of some convenience. You decide which ones are worth it!
+Consider techniques for [speeding up Workbench](/islandora_workbench_docs/troubleshooting/#workbench-is-slow). However, they all come at the cost of some convenience. You decide which ones are worth it!
 
 
 ## Make Workbench tell you about its progress
