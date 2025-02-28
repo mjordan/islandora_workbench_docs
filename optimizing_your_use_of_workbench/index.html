@@ -369,6 +369,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#3-the-output_csv-setting" class="md-nav__link">
+    3) The output_csv setting
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -378,19 +385,6 @@
   <a href="#rely-on-recovery-mode" class="md-nav__link">
     Rely on recovery mode
   </a>
-  
-    <nav class="md-nav" aria-label="Rely on recovery mode">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#the-output_csv-setting" class="md-nav__link">
-    The output_csv setting
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1200,6 +1194,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#3-the-output_csv-setting" class="md-nav__link">
+    3) The output_csv setting
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1209,19 +1210,6 @@
   <a href="#rely-on-recovery-mode" class="md-nav__link">
     Rely on recovery mode
   </a>
-  
-    <nav class="md-nav" aria-label="Rely on recovery mode">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#the-output_csv-setting" class="md-nav__link">
-    The output_csv setting
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1303,10 +1291,10 @@
 <li><code>timestamp_rollback: true</code></li>
 <li><code>rollback_file_include_node_info: true</code></li>
 </ul>
-<h2 id="rely-on-recovery-mode">Rely on recovery mode</h2>
-<p>Once you have configured Workbench to look for the CSV ID to node ID map in a <a href="/islandora_workbench_docs/csv_id_to_node_id_map/#defining-the-location-of-your-csv-id-to-node-id-map-file">stable location</a>, you ready to use <a href="/islandora_workbench_docs/recovery_mode/">recover mode</a>! You may never need to use it, but like insurance, you don't need it until you need it.</p>
-<h3 id="the-output_csv-setting">The <code>output_csv</code> setting</h3>
+<h3 id="3-the-output_csv-setting">3) The <code>output_csv</code> setting</h3>
 <p>During <code>create</code> tasks, you can use the <code>output_csv</code> setting to tell Workbench to write a CSV file that contains the new node IDs. More information is available <a href="/islandora_workbench_docs/generating_csv_files/#csv-file-containing-a-row-for-every-newly-created-node">here</a>.</p>
+<h2 id="rely-on-recovery-mode">Rely on recovery mode</h2>
+<p>Once you have configured Workbench to look for the CSV ID to node ID map in a <a href="/islandora_workbench_docs/csv_id_to_node_id_map/#defining-the-location-of-your-csv-id-to-node-id-map-file">stable location</a>, you ready to use <a href="/islandora_workbench_docs/recovery_mode/">recovery mode</a>! You may never need to use it, but like insurance, you don't need it until you need it.</p>
 <h2 id="create-local-shortcuts-and-aliases">Create local shortcuts and aliases</h2>
 <p>Some users create aliases for Workbench commands. Specifically how to do this depends on your operating system, but on Unix-based systems such as MacOS and Linux, a single command such as <code>alias wb='workbench --config=config.yml</code> can let you run <code>wb</code> many times without having to use the full command. Thanks to <a href="https://github.com/mjordan/islandora_workbench/issues/789#issuecomment-2189446853">rosiel</a> for this tip.</p>
 <h2 id="balance-speed-optimizations-with-convenience">Balance speed optimizations with convenience</h2>
@@ -1314,7 +1302,7 @@
 <h2 id="make-workbench-tell-you-about-its-progress">Make Workbench tell you about its progress</h2>
 <p>Watching lines of output say that a node has been created is BORING. Try adding <code>show_percentage_of_csv_input_processed: true</code> or <code>progress_bar: true</code> to your config file to make using Workbench a little less boring.</p>
 <h2 id="use-the-protected_vocabularies-setting">Use the <code>protected_vocabularies</code> setting</h2>
-<p>At Simon Fraser University Library, we use:</p>
+<p><code>allow_adding_terms</code> is an essential Workbench config setting. But, it can lead to problems. For example, you don't want a typo in the values in your <code>field_model</code> CSV column to create a new Islandora Model! To be very safe, you should include the <code>protected_vocabularies</code> setting in your configuration files to exclude which vocabularies Workbench will add new terms to. At Simon Fraser University Library, we use:</p>
 <pre><code class="language-yml">protected_vocabularies:
  - islandora_model
  - islandora_display
