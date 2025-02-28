@@ -334,6 +334,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#defer-solr-indexing" class="md-nav__link">
+    Defer Solr indexing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#create-a-view-that-allows-you-to-use-the-checking-if-nodes-already-exist-feature" class="md-nav__link">
     Create a View that allows you to use the "Checking if nodes already exist" feature
   </a>
@@ -1159,6 +1166,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#defer-solr-indexing" class="md-nav__link">
+    Defer Solr indexing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#create-a-view-that-allows-you-to-use-the-checking-if-nodes-already-exist-feature" class="md-nav__link">
     Create a View that allows you to use the "Checking if nodes already exist" feature
   </a>
@@ -1277,6 +1291,8 @@
 <p>Even if <code>--check</code> doesn't reveal any problems, running Workbench using a small set of sample input is a very good idea. Workbench provides a number of options for doing this, including processing only the first few rows of your input CSV, processing only the last few rows, processing specific rows, or processing only rows that meet a certain condtion. <a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/">This page</a> provides more information on how to use these options.</p>
 <h2 id="break-large-jobs-up-into-smaller-jobs">Break large jobs up into smaller jobs</h2>
 <p>Workbench is capable of processing a very large set of input data, but many users prefer to break up large jobs into several smaller subsets to decrease the chance of overloading their Drupal server, or to avoid possible network glitches, etc. Splitting up your input CSV into smaller files is one way of doing this, but Workbench's  "<a href="https://mjordan.github.io/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges">Using CSV row ranges</a>" or "<a href="https://mjordan.github.io/islandora_workbench_docs/ignoring_csv_rows_and_columns/#processing-specific-csv-rows">Processing specific CSV rows</a>" features let you use a single input CSV and define the subsets in your configuration file.</p>
+<h2 id="defer-solr-indexing">Defer Solr indexing</h2>
+<p>Configuring Solr to not index newly added or updated items immediately can result in noticably faster <code>create</code> and <code>update</code> jobs. To do this, visit <code>/admin/config/search/search-api/index/default_solr_index/edit</code> and in the "Index options" fieldset, make sure "Index items immediately" is unchecked and save the form. Indexing will happen during cron runs. Thanks to Born-Digital for suggesting this!</p>
 <h2 id="create-a-view-that-allows-you-to-use-the-checking-if-nodes-already-exist-feature">Create a View that allows you to use the "Checking if nodes already exist" feature</h2>
 <p>Creating a View that you can use in conjunction with Workbench's <code>node_exists_verification_view_endpoint</code> config setting lets rerun the same job, using the same input CSV, multiple times without worrying about ingesting duplicate nodes. You will find this feature useful if your job crashes part way through. More information on creating this View, and confguring Workbench to use it, is available <a href="/islandora_workbench_docs/checking_if_nodes_exist/">here</a>.</p>
 <h2 id="use-adaptive-pause">Use adaptive pause</h2>
