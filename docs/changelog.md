@@ -18,9 +18,10 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
-* February 28 2025: Added "[The remove_password_from_config_file configuration setting](/islandora_workbench_docs/installation/#the-remove_password_from_config_file-configuration-setting)".
-* February 27 2025: Added "[Optimizing your use of Workbench](/islandora_workbench_docs/optimizing_your_use_of_workbench/)".
-* February 24 2025: Updated docs on "[Deleting nodes](/islandora_workbench_docs/deleting_nodes/)".
+* March 1, 2025: Merged in fixes to docs for [get_islandora_7_content.py](/islandora_workbench_docs/exporting_islandora_7_content/) by @whikloj. Thanks!
+* February 28, 2025: Added "[The remove_password_from_config_file configuration setting](/islandora_workbench_docs/installation/#the-remove_password_from_config_file-configuration-setting)".
+* February 27, 2025: Added "[Optimizing your use of Workbench](/islandora_workbench_docs/optimizing_your_use_of_workbench/)".
+* February 24, 2025: Updated docs on "[Deleting nodes](/islandora_workbench_docs/deleting_nodes/)".
 * February 23, 2025: Updated docs on "[Configuration](/islandora_workbench_docs/configuration/)" to include new `show_percentage_of_csv_input_processed` setting.
 * February 18, 2025: Updated docs on "[Processing specific CSV rows](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#processing-specific-csv-rows)"; updated "[Reducing Workbench's impact on Drupal](/islandora_workbench_docs/reducing_load/)" and the [HTTP configuration settings](/islandora_workbench_docs/configuration/#http-settings).
 * February 16, 2025: Updated docs on [using Paragraph fields](/islandora_workbench_docs/fields/#using-paragraph-fields-in-create_terms-and-update_terms-tasks) in `create_terms` and `update_terms` tasks. Thanks @dara2!
