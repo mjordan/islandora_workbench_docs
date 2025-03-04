@@ -18,6 +18,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* March 3, 2025: Fixed a typo on the "[Configuration](/islandora_workbench_docs/configuration/)" page.
 * March 1, 2025: Merged in fixes to docs for [get_islandora_7_content.py](/islandora_workbench_docs/exporting_islandora_7_content/) by @whikloj. Thanks!
 * February 28, 2025: Added "[The remove_password_from_config_file configuration setting](/islandora_workbench_docs/installation/#the-remove_password_from_config_file-configuration-setting)".
 * February 27, 2025: Added "[Optimizing your use of Workbench](/islandora_workbench_docs/optimizing_your_use_of_workbench/)".
