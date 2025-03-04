@@ -2,6 +2,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* March 4, 2025: Resolved (commit 11ab1e) [issue 915](https://github.com/mjordan/islandora_workbench/issues/915).
 * February 28, 2025: Resolved (commit 07b54b3) [issue 909](https://github.com/mjordan/islandora_workbench/issues/909).
 * February 24, 2025: Resolved (commit aecb50e) [issue 894](https://github.com/mjordan/islandora_workbench/issues/894) and (comit 73bd6ba) [issue 902](https://github.com/mjordan/islandora_workbench/issues/902).
 * February 23, 2025: Resolved (commit 8f7f03d) [issue 899](https://github.com/mjordan/islandora_workbench/issues/899).
@@ -18,6 +19,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* March 4, 2025: Clarified where the `path_to_python` and `path_to_workbench_script` config settings go - the config file for the primary task. Thanks for the suggestion @edlington!
 * March 3, 2025: Fixed a typo on the "[Configuration](/islandora_workbench_docs/configuration/)" page.
 * March 1, 2025: Merged in fixes to docs for [get_islandora_7_content.py](/islandora_workbench_docs/exporting_islandora_7_content/) by @whikloj. Thanks!
 * February 28, 2025: Added "[The remove_password_from_config_file configuration setting](/islandora_workbench_docs/installation/#the-remove_password_from_config_file-configuration-setting)".

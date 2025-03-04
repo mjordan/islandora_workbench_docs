@@ -323,7 +323,7 @@ The first is when you use a secondary task within a scheduled job (such as runni
 * `path_to_python`
 * `path_to_workbench_script`
 
-An example of using these settings is:
+An example of using these settings is (all of these settings go in the config file of the primary task):
 
 ```yaml
 secondary_tasks: ['children.yml']
@@ -331,7 +331,7 @@ path_to_python: '/usr/bin/python'
 path_to_workbench_script: '/home/mark/islandora_workbench/workbench'
 ```
 
-The second situation is when using a secondary task when running Workbench in Windows and "python.exe" is not in the PATH of the user running the scheduled job. Specifying the absolute path to "python.exe" will ensure that Workbench can execute the secondary task properly, like this:
+The second situation is when using a secondary task when running Workbench in Windows and "python.exe" is not in the PATH of the user running the scheduled job. Specifying the absolute path to "python.exe" will ensure that Workbench can execute the secondary task properly, like this (all of these settings go in the config file of the primary task):
 
 ```yaml
 secondary_tasks: ['children.yml']
