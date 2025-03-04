@@ -1516,12 +1516,12 @@ query_csv_id_to_node_id_map_for_parents: true
 <li><code>path_to_python</code></li>
 <li><code>path_to_workbench_script</code></li>
 </ul>
-<p>An example of using these settings is:</p>
+<p>An example of using these settings is (all of these settings go in the config file of the primary task):</p>
 <pre><code class="language-yaml">secondary_tasks: ['children.yml']
 path_to_python: '/usr/bin/python'
 path_to_workbench_script: '/home/mark/islandora_workbench/workbench'
 </code></pre>
-<p>The second situation is when using a secondary task when running Workbench in Windows and "python.exe" is not in the PATH of the user running the scheduled job. Specifying the absolute path to "python.exe" will ensure that Workbench can execute the secondary task properly, like this:</p>
+<p>The second situation is when using a secondary task when running Workbench in Windows and "python.exe" is not in the PATH of the user running the scheduled job. Specifying the absolute path to "python.exe" will ensure that Workbench can execute the secondary task properly, like this (all of these settings go in the config file of the primary task):</p>
 <pre><code class="language-yaml">secondary_tasks: ['children.yml']
 path_to_python: 'c:/program files/python39/python.exe'
 path_to_workbench_script: 'd:/users/mark/islandora_workbench/workbench'
