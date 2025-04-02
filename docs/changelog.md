@@ -21,6 +21,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* April 1, 2025: Replaced outdated "field_display_hints" with "field_viewer_override".
 * March 4, 2025: Clarified where the `path_to_python` and `path_to_workbench_script` config settings go - the config file for the primary task. Thanks for the suggestion @edlington!
 * March 3, 2025: Fixed a typo on the "[Configuration](/islandora_workbench_docs/configuration/)" page.
 * March 1, 2025: Merged in fixes to docs for [get_islandora_7_content.py](/islandora_workbench_docs/exporting_islandora_7_content/) by @whikloj. Thanks!
