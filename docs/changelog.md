@@ -2,6 +2,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* April 3, 2025: Merged (commit e65062c) fix for [issue 928](https://github.com/mjordan/islandora_workbench/issues/932) (thanks @mitchmac and @dara2!); resolved (commit e65062c) [issue 935](https://github.com/mjordan/islandora_workbench/issues/935).
 * March 28, 2025: Resolved (commit 189b025) [issue 932](https://github.com/mjordan/islandora_workbench/issues/932).
 * March 25, 2025: Resolved (commit e5b5576) [issue 918](https://github.com/mjordan/islandora_workbench/issues/918) and (commit 561dfc3) [issue 919](https://github.com/mjordan/islandora_workbench/issues/919). Thanks @whikloj!
 * March 4, 2025: Resolved (commit 11ab1e) [issue 915](https://github.com/mjordan/islandora_workbench/issues/915).
@@ -21,6 +22,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* April 3, 2025: Added entry to the "[Configuration](/islandora_workbench_docs/configuration/#paged-and-compound-content-settings)" page for the new `viewer_override_fieldname` config setting.
 * April 1, 2025: Replaced outdated "field_display_hints" with "field_viewer_override".
 * March 4, 2025: Clarified where the `path_to_python` and `path_to_workbench_script` config settings go - the config file for the primary task. Thanks for the suggestion @edlington!
 * March 3, 2025: Fixed a typo on the "[Configuration](/islandora_workbench_docs/configuration/)" page.
