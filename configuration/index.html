@@ -11,7 +11,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.5.10">
     
     
       
@@ -2084,10 +2084,16 @@ csv_field_templates:
 <td>A mapping of Media Use term IDs (or URIs) to file extensions telling Workbench which Media Use term to apply to media created from additional files such as OCR text files.</td>
 </tr>
 <tr>
-<td>paged_content_page_display_hints</td>
+<td>paged_content_page_viewer_override</td>
 <td></td>
 <td></td>
-<td>The term ID from the Islandora Display taxonomy to assign to pages. If not included, defaults to the value of the <code>field_viewer_override</code> in the parent's record in the CSV file.</td>
+<td>The term ID from the Islandora Display taxonomy to assign to pages. If not included, defaults to the value of the <code>field_viewer_override</code> (or whatever is configured in the <code>viewer_override_fieldname</code> setting) in the parent's record in the CSV file.</td>
+</tr>
+<tr>
+<td>viewer_override_fieldname</td>
+<td></td>
+<td>field_viewer_override</td>
+<td>The Drupal fieldname in your content type that stores entries from the "Islandora Display" vocabulary.</td>
 </tr>
 <tr>
 <td>paged_content_page_content_type</td>
