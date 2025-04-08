@@ -1538,13 +1538,13 @@ excel_worksheet: Second sheet
 <pre><code>clean_csv_values_skip: [&quot;smart_quotes&quot;, &quot;inside_spaces&quot;]
 </code></pre>
 <h2 id="when-workbench-skips-invalid-csv-data">When Workbench skips invalid CSV data</h2>
-<p>Running <code>--check</code> will tell you when any of the data in your CSV file is invalid, or in other words, does not conform to its target Drupal field's configuration and is likely to cause the creation/updating of content to fail. Currently, for the following types of fields:</p>
+<p>Running <code>--check</code> will tell you when any of the data in your CSV file is invalid, or in other words, does not conform to its target Drupal field's configuration and is likely to cause the creation/updating of content to fail. Currently, for the following types of fields, Workbench will validate CSV values and skip values that fail its validation tests, logging that it did so:</p>
 <ul>
 <li>text</li>
 <li>geolocation</li>
 <li>link</li>
 </ul>
-<p>Workbench will validate CSV values and skip values that fail its validation tests. Work is <a href="https://github.com/mjordan/islandora_workbench/issues/424">underway</a> to complete this feature, including skipping of invalid entity reference and typed relation fields.</p>
+<p>Work is <a href="https://github.com/mjordan/islandora_workbench/issues/424">underway</a> to complete this feature, including skipping of invalid entity reference and typed relation fields.</p>
 <h2 id="blank-or-missing-file-values">Blank or missing "file" values</h2>
 <p>By default, if the <code>file</code> value for a row is empty, Workbench's <code>--check</code> option will show an error. But, in some cases you may want to create nodes but not add any media. If you add <code>allow_missing_files: true</code> to your config file for "create" tasks, you can leave the <code>file</code> column in your CSV empty.</p>
 <h2 id="preparing-to-ingest-large-files">Preparing to ingest large files</h2>
