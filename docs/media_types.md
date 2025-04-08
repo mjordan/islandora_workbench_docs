@@ -3,7 +3,7 @@
 !!! note
     Drupal's use of Media types (image, video, document, etc.) is distinct from Islandora's use of "model", which identifies an intellectual entity as an image, video, collection, compound object, newspaper, etc.
 
-By default Workbench defines the following file extension to media type mapping:
+By default Workbench uses the following mapping of file extensions to Islandora media types. Note that this default mapping is intended to cover commonly used file extensions, and does not comprehensively mirror the "Allowed file extensions" settings in all of Islandora media types' file fields:
 
 | File extensions | Media type |
 | --- | --- |
@@ -18,14 +18,15 @@ If a file's extension is not defined in this default mapping, the media is assig
 
 If you need to override this default mapping, you can do so in two ways:
 
-1. If the override applies to all files named in your CSV's `file` column, use the `media_type` configuration option, for example `media_type: document`). Use this option if all of the files in your batch are to be assigned the same media type, but their extensions are not defined in the default mapping or you wish to override the default mapping.
+1. If the override applies to all files named in your CSV's `file` column, use the `media_type` configuration setting, for example `media_type: document`). Use this setting if all of the files named in your `file` column are to be assigned the same media type, but their extensions are not defined in the default mapping or you wish to override the default mapping.
 1. On a per file extension basis, via a mapping in the `media_types_override` option in your configuration file like this one:
 
 ```yaml
 media_types_override:
   - video: ['mp4', 'ogg']
 ```
-   Use the `media_types_override` option if each of the files named in your CSV's `file` column are to be assigned an extension-specific media type, and their extensions are not defined in the default mapping (or add to the extensions in the default mapping, as in this example).
+
+Use the `media_types_override` option if each of the files named in your CSV's `file` column (or in columns defined using the `additional_files` setting) are to be assigned an extension-specific media type, and their extensions are not defined in the default mapping (or add to the extensions in the default mapping, as in this example).
 
 Note that:
 
