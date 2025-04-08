@@ -30,6 +30,7 @@ Use the `media_types_override` option if each of the files named in your CSV's `
 
 Note that:
 
+* This mapping simply tells Workbench which media type to use for a given file extension. Neither the default mapping nor an overridden mapping needs to mirror the "Allowed file extensions" setting in the target Islandora media type's file field. However, since the "Allowed file extensions" setting restricts what extensions are allowed for a given media type, that Drupal configuration setting ultimately restricts what extensions are allowed for the target media type.
 * Mappings defined in the `media_types_override` config setting apply to all files Workbench is ingesting, regardless of whether they are in the `file` CSV column or in a column defined in the `additional_files` setting.
 * If a file's extension is not present in the default mapping or in the `media_types_override` custom mapping, the media is assigned the "file" type.
 * If you use the `media_types_override` configuration option, your mapping *replaces* Workbench's default mappings for the specified media type. This means that if you want to retain the default media type mapping for a file extension, you need to include it in the mapping, as illustrated by the presence of "mp4" in the example above.
