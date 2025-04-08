@@ -273,6 +273,19 @@
     Requirements
   </a>
   
+    <nav class="md-nav" aria-label="Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#macos-homebrew-and-pip" class="md-nav__link">
+    macOS, Homebrew and pip
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1099,6 +1112,19 @@
     Requirements
   </a>
   
+    <nav class="md-nav" aria-label="Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#macos-homebrew-and-pip" class="md-nav__link">
+    macOS, Homebrew and pip
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1229,6 +1255,10 @@
 <p>Also, if you installed an alternate version of Python 3.x on your system (for example via Homebrew on a Mac), you may need to run Workbench by calling that Python interpreter directly. For Python 3.x installed via Homebrew, that will be at <code>/opt/homebrew/bin/python3</code>, so to run Workbench you would use <code>/opt/homebrew/bin/python3 workbench</code> while in the <code>islandora_workbench</code> directory.</p>
 </div>
 <p>If you are using Drupal 8.5 or earlier, please refer to the "Using Drupal 8.5 or earlier" section below. If you are using Python 3.8, please refer to that section below.</p>
+<h3 id="macos-homebrew-and-pip">macOS, Homebrew and pip</h3>
+<p>As of around 2024, trying to install Islandora Workbench on a Mac with Homebrew using pip will print a warning message and fail.</p>
+<p>The preferred method for installing software via pip is now to use a virtual environment.</p>
+<p>See <a href="https://stackoverflow.com/a/78297842">this StackOverflow answer</a> for more information and steps to create a virtual environment where Islandora Workbench's dependencies can be installed.</p>
 <h2 id="installing-islandora-workbench">Installing Islandora Workbench</h2>
 <p>Installation involves two steps:</p>
 <ol>
