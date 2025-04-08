@@ -1169,10 +1169,11 @@
 </code></pre>
 <h2 id="assigning-a-media-type-by-media-use-uri">Assigning a media type by Media Use URI</h2>
 <p>We typically assign a media type that corresponds with the asset's MIME type. However, there are instances where two media types share the same MIME type. A notable example is FITS XML: while assets with the MIME type <code>application/xml</code> are usually assigned a <code>file</code> media type, the <code>fits_technical_metadata</code> designation is more suitable in this case.</p>
-<p>To assign a media type to a file type based on the file's media use term, use <code>media_type_by_media_use</code>. Below is an example demonstrating how to assign a FITS-tagged XML file to the <code>fits_technical_metadata</code> media type (the media use term's URI on the left side of the mapping, with the target media type's machine name on the right):</p>
+<p>To assign a media type to a file based on the file's media use term (which are defined in the <code>additional_files</code> config setting), use <code>media_type_by_media_use</code>. Below is an example demonstrating how to assign a FITS XML file to the <code>fits_technical_metadata</code> media type (the media use term's URI on the left side of the mapping, with the target media type's machine name on the right):</p>
 <pre><code class="language-yaml">media_type_by_media_use:
   - https://projects.iq.harvard.edu/fits: fits_technical_metadata
 </code></pre>
+<p>Since a set of files' media use term is configured in <code>additional_files</code>, you would only ever use <code>media_type_by_media_use</code> in conjunction with <code>additional_files</code>.</p>
 <h2 id="configuring-a-custom-media-type">Configuring a custom media type</h2>
 <p>Islandora ships with a set of default media types, including audio, document, extracted text, file, FITS technical metadata, image, and video. If you want to add your own custom media type, you need to tell Workbench two things:</p>
 <ol>
