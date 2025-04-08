@@ -22,16 +22,13 @@ Islandora Workbench has been installed and used on Linux, Mac, and Windows.
 
 If you are using Drupal 8.5 or earlier, please refer to the "Using Drupal 8.5 or earlier" section below. If you are using Python 3.8, please refer to that section below.
 
-### macos, Homebrew and pip
+### macOS, Homebrew and pip
 
-As of around 2024, trying to install Islandora Workbench on a Mac with
-Homebrew using pip will print a warning message and fail.
+As of around 2024, trying to install Islandora Workbench on a Mac with Homebrew using pip will print a warning message and fail.
 
 The preferred method for installing software via pip is now to use a virtual environment.
 
-See [this StackOverflow answer](https://stackoverflow.com/a/78297842) for more information
-and steps to create a virtual environment
-where Islandora Workbench's dependencies can be installed.
+See [this StackOverflow answer](https://stackoverflow.com/a/78297842) for more information and steps to create a virtual environment where Islandora Workbench's dependencies can be installed.
 
 ## Installing Islandora Workbench
 
