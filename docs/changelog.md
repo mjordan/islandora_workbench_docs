@@ -23,7 +23,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
-* April 8, 2025: Merged section into "[Installation](/islandora_workbench_docs/installation/)" on preferred way to install on macOS. Thanks @alxp! Also clarified use of the `media_types_override` config setting in the "[Configuring media types](/islandora_workbench_docs/media_types/)" and "[Adding multiple media](/islandora_workbench_docs/adding_multiple_media/)" pages.
+* April 8, 2025: Merged section into "[Installation](/islandora_workbench_docs/installation/)" on preferred way to install Islandora Workbench on macOS. Thanks @alxp! Also clarified use of the `media_types_override` and `media_type_by_media_use` config settings in the "[Configuring media types](/islandora_workbench_docs/media_types/)" and "[Adding multiple media](/islandora_workbench_docs/adding_multiple_media/)" pages.
 * April 3, 2025: Added entry to the "[Configuration](/islandora_workbench_docs/configuration/#paged-and-compound-content-settings)" page for the new `viewer_override_fieldname` config setting.
 * April 1, 2025: Replaced outdated "field_display_hints" with "field_viewer_override".
 * March 4, 2025: Clarified where the `path_to_python` and `path_to_workbench_script` config settings go - the config file for the primary task. Thanks for the suggestion @edlington!

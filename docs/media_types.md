@@ -59,12 +59,16 @@ extensions_to_mimetypes:
 
 ## Assigning a media type by Media Use URI
 
-We typically assign a media type that corresponds with the asset's MIME type. However, there are instances where two media types share the same MIME type. A notable example is FITS XML: while assets with the MIME type `application/xml` are usually assigned a `file` media type, the `fits_technical_metadata` designation is more suitable in this case. To assign a specific media to an asset type based on its intended use, use `media_type_by_media_use`. Below is an example demonstrating how to assign a FITS-tagged XML file to the `fits_technical_metadata` media type.
+We typically assign a media type to a file based on the file's extension. However, there are instances where multiple media types allow uploading of files with the same file extension. One example is FITS XML: while files with the "xml" extension can be assigned a `file` media type, the `fits_technical_metadata` media type is more suitable in this case.
+
+To assign a media type to a file based on the file's media use term as defined in the `additional_files` config setting, use `media_type_by_media_use`. Below is an example demonstrating how to assign a FITS XML file to the `fits_technical_metadata` media type (the media use term's URI is on the left side of the mapping, with the target media type's machine name on the right):
 
 ```yaml
 media_type_by_media_use:
   - https://projects.iq.harvard.edu/fits: fits_technical_metadata
 ```
+
+Since a set of files' media use term is configured in `additional_files`, you would only ever use `media_type_by_media_use` in conjunction with `additional_files`.
 
 ## Configuring a custom media type
 
