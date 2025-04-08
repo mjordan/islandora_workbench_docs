@@ -29,6 +29,7 @@ media_types_override:
 
 Note that:
 
+* Mappings defined in the `media_types_override` config setting apply to all files Workbench is ingesting, regardless of whether they are in the `file` CSV column or in a column defined in the `additional_files` setting.
 * If a file's extension is not present in the default mapping or in the `media_types_override` custom mapping, the media is assigned the "file" type.
 * If you use the `media_types_override` configuration option, your mapping *replaces* Workbench's default mappings for the specified media type. This means that if you want to retain the default media type mapping for a file extension, you need to include it in the mapping, as illustrated by the presence of "mp4" in the example above.
 * If both `media_type` and `media_types_override` are included in the config file, the mapping in `media_types_override` is ignored and the media type assigned in `media_type` is used.
