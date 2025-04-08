@@ -1140,13 +1140,13 @@
 <p>If a file's extension is not defined in this default mapping, the media is assigned the "file" type.</p>
 <p>If you need to override this default mapping, you can do so in two ways:</p>
 <ol>
-<li>If the override applies to all files named in your CSV's <code>file</code> column, use the <code>media_type</code> configuration option, for example <code>media_type: document</code>). Use this option if all of the files in your batch are to be assigned the same media type, but their extensions are not defined in the default mapping or you wish to override the default mapping.</li>
+<li>If the override applies to all files named in your CSV's <code>file</code> column, use the <code>media_type</code> configuration setting, for example <code>media_type: document</code>). Use this setting if all of the files named in your <code>file</code> column are to be assigned the same media type, but their extensions are not defined in the default mapping or you wish to override the default mapping.</li>
 <li>On a per file extension basis, via a mapping in the <code>media_types_override</code> option in your configuration file like this one:</li>
 </ol>
 <pre><code class="language-yaml">media_types_override:
   - video: ['mp4', 'ogg']
 </code></pre>
-<p>Use the <code>media_types_override</code> option if each of the files named in your CSV's <code>file</code> column are to be assigned an extension-specific media type, and their extensions are not defined in the default mapping (or add to the extensions in the default mapping, as in this example).</p>
+<p>Use the <code>media_types_override</code> option if each of the files named in your CSV's <code>file</code> column (or in columns defined using the <code>additional_files</code> setting) are to be assigned an extension-specific media type, and their extensions are not defined in the default mapping (or add to the extensions in the default mapping, as in this example).</p>
 <p>Note that:</p>
 <ul>
 <li>Mappings defined in the <code>media_types_override</code> config setting apply to all files Workbench is ingesting, regardless of whether they are in the <code>file</code> CSV column or in a column defined in the <code>additional_files</code> setting.</li>
