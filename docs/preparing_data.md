@@ -390,13 +390,13 @@ clean_csv_values_skip: ["smart_quotes", "inside_spaces"]
 
 ## When Workbench skips invalid CSV data
 
-Running `--check` will tell you when any of the data in your CSV file is invalid, or in other words, does not conform to its target Drupal field's configuration and is likely to cause the creation/updating of content to fail. Currently, for the following types of fields:
+Running `--check` will tell you when any of the data in your CSV file is invalid, or in other words, does not conform to its target Drupal field's configuration and is likely to cause the creation/updating of content to fail. Currently, for the following types of fields, Workbench will validate CSV values and skip values that fail its validation tests, logging that it did so:
 
 * text
 * geolocation
 * link
 
-Workbench will validate CSV values and skip values that fail its validation tests. Work is [underway](https://github.com/mjordan/islandora_workbench/issues/424) to complete this feature, including skipping of invalid entity reference and typed relation fields.
+Work is [underway](https://github.com/mjordan/islandora_workbench/issues/424) to complete this feature, including skipping of invalid entity reference and typed relation fields.
 
 ## Blank or missing "file" values
 
