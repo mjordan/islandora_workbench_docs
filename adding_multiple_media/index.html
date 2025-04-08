@@ -1024,6 +1024,7 @@ main.jpg,2078,/tmp/thumbs/main_tn.jpg,/tmp/rightsdocs/036.txt
 <li>If the <code>additional_files</code> columns are empty in any rows, or if the reserved <code>file</code> column is empty because all file-related columns are listed in additional_files, you will need to add the <code>allow_missing_files: true</code> option to your configuration file.</li>
 <li><a href="/islandora_workbench_docs/fixity">Fixity checking</a> is only available for files named in the <code>file</code> CSV column, not in the additional columns described here. See <a href="https://github.com/mjordan/islandora_workbench/issues/307">this issue</a> for more information.</li>
 <li>If you create an "Extracted Text" media, the contents of the specified text file will be added to the media's "field_edited_text" field, allowing it to be indexed in Solr.</li>
+<li>Mappings of file extension to Islandora media type configured via the <code>media_types_override</code> config setting apply to files named in the <code>file</code> CSV column and in other columns defined in the <code>additional_files</code> setting.</li>
 </ul>
 
 
