@@ -186,11 +186,22 @@ The output contains colums for Node ID, Title, Content Type, Islandora Model, an
 In `export_csv` and `get_data_from_view` tasks, you can optionally export media files. To do this, add the following settings to your configuration file:
 
 * `export_file_directory`: This is the path to the directory where Workbench will save the exported files. This is required unless the `export_file_url_instead_of_download` option is set to True.
-* `export_file_media_use_term_id`: Optional. This setting tells Workbench which Islandora Media Use term to use to identify the file to export. Defaults to `http://pcdm.org/use#OriginalFile` (for Original File). Can be either a term ID or a term URI.
+* `export_file_media_use_term_id`: Optional. This setting tells Workbench which Islandora Media Use term to use to identify the file to export. Defaults to `http://pcdm.org/use#OriginalFile` (for Original File). Can be either a term ID or a term URI. See below for how to export multiple files, with separate Islandora Media Use terms.
 * `export_file_url_instead_of_download`: Optional. If set to True, file columns will contain the URL where the media file is located, and files won't be downloaded.
 * `additional_files`: Optional. Same as in [Adding Multiple Media](adding_multiple_media.md). Useful for getting out more than just the Original Files.
 
 Note that files need to be accessible to the anonymous Drupal user to be exported.
+
+If you want to export multiple files for each node (e.g. the original file, the extracted text file, the service file, and the thumbnail), include an `additional_files` entry in your configuration, mapping columns names in your output CSV with Media Use term IDs or URIs:
+
+```
+additional_files:
+  - extracted: http://pcdm.org/use#ExtractedText
+  - service: http://pcdm.org/use#ServiceFile
+  - thumbnail: http://pcdm.org/use#ThumbnailImage
+```
+
+  This will result in the columns `file` (for the original file), `extracted` (containing the path to the extracted text files), `service` ((containing the path to the service files)), and `thumbnail` ((containing the path to the thumbnail files).
 
 ### Using the CSV ID to node ID map
 

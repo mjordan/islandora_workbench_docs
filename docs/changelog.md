@@ -2,6 +2,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* April 23, 2025: Merged (commit b7b009a) [PR 942](https://github.com/mjordan/islandora_workbench/pull/942) that adds the ability to export multiple media files in `export_csv` and `get_data_from_view` tasks. Thanks @alxp!
 * April 8, 2025: Merged (commit 7d8be02) fix for [issue 937](https://github.com/mjordan/islandora_workbench/issues/937) (thanks @alxp!).
 * April 3, 2025: Merged (commit e65062c) fix for [issue 928](https://github.com/mjordan/islandora_workbench/issues/932) (thanks @mitchmac and @dara2!); resolved (commit e65062c) [issue 935](https://github.com/mjordan/islandora_workbench/issues/935).
 * March 28, 2025: Resolved (commit 189b025) [issue 932](https://github.com/mjordan/islandora_workbench/issues/932).
@@ -23,6 +24,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* April 23, 2025: Updated [Generating CSV Files](/islandora_workbench_docs/generating_csv_files/) to reflect new functionality around exporting media files.
 * April 8, 2025: Merged section into "[Installation](/islandora_workbench_docs/installation/)" on preferred way to install Islandora Workbench on macOS. Thanks @alxp! Also clarified use of the `media_types_override` and `media_type_by_media_use` config settings in the "[Configuring media types](/islandora_workbench_docs/media_types/)" and "[Adding multiple media](/islandora_workbench_docs/adding_multiple_media/)" pages.
 * April 3, 2025: Added entry to the "[Configuration](/islandora_workbench_docs/configuration/#paged-and-compound-content-settings)" page for the new `viewer_override_fieldname` config setting.
 * April 1, 2025: Replaced outdated "field_display_hints" with "field_viewer_override".
