@@ -33,6 +33,10 @@ The advantage of migrating to Islandora in this way is that the exported CSV fil
 !!! note
     Workbench's ability to add multiple media to a node at one time is useful during migrations, if you want to reuse derivatives such as thumbnails and OCR transcripts from the source platform. Using this ability can speed up ingest substantially, since Islandora won't need to generate derivative media that are added this way . See the "[Adding multiple media](/islandora_workbench_docs/adding_multiple_media)" section for more information.
 
+## Round tripping between Islandora instances
+
+An interesting variation of the "Migrations" workflow is moving content between multiple Islandora 2 instances. This can be done using either the `export_csv` task or `get_data_from_view` task to export CSV and accompanying media files from the source Islandora, and then using a `create` task to ingest that data into the target Islandora instance. The node IDs won't be the same across the two Islandoras, but the content will be the same.
+
 ## Watch folders
 
 Since Islandora workbench is a command-line tool, it can be run in a scheduled job such as Linux "cron". If CSV and file content are present when Workbench runs, Workbench will operate on them in the same way as if a person ran Workbench manually.
