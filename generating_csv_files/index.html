@@ -1282,10 +1282,11 @@ view_parameters:
 </ul>
 <p>Note that files need to be accessible to the anonymous Drupal user to be exported.</p>
 <p>If you want to export multiple files for each node (e.g. the original file, the extracted text file, the service file, and the thumbnail), include an <code>additional_files</code> entry in your configuration, mapping columns names in your output CSV with Media Use term IDs or URIs:</p>
-<p><code>additional_files:
+<pre><code>additional_files:
   - extracted: http://pcdm.org/use#ExtractedText
   - service: http://pcdm.org/use#ServiceFile
-  - thumbnail: http://pcdm.org/use#ThumbnailImage</code></p>
+  - thumbnail: http://pcdm.org/use#ThumbnailImage
+</code></pre>
 <p>This will result in the columns <code>file</code> (for the original file), <code>extracted</code> (containing the path to the extracted text files), <code>service</code> ((containing the path to the service files)), and <code>thumbnail</code> ((containing the path to the thumbnail files).</p>
 <h3 id="using-the-csv-id-to-node-id-map">Using the CSV ID to node ID map</h3>
 <p>The "<a href="/islandora_workbench_docs/csv_id_to_node_id_map/">CSV ID to node ID map</a>" contains data that relates the value of the "id" column (or whatever column you define using <code>id_field</code>) in <code>create</code> task CSV to its corrsponding node ID. Workbench provides a script that lets you export this data for reuse, for example as the basis for <code>update</code> tasks.</p>
