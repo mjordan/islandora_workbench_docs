@@ -860,6 +860,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#round-tripping-between-islandora-instances" class="md-nav__link">
+    Round tripping between Islandora instances
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#watch-folders" class="md-nav__link">
     Watch folders
   </a>
@@ -1151,6 +1158,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#round-tripping-between-islandora-instances" class="md-nav__link">
+    Round tripping between Islandora instances
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#watch-folders" class="md-nav__link">
     Watch folders
   </a>
@@ -1297,6 +1311,8 @@
 <p class="admonition-title">Note</p>
 <p>Workbench's ability to add multiple media to a node at one time is useful during migrations, if you want to reuse derivatives such as thumbnails and OCR transcripts from the source platform. Using this ability can speed up ingest substantially, since Islandora won't need to generate derivative media that are added this way . See the "<a href="/islandora_workbench_docs/adding_multiple_media">Adding multiple media</a>" section for more information.</p>
 </div>
+<h2 id="round-tripping-between-islandora-instances">Round tripping between Islandora instances</h2>
+<p>An interesting variation of the "Migrations" workflow is moving content between multiple Islandora 2 instances. This can be done using either the <code>export_csv</code> task or <code>get_data_from_view</code> task to export CSV and accompanying media files from the source Islandora, and then using a <code>create</code> task to ingest that data into the target Islandora instance. The node IDs won't be the same across the two Islandoras, but the content will be the same.</p>
 <h2 id="watch-folders">Watch folders</h2>
 <p>Since Islandora workbench is a command-line tool, it can be run in a scheduled job such as Linux "cron". If CSV and file content are present when Workbench runs, Workbench will operate on them in the same way as if a person ran Workbench manually.</p>
 <div class="admonition note">
