@@ -1864,10 +1864,10 @@ csv_field_templates:
 <td>Used in the "export_csv" and "get_data_from_view" tasks. The path to the directory where files corresponding to the data in the CSV output file will be written. Must exist; if Workbench cannot find this directory, it will exit.</td>
 </tr>
 <tr>
-<td>export_file_media_use_term_id</td>
+<td>export_file_url_instead_of_download</td>
 <td></td>
-<td><code>http://pcdm.org/use#OriginalFile</code></td>
-<td>Used in the "export_csv" and "get_data_from_view" tasks. The term ID or URI from the Islandora Media Use vocabulary that identifies the file you want to export.</td>
+<td>false</td>
+<td>Used in the "export_csv" and "get_data_from_view" tasks. Tells Workbench to not download media files but instread to export the direct URLs to the files.</td>
 </tr>
 </tbody>
 </table>
@@ -1988,7 +1988,7 @@ csv_field_templates:
 <td>additional_files</td>
 <td></td>
 <td></td>
-<td>Maps a set of CSV field names to media use terms IDs to create additional media (additional to the media created from the file named in the "file" column, that is) in <code>create</code> and <code>add_media</code> tasks. See "<a href="/islandora_workbench_docs/adding_multiple_media">Adding multiple media</a>" for more information.</td>
+<td>Maps a set of CSV field names to media use terms IDs to create additional media (additional to the media created from the file named in the "file" column, that is) in <code>create</code> and <code>add_media</code> tasks. See "<a href="/islandora_workbench_docs/adding_multiple_media">Adding multiple media</a>" for more information. Also used in <code>export_csv</code> and <code>get_data_from_view</code> tasks to indicate which media to export. See "<a href="/islandora_workbench_docs/generating_csv_files/#exporting-image-video-etc-files-along-with-csv-data">Exporting image, video, etc. files along with CSV data</a>" for more information.</td>
 </tr>
 <tr>
 <td>fixity_algorithm</td>
