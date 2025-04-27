@@ -18,3 +18,5 @@ The `task` configuration setting defines the specific work you want Workbench to
 | Populate a vocabulary from CSV | `create_terms` | [Creating taxonomy terms](/islandora_workbench_docs/creating_taxonomy_terms/) |
 | Update terms in a vocabulary from CSV | `update_terms` | [Updating taxonomy terms](/islandora_workbench_docs/updating_terms/) |
 | Create URL redirects | `create_redirects` | [Creating redirects](/islandora_workbench_docs/redirects/) |
+| Add alt text to images | `add_alt_text` | [Adding alt text to images](/islandora_workbench_docs/alt_text/) |
+| Update image alt text | `update_alt_text` | [Adding alt text to images](/islandora_workbench_docs/alt_text/) |
