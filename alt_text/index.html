@@ -1069,7 +1069,7 @@ IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Franc
 <p>During <code>create</code> tasks, Workbench only adds alt text to the image media it creates. So if the image files in your create task are "Original file" media use (the default), those are the image media that will get the alt text value from your CSV. If the image files you create are "Service file" media (e.g via an additional_files configuration), those are the ones that get the alt text.</p>
 </div>
 <h3 id="using-add_alt_text-and-update_alt_text-tasks">Using <code>add_alt_text</code> and <code>update_alt_text</code> tasks</h3>
-<p>The <code>add_alt_text</code> and <code>update_alt_text</code> apply the same alt text value to all image media attached to an existing node, regardless of those images' Media Use tags (e.g., Origina file, Service file, or Thumbnail). Their input CSV contains two columns, <code>node_id</code> and <code>image_alt_text</code>, like this:</p>
+<p>The <code>add_alt_text</code> and <code>update_alt_text</code> apply the same alt text value to all image media attached to an existing node, regardless of those images' Media Use tags (e.g., Original file, Service file, or Thumbnail). Their input CSV contains two columns, <code>node_id</code> and <code>image_alt_text</code>, like this:</p>
 <pre><code class="language-text">node_id,image_alt_text
 378,Amsterdam waterfront on an overcast day.
 389,&quot;Taken from Fisherman's Wharf, San Francisco.&quot;
@@ -1077,7 +1077,7 @@ IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Franc
 <p>For each node, all of its media of type "Image" will get the corresponding alt text value.</p>
 <p>Notes:</p>
 <ul>
-<li>In Islandora, only media that have a type of "Image" support alt text. JPEG2000 and TIFF images do not have alt text attributes, since their media are of type "File", not "Image".</li>
+<li>In Islandora, only media that have a type of "Image" support alt text. JPEG2000 and TIFF images are "File" media, so do not have alt text attributes.</li>
 <li>Workbench strips out all HTML markup within the alt text to prevent potential cross-site scripting vulnerabilities.</li>
 <li>In <code>add_alt_text</code> and <code>update_alt_text</code> tasks, you can use URLs instead of node IDs in the <code>node_id</code> CSV column.</li>
 <li>In <code>update_alt_text</code> tasks, the same <code>update_mode</code> options are available as are in <code>update</code> tasks -- "replace" (default), "append", and "delete".</li>
