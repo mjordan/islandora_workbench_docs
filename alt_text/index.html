@@ -65,6 +65,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#during-create-tasks" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -571,9 +576,45 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Adding alt text to images
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Adding alt text to images
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#during-create-tasks" class="md-nav__link">
+    During create tasks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-add_alt_text-and-update_alt_text-tasks" class="md-nav__link">
+    Using add_alt_text and update_alt_text tasks
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -972,6 +1013,28 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#during-create-tasks" class="md-nav__link">
+    During create tasks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-add_alt_text-and-update_alt_text-tasks" class="md-nav__link">
+    Using add_alt_text and update_alt_text tasks
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -993,7 +1056,9 @@
   <h1>Adding alt text to images</h1>
 
 <p>Islandora image media require a value in their "Alternative text" field. This text is used as the <code>alt</code> text in the HTML markup rendering the image.</p>
-<p>You can assign alt text values to image media by adding the <code>image_alt_text</code> field to you CSV file, like this:</p>
+<p>You can assign alt text values to image media using Workbench in two ways, during <code>create</code> tasks and using the <code>add_alt_text</code> and <code>update_alt_text</code> tasks.</p>
+<h3 id="during-create-tasks">During <code>create</code> tasks</h3>
+<p>In a <code>create</code> task, you can assign alt text values to image media by adding the <code>image_alt_text</code> field to you CSV file, like this:</p>
 <pre><code class="language-text">file,title,field_model,image_alt_text
 IMG_2958.JPG,04,Amsterdam waterfront,25,Amsterdam waterfront on an overcast day.
 IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Francisco.&quot;
@@ -1001,12 +1066,21 @@ IMG_5083.JPG,05,Alcatraz Island,25,&quot;Taken from Fisherman's Wharf, San Franc
 <p>The value will only be applied to image media that Workbench creates. If you do not include this field in your CSV file, or the field is present but empty, Workbench will use the node's title as the alt text.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Workbench only adds alt text to the image media it creates. So if the image files in your create task are "Original file" media use (the default), those are the image media that will get the alt text value from your CSV. If the image files you create are "Service file" media (e.g via an additional_files configuration), those are the ones that get the alt text.</p>
+<p>During <code>create</code> tasks, Workbench only adds alt text to the image media it creates. So if the image files in your create task are "Original file" media use (the default), those are the image media that will get the alt text value from your CSV. If the image files you create are "Service file" media (e.g via an additional_files configuration), those are the ones that get the alt text.</p>
 </div>
-<p>A couple notes:</p>
+<h3 id="using-add_alt_text-and-update_alt_text-tasks">Using <code>add_alt_text</code> and <code>update_alt_text</code> tasks</h3>
+<p>The <code>add_alt_text</code> and <code>update_alt_text</code> apply the same alt text value to all image media attached to an existing node, regardless of those images' Media Use tags (e.g., Origina file, Service file, or Thumbnail). Their input CSV contains two columns, <code>node_id</code> and <code>image_alt_text</code>, like this:</p>
+<pre><code class="language-text">node_id,image_alt_text
+378,Amsterdam waterfront on an overcast day.
+389,&quot;Taken from Fisherman's Wharf, San Francisco.&quot;
+</code></pre>
+<p>For each node, all of its media of type "Image" will get the corresponding alt text value.</p>
+<p>Notes:</p>
 <ul>
-<li>Assigning alt text to images is only available in <code>create</code> tasks (but see <a href="https://github.com/mjordan/islandora_workbench/issues/166">this issue</a>).</li>
+<li>In Islandora, only media that have a type of "Image" support alt text. JPEG2000 and TIFF images do not have alt text attributes, since their media are of type "File", not "Image".</li>
 <li>Workbench strips out all HTML markup within the alt text to prevent potential cross-site scripting vulnerabilities.</li>
+<li>In <code>add_alt_text</code> and <code>update_alt_text</code> tasks, you can use URLs instead of node IDs in the <code>node_id</code> CSV column.</li>
+<li>In <code>update_alt_text</code> tasks, the same <code>update_mode</code> options are available as are in <code>update</code> tasks -- "replace" (default), "append", and "delete".</li>
 </ul>
 
 
