@@ -64,6 +64,7 @@ If you do this, Workbench will check the following conditions and report any war
     * Whether the nodes referenced in `field_member_of` (if that field is present in the CSV) exist.
     * Whether values used in geolocation fields are valid lat,long coordinates.
     * Whether values used in EDTF fields are valid EDTF date/time values (subset of date/time values only; see [documentation](https://mjordan.github.io/islandora_workbench_docs/fields/#field-types) for more detail). Also validates whether dates are valid Gregorian calendar dates.
+    * Whether values in the `image_alt_text` CSV column are longer than the configured maximum length.
 * Hook scripts
     * Whether registered bootstrap, preprocessor, and post-action scripts exist and are executable.
 
