@@ -988,15 +988,15 @@
 <p>The following are examples of how the two settings, <code>field_viewer_override_models</code> and <code>field_viewer_override_extensions</code> work. They take a list of mappings from terms in the Islandora Display vocabulary on the left to conditions on the right. The conditions are themselves lists of <code>field_model</code> values (for mappings in <code>field_viewer_override_models</code>) and file extensions (for mappings in <code>field_viewer_override_extensions</code>).</p>
 <p>An example of using <code>field_viewer_override_models</code> is:</p>
 <pre><code class="language-yaml">field_viewer_override_models:
- - http://mozilla.github.io/pdf.js: [&quot;Digital document&quot;]
+ - http://mozilla.github.io/pdf.js: [&quot;Digital document&quot;, &quot;Digital Document&quot;]
  - http://openseadragon.github.io: [&quot;Image&quot;]
 </code></pre>
 <p>These mappings will populate <code>field_viewer_override</code> in a row with "http://mozilla.github.io/pdf.js" if the row's <code>field_model</code> value is "Digital document", and with "http://openseadragon.github.io" if the <code>field_model</code> value is "Image".</p>
 <p>An example of using <code>field_viewer_override_extensions</code> is:</p>
 <pre><code class="language-yaml"># Do not use leading periods in the list of file extensions.
 field_viewer_override_extensions:
- - http://mozilla.github.io/pdf.js: [&quot;pdf&quot;]
- - http://openseadragon.github.io: [&quot;tiff&quot;, &quot;tif&quot;]
+ - http://mozilla.github.io/pdf.js: [&quot;pdf&quot;, &quot;PDF&quot;]
+ - http://openseadragon.github.io: [&quot;tiff&quot;, &quot;TIFF&quot;,&quot;tif&quot;, &quot;TIF&quot;]
 </code></pre>
 <p>These mappings will populate <code>field_viewer_override</code> in a row with "http://mozilla.github.io/pdf.js" if the row's <code>file</code> value is has an extension "pdf" and with "http://openseadragon.github.io" if the row's <code>file</code> value is either "tiff" or "tif". If the file identified in your input CSV's <code>file</code> column is a remote file (starting with "http" or "https"), Workbench will get its extension from the file's MIME type provided by the remote web server. Note that the extensions named within this condition should not contain a leading period.</p>
 <p>These mappings will populate <code>field_viewer_override</code> in a row with "http://mozilla.github.io/pdf.js" if the row's <code>field_model</code> value is "Digital document", and with "http://openseadragon.github.io" if the <code>field_model</code> value is "Image".</p>
@@ -1007,7 +1007,7 @@ field_viewer_override_extensions:
 <li>If a <code>field_viewer_override</code> column is present in your input CSV, this configuration will populate the empty cells but leave any cells that are already populated intact.</li>
 <li>If you include one or both of the configuration settings, Workbench will warn you during <code>--check</code> (both by printing a line of output and by writing a log entry) that "You should review <code>"[path to your preprocessed input CSV file]"</code> to ensure that values in the "field_viewer_override" column have been correctly assigned based on your configuration settings."</li>
 <li>The configuration described here applies to rows in your input CSV. Setting the <code>field_viewer_override</code> values for book, newspaper, and other page-model content created using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" should still be used for Page-model items as described there.</li>
-<li>The strings in the lists on the right-hand side of the mappings are <em>case sensitive</em>. "Digital Document" is different than "Digital document". To accommodate varying cases in your input CSV values, include all variations of the string in the lists on the right-hand side of the mappings.</li>
+<li>The strings in the lists on the right-hand side of the mappings are <em>case sensitive</em>. "Digital Document" is different than "Digital document". To accommodate varying cases in your input CSV values, include all variations of the string in the lists on the right-hand side of the mappings, for example <code>["Digital document", "Digital Document"]</code>, as illustrated in the examples above.</li>
 <li>If you include both <code>field_viewer_override_models</code> and <code>field_viewer_override_extensions</code> settings in your configuration file, the mappings for <code>field_viewer_override_extensions</code> will pertain. If a row in the input CSV matches multiple conditions, the last match (using the order of the mappings in the configuration) pertains.</li>
 </ul>
 
