@@ -990,7 +990,7 @@
 <li>the value in your CSV's <code>field_model</code> column.</li>
 </ol>
 <p>Using this configuration saves you the tedious task of manually populating the <code>field_viewer_override</code> field.</p>
-<p>The following are examples of how the two settings, <code>field_viewer_override_models</code> and <code>field_viewer_override_extensions</code> work. They take a list of mappings from terms in the Islandora Display vocabulary on the left to conditions on the right. The conditions are themselves lists of <code>field_model</code> values (for mappings in <code>field_viewer_override_models</code>) and file extensions (for mappings in <code>field_viewer_override_extensions</code>).</p>
+<p>The following are examples of how the two settings, <code>field_viewer_override_models</code> and <code>field_viewer_override_extensions</code> work. Both settings take a list of mappings from terms in the Islandora Display vocabulary on the left to conditions on the right. The conditions are themselves lists of <code>field_model</code> values (for mappings in <code>field_viewer_override_models</code>) and file extensions (for mappings in <code>field_viewer_override_extensions</code>).</p>
 <p>An example of using <code>field_viewer_override_models</code> is:</p>
 <pre><code class="language-yaml">field_viewer_override_models:
  - http://mozilla.github.io/pdf.js: [&quot;Digital document&quot;]
