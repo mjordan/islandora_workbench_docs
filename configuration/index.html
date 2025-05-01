@@ -371,6 +371,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#input-csv-content-templating-settings" class="md-nav__link">
+    Input CSV content templating settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#output-csv-settings" class="md-nav__link">
     Output CSV settings
   </a>
@@ -1293,6 +1300,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#input-csv-content-templating-settings" class="md-nav__link">
+    Input CSV content templating settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#output-csv-settings" class="md-nav__link">
     Output CSV settings
   </a>
@@ -1757,36 +1771,6 @@ csv_field_templates:
 <td>The subdelimiter used in the CSV file to define multiple values in one field. If omitted, defaults to "&#124;". Can be a string of multiple characters, e.g. "^^^".</td>
 </tr>
 <tr>
-<td>csv_field_templates</td>
-<td></td>
-<td></td>
-<td>Used in the <code>create</code> and <code>update</code> tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the "<a href="/islandora_workbench_docs/field_templates/">CSV field templates</a>" section.</td>
-</tr>
-<tr>
-<td>csv_value_templates</td>
-<td></td>
-<td></td>
-<td>Used in the <code>create</code> and <code>update</code> tasks only. A list of Drupal field machine names and corresponding templates. More detail provided in the "<a href="/islandora_workbench_docs/csv_value_templates/">CSV value templates</a>" section.</td>
-</tr>
-<tr>
-<td>csv_value_templates_for_paged_content</td>
-<td></td>
-<td></td>
-<td>Used in <code>create</code> tasks only. Similar to <code>csv_value_templates</code> but applies to paged/child items created using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method of creating paged content. More detail provided in the "<a href="/islandora_workbench_docs/csv_value_templates/">CSV value templates</a>" section.</td>
-</tr>
-<tr>
-<td>csv_value_templates_rand_length</td>
-<td></td>
-<td>5</td>
-<td>Length of the <code>$random_alphanumeric_string</code> and <code>$random_number_string</code> variables CSV value templates. More detail provided in the "<a href="/islandora_workbench_docs/csv_value_templates/">CSV value templates</a>" section.</td>
-</tr>
-<tr>
-<td>allow_csv_value_templates_if_field_empty</td>
-<td></td>
-<td>[]</td>
-<td>List of fields to populate with CSV value templates if the CSV field is empty. More detail provided in the "<a href="/islandora_workbench_docs/csv_value_templates/">CSV value templates</a>" section.</td>
-</tr>
-<tr>
 <td>ignore_csv_columns</td>
 <td></td>
 <td></td>
@@ -1830,6 +1814,32 @@ csv_field_templates:
 </tr>
 </tbody>
 </table>
+<h3 id="input-csv-content-templating-settings">Input CSV content templating settings</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Required</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>| csv_field_templates |  |  | Used in the <code>create</code> and <code>update</code> tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the "<a href="/islandora_workbench_docs/field_templates/">CSV field templates</a>" section.|
+| csv_value_templates |  |  | Used in the <code>create</code> and <code>update</code> tasks only. A list of Drupal field machine names and corresponding templates. More detail provided in the "<a href="/islandora_workbench_docs/csv_value_templates/">CSV value templates</a>" section.|
+| csv_value_templates_for_paged_content |  |  | Used in <code>create</code> tasks only. Similar to <code>csv_value_templates</code> but applies to paged/child items created using the "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" method of creating paged content. More detail provided in the "<a href="/islandora_workbench_docs/csv_value_templates/">CSV value templates</a>" section.|
+| csv_value_templates_rand_length |  | 5 | Length of the <code>$random_alphanumeric_string</code> and <code>$random_number_string</code> variables CSV value templates. More detail provided in the "<a href="/islandora_workbench_docs/csv_value_templates/">CSV value templates</a>" section.|
+| allow_csv_value_templates_if_field_empty |  | [] | List of fields to populate with CSV value templates if the CSV field is empty. More detail provided in the "<a href="/islandora_workbench_docs/csv_value_templates/">CSV value templates</a>" section. |
+| field_viewer_override_models |  |  | List of mappings from values in the Islandora Display vocabulary to values in the input CSV's <code>field_model</code> column. Allows for automatic population of the <code>field_viewer_override</code> field. More detail provided at "<a href="/islandora_workbench_docs viewer_override/">Automatically populating the "Viewer override" field</a>" section. |
+| field_viewer_override_extensions |  |  | List of mappings from values in the Islandora Display vocabulary to extensions on files named in the input CSV <code>file</code> column. Allows for automatic population of the <code>file</code> field. More detail provided at "<a href="/islandora_workbench_docs viewer_override/">Automatically populating the "Viewer override" field</a>" section. |</p>
 <h3 id="output-csv-settings">Output CSV settings</h3>
 <p>See "<a href="/islandora_workbench_docs/generating_csv_files/">Generating CSV files</a>" section for more information.</p>
 <table>
