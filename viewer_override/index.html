@@ -984,7 +984,12 @@
 
   <h1>Viewer override</h1>
 
-<p>In <code>create</code> tasks, you can configure Workbench to automatically populate the <code>field_viewer_override</code> column in your input CSV using to two different criteria, 1) the extension of the file named in your CSV's <code>file</code> column, and 2) the value in your CSV's <code>field_model</code> column. Using this configuration saves you the tedious task of manually populating the <code>field_viewer_override</code> field.</p>
+<p>In <code>create</code> tasks, you can configure Workbench to automatically populate the <code>field_viewer_override</code> column in your input CSV using to two different criteria:</p>
+<ol>
+<li>the extension of the file named in your CSV's <code>file</code> column, and</li>
+<li>the value in your CSV's <code>field_model</code> column.</li>
+</ol>
+<p>Using this configuration saves you the tedious task of manually populating the <code>field_viewer_override</code> field.</p>
 <p>The following are examples of how the two settings, <code>field_viewer_override_models</code> and <code>field_viewer_override_extensions</code> work. They take a list of mappings from terms in the Islandora Display vocabulary on the left to conditions on the right. The conditions are themselves lists of <code>field_model</code> values (for mappings in <code>field_viewer_override_models</code>) and file extensions (for mappings in <code>field_viewer_override_extensions</code>).</p>
 <p>An example of using <code>field_viewer_override_models</code> is:</p>
 <pre><code class="language-yaml">field_viewer_override_models:
