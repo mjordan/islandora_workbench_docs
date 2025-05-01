@@ -124,11 +124,6 @@ Strictly speaking, YAML lists can be represented as either a series of entries o
 | id_field |  | id | The name of the field in the CSV that uniquely identifies each record. |
 | delimiter |  | , [comma]| The delimiter used in the CSV file, for example, "," or "\t" (must use double quotes with "\t"). If omitted, defaults to ",". |
 | subdelimiter |  | &#124; [pipe]| The subdelimiter used in the CSV file to define multiple values in one field. If omitted, defaults to "&#124;". Can be a string of multiple characters, e.g. "^^^". |
-| csv_field_templates |  |  | Used in the `create` and `update` tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the "[CSV field templates](/islandora_workbench_docs/field_templates/)" section.|
-| csv_value_templates |  |  | Used in the `create` and `update` tasks only. A list of Drupal field machine names and corresponding templates. More detail provided in the "[CSV value templates](/islandora_workbench_docs/csv_value_templates/)" section.|
-| csv_value_templates_for_paged_content |  |  | Used in `create` tasks only. Similar to `csv_value_templates` but applies to paged/child items created using the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method of creating paged content. More detail provided in the "[CSV value templates](/islandora_workbench_docs/csv_value_templates/)" section.|
-| csv_value_templates_rand_length |  | 5 | Length of the `$random_alphanumeric_string` and `$random_number_string` variables CSV value templates. More detail provided in the "[CSV value templates](/islandora_workbench_docs/csv_value_templates/)" section.|
-| allow_csv_value_templates_if_field_empty |  | [] | List of fields to populate with CSV value templates if the CSV field is empty. More detail provided in the "[CSV value templates](/islandora_workbench_docs/csv_value_templates/)" section. |
 | ignore_csv_columns |  |  | Used in the `create` and `update` tasks only. A list of CSV column headers that Workbench should ignore. For example, `ignore_csv_columns: [Target Collection, Ready to publish]`|
 | csv_start_row  |  |  | Used in `create` and `update` tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) before the designated row number. [More information](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges) is available. |
 | csv_stop_row  |  |  | Used in `create` and `update` tasks. Tells Workbench to ignore all rows/records in input CSV (or Google Sheet or Excel) after the designated row number. [More information](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges) is available.|
@@ -137,6 +132,18 @@ Strictly speaking, YAML lists can be represented as either a series of entries o
 | clean_csv_values_skip  |  | [] (empty list)  | Used in all tasks that use CSV input files. See "[How Workbench cleans your input data](/islandora_workbench_docs/preparing_data/#how-workbench-cleans-your-input-data)" for more information. |
 | columns_with_term_names  |  | [] (empty list)  | Used in all tasks that allow creation of terms on entity ingest. See "[Using numbers as term names](/islandora_workbench_docs/fields/#using-numbers-as-term-names)" for more information. |
 
+
+### Input CSV content templating settings
+
+| Setting | Required | Default value | Description |
+| --- | --- | --- | --- |
+| csv_field_templates |  |  | Used in the `create` and `update` tasks only. A list of Drupal field machine names and corresponding values that are copied into the CSV input file. More detail provided in the "[CSV field templates](/islandora_workbench_docs/field_templates/)" section.|
+| csv_value_templates |  |  | Used in the `create` and `update` tasks only. A list of Drupal field machine names and corresponding templates. More detail provided in the "[CSV value templates](/islandora_workbench_docs/csv_value_templates/)" section.|
+| csv_value_templates_for_paged_content |  |  | Used in `create` tasks only. Similar to `csv_value_templates` but applies to paged/child items created using the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method of creating paged content. More detail provided in the "[CSV value templates](/islandora_workbench_docs/csv_value_templates/)" section.|
+| csv_value_templates_rand_length |  | 5 | Length of the `$random_alphanumeric_string` and `$random_number_string` variables CSV value templates. More detail provided in the "[CSV value templates](/islandora_workbench_docs/csv_value_templates/)" section.|
+| allow_csv_value_templates_if_field_empty |  | [] | List of fields to populate with CSV value templates if the CSV field is empty. More detail provided in the "[CSV value templates](/islandora_workbench_docs/csv_value_templates/)" section. |
+| field_viewer_override_models |  |  | List of mappings from values in the Islandora Display vocabulary to values in the input CSV's `field_model` column. Allows for automatic population of the `field_viewer_override` field. More detail provided at "[Automatically populating the "Viewer override" field](/islandora_workbench_docs/viewer_override/)". |
+| field_viewer_override_extensions |  |  | List of mappings from values in the Islandora Display vocabulary to extensions on files named in the input CSV `file` column. Allows for automatic population of the `file` field. More detail provided at "[Automatically populating the "Viewer override" field](/islandora_workbench_docs/viewer_override/)". |
 
 
 ### Output CSV settings

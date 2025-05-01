@@ -2,6 +2,8 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* May 1, 2025: Resolved (4c44e30) [issue 714](https://github.com/mjordan/islandora_workbench/issues/714).
+* April 30, 2025: Resolved (commit 89698d0) [issue 945](https://github.com/mjordan/islandora_workbench/issues/945).
 * April 27, 2025: Merged (commit df1f263) in changes to introduce `add_alt_text` and `update_alt_text` tasks.
 * April 24, 2025: (Commit 71ba537) added `show_percentage_of_csv_input_processed` setting to `add_media` tasks.
 * April 23, 2025: Merged (commit b7b009a) [PR 942](https://github.com/mjordan/islandora_workbench/pull/942) that adds the ability to export multiple media files in `export_csv` and `get_data_from_view` tasks. Thanks @alxp!
@@ -26,6 +28,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* May 1, 2025: Added new "[Automatically populating the "Viewer override" field](/islandora_workbench_docs/viewer_override/)" page; broke some config settings into a new "[Input CSV content templating settings](/islandora_workbench_docs/configuration/#input-csv-content-templating-settings)" section.
 * April 27, 2025: Updated "[Adding alt text to images](/islandora_workbench_docs/alt_text/)" and associated pages to document the new `add_alt_text` and `update_alt_text` tasks.
 * April 24, 2025: Updated "[Configuration](/islandora_workbench_docs/configuration/)" entry for the `show_percentage_of_csv_input_processed` config setting.
 * April 23, 2025: Updated [Generating CSV Files](/islandora_workbench_docs/generating_csv_files/) to reflect new functionality around exporting media files.

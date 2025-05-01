@@ -16,6 +16,7 @@ nav:
     - Checking configuration and input data: check.md
     - Preparing your data: preparing_data.md
     - Field data (Drupal and CSV): fields.md
+    - Automatically populating the "Viewer override" field: viewer_override.md
     - Ignoring CSV rows and columns: ignoring_csv_rows_and_columns.md
     - Checking if nodes already exist: checking_if_nodes_exist.md
     - CSV field templates: field_templates.md
