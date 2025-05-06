@@ -131,11 +131,11 @@ This setting will interfere with automated or scripted workflows since Workbench
 
 If you would rather avoid installing the Python libraries required by Islandora Workbench on your computer, and you have `make` and Docker installed, you can build a container and run Workbench within it easily. To do so, follow these steps:
 
-1. Clone Islandora Workbench as described above
+1. Clone Islandora Workbench from Github as described above.
 1. In the `islandora_workbench` home directory, run `make run-workbench-in-docker`. This builds the container, mounts the `islandora_workbench` directory inside the container at `/workbench`, and puts you into a shell within that directory.
 1. To exit the container and shut it down, type `exit`, which will place you back into your `islandora_workbench` home directory.
 
-If you want to rebuild the container using the most recent Workbench code, run `git` commands as documented in the "Updating Islandora Workbench" section above and then run `make rebuild-islandora-workbench`. The resulting rebuilt container will contain the most recent Islandora Workbench code.
+If you want to rebuild the container using the most recent Workbench code, run the necessary `git` commands as documented in the "Updating Islandora Workbench" section above and then run `make rebuild-islandora-workbench`. The resulting rebuilt container will contain the most recent Islandora Workbench code.
 
 !!! note
     The container maps the `islandora_workbench` directory on your host computer to the `/workbench` directory within the container. This means that you can configure and run Workbench in the same way you would as if it were installed on your host computer as long as all of your configuration files and input data are relative to, or absolute in relation to, your host computer's `islandora_workbencn` directory.
