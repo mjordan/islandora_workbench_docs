@@ -1355,11 +1355,11 @@
 <h2 id="using-workbench-within-a-docker-container">Using Workbench within a Docker container</h2>
 <p>If you would rather avoid installing the Python libraries required by Islandora Workbench on your computer, and you have <code>make</code> and Docker installed, you can build a container and run Workbench within it easily. To do so, follow these steps:</p>
 <ol>
-<li>Clone Islandora Workbench as described above</li>
+<li>Clone Islandora Workbench from Github as described above.</li>
 <li>In the <code>islandora_workbench</code> home directory, run <code>make run-workbench-in-docker</code>. This builds the container, mounts the <code>islandora_workbench</code> directory inside the container at <code>/workbench</code>, and puts you into a shell within that directory.</li>
 <li>To exit the container and shut it down, type <code>exit</code>, which will place you back into your <code>islandora_workbench</code> home directory.</li>
 </ol>
-<p>If you want to rebuild the container using the most recent Workbench code, run <code>git</code> commands as documented in the "Updating Islandora Workbench" section above and then run <code>make rebuild-islandora-workbench</code>. The resulting rebuilt container will contain the most recent Islandora Workbench code.</p>
+<p>If you want to rebuild the container using the most recent Workbench code, run the necessary <code>git</code> commands as documented in the "Updating Islandora Workbench" section above and then run <code>make rebuild-islandora-workbench</code>. The resulting rebuilt container will contain the most recent Islandora Workbench code.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The container maps the <code>islandora_workbench</code> directory on your host computer to the <code>/workbench</code> directory within the container. This means that you can configure and run Workbench in the same way you would as if it were installed on your host computer as long as all of your configuration files and input data are relative to, or absolute in relation to, your host computer's <code>islandora_workbencn</code> directory.</p>
