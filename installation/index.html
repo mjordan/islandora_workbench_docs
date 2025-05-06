@@ -365,15 +365,15 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#using-workbench-within-a-docker-container" class="md-nav__link">
     Using Workbench within a Docker container
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1226,15 +1226,15 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#using-workbench-within-a-docker-container" class="md-nav__link">
     Using Workbench within a Docker container
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1352,7 +1352,7 @@
 <h3 id="the-remove_password_from_config_file-configuration-setting">The <code>remove_password_from_config_file</code> configuration setting</h3>
 <p>If you include <code>remove_password_from_config_file: true</code> in your configuration file, Workbench will remove the <code>password</code> entry from the configuration file immediately after it reads it. All other configuration settings remain as they were in the original version of the file. Adding <code>remove_password_from_config_file: true</code> to your configuration files removes the security risk of having passwords exposed to anyone who can read the files, but will mean that, unless you add the <code>password</code> setting back into a configuration file prior to the next time you run Workbench using that configuration file, it will prompt you for the password as described above.</p>
 <p>This setting will interfere with automated or scripted workflows since Workbench will not continue until the password is entered in response to the prompt. If you don't want to include <code>password</code> in your configuration files in these workflows, configure your <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable to contain the password.</p>
-<h3 id="using-workbench-within-a-docker-container">Using Workbench within a Docker container</h3>
+<h2 id="using-workbench-within-a-docker-container">Using Workbench within a Docker container</h2>
 <p>If you would rather avoid installing the Python libraries required by Islandora Workbench on your computer, and you have <code>make</code> and Docker installed, you can build a container and run Workbench within it easily. To do so, follow these steps:</p>
 <ol>
 <li>Clone Islandora Workbench as described above</li>
