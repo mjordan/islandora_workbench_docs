@@ -29,6 +29,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* May 6, 2025: Added new "[Using Workbench within a Docker container](/islandora_workbench_docs/installation/#using-workbench-within-a-docker-container)" docs.
 * May 1, 2025: Added new "[Automatically populating the "Viewer override" field](/islandora_workbench_docs/viewer_override/)" page; broke some config settings into a new "[Input CSV content templating settings](/islandora_workbench_docs/configuration/#input-csv-content-templating-settings)" section.
 * April 27, 2025: Updated "[Adding alt text to images](/islandora_workbench_docs/alt_text/)" and associated pages to document the new `add_alt_text` and `update_alt_text` tasks.
 * April 24, 2025: Updated "[Configuration](/islandora_workbench_docs/configuration/)" entry for the `show_percentage_of_csv_input_processed` config setting.

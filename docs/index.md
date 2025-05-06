@@ -9,6 +9,7 @@ Note that Islandora Workbench is not related in any way to the Drupal contrib mo
 * Allows creation of Islandora nodes and media, updating of nodes, and deletion of nodes and media from CSV files
 * Allows creation of paged/compound content
 * Can run from anywhere - it does not need to be run from the Drupal server's command line
+* Can be built as a Docker container, and run from within that container
 * Provides both sensible default configuration values and rich configuration options for power users
 * Provides robust data validation functionality
 * Supports a variety of Drupal entity field types (text, integer, term reference, typed relation, geolocation)
