@@ -1,4 +1,4 @@
-You can define some configuration settings by including them as command-line arguments to Workbench. If the command-line setting exists in your configuration file, it will override the value in the file; if it doesn't exist in your configuration file, it is added to the configuration as if it were in the config file. The settings available as command-line arguements are:
+You can define some configuration settings by including them as command-line arguments to Workbench. If the command-line setting exists in your configuration file, it will override the value in the file; if it doesn't exist in your configuration file, it is added to the configuration as if it were in the config file. The settings available as command-line arguments are:
 
 - `input_dir`
 - `input_csv`
