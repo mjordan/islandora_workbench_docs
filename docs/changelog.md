@@ -2,8 +2,9 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
-* May 5, 2025: Resolved (b09b116) [issue 946](https://github.com/mjordan/islandora_workbench/issues/946) (Thanks @alxp!); merged (commit e02528d) [PR 940](https://github.com/mjordan/islandora_workbench/pull/940). Thanks @noahwsmith!
-* May 1, 2025: Resolved (4c44e30) [issue 714](https://github.com/mjordan/islandora_workbench/issues/714).
+* May 8, 2025: Additional work on [issue 895](https://github.com/mjordan/islandora_workbench/issues/714) (commit 5977be0): added ability to configure a subset of input CSV for `add_media` tasks.
+* May 5, 2025: Resolved (commit b09b116) [issue 946](https://github.com/mjordan/islandora_workbench/issues/946) (Thanks @alxp!); merged (commit e02528d) [PR 940](https://github.com/mjordan/islandora_workbench/pull/940). Thanks @noahwsmith!
+* May 1, 2025: Resolved (commit 4c44e30) [issue 714](https://github.com/mjordan/islandora_workbench/issues/714).
 * April 30, 2025: Resolved (commit 89698d0) [issue 945](https://github.com/mjordan/islandora_workbench/issues/945).
 * April 27, 2025: Merged (commit df1f263) in changes to introduce `add_alt_text` and `update_alt_text` tasks.
 * April 24, 2025: (Commit 71ba537) added `show_percentage_of_csv_input_processed` setting to `add_media` tasks.

@@ -1,6 +1,6 @@
 
 !!! note
-    The settings documented on this page apply only to `create` and `updat` tasks. Please see [this Github issue](https://github.com/mjordan/islandora_workbench/issues/895) for updates.
+    The settings documented on this page apply only to `create`, `update`, and `add_media` tasks. Please see [this Github issue](https://github.com/mjordan/islandora_workbench/issues/895) for updates.
 
     Two exceptions are "Commenting out CSV rows" and "Ignoring CSV columns", which apply to all tasks.
 
