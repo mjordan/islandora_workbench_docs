@@ -57,6 +57,7 @@ If you do this, Workbench will check the following conditions and report any war
         * Whether values in CSV fields of this Drupal field type are in the field's configured "Allowed values list".
     * If using the pages from directories configuration (`paged_content_from_directories: true`):
         * Whether page filenames contain an occurrence of the sequence separator.
+        * Whether sequence indicators, which are used as values in `field_weight`, are valid values for that field.
         * Whether any page directories are empty.
     * Whether the content type identified in the `content_type` configuration option exists.
     * Whether multivalued fields exceed their allowed number of values.

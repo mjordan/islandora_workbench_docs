@@ -74,6 +74,7 @@ Important things to note when using this method:
 * The Drupal content type for page nodes is inherited from the parent, unless you specify a different content type in the `paged_content_page_content_type` setting in your configuration file.
 * If your page directories contain files other than page images, you need to include the `paged_content_image_file_extension` setting in your configuration. Otherwise, Workbench can't tell which files to create pages from.
 * If you don't want to use your `id` column to name the directories that contain each item's pages, you can include `page_files_source_dir_field: directory` to your config file and add a `directory` column to your input CSV to name the directories.
+* If a sequence indicator is not an integer greater than 0 (which is a constraint of `field_weight`), the page node will be created but its `field_weight` will not be populated. An entry in your Workbench log will document this.
 
 #### Applying field data to pages/children created from subdirectories
 

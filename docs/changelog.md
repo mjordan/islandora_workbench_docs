@@ -2,6 +2,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* May 19, 2025: Resolved (commit f44916c) [issue 948](https://github.com/mjordan/islandora_workbench/issues/948).
 * May 9, 2025: Merged [PR 922](https://github.com/mjordan/islandora_workbench/pull/922) (refactor field handler classes) and [PR 930](https://github.com/mjordan/islandora_workbench/pull/930) (adds a linked data field type). Thanks very much @whikloj!
 * May 8, 2025: Additional work on [issue 895](https://github.com/mjordan/islandora_workbench/issues/714) (commit 5977be0): added ability to configure a subset of input CSV for `add_media` tasks.
 * May 5, 2025: Resolved (commit b09b116) [issue 946](https://github.com/mjordan/islandora_workbench/issues/946) (Thanks @alxp!); merged (commit e02528d) [PR 940](https://github.com/mjordan/islandora_workbench/pull/940). Thanks @noahwsmith!
