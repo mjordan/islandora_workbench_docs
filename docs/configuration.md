@@ -4,7 +4,7 @@ Workbench uses a YAML configuration whose location is indicated in the `--config
 
 ```yaml
 task: create
-host: "http://localhost:8000"
+host: https://localhost
 username: admin
 password: islandora
 ```
@@ -330,7 +330,7 @@ These examples provide inline annotations explaining why the settings are includ
 
 ```yaml
 task: create
-host: "http://localhost:8000"
+host: https://localhost
 username: admin
 password: islandora
 
@@ -344,7 +344,7 @@ nodes_only: true
 
 ```yaml
 task: create
-host: "http://localhost:8000"
+host: https://localhost
 username: admin
 password: islandora
 
@@ -357,7 +357,7 @@ log_file_path: /home/mark/workbench_log.txt
 
 ```yaml
 task: create
-host: "http://localhost:8000"
+host: https://localhost
 username: admin
 password: islandora
 
@@ -374,10 +374,10 @@ csv_field_templates:
 
 ```yaml
 task: create
-host: "http://localhost:8000"
+host: https://localhost
 username: admin
 password: islandora
-input_csv: 'https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZvX18xoRBxfbgxqWc/edit
+input_csv: https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZvX18xoRBxfbgxqWc/edit
 # You only need to specify the google_sheets_gid option if the worksheet in the Google Sheet
 # is not the default one.
 google_sheets_gid: 1867618389
@@ -387,7 +387,7 @@ google_sheets_gid: 1867618389
 
 ```yaml
 task: create_from_files
-host: "http://localhost:8000"
+host: https://localhost
 username: admin
 password: islandora
 
@@ -407,7 +407,7 @@ model: 'https://schema.org/DigitalDocument'
 
 ```yaml
 task: create_terms
-host: "http://localhost:8000"
+host: https://localhost
 username: admin
 password: islandora
 input_csv: my_term_data.csv
@@ -418,7 +418,7 @@ vocab_id: myvocabulary
 
 ```yaml
 task: create
-host: "http://localhost:8000"
+host: https://localhost
 username: admin
 password: islandora
 input_csv: input.csv
@@ -432,7 +432,7 @@ ignore_csv_columns: ['date_generated', 'batch_id']
 
 ```yaml
 task: create_from_files
-host: "http://localhost:8000"
+host: https://localhost
 username: admin
 password: islandora
 # This directory must match the on defined in the script's 'dest_dir' variable.
@@ -449,7 +449,7 @@ bootstrap:
 
 ```yaml
 ask: create
-host: "http://localhost:8000"
+host: https://localhost
 username: admin
 password: islandora
 node_post_create: ['/home/mark/hacking/islandora_workbench/scripts/entity_post_task_example.py']
@@ -461,7 +461,7 @@ node_post_create: ['/home/mark/hacking/islandora_workbench/scripts/entity_post_t
 
 ```yaml
 task: create_from_files
-host: "http://localhost:8000"
+host: https://localhost
 username: admin
 password: islandora
 input_dir: path/to/files
