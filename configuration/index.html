@@ -1489,7 +1489,7 @@
 <h2 id="the-configuration-file">The configuration file</h2>
 <p>Workbench uses a YAML configuration whose location is indicated in the <code>--config</code> argument. This file defines the various options it will use to create, update, or delete Islandora content. The simplest configuration file needs only the following four options:</p>
 <pre><code class="language-yaml">task: create
-host: &quot;http://localhost:8000&quot;
+host: https://localhost
 username: admin
 password: islandora
 </code></pre>
@@ -2627,7 +2627,7 @@ csv_field_templates:
 <p>These examples provide inline annotations explaining why the settings are included in the configuration file. Blank rows/lines are included for readability.</p>
 <h3 id="create-nodes-only-no-media">Create nodes only, no media</h3>
 <pre><code class="language-yaml">task: create
-host: &quot;http://localhost:8000&quot;
+host: https://localhost
 username: admin
 password: islandora
 
@@ -2638,7 +2638,7 @@ nodes_only: true
 </code></pre>
 <h3 id="use-a-custom-log-file-location">Use a custom log file location</h3>
 <pre><code class="language-yaml">task: create
-host: &quot;http://localhost:8000&quot;
+host: https://localhost
 username: admin
 password: islandora
 
@@ -2648,7 +2648,7 @@ log_file_path: /home/mark/workbench_log.txt
 </code></pre>
 <h3 id="include-some-csv-field-templates">Include some CSV field templates</h3>
 <pre><code class="language-yaml">task: create
-host: &quot;http://localhost:8000&quot;
+host: https://localhost
 username: admin
 password: islandora
 
@@ -2662,17 +2662,17 @@ csv_field_templates:
 </code></pre>
 <h3 id="use-a-google-sheet-as-input-csv">Use a Google Sheet as input CSV</h3>
 <pre><code class="language-yaml">task: create
-host: &quot;http://localhost:8000&quot;
+host: https://localhost
 username: admin
 password: islandora
-input_csv: 'https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZvX18xoRBxfbgxqWc/edit
+input_csv: https://docs.google.com/spreadsheets/d/13Mw7gtBy1A3ZhYEAlBzmkswIdaZvX18xoRBxfbgxqWc/edit
 # You only need to specify the google_sheets_gid option if the worksheet in the Google Sheet
 # is not the default one.
 google_sheets_gid: 1867618389
 </code></pre>
 <h3 id="create-nodes-and-media-from-files-no-input-csv-file">Create nodes and media from files (no input CSV file)</h3>
 <pre><code class="language-yaml">task: create_from_files
-host: &quot;http://localhost:8000&quot;
+host: https://localhost
 username: admin
 password: islandora
 
@@ -2689,7 +2689,7 @@ model: 'https://schema.org/DigitalDocument'
 </code></pre>
 <h3 id="create-taxonomy-terms">Create taxonomy terms</h3>
 <pre><code class="language-yaml">task: create_terms
-host: &quot;http://localhost:8000&quot;
+host: https://localhost
 username: admin
 password: islandora
 input_csv: my_term_data.csv
@@ -2697,7 +2697,7 @@ vocab_id: myvocabulary
 </code></pre>
 <h3 id="ignore-some-columns-in-your-input-csv-file">Ignore some columns in your input CSV file</h3>
 <pre><code class="language-yaml">task: create
-host: &quot;http://localhost:8000&quot;
+host: https://localhost
 username: admin
 password: islandora
 input_csv: input.csv
@@ -2708,7 +2708,7 @@ ignore_csv_columns: ['date_generated', 'batch_id']
 </code></pre>
 <h3 id="generating-sample-islandora-content">Generating sample Islandora content</h3>
 <pre><code class="language-yaml">task: create_from_files
-host: &quot;http://localhost:8000&quot;
+host: https://localhost
 username: admin
 password: islandora
 # This directory must match the on defined in the script's 'dest_dir' variable.
@@ -2722,7 +2722,7 @@ bootstrap:
 </code></pre>
 <h3 id="running-a-post-action-script">Running a post-action script</h3>
 <pre><code class="language-yaml">ask: create
-host: &quot;http://localhost:8000&quot;
+host: https://localhost
 username: admin
 password: islandora
 node_post_create: ['/home/mark/hacking/islandora_workbench/scripts/entity_post_task_example.py']
@@ -2731,7 +2731,7 @@ node_post_create: ['/home/mark/hacking/islandora_workbench/scripts/entity_post_t
 </code></pre>
 <h3 id="create-nodes-and-media-from-files">Create nodes and media from files</h3>
 <pre><code class="language-yaml">task: create_from_files
-host: &quot;http://localhost:8000&quot;
+host: https://localhost
 username: admin
 password: islandora
 input_dir: path/to/files
