@@ -2,6 +2,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* May 31, 2025: Resolved (commit 8b59144) [issue 952](https://github.com/mjordan/islandora_workbench/issues/952).
 * May 29, 2025: Resolved (commit e89ebe6) [issue 951](https://github.com/mjordan/islandora_workbench/issues/951).
 * May 19, 2025: Resolved (commit f44916c) [issue 948](https://github.com/mjordan/islandora_workbench/issues/948).
 * May 9, 2025: Merged [PR 922](https://github.com/mjordan/islandora_workbench/pull/922) (refactor field handler classes) and [PR 930](https://github.com/mjordan/islandora_workbench/pull/930) (adds a linked data field type). Thanks very much @whikloj!
