@@ -1172,8 +1172,11 @@
 <ul>
 <li><code>id</code> (or whatever column is specified in your <code>id_field</code> setting): the value in your input CSV file's ID field</li>
 <li><code>node_id</code>: the node ID for the newly created node</li>
+<li><code>content_type</code>: the node's content type</li>
 <li><code>uuid</code>: the new node's UUID</li>
-<li><code>status</code>: true if the node is published, False if it is unpublished</li>
+<li><code>published</code>: 1 if the node is published, 0if it is unpublished</li>
+<li><code>promote</code>: 1 if the node is promoted to the home page, 0if it is not</li>
+<li><code>langcode</code>: the node' language code</li>
 <li><code>title</code>: the node's title</li>
 </ul>
 <p>The file will also contain empty columns corresponding to all of the fields in the target content type. An example, generated from a 2-record input CSV file, looks like this (only left-most part of the spreadsheet shown):</p>
