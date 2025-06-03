@@ -37,8 +37,11 @@ In some situations, you may want to create stub nodes that only have a small sub
 
  * `id` (or whatever column is specified in your `id_field` setting): the value in your input CSV file's ID field
  * `node_id`: the node ID for the newly created node
+ * `content_type`: the node's content type
  * `uuid`: the new node's UUID
- * `status`: true if the node is published, False if it is unpublished
+ * `published`: 1 if the node is published, 0if it is unpublished
+ * `promote`: 1 if the node is promoted to the home page, 0if it is not
+ * `langcode`: the node' language code
  * `title`: the node's title
 
  The file will also contain empty columns corresponding to all of the fields in the target content type. An example, generated from a 2-record input CSV file, looks like this (only left-most part of the spreadsheet shown):

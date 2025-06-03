@@ -2,6 +2,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* June 3, 2025: Resolved (commit 2595490) [issue 953](https://github.com/mjordan/islandora_workbench/issues/953).
 * May 31, 2025: Resolved (commit 8b59144) [issue 952](https://github.com/mjordan/islandora_workbench/issues/952).
 * May 29, 2025: Resolved (commit e89ebe6) [issue 951](https://github.com/mjordan/islandora_workbench/issues/951).
 * May 19, 2025: Resolved (commit f44916c) [issue 948](https://github.com/mjordan/islandora_workbench/issues/948).
@@ -34,6 +35,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* June 3, 2025: Updated "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/)" to include changes made in resolving [issue 953](https://github.com/mjordan/islandora_workbench/issues/953).
 * May 6, 2025: Added new "[Using Workbench within a Docker container](/islandora_workbench_docs/installation/#using-workbench-within-a-docker-container)" docs.
 * May 1, 2025: Added new "[Automatically populating the "Viewer override" field](/islandora_workbench_docs/viewer_override/)" page; broke some config settings into a new "[Input CSV content templating settings](/islandora_workbench_docs/configuration/#input-csv-content-templating-settings)" section.
 * April 27, 2025: Updated "[Adding alt text to images](/islandora_workbench_docs/alt_text/)" and associated pages to document the new `add_alt_text` and `update_alt_text` tasks.
