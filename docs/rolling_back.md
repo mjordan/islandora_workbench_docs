@@ -90,3 +90,8 @@ This will result in the following comments in your rollback configuration and CS
 By default, rollback CSV files have only a single column, `node_id`. However, if you include `rollback_file_include_node_info: true` in your configuration, Workbench will add `id` (or whatever field is specified in the `id_field` config setting), `title`, `field_member_of`, and `file` columns containing relevant info for each created node.
 
 You do not need to remove these columns from the rollback CSV file before using it.
+
+
+## Rolling back a subset of the nodes identified in the rollback.csv file
+
+If you want to roll back only a subset of nodes, simply remove the node IDs of the nodes you want to keep from the rollback.csv file, leaving the IDs of the nodes you want to delete.
