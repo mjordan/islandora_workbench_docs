@@ -663,6 +663,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#rolling-back-a-subset-of-the-nodes-identified-in-the-rollbackcsv-file" class="md-nav__link">
+    Rolling back a subset of the nodes identified in the rollback.csv file
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1090,6 +1097,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#rolling-back-a-subset-of-the-nodes-identified-in-the-rollbackcsv-file" class="md-nav__link">
+    Rolling back a subset of the nodes identified in the rollback.csv file
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1173,6 +1187,8 @@
 <h2 id="including-additional-node-level-data-in-the-rollback-csv-file">Including additional node-level data in the rollback CSV file</h2>
 <p>By default, rollback CSV files have only a single column, <code>node_id</code>. However, if you include <code>rollback_file_include_node_info: true</code> in your configuration, Workbench will add <code>id</code> (or whatever field is specified in the <code>id_field</code> config setting), <code>title</code>, <code>field_member_of</code>, and <code>file</code> columns containing relevant info for each created node.</p>
 <p>You do not need to remove these columns from the rollback CSV file before using it.</p>
+<h2 id="rolling-back-a-subset-of-the-nodes-identified-in-the-rollbackcsv-file">Rolling back a subset of the nodes identified in the rollback.csv file</h2>
+<p>If you want to roll back only a subset of nodes, simply remove the node IDs of the nodes you want to keep from the rollback.csv file, leaving the IDs of the nodes you want to delete.</p>
 
 
 
