@@ -2,6 +2,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* June 11, 2025: Resolved (commit b852280) [issue 893](https://github.com/mjordan/islandora_workbench/issues/893) and (commit fc74be4) [issue 338](https://github.com/mjordan/islandora_workbench/issues/338).
 * June 3, 2025: Resolved (commit 2595490) [issue 953](https://github.com/mjordan/islandora_workbench/issues/953).
 * May 31, 2025: Resolved (commit 8b59144) [issue 952](https://github.com/mjordan/islandora_workbench/issues/952).
 * May 29, 2025: Resolved (commit e89ebe6) [issue 951](https://github.com/mjordan/islandora_workbench/issues/951).
@@ -35,6 +36,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* June 11, 2025: Updated the "[The CSV ID to node ID map](/islandora_workbench_docs/csv_id_to_node_id_map/#host-values-in-the-map)" page to add a section on using the new `csv_id_to_node_id_map_allowed_hosts` config setting.
 * June 9, 2025: Updated the "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)" page to add a section on rolling back a subset of the nodes identified in the rollback.csv file.
 * June 4, 2025: Updated the "[Configuration](/islandora_workbench_docs/configuration/#miscellaneous-settings)" page to add the `recovery_mode_starting_from_node_id` config setting.
 * June 3, 2025: Updated "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/)" to include changes made in resolving [issue 953](https://github.com/mjordan/islandora_workbench/issues/953).

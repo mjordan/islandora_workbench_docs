@@ -19,7 +19,7 @@ You may find other uses for this data. Since it is stored in an embedded SQLite 
     Some systems clear out their temporary directories on restart. You may want to define the path to your ID map database in the `csv_id_to_node_id_map_dir` configuration setting so it is stored in a location that will not get deleted on system restart, and, if you wish, define the name of the database file in the `csv_id_to_node_id_map_filename` configuration setting as well. More information on doing this is provided below.
 
 
-The SQLite database contains one table, "csv_id_to_node_id_map". This table has five columns:
+The SQLite database contains one table, "csv_id_to_node_id_map". This table has seven columns:
 
 * `timestamp`: the current timestamp in `yyyy-mm-dd hh:mm:ss` format or a truncated version of that format
 * `config_file`: the name of the Workbench configuration file active when the row was added
@@ -27,6 +27,7 @@ The SQLite database contains one table, "csv_id_to_node_id_map". This table has 
 * `parent_node_id`: if the node was create along with its parent, the parent's node ID
 * `csv_id`: the value in the node's CSV ID field (or in `create_from_files` tasks, which don't use an input CSV file, the filename); when creating paged content from directories using the `paged_content_from_directories: true` setting, the filename is recorded instead of an "id".
 * `node_id`: the node's Drupal node ID
+* `host`: the value of the `host` config setting at the time a row was added to the table. For rows added  prior to June 2025, this value will be blank/empty, or, if you are performing SQLite queries against this field, its value is `null`.
 
 ### Extracting data from and maintaining the map
 
@@ -67,13 +68,27 @@ You can easily move a database file into another directory (from the default tem
 
 ### "host" values in the map
 
-Up until early June 2025, the CSV ID to node ID map contained node IDs but not the hostname of the Islandora repository those node IDs exist in. This lack of hostname means that if Workbench has been used with more than one host ("host" here means the value of a configuration file's `host` setting) there is a chance that a given node ID could belong to more than one Islandora. The most common situation where this might happen is if you use the same CSV ID to node ID map when creating content in a staging or dev Islandora and also in a production server, all of which would have their own hostnames.
+Up until early June 2025, the CSV ID to node ID map contained node IDs but not the hostname of the Islandora repository those node IDs exist in. This lack of hostnames in the map means that if Workbench has been used with more than one host ("host" here means the hostname defined in your config file's `host` setting) there is a chance that a given node ID could belong to more than one Drupal instance. If the same node ID from separate Drupal instances is used as a parent node ID, that "member of" relationship would be entirely invalid -- the child's parent could be an unrelated node in the other Drupal.
 
-No Workbench user has reported this situation, and Workbench uses the CSV ID to node ID map in ways that minimize the risk of it happening (e.g. during recovery mode by starting ignoring rows in the map that have a node ID lower than the one specified). Starting in June 2025, Workbench populates the map with the value of the the `host` configuration setting in order to safeguard against overlapping node IDs. This change will be completely transparent to most users, but does introduce a couple of things that you should be aware of:
+No Workbench user has reported this situation, and Workbench uses the CSV ID to node ID map in ways that minimize the risk of it happening (e.g. during recovery mode by starting ignoring rows in the map that have a node ID lower than the one specified). Starting in June 2025, Workbench populates the map with the value of the the `host` configuration setting in order to further safeguard against overlapping node IDs. This change will be completely transparent to most users, but does introduce a couple of changes in behavior that you should be aware of:
 
-- During `--check`, if Workbench finds any "host" values in your CSV ID to node ID map that are either not empty (which would be the case for all entries created prior to this change) or equal to your current confifguration's "host" setting, it will warn you that your map contains additional "host" values and ask you to review your log file. THe log file will refer you to this page for more advice on what to do!
+- During `--check`, if Workbench finds any "host" values in your CSV ID to node ID map other than "" (empty) (which would be the case for all entries created prior to this change) or equal to your current confifguration's "host" setting, it will warn you that your map contains additional "host" values and ask you to review your log file. The log file will refer you to this page for more advice on what to do!
 - The message will look similar to `Warning: There are values for the "host" column in the CSV ID to node ID map at "./csv_id_to_node_id_map.db". Please see your workbench log for more information.`
 - The referenced log entry will list the hostnames that are not either "" (empty) or the hostname identified in your current `host` config setting.
+
+What this means:
+
+- If you have not been using Workbench (or more specifically, the same CSV ID to node ID map file) across multiple Drupal instances, you don't need to do anything.
+- If Workbench tells you there are "host" values in your map other than "empty" or the current value of your configuration's `host` setting, and you want Workbench to ignore the node IDs in the rows with those other hostnames (e.g., they are hostname for test or dev servers), you don't need to do anything.
+- The only situation where you would need to use the `csv_id_to_node_id_map_allowed_hosts` config setting is if you *do* want to use the node IDs in the rows with the extra hostnames. Fo example, if you created content in a Drupal instance with the hostname `https://awesomeness-dev.net` and then in preparation for launch changed that server's hostname to `https://awesomeness.net`. In this case, you would include in your config file the `csv_id_to_node_id_map_allowed_hosts` setting, listing all the hosts you want to include in the node ID lookups, e.g. `csv_id_to_node_id_map_allowed_hosts: ["", "https://awesomeness-dev.net", "https://awesomeness.net"]`. The `""` is for rows in the map created before June 2025; if you want to ignore rows added prior to then, you can omit it.
+
+Note that:
+
+- Including `csv_id_to_node_id_map_allowed_hosts` in your config file overrides the default value, so you should always include `""` (for empty "host" values in the map) plus your current `host` configuration setting value, plus any additional hostnames that apply.
+- The hostnames are "or'ed" in the queries against tha CSV ID to node ID map.
+
+
+
 
 
 
