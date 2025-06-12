@@ -1514,7 +1514,12 @@ password: islandora
 <h3 id="printing-all-configuration-values">Printing all configuration values</h3>
 <p>If you need to see your current configuration (based on the default values for settings plus the settings in your config file), add <code>--print_config</code> as a command-line argument when you run Workbench. For example:</p>
 <p><code>./workbench --config myconfig.yml --print_config</code></p>
-<p>Workbench will not perform its task (e.g. it will not create or update content), it will just dump the configuration settings. Note that the value of the <code>password</code> setting is obfuscated but all other settings are exactly as defined by the Workbench defaults and what is in your current config file.</p>
+<p>Workbench will not perform its task (e.g. it will not create or update content), it will just dump the configuration settings and stop running. Note that the value of the <code>password</code> setting is obfuscated but all other settings are exactly as defined by the Workbench defaults and what is in your current config file.</p>
+<p>A couple of tricks you might find useful, if you are running Workbench on Linux or MacOS:</p>
+<ol>
+<li>Print the configuration to a file: <code>./workbench --config myconfig.yml --print_config &gt; myconfig.txt</code></li>
+<li>Filter out a single configuration setting (using <code>temp_dir</code> as an example): <code>./workbench --config myconfig.yml --print_config | grep temp_dir</code></li>
+</ol>
 <h3 id="use-of-quotation-marks">Use of quotation marks</h3>
 <p>Generally speaking, you do not need to use quotation marks around values in your configuration file. You may wrap values in quotation marks if you wish, and many examples in this documentation do that (especially the <code>host</code> setting), but the only values that should not be wrapped in quotation marks are those that take <code>true</code> or <code>false</code> as values because in YAML, and many other computer/markup languages,<code>"true"</code> is a string (in this case, an English word that can mean many things) and <code>true</code> is a reserved symbol that can mean one thing and one thing only, the boolean opposite of <code>false</code> (I'm sorry for this explanation, I can't describe the distinction in any other way without writing a primer on symbolic logic).</p>
 <p>For example, the following is a valid configuration file:</p>
