@@ -21,9 +21,14 @@ Note that you can define [some configuration settings](/islandora_workbench_docs
 
 If you need to see your current configuration (based on the default values for settings plus the settings in your config file), add `--print_config` as a command-line argument when you run Workbench. For example:
 
-`./workbench --config myconfig.yml --check --print_config`
+`./workbench --config myconfig.yml --print_config`
 
-This will work both when you are running Workbench with `--check` and when you are not, but it's best to run it in conjunction with `--check` so its output doesn't scroll off the top of your terminal. Note that the value of the `password` setting is obfuscated but all other settings are exactly as defined by the Workbench defaults and what is in your current config file.
+Workbench will not perform its task (e.g. it will not create or update content), it will just dump the configuration settings and stop running. Note that the value of the `password` setting is obfuscated but all other settings are exactly as defined by the Workbench defaults and what is in your current config file.
+
+A couple of tricks you might find useful, if you are running Workbench on Linux or MacOS:
+
+1. Print the configuration to a file: `./workbench --config myconfig.yml --print_config > myconfig.txt`
+1. Filter out a single configuration setting (using `temp_dir` as an example): `./workbench --config myconfig.yml --print_config | grep temp_dir`
 
 ### Use of quotation marks
 
