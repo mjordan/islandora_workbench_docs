@@ -17,6 +17,14 @@ The settings defined in a configuration file are documented in the tables below,
 
 Note that you can define [some configuration settings](/islandora_workbench_docs/configuration_settings_on_the_command_line/) as command-line arguments to the workbench script. If they are provided as command-line arguments, they override the same settings in the configuration file.
 
+### Printing all configuration values
+
+If you need to see your current configuration (based on the default values for settings plus the settings in your config file), add `--print_config` as a command-line argument when you run Workbench. For example:
+
+`./workbench --config myconfig.yml --check --print_config`
+
+This will work both when you are running Workbench with `--check` and when you are not, but it's best to run it in conjunction with `--check` so its output doesn't scroll off the top of your terminal. Note that the value of the `password` setting is obfuscated but all other settings are exactly as defined by the Workbench defaults and what is in your current config file.
+
 ### Use of quotation marks
 
 Generally speaking, you do not need to use quotation marks around values in your configuration file. You may wrap values in quotation marks if you wish, and many examples in this documentation do that (especially the `host` setting), but the only values that should not be wrapped in quotation marks are those that take `true` or `false` as values because in YAML, and many other computer/markup languages,`"true"` is a string (in this case, an English word that can mean many things) and `true` is a reserved symbol that can mean one thing and one thing only, the boolean opposite of `false` (I'm sorry for this explanation, I can't describe the distinction in any other way without writing a primer on symbolic logic).

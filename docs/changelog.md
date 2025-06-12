@@ -36,6 +36,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* June 12, 2025: Added "[Printing all configuration values](/islandora_workbench_docs/configuration/#printing-all-configuration-values)" section to the docs.
 * June 11, 2025: Updated the "[The CSV ID to node ID map](/islandora_workbench_docs/csv_id_to_node_id_map/#host-values-in-the-map)" page to add a section on using the new `csv_id_to_node_id_map_allowed_hosts` config setting.
 * June 9, 2025: Updated the "[Rolling back nodes and media](/islandora_workbench_docs/rolling_back/)" page to add a section on rolling back a subset of the nodes identified in the rollback.csv file.
 * June 4, 2025: Updated the "[Configuration](/islandora_workbench_docs/configuration/#miscellaneous-settings)" page to add the `recovery_mode_starting_from_node_id` config setting.
