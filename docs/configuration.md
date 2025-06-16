@@ -128,7 +128,7 @@ Strictly speaking, YAML lists can be represented as either a series of entries o
 | google_sheets_gid |  | 0 | The "gid" of the worksheet to use in a Google Sheet. See  "[Using Google Sheets as input data](/islandora_workbench_docs/preparing_data/#using-a-google-sheet-as-the-input-csv-file)" section for more information. |
 | excel_worksheet |  | Sheet1 | If using an Excel file as your input CSV file, the name of the worksheet that the CSV data will be extracted from. |
 | input_data_zip_archives |  | [] | List of local file paths and/or URLs to .zip archives to extract into the directory defined in `input_dir`. See "[Using a local or remote .zip archive as input data](https://mjordan.github.io/islandora_workbench_docs/preparing_data/#using-a-local-or-remote-zip-archive-as-input-data)" for more info. |
-| delete_zip_archive_after_extraction |  | true | Tells Workbench to delete an inpu zip archive after it has been extracted. |
+| delete_zip_archive_after_extraction |  | true | Tells Workbench to delete a remote input zip archive after it has been downloaded and extracted. Applies to remote input archive files only (i.e., starts with "http"); local .zip archives are not deleted. |
 
 ### Input CSV file settings
 

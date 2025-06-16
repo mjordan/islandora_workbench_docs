@@ -273,7 +273,7 @@ A few things to note if you are using a zip archive as your input data:
 - Remote URLs to zip archives do not need to end in ".zip", but the remote files must be directly accessible for downloading without any authentication.
 - You can register a single or multiple zip file in your `input_data_zip_archives` setting. Workbench doesn't check for the existence of files at extracted destination paths, so if a file with the same extracted path exists in more than one archive (or is already at a path the same as that of a file from an archive), the file from the last archive in the `input_data_zip_archives` list will overwrite existing files at the same path.
 - You can include in your zip archive(s) any files that you want to put in the directory indicated in your `input_dir` config setting, including files named in your CSV `file` column, files named in columns defined by your `additional_files` configuration, or the CSV or Excel file named in your `input_csv` setting (as illustrated in the Rungh example above).
-- Workbench will automatically delete the archive file after extracting it unless you add `delete_zip_archive_after_extraction: false` to your config file.
+- Workbench will automatically delete the local downloaded copy of remote archive files after extracting them unless you add `delete_zip_archive_after_extraction: false` to your config file.
 
 ## Using a Google Sheet as the input CSV file
 
