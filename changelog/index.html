@@ -1073,6 +1073,7 @@
 <p>You may also be interested in change log items <a href="/islandora_workbench_docs/changelog_up_to_2024/">prior to 2025</a>.</p>
 <h3 id="main-branch-no-tagrelease">main branch (no tag/release)</h3>
 <ul>
+<li>June 16: 2025: Commented out logic in workbench to enable check for updates introduced in commit fc74be4be (needs more testing). Fixed (commit 25aea6f) behavior of <code>delete_zip_archive_after_extraction</code> config setting so it doesn't delete local .zip archives on <code>--check</code>.</li>
 <li>June 11, 2025: Resolved (commit b852280) <a href="https://github.com/mjordan/islandora_workbench/issues/893">issue 893</a> and (commit fc74be4) <a href="https://github.com/mjordan/islandora_workbench/issues/338">issue 338</a>.</li>
 <li>June 3, 2025: Resolved (commit 2595490) <a href="https://github.com/mjordan/islandora_workbench/issues/953">issue 953</a>.</li>
 <li>May 31, 2025: Resolved (commit 8b59144) <a href="https://github.com/mjordan/islandora_workbench/issues/952">issue 952</a>.</li>
@@ -1106,6 +1107,7 @@
 </ul>
 <h3 id="documentation">Documentation</h3>
 <ul>
+<li>June 16, 2025: Updated docs on the <code>delete_zip_archive_after_extraction</code> config setting to clarify that it applies only to remote .zip archive files, not local ones.</li>
 <li>June 12, 2025: Added "<a href="/islandora_workbench_docs/configuration/#printing-all-configuration-values">Printing all configuration values</a>" section to the docs. Updated the "<a href="/islandora_workbench_docs/troubleshooting/#workbench-is-slow">Troubleshooting</a>" page to suggest deferring indexing to speed up <code>create</code> and <code>update</code> tasks.</li>
 <li>June 11, 2025: Updated the "<a href="/islandora_workbench_docs/csv_id_to_node_id_map/#host-values-in-the-map">The CSV ID to node ID map</a>" page to add a section on using the new <code>csv_id_to_node_id_map_allowed_hosts</code> config setting.</li>
 <li>June 9, 2025: Updated the "<a href="/islandora_workbench_docs/rolling_back/">Rolling back nodes and media</a>" page to add a section on rolling back a subset of the nodes identified in the rollback.csv file.</li>
