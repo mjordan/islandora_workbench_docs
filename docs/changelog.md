@@ -2,6 +2,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* June 17: 2025: Fixed broken tests.
 * June 16: 2025: Commented out logic in workbench to enable check for updates introduced in commit fc74be4be (needs more testing). Fixed (commit 25aea6f) behavior of `delete_zip_archive_after_extraction` config setting so it doesn't delete local .zip archives on `--check`.
 * June 11, 2025: Resolved (commit b852280) [issue 893](https://github.com/mjordan/islandora_workbench/issues/893) and (commit fc74be4) [issue 338](https://github.com/mjordan/islandora_workbench/issues/338).
 * June 3, 2025: Resolved (commit 2595490) [issue 953](https://github.com/mjordan/islandora_workbench/issues/953).
