@@ -296,6 +296,7 @@ See "[The CSV ID to node ID map](/islandora_workbench_docs/csv_id_to_node_id_map
 
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
+| check_for_workbench_updates |  | true | Whether or not to have `--check` compare your local Git commits with those in the "main" branch at https://github.com/mjordan/islandora_workbench and log whether your copy of Workbench is up to date or not. |
 | perform_soft_checks |  | false | If set to true, `--check` will not exit when it encounters an error with parent/child order, file extension registration with Drupal media file fields, missing files named in the `files` CSV column, or EDTF validation. Instead, it will log any errors it encounters and exit after it has checked all rows in the CSV input file. Note: this setting replaces `strict_check` as of commit dfa60ff (July 14, 2023). |
 | temp_dir |  | Value of the temporary directory defined by your system as defined by Python's [gettempdir()](https://docs.python.org/3/library/tempfile.html#tempfile.gettempdir) function. | Relative or absolute path to the directory where you want Workbench's temporary files to be written. These include the ".preprocessed" version of the your input CSV, remote files temporarily downloaded to create media, and the CSV ID to node ID map database. |
 | sqlite_db_filename |  | [temp_dir]/workbench_temp_data.db | Name of the SQLite database filename used to store session data. |
