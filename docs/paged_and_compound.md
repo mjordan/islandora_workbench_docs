@@ -213,9 +213,9 @@ Sometimes files such as "Thumbs.db" (on Windows) can creep into page directories
 
 `paged_content_ignore_files: ["Thumbs.db", "scanning_manifest.txt", "*.xml", "images.*"]`
 
-The asterisk wildcards act as you would expect: `*.xml` will match on "manifest.xml", "list.xml", etc., and `package.*` will match "package.txt" and "package.db", etc.
+The asterisk wildcards act as you would expect: `*.xml` will match on "manifest.xml", "list.xml", etc., and `package.*` will match "package.txt" and "package.db", etc. The `*` wildcard can only stand for entire filenames or extensions; in other words, you cannot use a wildcard in the middle of a filename.
 
-Note that Workbench converts all filenames (and wildcard entries) in the directories and filenames listed in the `paged_content_ignore_files` setting to lower case before checking to see if they are in this list. For example, if Workbench encounters a filename `Scanning_Manifest.TXT`, it will match "scanning_manifest.txt" in the configuration above configuration. Also note that the `*` wildcard can only stand for entire filenames or extensions; in other words, you cannot use a wildcard in the middle of a filename.
+Note that Workbench converts all filenames (and wildcard entries) in the directories and filenames listed in the `paged_content_ignore_files` setting to lower case before checking to see if they are in this list. For example, if Workbench encounters a filename `Scanning_Manifest.TXT`, it will match "scanning_manifest.txt" in the configuration above configuration.
 
 Workbench ignores all subdirectories within page directories.
 
