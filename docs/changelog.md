@@ -2,6 +2,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* June 19, 2025: Resolved (commit 42e6fcd) [issue 949](https://github.com/mjordan/islandora_workbench/issues/949) and [issue 971](https://github.com/mjordan/islandora_workbench/issues/971).
 * June 18, 2025: Resolved (commit 97fc6e65) [issue 338](https://github.com/mjordan/islandora_workbench/issues/338) and (commit 97fc6e6) [issue 958](https://github.com/mjordan/islandora_workbench/issues/958).
 * June 17, 2025: Resolved (commit 087c707) [issue 962](https://github.com/mjordan/islandora_workbench/issues/962), (commit e506f92) [issue 957](https://github.com/mjordan/islandora_workbench/issues/957), and (commit a070a96) [issue 968](https://github.com/mjordan/islandora_workbench/issues/968); fixed some broken tests.
 * June 16: 2025: Commented out logic in workbench to enable check for updates introduced in commit fc74be4be (needs more testing). Fixed (commit 25aea6f) behavior of `delete_zip_archive_after_extraction` config setting so it doesn't delete local .zip archives on `--check`.
@@ -39,6 +40,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* June 19, 2025: Updated the "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/#ignoring-files-in-page-directories)" page to update socs on using the `paged_content_ignore_files` config setting.
 * June 18, 2025: Updated the "[Configuration](/islandora_workbench_docs/configuration/#miscellaneous-settings)" page to add the `check_for_workbench_updates` config setting.
 * June 16, 2025: Updated docs on the `delete_zip_archive_after_extraction` config setting to clarify that it applies only to remote .zip archive files, not local ones.
 * June 12, 2025: Added "[Printing all configuration values](/islandora_workbench_docs/configuration/#printing-all-configuration-values)" section to the docs. Updated the "[Troubleshooting](/islandora_workbench_docs/troubleshooting/#workbench-is-slow)" page to suggest deferring indexing to speed up `create` and `update` tasks.

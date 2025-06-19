@@ -225,7 +225,7 @@ See the section "[Creating paged content](/islandora_workbench_docs/paged_and_co
 | viewer_override_fieldname |  | field_viewer_override | The Drupal fieldname in your content type that stores entries from the "Islandora Display" vocabulary. The most likely other value for this setting is `field_display_hints`. |
 | paged_content_page_content_type |  | | Set to the machine name of the Drupal node content type for pages created using the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method if it is different than the content type of the parent (which is specified in the content_type setting). |
 | page_title_template | | '$parent_title, page $weight' | Template used to generate the titles of pages/members in the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method. |
-| paged_content_ignore_files | | ["Thumbs.db"] | List of filenames that you want Workbench to ignore when it scans directories to create page- or child-level nodes. See "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" for more inforation. |
+| paged_content_ignore_files | | ["Thumbs.db"] | List of filenames or `*` wildcard patterns that you want Workbench to ignore when it scans directories to create page- or child-level nodes. See "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/#ignoring-files-in-page-directories)" for more inforation. |
 
 
 ### Logging settings

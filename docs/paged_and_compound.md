@@ -209,11 +209,13 @@ books/
 
 #### Ignoring files in page directories
 
-Sometimes files such as "Thumbs.db" (on Windows) can creep into page directories. You can tell Workbench to ignore specific files within directories by including the `paged_content_ignore_files` configuration setting in your config file. Note that the default setting is to ignore "Thumbs.db" files. If you want to add additional files, or override that default setting, include the `paged_content_ignore_files` followed by a list of filenames, e.g.:
+Sometimes files such as "Thumbs.db" (on Windows) can creep into page directories. You can tell Workbench to ignore specific files within directories by including the `paged_content_ignore_files` configuration setting in your config file. Note that the default setting is to ignore "Thumbs.db" files. If you want to add additional files, or override that default setting, include the `paged_content_ignore_files` followed by a list of filenames and/or filename patterns that use the `*` wildcard, e.g.:
 
-`paged_content_ignore_files: ["Thumbs.db", "scanning_manifest.txt"]`
+`paged_content_ignore_files: ["Thumbs.db", "scanning_manifest.txt", "*.xml", "images.*"]`
 
-Note that Workbench converts all filenames in the directories and filenames listed in the `paged_content_ignore_files` setting to lower case before checking to see if they are in this list. For example, if Workbench encounters a filename `Scanning_Manifest.TXT`, it will match "scanning_manifest.txt" in the configuration above configuration.
+The asterisk wildcards act as you would expect: `*.xml` will match on "manifest.xml", "list.xml", etc., and `package.*` will match "package.txt" and "package.db", etc.
+
+Note that Workbench converts all filenames (and wildcard entries) in the directories and filenames listed in the `paged_content_ignore_files` setting to lower case before checking to see if they are in this list. For example, if Workbench encounters a filename `Scanning_Manifest.TXT`, it will match "scanning_manifest.txt" in the configuration above configuration. Also note that the `*` wildcard can only stand for entire filenames or extensions; in other words, you cannot use a wildcard in the middle of a filename.
 
 Workbench ignores all subdirectories within page directories.
 
