@@ -918,6 +918,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#deferring-solr-indexing" class="md-nav__link">
+    Deferring Solr indexing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ingesting-pregenerated-derivatives" class="md-nav__link">
     Ingesting pregenerated derivatives
   </a>
@@ -1123,6 +1130,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#deferring-solr-indexing" class="md-nav__link">
+    Deferring Solr indexing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#ingesting-pregenerated-derivatives" class="md-nav__link">
     Ingesting pregenerated derivatives
   </a>
@@ -1213,6 +1227,8 @@ adaptive_pause_threshold: 2.5
 <p>If a request is paused by adaptive pausing, Workbench will automatically log the response time for the next request, indicating that <code>adaptive_pause</code> has temporarily halted execution.</p>
 <p>You may want to log Drupal's response time regardless of whether <code>adaptive_pause</code> had kicked in or not to aid in troubleshooting. To do this, add <code>log_response_time: true</code> to your configuration file.</p>
 <p>All logging of response time, whether logged during adaptive pause or because you have specified response time logging in your config file, includes variation from the average of the last 20 response times.</p>
+<h3 id="deferring-solr-indexing">Deferring Solr indexing</h3>
+<p>Configuring Solr to not index newly added or updated items immediately can result in noticably faster <code>create</code> and <code>update</code> jobs. To do this, visit <code>/admin/config/search/search-api/index/default_solr_index/edit</code> and in the "Index options" fieldset, make sure "Index items immediately" is unchecked and save the form. Indexing will happen during cron runs.</p>
 <h3 id="ingesting-pregenerated-derivatives">Ingesting pregenerated derivatives</h3>
 <p>The strategy for reducing load on Drupal described in this section is not implemented directly via Workbench configuration, but applies to your content-preparartion workflows.</p>
 <p>Islandora's system for generating <a href="https://islandora.github.io/documentation/concepts/derivatives/">derivatives</a> uses Drupal Actions to communicate with microservices such as Crayfits, Homarus and Hypercube. Even though these microservices typically run in their own Docker containers, they can get overwhelmed and result in failed derivative creation. Sometimes the load on these microservices manifests itself as load on the Drupal server, sometimes it doesn't. At a minimum, the Action that initiates Drupal's communication with the microservices will add additional load.</p>
