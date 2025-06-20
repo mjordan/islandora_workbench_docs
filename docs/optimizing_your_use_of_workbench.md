@@ -7,6 +7,8 @@ If you have found a way to improve your use of Workbench that you think others m
 
 Islandora Workbench is under active development, both in terms of bug fixes and new features. It's good practice to [update your copy of Workbench](/islandora_workbench_docs/installation/#updating-islandora-workbench) every couple of weeks.
 
+During `--check`, Workbench automatically checks to see if it is up to date, and logs the results. If you want to turn this off, include `check_for_workbench_updates: false` in your configuration file.
+
 ## Protect user credentials in your config files
 
 Workbench requires the credentials of a Drupal user. You should consult with your local IT group to determine [which option](https://mjordan.github.io/islandora_workbench_docs/installation/#password-management) for managing the password of this user is their preference. You don't want Islandora Workbench to become a security vulnerability.

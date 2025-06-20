@@ -58,6 +58,10 @@ You may want to log Drupal's response time regardless of whether `adaptive_pause
 
 All logging of response time, whether logged during adaptive pause or because you have specified response time logging in your config file, includes variation from the average of the last 20 response times.
 
+### Deferring Solr indexing
+
+Configuring Solr to not index newly added or updated items immediately can result in noticably faster `create` and `update` jobs. To do this, visit `/admin/config/search/search-api/index/default_solr_index/edit` and in the "Index options" fieldset, make sure "Index items immediately" is unchecked and save the form. Indexing will happen during cron runs.
+
 ### Ingesting pregenerated derivatives
 
 The strategy for reducing load on Drupal described in this section is not implemented directly via Workbench configuration, but applies to your content-preparartion workflows.

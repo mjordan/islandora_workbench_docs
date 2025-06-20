@@ -40,6 +40,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* June 20, 2025: Added ""[Deferring Solr indexing](/islandora_workbench_docs/reducing_load/#deferring-solr-indexing)" to the "Reducing Workbench's impact on Drupal" page; added mention of the new check for whether Workbench is up to date to the "[Optimizing your use of Workbench](/islandora_workbench_docs/optimizing_your_use_of_workbench)" page.
 * June 19, 2025: Updated the "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/#ignoring-files-in-page-directories)" page to update socs on using the `paged_content_ignore_files` config setting.
 * June 18, 2025: Updated the "[Configuration](/islandora_workbench_docs/configuration/#miscellaneous-settings)" page to add the `check_for_workbench_updates` config setting.
 * June 16, 2025: Updated docs on the `delete_zip_archive_after_extraction` config setting to clarify that it applies only to remote .zip archive files, not local ones.
