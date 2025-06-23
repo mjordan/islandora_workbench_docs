@@ -2,6 +2,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* June 23, 2025: Resolved (commit bd60ae1) [issue 969](https://github.com/mjordan/islandora_workbench/issues/969). Thank you @ysuarez!
 * June 19, 2025: Resolved (commit 42e6fcd) [issue 949](https://github.com/mjordan/islandora_workbench/issues/949) and [issue 971](https://github.com/mjordan/islandora_workbench/issues/971).
 * June 18, 2025: Resolved (commit 97fc6e65) [issue 338](https://github.com/mjordan/islandora_workbench/issues/338) and (commit 97fc6e6) [issue 958](https://github.com/mjordan/islandora_workbench/issues/958).
 * June 17, 2025: Resolved (commit 087c707) [issue 962](https://github.com/mjordan/islandora_workbench/issues/962), (commit e506f92) [issue 957](https://github.com/mjordan/islandora_workbench/issues/957), and (commit a070a96) [issue 968](https://github.com/mjordan/islandora_workbench/issues/968); fixed some broken tests.
