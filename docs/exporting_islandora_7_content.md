@@ -106,6 +106,11 @@ parameters can be changed in the user-supplied config file.
       <td>PIDs of multiple collections, has same restrictions and usage as <i>collection</i> argument. Multiple collections are <b>OR</b>ed together.</td>
     </tr>
     <tr>
+      <td>collection_field</td>
+      <td>RELS_EXT_isMemberOfCollection_uri_s</td>
+      <td>The Solr field containing collection membership information.</td>
+    </tr>
+    <tr>
         <td>content_model</td>
         <td></td>
         <td>PID of a single content model limiting the objects to fetch from the source Islandora 7.x instance. Note: the colon in the content model PID must be escaped with a backslash (<code>\</code>), e.g., <code>islandora\:sp_large_image_cmodel</code>.</td>
