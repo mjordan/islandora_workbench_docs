@@ -55,7 +55,7 @@ parameters can be changed in the user-supplied config file.
     <tr>
         <td>get_file_uri</td>
         <td>true</td>
-        <td>Whether or not to write datastream file URLs to the CSV file instead of fetching the files. One of `get_file_uri` or `fetch_files` can be set  to `true`, but not both.</td>
+        <td>Whether or not to write datastream file URLs to the CSV file instead of fetching the files. One of <code>get_file_uri</code> or <code>fetch_files</code> can be set to <code>true</code>, but not both.</td>
     </tr>
     <tr>
         <td>field_pattern</td>
@@ -98,7 +98,7 @@ parameters can be changed in the user-supplied config file.
     <tr>
         <td>collection</td>
         <td></td>
-        <td>PID of a single collection limiting the objects to fetch from the source Islandora 7.x instance. Only matches objects that have the specified collection as their immediate parent. For recursive collection membership, add `ancestors_ms` as a `solr_filter`, as documented below. Note: the colon in the collection PID must be escaped with a backslash (`\`), e.g., `cartoons\:collection`.</td>
+        <td>PID of a single collection limiting the objects to fetch from the source Islandora 7.x instance. Only matches objects that have the specified collection as their immediate parent. For recursive collection membership, add <code>ancestors_ms</code> as a <code>solr_filter</code>, as documented below. Note: the colon in the collection PID must be escaped with a backslash (<code>\</code>), e.g., <code>cartoons\:collection</code>.</td>
     </tr>
     <tr>
       <td>collections</td>
@@ -108,7 +108,7 @@ parameters can be changed in the user-supplied config file.
     <tr>
         <td>content_model</td>
         <td></td>
-        <td>PID of a single content model limiting the objects to fetch from the source Islandora 7.x instance. Note: the colon in the content model PID must be escaped with a backslash (`\`), e.g., `islandora\:sp_large_image_cmodel`.</td>
+        <td>PID of a single content model limiting the objects to fetch from the source Islandora 7.x instance. Note: the colon in the content model PID must be escaped with a backslash (<code>\</code>), e.g., <code>islandora\:sp_large_image_cmodel</code>.</td>
     </tr>
     <tr>
         <td>solr_filters</td>
@@ -128,7 +128,7 @@ parameters can be changed in the user-supplied config file.
     <tr>
         <td>pids_to_skip</td>
         <td></td>
-        <td>List of PIDs to not export, e.g. `pids_to_skip: ["foo:234", "bar:7890"]`. Useful if you are aware of problems with specific Islandora 7 source objects and you don't want those objects to crash out the script.</td>
+        <td>List of PIDs to not export, e.g. <code>pids_to_skip: ["foo:234", "bar:7890"]</code>. Useful if you are aware of problems with specific Islandora 7 source objects and you don't want those objects to crash out the script.</td>
     </tr>
     <tr>
       <td>pids_to_use</td>
@@ -148,7 +148,17 @@ parameters can be changed in the user-supplied config file.
     <tr>
         <td>secure_ssl_only</td>
         <td>true</td>
-        <td>Whether or not to require valid SSL certificates. Set to `false` if you want to ignore SSL certificates.</td>
+        <td>Whether or not to require valid SSL certificates. Set to <code>false</code> if you want to ignore SSL certificates.</td>
+    </tr>
+    <tr>
+        <td>paginate</td>
+        <td>false</td>
+        <td>True to page through <b>ALL</b> the results returned by the Solr query in batches of the size of the <i>rows</i> parameter, False to only return the first <i>rows</i> results.</td>
+    </tr>
+    <tr>
+        <td>metadata_fields</td>
+        <td></td>
+        <td>Pulls a string value from the specified datastream ID and Xpath for each resource. See <a href="#metadata-fields">Metadata fields</a> for example configuration.</td> 
     </tr>
 </table>
 
@@ -166,6 +176,25 @@ The following configuration variables are only necessary if **debug** is set to 
     <td>Path to a file to write the PIDs of all Islandora 7 objects that fail to return data for their RELS-EXT datastream.</td>
   </tr>
 </table>
+
+### Metadata fields
+The `metadata_fields` configuration parameter allows you to parse an XML datastream associated with the resource and return a string value for a particular Xpath. It has the form of
+```yaml
+metadata_fields:
+ <field_name>
+  dsid: <DSID>
+  xpath: '<full xpath>'
+```
+For example:
+```yaml
+metadata_fields:
+ abstract:
+  dsid: MODS
+  xpath: './{http://www.loc.gov/mods/v3}abstract'
+ access_condition:
+  dsid: MODS
+  xpath: './{http://www.loc.gov/mods/v3}accessCondition'
+```
 
 ## Analyzing your Islandora 7 Solr index
 
