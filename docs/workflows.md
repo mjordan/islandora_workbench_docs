@@ -1,4 +1,4 @@
-Islandora Workbench can be used in a variety of content ingest workflows. Several are outlined below.
+Islandora Workbench can be used in a variety of content ingest and maintenance workflows. Several are outlined below.
 
 ## Batch ingest
 
@@ -17,7 +17,7 @@ It is possible to separate the tasks of creating a node and its accompanying med
 
 ![Distributed batch ingest](images/workflow_distributed_batch_loading.png)
 
-In this workflow, the person creating the nodes and the person updating them later need not be the same. In both cases, Workbench can create an [output CSV](/islandora_workbench_docs/output_csv/) that can be used in the second half of the workflow.
+In this workflow, the person creating the nodes and the person updating them later need not be the same. In both the `nodes_only` and stub node cases, Workbench can create an [output CSV](/islandora_workbench_docs/output_csv/) that can be used in the second half of the workflow.
 
 ## Migrations
 
@@ -26,7 +26,7 @@ Islandora Workbench is not intended to replace Drupal's Migrate framework, but i
 ![Migrations](images/workflow_migrations.png)
 
 
-On the left side of the diagram, `get_islandora_7_content.py` or the Islandora Get CSV module are used in the "extract" phase of the ETL workflow, and on the right side, running the user's computer, Islandora Workbench is used in the "load" phase. Before loading the content, the user would modify the extracted CSV file to confirm with Workbench's CSV content requirements.
+On the left side of the diagram, `get_islandora_7_content.py` or the Islandora Get CSV module are used in the "extract" phase of the ETL workflow, and on the right side, running the user's computer, Islandora Workbench is used in the "load" phase. Before loading the content, the user would modify the extracted CSV file to conform with Workbench's CSV content requirements.
 
 The advantage of migrating to Islandora in this way is that the exported CSV file can be cleaned or supplemented (manually or otherwise) prior to using it as Workbench's input. The specific tasks required during this "transform" phase will vary depending on the quality and consistency of metadata and other factors.
 
@@ -80,7 +80,7 @@ The extraction of data from the source system, conversion of it into the CSV and
 
 ### Using hooks
 
-Islandora Workbench provides several "[hooks](/islandora_workbench_docs/hooks/)" that allow you to execute external scripts at specific times. For example, the "post-action script" enables you to execute scripts immediately after a node is created or updated, or a media is created. Drupal informs Workbench if an action was successful or not, and in either case, post-action hook scripts registered in the Workbench configuration file execute. These scripts can interact with external applications:
+Islandora Workbench provides several "[hooks](/islandora_workbench_docs/hooks/)" that allow you to run external scripts at specific points in execution. For example, the "post-action script" enables you to execute scripts immediately after a node is created or updated, or a media is created. Drupal informs Workbench if an action was successful or not, and in either case, post-action hook scripts registered in the Workbench configuration file execute. These scripts can interact with external applications:
 
 ![Post-action hook script](images/post_action_hook.png)
 
@@ -89,7 +89,7 @@ Potential uses for this ability include adding new Islandora content to external
 !!! warning
     Schedulers such as Linux `cron` usually require that all file paths are absolute, unless the scheduler changes its current working directory when running a job. When running Islandora Workbench in a scheduled job, all paths to files and directories included in configuration files should be absolute, not relative to Workbench. Also, the path to Workbench configuration file used as the value of `--config` should be absolute. If a scheduled job is not executing the way you expect, the first thing you should check is whether all paths to files and directories are expressed as absolute paths, not relative paths.
 
-Two example scripts, `scripts/workbench_queue_sample_enqueue_node_id.py` and `scripts/workbench_queue_sample_dequeue_node_id.py`, illustrate how to populate a persistent queue using a node-post-create hook. Upon successful creation of a node, the enque script adds the node ID to the persistent queue. The deque script is run manually; it takes the next node ID from the queue and, as an example process, fetches the node's title from Drupal and logs it. An application of this type of functionality would be to use a persistent queue to perform offline batch processes on the list of node IDs, such as creating a Bag for each Islandora object.
+Two example scripts, `scripts/workbench_queue_sample_enqueue_node_id.py` and `scripts/workbench_queue_sample_dequeue_node_id.py`, illustrate how to populate an external, persistent processing queue using a node-post-create hook. Upon successful creation of a node, the enque script adds the node ID to the persistent queue. The deque script is run manually (or on a schedule); it takes the next node ID from the queue and, as an example process, fetches the node's title from Drupal and logs it. An application of this type of functionality would be to use a persistent queue to perform offline batch processes on the list of node IDs, such as creating a Bag for each Islandora object in the queue.
 
 ### Sharing the input CSV with other applications
 
@@ -101,7 +101,7 @@ Islandora Workbench strictly validates the columns in the input CSV to ensure th
 ignore_csv_columns: ['date_generated', 'qa by']
 ```
 
-With this setting in place, Workbench will ignore the `date_generated` column in the input CSV. More information on this feature [is available](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#ignoring-csv-columns).
+With this setting in place, Workbench will ignore the `date_generated` and `qa by` columns in the input CSV. More information on this feature [is available](/islandora_workbench_docs/ignoring_csv_rows_and_columns/#ignoring-csv-columns).
 
 ### Sharing configuration files with other applications
 
