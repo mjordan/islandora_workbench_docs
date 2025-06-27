@@ -2,6 +2,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* June 2, 2025: Resolved (commit df52714) [issue 976](https://github.com/mjordan/islandora_workbench/issues/976).
 * June 23, 2025: Resolved (commit bd60ae1) [issue 969](https://github.com/mjordan/islandora_workbench/issues/969). Thank you @ysuarez!
 * June 19, 2025: Resolved (commit 42e6fcd) [issue 949](https://github.com/mjordan/islandora_workbench/issues/949) and [issue 971](https://github.com/mjordan/islandora_workbench/issues/971).
 * June 18, 2025: Resolved (commit 97fc6e65) [issue 338](https://github.com/mjordan/islandora_workbench/issues/338) and (commit 97fc6e6) [issue 958](https://github.com/mjordan/islandora_workbench/issues/958).
@@ -41,6 +42,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* June 26, 2025: Updated the "[Workflows](/islandora_workbench_docs/workflows/#using-hooks)" page to describe populating a persisent queue ([issue 976](https://github.com/mjordan/islandora_workbench/issues/976)).
 * June 20, 2025: Added ""[Deferring Solr indexing](/islandora_workbench_docs/reducing_load/#deferring-solr-indexing)" to the "Reducing Workbench's impact on Drupal" page; added mention of the new check for whether Workbench is up to date to the "[Optimizing your use of Workbench](/islandora_workbench_docs/optimizing_your_use_of_workbench)" page.
 * June 19, 2025: Updated the "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/#ignoring-files-in-page-directories)" page to update socs on using the `paged_content_ignore_files` config setting.
 * June 18, 2025: Updated the "[Configuration](/islandora_workbench_docs/configuration/#miscellaneous-settings)" page to add the `check_for_workbench_updates` config setting.
