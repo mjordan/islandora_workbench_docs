@@ -1087,7 +1087,7 @@
 <h2 id="transmission-fixity">Transmission fixity</h2>
 <p>Islandora Workbench enables transmission fixity validation, which means it can detect when files are not ingested into Islandora intact, in other words, that the files became corrupted during ingest. It does this by generating a checksum (a.k.a. "hash") for each file before it is ingested, and then after the file is ingested, Workbench asks Drupal for a checksum on the file generated using the same hash algorithm. If the two checksums are identical, Workbench has confirmed that the file was not corrupted during the ingest process. If they are not identical, the file became corrupted.</p>
 <p>This functionality is available within <code>create</code> and <code>add_media</code> tasks. Only files named in the <code>file</code> CSV column are checked.</p>
-<p>To enable this feature, include the <code>fixity_algorithm</code> option in your <code>create</code> or <code>add_media</code> configuration file, specifying one of "md5", "sha1", or "sha256" hash algorithms. For example, to use the "md5" algorithm, include the following in your config file:</p>
+<p>To enable this feature, include the <code>fixity_algorithm</code> option in your <code>create</code> or <code>add_media</code> configuration file, specifying one of "md5", "sha1", or "sha256" hash algorithms. You do not need to include a <code>checksum</code> column in your input CSV because Workbench generates a hash for you. For example, to use the "md5" algorithm, include the following in your config file:</p>
 <pre><code class="language-yaml">fixity_algorithm: md5
 </code></pre>
 <h2 id="comparing-checksums-to-known-values">Comparing checksums to known values</h2>
