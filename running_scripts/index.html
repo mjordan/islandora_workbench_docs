@@ -1052,7 +1052,7 @@
 <p>Even though Islandora Workbench can run scripts on newly created or updated entities using its <a href="/islandora_workbench_docs/hooks/#post-action-scripts">post-action hooks</a>, <code>run_scripts</code> tasks can run scripts on existing nodes, media, and taxonomy terms. In other words, you can run your scripts at any time after the entities have been created. Some use cases for this ability include:</p>
 <ul>
 <li>rendering an item to warm its cache, or to pregenerate tiles for images</li>
-<li>export scripts that surpass Workbench's built-in export functionality, such as scripts that create Bags or other types of content packages</li>
+<li>export and format content in ways that cannot be done using Workbench's built-in export functionality, such as Bags or other types of structured content packages</li>
 <li>integration into workflows that required custom versions of Islandora objects for use in other applications such as Archivematica</li>
 </ul>
 <h2 id="workbench-configuration">Workbench configuration</h2>
@@ -1073,14 +1073,16 @@ run_scripts_threads: 5
 run_scripts_log_script_output: false
 </code></pre>
 <ul>
-<li><code>run_scripts_entity_type</code>: one of "node", "media", or "term".</li>
-<li><code>run_scripts</code>: a list containing the absolute paths to the scripts.</li>
-<li><code>run_scripts_threads</code>: number of asynchronous threads to use. Default is 1.</li>
-<li><code>run_scripts_log_script_output</code>: whether or not to log the output of scripts in the Workbench log file. Default is <code>true</code>, which you may want to set to <code>false</code> if your script writes its own log.</li>
+<li><code>run_scripts_entity_type</code> (required): one of "node", "media", or "term".</li>
+<li><code>run_scripts</code> (required): a list containing the absolute paths to the scripts.</li>
+<li><code>run_scripts_threads</code> (optional): number of asynchronous threads to use. Default is 1.</li>
+<li><code>run_scripts_log_script_output</code> (optional): whether or not to log the output of scripts in the Workbench log file. Default is <code>true</code>, which you may want to set to <code>false</code> if your script writes its own log.</li>
 </ul>
 <p>Scripts are run in the order they are in within <code>run_scripts</code>. Workbench will apply an earlier script to all IDs in the CSV before moving on to the next script.</p>
 <h2 id="the-run_scripts_threads-setting">The run_scripts_threads setting</h2>
-<p>Scripts can be executed on groups of IDs asynchronously, speeding up processing substantially (in theory at least). For example, if you set <code>run_scripts_threads</code> to 5, Workbench will process the IDs in the input CSV in groups of 5 in parallel. Note that while setting this config option higher than 1 will likely shorten the total amount of time it takes your scripts to process all IDs, doing so will almost certainly add additional load to Drupal, which will slow it down. Experimentation and trial and error will likely be required to find the number of thread to use for a given script.</p>
+<p>Scripts can be executed on groups of IDs asynchronously, speeding up processing substantially (in theory at least). For example, if you set <code>run_scripts_threads</code> to 5, Workbench will process the IDs in the input CSV in groups of 5 in parallel.</p>
+<p>Note that while setting this config option higher than 1 will likely shorten the total amount of time it takes your scripts to process all IDs, doing so will probably add additional load to Drupal, which will slow it down. Experimentation and trial and error will likely be required to find the number of threads to use for a given script.</p>
+<p>Also note that if a group of treads executes in parallel, the order in which they complete withon that group is not guaranteed. In most cases this will not be an issue since these scripts process a single Drupal node, media, or term entity that is independent of the others in the group.</p>
 <h2 id="the-input-csv">The input CSV</h2>
 <p>The input CSV requires only a single column named either <code>node_id</code>, <code>media_id</code>, or <code>term_id</code>, depending on the value of <code>run_scripts_entity_type</code>. Because all other columns are ignored, you can use the ouput CSV created by Workbench's rollback functionality, or from a CSV created during an <code>export_csv</code> task.</p>
 <h2 id="writing-scripts">Writing scripts</h2>
@@ -1112,7 +1114,7 @@ with open(config_file, &quot;r&quot;) as stream:
     config = yaml.load(stream)
 
 # Scripts should do their own logging, although if the Workbench config setting is
-# &quot;run_scripts_log_script_output&quot; is set to true (it's default value), the output
+# &quot;run_scripts_log_script_output&quot; is set to true (its default value), the output
 # of your scripts will be logged in the Workbench log file. Set &quot;run_scripts_log_script_output&quot;
 # to false to omit scripts' output from the Workbench log.
 logging.basicConfig(
