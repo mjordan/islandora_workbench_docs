@@ -1,0 +1,1188 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Islandora Workbench">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Running scripts - Islandora Workbench</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.472b142f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#use-cases" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Islandora Workbench" class="md-header__button md-logo" aria-label="Islandora Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Islandora Workbench
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Running scripts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mjordan/islandora_workbench_docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Islandora Workbench" class="md-nav__button md-logo" aria-label="Islandora Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Islandora Workbench
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mjordan/islandora_workbench_docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../drupal_and_workbench/" class="md-nav__link">
+        Workbench's relationship to Drupal and Islandora
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Requirements and installation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../choosing_a_task/" class="md-nav__link">
+        Choosing a task
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimizing_your_use_of_workbench/" class="md-nav__link">
+        Optimizing your use of Workbench
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration_settings_on_the_command_line/" class="md-nav__link">
+        Specifying configuration settings on the command line
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../check/" class="md-nav__link">
+        Checking configuration and input data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preparing_data/" class="md-nav__link">
+        Preparing your data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fields/" class="md-nav__link">
+        Field data (Drupal and CSV)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../viewer_override/" class="md-nav__link">
+        Automatically populating the "Viewer override" field
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ignoring_csv_rows_and_columns/" class="md-nav__link">
+        Ignoring CSV rows and columns
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../checking_if_nodes_exist/" class="md-nav__link">
+        Checking if nodes already exist
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../field_templates/" class="md-nav__link">
+        CSV field templates
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csv_value_templates/" class="md-nav__link">
+        CSV value templates
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../paged_and_compound/" class="md-nav__link">
+        Creating paged, compound, and collection content
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nodes_only/" class="md-nav__link">
+        Creating nodes without media
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating_nodes_from_files/" class="md-nav__link">
+        Creating nodes from files
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recovery_mode/" class="md-nav__link">
+        Recovering from interrupted "create" tasks
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updating_nodes/" class="md-nav__link">
+        Updating nodes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deleting_nodes/" class="md-nav__link">
+        Deleting nodes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating_taxonomy_terms/" class="md-nav__link">
+        Creating taxonomy terms
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updating_terms/" class="md-nav__link">
+        Updating taxonomy terms
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aliases/" class="md-nav__link">
+        Assigning URL aliases
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redirects/" class="md-nav__link">
+        Creating redirects
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alt_text/" class="md-nav__link">
+        Adding alt text to images
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rolling_back/" class="md-nav__link">
+        Rolling back nodes and media
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../media_types/" class="md-nav__link">
+        Configuring media types
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick_delete/" class="md-nav__link">
+        Quick delete
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adding_media/" class="md-nav__link">
+        Adding media to nodes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adding_multiple_media/" class="md-nav__link">
+        Adding multiple media
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../media_track_files/" class="md-nav__link">
+        Creating media track files
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updating_media/" class="md-nav__link">
+        Updating media
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deleting_media/" class="md-nav__link">
+        Deleting media
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generating_csv_files/" class="md-nav__link">
+        Generating CSV files
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exporting_islandora_7_content/" class="md-nav__link">
+        Exporting Islandora 7 content
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hooks/" class="md-nav__link">
+        Hooks
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fixity/" class="md-nav__link">
+        Fixity checking
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logging/" class="md-nav__link">
+        Logging
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csv_id_to_node_id_map/" class="md-nav__link">
+        The CSV ID to node ID map
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cancelling/" class="md-nav__link">
+        Cancelling Workbench
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflows/" class="md-nav__link">
+        Workflows
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contact_sheet/" class="md-nav__link">
+        Generating a contact sheet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reducing_load/" class="md-nav__link">
+        Reducing Workbench's impact on Drupal
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sample_data/" class="md-nav__link">
+        Creating nodes from the sample data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompts/" class="md-nav__link">
+        Prompting the user
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generating_sample_content/" class="md-nav__link">
+        Generating sample Islandora content
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../limitations/" class="md-nav__link">
+        Known limitations
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development_guide/" class="md-nav__link">
+        Development guide
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        Change log
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    Use cases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workbench-configuration" class="md-nav__link">
+    Workbench configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-run_scripts_threads-setting" class="md-nav__link">
+    The run_scripts_threads setting
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-input-csv" class="md-nav__link">
+    The input CSV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-scripts" class="md-nav__link">
+    Writing scripts
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/running_scripts.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+  <h1>Running scripts</h1>
+
+<p>Islandora Workbench provides a way to run custom scripts on specific nodes, media, or taxonomy terms identified in a CSV file with a single column containing node/media/term IDs. This ability extends Workbench's functionality to include whatever can be packaged into a script.</p>
+<h2 id="use-cases">Use cases</h2>
+<p>Even though Islandora Workbench can run scripts on newly created or updated entities using its <a href="/islandora_workbench_docs/hooks/#post-action-scripts">post-action hooks</a>, <code>run_scripts</code> tasks can run scripts on existing nodes, media, and taxonomy terms. In other words, you can run your scripts at any time after the entities have been created. Some use cases for this ability include:</p>
+<ul>
+<li>rendering an item to warm its cache, or to pregenerate tiles for images</li>
+<li>export scripts that surpass Workbench's built-in export functionality, such as scripts that create Bags or other types of content packages</li>
+<li>integration into workflows that required custom versions of Islandora objects for use in other applications such as Archivematica</li>
+</ul>
+<h2 id="workbench-configuration">Workbench configuration</h2>
+<p>A Workbench configuration file for the <code>run_scripts</code> task looks like this:</p>
+<pre><code class="language-yaml">task: run_scripts
+host: https://islandora.dev
+username: admin
+password: password
+input_csv: nodes_to_process.csv
+
+# The following config settings are specific to the run_scripts task.
+# &quot;run_scripts_entity_type&quot; and &quot;run_scripts&quot; are required.
+run_scripts_entity_type: node
+run_scripts:
+  - /home/mark/hacking/islandora_workbench/scripts/script_to_run_node_sample.py
+  - /home/mark/hacking/islandora_workbench/scripts/script_to_run_node_sample_2.py
+run_scripts_threads: 5
+run_scripts_log_script_output: false
+</code></pre>
+<ul>
+<li><code>run_scripts_entity_type</code>: one of "node", "media", or "term".</li>
+<li><code>run_scripts</code>: a list containing the absolute paths to the scripts.</li>
+<li><code>run_scripts_threads</code>: number of asynchronous threads to use. Default is 1.</li>
+<li><code>run_scripts_log_script_output</code>: whether or not to log the output of scripts in the Workbench log file. Default is <code>true</code>, which you may want to set to <code>false</code> if your script writes its own log.</li>
+</ul>
+<p>Scripts are run in the order they are in within <code>run_scripts</code>. Workbench will apply an earlier script to all IDs in the CSV before moving on to the next script.</p>
+<h2 id="the-run_scripts_threads-setting">The run_scripts_threads setting</h2>
+<p>Scripts can be executed on groups of IDs asynchronously, speeding up processing substantially (in theory at least). For example, if you set <code>run_scripts_threads</code> to 5, Workbench will process the IDs in the input CSV in groups of 5 in parallel. Note that while setting this config option higher than 1 will likely shorten the total amount of time it takes your scripts to process all IDs, doing so will almost certainly add additional load to Drupal, which will slow it down. Experimentation and trial and error will likely be required to find the number of thread to use for a given script.</p>
+<h2 id="the-input-csv">The input CSV</h2>
+<p>The input CSV requires only a single column named either <code>node_id</code>, <code>media_id</code>, or <code>term_id</code>, depending on the value of <code>run_scripts_entity_type</code>. Because all other columns are ignored, you can use the ouput CSV created by Workbench's rollback functionality, or from a CSV created during an <code>export_csv</code> task.</p>
+<h2 id="writing-scripts">Writing scripts</h2>
+<p>Scripts can be written in any language. The are automatically passed to arguments, 1) the path to the Workbench config file and 2) an entity ID from the CSV file. The logic in scripts applies to the single entity ID provided as argument - Workbench does the looping through the list of entity IDs for you. Also, Workbench receives a script's exit code, and logs success or failure based on that code. It assumes an exit code of <code>0</code> signals success (which is a general convention with very few exceptions), but a non-<code>0</code> exit code signals failure of some type. If you are including exception-handling code in your scripts which makes them exit on an exception or error, be sure to exit with a non-zero code so Workbench will detect the failure. Otherwise, Workbench will think the script executed successfully.</p>
+<p>Workbench comes with two sample scripts, <code>script_to_run_node_sample.py</code> and <code>script_to_run_node_sample_2.py</code>.</p>
+<p>The second script's purpose is mainly to illustrate registering multiple scripts in the <code>run_scripts</code> config setting; it merely prints and logs the ID it received as an argument.</p>
+<p>The first script, <code>script_to_run_node_sample.py</code>, illustrates the minimal functionality that a script can take. Some of the points made above are expanded on in the inline comments:</p>
+<pre><code class="language-python">#!/usr/bin/env python
+
+&quot;&quot;&quot;Sample script to illustrate Workbench's &quot;run_scripts&quot; task.&quot;&quot;&quot;
+
+import sys
+import logging
+import json
+import requests
+from ruamel.yaml import YAML
+
+# All scripts registered in &quot;run_scripts&quot; are passed the path to the Workbench config file
+# and a single entity ID, in that order.
+config_file = sys.argv[1]
+node_id = sys.argv[2]
+
+# Note that like hook scripts, scripts registered in &quot;run_scripts&quot; only have access
+# to configuration values defined in the Workbench config file, not to default values.
+# Therefore, if you want to reuse the Workbench config file in your scripts, the config
+# file should include settings that would otherwise have the default values.
+yaml = YAML()
+with open(config_file, &quot;r&quot;) as stream:
+    config = yaml.load(stream)
+
+# Scripts should do their own logging, although if the Workbench config setting is
+# &quot;run_scripts_log_script_output&quot; is set to true (it's default value), the output
+# of your scripts will be logged in the Workbench log file. Set &quot;run_scripts_log_script_output&quot;
+# to false to omit scripts' output from the Workbench log.
+logging.basicConfig(
+    filename=&quot;script_to_run_sample.log&quot;,
+    level=logging.INFO,
+    format=&quot;%(asctime)s - %(levelname)s - %(message)s&quot;,
+    datefmt=&quot;%d-%b-%y %H:%M:%S&quot;,
+)
+
+requests.packages.urllib3.disable_warnings()
+
+# The demonstration purpose of this script is to fetch each node's title and print/log it,
+# using the &quot;host&quot; setting defined in the Workbench config file.
+url = f'{config[&quot;host&quot;].rstrip(&quot;/&quot;)}/node/{node_id}?_format=json'
+result = requests.get(url, verify=False)
+try:
+    node = json.loads(result.text)
+    title = node[&quot;title&quot;][0][&quot;value&quot;]
+    logging.info(f'Title is &quot;{title}&quot;.')
+    print(f'Title is &quot;{title}&quot;.')
+except Exception as e:
+    logging.error(
+        f&quot;Could not retrieve data from {url}, HTTP response code was {result.status_code} {e}.&quot;
+    )
+    # Scripts should always exit with a non-0 code on failure so Workbench can detect the failure.
+    sys.exit(1)
+</code></pre>
+<p>Note that scripts must be set to executable, and that they must contain the shebang line (in the case of the above Python script, <code>#!/usr/bin/env python</code>) expected by the language the script is written in.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+    
+  </body>
+</html>
