@@ -48,6 +48,7 @@ nav:
     - The CSV ID to node ID map: csv_id_to_node_id_map.md
     - Cancelling Workbench: cancelling.md
     - Workflows: workflows.md
+    - Running scripts on existing entities: running_scripts.md
     - Generating a contact sheet: contact_sheet.md
     - Reducing Workbench's impact on Drupal: reducing_load.md
     - Creating nodes from the sample data: sample_data.md
