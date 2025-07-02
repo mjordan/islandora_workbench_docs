@@ -1002,12 +1002,18 @@
     Workbench configuration
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Workbench configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#the-run_scripts_threads-setting" class="md-nav__link">
-    The run_scripts_threads setting
+    The "run_scripts_threads" setting
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1078,8 +1084,8 @@ run_scripts_log_script_output: false
 <li><code>run_scripts_threads</code> (optional): number of asynchronous threads to use. Default is 1.</li>
 <li><code>run_scripts_log_script_output</code> (optional): whether or not to log the output of scripts in the Workbench log file. Default is <code>true</code>, which you may want to set to <code>false</code> if your script writes its own log.</li>
 </ul>
-<p>Scripts are run in the order they are in within <code>run_scripts</code>. Workbench will apply an earlier script to all IDs in the CSV before moving on to the next script.</p>
-<h2 id="the-run_scripts_threads-setting">The run_scripts_threads setting</h2>
+<p>Scripts are run in the order they are in within <code>run_scripts</code>. Workbench will apply an earlier script to all IDs in the CSV before moving on to the next script. This means that the first script in the list could fetch content from Drupal and write it to a location, and the next script could use that content as its input.</p>
+<h3 id="the-run_scripts_threads-setting">The "run_scripts_threads" setting</h3>
 <p>Scripts can be executed on groups of IDs asynchronously, speeding up processing substantially (in theory at least). For example, if you set <code>run_scripts_threads</code> to 5, Workbench will process the IDs in the input CSV in groups of 5 in parallel.</p>
 <p>Note that while setting this config option higher than 1 will likely shorten the total amount of time it takes your scripts to process all IDs, doing so will probably add additional load to Drupal, which will slow it down. Experimentation and trial and error will likely be required to find the number of threads to use for a given script.</p>
 <p>Also note that if a group of treads executes in parallel, the order in which they complete withon that group is not guaranteed. In most cases this will not be an issue since these scripts process a single Drupal node, media, or term entity that is independent of the others in the group.</p>
