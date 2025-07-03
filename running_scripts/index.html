@@ -1139,11 +1139,11 @@
 
   <h1>Running scripts on existing entities</h1>
 
-<p>Islandora Workbench provides a task, <code>run_scripts</code>, will enables users to run custom scripts on specific nodes, media, or taxonomy terms identified in a CSV file containing node/media/term IDs. This ability extends Workbench's functionality to include whatever can be packaged into a script.</p>
+<p>Islandora Workbench provides a task, <code>run_scripts</code>, will enables users to run custom scripts on specific nodes, media, or taxonomy terms identified in a CSV file. This ability extends Workbench's functionality to include whatever can be packaged into a script.</p>
 <h2 id="use-cases">Use cases</h2>
 <p>Even though Islandora Workbench can run scripts on newly created or updated entities using its <a href="/islandora_workbench_docs/hooks/#post-action-scripts">post-action hooks</a>, <code>run_scripts</code> tasks can run scripts on existing nodes, media, and taxonomy terms regardless of how or when they were created. Some use cases for this ability include:</p>
 <ul>
-<li>rendering an item to warm the web server's cache, or to pregenerate Cantaloupe tiles for images so they appear to the user faster</li>
+<li>rendering a node to warm the web server's cache, or to pregenerate Cantaloupe tiles for images so they appear to the user faster</li>
 <li>performing automated or large-scale quality checks, for example to ensure that all the nodes being checked have the expected derivative media</li>
 <li>exporting and packaging content in ways that cannot be done using Workbench's built-in export functionality, such as creating Bags or other types of structured content packages</li>
 <li>integration into workflows that required custom representations of Islandora objects for use in other applications such as Archivematica.</li>
@@ -1162,7 +1162,7 @@ run_scripts_entity_type: node
 run_scripts:
   - /home/mark/hacking/islandora_workbench/scripts/script_to_run_node_sample.py
   - /home/mark/hacking/islandora_workbench/scripts/script_to_run_node_sample_2.py
-  # If on Windows, paths to scripts looks like this.
+  # If on Windows, paths to scripts look like this.
   # -'C:\LocalApps\scripts\script_to_run_node_sample.py'
   # -'C:\LocalApps\scripts\script_to_run_node_sample_2.py'
 run_scripts_threads: 5
@@ -1174,16 +1174,16 @@ run_scripts_log_script_output: false
 <li><code>run_scripts_threads</code> (optional): number of asynchronous threads to use. Default is 1.</li>
 <li><code>run_scripts_log_script_output</code> (optional): whether or not to log the output of scripts in the Workbench log file. Default is <code>true</code>, which you may want to set to <code>false</code> if your script writes its own log.</li>
 </ul>
-<p>Scripts are run in the order they are in within <code>run_scripts</code>. Workbench will apply an earlier script to all IDs in the CSV before moving on to the next script. This means that the first script in the list could fetch content from Drupal and write it to a location, and the next script could use the previous script's output as its input.</p>
+<p>Scripts are run in the order they are listed in within <code>run_scripts</code>. Workbench will apply an earlier script to all IDs in the CSV before moving on to the next script. This means that the first script in the list could fetch content from Drupal and write it to a location, and the next script could use the previous script's output as its input.</p>
 <h3 id="the-run_scripts_threads-setting">The "run_scripts_threads" setting</h3>
 <p>Workbench can execute scripts on groups of IDs asynchronously, speeding up processing substantially. For example, if you set <code>run_scripts_threads</code> to 5, Workbench will process the IDs in the input CSV in groups of 5 in parallel.</p>
-<p>However, keep in mind that while setting this config option higher than 1 will likely shorten the total amount of time it takes your scripts to process all IDs, doing so will probably add additional load to Drupal, which will slow it down. Experimentation and trial and error will likely be required to find the number of threads to use for a given script.</p>
-<p>Also note that if a group of threads executes in parallel, the order in which each one completes executing within that group is not guaranteed. In most cases this will not be an issue since these scripts process a single Drupal node, media, or term entity that is independent of the others in the group.</p>
+<p>However, keep in mind that while setting this config option higher than 1 will shorten the total amount of time it takes your scripts to process all IDs, doing so will probably add additional load to Drupal, which will slow it down. Experimentation and trial and error will likely be required to find the number of threads to use for a given script.</p>
+<p>Also note that if a group of threads executes in parallel, the order in which each one completes executing within that group is not guaranteed. In most cases this will not be an issue since these scripts process a single Drupal node, media, or term that is independent of the others in the group.</p>
 <h2 id="the-input-csv">The input CSV</h2>
 <p>The input CSV requires only a single column named either <code>node_id</code>, <code>media_id</code>, or <code>term_id</code>, depending on the value of <code>run_scripts_entity_type</code>. Because <code>run_scripts</code> tasks ignore all other columns that might be present, you can use the CSV generated by Workbench's rollback functionality, or a CSV created during an <code>export_csv</code> task.</p>
 <h2 id="writing-scripts">Writing scripts</h2>
 <p>Scripts can be written in any language. They are automatically passed two arguments, 1) the path to the Workbench config file and 2) an entity ID from the CSV file, in that order. The logic in scripts applies to the single entity ID provided as the second argument -- Workbench does the looping through the list of entity IDs from the CSV for you.</p>
-<p>Also, Workbench receives a script's exit code, and logs success or failure based on that code. It assumes an exit code of <code>0</code> indicates success (which is a general convention for command-line programs with very few exceptions), and a non-<code>0</code> exit code signals failure of some type. If you are including exception-handling code in your scripts which makes them exit on an exception or error (as is illustrated in the example script below), be sure to exit with a non-zero code so Workbench will detect the failure. Otherwise, Workbench will think the script executed successfully.</p>
+<p>Also, Workbench receives a script's exit code, and logs success or failure based on the exit code -- an exit code of <code>0</code> indicates success (which is a general convention for command-line programs with very few exceptions), and a non-<code>0</code> exit code signals failure. If you are including exception-handling code in your scripts that makes them exit on an exception or error (as is illustrated in the example script below), be sure to exit with a non-zero code so Workbench can reliably detect the failure. Otherwise, Workbench will think the script executed successfully.</p>
 <p>Workbench comes with two sample scripts, <code>scripts/script_to_run_node_sample.py</code> and <code>scripis/script_to_run_node_sample_2.py</code>.</p>
 <p>The second script's purpose is solely to illustrate registering multiple scripts in the <code>run_scripts</code> config setting; it merely prints and logs the ID it received as an argument.</p>
 <p>The first script, <code>script_to_run_node_sample.py</code>, illustrates the minimal functionality that a script can take. Some of the points made above are expanded on in the inline comments:</p>
