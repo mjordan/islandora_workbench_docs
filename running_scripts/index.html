@@ -1161,10 +1161,10 @@ input_csv: nodes_to_process.csv
 run_scripts_entity_type: node
 run_scripts:
   - /home/mark/hacking/islandora_workbench/scripts/script_to_run_node_sample.py
-  - /home/mark/hacking/islandora_workbench/scripts/script_to_run_node_sample_2.py
+  - /usr/bin/sh /home/mark/hacking/islandora_workbench/scripts/script_to_run_node_sample_2.sh
   # If on Windows, paths to scripts look like this.
   # -'C:\LocalApps\scripts\script_to_run_node_sample.py'
-  # -'C:\LocalApps\scripts\script_to_run_node_sample_2.py'
+  # -'C:\LocalApps\scripts\script_to_run_node_sample_2.bat'
 run_scripts_threads: 5
 run_scripts_log_script_output: false
 </code></pre>
@@ -1174,6 +1174,7 @@ run_scripts_log_script_output: false
 <li><code>run_scripts_threads</code> (optional): number of asynchronous threads to use. Default is 1.</li>
 <li><code>run_scripts_log_script_output</code> (optional): whether or not to log the output of scripts in the Workbench log file. Default is <code>true</code>, which you may want to set to <code>false</code> if your script writes its own log.</li>
 </ul>
+<p>If a script contains a shebang line (in the case of the above Python script, <code>#!/usr/bin/env python</code>), you should not need to explicitly provide an interpreter for the script. However, if the script does not, you must prepend the script's path with the path to the applicable interpreter. Workbench will look for a space in the <code>run_scripts</code> entry and consider the string on the left of the space the path to be the interpreter and the sting on the right of the space to be the script.</p>
 <p>Scripts are run in the order they are listed in within <code>run_scripts</code>. Workbench will apply an earlier script to all IDs in the CSV before moving on to the next script. This means that the first script in the list could fetch content from Drupal and write it to a location, and the next script could use the previous script's output as its input.</p>
 <h3 id="the-run_scripts_threads-setting">The "run_scripts_threads" setting</h3>
 <p>Workbench can execute scripts on groups of IDs asynchronously, speeding up processing substantially. For example, if you set <code>run_scripts_threads</code> to 5, Workbench will process the IDs in the input CSV in groups of 5 in parallel.</p>
@@ -1184,8 +1185,8 @@ run_scripts_log_script_output: false
 <h2 id="writing-scripts">Writing scripts</h2>
 <p>Scripts can be written in any language. They are automatically passed two arguments, 1) the path to the Workbench config file and 2) an entity ID from the CSV file, in that order. The logic in scripts applies to the single entity ID provided as the second argument -- Workbench does the looping through the list of entity IDs from the CSV for you.</p>
 <p>Also, Workbench receives a script's exit code, and logs success or failure based on the exit code -- an exit code of <code>0</code> indicates success (which is a general convention for command-line programs with very few exceptions), and a non-<code>0</code> exit code signals failure. If you are including exception-handling code in your scripts that makes them exit on an exception or error (as is illustrated in the example script below), be sure to exit with a non-zero code so Workbench can reliably detect the failure. Otherwise, Workbench will think the script executed successfully.</p>
-<p>Workbench comes with two sample scripts, <code>scripts/script_to_run_node_sample.py</code> and <code>scripis/script_to_run_node_sample_2.py</code>.</p>
-<p>The second script's purpose is solely to illustrate registering multiple scripts in the <code>run_scripts</code> config setting; it merely prints and logs the ID it received as an argument.</p>
+<p>Workbench comes with two sample scripts, <code>scripts/script_to_run_node_sample.py</code> and <code>scripis/script_to_run_node_sample_2.sh</code>.</p>
+<p>The second script's purpose is to illustrate registering multiple scripts in the <code>run_scripts</code> config setting; it merely prints and logs the ID it received as an argument.</p>
 <p>The first script, <code>script_to_run_node_sample.py</code>, illustrates the minimal functionality that a script can take. Some of the points made above are expanded on in the inline comments:</p>
 <pre><code class="language-python">#!/usr/bin/env python
 
@@ -1239,7 +1240,7 @@ except Exception as e:
     # Scripts should always exit with a non-0 code on failure so Workbench can detect the failure.
     sys.exit(1)
 </code></pre>
-<p>Note that scripts must be set to executable, and that they must contain the shebang line (in the case of the above Python script, <code>#!/usr/bin/env python</code>) as is the convention of the language the script is written in.</p>
+<p>Note that scripts must be set to executable, and that they must either contain the shebang line as is the convention of the language the script is written in, or if they do not, the interpreter to use to run the script must be explicitly included in its <code>run_scripts</code> entry as illustrated above. Windows .bat scripts require neither a shebang line nor an explicit interpreter.</p>
 <p>Also, because registered scripts take the path to the Workbench configuaration file as their first command-line argument and an entity ID as their second argument, it is possile to execute the scripts on the command-line, like this:</p>
 <p><code>./script_to_run_node_sample.py path/to/myworkbenchconfig.yml 2316</code></p>
 <p>Since the script will have no dependencies on Workbench itself, it will execute as expected.</p>
