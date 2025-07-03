@@ -53,6 +53,9 @@ This won't happen very often, and the cause of this message will likely have bee
 
 You *do not need* to run `setup.py` every time you update the Workbench code. Introducing a new library is not a common occurance.
 
+### I'm running Workbench on Windows and I'm having problems getting long directory paths right in my configuration file
+
+Workbench, thanks to Python's excellent cross-operating system handling of directory paths, can understand Windows paths reliably as long as they are wrapped in *single* quotation marks. Double quotation marks tells Python to treat a `\`, which is common in Windows paths, as an escape character. If you wrap your Windows paths in single quotation marks, Workbench doesn't care if you use backslashes (`\`) or forward slashes (`/`) in the paths. For example, paths like `'d:\data\workarea\collection_23'` and `'\\some.windows.file.share.edu\share name\files\myfile.png'` will work fine.
 
 ### Workbench is failing to ingest some nodes and is leaving messages in the log mentioning HTTP response code 422.
 

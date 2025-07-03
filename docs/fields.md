@@ -33,7 +33,7 @@ Values in the reserved `file` CSV field contain the location of files that are u
 File locations in the `file` field can be relative to the directory named in `input_dir`, absolute paths, or URLs. Examples of each:
 
 * relative to directory named in the `input_dir` configuration setting: `myfile.png`
-* absolute: `/tmp/data/myfile.png`. On Windows, you can use values like `c:\users\mjordan\files\myfile.png` or `\\some.windows.file.share.org\share_name\files\myfile.png`.
+* absolute: `/tmp/data/myfile.png`. On Windows, you can use values like `'c:\users\mjordan\files\myfile.png'` or `'\\some.windows.file.share.org\share_name\files\myfile.png'`.
 * URL: `http://example.com/files/myfile.png`
 
 Things to note about `file` values in general:
