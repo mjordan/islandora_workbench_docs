@@ -44,7 +44,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
-* July 2, 2025: Added docs on the new `run_scripts` task at "[Running scripts](/islandora_workbench_docs/running_scripts/)".
+* July 2, 2025: Added docs on the new `run_scripts` task at "[Running scripts](/islandora_workbench_docs/running_scripts/)". Also updated docs to use single quotes around Windows file paths, and added a new section to the [Troubleshooting page](/islandora_workbench_docs/troubleshooting/#im-running-workbench-on-windows-and-im-having-problems-getting-long-directory-paths-right-in-my-configuration-file) about this.
 * June 26, 2025: Updated the "[Workflows](/islandora_workbench_docs/workflows/#using-hooks)" page to describe populating a persisent queue ([issue 976](https://github.com/mjordan/islandora_workbench/issues/976)).
 * June 20, 2025: Added ""[Deferring Solr indexing](/islandora_workbench_docs/reducing_load/#deferring-solr-indexing)" to the "Reducing Workbench's impact on Drupal" page; added mention of the new check for whether Workbench is up to date to the "[Optimizing your use of Workbench](/islandora_workbench_docs/optimizing_your_use_of_workbench)" page.
 * June 19, 2025: Updated the "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/#ignoring-files-in-page-directories)" page to update socs on using the `paged_content_ignore_files` config setting.
