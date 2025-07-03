@@ -1017,6 +1017,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#im-running-workbench-on-windows-and-im-having-problems-getting-long-directory-paths-right-in-my-configuration-file" class="md-nav__link">
+    I'm running Workbench on Windows and I'm having problems getting long directory paths right in my configuration file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-in-the-log-mentioning-http-response-code-422" class="md-nav__link">
     Workbench is failing to ingest some nodes and is leaving messages in the log mentioning HTTP response code 422.
   </a>
@@ -1218,6 +1225,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#im-running-workbench-on-windows-and-im-having-problems-getting-long-directory-paths-right-in-my-configuration-file" class="md-nav__link">
+    I'm running Workbench on Windows and I'm having problems getting long directory paths right in my configuration file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-in-the-log-mentioning-http-response-code-422" class="md-nav__link">
     Workbench is failing to ingest some nodes and is leaving messages in the log mentioning HTTP response code 422.
   </a>
@@ -1375,6 +1389,8 @@
 <h3 id="ive-pulled-in-updates-to-islandora-workbench-from-github-but-when-i-run-it-python-complains-about-not-being-able-to-find-a-library">I've pulled in updates to Islandora Workbench from Github but when I run it, Python complains about not being able to find a library.</h3>
 <p>This won't happen very often, and the cause of this message will likely have been announced in the <code>#islandoraworkbench</code> Slack channel. This error is caused by the addition of a new Python library to Workbench. Running <code>setup.py</code> will install the missing library. Details are available in the "Updating Islandora Workbench" section of the <a href="https://mjordan.github.io/islandora_workbench_docs/installation/#updating-islandora-workbench">Requirements and Installation</a> docs.</p>
 <p>You <em>do not need</em> to run <code>setup.py</code> every time you update the Workbench code. Introducing a new library is not a common occurance.</p>
+<h3 id="im-running-workbench-on-windows-and-im-having-problems-getting-long-directory-paths-right-in-my-configuration-file">I'm running Workbench on Windows and I'm having problems getting long directory paths right in my configuration file</h3>
+<p>Workbench, thanks to Python's excellent cross-operating system handling of directory paths, can understand Windows paths reliably as long as they are wrapped in <em>single</em> quotation marks. Double quotation marks tells Python to treat a <code>\</code>, which is common in Windows paths, as an escape character. If you wrap your Windows paths in single quotation marks, Workbench doesn't care if you use backslashes (<code>\</code>) or forward slashes (<code>/</code>) in the paths.</p>
 <h3 id="workbench-is-failing-to-ingest-some-nodes-and-is-leaving-messages-in-the-log-mentioning-http-response-code-422">Workbench is failing to ingest some nodes and is leaving messages in the log mentioning HTTP response code 422.</h3>
 <p>This is probably caused by unexpected data in your CSV file that Workbench's <code>--check</code> validation is not finding. If you encounter these messages, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a> and share any relevant entries in your Workbench log and Drupal log (as an admin user, go to Admin &gt; Reports &gt; Recent log messages) so we can track down the problem.</p>
 <p>One of the most common causes of this error is that one or more of the vocabularies being populated in your <code>create</code> task CSV contain required fields other than the default term name. It is possible to have Workbench create these fields, but you must do so as a separate <code>create_terms</code> task. See "<a href="/islandora_workbench_docs/creating_taxonomy_terms">Creating taxonomy terms</a>" for more information.</p>
