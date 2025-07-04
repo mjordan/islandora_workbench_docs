@@ -60,7 +60,7 @@ You can [comment out rows](/islandora_workbench_docs/ignoring_csv_rows_and_colum
 
 ## Writing scripts
 
-Scripts can be written in any language. They are automatically passed two arguments, 1) the path to the Workbench config file and 2) an entity ID from the CSV file, in that order. The logic in scripts applies to the single entity ID provided as the second argument -- Workbench does the looping through the list of entity IDs from the CSV for you.
+Scripts can be written in any language. They are automatically passed two arguments, 1) the absolute path to the Workbench config file and 2) an entity ID from the CSV file, in that order. The logic in scripts applies to the single entity ID provided as the second argument -- Workbench does the looping through the list of entity IDs from the CSV for you.
 
 Also, Workbench receives a script's exit code, and logs success or failure based on the exit code -- an exit code of `0` indicates success (which is a general convention for command-line programs with very few exceptions), and a non-`0` exit code signals failure. If you are including exception-handling code in your scripts that makes them exit on an exception or error (as is illustrated in the example script below), be sure to exit with a non-zero code so Workbench can reliably detect the failure. Otherwise, Workbench will think the script executed successfully.
 
