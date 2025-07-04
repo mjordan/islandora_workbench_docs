@@ -1189,12 +1189,12 @@ run_scripts_log_script_output: false
 #3692
 3723
 </code></pre>
+<pre><code class="language-yaml">csv_start_row: 10
+csv_stop_row: 15
+</code></pre>
 <pre><code class="language-yaml">csv_rows_to_process: [&quot;test_001&quot;, &quot;test_007&quot;, &quot;test_103&quot;]
 </code></pre>
 <pre><code class="language-yaml">csv_rows_to_process: process_these.txt
-</code></pre>
-<pre><code class="language-yaml">csv_start_row: 10
-csv_stop_row: 15
 </code></pre>
 <h2 id="writing-scripts">Writing scripts</h2>
 <p>Scripts can be written in any language. They are automatically passed two arguments, 1) the absolute path to the Workbench config file and 2) an entity ID from the CSV file, in that order. The logic in scripts applies to the single entity ID provided as the second argument -- Workbench does the looping through the list of entity IDs from the CSV for you.</p>
