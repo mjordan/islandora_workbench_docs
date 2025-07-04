@@ -2132,7 +2132,13 @@ csv_field_templates:
 <td>delete_media_by_node_media_use_tids</td>
 <td></td>
 <td>[] (empty list)</td>
-<td>During <code>delete_media_by_node</code> tasks, allows you to specify which media to delete. Only media with the listed terms IDs from the Islandora Media Use vocabulary will be deleted. By default (an empty list), all media are deleted. See "<a href="/islandora_workbench_docs/deleting_media">Deleting Media</a>" for more information.</td>
+<td>During <code>delete_media_by_node</code> tasks, allows you to specify which media to delete. Only media with the listed terms IDs from the Islandora Media Use vocabulary will be deleted. By default (an empty list), all media are deleted. See "<a href="/islandora_workbench_docs/deleting_media/#deleting-media-using-node-ids">Deleting media using node IDs</a>" for more information.</td>
+</tr>
+<tr>
+<td>update_media_by_node_media_use_tids</td>
+<td>✔️</td>
+<td>[] (empty list)</td>
+<td>During <code>update_media_by_node</code> tasks, in conjunction with the <code>media_type</code> setting, allows you to specify which media to update. Only media of the specified type with the listed terms IDs from the Islandora Media Use vocabulary will be updated. By default (an empty list), no media are updated. See "<a href="/islandora_workbench_docs/updating_media/#updating-media-using-node-ids">Updating media using node IDs</a>" for more information.</td>
 </tr>
 </tbody>
 </table>

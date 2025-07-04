@@ -1270,9 +1270,11 @@ password: password
 input_csv: update_media_by_node.csv
 
 media_type: file
+# You must include at least one Media Use term in this setting, otherwise
+# Workbench will not update any media on the associated node.
 update_media_by_node_media_use_tids: [&quot;Original file&quot;]
 </code></pre>
-<p>The <code>media_type</code> and <code>update_media_by_node_media_use_tids</code> settings are required, since they are necessary to allow Workbench to specify which media on the nodes identified in the input CSV to update. You can use Media Use term names, IDs, or URIs, and you can use multple terms. The media on each node matching the <code>media_type</code> value and one of the <code>update_media_by_node_media_use_tids</code> values will be updated.</p>
+<p>The <code>media_type</code> and <code>update_media_by_node_media_use_tids</code> settings are required, since they are necessary to allow Workbench to specify which media on the nodes identified in the input CSV to update. You must include at least one value in this list. You can use Media Use term names, IDs, or URIs, and you can use multple terms. The media on each node matching the <code>media_type</code> value and one of the <code>update_media_by_node_media_use_tids</code> values will be updated.</p>
 <p>Before using this option, consult your Islandora's Islandora Media Use vocabulary page at <code>/admin/structure/taxonomy/manage/islandora_media_use/overview</code> to get the term IDs you need to use.</p>
 
 
