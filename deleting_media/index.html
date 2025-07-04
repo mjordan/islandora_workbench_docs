@@ -1112,13 +1112,13 @@ input_csv: delete_media.csv
 </code></pre>
 <p>The configuration file for this task looks like this:</p>
 <pre><code class="language-yaml">task: delete_media_by_node
-host: &quot;http://localhost:8000&quot;
+host: https://islandora.dev
 username: admin
-password: islandora
+password: password
 input_dir: input_data
 input_csv: delete_node_media.csv
 </code></pre>
-<p>This configuration will delete all media attached to nodes 345, 367, and 246. </p>
+<p>This configuration will delete all media attached to nodes 345, 367, and 246.</p>
 <p>By default, all media attached to the specified nodes are deleted. A "delete_media_by_node" configuration file can include a <code>delete_media_by_node_media_use_tids</code> option that lets you specify a list of Islandora Media Use term IDs that a media must have to be deleted:</p>
 <pre><code class="language-yaml">delete_media_by_node_media_use_tids: [17, 1]
 </code></pre>

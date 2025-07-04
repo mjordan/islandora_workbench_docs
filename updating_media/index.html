@@ -760,6 +760,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#updating-media-using-node-ids" class="md-nav__link">
+    Updating media using node IDs
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1119,6 +1126,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#updating-media-using-node-ids" class="md-nav__link">
+    Updating media using node IDs
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1148,9 +1162,9 @@
 <p>Values in the <code>media_id</code> column can be numeric node IDs (as illustrated above), full URLs, or full URL aliases.</p>
 <p>The minimum configuration file for "update_media" tasks looks like this (note the <code>task</code> option is <code>update_media</code>):</p>
 <pre><code class="language-yaml">task: update_media
-host: &quot;http://localhost:8000&quot;
+host: http://islandora.dev
 username: admin
-password: islandora
+password: password
 input_csv: update_media.csv
 media_type: file
 </code></pre>
@@ -1246,6 +1260,20 @@ Here is an example CSV that updates the Media Use TID associated with the media 
 101,
 102,0
 </code></pre>
+<h2 id="updating-media-using-node-ids">Updating media using node IDs</h2>
+<p>If you want to update media from specific nodes without having to know the media IDs as described above, you can use the <code>update_media_by_node</code> task. The input CSV for this task is the same as the input CSVs described above, but using a <code>node_id</code> (containing node IDs, of course) column instead of a <code>media_id</code> column.</p>
+<p>The configuration file for this task looks like this:</p>
+<pre><code class="language-yaml">task: update_media_by_node
+host: https://islandora.dev
+username: admin
+password: password
+input_csv: update_media_by_node.csv
+
+media_type: file
+update_media_by_node_media_use_tids: [&quot;Original file&quot;]
+</code></pre>
+<p>The <code>media_type</code> and <code>update_media_by_node_media_use_tids</code> settings are required, since they are necessary to allow Workbench to specify which media on the nodes identified in the input CSV to update. You can use Media Use term names, IDs, or URIs, and you can use multple terms. The media on each node matching the <code>media_type</code> value and one of the <code>update_media_by_node_media_use_tids</code> values will be updated.</p>
+<p>Before using this option, consult your Islandora's Islandora Media Use vocabulary page at <code>/admin/structure/taxonomy/manage/islandora_media_use/overview</code> to get the term IDs you need to use.</p>
 
 
 
