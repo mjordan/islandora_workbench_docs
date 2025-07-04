@@ -2,6 +2,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* July 4, 2025: Resolved (commit ad0f22d) [issue 956](https://github.com/mjordan/islandora_workbench/issues/956).
 * July 2, 2025: Resolved (commit 890f75e) [issue 981](https://github.com/mjordan/islandora_workbench/issues/981) and (committ eb2e4c4) [issue 979](https://github.com/mjordan/islandora_workbench/issues/979).
 * June 25, 2025: Resolved (commit 17e5844) [issue 965](https://github.com/mjordan/islandora_workbench/issues/965).
 * June 25, 2025: Resolved (commit df52714) [issue 976](https://github.com/mjordan/islandora_workbench/issues/976).
@@ -44,6 +45,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* July 4, 2025: Added docs on "[Updating media using node IDs](/islandora_workbench_docs/updating_media/#updating-media-using-node-ids)".
 * July 3, 2025, Updated several pages to include reference to the new `run_scripts` task.
 * July 2, 2025: Added docs on the new `run_scripts` task at "[Running scripts](/islandora_workbench_docs/running_scripts/)". Also updated docs to use single quotes around Windows file paths, and added a new section to the [Troubleshooting page](/islandora_workbench_docs/troubleshooting/#im-running-workbench-on-windows-and-im-having-problems-getting-long-directory-paths-right-in-my-configuration-file) about this.
 * June 26, 2025: Updated the "[Workflows](/islandora_workbench_docs/workflows/#using-hooks)" page to describe populating a persisent queue ([issue 976](https://github.com/mjordan/islandora_workbench/issues/976)).

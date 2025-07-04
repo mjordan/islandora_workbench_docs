@@ -10,6 +10,7 @@ The `task` configuration setting defines the specific work you want Workbench to
 | Add media to existing nodes using a list of node IDs | `add_media` | [Adding media to nodes](/islandora_workbench_docs/adding_media/) |
 | Update media field data | `update_media` | [Updating media](/islandora_workbench_docs/updating_media/) |
 | Replace files, including media track files, attached to media | `update_media` | [Updating media](/islandora_workbench_docs/updating_media/) |
+| Update media field data, or replace files, including media track files, attached to media usig node IDs | `update_media_by_node` | [Updating media using node IDs](/islandora_workbench_docs/updating_media/#updating-media-using-node-ids) |
 | Delete media using a list of media IDs | `delete_media` | [Deleting media](/islandora_workbench_docs/deleting_media/#deleting-media-using-media-ids) |
 | Delete media using a list of node IDs | `delete_media_by_node` | [Deleting media](/islandora_workbench_docs/deleting_media/#deleting-media-using-node-ids) |
 | Export node field data using a list of node IDs | `export_csv` | [Generating CSV files](/islandora_workbench_docs/generating_csv_files/#csv-file-containing-field-data-for-existing-nodes) |

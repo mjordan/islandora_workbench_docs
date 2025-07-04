@@ -10,9 +10,9 @@ The minimum configuration file for "update_media" tasks looks like this (note th
 
 ```yaml
 task: update_media
-host: "http://localhost:8000"
+host: http://islandora.dev
 username: admin
-password: islandora
+password: password
 input_csv: update_media.csv
 media_type: file
 ```
@@ -87,6 +87,7 @@ media_id,field_track
 ```
 
 ## Updating the media use TIDs associated with media
+
 To update the Media Use TIDs associated with media, you must provide a CSV file with, at minimum, a `media_id` column and a `media_use_tid` column. The `media_id` column should contain the ID of the media you wish to update, and the `media_use_tid` column should contain the TID(s) of the media use term(s) you wish to associate with the media. If a value is not specified for the `media_use_tid` column in a particular row, the value for the `media_use_tid` setting in the configuration file (Service File by default) will be used.
 Here is an example CSV that updates the Media Use TID associated with the media with ID 100:
 
@@ -105,6 +106,7 @@ media_id,media_use_tid
 Values in the `media_use_tid` column can be the taxonomy term ID of the media use or the taxonomy term URL alias.
 
 ## Updating the published status of media
+
 To update the published status of media, you must provide a CSV file with, at minimum, a `media_id` column and a `status` column. The `media_id` column should contain the ID of the media you wish to update, and the `status` column should contain one of the following case-insensitive values:
 
 
@@ -120,6 +122,7 @@ media_id,status
 ```
 
 ## Updating custom fields attached to media
+
 To update custom fields attached to media, you must provide a CSV file with, at minimum, a `media_id` column and columns with the machine names of the fields you wish to update.
 
 The `media_id` column should contain the ID of the media you wish to update, and the other columns should contain the values you wish to set for the fields. Here is an example CSV that updates the published status of some media:
@@ -130,6 +133,7 @@ media_id,name,field_my_custom_field
 ```
 
 ## Leaving fields unchanged
+
 If you wish to leave a field unchanged, you can leave it blank in the column for that field. Here is an example CSV that updates the published status of some media and leaves others unchanged:
 
 ```text
@@ -138,3 +142,27 @@ media_id,status
 101,
 102,0
 ```
+
+## Updating media using node IDs
+
+If you want to update media from specific nodes without having to know the media IDs as described above, you can use the `update_media_by_node` task. The input CSV for this task is the same as the input CSVs described above, but using a `node_id` (containing node IDs, of course) column instead of a `media_id` column.
+
+
+The configuration file for this task looks like this:
+
+```yaml
+task: update_media_by_node
+host: https://islandora.dev
+username: admin
+password: password
+input_csv: update_media_by_node.csv
+
+media_type: file
+# You must include at least one Media Use term in this setting, otherwise
+# Workbench will not update any media on the associated node.
+update_media_by_node_media_use_tids: ["Original file"]
+```
+
+The `media_type` and `update_media_by_node_media_use_tids` settings are required, since they are necessary to allow Workbench to specify which media on the nodes identified in the input CSV to update. You must include at least one value in this list. You can use Media Use term names, IDs, or URIs, and you can use multple terms. The media on each node matching the `media_type` value and one of the `update_media_by_node_media_use_tids` values will be updated.
+
+Before using this option, consult your Islandora's Islandora Media Use vocabulary page at `/admin/structure/taxonomy/manage/islandora_media_use/overview` to get the term IDs you need to use.
