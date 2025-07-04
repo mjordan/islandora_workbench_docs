@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hooks" class="md-skip">
+        <a href="#bootstrap-and-shutdown-scripts" class="md-skip">
           Skip to content
         </a>
       
@@ -779,28 +779,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hooks" class="md-nav__link">
-    Hooks
-  </a>
-  
-    <nav class="md-nav" aria-label="Hooks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#bootstrap-and-shutdown-scripts" class="md-nav__link">
     Bootstrap and shutdown scripts
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#csv-preprocessor-scripts" class="md-nav__link">
     CSV preprocessor scripts
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#post-action-scripts" class="md-nav__link">
     Post-action scripts
   </a>
@@ -819,9 +811,11 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#paths-to-scripts-and-specifying-an-interpreter" class="md-nav__link">
+    Paths to scripts, and specifying an interpreter
+  </a>
   
 </li>
       
@@ -1083,28 +1077,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hooks" class="md-nav__link">
-    Hooks
-  </a>
-  
-    <nav class="md-nav" aria-label="Hooks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#bootstrap-and-shutdown-scripts" class="md-nav__link">
     Bootstrap and shutdown scripts
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#csv-preprocessor-scripts" class="md-nav__link">
     CSV preprocessor scripts
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#post-action-scripts" class="md-nav__link">
     Post-action scripts
   </a>
@@ -1123,9 +1109,11 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#paths-to-scripts-and-specifying-an-interpreter" class="md-nav__link">
+    Paths to scripts, and specifying an interpreter
+  </a>
   
 </li>
       
@@ -1151,7 +1139,6 @@
 
   <h1>Hooks</h1>
 
-<h2 id="hooks">Hooks</h2>
 <p>Islandora Workbench offers three "hooks" that can be used to run scripts at specific points in the Workbench execution lifecycle. The three hooks are:</p>
 <ol>
 <li>Bootstrap and shutdown</li>
@@ -1160,7 +1147,7 @@
 </ol>
 <p>Hook scripts can be in any language, and need to be executable by the user running Workbench.</p>
 <p>Execution (whether successful or not) of hook scripts is logged, including the scripts' exit code.</p>
-<h3 id="bootstrap-and-shutdown-scripts">Bootstrap and shutdown scripts</h3>
+<h2 id="bootstrap-and-shutdown-scripts">Bootstrap and shutdown scripts</h2>
 <p>Bootstrap scripts execute prior to Workbench connecting to Drupal. For an example of using this feature to run a script that generates sample Islandora content, see the "<a href="/islandora_workbench_docs/generating_sample_content/">Generating sample Islandora content</a>" section.</p>
 <p>To register a bootstrap script in your configuration file, add it to the <code>bootstrap</code> option, like this, indicating the absolute path to the script:</p>
 <pre><code class="language-yaml">bootstrap: [&quot;/home/mark/Documents/hacking/workbench/scripts/generate_image_files.py&quot;]
@@ -1181,7 +1168,7 @@
 <p>Bootstrap and shutdown scripts get passed the path to your configuration file, but they only have access to the configuration settings explicitly defined in that file. In other words, any configuration setting with a default value, and therefore no necessarily included in your configuration file, is not known to  bootstrap/shutdown scripts.</p>
 <p>Therefore, it is good practice to include in your configuration file all configuration settings your script will need. The presence of a configuration setting set to its default value has no effect on Workbench.</p>
 </div>
-<h3 id="csv-preprocessor-scripts">CSV preprocessor scripts</h3>
+<h2 id="csv-preprocessor-scripts">CSV preprocessor scripts</h2>
 <p>CSV preprocessor scripts are applied to CSV values in a specific CSV field prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocessor must split it and then reassemble it back into a string. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title). Preprocessor scripts are applied in <code>create</code> and <code>update</code> tasks.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1202,7 +1189,7 @@
 <li>the CSV field value</li>
 </ol>
 <p>When executed, the script processes the string content of the CSV field, and then replaces the original version of the CSV field value with the version processed by the script. An example preprocessor script is available in <code>scripts/samplepreprocessor.py</code>.</p>
-<h3 id="post-action-scripts">Post-action scripts</h3>
+<h2 id="post-action-scripts">Post-action scripts</h2>
 <p>Post-action scripts execute after a node is created or updated, or after a media is created.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1228,13 +1215,19 @@
 <p>Not all Workbench configuration settings are available in post-action scripts. Only the settings are explicitly defined in the configuration YAML are available.</p>
 <p>As with bootstrap and shutdown scripts, when using post-action scripts, it is good practice to include in your configuration file all configuration settings your script will need. The presence of a configuration setting set to its default value has no effect on Workbench.</p>
 </div>
-<h4 id="running-multiple-scripts-in-one-hook">Running multiple scripts in one hook</h4>
+<h3 id="running-multiple-scripts-in-one-hook">Running multiple scripts in one hook</h3>
 <p>For all types of hooks, you can register multiple scripts, like this:</p>
 <pre><code class="language-yaml">bootstrap: [&quot;/home/mark/Documents/hacking/workbench/bootstrap_example_1.py&quot;, &quot;/home/mark/Documents/hacking/workbench/bootstrap_example_2.py&quot;]
 shutdown: [&quot;/home/mark/Documents/hacking/workbench/shutdown_example_1.py&quot;, &quot;/home/mark/Documents/hacking/workbench/shutdown_example_2.py&quot;]
 node_post_create: [&quot;/home/mark/scripts/email_someone.py&quot;, &quot;/tmp/hit_remote_api.py&quot;]
 </code></pre>
 <p>They are executed in the order in which they are listed.</p>
+<h2 id="paths-to-scripts-and-specifying-an-interpreter">Paths to scripts, and specifying an interpreter</h2>
+<p>Regardless of the type of hook you are implementing, there are a couple of things that you should note:</p>
+<ul>
+<li>The paths to scripts must be absolute (as in the examples above). If you use a relative path to your script, Workbench will not find it.</li>
+<li>If your script does not contain a shebang line (e.g., <code>#!/usr/bin/env python</code> in Python scripts), you will need to specify the interpreter your script will need to execute. To do this, simply include the interpreter's full path or name at the beginning of the path to your script, e.g. <code>/usr/bin/sh /path/to/my/shell/script.sh</code>.</li>
+</ul>
 
 
 
