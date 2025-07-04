@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#generating-csv-files" class="md-skip">
+        <a href="#csv-file-templates" class="md-skip">
           Skip to content
         </a>
       
@@ -725,8 +725,6 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           Generating CSV files and exporting Islandora content
@@ -742,8 +740,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1081,8 +1077,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1159,9 +1153,10 @@
   </a>
 
 
-<h1 id="generating-csv-files">Generating CSV Files</h1>
+  <h1>Generating CSV files and exporting Islandora content</h1>
+
 <p>Islandora Workbench can generate several different CSV files you might find useful.</p>
-<h3 id="csv-file-templates">CSV file templates</h3>
+<h2 id="csv-file-templates">CSV file templates</h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This section describes creating CSV <em>file</em> templates. For information on CSV <em>field</em> templates, see the "<a href="/islandora_workbench_docs/field_templates/">Using CSV field templates</a>" section.</p>
@@ -1181,7 +1176,7 @@
 <p><img alt="CSV file template" src="../images/csv_file_template.png" /></p>
 <p>Note that the first column, and all the rows other than the field machine names, should be deleted before you use a populated version of this CSV file in a <code>create</code> task. Also, you can remove any columns you do not intend on populating during the <code>create</code> task:</p>
 <p><img alt="CSV file template ready to use" src="../images/csv_file_template_ready_to_use.png" /></p>
-<h3 id="csv-file-containing-a-row-for-every-newly-created-node">CSV file containing a row for every newly created node</h3>
+<h2 id="csv-file-containing-a-row-for-every-newly-created-node">CSV file containing a row for every newly created node</h2>
 <p>In some situations, you may want to create stub nodes that only have a small subset of fields, and then populate the remaining fields later. To facilitate this type of workflow, Workbench provides an option to generate a simple CSV file containing a record for every node created during a <code>create</code> task. This file can then be used later in <code>update</code> tasks to add additional metadata or in <code>add_media</code> tasks to add media.</p>
 <p>You tell Workbench to generate this file by including the optional <code>output_csv</code> setting in your <code>create</code> task configuration file. If this setting is present, Workbench will write a CSV file at the specified location containing one record per node created. This CSV file contains the following fields:</p>
 <ul>
@@ -1198,7 +1193,7 @@
 <p><img alt="Output CSV" src="../images/output_csv.png" /></p>
 <p>This CSV file is suitable as a template for subsequent <code>update</code> tasks, since it already contains the <code>node_id</code>s for all the stub nodes plus column headers for all of the fields in those nodes. You can remove from the template any columns you do not want to include in your <code>update</code> task. You can also use the node IDs in this file as the basis for later <code>add_media</code> tasks; all you will need to do is delete the other columns and add a <code>file</code> column containing the new nodes' corresponding filenames.</p>
 <p>If you want to include in your output CSV all of the fields (and their values) from the input CSV, add <code>output_csv_include_input_csv: true</code> to your configuration file. This option is useful if you want a CSV that contains the node ID and a field such as <code>field_identifier</code> or other fields that contain local identifiers, DOIs, file paths, etc. If you use this option, all the fields from the input CSV are added to the output CSV; you cannot configure which fields are included.</p>
-<h3 id="csv-file-containing-field-data-for-existing-nodes">CSV file containing field data for existing nodes</h3>
+<h2 id="csv-file-containing-field-data-for-existing-nodes">CSV file containing field data for existing nodes</h2>
 <p>The <code>export_csv</code> task generates a CSV file that contains one row for each node identified in the input CSV file. The cells of the CSV are populated with data that is consistent with the structures that Workbench uses in <code>update</code> tasks. Using this CSV file, you can:</p>
 <ul>
 <li>see in one place all of the field values for nodes, which might be useful during quality assurance after a <code>create</code> task</li>
@@ -1236,7 +1231,7 @@ export_csv_file_path: output.csv
 <p class="admonition-title">Warning</p>
 <p>Using the <code>export_csv_term_mode: name</code> option will slow down the export, since Workbench must query Drupal to get the name of each term. The more taxonomy or typed relation fields in your content type, the slower the export will be with <code>export_csv_term_mode</code> set to "name".</p>
 </div>
-<h3 id="using-a-drupal-view-to-identify-content-to-export-as-csv">Using a Drupal View to identify content to export as CSV</h3>
+<h2 id="using-a-drupal-view-to-identify-content-to-export-as-csv">Using a Drupal View to identify content to export as CSV</h2>
 <p>You can use a new or existing View to tell Workbench what nodes to export into CSV. This is done using a <code>get_data_from_view</code> task. A sample configuration file looks like this:</p>
 <pre><code class="language-yaml">task: get_data_from_view
 host: &quot;http://localhost:8000/&quot;
@@ -1291,7 +1286,7 @@ view_parameters:
 <li>Only content from nodes that have the content type identified in the <code>content_type</code> configuration setting will be written to the CSV file.</li>
 <li>If you want to export term names instead of term IDs, include <code>export_csv_term_mode: name</code> in your configuration file. The warning about this option slowing down the export applies to this task and the <code>export_csv</code> task.</li>
 </ul>
-<h3 id="using-a-drupal-view-to-generate-a-media-report-as-csv">Using a Drupal View to generate a media report as CSV</h3>
+<h2 id="using-a-drupal-view-to-generate-a-media-report-as-csv">Using a Drupal View to generate a media report as CSV</h2>
 <p>You can get a report of which media a set of nodes has using a View. This report is generated using a <code>get_media_report_from_view</code> task, and the View configuration it uses is the same as the View configuration described above (in fact, you can use the same View with both <code>get_data_from_view</code> and <code>get_media_report_from_view</code> tasks). A sample Workbench configuration file looks like:</p>
 <pre><code class="language-yaml">task: get_media_report_from_view
 host: &quot;http://localhost:8000/&quot;
@@ -1305,7 +1300,7 @@ view_parameters:
 </code></pre>
 <p>The output contains colums for Node ID, Title, Content Type, Islandora Model, and Media. For each node in the View, the Media column contains the media use terms for all media attached to the node separated by semicolons, and sorted alphabetically:</p>
 <p><img alt="Sample Media report" src="../images/media_report_output.png" /></p>
-<h3 id="exporting-image-video-etc-files-along-with-csv-data">Exporting image, video, etc. files along with CSV data</h3>
+<h2 id="exporting-image-video-etc-files-along-with-csv-data">Exporting image, video, etc. files along with CSV data</h2>
 <p>In <code>export_csv</code> and <code>get_data_from_view</code> tasks, you can optionally export media files. To do this, add the following settings to your configuration file:</p>
 <ul>
 <li><code>export_file_directory</code>: This is the path to the directory where Workbench will save the exported files. This is required unless the <code>export_file_url_instead_of_download</code> option is set to True.</li>
@@ -1321,7 +1316,7 @@ view_parameters:
   - thumbnail: http://pcdm.org/use#ThumbnailImage
 </code></pre>
 <p>This will result in the columns <code>file</code> (for the original file), <code>extracted</code> (containing the path to the extracted text files), <code>service</code> ((containing the path to the service files)), and <code>thumbnail</code> ((containing the path to the thumbnail files).</p>
-<h3 id="using-the-csv-id-to-node-id-map">Using the CSV ID to node ID map</h3>
+<h2 id="using-the-csv-id-to-node-id-map">Using the CSV ID to node ID map</h2>
 <p>The "<a href="/islandora_workbench_docs/csv_id_to_node_id_map/">CSV ID to node ID map</a>" contains data that relates the value of the "id" column (or whatever column you define using <code>id_field</code>) in <code>create</code> task CSV to its corrsponding node ID. Workbench provides a script that lets you export this data for reuse, for example as the basis for <code>update</code> tasks.</p>
 
 
