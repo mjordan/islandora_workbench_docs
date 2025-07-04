@@ -36,7 +36,7 @@ run_scripts_log_script_output: false
 
 - `run_scripts_entity_type` (required): one of "node", "media", or "term".
 - `run_scripts` (required): a list containing the absolute paths to the scripts. Scripts can be anywhere; they do not need to be in the `workbench/scripts` directory.
-- `run_scripts_threads` (optional): number of asynchronous threads to use. Default is 1.
+- `run_scripts_threads` (optional): number of concurrent threads to use. Default is 1.
 - `run_scripts_log_script_output` (optional): whether or not to log the output of scripts in the Workbench log file. Default is `true`, which you may want to set to `false` if your script writes its own log.
 
 If a script contains a shebang line (in the case of the above Python script, `#!/usr/bin/env python`), you should not need to explicitly provide an interpreter for the script. However, if the script does not, you must prepend the script's path with the path to the applicable interpreter. Workbench will look for a space in the `run_scripts` entry and consider the string on the left of the space the path to be the interpreter and the sting on the right of the space to be the script.
@@ -45,7 +45,7 @@ Scripts are run in the order they are listed in within `run_scripts`. Workbench 
 
 ### The "run_scripts_threads" setting
 
-Workbench can execute scripts on groups of IDs asynchronously, speeding up processing substantially. For example, if you set `run_scripts_threads` to 5, Workbench will process the IDs in the input CSV in groups of 5 in parallel.
+Workbench can execute scripts on groups of IDs concurrently, thereby speeding up processing. For example, if you set `run_scripts_threads` to 5, Workbench will process the IDs in the input CSV in groups of 5 in parallel.
 
 However, keep in mind that while setting this config option higher than 1 will shorten the total amount of time it takes your scripts to process all IDs, doing so will probably add additional load to Drupal, which will slow it down. Experimentation and trial and error will likely be required to find the number of threads to use for a given script.
 

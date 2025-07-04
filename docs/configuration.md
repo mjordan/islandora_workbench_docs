@@ -312,7 +312,7 @@ See "[Running scripts on existing entities](/islandora_workbench_docs/running_sc
 | --- | --- | --- | --- |
 | run_scripts | ✔️ | | List of absolute paths to one or more scripts that execute. |
 | run_scripts_entity_type | ✔️ | | One of "node", "media", or "term". |
-| run_scripts_threads | | 1 | Number of asynchronous threads to use. |
+| run_scripts_threads | | 1 | Number of concurrent threads to use. |
 | run_scripts_threads | | true | Whether or not to log the output of scripts in the Workbench log file. Set to false if your script writes its own log. |
 
 
