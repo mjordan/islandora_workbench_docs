@@ -18,7 +18,7 @@ There are several configuration settings that let you control the names of these
 !!! note
     When secondary tasks are configured, each task will get its own rollback file. Each secondary task's rollback file will have a normalized version of the path to the task's configuration file appended to the rollback filename, e.g., `rollback.csv.home_mark_hacking_islandora_workbench_example_secondary_task`. Using these separate rollback files, you can delete only the nodes created in a specific secondary task.
 
-## Setting the directory where the rollback CVS file is written
+## Setting the directory where the rollback CSV file is written
 
 You can determine where the rollback CSV file is written by including the `rollback_dir` in your configuration. This overrides the default location defined in `input_dir`.
 
