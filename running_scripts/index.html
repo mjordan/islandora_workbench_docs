@@ -1196,6 +1196,7 @@ csv_stop_row: 15
 </code></pre>
 <pre><code class="language-yaml">csv_rows_to_process: process_these.txt
 </code></pre>
+<p>You can also use a <a href="/islandora_workbench_docs/preparing_data/#using-a-google-sheet-as-the-input-csv-file">Google Sheet</a> or an <a href="/islandora_workbench_docs/preparing_data/#using-an-excel-file-as-the-input-csv-file">Excel file</a> as the input CSV.</p>
 <h2 id="writing-scripts">Writing scripts</h2>
 <p>Scripts can be written in any language. They are automatically passed two arguments, 1) the absolute path to the Workbench config file and 2) an entity ID from the CSV file, in that order. The logic in scripts applies to the single entity ID provided as the second argument -- Workbench does the looping through the list of entity IDs from the CSV for you.</p>
 <p>Also, Workbench receives a script's exit code, and logs success or failure based on the exit code -- an exit code of <code>0</code> indicates success (which is a general convention for command-line programs with very few exceptions), and a non-<code>0</code> exit code signals failure. If you are including exception-handling code in your scripts that makes them exit on an exception or error (as is illustrated in the example script below), be sure to exit with a non-zero code so Workbench can reliably detect the failure. Otherwise, Workbench will think the script executed successfully.</p>
