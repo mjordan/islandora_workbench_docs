@@ -1,4 +1,4 @@
-Islandora Workbench provides a task, `run_scripts`, will enables users to run custom scripts on specific nodes, media, or taxonomy terms identified in a CSV file. This ability extends Workbench's functionality to include whatever can be packaged into a script.
+Islandora Workbench provides a task, `run_scripts`, that enables users to run custom scripts on specific nodes, media, or taxonomy terms identified in a CSV file. This ability extends Workbench's functionality to include whatever can be packaged into a script.
 
 ## Use cases
 
