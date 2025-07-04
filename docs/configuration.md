@@ -290,6 +290,30 @@ See "[The CSV ID to node ID map](/islandora_workbench_docs/csv_id_to_node_id_map
 | ignore_duplicate_parent_ids |  | true | Tells Workbench to ignore entries in the CSV ID to node ID map that have the same parent ID value. Set to `false` if you want Workbench to warn you that there are duplicate parent IDs in your CSV ID to node ID map. See "[Creating parent/child relationships across Workbench sessions](/islandora_workbench_docs/paged_and_compound/#creating-parentchild-relationships-across-workbench-sessions)" for more information. |
 | csv_id_to_node_id_map_allowed_hosts |  | `["", the value of the "host" configuration setting]` | Tells Workbench to only use entries in the CSV ID to node ID map that have one of the specified values in the table's "host" column. `""` is for empty "host" column values, which applies to all rows added prior to June 2025, when this setting was introduced. See "["host" values in the map](/islandora_workbench_docs/csv_id_to_node_id_map/#host-values-in-the-map)" for more information." |
 
+### Hook settings
+
+See "[Hooks](/islandora_workbench_docs/hooks/)" for more information.
+
+| Setting | Required | Default value | Description |
+| --- | --- | --- | --- |
+| bootstrap |  | | List of absolute paths to one or more scripts that execute prior to Workbench connecting to Drupal. |
+| shutdown |  | | List of absolute paths to one or more scripts that execute after Workbench connecting to Drupal. |
+| preprocessors |  | | List of absolute paths to one or more scripts that are applied to CSV values prior to the values being ingested into Drupal. |
+| node_post_create |  | | List of absolute paths to one or more scripts that execute after a node is created. |
+| node_post_update |  | | List of absolute paths to one or more scripts that execute after a node is updated. |
+| media_post_create |  | | List of absolute paths to one or more scripts that execute after a media is created. |
+
+
+### `run_scripts` task settings
+
+See "[Running scripts on existing entities](/islandora_workbench_docs/running_scripts/)" for more information.
+
+| Setting | Required | Default value | Description |
+| --- | --- | --- | --- |
+| run_scripts | ✔️ | | List of absolute paths to one or more scripts that execute. |
+| run_scripts_entity_type | ✔️ | | One of "node", "media", or "term". |
+| run_scripts_threads | | 1 | Number of asynchronous threads to use. |
+| run_scripts_threads | | true | Whether or not to log the output of scripts in the Workbench log file. Set to false if your script writes its own log. |
 
 
 ### Miscellaneous settings
@@ -305,12 +329,6 @@ See "[The CSV ID to node ID map](/islandora_workbench_docs/csv_id_to_node_id_map
 | adaptive_pause_threshold |  | 2 | A weighting of the response time for the most recent request, relative to the average response times of the last 20 requests. This weighting determines how much slower the Drupal server's response to the most recent Workbench request must be in order for adaptive pausing to take effect for the next request. For example, if set to "1", adaptive pausing will happen when the response time is equal to the average of the last 20 response times; if set to "2", adaptive pausing will take effect if the last requests's response time is double the average. |
 | progress_bar |  | false | Show a progress bar when running Workbench instead of row-by-row output. |
 | show_percentage_of_csv_input_processed |  | false | Show the percentage of input CSV processed in each line of output in `create`, `update`, `delete`, and `add_media` tasks. |
-| bootstrap |  | | List of absolute paths to one or more scripts that execute prior to Workbench connecting to Drupal. More information is available in the "[Hooks](/islandora_workbench_docs/hooks/)" documentation. |
-| shutdown |  | | List of absolute paths to one or more scripts that execute after Workbench connecting to Drupal. More information is available in the "[Hooks](/islandora_workbench_docs/hooks/)" documentation. |
-| preprocessors |  | | List of absolute paths to one or more scripts that are applied to CSV values prior to the values being ingested into Drupal. More information is available in the "[Hooks](/islandora_workbench_docs/hooks/)" documentation. |
-| node_post_create |  | | List of absolute paths to one or more scripts that execute after a node is created. More information is available in the "[Hooks](/islandora_workbench_docs/hooks/)" documentation. |
-| node_post_update |  | | List of absolute paths to one or more scripts that execute after a node is updated. More information is available in the "[Hooks](/islandora_workbench_docs/hooks/)" documentation. |
-| media_post_create |  | | List of absolute paths to one or more scripts that execute after a media is created. More information is available in the "[Hooks](/islandora_workbench_docs/hooks/)" documentation. |
 | drupal_8 |  |  | Deprecated. |
 | path_to_python |  | python | Used in `create` tasks that also use the `secondary_tasks` option. Tells Workbench the path to the python interpreter. For details on when to use this option, refer to the end of the "Secondary Tasks" section of "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task)". Note: this setting goes in the config file for the primary task, not the secondary tasks' config files. |
 | path_to_workbench_script |  | workbench | Used in `create` tasks that also use the `secondary_tasks` option. Tells Workbench the path to the `workbench` script. For details on when to use this option, refer to the end of the "Secondary Tasks" section of "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task)". Note: this setting goes in the config file for the primary task, not the secondary tasks' config files. |

@@ -40,7 +40,7 @@ nav:
     - Creating media track files: media_track_files.md
     - Updating media: updating_media.md
     - Deleting media: deleting_media.md
-    - Generating CSV files: generating_csv_files.md
+    - Generating CSV files and exporting Islandora content: generating_csv_files.md
     - Exporting Islandora 7 content: exporting_islandora_7_content.md
     - Hooks: hooks.md
     - Fixity checking: fixity.md

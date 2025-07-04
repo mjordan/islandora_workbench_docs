@@ -91,6 +91,13 @@ Potential uses for this ability include adding new Islandora content to external
 
 Two example scripts, `scripts/external_queue_sample_enqueue_node_id.py` and `scripts/external_queue_sample_dequeue_node_id.py`, illustrate how to populate an external, persistent processing queue using a node-post-create hook. Upon successful creation of a node, the enque script adds the node ID to the persistent queue. The deque script is run manually (or on a schedule); it takes the next node ID from the queue and, as an example process, fetches the node's title from Drupal and logs it. An application of this type of functionality would be to use a persistent queue to perform offline batch processes on the list of node IDs, such as creating a Bag for each Islandora object in the queue.
 
+### Running scripts on existing entities
+
+Whereas hooks provide ways of executing custom scripts during the node and media creation/updating process, Workbench's `run_scripts` task allows you to execute custom scripts on existing nodes, media, and taxonomy terms, independently of Workbench's other tasks. As described in the [documentation for this task](/islandora_workbench_docs/running_scripts/), situations where this may prove useful include:
+
+- exporting and packaging content in ways that cannot be done using Workbench's built-in export functionality, such as creating Bags or other types of structured content packages
+- integration into workflows that required custom representations of Islandora objects for use in other applications such as Archivematica.
+
 ### Sharing the input CSV with other applications
 
 Some workflows can benefit from having Workbench share its input CSV with other scripts or applications. For example, you might use Workbench to ingest nodes into Islandora but want to use the same CSV file in a script to create metadata for loading into another application such as a library discovery layer.

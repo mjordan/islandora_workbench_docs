@@ -1,5 +1,3 @@
-## Hooks
-
 Islandora Workbench offers three "hooks" that can be used to run scripts at specific points in the Workbench execution lifecycle. The three hooks are:
 
 1. Bootstrap and shutdown
@@ -10,7 +8,7 @@ Hook scripts can be in any language, and need to be executable by the user runni
 
 Execution (whether successful or not) of hook scripts is logged, including the scripts' exit code.
 
-### Bootstrap and shutdown scripts
+## Bootstrap and shutdown scripts
 
 Bootstrap scripts execute prior to Workbench connecting to Drupal. For an example of using this feature to run a script that generates sample Islandora content, see the "[Generating sample Islandora content](/islandora_workbench_docs/generating_sample_content/)" section.
 
@@ -47,7 +45,7 @@ shutdown: ["/home/mark/hacking/workbench/scripts/generate_iiif_manifests.py"]
 
     Therefore, it is good practice to include in your configuration file all configuration settings your script will need. The presence of a configuration setting set to its default value has no effect on Workbench.
 
-### CSV preprocessor scripts
+## CSV preprocessor scripts
 
 CSV preprocessor scripts are applied to CSV values in a specific CSV field prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocessor must split it and then reassemble it back into a string. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title). Preprocessor scripts are applied in `create` and `update` tasks.
 
@@ -73,9 +71,12 @@ Each preprocessor script gets passed two arguments:
 
 When executed, the script processes the string content of the CSV field, and then replaces the original version of the CSV field value with the version processed by the script. An example preprocessor script is available in `scripts/samplepreprocessor.py`.
 
-### Post-action scripts
+## Post-action scripts
 
 Post-action scripts execute after a node is created or updated, or after a media is created.
+
+!!! note
+    If you want to execute scripts on nodes, media, and taxonomy terms outside of the events described here, you can do so using the [`run_scripts` task](/islandora_workbench_docs/running_scripts/).
 
 To register post-action scripts in your configuration file, add them to either the `node_post_create`, `node_post_update`, or `media_post_create` configuration setting:
 
@@ -106,7 +107,7 @@ Your scripts can find the entity ID and other information within the (raw JSON) 
 
     As with bootstrap and shutdown scripts, when using post-action scripts, it is good practice to include in your configuration file all configuration settings your script will need. The presence of a configuration setting set to its default value has no effect on Workbench.
 
-#### Running multiple scripts in one hook
+### Running multiple scripts in one hook
 
 For all types of hooks, you can register multiple scripts, like this:
 
@@ -117,3 +118,10 @@ node_post_create: ["/home/mark/scripts/email_someone.py", "/tmp/hit_remote_api.p
 ```
 
 They are executed in the order in which they are listed.
+
+## Paths to scripts, and specifying an interpreter
+
+Regardless of the type of hook you are implementing, there are a couple of things that you should note:
+
+- Paths to scripts must be absolute (as in the examples above). If you use a relative path to your script, Workbench will not find it.
+- If your script does not contain a shebang line (e.g., `#!/usr/bin/env python` in Python scripts or `#!/usr/bin/sh` in shell scripts), you will need to specify the interpreter your script will need to execute. To do this, simply include the interpreter's full path or name at the beginning of the path to your script, e.g. `/usr/bin/sh /path/to/my/shell/script.sh`.
