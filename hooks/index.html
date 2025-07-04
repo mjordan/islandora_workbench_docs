@@ -720,7 +720,7 @@
   
     <li class="md-nav__item">
       <a href="../generating_csv_files/" class="md-nav__link">
-        Generating CSV files
+        Generating CSV files and exporting Islandora content
       </a>
     </li>
   
@@ -1204,6 +1204,10 @@
 <p>When executed, the script processes the string content of the CSV field, and then replaces the original version of the CSV field value with the version processed by the script. An example preprocessor script is available in <code>scripts/samplepreprocessor.py</code>.</p>
 <h3 id="post-action-scripts">Post-action scripts</h3>
 <p>Post-action scripts execute after a node is created or updated, or after a media is created.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to execute scripts on nodes, media, and taxonomy terms outside of the events described here, you can do so using the <a href="/islandora_workbench_docs/running_scripts/"><code>run_scripts</code> task</a>.</p>
+</div>
 <p>To register post-action scripts in your configuration file, add them to either the <code>node_post_create</code>, <code>node_post_update</code>, or <code>media_post_create</code> configuration setting:</p>
 <pre><code class="language-yaml">node_post_create: [&quot;/home/mark/Documents/hacking/workbench/post_node_create.py&quot;]
 </code></pre>
