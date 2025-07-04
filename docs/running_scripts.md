@@ -142,8 +142,8 @@ except Exception as e:
 
 Note that scripts must be set to executable, and that they must either contain the shebang line applicable to the language the script is written in, or if they do not, the interpreter to use to run the script must be explicitly included in its `run_scripts` entry as illustrated above. Windows .bat scripts require neither a shebang line nor an explicit interpreter.
 
-Also, because registered scripts take the path to the Workbench configuaration file as their first command-line argument and an entity ID as their second argument, it is possile to execute the scripts on the command-line, like this:
+Also, because registered scripts take the absolute path to the Workbench configuaration file as their first command-line argument and an entity ID as their second argument, it is possile to execute the scripts on the command-line, like this:
 
-`./script_to_run_node_sample.py path/to/myworkbenchconfig.yml 2316`
+`./script_to_run_node_sample.py /path/to/myworkbenchconfig.yml 2316`
 
-Since the script will have no dependencies on Workbench itself, it will execute as expected.
+Since the script will have no dependencies on Workbench itself, it will execute as a standalone script.
