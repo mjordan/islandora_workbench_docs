@@ -1,8 +1,7 @@
-# Generating CSV Files
 
 Islandora Workbench can generate several different CSV files you might find useful.
 
-### CSV file templates
+## CSV file templates
 
 !!! note
     This section describes creating CSV *file* templates. For information on CSV *field* templates, see the "[Using CSV field templates](/islandora_workbench_docs/field_templates/)" section.
@@ -29,7 +28,7 @@ Note that the first column, and all the rows other than the field machine names,
 
 ![CSV file template ready to use](images/csv_file_template_ready_to_use.png)
 
-### CSV file containing a row for every newly created node
+## CSV file containing a row for every newly created node
 
 In some situations, you may want to create stub nodes that only have a small subset of fields, and then populate the remaining fields later. To facilitate this type of workflow, Workbench provides an option to generate a simple CSV file containing a record for every node created during a `create` task. This file can then be used later in `update` tasks to add additional metadata or in `add_media` tasks to add media.
 
@@ -52,7 +51,7 @@ This CSV file is suitable as a template for subsequent `update` tasks, since it 
 
 If you want to include in your output CSV all of the fields (and their values) from the input CSV, add `output_csv_include_input_csv: true` to your configuration file. This option is useful if you want a CSV that contains the node ID and a field such as `field_identifier` or other fields that contain local identifiers, DOIs, file paths, etc. If you use this option, all the fields from the input CSV are added to the output CSV; you cannot configure which fields are included.
 
-### CSV file containing field data for existing nodes
+## CSV file containing field data for existing nodes
 
 The `export_csv` task generates a CSV file that contains one row for each node identified in the input CSV file. The cells of the CSV are populated with data that is consistent with the structures that Workbench uses in `update` tasks. Using this CSV file, you can:
 
@@ -97,7 +96,7 @@ Some things to note:
 !!! warning
     Using the `export_csv_term_mode: name` option will slow down the export, since Workbench must query Drupal to get the name of each term. The more taxonomy or typed relation fields in your content type, the slower the export will be with `export_csv_term_mode` set to "name".
 
-### Using a Drupal View to identify content to export as CSV
+## Using a Drupal View to identify content to export as CSV
 
 You can use a new or existing View to tell Workbench what nodes to export into CSV. This is done using a `get_data_from_view` task. A sample configuration file looks like this:
 
@@ -163,7 +162,7 @@ Some things to note:
 * Only content from nodes that have the content type identified in the `content_type` configuration setting will be written to the CSV file.
 * If you want to export term names instead of term IDs, include `export_csv_term_mode: name` in your configuration file. The warning about this option slowing down the export applies to this task and the `export_csv` task.
 
-### Using a Drupal View to generate a media report as CSV
+## Using a Drupal View to generate a media report as CSV
 
 You can get a report of which media a set of nodes has using a View. This report is generated using a `get_media_report_from_view` task, and the View configuration it uses is the same as the View configuration described above (in fact, you can use the same View with both `get_data_from_view` and `get_media_report_from_view` tasks). A sample Workbench configuration file looks like:
 
@@ -184,7 +183,7 @@ The output contains colums for Node ID, Title, Content Type, Islandora Model, an
 
 ![Sample Media report](images/media_report_output.png)
 
-### Exporting image, video, etc. files along with CSV data
+## Exporting image, video, etc. files along with CSV data
 
 In `export_csv` and `get_data_from_view` tasks, you can optionally export media files. To do this, add the following settings to your configuration file:
 
@@ -206,6 +205,6 @@ additional_files:
 
   This will result in the columns `file` (for the original file), `extracted` (containing the path to the extracted text files), `service` ((containing the path to the service files)), and `thumbnail` ((containing the path to the thumbnail files).
 
-### Using the CSV ID to node ID map
+## Using the CSV ID to node ID map
 
 The "[CSV ID to node ID map](/islandora_workbench_docs/csv_id_to_node_id_map/)" contains data that relates the value of the "id" column (or whatever column you define using `id_field`) in `create` task CSV to its corrsponding node ID. Workbench provides a script that lets you export this data for reuse, for example as the basis for `update` tasks.
