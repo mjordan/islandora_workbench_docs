@@ -122,10 +122,9 @@ logging.basicConfig(
     datefmt="%d-%b-%y %H:%M:%S",
 )
 
-requests.packages.urllib3.disable_warnings()
-
 # The demonstration purpose of this script is to fetch each node's title and print/log it,
 # using the "host" setting defined in the Workbench config file.
+requests.packages.urllib3.disable_warnings()
 url = f'{config["host"].rstrip("/")}/node/{node_id}?_format=json'
 result = requests.get(url, verify=False)
 try:
