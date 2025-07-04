@@ -1225,8 +1225,8 @@ node_post_create: [&quot;/home/mark/scripts/email_someone.py&quot;, &quot;/tmp/h
 <h2 id="paths-to-scripts-and-specifying-an-interpreter">Paths to scripts, and specifying an interpreter</h2>
 <p>Regardless of the type of hook you are implementing, there are a couple of things that you should note:</p>
 <ul>
-<li>The paths to scripts must be absolute (as in the examples above). If you use a relative path to your script, Workbench will not find it.</li>
-<li>If your script does not contain a shebang line (e.g., <code>#!/usr/bin/env python</code> in Python scripts), you will need to specify the interpreter your script will need to execute. To do this, simply include the interpreter's full path or name at the beginning of the path to your script, e.g. <code>/usr/bin/sh /path/to/my/shell/script.sh</code>.</li>
+<li>Paths to scripts must be absolute (as in the examples above). If you use a relative path to your script, Workbench will not find it.</li>
+<li>If your script does not contain a shebang line (e.g., <code>#!/usr/bin/env python</code> in Python scripts or <code>#!/usr/bin/sh</code> in shell scripts), you will need to specify the interpreter your script will need to execute. To do this, simply include the interpreter's full path or name at the beginning of the path to your script, e.g. <code>/usr/bin/sh /path/to/my/shell/script.sh</code>.</li>
 </ul>
 
 
