@@ -441,6 +441,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#hook-settings" class="md-nav__link">
+    Hook settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run_scripts-settings" class="md-nav__link">
+    run_scripts settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#miscellaneous-settings" class="md-nav__link">
     Miscellaneous settings
   </a>
@@ -1387,6 +1401,20 @@
           <li class="md-nav__item">
   <a href="#csv-id-to-node-id-map-settings" class="md-nav__link">
     CSV ID to node ID map settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hook-settings" class="md-nav__link">
+    Hook settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run_scripts-settings" class="md-nav__link">
+    run_scripts settings
   </a>
   
 </li>
@@ -2478,6 +2506,94 @@ csv_field_templates:
 </tr>
 </tbody>
 </table>
+<h3 id="hook-settings">Hook settings</h3>
+<p>See "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" for more information.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Required</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bootstrap</td>
+<td></td>
+<td></td>
+<td>List of absolute paths to one or more scripts that execute prior to Workbench connecting to Drupal.</td>
+</tr>
+<tr>
+<td>shutdown</td>
+<td></td>
+<td></td>
+<td>List of absolute paths to one or more scripts that execute after Workbench connecting to Drupal.</td>
+</tr>
+<tr>
+<td>preprocessors</td>
+<td></td>
+<td></td>
+<td>List of absolute paths to one or more scripts that are applied to CSV values prior to the values being ingested into Drupal.</td>
+</tr>
+<tr>
+<td>node_post_create</td>
+<td></td>
+<td></td>
+<td>List of absolute paths to one or more scripts that execute after a node is created.</td>
+</tr>
+<tr>
+<td>node_post_update</td>
+<td></td>
+<td></td>
+<td>List of absolute paths to one or more scripts that execute after a node is updated.</td>
+</tr>
+<tr>
+<td>media_post_create</td>
+<td></td>
+<td></td>
+<td>List of absolute paths to one or more scripts that execute after a media is created.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="run_scripts-settings">run_scripts settings</h3>
+<p>See "<a href="/islandora_workbench_docs/running_scripts/">Running scripts on existing entities</a>" for more information.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Required</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>run_scripts</td>
+<td>✔️</td>
+<td></td>
+<td>List of absolute paths to one or more scripts that execute.</td>
+</tr>
+<tr>
+<td>run_scripts_entity_type</td>
+<td>✔️</td>
+<td></td>
+<td>One of "node", "media", or "term".</td>
+</tr>
+<tr>
+<td>run_scripts_threads</td>
+<td></td>
+<td>1</td>
+<td>Number of asynchronous threads to use.</td>
+</tr>
+<tr>
+<td>run_scripts_threads</td>
+<td></td>
+<td>true</td>
+<td>Whether or not to log the output of scripts in the Workbench log file. Set to false if your script writes its own log.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="miscellaneous-settings">Miscellaneous settings</h3>
 <table>
 <thead>
@@ -2542,42 +2658,6 @@ csv_field_templates:
 <td></td>
 <td>false</td>
 <td>Show the percentage of input CSV processed in each line of output in <code>create</code>, <code>update</code>, <code>delete</code>, and <code>add_media</code> tasks.</td>
-</tr>
-<tr>
-<td>bootstrap</td>
-<td></td>
-<td></td>
-<td>List of absolute paths to one or more scripts that execute prior to Workbench connecting to Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
-</tr>
-<tr>
-<td>shutdown</td>
-<td></td>
-<td></td>
-<td>List of absolute paths to one or more scripts that execute after Workbench connecting to Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
-</tr>
-<tr>
-<td>preprocessors</td>
-<td></td>
-<td></td>
-<td>List of absolute paths to one or more scripts that are applied to CSV values prior to the values being ingested into Drupal. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
-</tr>
-<tr>
-<td>node_post_create</td>
-<td></td>
-<td></td>
-<td>List of absolute paths to one or more scripts that execute after a node is created. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
-</tr>
-<tr>
-<td>node_post_update</td>
-<td></td>
-<td></td>
-<td>List of absolute paths to one or more scripts that execute after a node is updated. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
-</tr>
-<tr>
-<td>media_post_create</td>
-<td></td>
-<td></td>
-<td>List of absolute paths to one or more scripts that execute after a media is created. More information is available in the "<a href="/islandora_workbench_docs/hooks/">Hooks</a>" documentation.</td>
 </tr>
 <tr>
 <td>drupal_8</td>
