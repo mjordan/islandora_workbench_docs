@@ -143,6 +143,9 @@ Some things to keep in mind when using CSV row filters:
 
 Regardless of whether you are using CSV row filters, or any other technique of ignoring CSV rows or columns, Workbench converts your input CSV into a "preprocessed" version and uses it to perform its task. This file can be found in the temporary directory defined in your Workbench config's `temp_dir` setting, which by default is your computer's temporary directory. If you want to inspect this file after running `--check`, you can see which rows result after the filters have been applied.
 
+!!! warning
+    Using combinations of commenting out CSV rows with `#`, `csv_start_row`, `csv_stop_row`, `csv_rows_to_process`, and `csv_row_filters` is valid but can lead to unpredictable results. If you are using more than one of these methods of filtering out input CSV rows, during `--check` Workbench will add a warning entry to your log indicating that you should inspect the preprocessed version of your input CSV (and indicate where to find that file), so you can confirm that the rows you expect to be in the file are in fact there.
+
 ## Ignoring CSV columns
 
 Islandora Workbench strictly validates the columns in the input CSV to ensure that they match Drupal field names and reserved Workbench column names. To accommodate CSV columns that do not correspond to either of those types, or to eliminate a column during testing or troubleshooting, you can tell Workbench to ignore specific columns that are present in the CSV. To do this, list the column headers in the `ignore_csv_columns` configuration setting. The value of this setting is a list. For example, if you want to include a `date_generated` column in your CSV (which is neither a Workbench reserved column or a Drupal field name), include the following in your Workbench configuration file:

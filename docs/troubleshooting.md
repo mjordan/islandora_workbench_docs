@@ -133,6 +133,10 @@ Islandora can display EDTF interval values (e.g., `2004-06/2006-08`, `193X/196X`
 
 First thing to check is whether you are using the [Pathauto](https://www.drupal.org/project/pathauto) module. It also creates URL aliases, and since by default Drupal only allows one URL alias, in most cases, the aliases it creates will take precedence over aliases created by Workbench.
 
+### Workbench is telling me my input CSV contains zero rows (or far fewer rows than it should)
+
+This is likely caused by overlapping [input CSV filtering](/islandora_workbench_docs/ignoring_csv_rows_and_columns/) configuration settings, e.g. `csv_start_row`, `csv_stop_row`, `csv_rows_to_process`, or `csv_row_filters`, and/or the use of `#` to comment out rows. If your configuration file contains more than one of these settings, and you are using `#` to comment out rows, during `--check` Workbench will add a warning to your log file to check the preprocessed version of your CSV.
+
 ### I'm having trouble getting Workbench to work in a cronjob
 
 The most common problem you will encounter when running Islandora Workbench in a cronjob is that Workbench can't find its configuration file, or input/output directories. The easiest way to avoid this is to use absolute file paths everywhere, including as the value of Workbench's `--config` parameter, in configuration files, and in `file` and `additional_files` columns in your input CSV files.

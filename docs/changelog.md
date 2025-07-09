@@ -2,6 +2,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* July 9, 2025: Resolved (commit adcea1d) [issue 990](https://github.com/mjordan/islandora_workbench/issues/990).
 * July 7, 2025: Resolved (commit 551798f) [issue 986](https://github.com/mjordan/islandora_workbench/issues/986).
 * July 4, 2025: Resolved (commit ad0f22d) [issue 956](https://github.com/mjordan/islandora_workbench/issues/956).
 * July 2, 2025: Resolved (commit 890f75e) [issue 981](https://github.com/mjordan/islandora_workbench/issues/981) and (committ eb2e4c4) [issue 979](https://github.com/mjordan/islandora_workbench/issues/979).
@@ -46,6 +47,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* July 9, 2025: Updated "[Ignoring CSV rows and columns](/islandora_workbench_docs/ignoring_csv_rows_and_columns/)" and "[Troubleshooting](/islandora_workbench_docs/troubleshooting/)" to note the new warning about conflicting input-CSV-filtering config settings.
 * July 4, 2025: Added docs on "[Updating media using node IDs](/islandora_workbench_docs/updating_media/#updating-media-using-node-ids)".
 * July 3, 2025, Updated several pages to include reference to the new `run_scripts` task.
 * July 2, 2025: Added docs on the new `run_scripts` task at "[Running scripts](/islandora_workbench_docs/running_scripts/)". Also updated docs to use single quotes around Windows file paths, and added a new section to the [Troubleshooting page](/islandora_workbench_docs/troubleshooting/#im-running-workbench-on-windows-and-im-having-problems-getting-long-directory-paths-right-in-my-configuration-file) about this.
