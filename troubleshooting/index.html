@@ -1101,6 +1101,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#workbench-is-telling-me-my-input-csv-contains-zero-rows-or-far-fewer-rows-than-it-should" class="md-nav__link">
+    Workbench is telling me my input CSV contains zero rows (or far fewer rows than it should)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#im-having-trouble-getting-workbench-to-work-in-a-cronjob" class="md-nav__link">
     I'm having trouble getting Workbench to work in a cronjob
   </a>
@@ -1309,6 +1316,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#workbench-is-telling-me-my-input-csv-contains-zero-rows-or-far-fewer-rows-than-it-should" class="md-nav__link">
+    Workbench is telling me my input CSV contains zero rows (or far fewer rows than it should)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#im-having-trouble-getting-workbench-to-work-in-a-cronjob" class="md-nav__link">
     I'm having trouble getting Workbench to work in a cronjob
   </a>
@@ -1432,6 +1446,8 @@
 <p><img alt="EDTF form widget configuration" src="../images/edtf_form_widget_config.png" /></p>
 <h3 id="my-csv-file-has-a-url_alias-column-but-the-aliases-are-not-being-created">My CSV file has a <code>url_alias</code> column, but the aliases are not being created.</h3>
 <p>First thing to check is whether you are using the <a href="https://www.drupal.org/project/pathauto">Pathauto</a> module. It also creates URL aliases, and since by default Drupal only allows one URL alias, in most cases, the aliases it creates will take precedence over aliases created by Workbench.</p>
+<h3 id="workbench-is-telling-me-my-input-csv-contains-zero-rows-or-far-fewer-rows-than-it-should">Workbench is telling me my input CSV contains zero rows (or far fewer rows than it should)</h3>
+<p>This is likely caused by overlapping <a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/">input CSV filtering</a> configuration settings, e.g. <code>csv_start_row</code>, <code>csv_stop_row</code>, <code>csv_rows_to_process</code>, or <code>csv_row_filters</code>, and/or the use of <code>#</code> to comment out rows. If your configuration file contains more than one of these settings, and you are using <code>#</code> to comment out rows, during <code>--check</code> Workbench will add a warning to your log file to check the preprocessed version of your CSV.</p>
 <h3 id="im-having-trouble-getting-workbench-to-work-in-a-cronjob">I'm having trouble getting Workbench to work in a cronjob</h3>
 <p>The most common problem you will encounter when running Islandora Workbench in a cronjob is that Workbench can't find its configuration file, or input/output directories. The easiest way to avoid this is to use absolute file paths everywhere, including as the value of Workbench's <code>--config</code> parameter, in configuration files, and in <code>file</code> and <code>additional_files</code> columns in your input CSV files.</p>
 <p>In some cases, particularly if you are using a secondary task to create pages or child items, you many need to use the <code>path_to_python</code> and <code>path_to_workbench_script</code> configuration settings.</p>
