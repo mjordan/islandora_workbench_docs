@@ -38,10 +38,14 @@ In some situations, you may want to create stub nodes that only have a small sub
  * `node_id`: the node ID for the newly created node
  * `content_type`: the node's content type
  * `uuid`: the new node's UUID
+ * `uid`: the ID of the user who created the node
+ * `created`: the date stamp the node was created
+ * `changed`: the date stamp the node was last updated
  * `published`: 1 if the node is published, 0if it is unpublished
- * `promote`: 1 if the node is promoted to the home page, 0if it is not
+ * `promote`: 1 if the node is promoted to the home page, 0 if it is not
  * `langcode`: the node' language code
  * `title`: the node's title
+ * `url_alias`: the node's URL alias, if there is one
 
  The file will also contain empty columns corresponding to all of the fields in the target content type. An example, generated from a 2-record input CSV file, looks like this (only left-most part of the spreadsheet shown):
 

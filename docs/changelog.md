@@ -3,7 +3,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 ### main branch (no tag/release)
 
 * July 15, 2025: Resolved (commit afadce5) [issue 995](https://github.com/mjordan/islandora_workbench/issues/995).
-* July 10, 2025: Added `scripts/tile_warmer.py`; resolved (commit 43d675) [issue 982](https://github.com/mjordan/islandora_workbench/issues/982).
+* July 10, 2025: Added `scripts/tile_warmer.py`; resolved (commit 43d675) [issue 982](https://github.com/mjordan/islandora_workbench/issues/982) and (commit 4f02c28) [issue 973](https://github.com/mjordan/islandora_workbench/issues/973).
 * July 9, 2025: Resolved (commit adcea1d) [issue 990](https://github.com/mjordan/islandora_workbench/issues/990) and (commit e2ababe) [issue 991](https://github.com/mjordan/islandora_workbench/issues/991).
 * July 7, 2025: Resolved (commit 551798f) [issue 986](https://github.com/mjordan/islandora_workbench/issues/986).
 * July 4, 2025: Resolved (commit ad0f22d) [issue 956](https://github.com/mjordan/islandora_workbench/issues/956).
@@ -49,7 +49,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
-* July 15, 2025: Updated "[Password management](/islandora_workbench_docs/installation/#password-management)" docs to include the new `credentials_file_path` setting.
+* July 15, 2025: Updated "[Password management](/islandora_workbench_docs/installation/#password-management)" docs to include the new `credentials_file_path` setting; updated "[Generating CSV files and exporting Islandora content](/islandora_workbench_docs/generating_csv_files/)" to reflect changes in [issue 973](https://github.com/mjordan/islandora_workbench/issues/973).
 * July 10, 2025: Updated "[Running scripts](/islandora_workbench_docs/running_scripts/)" to include example of `tile_warmer.py`.
 * July 9, 2025: Updated "[Ignoring CSV rows and columns](/islandora_workbench_docs/ignoring_csv_rows_and_columns/)" and "[Troubleshooting](/islandora_workbench_docs/troubleshooting/)" to note the new warning about conflicting input-CSV-filtering config settings.
 * July 4, 2025: Added docs on "[Updating media using node IDs](/islandora_workbench_docs/updating_media/#updating-media-using-node-ids)".
