@@ -49,6 +49,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* July 16, 2025: Broke out the "Password management" section of "[Requirements and installation](/islandora_workbench_docs/installation/)" out into a separate page, "[User management](/islandora_workbench_docs/user_management/)".
 * July 15, 2025: Updated "[Password management](/islandora_workbench_docs/installation/#password-management)" docs to include the new `credentials_file_path` setting; updated "[Generating CSV files and exporting Islandora content](/islandora_workbench_docs/generating_csv_files/)" to reflect changes in [issue 973](https://github.com/mjordan/islandora_workbench/issues/973).
 * July 10, 2025: Updated "[Running scripts](/islandora_workbench_docs/running_scripts/)" to include example of `tile_warmer.py`.
 * July 9, 2025: Updated "[Ignoring CSV rows and columns](/islandora_workbench_docs/ignoring_csv_rows_and_columns/)" and "[Troubleshooting](/islandora_workbench_docs/troubleshooting/)" to note the new warning about conflicting input-CSV-filtering config settings.

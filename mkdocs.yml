@@ -9,6 +9,7 @@ nav:
     - Home: index.md
     - Workbench's relationship to Drupal and Islandora: drupal_and_workbench.md
     - Requirements and installation: installation.md
+    - User management: user_management.md
     - Choosing a task: choosing_a_task.md
     - Optimizing your use of Workbench: optimizing_your_use_of_workbench.md
     - Configuration: configuration.md
