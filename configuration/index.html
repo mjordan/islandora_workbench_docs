@@ -1625,7 +1625,7 @@ csv_field_templates:
 </tr>
 <tr>
 <td>username</td>
-<td>✔️</td>
+<td></td>
 <td></td>
 <td>The username used to authenticate the requests. This Drupal user should be a member of the "Administrator" role. If you want to create nodes that are owned by a specific Drupal user, include their numeric user ID in the <code>uid</code> column in your CSV.</td>
 </tr>
@@ -1634,6 +1634,12 @@ csv_field_templates:
 <td></td>
 <td></td>
 <td>The user's password. You can also set the password in your <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable. If you do this, omit the <code>password</code> option in your configuration file. If a password is not available in either your configuration file or in the environment variable, Workbench will prompt for a password.</td>
+</tr>
+<tr>
+<td>credentials_file_path</td>
+<td></td>
+<td></td>
+<td>The absolute or relative path to a simple YAML file that contains the <code>username</code> and <code>password</code> config settings. Putting your <code>username</code> and <code>password</code> settings in this file allows you to omit them from the main configuration file.</td>
 </tr>
 </tbody>
 </table>
