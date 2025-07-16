@@ -110,7 +110,7 @@ Python 3.8 reached end of life in October 2024. If you cannot upgrade from Pytho
 
 Islandora Workbench requires user credentials that have administrator-level permissions in the target Drupal. Therefore you should exercise caution when managing those credentials.
 
-Workbench configuration files must contain a `username` setting, but you can provide the corresponding password in three ways:
+Workbench configuration files must contain a `username` setting, but you can provide the corresponding password in four ways:
 
 1. in the `password` setting in your YAML configuration file
 1. in the `ISLANDORA_WORKBENCH_PASSWORD` environment variable
@@ -120,6 +120,17 @@ If the `password` setting is present in your configuration files, Workbench will
 
 !!! warning
     If you put the password in configuration files, you should not leave the files in directories that are widely readable, send them in emails or share them in Slack, commit the configuration files to public Git repositories, etc.
+
+### The `credentials_file_path` configuration setting
+
+As an alternative to including Drupal user credentials in your Workbench configuration files, you can store the `username` and `password` settings in their own simple YAML file and point to that file in the `credentials_file_path` config setting (e.g., `credentials_file_path: /home/mark/credentials.yml`). The syntax within this file is identical to the `username` and `password` settings in the regular config file:
+
+```yaml
+username: admin
+password: islandora
+```
+
+The credentials file can be somewhere only visible to the computer user running Workbench, such as their home directory, or multiple Workbench users can point to the same credentials from their respective configuration files provided all users are able to read the file.
 
 ### The `remove_password_from_config_file` configuration setting
 
