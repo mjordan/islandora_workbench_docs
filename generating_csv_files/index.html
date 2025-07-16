@@ -1184,10 +1184,14 @@
 <li><code>node_id</code>: the node ID for the newly created node</li>
 <li><code>content_type</code>: the node's content type</li>
 <li><code>uuid</code>: the new node's UUID</li>
+<li><code>uid</code>: the ID of the user who created the node</li>
+<li><code>created</code>: the date stamp the node was created</li>
+<li><code>changed</code>: the date stamp the node was last updated</li>
 <li><code>published</code>: 1 if the node is published, 0if it is unpublished</li>
-<li><code>promote</code>: 1 if the node is promoted to the home page, 0if it is not</li>
+<li><code>promote</code>: 1 if the node is promoted to the home page, 0 if it is not</li>
 <li><code>langcode</code>: the node' language code</li>
 <li><code>title</code>: the node's title</li>
+<li><code>url_alias</code>: the node's URL alias, if there is one</li>
 </ul>
 <p>The file will also contain empty columns corresponding to all of the fields in the target content type. An example, generated from a 2-record input CSV file, looks like this (only left-most part of the spreadsheet shown):</p>
 <p><img alt="Output CSV" src="../images/output_csv.png" /></p>
