@@ -2,6 +2,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* July 22, 2025: Resolved (commit 9c2552d) [issue 998](https://github.com/mjordan/islandora_workbench/issues/998).
 * July 15, 2025: Resolved (commit afadce5) [issue 995](https://github.com/mjordan/islandora_workbench/issues/995).
 * July 10, 2025: Added `scripts/tile_warmer.py`; resolved (commit 43d675) [issue 982](https://github.com/mjordan/islandora_workbench/issues/982) and (commit 4f02c28) [issue 973](https://github.com/mjordan/islandora_workbench/issues/973).
 * July 9, 2025: Resolved (commit adcea1d) [issue 990](https://github.com/mjordan/islandora_workbench/issues/990) and (commit e2ababe) [issue 991](https://github.com/mjordan/islandora_workbench/issues/991).
@@ -49,6 +50,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* July 22, 2025: Updated the "[Development guide](/islandora_workbench_docs/development_guide/#islandora-workbench-integration-drupal-module)" to describe when to modify `check_integration_module_version()`.
 * July 16, 2025: Broke out the "Password management" section of "[Requirements and installation](/islandora_workbench_docs/installation/)" out into a separate page, "[User management](/islandora_workbench_docs/user_management/)".
 * July 15, 2025: Updated "[Password management](/islandora_workbench_docs/installation/#password-management)" docs to include the new `credentials_file_path` setting; updated "[Generating CSV files and exporting Islandora content](/islandora_workbench_docs/generating_csv_files/)" to reflect changes in [issue 973](https://github.com/mjordan/islandora_workbench/issues/973).
 * July 10, 2025: Updated "[Running scripts](/islandora_workbench_docs/running_scripts/)" to include example of `tile_warmer.py`.
