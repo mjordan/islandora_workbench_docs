@@ -68,6 +68,9 @@ You can easily move a database file into another directory (from the default tem
 
 ### "host" values in the map
 
+!!! note
+    The only situation where you should use the `csv_id_to_node_id_map_allowed_hosts` setting described in this section is if you have changed the host name of your Islandora server (e.g. from `https://myislandoraserver-dev` to `https://myislandoraserver`) and want to use node IDs created prior to the name change. Otherwise, you can ignore the `csv_id_to_node_id_map_allowed_hosts` setting.
+
 Up until early June 2025, the CSV ID to node ID map contained node IDs but not the hostname of the Islandora repository those node IDs exist in. This lack of hostnames in the map means that if Workbench has been used with more than one host ("host" here means the hostname defined in your config file's `host` setting) there is a chance that a given node ID could exist in more than one Drupal instance. If the same node ID from separate Drupal instances is used as a parent node ID, that "member of" relationship would be entirely invalid -- the child's parent could be an unrelated node that happened to have one of the overlapping IDs.
 
 No Workbench user has reported this situation, and Workbench uses the CSV ID to node ID map in ways that minimize the risk of it happening (e.g. during recovery mode by ignoring rows in the map that have a node ID lower than the one specified). Starting in June 2025, Workbench populates the CSV ID to node ID map with the value of the `host` configuration setting in order to further safeguard against overlapping node IDs. This change will be completely transparent to most users, but does introduce a couple of changes in behavior that you should be aware of:

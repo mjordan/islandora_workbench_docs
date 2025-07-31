@@ -50,6 +50,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* July 31, 2025: Updated the "[The CSV ID to node ID map](/islandora_workbench_docs/csv_id_to_node_id_map/#host-values-in-the-map)" page to clarify when you should use the  `csv_id_to_node_id_map_allowed_hosts` config setting.
 * July 22, 2025: Updated the "[Development guide](/islandora_workbench_docs/development_guide/#islandora-workbench-integration-drupal-module)" to describe when to modify `check_integration_module_version()`.
 * July 16, 2025: Broke out the "Password management" section of "[Requirements and installation](/islandora_workbench_docs/installation/)" out into a separate page, "[User management](/islandora_workbench_docs/user_management/)".
 * July 15, 2025: Updated "[Password management](/islandora_workbench_docs/installation/#password-management)" docs to include the new `credentials_file_path` setting; updated "[Generating CSV files and exporting Islandora content](/islandora_workbench_docs/generating_csv_files/)" to reflect changes in [issue 973](https://github.com/mjordan/islandora_workbench/issues/973).
