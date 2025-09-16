@@ -2,6 +2,8 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* September 16, 2025: Resolved (commit c1ae668) [issue 777](https://github.com/mjordan/islandora_workbench/issues/777) and (commit 4228c9b) [issue 1015](https://github.com/mjordan/islandora_workbench/issues/1015).
+* August 5, 2025: Merged [PR 1003](https://github.com/mjordan/islandora_workbench/pull/1003) (related to [issue 963](https://github.com/mjordan/islandora_workbench/issues/963)).
 * July 22, 2025: Resolved (commit 9c2552d) [issue 998](https://github.com/mjordan/islandora_workbench/issues/998).
 * July 15, 2025: Resolved (commit afadce5) [issue 995](https://github.com/mjordan/islandora_workbench/issues/995).
 * July 10, 2025: Added `scripts/tile_warmer.py`; resolved (commit 43d675) [issue 982](https://github.com/mjordan/islandora_workbench/issues/982) and (commit 4f02c28) [issue 973](https://github.com/mjordan/islandora_workbench/issues/973).
@@ -50,6 +52,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* September 16, 2025: Updated the "[Configuration](/islandora_workbench_docs/configuration/#media-settings)" page to add the new `keep_filename_parent_directory` config setting.
 * July 31, 2025: Updated the "[The CSV ID to node ID map](/islandora_workbench_docs/csv_id_to_node_id_map/#host-values-in-the-map)" page to clarify when you should use the  `csv_id_to_node_id_map_allowed_hosts` config setting.
 * July 22, 2025: Updated the "[Development guide](/islandora_workbench_docs/development_guide/#islandora-workbench-integration-drupal-module)" to describe when to modify `check_integration_module_version()`.
 * July 16, 2025: Broke out the "Password management" section of "[Requirements and installation](/islandora_workbench_docs/installation/)" out into a separate page, "[User management](/islandora_workbench_docs/user_management/)".
