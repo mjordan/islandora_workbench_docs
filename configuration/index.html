@@ -2164,8 +2164,20 @@ csv_field_templates:
 <tr>
 <td>keep_filename_parent_directory</td>
 <td></td>
-<td>[] true</td>
+<td>true</td>
 <td>For all tasks that create or replace media, this setting determines if the file created by Drupal includes in its filename the name of the file's parent directory as it appears in the input CSV or in directories used during the creation of paged content. For example, when creating paged content, if a page file named "1918-04-12-04.tif" is in a newspaper issue directory named "1918-04-12", with <code>keep_filename_parent_directory</code> set to "true" (the default), the name of the file created by Drupal will be "1918-04-12/1918-04-12-04.tif"; if <code>keep_filename_parent_directory</code> is set to false, the file's name will be simply "1918-04-12-04.tif".</td>
+</tr>
+<tr>
+<td>remote_file_cookie_name</td>
+<td></td>
+<td></td>
+<td>Name of the session cookie used to provide access to remote files. See "<a href="/islandora_workbench_docs/session_cookies_for_remote_files/">Session cookies for remote files</a>" for more information.</td>
+</tr>
+<tr>
+<td>remote_file_cookie_value</td>
+<td></td>
+<td></td>
+<td>The session cookie data corresponding to <code>remote_file_cookie_name</code>.</td>
 </tr>
 </tbody>
 </table>
