@@ -48,7 +48,7 @@ Things to note about `file` values in general:
 Things to note about URLs as `file` values:
 
 * Workbench downloads files identified by URLs and saves them in the directory named in `temp_dir` before processing them further; within this directory, each file is saved in a subdirectory named after the value in the row's `id_field` field. It does not delete the files from these locations after they have been ingested into Islandora unless the `delete_tmp_upload` configuration option is set to `true`.
-* Files identified by URLs must be accessible to the Workbench script, which means they must not require a username/password; however, they can be protected by a firewall, etc. as long as the computer running Workbench is allowed to retrieve the files without authenticating.
+* Files identified by URLs must be accessible to the Workbench script, which means they must not require a username/password; however, they can be protected by a firewall, etc. as long as the computer running Workbench is allowed to retrieve the files without authenticating. However, it is possible to [register a session cookie](/islandora_workbench_docs/session_cookies_for_remote_files/) generated on the remote website to allow Workbench to access restricted files.
 * Currently Workbench requires that the URLs point directly to a file or a service that generates a file, and not a wrapper page or other indirect route to the file.
 
 
