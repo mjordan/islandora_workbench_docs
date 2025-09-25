@@ -34,7 +34,11 @@ book2,Using Islandora Workbench for Fun and Profit,Paged Content
 ```
 
 !!! note
-    Unlike every other Islandora Workbench "create" configuration, the metadata CSV should not contain a `file` column (however, you can include a `directory` column as described below). This means that content created using this method cannot be created using the same CSV file as other content.
+    Unlike every other Islandora Workbench "create" configuration, the metadata CSV used when `paged_content_from_directories: true` is present in your config file should not contain a `file` column (however, you can include a `directory` column as described below).
+
+    This difference has a couple of important implications: 1) it assumes that the nodes described in the CSV have no media attached to them (they are simply parent containers for their children/pages) and 2) Workbench's `additional_files` setting does not apply when `paged_content_from_directories: true` is present.
+
+    If you want to attach media to the parent nodes, you will need to do so using a separate [`add_media`](/islandora_workbench_docs/adding_media/) task.
 
 Each parent's pages are located in a subdirectory of the input directory that is named by default to match the value of the `id` field of the parent item they are pages of:
 

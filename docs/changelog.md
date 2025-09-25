@@ -52,6 +52,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* September 25, 2025: Updated "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" to clarify that if `paged_content_from_directories` is `true`, the `additional_files` config setting doesn't apply.
 * September 18, 2025: Added "[Session cookies for remote files](/islandora_workbench_docs/session_cookies_for_remote_files/)" and updated the configuration settings page with the new `remote_file_cookie_name` and `remote_file_cookie_value` settings.
 * September 16, 2025: Updated the "[Configuration](/islandora_workbench_docs/configuration/#media-settings)" page to add the new `keep_filename_parent_directory` config setting.
 * July 31, 2025: Updated the "[The CSV ID to node ID map](/islandora_workbench_docs/csv_id_to_node_id_map/#host-values-in-the-map)" page to clarify when you should use the  `csv_id_to_node_id_map_allowed_hosts` config setting.
