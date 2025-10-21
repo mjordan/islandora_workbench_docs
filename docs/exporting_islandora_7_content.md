@@ -1,5 +1,8 @@
 ## Overview
 
+!!! note
+    As of 2025-10-21, the `get_islandora_7_content.py` script has moved to its [own Github repository](https://github.com/mjordan/i7_import). The documentation here still applies, but in the case of a conflict between this documentation and the documentation in the other Github repo, that documentation takes precedence.
+
 Islandora Workbench's main purpose is to load batches of content into an Islandora 2 repository. However, loading
 content can also be the last step in migrating from Islandora 7 to Islandora 2. As noted in
 the "[Workflows](/islandora_workbench_docs/workflows/#migrations)" documentation, Workbench can be used in the "load"

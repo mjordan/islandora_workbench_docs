@@ -42,7 +42,6 @@ nav:
     - Updating media: updating_media.md
     - Deleting media: deleting_media.md
     - Generating CSV files and exporting Islandora content: generating_csv_files.md
-    - Exporting Islandora 7 content: exporting_islandora_7_content.md
     - Hooks: hooks.md
     - Fixity checking: fixity.md
     - Logging: logging.md
@@ -54,6 +53,7 @@ nav:
     - Reducing Workbench's impact on Drupal: reducing_load.md
     - Creating nodes from the sample data: sample_data.md
     - Prompting the user: prompts.md
+    - Exporting Islandora 7 content: exporting_islandora_7_content.md
     - Generating sample Islandora content: generating_sample_content.md
     - Known limitations: limitations.md
     - Troubleshooting: troubleshooting.md
