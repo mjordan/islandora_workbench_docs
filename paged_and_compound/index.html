@@ -1500,7 +1500,7 @@ paged_content_additional_page_media:
 <p>Workbench ignores all subdirectories within page directories.</p>
 <h4 id="adding-children-to-nodes-that-already-exist">Adding children to nodes that already exist</h4>
 <p>The preceding documentation explains how to create pages/children from the contents of subdirectories at the same time as the parent node is being created from a row in the input CSV.</p>
-<p>The following documentation applies to creating pages/children from the contents of subdirectories <em>if the parent node already exists</em>. A common use case for doing this is replacing the PDF attached to a Digital Document node with individual page nodes. Another situation where this method is useful is adding additional children to an existing parent Paged Content or Compound node.</p>
+<p>The following documentation applies to creating pages/children from the contents of subdirectories <em>if the parent node already exists</em>. A use case for doing this is replacing the PDF attached to a Digital Document node with individual page nodes. Another situation where this method is useful is adding additional children to an existing parent Paged Content or Compound node.</p>
 <p>In general, what is described above applies in this situation, except for one difference in the configuration file and one difference in the input CSV:</p>
 <ul>
 <li>Your configuration file must contain <code>paged_content_from_directories_parents_exist: true</code> instead of <code>paged_content_from_directories: true</code> as above (notice the "parents_exist" at the end of this setting). All other configuration settings work the same as described above.</li>
