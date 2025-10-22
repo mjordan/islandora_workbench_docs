@@ -2,6 +2,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* October 22, 2025: Resolved (commit 6b58a26) [issue 1006](https://github.com/mjordan/islandora_workbench/issues/1006).
 * October 21, 2025: Merged (commit 95ec68d) [PR 1017](https://github.com/mjordan/islandora_workbench/pull/1017). Thanks @whikloj!
 * October 9, 2025: Merged (commit e0183d6) [PR 1018](https://github.com/mjordan/islandora_workbench/pull/1018). Thanks @andrew-gardener!
 * September 16, 2025: Resolved (commit c1ae668) [issue 777](https://github.com/mjordan/islandora_workbench/issues/777) and (commit 4228c9b) [issue 1015](https://github.com/mjordan/islandora_workbench/issues/1015).
@@ -54,6 +55,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* October 22, 2025: Added "[Adding children to nodes that already exist](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#adding-children-to-nodes-that-already-exist)".
 * October 21, 2025: Updated "[Exporting Islandora 7 content](https://mjordan.github.io/islandora_workbench_docs/exporting_islandora_7_content/)" to point to the [new repository](https://github.com/mjordan/i7_import) for that script.
 * September 25, 2025: Updated "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" to clarify that if `paged_content_from_directories` is `true`, the `additional_files` config setting doesn't apply.
 * September 18, 2025: Added "[Session cookies for remote files](/islandora_workbench_docs/session_cookies_for_remote_files/)" and updated the configuration settings page with the new `remote_file_cookie_name` and `remote_file_cookie_value` settings.

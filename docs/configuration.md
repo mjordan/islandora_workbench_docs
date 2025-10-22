@@ -222,6 +222,7 @@ See the section "[Creating paged content](/islandora_workbench_docs/paged_and_co
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
 | paged_content_from_directories |  | false | Set to true if you are using the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method of creating paged content. |
+| paged_content_from_directories_parents_exist |  | false | Set to true if you are using the "[Adding children to nodes that already exist](/islandora_workbench_docs/paged_and_compound/#adding-children-to-nodes-that-already-exist) method of creating paged content. |
 | page_files_source_dir_field |  | id [or whatever is defined as your `id` column using the `id_field` configuration setting] | Set to `directory` if your input CSV contains a "directory" column that names each row's page, if are using the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method of creating paged content. |
 | paged_content_sequence_separator |  | - [hyphen]| The character used to separate the page sequence number from the rest of the filename. Used when creating paged content with the "[Using subdirectories](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" method. Note: this configuration option was originally misspelled "paged_content_sequence_seprator". |
 | paged_content_page_model_tid |  | | Required if `paged_content_from_directories` is true. The the term ID from the Islandora Models (or its URI) taxonomy to assign to pages. |

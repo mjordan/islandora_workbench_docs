@@ -223,6 +223,59 @@ Note that Workbench converts all filenames (and wildcard entries) in the directo
 
 Workbench ignores all subdirectories within page directories.
 
+#### Adding children to nodes that already exist
+
+The preceding documentation explains how to create pages/children from the contents of subdirectories at the same time as the parent node is being created from a row in the input CSV. The following documentation applies to creating pages/children from the contents of subdirectories *if the parent node already exists*. A common use case for doing this is replacing the PDF attached to a Digital Document node with individual page nodes. Another situation where this method is useful is adding additional children to an existing parent Paged Content or Compound node.
+
+In general, what is described above applies in this situation, except for one difference in the configuration file and one difference in the input CSV:
+
+- Your configuration file must contain `paged_content_from_directories_parents_exist: true`, not `paged_content_from_directories: true` as above (notice the "parents_exist" at the end of this setting). All other configuration settings work the same as described above.
+- Your input CSV must contain a `field_member_of` column identifying the existing parent that the files in each directory are to be attached to as children.
+
+A sample input CSV is:
+
+```csv
+field_identifier,directory,field_member_of,title,file,field_edtf_date
+1006_01,parent_1_files_1,4037,A sample parent that exists,,2023-01-01
+1006_02,parent_2_files,4182,Another existing parent,,1999-12-31
+```
+
+`field_edtf_date` is shown here to illustrate an optional field that can be applied to the children as illustrated in the configuration provided below.
+
+An accompanying sample configuration file is:
+
+```yaml
+task: create
+host: islandora.dev
+username: admin
+password: password
+
+# Required.
+paged_content_from_directories_parents_exist: true
+# Required, as with paged_content_from_directories.
+paged_content_page_model_tid: http://id.loc.gov/ontologies/bibframe/part
+
+page_files_source_dir_field: directory
+# Identifier field isn't required, but is used in the CSV value template below.
+id_field: field_identifier
+allow_missing_files: true
+
+csv_field_templates:
+- field_model: http://id.loc.gov/ontologies/bibframe/part
+
+page_title_template: '$parent_title, side $weight'
+
+csv_value_templates_for_paged_content:
+  - field_edtf_date: $csv_value
+  - field_identifier: $csv_value-$weight
+```
+
+Running this configuration using the sample CSV file will attach a Page model node for each file in the directory to the parent identified in that row's `field_member_of`.
+
+!!! note
+    This method applies to `create` tasks only. It does not change the Islandora model of the parent node identified in `field_member_of`. If you need to change the model of the parent, you should do so prior to running the task to add the new children in order to guarantee that all the required Context Actions, etc. work as expected.
+
+    Also, this task does not delete existing media or children from the target parent nodes. Those tasks, where applicable, should also be completed before adding new children.
 
 ### With page/child-level metadata
 
