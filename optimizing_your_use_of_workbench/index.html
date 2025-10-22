@@ -321,6 +321,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#create-standard-templates-for-your-configuration-and-input-csv-files" class="md-nav__link">
+    Create standard templates for your configuration and input CSV files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#protect-user-credentials-in-your-config-files" class="md-nav__link">
     Protect user credentials in your config files
   </a>
@@ -1190,6 +1197,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#create-standard-templates-for-your-configuration-and-input-csv-files" class="md-nav__link">
+    Create standard templates for your configuration and input CSV files
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#protect-user-credentials-in-your-config-files" class="md-nav__link">
     Protect user credentials in your config files
   </a>
@@ -1341,6 +1355,9 @@
 <h2 id="keep-your-copy-of-workbench-up-to-date">Keep your copy of Workbench up to date</h2>
 <p>Islandora Workbench is under active development, both in terms of bug fixes and new features. It's good practice to <a href="/islandora_workbench_docs/installation/#updating-islandora-workbench">update your copy of Workbench</a> every couple of weeks.</p>
 <p>During <code>--check</code>, Workbench automatically checks to see if it is up to date, and logs the results. If you want to turn this off, include <code>check_for_workbench_updates: false</code> in your configuration file.</p>
+<h2 id="create-standard-templates-for-your-configuration-and-input-csv-files">Create standard templates for your configuration and input CSV files</h2>
+<p>Most users of Islandora Workbench create template configuration files that contain commonly used settings. Many users find that the settings that vary the most across tasks are <code>input_dir</code>, <code>input_csv</code>, and <code>log_file_path</code>. Since there are a number of settings that apply to creating compound content that don't apply to creating simple content, having a separate template for each is worth considering.</p>
+<p>Also, assuming that your Islandora repository uses only a single node content type, it makes sense to use a templated input CSV as well. Even if you use multiple content types, you can use the <code>ignore_csv_columns</code> configuration setting in your templated config file to identify columns that are not used across all of your content types, adjusting the columns identified in this setting depending on which content type the CSV file applies to.</p>
 <h2 id="protect-user-credentials-in-your-config-files">Protect user credentials in your config files</h2>
 <p>Workbench requires the credentials of a Drupal user. You should consult with your local IT group to determine <a href="https://mjordan.github.io/islandora_workbench_docs/installation/#password-management">which option</a> for managing the password of this user is their preference. You don't want Islandora Workbench to become a security vulnerability.</p>
 <h2 id="run-check">Run <code>--check</code></h2>
