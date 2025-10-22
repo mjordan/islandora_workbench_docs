@@ -1499,10 +1499,11 @@ paged_content_additional_page_media:
 <p>Note that Workbench converts all filenames (and wildcard entries) in the directories and filenames listed in the <code>paged_content_ignore_files</code> setting to lower case before checking to see if they are in this list. For example, if Workbench encounters a filename <code>Scanning_Manifest.TXT</code>, it will match "scanning_manifest.txt" in the configuration above configuration.</p>
 <p>Workbench ignores all subdirectories within page directories.</p>
 <h4 id="adding-children-to-nodes-that-already-exist">Adding children to nodes that already exist</h4>
-<p>The preceding documentation explains how to create pages/children from the contents of subdirectories at the same time as the parent node is being created from a row in the input CSV. The following documentation applies to creating pages/children from the contents of subdirectories <em>if the parent node already exists</em>. A common use case for doing this is replacing the PDF attached to a Digital Document node with individual page nodes. Another situation where this method is useful is adding additional children to an existing parent Paged Content or Compound node.</p>
+<p>The preceding documentation explains how to create pages/children from the contents of subdirectories at the same time as the parent node is being created from a row in the input CSV.</p>
+<p>The following documentation applies to creating pages/children from the contents of subdirectories <em>if the parent node already exists</em>. A common use case for doing this is replacing the PDF attached to a Digital Document node with individual page nodes. Another situation where this method is useful is adding additional children to an existing parent Paged Content or Compound node.</p>
 <p>In general, what is described above applies in this situation, except for one difference in the configuration file and one difference in the input CSV:</p>
 <ul>
-<li>Your configuration file must contain <code>paged_content_from_directories_parents_exist: true</code>, not <code>paged_content_from_directories: true</code> as above (notice the "parents_exist" at the end of this setting). All other configuration settings work the same as described above.</li>
+<li>Your configuration file must contain <code>paged_content_from_directories_parents_exist: true</code> instead of <code>paged_content_from_directories: true</code> as above (notice the "parents_exist" at the end of this setting). All other configuration settings work the same as described above.</li>
 <li>Your input CSV must contain a <code>field_member_of</code> column identifying the existing parent that the files in each directory are to be attached to as children.</li>
 </ul>
 <p>A sample input CSV is:</p>
@@ -1510,7 +1511,7 @@ paged_content_additional_page_media:
 1006_01,parent_1_files_1,4037,A sample parent that exists,,2023-01-01
 1006_02,parent_2_files,4182,Another existing parent,,1999-12-31
 </code></pre>
-<p>Since this is a <code>create</code> task, an identifier field (in this example confifgured to be <code>field_identifier</code>) is required in the CSV. In this example configuration, <code>field_identifier</code> is also used to assign identifiers to the new children using a CSV value template. <code>field_edtf_date</code> is included to illustrate an optional field that can be applied to the children using a CSV value template.</p>
+<p>Since this is a <code>create</code> task, an identifier field (in this example configured to be <code>field_identifier</code>) is required in the CSV. In this example configuration, <code>field_identifier</code> is also used to assign identifiers to the new children using a CSV value template. <code>field_edtf_date</code> is included to illustrate an optional field that can be applied to the children using a CSV value template.</p>
 <p>An accompanying sample configuration file is:</p>
 <pre><code class="language-yaml">task: create
 host: islandora.dev
