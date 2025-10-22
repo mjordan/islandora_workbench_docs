@@ -1520,13 +1520,13 @@ password: password
 
 # Required.
 paged_content_from_directories_parents_exist: true
-# Required, as with paged_content_from_directories.
+# Required, as when using paged_content_from_directories.
 paged_content_page_model_tid: http://id.loc.gov/ontologies/bibframe/part
 
+allow_missing_files: true
 page_files_source_dir_field: directory
 # Identifier field isn't required, but is used in the CSV value template below.
 id_field: field_identifier
-allow_missing_files: true
 
 csv_field_templates:
 - field_model: http://id.loc.gov/ontologies/bibframe/part
@@ -1540,8 +1540,8 @@ csv_value_templates_for_paged_content:
 <p>Running this configuration using the sample CSV file will attach a Page model node for each file in the directory to the parent identified in that row's <code>field_member_of</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This method applies to <code>create</code> tasks only. It does not change the Islandora model of the parent node identified in <code>field_member_of</code>. If you need to change the model of the parent, you should do so prior to running the task to add the new children in order to guarantee that all the required Context Actions, etc. work as expected.</p>
-<p>Also, this task does not delete existing media or children from the target parent nodes. Those tasks, where applicable, should also be completed before adding new children.</p>
+<p><code>paged_content_from_directories_parents_exist: true</code> applies to <code>create</code> tasks only. It does not change the Islandora model of the parent node identified in <code>field_member_of</code>. If you need to change the model of the parent, you should do so prior to running the task to add the new children in order to guarantee that all the required Context Actions, etc. work as expected.</p>
+<p>Also, using <code>paged_content_from_directories_parents_exist: true</code> with a <code>create</code> task does not delete existing media or children from the target parent nodes. Those tasks, where applicable, should also be completed before adding new children.</p>
 </div>
 <h3 id="with-pagechild-level-metadata">With page/child-level metadata</h3>
 <p>Using this method, the metadata CSV file contains a row for every item, both parents and children. You should use this method when you are creating books, newspaper issues, or other paged or compound content where each page has its own metadata, or when you are creating compound objects of any Islandora model. The file for each page/child is named explicitly in the page/child's <code>file</code> column rather than being in a subdirectory. To link the pages to the parent, Workbench establishes parent/child relationships between items with  a special <code>parent_id</code> CSV column.</p>
