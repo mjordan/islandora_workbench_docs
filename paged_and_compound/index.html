@@ -1510,7 +1510,7 @@ paged_content_additional_page_media:
 1006_01,parent_1_files_1,4037,A sample parent that exists,,2023-01-01
 1006_02,parent_2_files,4182,Another existing parent,,1999-12-31
 </code></pre>
-<p><code>field_edtf_date</code> is shown here to illustrate an optional field that can be applied to the children as illustrated in the configuration provided below.</p>
+<p>Since this is a <code>create</code> task, an identifier field (in this example confifgured to be <code>field_identifier</code>) is required in the CSV. In this example configuration, <code>field_identifier</code> is also used to assign identifiers to the new children using a CSV value template. <code>field_edtf_date</code> is included to illustrate an optional field that can be applied to the children using a CSV value template.</p>
 <p>An accompanying sample configuration file is:</p>
 <pre><code class="language-yaml">task: create
 host: islandora.dev
