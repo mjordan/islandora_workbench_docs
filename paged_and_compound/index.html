@@ -1503,7 +1503,7 @@ paged_content_additional_page_media:
 <p>The following documentation applies to creating pages/children from the contents of subdirectories <em>if the parent node already exists</em>. A use case for doing this is replacing the PDF attached to a Digital Document node with individual page nodes. Another situation where this method is useful is adding additional children to an existing Paged Content or Compound node.</p>
 <p>In general, the configuration settings and input data structures described above apply in this situation, except for one difference in the configuration file and one difference in the input CSV:</p>
 <ul>
-<li>Your configuration file must contain <code>paged_content_from_directories_parents_exist: true</code> instead of <code>paged_content_from_directories: true</code> as above (notice the "parents_exist" at the end of this setting). All other configuration settings work the same as described above.</li>
+<li>Your configuration file must contain <code>paged_content_from_directories_parents_exist: true</code> instead of <code>paged_content_from_directories: true</code> as above (notice the "parents_exist" at the end of this setting name). All other configuration settings work the same as described above.</li>
 <li>Your input CSV must contain a <code>field_member_of</code> column identifying the existing parent that the files in each directory are to be attached to as children.</li>
 </ul>
 <p>A sample input CSV is:</p>
