@@ -225,11 +225,13 @@ Workbench ignores all subdirectories within page directories.
 
 #### Adding children to nodes that already exist
 
-The preceding documentation explains how to create pages/children from the contents of subdirectories at the same time as the parent node is being created from a row in the input CSV. The following documentation applies to creating pages/children from the contents of subdirectories *if the parent node already exists*. A common use case for doing this is replacing the PDF attached to a Digital Document node with individual page nodes. Another situation where this method is useful is adding additional children to an existing parent Paged Content or Compound node.
+The preceding documentation explains how to create pages/children from the contents of subdirectories at the same time as the parent node is being created from a row in the input CSV.
 
-In general, what is described above applies in this situation, except for one difference in the configuration file and one difference in the input CSV:
+The following documentation applies to creating pages/children from the contents of subdirectories *if the parent node already exists*. A use case for doing this is replacing the PDF attached to a Digital Document node with individual page nodes. Another situation where this method is useful is adding additional children to an existing Paged Content or Compound node.
 
-- Your configuration file must contain `paged_content_from_directories_parents_exist: true`, not `paged_content_from_directories: true` as above (notice the "parents_exist" at the end of this setting). All other configuration settings work the same as described above.
+In general, the configuration settings and input data structures described above apply in this situation, except for one difference in the configuration file and one difference in the input CSV:
+
+- Your configuration file must contain `paged_content_from_directories_parents_exist: true` instead of `paged_content_from_directories: true` as above (notice the "parents_exist" at the end of this setting name). All other configuration settings work the same as described above.
 - Your input CSV must contain a `field_member_of` column identifying the existing parent that the files in each directory are to be attached to as children.
 
 A sample input CSV is:
@@ -240,7 +242,7 @@ field_identifier,directory,field_member_of,title,file,field_edtf_date
 1006_02,parent_2_files,4182,Another existing parent,,1999-12-31
 ```
 
-`field_edtf_date` is shown here to illustrate an optional field that can be applied to the children as illustrated in the configuration provided below.
+Since this is a `create` task, an identifier field (in this example configured to be `field_identifier`) is required in the CSV. In this example configuration, `field_identifier` is also used to assign identifiers to the new children using a CSV value template. `field_edtf_date` is included to illustrate an optional field that can be applied to the children using a CSV value template.
 
 An accompanying sample configuration file is:
 
@@ -252,14 +254,14 @@ password: password
 
 # Required.
 paged_content_from_directories_parents_exist: true
-# Required, as with paged_content_from_directories.
+# Required, as when using paged_content_from_directories.
 paged_content_page_model_tid: http://id.loc.gov/ontologies/bibframe/part
 
-page_files_source_dir_field: directory
-# Identifier field isn't required, but is used in the CSV value template below.
-id_field: field_identifier
 allow_missing_files: true
+page_files_source_dir_field: directory
+id_field: field_identifier
 
+# CSV field templates apply to the children being created in this create task, not the existing parent.
 csv_field_templates:
 - field_model: http://id.loc.gov/ontologies/bibframe/part
 
@@ -273,9 +275,9 @@ csv_value_templates_for_paged_content:
 Running this configuration using the sample CSV file will attach a Page model node for each file in the directory to the parent identified in that row's `field_member_of`.
 
 !!! note
-    This method applies to `create` tasks only. It does not change the Islandora model of the parent node identified in `field_member_of`. If you need to change the model of the parent, you should do so prior to running the task to add the new children in order to guarantee that all the required Context Actions, etc. work as expected.
+    `paged_content_from_directories_parents_exist: true` applies to `create` tasks only. It does not change the Islandora model of the parent node identified in `field_member_of`. If you need to change the model of the parent, you should do so prior to running the `create` task to add the new children in order to guarantee that all the required Context Actions, etc. work as expected.
 
-    Also, this task does not delete existing media or children from the target parent nodes. Those tasks, where applicable, should also be completed before adding new children.
+    Also, using `paged_content_from_directories_parents_exist: true` does not delete existing media or children from the target parent nodes. Those tasks, where applicable, should also be completed before adding new children.
 
 ### With page/child-level metadata
 
