@@ -7,6 +7,9 @@ This feature is useful if you create a subset of items as a test or quality assu
 
     Another assumption Workbench makes is that the values do not contain any spaces. They can however contain underscores, hyphens, and colons.
 
+!!! note
+    If you are using the configuration described in "[Adding children to nodes that already exist](/islandora_workbench_docs/paged_and_compound/#adding-children-to-nodes-that-already-exist)", Workbench can't reliably check if child/page nodes corrsponding to files in an input directory already exist. Follow advice provided on that page to prevent duplicate child/page nodes from being added, not the configurations described on this page.
+
 
 ## Creating the required View
 
