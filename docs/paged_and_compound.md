@@ -227,7 +227,7 @@ Workbench ignores all subdirectories within page directories.
 
 The preceding documentation explains how to create pages/children from the contents of subdirectories at the same time as the parent node is being created from a row in the input CSV.
 
-The following documentation applies to creating pages/children from the contents of subdirectories *if the parent node already exists*. A use case for doing this is replacing the PDF attached to a Digital Document node with individual page nodes. Another situation where this method is useful is adding additional children to an existing Paged Content or Compound node.
+The documentation in this section applies to creating pages/children from the contents of subdirectories *if the parent node already exists*. A use case for doing this is replacing the PDF attached to a Digital Document node with individual page nodes. Another situation where this method is useful is adding additional children to an existing Paged Content or Compound node.
 
 In general, the configuration settings and input data structures described above apply in this situation, except for one difference in the configuration file and one difference in the input CSV:
 
@@ -237,12 +237,13 @@ In general, the configuration settings and input data structures described above
 A sample input CSV is:
 
 ```csv
-field_identifier,directory,field_member_of,title,file,field_edtf_date
-1006_01,parent_1_files_1,4037,A sample parent that exists,,2023-01-01
-1006_02,parent_2_files,4182,Another existing parent,,1999-12-31
+id,field_identifier,directory,field_member_of,title,file,field_edtf_date
+row_1,example_01,parent_1_files_1,4037,A sample parent that exists,,2023-01-01
+row_2,example_02,parent_2_files,4182,Another existing parent,,1999-12-31
 ```
 
-Since this is a `create` task, an identifier field (in this example configured to be `field_identifier`) is required in the CSV. In this example configuration, `field_identifier` is also used to assign identifiers to the new children using a CSV value template. `field_edtf_date` is included to illustrate an optional field that can be applied to the children using a CSV value template.
+Fields in the input CSV are the basis for field values applied to each row's children, following the process described in the "[Applying field data to pages/children created from subdirectories](/islandora_workbench_docs/paged_and_compound/#applying-field-data-to-pageschildren-created-from-subdirectories)" section above. `title` is always a required field in `create` tasks, and in this example CSV file and configuration, `field_identifier` is used to assign identifiers to the new children using a CSV value template. `field_edtf_date` is included to illustrate an optional field that is applied to the children using a CSV value template. Fields in an input CSV that are optional and not configured in field templates, CSV templates, or in `csv_value_templates_for_paged_content` will be ignored. `field_weight` is an exception, since it is derived from filenames as described below.
+
 
 An accompanying sample configuration file is:
 
@@ -259,7 +260,6 @@ paged_content_page_model_tid: http://id.loc.gov/ontologies/bibframe/part
 
 allow_missing_files: true
 page_files_source_dir_field: directory
-id_field: field_identifier
 
 # CSV field templates apply to the children being created in this create task, not the existing parent.
 csv_field_templates:
@@ -274,10 +274,11 @@ csv_value_templates_for_paged_content:
 
 Running this configuration using the sample CSV file will attach a Page model node for each file in the directory to the parent identified in that row's `field_member_of`.
 
-A couple of important things to note:
+Some important things to note:
 
-* `paged_content_from_directories_parents_exist: true` applies to `create` tasks only, and does not change the Islandora model of the parent node identified in `field_member_of`. If you need to change the model of the parent, you should do so prior to running the `create` task to add the new children in order to guarantee that all the required Context Actions, etc. work as expected.
+* `paged_content_from_directories_parents_exist: true` applies to `create` tasks only, and does not change the Islandora model of the parent node identified in `field_member_of`. If you need to change the model of the parent (for example in the use case mentioned above where you are replacing a multipage PDF attached to a Digital Document node with individual Page children), you should do so prior to running the `create` task to add the new children in order to guarantee that all the required Context Actions, etc. work as expected.
 * If you are creating additional children from files in a directory (additional in the sense that the parent node already has some child nodes attached to it), you will need to ensure that the directory only contains files for the new children you want to add. Islandora Workbench doesn't check if a child corresponding to a file already exists, even if [Drupal and Workbench are configured to do so](https://mjordan.github.io/islandora_workbench_docs/checking_if_nodes_exist/). Also note that using `paged_content_from_directories_parents_exist: true` doesn't delete existing media or children from the target parent nodes. Children to be replaced need to be deleted separately before adding their replacements.
+* Related to the previous point, Workbench assigns the `field_weight` of children/pages directly from the sequence indicators embedded in filenames, so name your page/child files so they have a weight that is consistent with the weights of their existing siblings. For example, if the last-sorting Page node that already exists in a given parent has a weight of "20", and you are adding additional pages, the new pages' filenames should have sequence indicators of `-21`, `-22`, `-23`, etc., resulting in filenames like `newspaper_2001-10-03-21.tif`, `newspaper_2001-10-03-22.tif`, `newspaper_2001-10-03-23.tif` in your input directory. Using these sequence indicators will add pages 21, 22, and 23 to the target newspaper issue.
 
 
 ### With page/child-level metadata
