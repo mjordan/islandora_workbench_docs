@@ -274,10 +274,11 @@ csv_value_templates_for_paged_content:
 
 Running this configuration using the sample CSV file will attach a Page model node for each file in the directory to the parent identified in that row's `field_member_of`.
 
-!!! note
-    `paged_content_from_directories_parents_exist: true` applies to `create` tasks only. It does not change the Islandora model of the parent node identified in `field_member_of`. If you need to change the model of the parent, you should do so prior to running the `create` task to add the new children in order to guarantee that all the required Context Actions, etc. work as expected.
+A couple of important things to note:
 
-    Also, using `paged_content_from_directories_parents_exist: true` does not delete existing media or children from the target parent nodes. Those tasks, where applicable, should also be completed before adding new children.
+* `paged_content_from_directories_parents_exist: true` applies to `create` tasks only, and does not change the Islandora model of the parent node identified in `field_member_of`. If you need to change the model of the parent, you should do so prior to running the `create` task to add the new children in order to guarantee that all the required Context Actions, etc. work as expected.
+* If you are creating additional children from files in a directory (additional in the sense that the parent node already has some child nodes attached to it), you will need to ensure that the directory only contains files for the new children you want to add. Islandora Workbench doesn't check if a child corresponding to a file already exists, even if [Drupal and Workbench are configured to do so](https://mjordan.github.io/islandora_workbench_docs/checking_if_nodes_exist/). Also note that using `paged_content_from_directories_parents_exist: true` doesn't delete existing media or children from the target parent nodes. Children to be replaced need to be deleted separately before adding their replacements.
+
 
 ### With page/child-level metadata
 
