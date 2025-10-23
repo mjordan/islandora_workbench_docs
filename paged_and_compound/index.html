@@ -1538,7 +1538,7 @@ csv_value_templates_for_paged_content:
   - field_identifier: $csv_value-$weight
 </code></pre>
 <p>Running this configuration using the sample CSV file will attach a Page model node for each file in the directory to the parent identified in that row's <code>field_member_of</code>.</p>
-<p>A couple of important things to note:</p>
+<p>Some important things to note:</p>
 <ul>
 <li><code>paged_content_from_directories_parents_exist: true</code> applies to <code>create</code> tasks only, and does not change the Islandora model of the parent node identified in <code>field_member_of</code>. If you need to change the model of the parent, you should do so prior to running the <code>create</code> task to add the new children in order to guarantee that all the required Context Actions, etc. work as expected.</li>
 <li>If you are creating additional children from files in a directory (additional in the sense that the parent node already has some child nodes attached to it), you will need to ensure that the directory only contains files for the new children you want to add. Islandora Workbench doesn't check if a child corresponding to a file already exists, even if <a href="https://mjordan.github.io/islandora_workbench_docs/checking_if_nodes_exist/">Drupal and Workbench are configured to do so</a>. Also note that using <code>paged_content_from_directories_parents_exist: true</code> doesn't delete existing media or children from the target parent nodes. Children to be replaced need to be deleted separately before adding their replacements.</li>
