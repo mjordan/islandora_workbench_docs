@@ -55,6 +55,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* October 23, 2025: Updates to "[Adding children to nodes that already exist](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#adding-children-to-nodes-that-already-exist)".
 * October 22, 2025: Added "[Adding children to nodes that already exist](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#adding-children-to-nodes-that-already-exist)".
 * October 21, 2025: Updated "[Exporting Islandora 7 content](https://mjordan.github.io/islandora_workbench_docs/exporting_islandora_7_content/)" to point to the [new repository](https://github.com/mjordan/i7_import) for that script.
 * September 25, 2025: Updated "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/#using-subdirectories)" to clarify that if `paged_content_from_directories` is `true`, the `additional_files` config setting doesn't apply.
