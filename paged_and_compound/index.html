@@ -1511,10 +1511,10 @@ paged_content_additional_page_media:
 row_1,example_01,parent_1_files_1,4037,A sample parent that exists,,2023-01-01
 row_2,example_02,parent_2_files,4182,Another existing parent,,1999-12-31
 </code></pre>
-<p>Fields in the input CSV are the basis for field values applied to each row's children, following the process described in the "<a href="/islandora_workbench_docs/paged_and_compound/#applying-field-data-to-pageschildren-created-from-subdirectories">Applying field data to pages/children created from subdirectories</a>" section above. <code>title</code> is always a required field in <code>create</code> tasks, and in this example CSV file and configuration, <code>field_identifier</code> is used to assign identifiers to the new children using a CSV value template. <code>field_edtf_date</code> is included to illustrate an optional field that is applied to the children using a CSV value template. Fields in an input CSV that are optional and not configured in field templates, CSV templates, or in <code>csv_value_templates_for_paged_content</code> will be ignored. <code>field_weight</code> is an exception, since it is derived from filenames as described below.</p>
+<p>Fields in the input CSV are the basis for field values applied to each row's children, following the process described in the "<a href="/islandora_workbench_docs/paged_and_compound/#applying-field-data-to-pageschildren-created-from-subdirectories">Applying field data to pages/children created from subdirectories</a>" section above. <code>title</code> is always a required field in <code>create</code> tasks. In this example CSV file and configuration, <code>field_identifier</code> is used to assign identifiers to the new children using a CSV value template. <code>field_edtf_date</code> is also included to illustrate an optional field that is applied to the children using a CSV value template. Fields in an input CSV that are optional and not configured in field templates, CSV templates, or in <code>csv_value_templates_for_paged_content</code> will be ignored. <code>field_weight</code> is an exception, since it is derived from filenames as described below.</p>
 <p>An accompanying sample configuration file is:</p>
 <pre><code class="language-yaml">task: create
-host: islandora.dev
+host: https://islandora.dev
 username: admin
 password: password
 
@@ -1523,15 +1523,20 @@ paged_content_from_directories_parents_exist: true
 # Required, as when using paged_content_from_directories.
 paged_content_page_model_tid: http://id.loc.gov/ontologies/bibframe/part
 
+input_csv: parents_exist.csv
+input_dir: input_data/parents_exist
+
 allow_missing_files: true
 page_files_source_dir_field: directory
 
-# CSV field templates apply to the children being created in this create task, not the existing parent.
+# In this type of task, CSV field templates apply to the children being created, not the existing parent.
 csv_field_templates:
 - field_model: http://id.loc.gov/ontologies/bibframe/part
 
 page_title_template: '$parent_title, side $weight'
 
+# In this type of task, csv_field_templates and csv_value_templates_for_paged_content
+# both do the same thing.
 csv_value_templates_for_paged_content:
   - field_edtf_date: $csv_value
   - field_identifier: $csv_value-$weight
