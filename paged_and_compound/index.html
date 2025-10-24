@@ -1295,6 +1295,7 @@
 <p>Islandora Workbench provides three ways to create paged and compound content:</p>
 <ul>
 <li>using a subdirectory structure to define the relationship between the parent item and its children</li>
+<li>using a subdirectory structure to define the relationship between an existing parent item and its children</li>
 <li>using page-level metadata in the CSV to establish that relationship</li>
 <li>using a secondary task.</li>
 </ul>
@@ -1458,9 +1459,9 @@ book2,book000,Using Islandora Workbench for Fun and Profit,Paged Content
 </ul>
 <p>An example configuration is:</p>
 <pre><code class="language-yaml">task: create
-host: &quot;http://localhost:8000&quot;
+host: https://islandora.dev
 username: admin
-password: islandora
+password: password
 input_dir: input_data/paged_content_example
 standalone_media_url: true
 paged_content_from_directories: true
