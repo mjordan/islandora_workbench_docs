@@ -55,6 +55,7 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### Documentation
 
+* November 5, 2025: Clarified how Workbench handled `title` data longer than 255 characters in the "[Base fields](/islandora_workbench_docs/fields/#base-fields)" documentation.
 * October 23, 2025: Updates to "[Adding children to nodes that already exist](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#adding-children-to-nodes-that-already-exist)".
 * October 22, 2025: Added "[Adding children to nodes that already exist](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#adding-children-to-nodes-that-already-exist)".
 * October 21, 2025: Updated "[Exporting Islandora 7 content](https://mjordan.github.io/islandora_workbench_docs/exporting_islandora_7_content/)" to point to the [new repository](https://github.com/mjordan/i7_import) for that script.
