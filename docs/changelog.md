@@ -2,6 +2,8 @@ You may also be interested in change log items [prior to 2025](/islandora_workbe
 
 ### main branch (no tag/release)
 
+* December 23, 2025: Resolved (commit 5064454) [issue 450](https://github.com/mjordan/islandora_workbench/issues/450) and (commit a15289b) [issue 1048](https://github.com/mjordan/islandora_workbench/issues/1048).
+* December 16, 2025: Merged (commit 6d4678e96) [PR 993](https://github.com/mjordan/islandora_workbench/pull/993). Thanks @whikloj!
 * December 1, 2025: Resolved (commit 183c649) [issue 1042](https://github.com/mjordan/islandora_workbench/issues/1042) and (commit 4fc688e) [issue 1043](https://github.com/mjordan/islandora_workbench/issues/1043).
 * October 22, 2025: Resolved (commit 6b58a26) [issue 1006](https://github.com/mjordan/islandora_workbench/issues/1006).
 * October 21, 2025: Merged (commit 95ec68d) [PR 1017](https://github.com/mjordan/islandora_workbench/pull/1017). Thanks @whikloj!
