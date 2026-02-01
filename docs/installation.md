@@ -28,7 +28,7 @@ As of around 2024, trying to install Islandora Workbench on a Mac with Homebrew 
 
 The preferred method for installing software via pip is now to use a virtual environment.
 
-See [this StackOverflow answer](https://stackoverflow.com/a/78297842) for more information and steps to create a virtual environment where Islandora Workbench's dependencies can be installed.
+You can use these [instructions on how to install Workbench with a virtual enviroment](installation_with_venv.md) for macOS, Linux, or Windows.
 
 ## Installing Islandora Workbench
 
