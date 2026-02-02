@@ -48,7 +48,7 @@ cd into the newly created folder called islandora\_workbench that contains the g
 
 `cd islandora_workbench`
 
-Use the \`venv' module create a Python "virtual environment" called "venv"  
+Use the `venv` module create a Python "virtual environment" called "venv"  
 `python3 -m venv venv`
 
 ### Step 3: Activate your virtual environment
@@ -59,7 +59,7 @@ For activating the virtual environment you need to use the environment folder yo
 
 `cd /Users/jdoe/Documents/islandora_workbench`  
     
-Then activate the environment with this command (Unix/macOS):  
+Then activate the environment with this command (Linux/macOS):  
 `source venv/bin/activate`
 
 Windows activate syntax:   
@@ -83,7 +83,7 @@ Windows:
 
 ### Step 4: Install Workbench's required Python modules inside a virtual environment 
 
-IMPORTANT/ STOP: You need to make sure the environment is activated at this point, see activation instructions above:
+IMPORTANT/STOP: You need to make sure the environment is activated at this point, see activation instructions above:
 
 After activation example:  
 `(venv) jdoe-laptop::islandora_workbench_fork jdoe$`
@@ -117,7 +117,7 @@ Then activate the environment with this command (Unix/macOS):
 Windows activate syntax:   
 `venv\Scripts\activate`
 
-IMPORTANT/ STOP: You need to make sure the environment is activated at this point, see activation instructions above:
+IMPORTANT/STOP: You need to make sure the environment is activated at this point, see activation instructions above:
 
 After activation example:  
 `(venv) jdoe-laptop::islandora_workbench_fork jdoe$`
@@ -161,7 +161,7 @@ Then activate the environment with this command (Unix/macOS):
 Windows activate syntax:   
 `venv\Scripts\activate`
 
-IMPORTANT/ STOP: You need to make sure the environment is activated at this point, see activation instructions above:
+IMPORTANT/STOP: You need to make sure the environment is activated at this point, see activation instructions above:
 
 After activation example:  
 `(venv) jdoe-laptop::islandora_Workbench_fork jdoe$`
@@ -211,7 +211,7 @@ After activation example:
 
 TIP: Another way to tell you are running a virtual environment is to run this command to print the full path on your virtual environment. If the command prints and **empty** line, your virtual environment is NOT active 
 
-macOS:  
+Linux/macOS:  
 `echo $VIRTUAL_ENV`
 
 Windows:  
@@ -234,7 +234,7 @@ Windows activate syntax:
 STOP: Make sure environment was activated
 
 After activation example:  
-`(venv) jdoe-laptop::islandora_workbench_fork jdoe$`
+`(venv) jdoe-laptop::islandora_workbench jdoe$`
 
 TIP: Another way to tell you are running a virtual environment is to run this command to print the full path on your virtual environment. If the command prints an **empty** line, your virtual environment is NOT active. 
 
