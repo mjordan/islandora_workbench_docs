@@ -1259,28 +1259,29 @@
   <h1>Installation with venv</h1>
 
 <h2 id="installing-workbench-inside-of-a-python-virtual-environment">Installing Workbench inside of a Python virtual environment</h2>
-<p>Workbench is written in Python and in the Python community it is strongly recommended that software is installed within what are called Python "virtual environments." Python virtual environments are an isolated way to install the required Python modules of an application that avoid conflicts with other Python software and modules. Essentially they are a special directory that will contain the required Python modules for Workbench and a few other files. They are not related to virtual machines (VMs) or Docker containers. Though they can be used in conjunction with VMs and Docker.</p>
-<p>NOTE: These instructions assume you have already installed <code>git</code> and a version of Python that is compatible with Workbench.</p>
+<p>Within the Python community it is strongly recommended that software is installed within what are called Python "virtual environments." Python virtual environments are an isolated way to install the required Python modules of an application that avoid conflicts with other Python software and modules. Essentially they are a special directory that will contain the required Python modules for Workbench and a few other files. They are not related to virtual machines (VMs) or Docker containers, though they can be used in conjunction with VMs and Docker.</p>
+<p>! note
+    These instructions assume you have already installed <code>git</code> and a version of Python that is compatible with Workbench.</p>
 <h3 id="overview">Overview</h3>
 <h4 id="the-high-level-steps-for-installing-workbench-inside-a-python-virtual-environments">The high level steps for INSTALLING Workbench inside a Python virtual environments:</h4>
 <p>The following steps are normally only run once.</p>
 <p>(Open a terminal window)</p>
 <ol>
-<li>Clone Workbench git repository  </li>
-<li>Inside of git repo folder, create a virtual environment folder  </li>
-<li>Activate the virtual environment in your current terminal window  </li>
+<li>Clone Workbench git repository</li>
+<li>Inside of git repo folder, create a virtual environment folder</li>
+<li>Activate the virtual environment in your current terminal window</li>
 <li>Inside that terminal window install the Workbench required modules</li>
 </ol>
 <h4 id="the-high-level-steps-for-using-python-virtual-environments-when-running-workbench">The high level steps for USING Python virtual environments when running Workbench:</h4>
 <p>These steps have to be run each time you want to use Islandora Workbench.</p>
 <p>(Open a terminal window)</p>
 <ol>
-<li>Inside of the Workbench git repo folder, activate the virtual environment in your current terminal window  </li>
+<li>Inside of the Workbench git repo folder, activate the virtual environment in your current terminal window</li>
 <li>run the <code>workbench</code> commands inside that window</li>
 </ol>
 <h3 id="step-1-clone-workbench-git-repository">Step 1: Clone Workbench git repository</h3>
-<p>Open a terminal window</p>
-<p>cd to a directory that you want to use for installing Workbench </p>
+<p>(Open a terminal window)</p>
+<p>cd to a directory that you want to use for installing Workbench</p>
 <p>As an example we will use <code>cd /Users/jdoe/Documents/</code></p>
 <p>Clone the Islandora Workbench git repo inside of the path you chose</p>
 <p><code>git clone https://github.com/mjordan/islandora_workbench.git</code></p>
@@ -1289,29 +1290,29 @@
 <h3 id="step-2-create-a-python-virtual-environment">Step 2: Create a Python virtual environment</h3>
 <p>cd into the newly created folder called islandora_workbench that contains the git repo from the section above.</p>
 <p><code>cd islandora_workbench</code></p>
-<p>Use the <code>venv</code> module create a Python "virtual environment" called "venv"<br />
+<p>Use the <code>venv</code> module create a Python "virtual environment" called "venv"
 <code>python3 -m venv venv</code></p>
 <h3 id="step-3-activate-your-virtual-environment">Step 3: Activate your virtual environment</h3>
 <p>In your terminal window you must FIRST activate the environment every time you want to <strong>install</strong>, <strong>use</strong>, or <strong>upgrade</strong> Islandora Workbench.</p>
 <p>For activating the virtual environment you need to use the environment folder you created above, which was called "venv". First make sure you are inside the directory that has the Workbench repository. In this example it would be:</p>
-<p><code>cd /Users/jdoe/Documents/islandora_workbench</code>  </p>
-<p>Then activate the environment with this command (Linux/macOS):<br />
+<p><code>cd /Users/jdoe/Documents/islandora_workbench</code></p>
+<p>Then activate the environment with this command (Linux/macOS):
 <code>source venv/bin/activate</code></p>
-<p>Windows activate syntax: <br />
+<p>Windows activate syntax:
 <code>venv\Scripts\activate</code></p>
 <p>TIP: You can verify that the environment is activated by noticing a change in the left most prompt in our terminal window, the name of the environment folder will show up on the far left inside parentheses: "(venv)"</p>
-<p>Before activation example:<br />
+<p>Before activation example:
 <code>jdoe-laptop:islandora_workbench_fork jdoe$</code></p>
-<p>After activation example:<br />
+<p>After activation example:
 <code>(venv) jdoe-laptop::islandora_workbench_fork jdoe$</code></p>
-<p>TIP: Another way to tell you are running a virtual environment is to run this command to print the full path on your virtual environment. If the command prints and <strong>empty</strong> line, your virtual environment is NOT active </p>
-<p>macOS:<br />
+<p>TIP: Another way to tell you are running a virtual environment is to run this command to print the full path on your virtual environment. If the command prints and <strong>empty</strong> line, your virtual environment is NOT active</p>
+<p>macOS:
 <code>echo $VIRTUAL_ENV</code></p>
-<p>Windows:<br />
+<p>Windows:
 <code>echo %VIRTUAL_ENV%</code></p>
 <h3 id="step-4-install-workbenchs-required-python-modules-inside-a-virtual-environment">Step 4: Install Workbench's required Python modules inside a virtual environment</h3>
 <p>IMPORTANT/STOP: You need to make sure the environment is activated at this point, see activation instructions above:</p>
-<p>After activation example:<br />
+<p>After activation example:
 <code>(venv) jdoe-laptop::islandora_workbench_fork jdoe$</code></p>
 <p>Run this command to start the process to install the required Python modules</p>
 <p>NOTE: There single period below to the right of the word "install"</p>
@@ -1325,47 +1326,47 @@
 <h2 id="everyday-workflow-to-use-workbench-with-an-existing-virtual-a-environment">Everyday workflow to use Workbench with an existing virtual a environment</h2>
 <p>If you followed the instructions above for creating the virtual environment, this would be the instructions to regularly use Islandora Workbench with a virtual environment.</p>
 <h3 id="step-1-activate-virtual-environment">Step 1: Activate virtual environment</h3>
-<p>cd into the folder called islandora_workbench that contains the git repo from the section above<br />
-<code>cd /Users/jdoe/Documents/islandora_workbench</code>  </p>
-<p>Then activate the environment with this command (Unix/macOS):<br />
+<p>cd into the folder called islandora_workbench that contains the git repo from the section above
+<code>cd /Users/jdoe/Documents/islandora_workbench</code></p>
+<p>Then activate the environment with this command (Unix/macOS):
 <code>source venv/bin/activate</code></p>
-<p>Windows activate syntax: <br />
+<p>Windows activate syntax:
 <code>venv\Scripts\activate</code></p>
 <p>IMPORTANT/STOP: You need to make sure the environment is activated at this point, see activation instructions above:</p>
-<p>After activation example:<br />
+<p>After activation example:
 <code>(venv) jdoe-laptop::islandora_workbench_fork jdoe$</code></p>
-<p>TIP: Another way to tell you are running a virtual environment is to run this command to print the full path on your virtual environment. If the command prints and <strong>empty</strong> line, your virtual environment is NOT active </p>
-<p>macOS:<br />
+<p>TIP: Another way to tell you are running a virtual environment is to run this command to print the full path on your virtual environment. If the command prints and <strong>empty</strong> line, your virtual environment is NOT active</p>
+<p>macOS:
 <code>echo $VIRTUAL_ENV</code></p>
-<p>Windows:<br />
+<p>Windows:
 <code>echo %VIRTUAL_ENV%</code></p>
 <h3 id="step-2-run-workbench-commands">Step 2: Run Workbench commands</h3>
 <p>Track down the paths to your <code>config.yml</code> and <code>metadata.csv</code> files to then be used when you run the <code>workbench</code> command on your terminal window.</p>
-<p><code>./workbench --config path/to/config.yml --check</code> </p>
+<p><code>./workbench --config path/to/config.yml --check</code></p>
 <hr />
 <h2 id="updating-islandora-workbench-within-a-virtual-environment">Updating Islandora Workbench within a virtual environment</h2>
-<p>Since Islandora Workbench is under development, you will want to update it often. </p>
+<p>Since Islandora Workbench is under development, you will want to update it often.</p>
 <h3 id="step-1-activate-virtual-environment_1">Step 1: Activate virtual environment</h3>
-<p>To do this, within the islandora_workbench directory, cd into the folder called islandora_workbench that contains the git repo from the section above<br />
+<p>To do this, within the islandora_workbench directory, cd into the folder called islandora_workbench that contains the git repo from the section above
 <code>cd /Users/jdoe/Documents/islandora_workbench</code></p>
 <h3 id="step-2-pull-in-latest-workbench-changes-from-repo">Step 2: Pull in latest Workbench changes from repo</h3>
-<p>run the following git command:<br />
+<p>run the following git command:
 <code>git pull origin main</code></p>
 <h3 id="step-2-activate-virtual-environment">Step 2: Activate virtual environment</h3>
-<p>Then activate the environment with this command (Unix/macOS):<br />
+<p>Then activate the environment with this command (Unix/macOS):
 <code>source venv/bin/activate</code></p>
-<p>Windows activate syntax: <br />
+<p>Windows activate syntax:
 <code>venv\Scripts\activate</code></p>
 <p>IMPORTANT/STOP: You need to make sure the environment is activated at this point, see activation instructions above:</p>
-<p>After activation example:<br />
+<p>After activation example:
 <code>(venv) jdoe-laptop::islandora_Workbench_fork jdoe$</code></p>
-<p>TIP: Another way to tell you are running a virtual environment is to run this command to print the full path on your virtual environment. If the command prints and <strong>empty</strong> line, your virtual environment is NOT active </p>
-<p>macOS:<br />
+<p>TIP: Another way to tell you are running a virtual environment is to run this command to print the full path on your virtual environment. If the command prints and <strong>empty</strong> line, your virtual environment is NOT active</p>
+<p>macOS:
 <code>echo $VIRTUAL_ENV</code></p>
-<p>Windows:<br />
+<p>Windows:
 <code>echo %VIRTUAL_ENV%</code></p>
 <h3 id="step-3-upgrade-workbenchs-required-python-modules-inside-a-virtual-environment">Step 3: Upgrade Workbench's required Python modules inside a virtual environment</h3>
-<p>Since you have already pulled in the latest changes using git, see above, it's a good idea to rerun the setup tools in case new Python libraries have been added since you last ran the "pip install":<br />
+<p>Since you have already pulled in the latest changes using git, see above, it's a good idea to rerun the setup tools in case new Python libraries have been added since you last ran the "pip install":
 <code>sudo python -m pip install --upgrade .</code></p>
 <p>NOTE: There single period below to the right of the word "--upgrade"</p>
 <hr />
@@ -1375,48 +1376,48 @@
 <p><code>cd /Users/jdoe/Documents/</code></p>
 <p><code>git clone https://github.com/mjordan/islandora_workbench.git</code></p>
 <p><code>cd islandora_workbench</code></p>
-<p><code>python3 -m venv venv</code> </p>
+<p><code>python3 -m venv venv</code></p>
 <p><code>source venv/bin/activate</code></p>
-<p>Windows activate syntax: <br />
+<p>Windows activate syntax:
 <code>venv\Scripts\activate</code></p>
 <p>STOP: Make sure environment was activated</p>
-<p>After activation example:<br />
+<p>After activation example:
 <code>(venv) jdoe-laptop::islandora_workbench_fork jdoe$</code></p>
-<p>TIP: Another way to tell you are running a virtual environment is to run this command to print the full path on your virtual environment. If the command prints and <strong>empty</strong> line, your virtual environment is NOT active </p>
-<p>Linux/macOS:<br />
+<p>TIP: Another way to tell you are running a virtual environment is to run this command to print the full path on your virtual environment. If the command prints and <strong>empty</strong> line, your virtual environment is NOT active</p>
+<p>Linux/macOS:
 <code>echo $VIRTUAL_ENV</code></p>
-<p>Windows:<br />
+<p>Windows:
 <code>echo %VIRTUAL_ENV%</code></p>
-<p>NOTE: there is a period to the right of "install"<br />
+<p>NOTE: there is a period to the right of "install"
 <code>python3 -m pip install .</code></p>
 <h3 id="condensed-everyday-workflow-to-use-workbench-with-an-existing-virtual-a-environment">Condensed: Everyday workflow to use Workbench with an existing virtual a environment</h3>
 <p>You need to run these steps whenever you open a brand new terminal window to run <code>workbench</code> commands.</p>
 <p><code>cd /Users/jdoe/Documents/islandora_workbench</code></p>
 <p><code>source venv/bin/activate</code></p>
-<p>Windows activate syntax: <br />
+<p>Windows activate syntax:
 <code>venv\Scripts\activate</code></p>
 <p>STOP: Make sure environment was activated</p>
-<p>After activation example:<br />
+<p>After activation example:
 <code>(venv) jdoe-laptop::islandora_workbench jdoe$</code></p>
-<p>TIP: Another way to tell you are running a virtual environment is to run this command to print the full path on your virtual environment. If the command prints an <strong>empty</strong> line, your virtual environment is NOT active. </p>
-<p>macOS:<br />
+<p>TIP: Another way to tell you are running a virtual environment is to run this command to print the full path on your virtual environment. If the command prints an <strong>empty</strong> line, your virtual environment is NOT active.</p>
+<p>macOS:
 <code>echo $VIRTUAL_ENV</code></p>
-<p>Windows:<br />
+<p>Windows:
 <code>echo %VIRTUAL_ENV%</code></p>
 <p>Create your config.yml and metadata.csv files.</p>
-<p><code>./workbench --config path/to/config.yml --check</code> </p>
+<p><code>./workbench --config path/to/config.yml --check</code></p>
 <h2 id="common-errors">Common errors</h2>
 <h3 id="error-if-the-virtual-environment-is-not-activated-after-installation-inside-environment">Error if the virtual environment is not activated (after installation inside environment)</h3>
 <p>This is the error you may get if you had previously installed Workbench in a virtual environment but forgot to activate it:</p>
-<p><code>./workbench --config path/to/config.yml --check</code><br />
-<code>Traceback (most recent call last):</code><br />
-<code>File "/Users/ysuarez/Documents/Archives/islandora_workbench_local_berklee_use/./workbench", line 16, in &lt;module&gt;</code><br />
-<code>import requests_cache</code><br />
+<p><code>./workbench --config path/to/config.yml --check</code>
+<code>Traceback (most recent call last):</code>
+  <code>File "/Users/ysuarez/Documents/Archives/islandora_workbench_local_berklee_use/./workbench", line 16, in &lt;module&gt;</code>
+    <code>import requests_cache</code>
 <code>ModuleNotFoundError: No module named 'requests_cache'</code></p>
-<p>That is because normally the "base" Python installation on your computer would not have all of the modules that you should have previously installed in your virtual environment. </p>
+<p>That is because normally the "base" Python installation on your computer would not have all of the modules that you should have previously installed in your virtual environment.</p>
 <h4 id="solution">Solution:</h4>
 <ul>
-<li>Activate the virtual environment, see above.   </li>
+<li>Activate the virtual environment, see above.</li>
 <li>Then re-run your <code>workbench</code> command.</li>
 </ul>
 <h3 id="modulenotfounderror-no-module-named-setuptools">ModuleNotFoundError: No module named 'setuptools'</h3>
