@@ -22,4 +22,4 @@ The `task` configuration setting defines the specific work you want Workbench to
 | Create URL redirects | `create_redirects` | [Creating redirects](/islandora_workbench_docs/redirects/) |
 | Add alt text to images | `add_alt_text` | [Adding alt text to images](/islandora_workbench_docs/alt_text/) |
 | Update image alt text | `update_alt_text` | [Adding alt text to images](/islandora_workbench_docs/alt_text/) |
-| Ren scripts on existing nodes, media, and terms | `run_scripts` | [Running scripts on existing entities](/islandora_workbench_docs/running_scripts/) |
+| Run scripts on existing nodes, media, and terms | `run_scripts` | [Running scripts on existing entities](/islandora_workbench_docs/running_scripts/) |
