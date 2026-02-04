@@ -15,7 +15,7 @@
     
     
       
-        <title>Change log - Islandora Workbench</title>
+        <title>Installation with venv - Islandora Workbench</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#main-branch-no-tagrelease" class="md-skip">
+        <a href="#installing-workbench-inside-of-a-python-virtual-environment" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Change log
+              Installation with venv
             
           </span>
         </div>
@@ -987,55 +987,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Change log
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
         Change log
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#main-branch-no-tagrelease" class="md-nav__link">
-    main branch (no tag/release)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    Documentation
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1065,16 +1021,218 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#main-branch-no-tagrelease" class="md-nav__link">
-    main branch (no tag/release)
+  <a href="#installing-workbench-inside-of-a-python-virtual-environment" class="md-nav__link">
+    Installing Workbench inside of a Python virtual environment
   </a>
+  
+    <nav class="md-nav" aria-label="Installing Workbench inside of a Python virtual environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-high-level-steps-for-installing-workbench-inside-a-python-virtual-environments" class="md-nav__link">
+    The high level steps for INSTALLING Workbench inside a Python virtual environments:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-high-level-steps-for-using-python-virtual-environments-when-running-workbench" class="md-nav__link">
+    The high level steps for USING Python virtual environments when running Workbench:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-clone-workbench-git-repository" class="md-nav__link">
+    Step 1: Clone Workbench git repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-a-python-virtual-environment" class="md-nav__link">
+    Step 2: Create a Python virtual environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-activate-your-virtual-environment" class="md-nav__link">
+    Step 3: Activate your virtual environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-install-workbenchs-required-python-modules-inside-a-virtual-environment" class="md-nav__link">
+    Step 4: Install Workbench's required Python modules inside a virtual environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    Documentation
+  <a href="#everyday-workflow-to-use-workbench-with-an-existing-virtual-a-environment" class="md-nav__link">
+    Everyday workflow to use Workbench with an existing virtual a environment
   </a>
+  
+    <nav class="md-nav" aria-label="Everyday workflow to use Workbench with an existing virtual a environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-activate-virtual-environment" class="md-nav__link">
+    Step 1: Activate virtual environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-workbench-commands" class="md-nav__link">
+    Step 2: Run Workbench commands
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-islandora-workbench-within-a-virtual-environment" class="md-nav__link">
+    Updating Islandora Workbench within a virtual environment
+  </a>
+  
+    <nav class="md-nav" aria-label="Updating Islandora Workbench within a virtual environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-activate-virtual-environment_1" class="md-nav__link">
+    Step 1: Activate virtual environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-pull-in-latest-workbench-changes-from-repo" class="md-nav__link">
+    Step 2: Pull in latest Workbench changes from repo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-activate-virtual-environment" class="md-nav__link">
+    Step 2: Activate virtual environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-upgrade-workbenchs-required-python-modules-inside-a-virtual-environment" class="md-nav__link">
+    Step 3: Upgrade Workbench's required Python modules inside a virtual environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#condensed-instructions" class="md-nav__link">
+    Condensed instructions
+  </a>
+  
+    <nav class="md-nav" aria-label="Condensed instructions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#condensed-installing-workbench-inside-of-a-python-virtual-environment" class="md-nav__link">
+    Condensed: Installing Workbench inside of a Python virtual environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#condensed-everyday-workflow-to-use-workbench-with-an-existing-virtual-a-environment" class="md-nav__link">
+    Condensed: Everyday workflow to use Workbench with an existing virtual a environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-errors" class="md-nav__link">
+    Common errors
+  </a>
+  
+    <nav class="md-nav" aria-label="Common errors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-if-the-virtual-environment-is-not-activated-after-installation-inside-environment" class="md-nav__link">
+    Error if the virtual environment is not activated (after installation inside environment)
+  </a>
+  
+    <nav class="md-nav" aria-label="Error if the virtual environment is not activated (after installation inside environment)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    Solution:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modulenotfounderror-no-module-named-setuptools" class="md-nav__link">
+    ModuleNotFoundError: No module named 'setuptools'
+  </a>
+  
+    <nav class="md-nav" aria-label="ModuleNotFoundError: No module named 'setuptools'">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#solution_1" class="md-nav__link">
+    Solution:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1092,20 +1250,180 @@
                 
                   
 
-  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/changelog.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/installation_with_venv.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-  <h1>Change log</h1>
+  <h1>Installation with venv</h1>
 
-<p>You may also be interested in change log items <a href="/islandora_workbench_docs/changelog_up_to_2024/">prior to 2025</a>.</p>
-<h3 id="main-branch-no-tagrelease">main branch (no tag/release)</h3>
-<h3 id="documentation">Documentation</h3>
+<h2 id="installing-workbench-inside-of-a-python-virtual-environment">Installing Workbench inside of a Python virtual environment</h2>
+<p>Workbench is written in Python and in the Python community it is strongly recommended that software is installed within what are called Python "virtual environments." Python virtual environments are an isolated way to install the required Python modules of an application that avoid conflicts with other Python software and modules. Essentially they are a special directory that will contain the required Python modules for Workbench and a few other files. They are not related to virtual machines (VMs) or Docker containers. Though they can be used in conjunction with VMs and Docker.</p>
+<p>NOTE: These instructions assume you have already installed <code>git</code> and a version of Python that is compatible with Workbench.</p>
+<h3 id="overview">Overview</h3>
+<h4 id="the-high-level-steps-for-installing-workbench-inside-a-python-virtual-environments">The high level steps for INSTALLING Workbench inside a Python virtual environments:</h4>
+<p>The following steps are normally only run once.</p>
+<p>(Open a terminal window)</p>
+<ol>
+<li>Clone Workbench git repository  </li>
+<li>Inside of git repo folder, create a virtual environment folder  </li>
+<li>Activate the virtual environment in your current terminal window  </li>
+<li>Inside that terminal window install the Workbench required modules</li>
+</ol>
+<h4 id="the-high-level-steps-for-using-python-virtual-environments-when-running-workbench">The high level steps for USING Python virtual environments when running Workbench:</h4>
+<p>These steps have to be run each time you want to use Islandora Workbench.</p>
+<p>(Open a terminal window)</p>
+<ol>
+<li>Inside of the Workbench git repo folder, activate the virtual environment in your current terminal window  </li>
+<li>run the <code>workbench</code> commands inside that window</li>
+</ol>
+<h3 id="step-1-clone-workbench-git-repository">Step 1: Clone Workbench git repository</h3>
+<p>Open a terminal window</p>
+<p>cd to a directory that you want to use for installing Workbench </p>
+<p>As an example we will use <code>cd /Users/jdoe/Documents/</code></p>
+<p>Clone the Islandora Workbench git repo inside of the path you chose</p>
+<p><code>git clone https://github.com/mjordan/islandora_workbench.git</code></p>
+<p>This will create a folder called "islandora_workbench" at this path:</p>
+<p><code>/Users/jdoe/Documents/islandora_workbench</code></p>
+<h3 id="step-2-create-a-python-virtual-environment">Step 2: Create a Python virtual environment</h3>
+<p>cd into the newly created folder called islandora_workbench that contains the git repo from the section above.</p>
+<p><code>cd islandora_workbench</code></p>
+<p>Use the <code>venv</code> module create a Python "virtual environment" called "venv"<br />
+<code>python3 -m venv venv</code></p>
+<h3 id="step-3-activate-your-virtual-environment">Step 3: Activate your virtual environment</h3>
+<p>In your terminal window you must FIRST activate the environment every time you want to <strong>install</strong>, <strong>use</strong>, or <strong>upgrade</strong> Islandora Workbench.</p>
+<p>For activating the virtual environment you need to use the environment folder you created above, which was called "venv". First make sure you are inside the directory that has the Workbench repository. In this example it would be:</p>
+<p><code>cd /Users/jdoe/Documents/islandora_workbench</code>  </p>
+<p>Then activate the environment with this command (Linux/macOS):<br />
+<code>source venv/bin/activate</code></p>
+<p>Windows activate syntax: <br />
+<code>venv\Scripts\activate</code></p>
+<p>TIP: You can verify that the environment is activated by noticing a change in the left most prompt in our terminal window, the name of the environment folder will show up on the far left inside parentheses: "(venv)"</p>
+<p>Before activation example:<br />
+<code>jdoe-laptop:islandora_workbench_fork jdoe$</code></p>
+<p>After activation example:<br />
+<code>(venv) jdoe-laptop::islandora_workbench_fork jdoe$</code></p>
+<p>TIP: Another way to tell you are running a virtual environment is to run this command to print the full path on your virtual environment. If the command prints and <strong>empty</strong> line, your virtual environment is NOT active </p>
+<p>macOS:<br />
+<code>echo $VIRTUAL_ENV</code></p>
+<p>Windows:<br />
+<code>echo %VIRTUAL_ENV%</code></p>
+<h3 id="step-4-install-workbenchs-required-python-modules-inside-a-virtual-environment">Step 4: Install Workbench's required Python modules inside a virtual environment</h3>
+<p>IMPORTANT/STOP: You need to make sure the environment is activated at this point, see activation instructions above:</p>
+<p>After activation example:<br />
+<code>(venv) jdoe-laptop::islandora_workbench_fork jdoe$</code></p>
+<p>Run this command to start the process to install the required Python modules</p>
+<p>NOTE: There single period below to the right of the word "install"</p>
+<p><code>python3 -m pip install .</code></p>
+<p>Congrats, if there are no errors, at this point Islandora Workbench has been installed inside the virtual environment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you get an error similar to <code>ModuleNotFoundError: No module named 'setuptools</code> which can happen if you are running Python version 3.12 or newer, you may need to run <code>python3 -m pip install setuptools</code> before step 4 above.</p>
+</div>
+<hr />
+<h2 id="everyday-workflow-to-use-workbench-with-an-existing-virtual-a-environment">Everyday workflow to use Workbench with an existing virtual a environment</h2>
+<p>If you followed the instructions above for creating the virtual environment, this would be the instructions to regularly use Islandora Workbench with a virtual environment.</p>
+<h3 id="step-1-activate-virtual-environment">Step 1: Activate virtual environment</h3>
+<p>cd into the folder called islandora_workbench that contains the git repo from the section above<br />
+<code>cd /Users/jdoe/Documents/islandora_workbench</code>  </p>
+<p>Then activate the environment with this command (Unix/macOS):<br />
+<code>source venv/bin/activate</code></p>
+<p>Windows activate syntax: <br />
+<code>venv\Scripts\activate</code></p>
+<p>IMPORTANT/STOP: You need to make sure the environment is activated at this point, see activation instructions above:</p>
+<p>After activation example:<br />
+<code>(venv) jdoe-laptop::islandora_workbench_fork jdoe$</code></p>
+<p>TIP: Another way to tell you are running a virtual environment is to run this command to print the full path on your virtual environment. If the command prints and <strong>empty</strong> line, your virtual environment is NOT active </p>
+<p>macOS:<br />
+<code>echo $VIRTUAL_ENV</code></p>
+<p>Windows:<br />
+<code>echo %VIRTUAL_ENV%</code></p>
+<h3 id="step-2-run-workbench-commands">Step 2: Run Workbench commands</h3>
+<p>Track down the paths to your <code>config.yml</code> and <code>metadata.csv</code> files to then be used when you run the <code>workbench</code> command on your terminal window.</p>
+<p><code>./workbench --config path/to/config.yml --check</code> </p>
+<hr />
+<h2 id="updating-islandora-workbench-within-a-virtual-environment">Updating Islandora Workbench within a virtual environment</h2>
+<p>Since Islandora Workbench is under development, you will want to update it often. </p>
+<h3 id="step-1-activate-virtual-environment_1">Step 1: Activate virtual environment</h3>
+<p>To do this, within the islandora_workbench directory, cd into the folder called islandora_workbench that contains the git repo from the section above<br />
+<code>cd /Users/jdoe/Documents/islandora_workbench</code></p>
+<h3 id="step-2-pull-in-latest-workbench-changes-from-repo">Step 2: Pull in latest Workbench changes from repo</h3>
+<p>run the following git command:<br />
+<code>git pull origin main</code></p>
+<h3 id="step-2-activate-virtual-environment">Step 2: Activate virtual environment</h3>
+<p>Then activate the environment with this command (Unix/macOS):<br />
+<code>source venv/bin/activate</code></p>
+<p>Windows activate syntax: <br />
+<code>venv\Scripts\activate</code></p>
+<p>IMPORTANT/STOP: You need to make sure the environment is activated at this point, see activation instructions above:</p>
+<p>After activation example:<br />
+<code>(venv) jdoe-laptop::islandora_Workbench_fork jdoe$</code></p>
+<p>TIP: Another way to tell you are running a virtual environment is to run this command to print the full path on your virtual environment. If the command prints and <strong>empty</strong> line, your virtual environment is NOT active </p>
+<p>macOS:<br />
+<code>echo $VIRTUAL_ENV</code></p>
+<p>Windows:<br />
+<code>echo %VIRTUAL_ENV%</code></p>
+<h3 id="step-3-upgrade-workbenchs-required-python-modules-inside-a-virtual-environment">Step 3: Upgrade Workbench's required Python modules inside a virtual environment</h3>
+<p>Since you have already pulled in the latest changes using git, see above, it's a good idea to rerun the setup tools in case new Python libraries have been added since you last ran the "pip install":<br />
+<code>sudo python -m pip install --upgrade .</code></p>
+<p>NOTE: There single period below to the right of the word "--upgrade"</p>
+<hr />
+<h2 id="condensed-instructions">Condensed instructions</h2>
+<h3 id="condensed-installing-workbench-inside-of-a-python-virtual-environment">Condensed: Installing Workbench inside of a Python virtual environment</h3>
+<p>You only need to run these steps once.</p>
+<p><code>cd /Users/jdoe/Documents/</code></p>
+<p><code>git clone https://github.com/mjordan/islandora_workbench.git</code></p>
+<p><code>cd islandora_workbench</code></p>
+<p><code>python3 -m venv venv</code> </p>
+<p><code>source venv/bin/activate</code></p>
+<p>Windows activate syntax: <br />
+<code>venv\Scripts\activate</code></p>
+<p>STOP: Make sure environment was activated</p>
+<p>After activation example:<br />
+<code>(venv) jdoe-laptop::islandora_workbench_fork jdoe$</code></p>
+<p>TIP: Another way to tell you are running a virtual environment is to run this command to print the full path on your virtual environment. If the command prints and <strong>empty</strong> line, your virtual environment is NOT active </p>
+<p>Linux/macOS:<br />
+<code>echo $VIRTUAL_ENV</code></p>
+<p>Windows:<br />
+<code>echo %VIRTUAL_ENV%</code></p>
+<p>NOTE: there is a period to the right of "install"<br />
+<code>python3 -m pip install .</code></p>
+<h3 id="condensed-everyday-workflow-to-use-workbench-with-an-existing-virtual-a-environment">Condensed: Everyday workflow to use Workbench with an existing virtual a environment</h3>
+<p>You need to run these steps whenever you open a brand new terminal window to run <code>workbench</code> commands.</p>
+<p><code>cd /Users/jdoe/Documents/islandora_workbench</code></p>
+<p><code>source venv/bin/activate</code></p>
+<p>Windows activate syntax: <br />
+<code>venv\Scripts\activate</code></p>
+<p>STOP: Make sure environment was activated</p>
+<p>After activation example:<br />
+<code>(venv) jdoe-laptop::islandora_workbench jdoe$</code></p>
+<p>TIP: Another way to tell you are running a virtual environment is to run this command to print the full path on your virtual environment. If the command prints an <strong>empty</strong> line, your virtual environment is NOT active. </p>
+<p>macOS:<br />
+<code>echo $VIRTUAL_ENV</code></p>
+<p>Windows:<br />
+<code>echo %VIRTUAL_ENV%</code></p>
+<p>Create your config.yml and metadata.csv files.</p>
+<p><code>./workbench --config path/to/config.yml --check</code> </p>
+<h2 id="common-errors">Common errors</h2>
+<h3 id="error-if-the-virtual-environment-is-not-activated-after-installation-inside-environment">Error if the virtual environment is not activated (after installation inside environment)</h3>
+<p>This is the error you may get if you had previously installed Workbench in a virtual environment but forgot to activate it:</p>
+<p><code>./workbench --config path/to/config.yml --check</code><br />
+<code>Traceback (most recent call last):</code><br />
+<code>File "/Users/ysuarez/Documents/Archives/islandora_workbench_local_berklee_use/./workbench", line 16, in &lt;module&gt;</code><br />
+<code>import requests_cache</code><br />
+<code>ModuleNotFoundError: No module named 'requests_cache'</code></p>
+<p>That is because normally the "base" Python installation on your computer would not have all of the modules that you should have previously installed in your virtual environment. </p>
+<h4 id="solution">Solution:</h4>
 <ul>
-<li>Febraury 4, 2026: Create a new changelog for 2026; merged first draft of <a href="#26">running Workbench in a venv</a>. Thanks @ysuarez!</li>
+<li>Activate the virtual environment, see above.   </li>
+<li>Then re-run your <code>workbench</code> command.</li>
 </ul>
+<h3 id="modulenotfounderror-no-module-named-setuptools">ModuleNotFoundError: No module named 'setuptools'</h3>
+<p>This error may arise from using Python 3.12 or newer, which now requires you to install  the <code>setuptools</code> package manually inside your venvs.</p>
+<h4 id="solution_1">Solution:</h4>
+<p>You will need to run this command….</p>
+<p><code>python3 -m pip install setuptools</code></p>
 
 
 
@@ -1121,27 +1439,6 @@
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../development_guide/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Development guide" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Development guide
-            </div>
-          </div>
-        </a>
-      
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

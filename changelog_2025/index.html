@@ -1,0 +1,1215 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Islandora Workbench">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Changelog 2025 - Islandora Workbench</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.472b142f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.08040f6c.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#main-branch-no-tagrelease" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Islandora Workbench" class="md-header__button md-logo" aria-label="Islandora Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Islandora Workbench
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Changelog 2025
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mjordan/islandora_workbench_docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Islandora Workbench" class="md-nav__button md-logo" aria-label="Islandora Workbench" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Islandora Workbench
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mjordan/islandora_workbench_docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../drupal_and_workbench/" class="md-nav__link">
+        Workbench's relationship to Drupal and Islandora
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Requirements and installation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user_management/" class="md-nav__link">
+        User management
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../choosing_a_task/" class="md-nav__link">
+        Choosing a task
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimizing_your_use_of_workbench/" class="md-nav__link">
+        Optimizing your use of Workbench
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration_settings_on_the_command_line/" class="md-nav__link">
+        Specifying configuration settings on the command line
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../check/" class="md-nav__link">
+        Checking configuration and input data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preparing_data/" class="md-nav__link">
+        Preparing your data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fields/" class="md-nav__link">
+        Field data (Drupal and CSV)
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../viewer_override/" class="md-nav__link">
+        Automatically populating the "Viewer override" field
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ignoring_csv_rows_and_columns/" class="md-nav__link">
+        Ignoring CSV rows and columns
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../checking_if_nodes_exist/" class="md-nav__link">
+        Checking if nodes already exist
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../field_templates/" class="md-nav__link">
+        CSV field templates
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csv_value_templates/" class="md-nav__link">
+        CSV value templates
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../paged_and_compound/" class="md-nav__link">
+        Creating paged, compound, and collection content
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nodes_only/" class="md-nav__link">
+        Creating nodes without media
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating_nodes_from_files/" class="md-nav__link">
+        Creating nodes from files
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../recovery_mode/" class="md-nav__link">
+        Recovering from interrupted "create" tasks
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updating_nodes/" class="md-nav__link">
+        Updating nodes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deleting_nodes/" class="md-nav__link">
+        Deleting nodes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating_taxonomy_terms/" class="md-nav__link">
+        Creating taxonomy terms
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updating_terms/" class="md-nav__link">
+        Updating taxonomy terms
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aliases/" class="md-nav__link">
+        Assigning URL aliases
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../redirects/" class="md-nav__link">
+        Creating redirects
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alt_text/" class="md-nav__link">
+        Adding alt text to images
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rolling_back/" class="md-nav__link">
+        Rolling back nodes and media
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../media_types/" class="md-nav__link">
+        Configuring media types
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick_delete/" class="md-nav__link">
+        Quick delete
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adding_media/" class="md-nav__link">
+        Adding media to nodes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../adding_multiple_media/" class="md-nav__link">
+        Adding multiple media
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../media_track_files/" class="md-nav__link">
+        Creating media track files
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updating_media/" class="md-nav__link">
+        Updating media
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deleting_media/" class="md-nav__link">
+        Deleting media
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generating_csv_files/" class="md-nav__link">
+        Generating CSV files and exporting Islandora content
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hooks/" class="md-nav__link">
+        Hooks
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fixity/" class="md-nav__link">
+        Fixity checking
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logging/" class="md-nav__link">
+        Logging
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csv_id_to_node_id_map/" class="md-nav__link">
+        The CSV ID to node ID map
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cancelling/" class="md-nav__link">
+        Cancelling Workbench
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflows/" class="md-nav__link">
+        Workflows
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../running_scripts/" class="md-nav__link">
+        Running scripts on existing entities
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contact_sheet/" class="md-nav__link">
+        Generating a contact sheet
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reducing_load/" class="md-nav__link">
+        Reducing Workbench's impact on Drupal
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sample_data/" class="md-nav__link">
+        Creating nodes from the sample data
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prompts/" class="md-nav__link">
+        Prompting the user
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exporting_islandora_7_content/" class="md-nav__link">
+        Exporting Islandora 7 content
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generating_sample_content/" class="md-nav__link">
+        Generating sample Islandora content
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../limitations/" class="md-nav__link">
+        Known limitations
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development_guide/" class="md-nav__link">
+        Development guide
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        Change log
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#main-branch-no-tagrelease" class="md-nav__link">
+    main branch (no tag/release)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    Documentation
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/changelog_2025.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+  <h1>Changelog 2025</h1>
+
+<p>You may also be interested in change log items <a href="/islandora_workbench_docs/changelog_up_to_2024/">prior to 2025</a>.</p>
+<h3 id="main-branch-no-tagrelease">main branch (no tag/release)</h3>
+<ul>
+<li>December 23, 2025: Resolved (commit 5064454) <a href="https://github.com/mjordan/islandora_workbench/issues/450">issue 450</a> and (commit a15289b) <a href="https://github.com/mjordan/islandora_workbench/issues/1048">issue 1048</a>.</li>
+<li>December 16, 2025: Merged (commit 6d4678e96) <a href="https://github.com/mjordan/islandora_workbench/pull/993">PR 993</a>. Thanks @whikloj!</li>
+<li>December 1, 2025: Resolved (commit 183c649) <a href="https://github.com/mjordan/islandora_workbench/issues/1042">issue 1042</a> and (commit 4fc688e) <a href="https://github.com/mjordan/islandora_workbench/issues/1043">issue 1043</a>.</li>
+<li>October 22, 2025: Resolved (commit 6b58a26) <a href="https://github.com/mjordan/islandora_workbench/issues/1006">issue 1006</a>.</li>
+<li>October 21, 2025: Merged (commit 95ec68d) <a href="https://github.com/mjordan/islandora_workbench/pull/1017">PR 1017</a>. Thanks @whikloj!</li>
+<li>October 9, 2025: Merged (commit e0183d6) <a href="https://github.com/mjordan/islandora_workbench/pull/1018">PR 1018</a>. Thanks @andrew-gardener!</li>
+<li>September 16, 2025: Resolved (commit c1ae668) <a href="https://github.com/mjordan/islandora_workbench/issues/777">issue 777</a> and (commit 4228c9b) <a href="https://github.com/mjordan/islandora_workbench/issues/1015">issue 1015</a>.</li>
+<li>August 5, 2025: Merged <a href="https://github.com/mjordan/islandora_workbench/pull/1003">PR 1003</a> (related to <a href="https://github.com/mjordan/islandora_workbench/issues/963">issue 963</a>).</li>
+<li>July 22, 2025: Resolved (commit 9c2552d) <a href="https://github.com/mjordan/islandora_workbench/issues/998">issue 998</a>.</li>
+<li>July 15, 2025: Resolved (commit afadce5) <a href="https://github.com/mjordan/islandora_workbench/issues/995">issue 995</a>.</li>
+<li>July 10, 2025: Added <code>scripts/tile_warmer.py</code>; resolved (commit 43d675) <a href="https://github.com/mjordan/islandora_workbench/issues/982">issue 982</a> and (commit 4f02c28) <a href="https://github.com/mjordan/islandora_workbench/issues/973">issue 973</a>.</li>
+<li>July 9, 2025: Resolved (commit adcea1d) <a href="https://github.com/mjordan/islandora_workbench/issues/990">issue 990</a> and (commit e2ababe) <a href="https://github.com/mjordan/islandora_workbench/issues/991">issue 991</a>.</li>
+<li>July 7, 2025: Resolved (commit 551798f) <a href="https://github.com/mjordan/islandora_workbench/issues/986">issue 986</a>.</li>
+<li>July 4, 2025: Resolved (commit ad0f22d) <a href="https://github.com/mjordan/islandora_workbench/issues/956">issue 956</a>.</li>
+<li>July 2, 2025: Resolved (commit 890f75e) <a href="https://github.com/mjordan/islandora_workbench/issues/981">issue 981</a> and (committ eb2e4c4) <a href="https://github.com/mjordan/islandora_workbench/issues/979">issue 979</a>.</li>
+<li>June 25, 2025: Resolved (commit 17e5844) <a href="https://github.com/mjordan/islandora_workbench/issues/965">issue 965</a>.</li>
+<li>June 25, 2025: Resolved (commit df52714) <a href="https://github.com/mjordan/islandora_workbench/issues/976">issue 976</a>.</li>
+<li>June 23, 2025: Resolved (commit bd60ae1) <a href="https://github.com/mjordan/islandora_workbench/issues/969">issue 969</a>. Thank you @ysuarez!</li>
+<li>June 19, 2025: Resolved (commit 42e6fcd) <a href="https://github.com/mjordan/islandora_workbench/issues/949">issue 949</a> and <a href="https://github.com/mjordan/islandora_workbench/issues/971">issue 971</a>.</li>
+<li>June 18, 2025: Resolved (commit 97fc6e65) <a href="https://github.com/mjordan/islandora_workbench/issues/338">issue 338</a> and (commit 97fc6e6) <a href="https://github.com/mjordan/islandora_workbench/issues/958">issue 958</a>.</li>
+<li>June 17, 2025: Resolved (commit 087c707) <a href="https://github.com/mjordan/islandora_workbench/issues/962">issue 962</a>, (commit e506f92) <a href="https://github.com/mjordan/islandora_workbench/issues/957">issue 957</a>, and (commit a070a96) <a href="https://github.com/mjordan/islandora_workbench/issues/968">issue 968</a>; fixed some broken tests.</li>
+<li>June 16: 2025: Commented out logic in workbench to enable check for updates introduced in commit fc74be4be (needs more testing). Fixed (commit 25aea6f) behavior of <code>delete_zip_archive_after_extraction</code> config setting so it doesn't delete local .zip archives on <code>--check</code>.</li>
+<li>June 11, 2025: Resolved (commit b852280) <a href="https://github.com/mjordan/islandora_workbench/issues/893">issue 893</a> and (commit fc74be4) <a href="https://github.com/mjordan/islandora_workbench/issues/338">issue 338</a>.</li>
+<li>June 3, 2025: Resolved (commit 2595490) <a href="https://github.com/mjordan/islandora_workbench/issues/953">issue 953</a>.</li>
+<li>May 31, 2025: Resolved (commit 8b59144) <a href="https://github.com/mjordan/islandora_workbench/issues/952">issue 952</a>.</li>
+<li>May 29, 2025: Resolved (commit e89ebe6) <a href="https://github.com/mjordan/islandora_workbench/issues/951">issue 951</a>.</li>
+<li>May 19, 2025: Resolved (commit f44916c) <a href="https://github.com/mjordan/islandora_workbench/issues/948">issue 948</a>.</li>
+<li>May 9, 2025: Merged <a href="https://github.com/mjordan/islandora_workbench/pull/922">PR 922</a> (refactor field handler classes) and <a href="https://github.com/mjordan/islandora_workbench/pull/930">PR 930</a> (adds a linked data field type). Thanks very much @whikloj!</li>
+<li>May 8, 2025: Additional work on <a href="https://github.com/mjordan/islandora_workbench/issues/714">issue 895</a> (commit 5977be0): added ability to configure a subset of input CSV for <code>add_media</code> tasks.</li>
+<li>May 5, 2025: Resolved (commit b09b116) <a href="https://github.com/mjordan/islandora_workbench/issues/946">issue 946</a> (Thanks @alxp!); merged (commit e02528d) <a href="https://github.com/mjordan/islandora_workbench/pull/940">PR 940</a>. Thanks @noahwsmith!</li>
+<li>May 1, 2025: Resolved (commit 4c44e30) <a href="https://github.com/mjordan/islandora_workbench/issues/714">issue 714</a>.</li>
+<li>April 30, 2025: Resolved (commit 89698d0) <a href="https://github.com/mjordan/islandora_workbench/issues/945">issue 945</a>.</li>
+<li>April 27, 2025: Merged (commit df1f263) in changes to introduce <code>add_alt_text</code> and <code>update_alt_text</code> tasks.</li>
+<li>April 24, 2025: (Commit 71ba537) added <code>show_percentage_of_csv_input_processed</code> setting to <code>add_media</code> tasks.</li>
+<li>April 23, 2025: Merged (commit b7b009a) <a href="https://github.com/mjordan/islandora_workbench/pull/942">PR 942</a> that adds the ability to export multiple media files in <code>export_csv</code> and <code>get_data_from_view</code> tasks. Thanks @alxp!</li>
+<li>April 8, 2025: Merged (commit 7d8be02) fix for <a href="https://github.com/mjordan/islandora_workbench/issues/937">issue 937</a> (thanks @alxp!).</li>
+<li>April 3, 2025: Merged (commit e65062c) fix for <a href="https://github.com/mjordan/islandora_workbench/issues/932">issue 928</a> (thanks @mitchmac and @dara2!); resolved (commit e65062c) <a href="https://github.com/mjordan/islandora_workbench/issues/935">issue 935</a>.</li>
+<li>March 28, 2025: Resolved (commit 189b025) <a href="https://github.com/mjordan/islandora_workbench/issues/932">issue 932</a>.</li>
+<li>March 25, 2025: Resolved (commit e5b5576) <a href="https://github.com/mjordan/islandora_workbench/issues/918">issue 918</a> and (commit 561dfc3) <a href="https://github.com/mjordan/islandora_workbench/issues/919">issue 919</a>. Thanks @whikloj!</li>
+<li>March 4, 2025: Resolved (commit 11ab1e) <a href="https://github.com/mjordan/islandora_workbench/issues/915">issue 915</a>.</li>
+<li>February 28, 2025: Resolved (commit 07b54b3) <a href="https://github.com/mjordan/islandora_workbench/issues/909">issue 909</a>.</li>
+<li>February 24, 2025: Resolved (commit aecb50e) <a href="https://github.com/mjordan/islandora_workbench/issues/894">issue 894</a> and (comit 73bd6ba) <a href="https://github.com/mjordan/islandora_workbench/issues/902">issue 902</a>.</li>
+<li>February 23, 2025: Resolved (commit 8f7f03d) <a href="https://github.com/mjordan/islandora_workbench/issues/899">issue 899</a>.</li>
+<li>February 18, 2025: Resolved (commit 859fc16) <a href="https://github.com/mjordan/islandora_workbench/issues/896">issue 896</a>, (commit 0eb524c) <a href="https://github.com/mjordan/islandora_workbench/issues/900">issue 900</a>, and (commit 850f7fd) <a href="https://github.com/mjordan/islandora_workbench/issues/901">issue 901</a>.</li>
+<li>February 13, 2025: Resolved (commit 8de8951) <a href="https://github.com/mjordan/islandora_workbench/issues/886">issue 886</a> and (commit 9da97fb) <a href="https://github.com/mjordan/islandora_workbench/issues/877">issue 877</a>.</li>
+<li>February 7, 2025: Resolved (commit cb25ee9) <a href="https://github.com/mjordan/islandora_workbench/issues/872">issue 872</a> and <a href="https://github.com/mjordan/islandora_workbench/issues/878">issue 878</a>.</li>
+<li>February 3, 2025: Resolved (commit 57d9de1) <a href="https://github.com/mjordan/islandora_workbench/issues/883">issue 883</a> and (commit 95eaef3) <a href="https://github.com/mjordan/islandora_workbench/issues/884">issue 884</a>.</li>
+<li>January 30, 2025: Merged in fix for <a href="https://github.com/mjordan/islandora_workbench/issues/882">issue 882</a>. Thanks Born-Digital!</li>
+<li>January 16, 2025: Resolved (commit 3c58532) <a href="https://github.com/mjordan/islandora_workbench/issues/747">issue 747</a>. Thank you @joecorall!</li>
+<li>January 12, 2025: Resolved (commit 49853cb) <a href="https://github.com/mjordan/islandora_workbench/issues/875">issue 875</a>.</li>
+<li>January 9, 2025: Resolved (commit 8fb1290) <a href="https://github.com/mjordan/islandora_workbench/issues/873">issue 873</a>.</li>
+<li>January 1, 2025: Resolved (commit f8dce4c) <a href="https://github.com/mjordan/islandora_workbench/issues/799">issue 799</a>.</li>
+</ul>
+<h3 id="documentation">Documentation</h3>
+<ul>
+<li>November 5, 2025: Clarified how Workbench handled <code>title</code> data longer than 255 characters in the "<a href="/islandora_workbench_docs/fields/#base-fields">Base fields</a>" documentation.</li>
+<li>October 23, 2025: Updates to "<a href="https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#adding-children-to-nodes-that-already-exist">Adding children to nodes that already exist</a>".</li>
+<li>October 22, 2025: Added "<a href="https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#adding-children-to-nodes-that-already-exist">Adding children to nodes that already exist</a>".</li>
+<li>October 21, 2025: Updated "<a href="https://mjordan.github.io/islandora_workbench_docs/exporting_islandora_7_content/">Exporting Islandora 7 content</a>" to point to the <a href="https://github.com/mjordan/i7_import">new repository</a> for that script.</li>
+<li>September 25, 2025: Updated "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Creating paged, compound, and collection content</a>" to clarify that if <code>paged_content_from_directories</code> is <code>true</code>, the <code>additional_files</code> config setting doesn't apply.</li>
+<li>September 18, 2025: Added "<a href="/islandora_workbench_docs/session_cookies_for_remote_files/">Session cookies for remote files</a>" and updated the configuration settings page with the new <code>remote_file_cookie_name</code> and <code>remote_file_cookie_value</code> settings.</li>
+<li>September 16, 2025: Updated the "<a href="/islandora_workbench_docs/configuration/#media-settings">Configuration</a>" page to add the new <code>keep_filename_parent_directory</code> config setting.</li>
+<li>July 31, 2025: Updated the "<a href="/islandora_workbench_docs/csv_id_to_node_id_map/#host-values-in-the-map">The CSV ID to node ID map</a>" page to clarify when you should use the  <code>csv_id_to_node_id_map_allowed_hosts</code> config setting.</li>
+<li>July 22, 2025: Updated the "<a href="/islandora_workbench_docs/development_guide/#islandora-workbench-integration-drupal-module">Development guide</a>" to describe when to modify <code>check_integration_module_version()</code>.</li>
+<li>July 16, 2025: Broke out the "Password management" section of "<a href="/islandora_workbench_docs/installation/">Requirements and installation</a>" out into a separate page, "<a href="/islandora_workbench_docs/user_management/">User management</a>".</li>
+<li>July 15, 2025: Updated "<a href="/islandora_workbench_docs/installation/#password-management">Password management</a>" docs to include the new <code>credentials_file_path</code> setting; updated "<a href="/islandora_workbench_docs/generating_csv_files/">Generating CSV files and exporting Islandora content</a>" to reflect changes in <a href="https://github.com/mjordan/islandora_workbench/issues/973">issue 973</a>.</li>
+<li>July 10, 2025: Updated "<a href="/islandora_workbench_docs/running_scripts/">Running scripts</a>" to include example of <code>tile_warmer.py</code>.</li>
+<li>July 9, 2025: Updated "<a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/">Ignoring CSV rows and columns</a>" and "<a href="/islandora_workbench_docs/troubleshooting/">Troubleshooting</a>" to note the new warning about conflicting input-CSV-filtering config settings.</li>
+<li>July 4, 2025: Added docs on "<a href="/islandora_workbench_docs/updating_media/#updating-media-using-node-ids">Updating media using node IDs</a>".</li>
+<li>July 3, 2025, Updated several pages to include reference to the new <code>run_scripts</code> task.</li>
+<li>July 2, 2025: Added docs on the new <code>run_scripts</code> task at "<a href="/islandora_workbench_docs/running_scripts/">Running scripts</a>". Also updated docs to use single quotes around Windows file paths, and added a new section to the <a href="/islandora_workbench_docs/troubleshooting/#im-running-workbench-on-windows-and-im-having-problems-getting-long-directory-paths-right-in-my-configuration-file">Troubleshooting page</a> about this.</li>
+<li>June 26, 2025: Updated the "<a href="/islandora_workbench_docs/workflows/#using-hooks">Workflows</a>" page to describe populating a persisent queue (<a href="https://github.com/mjordan/islandora_workbench/issues/976">issue 976</a>).</li>
+<li>June 20, 2025: Added ""<a href="/islandora_workbench_docs/reducing_load/#deferring-solr-indexing">Deferring Solr indexing</a>" to the "Reducing Workbench's impact on Drupal" page; added mention of the new check for whether Workbench is up to date to the "<a href="/islandora_workbench_docs/optimizing_your_use_of_workbench">Optimizing your use of Workbench</a>" page.</li>
+<li>June 19, 2025: Updated the "<a href="/islandora_workbench_docs/paged_and_compound/#ignoring-files-in-page-directories">Creating paged, compound, and collection content</a>" page to update socs on using the <code>paged_content_ignore_files</code> config setting.</li>
+<li>June 18, 2025: Updated the "<a href="/islandora_workbench_docs/configuration/#miscellaneous-settings">Configuration</a>" page to add the <code>check_for_workbench_updates</code> config setting.</li>
+<li>June 16, 2025: Updated docs on the <code>delete_zip_archive_after_extraction</code> config setting to clarify that it applies only to remote .zip archive files, not local ones.</li>
+<li>June 12, 2025: Added "<a href="/islandora_workbench_docs/configuration/#printing-all-configuration-values">Printing all configuration values</a>" section to the docs. Updated the "<a href="/islandora_workbench_docs/troubleshooting/#workbench-is-slow">Troubleshooting</a>" page to suggest deferring indexing to speed up <code>create</code> and <code>update</code> tasks.</li>
+<li>June 11, 2025: Updated the "<a href="/islandora_workbench_docs/csv_id_to_node_id_map/#host-values-in-the-map">The CSV ID to node ID map</a>" page to add a section on using the new <code>csv_id_to_node_id_map_allowed_hosts</code> config setting.</li>
+<li>June 9, 2025: Updated the "<a href="/islandora_workbench_docs/rolling_back/">Rolling back nodes and media</a>" page to add a section on rolling back a subset of the nodes identified in the rollback.csv file.</li>
+<li>June 4, 2025: Updated the "<a href="/islandora_workbench_docs/configuration/#miscellaneous-settings">Configuration</a>" page to add the <code>recovery_mode_starting_from_node_id</code> config setting.</li>
+<li>June 3, 2025: Updated "<a href="/islandora_workbench_docs/generating_csv_files/">Generating CSV files</a>" to include changes made in resolving <a href="https://github.com/mjordan/islandora_workbench/issues/953">issue 953</a>.</li>
+<li>May 6, 2025: Added new "<a href="/islandora_workbench_docs/installation/#using-workbench-within-a-docker-container">Using Workbench within a Docker container</a>" docs.</li>
+<li>May 1, 2025: Added new "<a href="/islandora_workbench_docs/viewer_override/">Automatically populating the "Viewer override" field</a>" page; broke some config settings into a new "<a href="/islandora_workbench_docs/configuration/#input-csv-content-templating-settings">Input CSV content templating settings</a>" section.</li>
+<li>April 27, 2025: Updated "<a href="/islandora_workbench_docs/alt_text/">Adding alt text to images</a>" and associated pages to document the new <code>add_alt_text</code> and <code>update_alt_text</code> tasks.</li>
+<li>April 24, 2025: Updated "<a href="/islandora_workbench_docs/configuration/">Configuration</a>" entry for the <code>show_percentage_of_csv_input_processed</code> config setting.</li>
+<li>April 23, 2025: Updated <a href="/islandora_workbench_docs/generating_csv_files/">Generating CSV Files</a> to reflect new functionality around exporting media files.</li>
+<li>April 8, 2025: Merged section into "<a href="/islandora_workbench_docs/installation/">Installation</a>" on preferred way to install Islandora Workbench on macOS. Thanks @alxp! Also clarified use of the <code>media_types_override</code> and <code>media_type_by_media_use</code> config settings in the "<a href="/islandora_workbench_docs/media_types/">Configuring media types</a>" and "<a href="/islandora_workbench_docs/adding_multiple_media/">Adding multiple media</a>" pages.</li>
+<li>April 3, 2025: Added entry to the "<a href="/islandora_workbench_docs/configuration/#paged-and-compound-content-settings">Configuration</a>" page for the new <code>viewer_override_fieldname</code> config setting.</li>
+<li>April 1, 2025: Replaced outdated "field_display_hints" with "field_viewer_override".</li>
+<li>March 4, 2025: Clarified where the <code>path_to_python</code> and <code>path_to_workbench_script</code> config settings go - the config file for the primary task. Thanks for the suggestion @edlington!</li>
+<li>March 3, 2025: Fixed a typo on the "<a href="/islandora_workbench_docs/configuration/">Configuration</a>" page.</li>
+<li>March 1, 2025: Merged in fixes to docs for <a href="/islandora_workbench_docs/exporting_islandora_7_content/">get_islandora_7_content.py</a> by @whikloj. Thanks!</li>
+<li>February 28, 2025: Added "<a href="/islandora_workbench_docs/installation/#the-remove_password_from_config_file-configuration-setting">The remove_password_from_config_file configuration setting</a>".</li>
+<li>February 27, 2025: Added "<a href="/islandora_workbench_docs/optimizing_your_use_of_workbench/">Optimizing your use of Workbench</a>".</li>
+<li>February 24, 2025: Updated docs on "<a href="/islandora_workbench_docs/deleting_nodes/">Deleting nodes</a>".</li>
+<li>February 23, 2025: Updated docs on "<a href="/islandora_workbench_docs/configuration/">Configuration</a>" to include new <code>show_percentage_of_csv_input_processed</code> setting.</li>
+<li>February 18, 2025: Updated docs on "<a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/#processing-specific-csv-rows">Processing specific CSV rows</a>"; updated "<a href="/islandora_workbench_docs/reducing_load/">Reducing Workbench's impact on Drupal</a>" and the <a href="/islandora_workbench_docs/configuration/#http-settings">HTTP configuration settings</a>.</li>
+<li>February 16, 2025: Updated docs on <a href="/islandora_workbench_docs/fields/#using-paragraph-fields-in-create_terms-and-update_terms-tasks">using Paragraph fields</a> in <code>create_terms</code> and <code>update_terms</code> tasks. Thanks @dara2!</li>
+<li>February 15, 2025: Added documentation on ingesting large files, mainly pointing to <a href="https://islandora.github.io/documentation/user-documentation/uploading-large-files/">Islandora's documentation</a> on this topic; updated "<a href="/islandora_workbench_docs/ignoring_csv_rows_and_columns/#using-csv-row-ranges">Using CSV row ranges</a>" to clarify that <code>csv_start_row</code> and <code>csv_stop_row</code> only apply to <code>create</code> and <code>update</code> tasks.</li>
+<li>February 14, 2025: Moved change log entries up to the end of 2024 into their <a href="/islandora_workbench_docs/changelog_up_to_2024/">own page</a>.</li>
+<li>February 10, 2025: Added "<a href="/islandora_workbench_docs/recovery_mode/">Recovering from interrupted create tasks</a>" and updated associated other pages; moved "<a href="/islandora_workbench_docs/csv_id_to_node_id_map/">The CSV ID to node ID map</a>" from "<a href="/islandora_workbench_docs/generating_csv_files/">Generating CSV Files</a>" into its own page.</li>
+<li>February 7, 2025: Fixed the broken "Note" on the section on using <a href="/islandora_workbench_docs/fields/#paragraphs-entity-reference-revisions-fields">Paragraph fields</a>.</li>
+<li>February 3, 2025: Added <code>completion_message</code> to the "Miscellaneous" section of the "<a href="/islandora_workbench_docs/configuration/#miscellaneous-settings">Configuration settings</a>" list.</li>
+<li>January 22, 2025: Updated "<a href="/islandora_workbench_docs/installation/">Requirements and installation</a>" to document preferred way of installing libraries used by Workbench (issue <a href="https://github.com/mjordan/islandora_workbench/issues/879">879</a>).</li>
+<li>January 16, 2025: Updated "<a href="/islandora_workbench_docs/installation/">Requirements and installation</a>" and "<a href="/islandora_workbench_docs/development_guide/">Development guide</a>" to reflect changes introduced in <a href="https://github.com/mjordan/islandora_workbench/pull/849">merge request 849</a> (adding CI integration tests). Removed the Roadmap since it was out of date.</li>
+<li>January 6, 2025: Updated docs on "<a href="islandora_workbench_docs/generating_csv_files/#using-the-csv-id-to-node-id-map">Using the CSV ID to node ID map</a>".</li>
+<li>January 6, 2025: Updated docs on "<a href="/islandora_workbench_docs/checking_if_nodes_exist/">Checking if nodes already exist</a>".</li>
+<li>January 1, 2025: Updated docs on "<a href="/islandora_workbench_docs/rolling_back/">Rolling back nodes and media</a>" to include new settings added in <a href="https://github.com/mjordan/islandora_workbench/issues/868">issue 868</a>.</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d6c3db9e.min.js"></script>
+      
+    
+  </body>
+</html>

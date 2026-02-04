@@ -948,6 +948,19 @@
     Overview
   </a>
   
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-fields" class="md-nav__link">
+    Metadata fields
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1124,6 +1137,19 @@
     Overview
   </a>
   
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-fields" class="md-nav__link">
+    Metadata fields
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1266,7 +1292,7 @@ parameters can be changed in the user-supplied config file.</p>
     <tr>
         <td>get_file_uri</td>
         <td>true</td>
-        <td>Whether or not to write datastream file URLs to the CSV file instead of fetching the files. One of `get_file_uri` or `fetch_files` can be set  to `true`, but not both.</td>
+        <td>Whether or not to write datastream file URLs to the CSV file instead of fetching the files. One of <code>get_file_uri</code> or <code>fetch_files</code> can be set to <code>true</code>, but not both.</td>
     </tr>
     <tr>
         <td>field_pattern</td>
@@ -1309,7 +1335,7 @@ parameters can be changed in the user-supplied config file.</p>
     <tr>
         <td>collection</td>
         <td></td>
-        <td>PID of a single collection limiting the objects to fetch from the source Islandora 7.x instance. Only matches objects that have the specified collection as their immediate parent. For recursive collection membership, add `ancestors_ms` as a `solr_filter`, as documented below. Note: the colon in the collection PID must be escaped with a backslash (`\`), e.g., `cartoons\:collection`.</td>
+        <td>PID of a single collection limiting the objects to fetch from the source Islandora 7.x instance. Only matches objects that have the specified collection as their immediate parent. For recursive collection membership, add <code>ancestors_ms</code> as a <code>solr_filter</code>, as documented below. Note: the colon in the collection PID must be escaped with a backslash (<code>\</code>), e.g., <code>cartoons\:collection</code>.</td>
     </tr>
     <tr>
       <td>collections</td>
@@ -1317,9 +1343,14 @@ parameters can be changed in the user-supplied config file.</p>
       <td>PIDs of multiple collections, has same restrictions and usage as <i>collection</i> argument. Multiple collections are <b>OR</b>ed together.</td>
     </tr>
     <tr>
+      <td>collection_field</td>
+      <td>RELS_EXT_isMemberOfCollection_uri_s</td>
+      <td>The Solr field containing collection membership information.</td>
+    </tr>
+    <tr>
         <td>content_model</td>
         <td></td>
-        <td>PID of a single content model limiting the objects to fetch from the source Islandora 7.x instance. Note: the colon in the content model PID must be escaped with a backslash (`\`), e.g., `islandora\:sp_large_image_cmodel`.</td>
+        <td>PID of a single content model limiting the objects to fetch from the source Islandora 7.x instance. Note: the colon in the content model PID must be escaped with a backslash (<code>\</code>), e.g., <code>islandora\:sp_large_image_cmodel</code>.</td>
     </tr>
     <tr>
         <td>solr_filters</td>
@@ -1339,7 +1370,7 @@ parameters can be changed in the user-supplied config file.</p>
     <tr>
         <td>pids_to_skip</td>
         <td></td>
-        <td>List of PIDs to not export, e.g. `pids_to_skip: ["foo:234", "bar:7890"]`. Useful if you are aware of problems with specific Islandora 7 source objects and you don't want those objects to crash out the script.</td>
+        <td>List of PIDs to not export, e.g. <code>pids_to_skip: ["foo:234", "bar:7890"]</code>. Useful if you are aware of problems with specific Islandora 7 source objects and you don't want those objects to crash out the script.</td>
     </tr>
     <tr>
       <td>pids_to_use</td>
@@ -1359,7 +1390,17 @@ parameters can be changed in the user-supplied config file.</p>
     <tr>
         <td>secure_ssl_only</td>
         <td>true</td>
-        <td>Whether or not to require valid SSL certificates. Set to `false` if you want to ignore SSL certificates.</td>
+        <td>Whether or not to require valid SSL certificates. Set to <code>false</code> if you want to ignore SSL certificates.</td>
+    </tr>
+    <tr>
+        <td>paginate</td>
+        <td>false</td>
+        <td>True to page through <b>ALL</b> the results returned by the Solr query in batches of the size of the <i>rows</i> parameter, False to only return the first <i>rows</i> results.</td>
+    </tr>
+    <tr>
+        <td>metadata_fields</td>
+        <td></td>
+        <td>Pulls a string value from the specified datastream ID and Xpath for each resource. See <a href="#metadata-fields">Metadata fields</a> for example configuration.</td> 
     </tr>
 </table>
 
@@ -1377,6 +1418,22 @@ parameters can be changed in the user-supplied config file.</p>
   </tr>
 </table>
 
+<h3 id="metadata-fields">Metadata fields</h3>
+<p>The <code>metadata_fields</code> configuration parameter allows you to parse an XML datastream associated with the resource and return a string value for a particular Xpath. It has the form of</p>
+<pre><code class="language-yaml">metadata_fields:
+ &lt;field_name&gt;
+  dsid: &lt;DSID&gt;
+  xpath: '&lt;full xpath&gt;'
+</code></pre>
+<p>For example:</p>
+<pre><code class="language-yaml">metadata_fields:
+ abstract:
+  dsid: MODS
+  xpath: './{http://www.loc.gov/mods/v3}abstract'
+ access_condition:
+  dsid: MODS
+  xpath: './{http://www.loc.gov/mods/v3}accessCondition'
+</code></pre>
 <h2 id="analyzing-your-islandora-7-solr-index">Analyzing your Islandora 7 Solr index</h2>
 <p>In order to use the configuration options outlined above, you will need to know what fields are in your Islandora 7 Solr index. Not all Islandoras are indexed in the same way, and since most Solr field names are derived from MODS or other XML datastream element names, there is enough variability in Solr fieldnames across Islandora 7 instances to make reliably predicting Solr fieldnames impractical.</p>
 <p>Two ways you can see the specific fields in your Solr index are 1) using the Islandora Metadata Extras module, and 2) issuing raw requests to your Islandora 7's Solr, both to get Solr content for sample objects and to get a list of all fields in your index.</p>
