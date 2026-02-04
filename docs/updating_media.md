@@ -27,7 +27,7 @@ Currently, the `update_media` routine has support for the following operations:
 - Updating the published status of media
 - Updating custom fields of any supported field type
 
-When updating field values on the media, the `update_mode` configuration option allows you to determine whether the field values are appendeded or deleted:
+When updating field values on the media, the `update_mode` configuration option allows you to determine whether the field values are appended or deleted:
 
 * `replace` (the default) will replace all existing values in a field with the values in the input CSV.
 * `append` will add values in the input CSV to any existing values in a field.
