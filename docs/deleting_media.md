@@ -1,7 +1,7 @@
 ### Deleting media using media IDs
 
 !!! note
-    Drupal does not allow a user to delete or modify media files unless the user originally created (or is the owner) of the file. This means that if you created a media using "user1" in your Workbench configuration file, only "user1" can delete or modify those files. For `delete_media` tasks, the value of `username` will need to be the same as the username used to create the media. If the username defined in a `delete_media` task is not the same as the Drupal user who owns the files, Drupal will return a `403` response, which you will see in your Workbench logs.
+    Drupal version 10.0.0 and earlier does not allow a user to delete or modify media files unless the user originally created (or is the owner) of the file. This means that if you created a media using "user1" in your Workbench configuration file, only "user1" can delete or modify those files. For `delete_media` tasks, the value of `username` will need to be the same as the username used to create the media. If the username defined in a `delete_media` task is not the same as the Drupal user who owns the files, Drupal will return a `403` response, which you will see in your Workbench logs. Drupal version [10.1.0](https://www.drupal.org/project/drupal/issues/2949017) and higher allows users who don't own a file to delete it.
 
 You can delete media and their associate files by providing a CSV file with a `media_id` column that contains the Drupal IDs of media you want to delete. For example, your CSV file could look like this:
 
