@@ -1566,6 +1566,10 @@ username: admin
 password: islandora
 </code></pre>
 <p>In this example, the <code>task</code> being performed is creating nodes (and optionally media). Other tasks are <code>create_from_files</code>, <code>update</code>, <code>delete</code>, <code>add_media</code>, <code>update_media</code>, and <code>delete_media</code>. Some of the configuration settings documented below are used in all tasks, while others are only used in specific tasks.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Workbench has a lot of configuration settings, and knowing which ones to use can be a little overwhelming. A good practice is to create one or more template configuration files that you can reuse for commonly-performed tasks, changing only the settings that pertain to the current job. More info on this suggestion is vailable <a href="/islandora_workbench_docs/optimizing_your_use_of_workbench/#create-standard-templates-for-your-configuration-and-input-csv-files">here</a>.</p>
+</div>
 <h2 id="configuration-settings">Configuration settings</h2>
 <p>The settings defined in a configuration file are documented in the tables below, grouped into broad functional categories for easier reference. The order of the options in the configuration file doesn't matter, and settings do not need to be grouped together in any specific way in the configuration file.</p>
 <p>Note that you can define <a href="/islandora_workbench_docs/configuration_settings_on_the_command_line/">some configuration settings</a> as command-line arguments to the workbench script. If they are provided as command-line arguments, they override the same settings in the configuration file.</p>
