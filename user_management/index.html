@@ -311,6 +311,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#using-a-non-administrator-user" class="md-nav__link">
+    Using a non-administrator user
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1106,6 +1113,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#using-a-non-administrator-user" class="md-nav__link">
+    Using a non-administrator user
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1128,7 +1142,7 @@
 
   <h1>User management</h1>
 
-<p>Islandora Workbench requires user credentials that have administrator-level permissions in the target Drupal. Therefore you should exercise caution when managing those credentials. Workbench offers a few ways to help you do this.</p>
+<p>By default, Islandora Workbench requires user credentials that have administrator-level permissions in the target Drupal. However, it is possible to avoid giving the user the administrator role; the steps required to do this are described beloe. In either case, you should exercise caution when managing the Workbench user's credentials. Workbench offers a few ways to help you do this.</p>
 <h2 id="password-management">Password management</h2>
 <p>Workbench configuration files must contain a <code>username</code> setting (unless you use an external credentials file, as described below), but you can provide the corresponding password in three ways:</p>
 <ol>
@@ -1155,6 +1169,138 @@ password: islandora
 <h2 id="the-remove_password_from_config_file-configuration-setting">The <code>remove_password_from_config_file</code> configuration setting</h2>
 <p>If you include <code>remove_password_from_config_file: true</code> in your configuration file, Workbench will remove the <code>password</code> entry from the configuration file immediately after it reads it. All other configuration settings remain as they were in the original version of the file. Adding <code>remove_password_from_config_file: true</code> to your configuration files removes the security risk of having passwords exposed to anyone who can read the files, but will mean that, unless you add the <code>password</code> setting back into a configuration file prior to the next time you run Workbench using that configuration file, it will prompt you for the password as described above.</p>
 <p>This setting will interfere with automated or scripted workflows since Workbench will not continue until the password is entered in response to the prompt. If you don't want to include <code>password</code> in your configuration files in these workflows, configure your <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable to contain the password.</p>
+<h2 id="using-a-non-administrator-user">Using a non-administrator user</h2>
+<p>If you prefer that the user indicated in Workbench's <code>username</code> config setting not have full administrator permissions, you will need to do the following:</p>
+<ol>
+<li>create a new Drupal role for you user named, for example, "Workbench user"</li>
+<li>include <code>use_workbench_permissions: true</code> in your Workbench config file.</li>
+</ol>
+<p>The specific permissions required to use a non-administrator user depend on which modules are enabled on your Drupal site. The role configuration file provided below accounts for all core Islandora modules. After you import the role configuration into your Drupal, you will need to test whether Workbench runs as expected and if not, add any required permissions to the role that are required.</p>
+<p>To create the "Workbench user" role using the sample configuration file below, do the following:</p>
+<ol>
+<li>Go to your Drupal's Administration &gt; Configuration &gt; Development page (<code>/admin/config/development/configuration</code>).</li>
+<li>Click on the "Import" tab.</li>
+<li>Click on the "Single item" subtab.</li>
+<li>In the "Configuration type" list, choose "Role".</li>
+<li>Paste the YAML configuration data below into the specified text box.</li>
+<li>Click the "Import" button.</li>
+</ol>
+<pre><code class="language-yaml">langcode: en
+status: true
+dependencies: {  }
+id: workbench_user
+label: Workbench user
+weight: 10
+is_admin: null
+permissions:
+ - 'access administration pages'
+ - 'access content'
+ - 'access content overview'
+ - 'access contextual links'
+ - 'access files overview'
+ - 'access help pages'
+ - 'access toolbar'
+ - 'administer url aliases'
+ - 'create article content'
+ - 'create audio media'
+ - 'create document media'
+ - 'create extracted_text media'
+ - 'create file media'
+ - 'create fits_technical_metadata media'
+ - 'create image media'
+ - 'create islandora_object content'
+ - 'create page content'
+ - 'create remote_video media'
+ - 'create terms in corporate_body'
+ - 'create terms in country'
+ - 'create terms in family'
+ - 'create terms in frequencies'
+ - 'create terms in genre'
+ - 'create terms in geo_location'
+ - 'create terms in issuance_modes'
+ - 'create terms in language'
+ - 'create terms in person'
+ - 'create terms in physical_form'
+ - 'create terms in resource_types'
+ - 'create terms in resource_types_dcmi'
+ - 'create terms in subject'
+ - 'create terms in tags'
+ - 'create terms in temporal_subjects'
+ - 'create url aliases'
+ - 'create video media'
+ - 'delete article revisions'
+ - 'delete media'
+ - 'delete own article content'
+ - 'delete own audio media'
+ - 'delete own document media'
+ - 'delete own extracted_text media'
+ - 'delete own file media'
+ - 'delete own files'
+ - 'delete own fits_technical_metadata media'
+ - 'delete own image media'
+ - 'delete own islandora_object content'
+ - 'delete own page content'
+ - 'delete own remote_video media'
+ - 'delete own video media'
+ - 'delete page revisions'
+ - 'delete terms in corporate_body'
+ - 'delete terms in country'
+ - 'delete terms in family'
+ - 'delete terms in frequencies'
+ - 'delete terms in genre'
+ - 'delete terms in geo_location'
+ - 'delete terms in issuance_modes'
+ - 'delete terms in language'
+ - 'delete terms in person'
+ - 'delete terms in physical_form'
+ - 'delete terms in resource_types'
+ - 'delete terms in resource_types_dcmi'
+ - 'delete terms in subject'
+ - 'delete terms in tags'
+ - 'delete terms in temporal_subjects'
+ - 'edit own article content'
+ - 'edit own document media'
+ - 'edit own extracted_text media'
+ - 'edit own file media'
+ - 'edit own fits_technical_metadata media'
+ - 'edit own image media'
+ - 'edit own islandora_object content'
+ - 'edit own page content'
+ - 'edit own remote_video media'
+ - 'edit own video media'
+ - 'edit terms in corporate_body'
+ - 'edit terms in country'
+ - 'edit terms in family'
+ - 'edit terms in frequencies'
+ - 'edit terms in genre'
+ - 'edit terms in geo_location'
+ - 'edit terms in islandora_display'
+ - 'edit terms in islandora_media_use'
+ - 'edit terms in islandora_models'
+ - 'edit terms in issuance_modes'
+ - 'edit terms in language'
+ - 'edit terms in person'
+ - 'edit terms in physical_form'
+ - 'edit terms in resource_types'
+ - 'edit terms in resource_types_dcmi'
+ - 'edit terms in subject'
+ - 'edit terms in tags'
+ - 'edit terms in temporal_subjects'
+ - 'manage media'
+ - 'manage members'
+ - 'replace files'
+ - 'revert all revisions'
+ - 'update media'
+ - 'use islandora workbench'
+ - 'use text format basic_html'
+ - 'view all revisions'
+ - 'view checksums'
+ - 'view media'
+ - 'view own unpublished content'
+ - 'view own unpublished media'
+ - 'view the administration theme'
+</code></pre>
+<p>Once you have imported the role configuration, confirm that the role is showing up in Drupal by visiting Administration &gt; People &gt; Roles (<code>/admin/people/roles</code>). If the new role is showing up, it should be ready to assign to your Workbench user.</p>
 
 
 
