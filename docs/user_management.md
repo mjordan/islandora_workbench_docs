@@ -11,7 +11,7 @@ Workbench configuration files must contain a `username` setting (unless you use 
 If the `password` setting is present in your configuration files, Workbench will use its value as the user password and will ignore the other two methods of providing a password. If the `password` setting is absent, Workbench will look for the `ISLANDORA_WORKBENCH_PASSWORD` environment variable and if it is present, use its value. If both the `password` setting and the `ISLANDORA_WORKBENCH_PASSWORD` environment variable are absent, Workbench will prompt the user for a password before proceeding.
 
 !!! warning
-    If you put the password in configuration files, you should not leave the files in directories that are widely readable, send them in emails or share them in Slack, commit the configuration files to public Git repositories, etc.
+    If you put the password in configuration files, you should not leave the files in directories that are widely readable, send them in emails or share them in Slack, commit the configuration files to Git repositories, etc.
 
 ## The `credentials_file_path` configuration setting
 
@@ -48,10 +48,12 @@ If you prefer that the user indicated in Workbench's `username` config setting n
 2. Make sure Drupal is running version 1.2.0 or higher of the Islandora Workbench Integration module. Workbench will tell you during `--check` if you need to update the Integration module.
 3. Include `use_workbench_permissions: true` in your Workbench config file. If you do not include this setting, or set it to `false` (the default), Workbench will expect the user defined in `username` to have the administrator role.
 
-!!! warning
-    The specific permissions required to use a non-administrator user depend on which modules are enabled on your Drupal site. In additiona, local or custom content types, media types, and vocabularies will also need to be included in the role configuration. The configuration file provided below only includes permissions required by core Islandora modules, content types, media types, and vocabularies.
+Below is a sample "Workbench user" role configuration that you can use.
 
-    After you import the role configuration into your Drupal, you will need to test whether Workbench runs as expected and if not, add any required permissions to the role that are required. If you need to add additional permissions (for example because you have the Paragraphs module enabled) you can do so using Drupal's GUI.
+!!! warning
+    The specific permissions required to use a non-administrator user depend on which modules are enabled on your Drupal site. The configuration file provided below only includes permissions required by core Islandora modules, content types, media types, and vocabularies. Custom content types, media types, and vocabularies will need to be added. For example, if you have the Paragraphs module enabled, or you are using some vocabularies specific to your Drupal, you will need to add the relevant permissions using Drupal's GUI tools.
+
+    After you import the role configuration into your Drupal, you will need to test whether Workbench runs as expected and if not, add any required permissions to the role that are required.
 
 To create the "Workbench user" role using the sample configuration file below, do the following:
 
@@ -179,4 +181,4 @@ permissions:
  - 'view the administration theme'
 ```
 
-Once you have imported the role configuration, confirm that the role is showing up in Drupal by visiting Administration > People > Roles (`/admin/people/roles`). If "Workbench user" is in the list of available roles, it is ready to assign to your Workbench user. Unless the role is lacking any additional permissions required by your Drupal, you can now specify the user with this new role in your configuration file instead of an admin-role user. Don't forget to include `use_workbench_permissions: true` in your Workbench config file.
+Once you have imported the role configuration, confirm that the role is showing up in Drupal by visiting Administration > People > Roles (`/admin/people/roles`). If "Workbench user" is in the list of available roles, it is ready to assign to your Workbench user. Don't forget to include `use_workbench_permissions: true` in your Workbench config file.
