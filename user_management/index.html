@@ -1301,7 +1301,7 @@ permissions:
  - 'view own unpublished media'
  - 'view the administration theme'
 </code></pre>
-<p>Once you have imported the role configuration, confirm that the role is showing up in Drupal by visiting Administration &gt; People &gt; Roles (<code>/admin/people/roles</code>). If "Workbench user" is in the list of available roles, it is ready to assign to your Workbench user. Unless the role is lacking any additional permissions required by your Drupal, you now define the user with this new role in your configuration file instead of an admin-role user (as long as you include <code>use_workbench_permissions: true</code> in your Workbench config file).</p>
+<p>Once you have imported the role configuration, confirm that the role is showing up in Drupal by visiting Administration &gt; People &gt; Roles (<code>/admin/people/roles</code>). If "Workbench user" is in the list of available roles, it is ready to assign to your Workbench user. Unless the role is lacking any additional permissions required by your Drupal, you can now specify the user with this new role in your configuration file instead of an admin-role user. Don't forget to include <code>use_workbench_permissions: true</code> in your Workbench config file.</p>
 
 
 
