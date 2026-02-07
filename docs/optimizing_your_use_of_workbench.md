@@ -15,6 +15,8 @@ Most users of Islandora Workbench create template configuration files that conta
 
 Also, assuming that your Islandora repository uses only a single node content type, it makes sense to use a templated input CSV as well. Even if you use multiple content types, you can use the `ignore_csv_columns` configuration setting in your templated config file to identify columns that are not used across all of your content types, adjusting the columns identified in this setting depending on which content type the CSV file applies to or commenting out versions of the `ignore_csv_columns` depending on what content type you are working with.
 
+Many users find it helpful to annotate their config file templates, for example with notes about when a specific setting's value might need to be changed, or when it's OK to comment out a setting for a given task. Any line in the the config file that starts with a `#` is ignored, so the `#` can be used to comment out annotations. You can see some annotations in action in the [example configuration files](/islandora_workbench_docs/configuration/#example-configuration-files).
+
 ## Protect user credentials in your config files
 
 Workbench requires the credentials of a Drupal user. You should consult with your local IT group to determine [which option](https://mjordan.github.io/islandora_workbench_docs/installation/#password-management) for managing the password of this user is their preference. You don't want Islandora Workbench to become a security vulnerability.

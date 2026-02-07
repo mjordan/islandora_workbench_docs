@@ -11,9 +11,15 @@ password: islandora
 
 In this example, the `task` being performed is creating nodes (and optionally media). Other tasks are `create_from_files`, `update`, `delete`, `add_media`, `update_media`, and `delete_media`. Some of the configuration settings documented below are used in all tasks, while others are only used in specific tasks.
 
+!!! note
+    Workbench has a lot of configuration settings, and knowing which ones to use can be a little overwhelming. A good practice is to create one or more template configuration files that you can reuse for commonly-performed tasks, changing only the settings that pertain to the current job. More info on this suggestion is vailable [here](/islandora_workbench_docs/optimizing_your_use_of_workbench/#create-standard-templates-for-your-configuration-and-input-csv-files).
+
 ## Configuration settings
 
 The settings defined in a configuration file are documented in the tables below, grouped into broad functional categories for easier reference. The order of the options in the configuration file doesn't matter, and settings do not need to be grouped together in any specific way in the configuration file.
+
+!!! warning
+    Many settings have default values that are applied if the setting is absent from your configuration file. All default values are indicated in the table below. If ou need to override a default value for a setting, simply include that setting in your config file, so that value, instead of the default, will be applied.
 
 Note that you can define [some configuration settings](/islandora_workbench_docs/configuration_settings_on_the_command_line/) as command-line arguments to the workbench script. If they are provided as command-line arguments, they override the same settings in the configuration file.
 
