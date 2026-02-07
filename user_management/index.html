@@ -1142,7 +1142,7 @@
 
   <h1>User management</h1>
 
-<p>By default, Islandora Workbench requires user credentials that have administrator-level permissions in the target Drupal. However, it is possible to avoid giving the user the administrator role; the steps required to do this are described beloe. In either case, you should exercise caution when managing the Workbench user's credentials. Workbench offers a few ways to help you do this.</p>
+<p>By default, Islandora Workbench requires user credentials that have administrator-level permissions in the target Drupal. However, it is possible to avoid giving the user the administrator role; the steps required to do this are described below. In either case, you should exercise caution when managing the Workbench user's credentials. Workbench offers a few ways to help you do this.</p>
 <h2 id="password-management">Password management</h2>
 <p>Workbench configuration files must contain a <code>username</code> setting (unless you use an external credentials file, as described below), but you can provide the corresponding password in three ways:</p>
 <ol>
@@ -1172,17 +1172,17 @@ password: islandora
 <h2 id="using-a-non-administrator-user">Using a non-administrator user</h2>
 <p>If you prefer that the user indicated in Workbench's <code>username</code> config setting not have full administrator permissions, you will need to do the following:</p>
 <ol>
-<li>create a new Drupal role for you user named, for example, "Workbench user"</li>
-<li>include <code>use_workbench_permissions: true</code> in your Workbench config file.</li>
+<li>Create a new Drupal role for you user named, for example, "Workbench user".</li>
+<li>Include <code>use_workbench_permissions: true</code> in your Workbench config file. If you do not include this setting, or set it to <code>false</code> (the default), Workbench will expect the user defined in <code>username</code> to have the administrator role.</li>
 </ol>
-<p>The specific permissions required to use a non-administrator user depend on which modules are enabled on your Drupal site. The role configuration file provided below accounts for all core Islandora modules. After you import the role configuration into your Drupal, you will need to test whether Workbench runs as expected and if not, add any required permissions to the role that are required.</p>
+<p>The specific permissions required to use a non-administrator user depend on which modules are enabled on your Drupal site. The role configuration file provided below includes permissions required by all core Islandora modules. After you import the role configuration into your Drupal, you will need to test whether Workbench runs as expected and if not, add any required permissions to the role that are required.</p>
 <p>To create the "Workbench user" role using the sample configuration file below, do the following:</p>
 <ol>
 <li>Go to your Drupal's Administration &gt; Configuration &gt; Development page (<code>/admin/config/development/configuration</code>).</li>
 <li>Click on the "Import" tab.</li>
 <li>Click on the "Single item" subtab.</li>
 <li>In the "Configuration type" list, choose "Role".</li>
-<li>Paste the YAML configuration data below into the specified text box.</li>
+<li>Copy and paste the YAML configuration data below into the specified text box.</li>
 <li>Click the "Import" button.</li>
 </ol>
 <pre><code class="language-yaml">langcode: en
@@ -1300,7 +1300,7 @@ permissions:
  - 'view own unpublished media'
  - 'view the administration theme'
 </code></pre>
-<p>Once you have imported the role configuration, confirm that the role is showing up in Drupal by visiting Administration &gt; People &gt; Roles (<code>/admin/people/roles</code>). If the new role is showing up, it should be ready to assign to your Workbench user.</p>
+<p>Once you have imported the role configuration, confirm that the role is showing up in Drupal by visiting Administration &gt; People &gt; Roles (<code>/admin/people/roles</code>). If "Workbench user" is in the list of available roles, it is ready to assign to your Workbench user. Unless the role is lacking any additional permissions required by your Drupal, you now define the user with this new role in your configuration file instead of an admin-role user (as long as you include <code>use_workbench_permissions: true</code> in your Workbench config file).</p>
 
 
 
