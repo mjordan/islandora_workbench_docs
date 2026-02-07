@@ -45,13 +45,13 @@ This setting will interfere with automated or scripted workflows since Workbench
 If you prefer that the user indicated in Workbench's `username` config setting not have full administrator permissions, you will need to do the following:
 
 1. Create a new Drupal role for you user named, for example, "Workbench user".
-2. Make sure Drupal is running version 1.2.0 or higher of the Islandora Workbench Integration module.
+2. Make sure Drupal is running version 1.2.0 or higher of the Islandora Workbench Integration module. Workbench will tell you during `--check` if you need to update the Integration module.
 3. Include `use_workbench_permissions: true` in your Workbench config file. If you do not include this setting, or set it to `false` (the default), Workbench will expect the user defined in `username` to have the administrator role.
 
 !!! warning
     The specific permissions required to use a non-administrator user depend on which modules are enabled on your Drupal site. In additiona, local or custom content types, media types, and vocabularies will also need to be included in the role configuration. The configuration file provided below only includes permissions required by core Islandora modules, content types, media types, and vocabularies.
 
-    After you import the role configuration into your Drupal, you will need to test whether Workbench runs as expected and if not, add any required permissions to the role that are required.
+    After you import the role configuration into your Drupal, you will need to test whether Workbench runs as expected and if not, add any required permissions to the role that are required. If you need to add additional permissions (for example because you have the Paragraphs module enabled) you can do so using Drupal's GUI.
 
 To create the "Workbench user" role using the sample configuration file below, do the following:
 
