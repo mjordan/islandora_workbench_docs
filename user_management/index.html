@@ -1173,8 +1173,8 @@ password: islandora
 <p>If you prefer that the user indicated in Workbench's <code>username</code> config setting not have full administrator permissions, you will need to do the following:</p>
 <ol>
 <li>Create a new Drupal role for you user named, for example, "Workbench user".</li>
-<li>Make sure Drupal is running version 1.2.0 or higher of the Islandora Workbench Integration module. Workbench will tell you during <code>--check</code> if you need to update the Integration module.</li>
 <li>Include <code>use_workbench_permissions: true</code> in your Workbench config file. If you do not include this setting, or set it to <code>false</code> (the default), Workbench will expect the user defined in <code>username</code> to have the administrator role.</li>
+<li>Make sure Drupal is running version 1.2.0 or higher of the Islandora Workbench Integration module. If you put <code>use_workbench_permissions: true</code> in your config file, and run <code>--check</code>, Workbench will tell you if you need to update the Integration module.</li>
 </ol>
 <p>Below is a sample "Workbench user" role configuration that you can use.</p>
 <div class="admonition warning">
