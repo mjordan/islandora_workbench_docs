@@ -52,7 +52,7 @@ If you prefer that the user indicated in Workbench's `username` config setting n
 Below is a sample "Workbench user" role configuration that you can use.
 
 !!! warning
-    The specific permissions required to use a non-administrator user depend on which modules are enabled on your Drupal site. The configuration file provided below only includes permissions required by core Islandora modules, content types, media types, and vocabularies. Custom content types, media types, and vocabularies will need to be added. For example, if you have the Paragraphs module enabled, or you are using some vocabularies specific to your Drupal, you will need to add the relevant permissions using Drupal's GUI tools.
+    The specific permissions required to use a non-administrator user depend on which modules are enabled on your Drupal site. The configuration file provided below only includes permissions required by core Islandora modules, content types, media types, and vocabularies. Custom content types, media types, and vocabularies will need to be added to the role separately. For example, if you have the Paragraphs module enabled, or you are using some vocabularies specific to your Drupal, you will need to add the relevant permissions to this role using Drupal's GUI tools.
 
     After you import the role configuration into your Drupal, you will need to test whether Workbench runs as expected and if not, add any required permissions to the role that are required.
 
