@@ -44,7 +44,7 @@ This setting will interfere with automated or scripted workflows since Workbench
 
 If you prefer that the user indicated in Workbench's `username` config setting not have full administrator permissions, you will need to do the following:
 
-1. Create a new Drupal role for you user named, for example, "Workbench user".
+1. Create a new Drupal role named, for example, "Workbench user", for non-admin users whose credentials you want to use in your config file.
 2. Include `use_workbench_permissions: true` in your Workbench config file. If you do not include this setting, or set it to `false` (the default), Workbench will expect the user defined in `username` to have the administrator role.
 3. Make sure Drupal is running version 1.2.0 or higher of the Islandora Workbench Integration module. If you put `use_workbench_permissions: true` in your config file, and run `--check`, Workbench will tell you if you need to update the Integration module.
 
