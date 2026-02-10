@@ -1172,7 +1172,7 @@ password: islandora
 <h2 id="using-a-non-administrator-user">Using a non-administrator user</h2>
 <p>If you prefer that the user indicated in Workbench's <code>username</code> config setting not have full administrator permissions, you will need to do the following:</p>
 <ol>
-<li>Create a new Drupal role named, for example, "Workbench user", for users whose credentials you want to use in your config file.</li>
+<li>Create a new Drupal role named, for example, "Workbench user", for non-admin users whose credentials you want to use in your config file.</li>
 <li>Include <code>use_workbench_permissions: true</code> in your Workbench config file. If you do not include this setting, or set it to <code>false</code> (the default), Workbench will expect the user defined in <code>username</code> to have the administrator role.</li>
 <li>Make sure Drupal is running version 1.2.0 or higher of the Islandora Workbench Integration module. If you put <code>use_workbench_permissions: true</code> in your config file, and run <code>--check</code>, Workbench will tell you if you need to update the Integration module.</li>
 </ol>
