@@ -1030,12 +1030,52 @@
   <h1>Creating nodes</h1>
 
 <p>Islandora Workbench provides several ways to create Drupal nodes. The one you should choose depends whether the nodes are simple (no children) or complex (with children such as parts or pages):</p>
-<p>| Simple or complex | Type of children | Source of field data | Typical Islandora Model values | Workbench task | Start with this documentation |
-| --- | --- | --- | --- | --- |
-| simple | | CSV input file containing one row per node, accompanying content files optional | Image, Digital Document, Video, Audio | <code>create</code> | "<a href="/islandora_workbench_docs/preparing_data/">Preparing your data</a>", "<a href="/islandora_workbench_docs/nodes_only/">Creating nodes without media</a>"  |
-| simple | | no input CSV, content files only | Image, Digital Document, Video, Audio | <code>create_from_files</code> | "<a href="/islandora_workbench_docs/creating_nodes_from_files/">Creating nodes from files</a>"
-| complex | other simple nodes | CSV input containing one row per parent and one row per child, content files optional | Compound | <code>create</code> | "<a href="/islandora_workbench_docs/paged_and_compound/#with-pagechild-level-metadata">With page/child-level metadata</a>" |
-| complex | pages | CSV input file containing one row per parent but not rows for child pages | Paged content for parents, Page for children | <code>create</code> with <code>paged_content_from_directories: true</code> | "<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>" |</p>
+<table>
+<thead>
+<tr>
+<th>Simple or complex</th>
+<th>Type of children</th>
+<th>Source of field data</th>
+<th>Typical Islandora Model values</th>
+<th>Workbench task</th>
+<th>Start with this documentation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>simple</td>
+<td></td>
+<td>CSV input file containing one row per node, accompanying content files optional</td>
+<td>Image, Digital Document, Video, Audio</td>
+<td><code>create</code></td>
+<td>"<a href="/islandora_workbench_docs/preparing_data/">Preparing your data</a>", "<a href="/islandora_workbench_docs/nodes_only/">Creating nodes without media</a>"</td>
+</tr>
+<tr>
+<td>simple</td>
+<td></td>
+<td>no input CSV, content files only</td>
+<td>Image, Digital Document, Video, Audio</td>
+<td><code>create_from_files</code></td>
+<td>"<a href="/islandora_workbench_docs/creating_nodes_from_files/">Creating nodes from files</a>"</td>
+</tr>
+<tr>
+<td>complex</td>
+<td>other simple nodes</td>
+<td>CSV input containing one row per parent and one row per child, content files optional</td>
+<td>Compound</td>
+<td><code>create</code></td>
+<td>"<a href="/islandora_workbench_docs/paged_and_compound/#with-pagechild-level-metadata">With page/child-level metadata</a>"</td>
+</tr>
+<tr>
+<td>complex</td>
+<td>pages</td>
+<td>CSV input file containing one row per parent but not rows for child pages</td>
+<td>Paged content for parents, Page for children</td>
+<td><code>create</code> with <code>paged_content_from_directories: true</code></td>
+<td>"<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>"</td>
+</tr>
+</tbody>
+</table>
 
 
 
