@@ -1029,13 +1029,13 @@
 
   <h1>Creating nodes</h1>
 
-<p>Islandora Workbench provides several ways to create Drupal nodes. The method you should choose depends whether the nodes you want to create are simple (no children) or complex (with children such as pages or parts):</p>
+<p>Islandora Workbench provides several ways to create Drupal nodes. The method you should choose depends on whether the nodes you want to create are simple (no children) or complex (with children such as pages or parts), and how your content files are organized:</p>
 <table>
 <thead>
 <tr>
 <th>Simple or complex</th>
 <th>Type of children</th>
-<th>Source of field data</th>
+<th>Source of input data</th>
 <th>Typical Islandora Model values</th>
 <th>Workbench task</th>
 <th>Start with this documentation</th>
@@ -1045,7 +1045,7 @@
 <tr>
 <td>simple</td>
 <td></td>
-<td>CSV input file containing one row per node, accompanying content files optional</td>
+<td>CSV file containing one row per node, accompanying content files optional</td>
 <td>"Image", "Digital Document", "Video", "Audio"</td>
 <td><code>create</code></td>
 <td>"<a href="/islandora_workbench_docs/preparing_data/">Preparing your data</a>", "<a href="/islandora_workbench_docs/nodes_only/">Creating nodes without media</a>"</td>
@@ -1053,7 +1053,7 @@
 <tr>
 <td>simple</td>
 <td></td>
-<td>no input CSV, content files only</td>
+<td>no input CSV file, content files only</td>
 <td>"Image", "Digital Document", "Video", "Audio"</td>
 <td><code>create_from_files</code></td>
 <td>"<a href="/islandora_workbench_docs/creating_nodes_from_files/">Creating nodes from files</a>"</td>
@@ -1061,7 +1061,7 @@
 <tr>
 <td>complex</td>
 <td>other simple nodes</td>
-<td>CSV input containing one row per parent and one row per child, accompanying content files optional</td>
+<td>CSV file containing one row per parent and one row per child, accompanying content files optional</td>
 <td>"Compound"</td>
 <td><code>create</code></td>
 <td>"<a href="/islandora_workbench_docs/paged_and_compound/#with-pagechild-level-metadata">With page/child-level metadata</a>"</td>
