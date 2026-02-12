@@ -2,11 +2,11 @@ By default, Islandora Workbench requires user credentials that have administrato
 
 ## Password management
 
-Workbench configuration files must contain a `username` setting (unless you use an external credentials file, as described below), but you can provide the corresponding password in three ways:
+Workbench configuration files must contain a `username` setting (unless you use an external credentials file, as described below), but you can provide the corresponding password in three ways, depending on your security tolerance:
 
-1. in the `password` setting in your YAML configuration file
-1. in the `ISLANDORA_WORKBENCH_PASSWORD` environment variable
-1. in response to a prompt when you run Workbench.
+1. in the `password` setting in your YAML configuration file (least secure)
+1. in the `ISLANDORA_WORKBENCH_PASSWORD` environment variable (more secure)
+1. in response to a prompt when you run Workbench (most secure).
 
 If the `password` setting is present in your configuration files, Workbench will use its value as the user password and will ignore the other two methods of providing a password. If the `password` setting is absent, Workbench will look for the `ISLANDORA_WORKBENCH_PASSWORD` environment variable and if it is present, use its value. If both the `password` setting and the `ISLANDORA_WORKBENCH_PASSWORD` environment variable are absent, Workbench will prompt the user for a password before proceeding.
 
@@ -81,6 +81,7 @@ permissions:
  - 'access files overview'
  - 'access help pages'
  - 'access toolbar'
+ - 'administer taxonomy'
  - 'administer url aliases'
  - 'create article content'
  - 'create audio media'

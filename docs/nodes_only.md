@@ -1,4 +1,4 @@
-During a `create` task, if you want to create nodes but not any accompanying media, for example if you are testing your metadata values or creating collection nodes, you can include the `nodes_only: true` option in your configuration file:
+During a `create` task, if you want to create nodes from CSV data but without any accompanying media, for example if you are testing your metadata values or creating collection nodes, you can include the `nodes_only: true` option in your configuration file:
 
 ```yaml
 task: create

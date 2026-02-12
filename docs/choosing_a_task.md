@@ -3,7 +3,7 @@ The `task` configuration setting defines the specific work you want Workbench to
 
 | If you want to | Then use this task | Start with this documentation |
 | --- | --- | --- |
-| Create nodes from CSV and, optionally, attached media | `create` | [Preparing your data](/islandora_workbench_docs/preparing_data/), [Field data (Drupal and CSV)](/islandora_workbench_docs/fields/) |
+| Create nodes from CSV and, optionally, attached media | `create` | [Creating nodes](/islandora_workbench_docs/creating_nodes/) |
 | Create basic nodes without using CSV, and attach media | `create_from_files` | [Creating nodes from files](/islandora_workbench_docs/creating_nodes_from_files/) |
 | Add child nodes to existing parent nodes | `create` | [Adding children to nodes that already exist](/islandora_workbench_docs/paged_and_compound/#adding-children-to-nodes-that-already-exist) |
 | Update node field data | `update` | [Updating nodes](/islandora_workbench_docs/updating_nodes/) |

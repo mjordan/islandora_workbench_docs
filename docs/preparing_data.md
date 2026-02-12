@@ -3,7 +3,7 @@ Islandora Workbench allows you to arrange your input data in a variety of ways. 
 1. a CSV file, containing data that will populate node fields (or do other things depending on what task you are performing), described [here](/islandora_workbench_docs/fields/)
 2. files that will be used as Drupal media.
 
-The options for arranging your data are detailed below.
+`create` tasks require the most complex arrangement of data, including a CSV file with many columns and at least one media file per node; on the other end of the spectrum, the input data for `delete` tasks is only a single-column CSV file. The exact requirements for each task are documented separately but the information presented here is applicable across tasks.
 
 !!! note
     Some of Workbench's functionality depends on a specific directory structure not described here, for example "[Creating nodes from files](/islandora_workbench_docs/creating_nodes_from_files/)" and "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/)." However, the information on this page applies to the vast majority of Workbench usage.

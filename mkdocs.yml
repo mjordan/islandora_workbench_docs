@@ -26,6 +26,7 @@ nav:
     - Creating nodes without media: nodes_only.md
     - Creating nodes from files: creating_nodes_from_files.md
     - Recovering from interrupted "create" tasks: recovery_mode.md
+    - Creating nodes: creating_nodes.md
     - Updating nodes: updating_nodes.md
     - Deleting nodes: deleting_nodes.md
     - Creating taxonomy terms: creating_taxonomy_terms.md
