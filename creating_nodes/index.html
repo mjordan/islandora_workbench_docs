@@ -1035,8 +1035,8 @@
 <tr>
 <th>Simple or complex</th>
 <th>Type of children</th>
-<th>Source of input data</th>
 <th>Typical Islandora Model values</th>
+<th>Source of input data</th>
 <th>Workbench task</th>
 <th>Start with this documentation</th>
 </tr>
@@ -1045,84 +1045,38 @@
 <tr>
 <td>simple</td>
 <td>no children</td>
-<td>CSV file containing one row per node, accompanying content files optional</td>
 <td>"Image", "Digital Document", "Video", "Audio"</td>
+<td>CSV file containing one row per node; accompanying content files optional</td>
 <td><code>create</code></td>
 <td>"<a href="/islandora_workbench_docs/preparing_data/">Preparing your data</a>", "<a href="/islandora_workbench_docs/nodes_only/">Creating nodes without media</a>"</td>
 </tr>
 <tr>
 <td>simple</td>
 <td>no children</td>
-<td>no input CSV file, content files only</td>
 <td>"Image", "Digital Document", "Video", "Audio"</td>
+<td>no input CSV file, content files only</td>
 <td><code>create_from_files</code></td>
 <td>"<a href="/islandora_workbench_docs/creating_nodes_from_files/">Creating nodes from files</a>"</td>
 </tr>
 <tr>
 <td>complex</td>
 <td>other simple nodes</td>
-<td>CSV file containing one row per parent and one row per child, accompanying content files optional</td>
 <td>"Compound"</td>
+<td>CSV file containing one row per parent and one row per child, accompanying content files optional</td>
 <td><code>create</code></td>
 <td>"<a href="/islandora_workbench_docs/paged_and_compound/#with-pagechild-level-metadata">With page/child-level metadata</a>"</td>
 </tr>
 <tr>
 <td>complex</td>
 <td>multiple page files</td>
-<td>CSV input file containing one row per parent but not rows for child pages; page files are arranged in subdirectories</td>
 <td>"Paged content" for parents, "Page" for children</td>
+<td>CSV input file containing one row per parent but not rows for child pages; page files are arranged in subdirectories</td>
 <td><code>create</code> with <code>paged_content_from_directories: true</code></td>
 <td>"<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>"</td>
 </tr>
 </tbody>
 </table>
 <p>Each method requires specific input data structures (CSV and files as applicable) and specific configuration settings. Refer to the linked documentation for details.</p>
-<table>
-<thead>
-<tr>
-<th>Simple or complex</th>
-<th>Type of children</th>
-<th>Typical Islandora Model values</th>
-<th>Source of input data</th>
-<th>Workbench task</th>
-<th>Start with this documentation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>simple</td>
-<td>no children</td>
-<td>"Image", "Digital Document", "Video", "Audio"</td>
-<td>CSV file containing one row per node, accompanying content files optional</td>
-<td><code>create</code></td>
-<td>"<a href="/islandora_workbench_docs/preparing_data/">Preparing your data</a>", "<a href="/islandora_workbench_docs/nodes_only/">Creating nodes without media</a>"</td>
-</tr>
-<tr>
-<td>simple</td>
-<td>no children</td>
-<td>"Image", "Digital Document", "Video", "Audio"</td>
-<td>no input CSV file, content files only</td>
-<td><code>create_from_files</code></td>
-<td>"<a href="/islandora_workbench_docs/creating_nodes_from_files/">Creating nodes from files</a>"</td>
-</tr>
-<tr>
-<td>complex</td>
-<td>other simple nodes</td>
-<td>"Compound"</td>
-<td>CSV file containing one row per parent and one row per child, accompanying content files optional</td>
-<td><code>create</code></td>
-<td>"<a href="/islandora_workbench_docs/paged_and_compound/#with-pagechild-level-metadata">With page/child-level metadata</a>"</td>
-</tr>
-<tr>
-<td>complex</td>
-<td>multiple page files</td>
-<td>"Paged content" for parents, "Page" for children</td>
-<td>CSV input file containing one row per parent but not rows for child pages; page files are arranged in subdirectories</td>
-<td><code>create</code> with <code>paged_content_from_directories: true</code></td>
-<td>"<a href="/islandora_workbench_docs/paged_and_compound/#using-subdirectories">Using subdirectories</a>"</td>
-</tr>
-</tbody>
-</table>
 
 
 
