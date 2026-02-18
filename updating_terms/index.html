@@ -1094,6 +1094,7 @@ update_mode: append
 <li>Values in the <code>term_id</code> column can be numeric term IDs (e.g. <code>467</code>) or string (e.g. <code>Dogs</code>). If a string, it must match the existing term identically other than for trailing and leading whitespace. In tasks where you want to <em>update</em> the values in <code>term_name</code>, you should use <code>term_id</code> to identify the term entity.</li>
 <li>For <code>update</code> tasks where the <code>update_mode</code> is "replace" or "append", blank/empty CSV values will do nothing; in other words, empty CSV values tell Workbench to <em>not</em> update the field.</li>
 <li>For <code>update</code> tasks where the <code>update_mode</code> is "delete", it doesn't matter if the column(s) in the input CSV are blank or contain values - the values in the corresponding Drupal fields are deleted in both cases.</li>
+<li>You can update Paragraph fields in <code>update_terms</code> tasks. More information is available <a href="/islandora_workbench_docs/fields/#using-paragraph-fields-in-create_terms-and-update_terms-tasks">here</a>.</li>
 </ul>
 
 
