@@ -45,3 +45,4 @@ Some things to note:
 * For `update` tasks where the `update_mode` is "replace" or "append", blank/empty CSV values will do nothing; in other words, empty CSV values tell Workbench to *not* update the field.
 * For `update` tasks where the `update_mode` is "delete", it doesn't matter if the column(s) in the input CSV are blank or contain values - the values in the corresponding Drupal fields are deleted in both cases.
 * Islandora Workbench will never allow a field to contain more values than the field's configuration allows. Attempts to update a field with more values than the maximum number allowed will result in the surplus values being ignored during the "update" task. If Workbench does this, it will write an entry to the log indicating it has done so.
+* You can update Paragraph fields in `update` tasks. More information is available [here](/islandora_workbench_docs/fields/#paragraphs-entity-reference-revisions-fields).
