@@ -56,7 +56,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
   
     
     
@@ -1538,7 +1538,7 @@
 <p>This is probably caused by unexpected data in your CSV file that Workbench's <code>--check</code> validation is not finding. If you encounter these messages, please <a href="https://github.com/mjordan/islandora_workbench/issues">open an issue</a> and share any relevant entries in your Workbench log and Drupal log (as an admin user, go to Admin &gt; Reports &gt; Recent log messages) so we can track down the problem.</p>
 <p>One of the most common causes of this error is that one or more of the vocabularies being populated in your <code>create</code> task CSV contain required fields other than the default term name. It is possible to have Workbench create these fields, but you must do so as a separate <code>create_terms</code> task. See "<a href="/islandora_workbench_docs/creating_taxonomy_terms">Creating taxonomy terms</a>" for more information.</p>
 <h3 id="i-cant-upload-large-files">I can't upload large files</h3>
-<p>The maximum size of a file that can be ingested by Workbench is determined by configuration settings in PHP, Drupal and Fedora. THe settings that need to be adjusted are documented in the <a href="https://islandora.github.io/documentation/user-documentation/uploading-large-files/">Islandora documentation</a>. That documentation drew on the experience of Workbench users as shared in <a href="https://github.com/mjordan/islandora_workbench/issues/353">this Github issue</a>. If you need additional assistance configuring your server to ingest large files, ask for help on the Islandora Slack.</p>
+<p>The maximum size of a file that can be ingested by Workbench is determined by configuration settings in PHP, Drupal and Fedora. The settings that need to be adjusted are documented in the <a href="https://islandora.github.io/documentation/user-documentation/uploading-large-files/">Islandora documentation</a>. That documentation drew on the experience of Workbench users as shared in <a href="https://github.com/mjordan/islandora_workbench/issues/353">this Github issue</a>. If you need additional assistance configuring your server to ingest large files, ask for help on the Islandora Slack.</p>
 <h3 id="workbench-is-crashing-and-telling-me-there-are-problems-with-ssl-certificates">Workbench is crashing and telling me there are problems with SSL certificates.</h3>
 <p>To determine if this issue is specific to Workbench, from the same computer Workbench is running on, try hitting your Drupal server (or server your remote files are on) with <code>curl</code>. If <code>curl</code> also complains about SSL certificates, the problem lies in the SSL/HTTPS configuration on the server. An example <code>curl</code> command is <code>curl https://wwww.lib.sfu.ca</code>.</p>
 <p>If <code>curl</code> doesn't complain, the problem is specific to Workbench.</p>

@@ -56,7 +56,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
   
     
     
@@ -1264,8 +1264,8 @@
 <ul>
 <li><code>timestamp</code>: the current timestamp in <code>yyyy-mm-dd hh:mm:ss</code> format or a truncated version of that format</li>
 <li><code>config_file</code>: the name of the Workbench configuration file active when the row was added</li>
-<li><code>parent_csv_id</code>: if the node was created along with its parent, the parent's CSV ID</li>
-<li><code>parent_node_id</code>: if the node was create along with its parent, the parent's node ID</li>
+<li><code>parent_csv_id</code>: if the node was created during the same <code>create</code> job as its parent, the parent's CSV ID</li>
+<li><code>parent_node_id</code>: if the node was created during the same <code>create</code> job its parent, the parent's node ID</li>
 <li><code>csv_id</code>: the value in the node's CSV ID field (or in <code>create_from_files</code> tasks, which don't use an input CSV file, the filename); when creating paged content from directories using the <code>paged_content_from_directories: true</code> setting, the filename is recorded instead of an "id".</li>
 <li><code>node_id</code>: the node's Drupal node ID</li>
 <li><code>host</code>: the value of the <code>host</code> config setting at the time a row was added to the table. For rows added  prior to June 2025, this value will be blank/empty, or, if you are performing SQLite queries against this field, its value is <code>null</code>.</li>
