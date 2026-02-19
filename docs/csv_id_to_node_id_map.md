@@ -23,8 +23,8 @@ The SQLite database contains one table, "csv_id_to_node_id_map". This table has 
 
 * `timestamp`: the current timestamp in `yyyy-mm-dd hh:mm:ss` format or a truncated version of that format
 * `config_file`: the name of the Workbench configuration file active when the row was added
-* `parent_csv_id`: if the node was created along with its parent, the parent's CSV ID
-* `parent_node_id`: if the node was create along with its parent, the parent's node ID
+* `parent_csv_id`: if the node was created during the same `create` job as its parent, the parent's CSV ID
+* `parent_node_id`: if the node was created during the same `create` job its parent, the parent's node ID
 * `csv_id`: the value in the node's CSV ID field (or in `create_from_files` tasks, which don't use an input CSV file, the filename); when creating paged content from directories using the `paged_content_from_directories: true` setting, the filename is recorded instead of an "id".
 * `node_id`: the node's Drupal node ID
 * `host`: the value of the `host` config setting at the time a row was added to the table. For rows added  prior to June 2025, this value will be blank/empty, or, if you are performing SQLite queries against this field, its value is `null`.

@@ -67,7 +67,7 @@ One of the most common causes of this error is that one or more of the vocabular
 
 ### I can't upload large files
 
-The maximum size of a file that can be ingested by Workbench is determined by configuration settings in PHP, Drupal and Fedora. THe settings that need to be adjusted are documented in the [Islandora documentation](https://islandora.github.io/documentation/user-documentation/uploading-large-files/). That documentation drew on the experience of Workbench users as shared in [this Github issue](https://github.com/mjordan/islandora_workbench/issues/353). If you need additional assistance configuring your server to ingest large files, ask for help on the Islandora Slack.
+The maximum size of a file that can be ingested by Workbench is determined by configuration settings in PHP, Drupal and Fedora. The settings that need to be adjusted are documented in the [Islandora documentation](https://islandora.github.io/documentation/user-documentation/uploading-large-files/). That documentation drew on the experience of Workbench users as shared in [this Github issue](https://github.com/mjordan/islandora_workbench/issues/353). If you need additional assistance configuring your server to ingest large files, ask for help on the Islandora Slack.
 
 
 ### Workbench is crashing and telling me there are problems with SSL certificates.
