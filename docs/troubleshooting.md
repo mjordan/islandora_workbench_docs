@@ -2,7 +2,7 @@ If you encounter a problem, take a look at the "things that might sound familiar
 
 ## Ask for help
 
-The `#islandoraworkbench` Slack channel is a good place to ask a question if Workbench isn't working the way you expect or if it crashes. You can also [open a Github issue](https://github.com/mjordan/islandora_workbench/issues).
+The `#islandoraworkbench` Slack channel is a good place to ask a question if Workbench isn't working the way you expect or if it crashes. To access this channel, visit [islandora.slack.com](https://islandora.slack.com). You can also [open a Github issue](https://github.com/mjordan/islandora_workbench/issues).
 
 If Workbench "isn't working the way you expect", the documentation is likely unclear. Crashes are usually caused by sloppy Python coding. Reporting either is a great way to contribute to Islandora Workbench.
 
