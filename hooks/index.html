@@ -1280,7 +1280,7 @@
 <p>To register a bootstrap script in your configuration file, add it to the <code>bootstrap</code> option, like this, indicating the absolute path to the script:</p>
 <pre><code class="language-yaml">bootstrap: [&quot;/home/mark/Documents/hacking/workbench/scripts/generate_image_files.py&quot;]
 </code></pre>
-<p>Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's <code>--config</code> argument. For example, if you are running Workbench with a config file called <code>create.yml</code>, "create.yml" will automatically be passed as the argument to your bootstrap script (you do not specify it in the configuration), like this:</p>
+<p>Each bootstrap script gets passed a single argument, the absolute path to the Workbench config file that was specified in Workbench's <code>--config</code> argument. For example, if you are running Workbench with a config file called <code>create.yml</code>, "create.yml" will automatically be passed as the argument to your bootstrap script (you do not specify it in the configuration), like this:</p>
 <p><code>generate_image_files.py create.yml</code></p>
 <p>Shutdown scripts work the same way as bootstrap scripts but they execute after Workbench has finished connecting to Drupal. Like bootstrap scripts, shutdown scripts receive a single argument from Workbench, the path to your configuration file.</p>
 <p>A common situation where a shutdown script is useful is to check the Workbench log for failures, and if any are detected, to email someone. The script <code>email_log_if_errors.py</code> in the <code>scripts</code> directory shows how this can be used for this.</p>
@@ -1295,17 +1295,17 @@
 <p class="admonition-title">Warning</p>
 <p>Bootstrap and shutdown scripts get passed the path to your configuration file, but they only have access to the configuration settings explicitly defined in that file. In other words, any configuration setting with a default value, and therefore no necessarily included in your configuration file, is not known to  bootstrap/shutdown scripts.</p>
 <p>Therefore, it is good practice to include in your configuration file all configuration settings your script will need. The presence of a configuration setting set to its default value has no effect on Workbench.</p>
+<p>In addition, your hook scripts might need configuration settings in addition to the standard Workbench settings. Since Workbench ignores any configuration settings it doesn't use, it's OK to include script-specific configuration settings in your Workbench config file. For an example of how this works, see the "Defining configuration settings for the scripts" section of the README for <a href="https://github.com/mjordan/islandora_workbench_larkm_scripts">Islandora Workbench larkm scripts</a>.</p>
 </div>
 <h2 id="csv-preprocessor-scripts">CSV preprocessor scripts</h2>
-<p>CSV preprocessor scripts are applied to CSV values in a specific CSV field prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocessor must split it and then reassemble it back into a string. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title). Preprocessor scripts are applied in <code>create</code> and <code>update</code> tasks.</p>
+<p>CSV preprocessor scripts are applied to CSV values in a specific CSV field prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocessor must split it and then reassemble it back into a string. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title). Empty field values are OK; if the field is empty, it will be populated with the output of the preprocessor script. Preprocessor scripts are applied in <code>create</code> and <code>update</code> tasks.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you are interested in seeing preprocessor scripts act on binary data such as images, see this <a href="https://github.com/mjordan/islandora_workbench/issues/45">issue</a>.</p>
 </div>
 <p>For example, if you want to convert all the values in the <code>field_description</code> CSV field to sentence case, you can do this by writing a small Python script that uses the <code>capitalize()</code> method and registering it as a preprocessor.</p>
 <p>To register a preprocessor script in your configuration file, add it to the <code>preprocessors</code> setting, mapping a CSV column header to the path of the script, like this:</p>
-<pre><code class="language-yaml">preprocessors:
- - field_description: /home/mark/Documents/hacking/workbench/scripts/samplepreprocessor.py
+<pre><code class="language-yaml">preprocessors: [field_description: /home/mark/Documents/hacking/workbench/scripts/samplepreprocessor.py]
 </code></pre>
 <p>You must provide the absolute path to the script, and the script must be executable.</p>
 <p>Each preprocessor script gets passed two arguments:</p>
@@ -1315,6 +1315,7 @@
 </ul>
 </li>
 <li>the CSV field value</li>
+<li>the absolute path to the Workbench config file that was specified in the <code>--config</code> argument</li>
 </ol>
 <p>When executed, the script processes the string content of the CSV field, and then replaces the original version of the CSV field value with the version processed by the script. An example preprocessor script is available in <code>scripts/samplepreprocessor.py</code>.</p>
 <h2 id="post-action-scripts">Post-action scripts</h2>
@@ -1332,7 +1333,7 @@
 </code></pre>
 <p>The arguments passed to each post-action hook are:</p>
 <ol>
-<li>the path to the Workbench config file that was specified in the <code>--config</code> argument</li>
+<li>the absolute path to the Workbench config file that was specified in the <code>--config</code> argument</li>
 <li>the HTTP response code returned from the action (create, update), e.g. <code>201</code> or <code>403</code>. Note that this response code is a string, not an integer.</li>
 <li>the entire HTTP response body; this will be raw JSON.</li>
 </ol>
@@ -1345,9 +1346,10 @@
 </div>
 <h3 id="running-multiple-scripts-in-one-hook">Running multiple scripts in one hook</h3>
 <p>For all types of hooks, you can register multiple scripts, like this:</p>
-<pre><code class="language-yaml">bootstrap: [&quot;/home/mark/Documents/hacking/workbench/bootstrap_example_1.py&quot;, &quot;/home/mark/Documents/hacking/workbench/bootstrap_example_2.py&quot;]
-shutdown: [&quot;/home/mark/Documents/hacking/workbench/shutdown_example_1.py&quot;, &quot;/home/mark/Documents/hacking/workbench/shutdown_example_2.py&quot;]
-node_post_create: [&quot;/home/mark/scripts/email_someone.py&quot;, &quot;/tmp/hit_remote_api.py&quot;]
+<pre><code class="language-yaml">processors: [field_description: /home/mark/Documents/hacking/workbench/preprocessor_1.py, field_identifier: /home/mark/Documents/hacking/workbench/preprocessor_2.py]
+bootstrap: [/home/mark/Documents/hacking/workbench/bootstrap_example_1.py, /home/mark/Documents/hacking/workbench/bootstrap_example_2.py]
+shutdown: [/home/mark/Documents/hacking/workbench/shutdown_example_1.py, /home/mark/Documents/hacking/workbench/shutdown_example_2.py]
+node_post_create: [/home/mark/scripts/email_someone.py, /tmp/hit_remote_api.py]
 </code></pre>
 <p>They are executed in the order in which they are listed.</p>
 <h2 id="paths-to-scripts-and-specifying-an-interpreter">Paths to scripts, and specifying an interpreter</h2>
@@ -1355,6 +1357,7 @@ node_post_create: [&quot;/home/mark/scripts/email_someone.py&quot;, &quot;/tmp/h
 <ul>
 <li>Paths to scripts must be absolute (as in the examples above). If you use a relative path to your script, Workbench will not find it.</li>
 <li>If your script does not contain a shebang line (e.g., <code>#!/usr/bin/env python</code> in Python scripts or <code>#!/usr/bin/sh</code> in shell scripts), you will need to specify the interpreter your script will need to execute. To do this, simply include the interpreter's full path or name at the beginning of the path to your script, e.g. <code>/usr/bin/sh /path/to/my/shell/script.sh</code>.</li>
+<li>On Windows, it is best to enclose the paths to your scripts in single (<code>'</code>), not double, quotation marks. If you are including an interpeter (for example, <code>python</code>), include it within the enclosing quotation marks. For example, <code>preprocessors: [field_sfu_ark_pid: 'python c:\LocalApps\islandora_workbench_larkm_scripts\larkm_populate_node.py']</code>. If you not on Windows, the use of quotation marks around the paths to scripts is optional.</li>
 </ul>
 
 
