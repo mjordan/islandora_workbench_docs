@@ -18,7 +18,7 @@ To register a bootstrap script in your configuration file, add it to the `bootst
 bootstrap: ["/home/mark/Documents/hacking/workbench/scripts/generate_image_files.py"]
 ```
 
-Each bootstrap script gets passed a single argument, the path to the Workbench config file that was specified in Workbench's `--config` argument. For example, if you are running Workbench with a config file called `create.yml`, "create.yml" will automatically be passed as the argument to your bootstrap script (you do not specify it in the configuration), like this:
+Each bootstrap script gets passed a single argument, the absolute path to the Workbench config file that was specified in Workbench's `--config` argument. For example, if you are running Workbench with a config file called `create.yml`, "create.yml" will automatically be passed as the argument to your bootstrap script (you do not specify it in the configuration), like this:
 
 `generate_image_files.py create.yml`
 
@@ -45,9 +45,11 @@ shutdown: ["/home/mark/hacking/workbench/scripts/generate_iiif_manifests.py"]
 
     Therefore, it is good practice to include in your configuration file all configuration settings your script will need. The presence of a configuration setting set to its default value has no effect on Workbench.
 
+    In addition, your hook scripts might need configuration settings in addition to the standard Workbench settings. Since Workbench ignores any configuration settings it doesn't use, it's OK to include script-specific configuration settings in your Workbench config file. For an example of how this works, see the "Defining configuration settings for the scripts" section of the README for [Islandora Workbench larkm scripts](https://github.com/mjordan/islandora_workbench_larkm_scripts).
+
 ## CSV preprocessor scripts
 
-CSV preprocessor scripts are applied to CSV values in a specific CSV field prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocessor must split it and then reassemble it back into a string. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title). Preprocessor scripts are applied in `create` and `update` tasks.
+CSV preprocessor scripts are applied to CSV values in a specific CSV field prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocessor must split it and then reassemble it back into a string. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title). Empty field values are OK; if the field is empty, it will be populated with the output of the preprocessor script. Preprocessor scripts are applied in `create` and `update` tasks.
 
 !!! note
     If you are interested in seeing preprocessor scripts act on binary data such as images, see this [issue](https://github.com/mjordan/islandora_workbench/issues/45).
@@ -57,8 +59,7 @@ For example, if you want to convert all the values in the `field_description` CS
 To register a preprocessor script in your configuration file, add it to the `preprocessors` setting, mapping a CSV column header to the path of the script, like this:
 
 ```yaml
-preprocessors:
- - field_description: /home/mark/Documents/hacking/workbench/scripts/samplepreprocessor.py
+preprocessors: [field_description: /home/mark/Documents/hacking/workbench/scripts/samplepreprocessor.py]
 ```
 
 You must provide the absolute path to the script, and the script must be executable.
@@ -68,6 +69,7 @@ Each preprocessor script gets passed two arguments:
 1. the character used as the CSV subdelimiter (defined in the `subdelimiter` config setting, which defaults to `|`)
     - unlike bootstrap, shutdown, and post-action scripts, preprocessor scripts do not get passed the path to your Workbench configuration file; they only get passed the value of the `subdelimiter` config setting.
 1. the CSV field value
+1. the absolute path to the Workbench config file that was specified in the `--config` argument
 
 When executed, the script processes the string content of the CSV field, and then replaces the original version of the CSV field value with the version processed by the script. An example preprocessor script is available in `scripts/samplepreprocessor.py`.
 
@@ -94,7 +96,7 @@ media_post_create: ["/home/mark/Documents/hacking/workbench/post_media_update.py
 
 The arguments passed to each post-action hook are:
 
-1. the path to the Workbench config file that was specified in the `--config` argument
+1. the absolute path to the Workbench config file that was specified in the `--config` argument
 1. the HTTP response code returned from the action (create, update), e.g. `201` or `403`. Note that this response code is a string, not an integer.
 1. the entire HTTP response body; this will be raw JSON.
 
@@ -112,9 +114,10 @@ Your scripts can find the entity ID and other information within the (raw JSON) 
 For all types of hooks, you can register multiple scripts, like this:
 
 ```yaml
-bootstrap: ["/home/mark/Documents/hacking/workbench/bootstrap_example_1.py", "/home/mark/Documents/hacking/workbench/bootstrap_example_2.py"]
-shutdown: ["/home/mark/Documents/hacking/workbench/shutdown_example_1.py", "/home/mark/Documents/hacking/workbench/shutdown_example_2.py"]
-node_post_create: ["/home/mark/scripts/email_someone.py", "/tmp/hit_remote_api.py"]
+processors: [field_description: /home/mark/Documents/hacking/workbench/preprocessor_1.py, field_identifier: /home/mark/Documents/hacking/workbench/preprocessor_2.py]
+bootstrap: [/home/mark/Documents/hacking/workbench/bootstrap_example_1.py, /home/mark/Documents/hacking/workbench/bootstrap_example_2.py]
+shutdown: [/home/mark/Documents/hacking/workbench/shutdown_example_1.py, /home/mark/Documents/hacking/workbench/shutdown_example_2.py]
+node_post_create: [/home/mark/scripts/email_someone.py, /tmp/hit_remote_api.py]
 ```
 
 They are executed in the order in which they are listed.
@@ -125,3 +128,4 @@ Regardless of the type of hook you are implementing, there are a couple of thing
 
 - Paths to scripts must be absolute (as in the examples above). If you use a relative path to your script, Workbench will not find it.
 - If your script does not contain a shebang line (e.g., `#!/usr/bin/env python` in Python scripts or `#!/usr/bin/sh` in shell scripts), you will need to specify the interpreter your script will need to execute. To do this, simply include the interpreter's full path or name at the beginning of the path to your script, e.g. `/usr/bin/sh /path/to/my/shell/script.sh`.
+- On Windows, it is best to enclose the paths to your scripts in single (`'`), not double, quotation marks. If you are including an interpeter (for example, `python`), include it within the enclosing quotation marks. For example, `preprocessors: [field_sfu_ark_pid: 'python c:\LocalApps\islandora_workbench_larkm_scripts\larkm_populate_node.py']`. If you not on Windows, the use of quotation marks around the paths to scripts is optional.

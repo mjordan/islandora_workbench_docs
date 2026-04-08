@@ -1,4 +1,4 @@
-Islandora Workbench provides three ways to create paged and compound content:
+Islandora Workbench provides four ways to create paged and compound content:
 
 * using a subdirectory structure to define the relationship between the parent item and its children
 * using a subdirectory structure to define the relationship between an existing parent item and its children

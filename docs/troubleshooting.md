@@ -2,13 +2,13 @@ If you encounter a problem, take a look at the "things that might sound familiar
 
 ## Ask for help
 
-The `#islandoraworkbench` Slack channel is a good place to ask a question if Workbench isn't working the way you expect or if it crashes. You can also [open a Github issue](https://github.com/mjordan/islandora_workbench/issues).
+The `#islandoraworkbench` Slack channel is the best place to ask a question if Workbench isn't working the way you expect or if it crashes. You can also [open a Github issue](https://github.com/mjordan/islandora_workbench/issues).
 
 If Workbench "isn't working the way you expect", the documentation is likely unclear. Crashes are usually caused by sloppy Python coding. Reporting either is a great way to contribute to Islandora Workbench.
 
 ## But before you ask...
 
-The first step you should take while troubleshooting a Workbench failure is to use Islandora's graphical user interface to create/edit/delete a node/media/taxonomy term (or whatever it is you're trying to do with Workbench). If Islandora works without error, you have confirmed that the problem you are experiencing is likely isolated to Workbench and is not being caused by an underlying problem with Islandora.
+The first step you should take while troubleshooting a Workbench failure is to use Islandora's graphical user interface to create/edit/delete a node/media/taxonomy term (or whatever it is you're trying to do with Workbench). If the Islandora/Drupal GUI works without error, you have confirmed that the problem you are experiencing is likely isolated to Workbench and is not being caused by an underlying problem with Islandora.
 
 Next, if you have eliminated Islandora as the cause of the Workbench problem you are experiencing, you might be able to fix the problem by pulling in the most recent Workbench code. The best way to keep it up to date is to pull in the latest commits from the Github repository periodically, but if you haven't done that in a while, within the "islandora_workbench" directory, run the following git commands:
 
@@ -17,7 +17,11 @@ Next, if you have eliminated Islandora as the cause of the Workbench problem you
 
 If git tells you it has pulled in any changes to Workbench, you will be running the latest code. If you get an error while running git, ask for help.
 
-Also, you might be asked to provide one or more of the following:
+Finally, if your Islandora/Drupal site uses a proxy, firewall, or load balancer, elminiate the possibility that changes in their configuration is not the cause of the problem you are experiencing. For example, changes to WAF rules for sites hosted on AWS or sites that use Cloudflare can cause Workbench to stop working. The most common problem caused by changes to these rules is that the user agent "Islandora Workbench" has become accidently blocked from your reaching your Drupal site. Before you report a problem with Islandora Workbench, ask your systems administrator if it's possible that recent changes to WAF rules has caused the problem.
+
+## Some additional things to prepare before you ask for help
+
+People offering assistance might be ask you to provide one or more of the following:
 
 * your configuration file (without username and password!). You can also print your configuration to your terminal by includeing the `--print_config` argument to workbench, e.g. `python workbench --config test.yml --check --print_config`.
 * some sample input CSV
