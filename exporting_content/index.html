@@ -15,7 +15,7 @@
     
     
       
-        <title>Adding media to nodes - Islandora Workbench</title>
+        <title>Exporting a CSV containing node data - Islandora Workbench</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#adding-media-from-files" class="md-skip">
+        <a href="#exporting-a-csv-file-containing-field-data-from-a-list-of-node-ids" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Adding media to nodes
+              Exporting a CSV containing node data
             
           </span>
         </div>
@@ -882,14 +882,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
       
       
       
@@ -910,55 +908,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Adding media to nodes
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../adding_media/" class="md-nav__link">
         Adding media to nodes
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#adding-media-from-files" class="md-nav__link">
-    Adding media from files
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-references-to-media-for-use-with-dgis-image-discovery-module" class="md-nav__link">
-    Adding references to media for use with DGI's Image Discovery module
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1260,12 +1214,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_13" type="checkbox" id="__nav_13" checked>
       
       
       
@@ -1286,11 +1242,55 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../exporting_content/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Exporting a CSV containing node data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Exporting a CSV containing node data
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exporting-a-csv-file-containing-field-data-from-a-list-of-node-ids" class="md-nav__link">
+    Exporting a CSV file containing field data from a list of node IDs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-a-drupal-view-to-identify-content-to-export-as-csv" class="md-nav__link">
+    Using a Drupal View to identify content to export as CSV
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1620,15 +1620,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#adding-media-from-files" class="md-nav__link">
-    Adding media from files
+  <a href="#exporting-a-csv-file-containing-field-data-from-a-list-of-node-ids" class="md-nav__link">
+    Exporting a CSV file containing field data from a list of node IDs
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#adding-references-to-media-for-use-with-dgis-image-discovery-module" class="md-nav__link">
-    Adding references to media for use with DGI's Image Discovery module
+  <a href="#using-a-drupal-view-to-identify-content-to-export-as-csv" class="md-nav__link">
+    Using a Drupal View to identify content to export as CSV
   </a>
   
 </li>
@@ -1647,67 +1647,107 @@
                 
                   
 
-  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/adding_media.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/mjordan/islandora_workbench_docs/edit/main/docs/exporting_content.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-  <h1>Adding media to nodes</h1>
+  <h1>Exporting a CSV containing node data</h1>
 
-<h3 id="adding-media-from-files">Adding media from files</h3>
-<p>You can add media to existing nodes by providing a CSV file with a <code>node_id</code> column plus a <code>file</code> field that contains the name of the file you want to add:</p>
-<pre><code class="language-text">node_id,file
-100,test.txt
-</code></pre>
-<p>Values in the <code>node_id</code> column can be numeric node IDs (as illustrated above), full URLs, or full URL aliases.</p>
-<p>The config file for "add_media" tasks like this (note the <code>task</code> option is 'add_media'):</p>
-<pre><code class="language-yaml">task: add_media
+<h2 id="exporting-a-csv-file-containing-field-data-from-a-list-of-node-ids">Exporting a CSV file containing field data from a list of node IDs</h2>
+<p>The <code>export_csv</code> task generates a CSV file that contains one row for each node identified in the input CSV file. The cells of the CSV are populated with data that is consistent with the structures that Workbench uses in <code>update</code> tasks. Using this CSV file, you can:</p>
+<ul>
+<li>see in one place all of the field values for nodes, which might be useful during quality assurance after a <code>create</code> task</li>
+<li>modify the data and use it as input for an <code>update</code> task using the <code>update_mode: replace</code> configuration option.</li>
+</ul>
+<p>The CSV file contains two of the extra rows included in the CSV file template, described above (specifically, the human-readable field label and number of values allowed), and the left-most "REMOVE THIS COLUMN (KEEP THIS ROW)" column. To use the file as input for an <code>update</code> task, simply delete the extraneous column and rows.</p>
+<p>A sample configuration file for an <code>export_csv</code> task is:</p>
+<pre><code class="language-yaml">task: export_csv
 host: &quot;http://localhost:8000&quot;
 username: admin
 password: islandora
-input_csv: add_media.csv
-# media_use_tid is optional, it defaults to &quot;Original file&quot;.
-media_use_tid: 21
-media_type: file
+input_csv: nodes_to_export.csv
+export_csv_term_mode: name
+content_type: my_custom_content_type
+# If export_csv_field_list is not present, all fields will be exported.
+export_csv_field_list: ['title', 'field_description']
+# Specifying the output path is optional; see below for more information.
+export_csv_file_path: output.csv
 </code></pre>
-<p>This is the same configuration file using a term URI in <code>media_use_tid</code> rather than a term ID:</p>
-<pre><code class="language-yaml">task: add_media
-host: &quot;http://localhost:8000&quot;
+<p>The file identified by <code>input_file</code> has only one column, "node_id":</p>
+<pre><code class="language-text">node_id
+7653
+7732
+7653
+</code></pre>
+<p>Some things to note:</p>
+<ul>
+<li>The output includes data from nodes only, not media.</li>
+<li>Unless a file path is specified in the <code>export_csv_file_path</code> configuration option, the output CSV file name is the name of the input CSV file (containing node IDs) with ".csv_file_with_field_values" appended. For example, if you <code>export_csv</code> configuration file defines the <code>input_csv</code> as "my_export_nodes.csv", the CSV file created by the task will be named "my_export_nodes.csv.csv_file_with_field_values". The file is saved in the directory identified by the <code>input_dir</code> configuration option.</li>
+<li>You can include either vocabulary term IDs or term names (with accompanying vocabulary namespaces) in the CSV. By default, term IDs are included; to include term names instead, include <code>export_csv_term_mode: name</code> in you configuration file.</li>
+<li>A single <code>export_csv</code> job can only export nodes that have the content type identified in your Workbench configuration. By default, this is "islandora_object". If you include node IDs in your input file for nodes that have a different content type, Workbench will skip exporting their data and log the fact that it has done so.</li>
+<li>If you don't want to export all the fields on a content type, you can list the fields you want to export in the <code>export_csv_field_list</code> configuration option.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Using the <code>export_csv_term_mode: name</code> option will slow down the export, since Workbench must query Drupal to get the name of each term. The more taxonomy or typed relation fields in your content type, the slower the export will be with <code>export_csv_term_mode</code> set to "name".</p>
+</div>
+<h2 id="using-a-drupal-view-to-identify-content-to-export-as-csv">Using a Drupal View to identify content to export as CSV</h2>
+<p>You can use a new or existing View to tell Workbench what nodes to export into CSV. This is done using a <code>get_data_from_view</code> task. A sample configuration file looks like this:</p>
+<pre><code class="language-yaml">task: get_data_from_view
+host: &quot;http://localhost:8000/&quot;
+view_path: '/daily_nodes_created_test'
 username: admin
 password: islandora
-input_csv: add_media.csv
-media_use_tid: &quot;http://pcdm.org/use#Transcript&quot;
-media_type: file
+content_type: pubished_work
+export_csv_file_path: /tmp/islandora_export.csv
+# If export_csv_field_list is not present, all fields will be exported.
+# node_id and title are always included.
+export_csv_field_list: ['field_description', 'field_extent']
+# 'view_paramters' is optinal, and used only if your View uses Contextual Filters.
+# In this setting you identify any URL parameters configured as Contextual Filters
+# for the View. Note that values in the 'view_parameters' configuration setting
+# are literal parameter=value strings that include the =, not YAML key: value
+# pairs used elsewhere in the Workbench configuration file.
+view_parameters:
+ - 'date=20231202'
 </code></pre>
-<p>If you want to specify a media_use_tid per CSV row, you can include that column in your CSV (in either "add_media" or "create" tasks):</p>
-<pre><code class="language-text">node_id,file,media_use_tid
-100,test.txt,21
-110,test2.txt,35
-</code></pre>
-<p>If you include <code>media_use_tid</code> values in your CSV file, they override the <code>media_use_tid</code> value set in your configuration file.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you create an "Extracted Text" media, the contents of the specified text file will be added to the media's 'field_edited_text' field, allowing it to be indexed in Solr.</p>
+<p>The <code>view_path</code> setting should contain the value of the "Path" option in the Views configuration page's "Path settings" section. The <code>export_csv_file_path</code> is the location where you want your CSV file saved.</p>
+<p>In the View configuration page:</p>
+<ol>
+<li>Add a "REST export" display.</li>
+<li>Under "Format" &gt; "Serializer" &gt; "Settings", choose "json".</li>
+<li>In the View "Fields" settings, leave "The selected style or row format does not use fields" as is (see explanation below).</li>
+<li>Under "Path", add a path where your REST export will be accessible to Workbench. As noted above, this value is also what you should use in the <code>view_path</code> setting in your Workbench configuration file.</li>
+<li>Under "Pager" &gt; "Items to display", choose "Paged output, mini pager". In "Pager options" choose 10 items to display.</li>
+<li>Under "Path settings" &gt; "Access", choose "Permission" and "View published content". Under "Authentication", choose "basic_auth" and "cookie".</li>
+</ol>
+<p>Here is a screenshot illustrating these settings:</p>
+<p><img alt="Sample REST export display" src="../images/REST_export_display.png" /></p>
+<p>To test your REST export, in your browser, join your Drupal hostname and the "Path" defined in your View configuration. Using the values in the configuration file above, that would be <code>http://localhost:8000/workbench-export-test</code>. You should see raw JSON (or formatted JSON if your browser renders JSON to be human readable) that lists the nodes in your View.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If your View includes nodes that you do not want to be seen by anonymous users, or if it contains unpublished nodes, adjust the access permissions settings appropriately, and ensure that the user identified in your Workbench configuration file has sufficient permissions.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The Drupal filesystem where files are stored is determined by each media type's file field configuration. It is not possible to override that configuration.</p>
-</div>
-<h3 id="adding-references-to-media-for-use-with-dgis-image-discovery-module">Adding references to media for use with DGI's Image Discovery module</h3>
-<p>DiscoveryGarden's <a href="https://github.com/discoverygarden/dgi_image_discovery">DGI Image Discovery module</a> provides a way to assign the same thumbnail image to multiple nodes. This is not the module's main purpose, but reusing a thumbnail image on many nodes is easy to accomplish using this module and Islandora Workbench.</p>
-<p>Essentially, the Image Discovery module defines a specific Drupal field on a node, <code>field_representative_image</code>, that contains a reference to an existing media, for example a media with an Islandora Media Use term "Thumbnail image". This approach to defining a thumbnail is different than Islandora's normal node/media relationship, where the media entity references its parent node in a <code>field_media_of</code> field attached to the media.</p>
-<p>To use Workbench to populate <code>field_representative_image</code>, simply include that field in your Workbench <code>create</code> task CSV and populate it with the media ID of the thumbnail media you want to use. The following example CSV populates the field with the media ID "3784":</p>
-<pre><code>id,file,title,field_representative_image,field_model
-test-001,Test node 001,3784,Image
-test-002,Test node 002,3784,Digital Document
+<p>You can optionally configure your View to use a single Contextual Filters, and expose that Contextual Filter to use one or more query parameters. This way, you can include each query parameter's name and its value in your configuration file using Workbench's <code>view_parameters</code> config setting, as illustrated in the sample configuration file above. The configuration in the View's Contextual Filters for this type of parameter looks like this:</p>
+<p><img alt="Sample REST export display" src="../images/REST_export_query_paramters.png" /></p>
+<p>By adding a Contextual Filterf to your View display, you can control what nodes end up in the output CSV by including the value you want to filter on in your Workbench configuration's <code>view_parameters</code> setting. In the screenshot of the "Created date" Contextual Filter shown here, the query parameter is <code>date</code>, so you include that parameter in your <code>view_parameters</code> list in your configuration file along with the value you want to assign to the parameter (separated by an <code>=</code> sign), e.g.:</p>
+<pre><code>view_parameters:
+ - 'date=20231202'
 </code></pre>
-<p>Note that this approach to assigning a thumbnail image to a node does not use Workbench's <code>additional_fields</code> configuration setting to define a CSV column containing the filename of a thumbnail image. It simply populates a node's <code>field_representative_image</code> field with a media ID. DGI's module ensures that the referenced media is used as the node's thumbnail image. No other Workbench configuration is necessary.</p>
-<p>It's just as easy to use an <code>update</code> task to add the referenced media ID to nodes:</p>
-<pre><code>node_id,field_representative_image
-1089,3784
-1093,3784
-</code></pre>
+<p>will set the value of the <code>date</code> query parameter in the "Created date" Contextual Filter to "20231202".</p>
+<p>Some things to note:</p>
+<ul>
+<li>Note that the values you include in <code>view_parameters</code> apply only to your View's Contextual Filter. Any "Filter Criteria" you include in the main part of your View configuration also take effect. In other words, both "Filter Criteria" and "Contextual Filters" determine what nodes end up in your output CSV file.<ul>
+<li>You can only include a single Contextual Filter in your View, but it can have multiple query parameters.</li>
+</ul>
+</li>
+<li>REST export Views displays don't use fields in the same way that other Views displays do. In fact, Drupal says within the Views user interface that for REST export displays, "The selected style or row format does not use fields." Instead, these displays export the entire node in JSON format. Workbench iterates through all fields on the node JSON that start with <code>field_</code> and includes those fields, plus <code>node_id</code> and <code>title</code>, in the output CSV.</li>
+<li>If you don't want to export all the fields on a content type, you can list the fields you want to export in the <code>export_csv_field_list</code> configuration option.</li>
+<li>Only content from nodes that have the content type identified in the <code>content_type</code> configuration setting will be written to the CSV file.</li>
+<li>If you want to export term names instead of term IDs, include <code>export_csv_term_mode: name</code> in your configuration file. The warning about this option slowing down the export applies to this task and the <code>export_csv</code> task.</li>
+</ul>
 
 
 
@@ -1728,7 +1768,7 @@ test-002,Test node 002,3784,Digital Document
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../rolling_back/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Rolling back nodes and media" rel="prev">
+        <a href="../deleting_media/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Deleting media" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1737,20 +1777,20 @@ test-002,Test node 002,3784,Digital Document
               <span class="md-footer__direction">
                 Previous
               </span>
-              Rolling back nodes and media
+              Deleting media
             </div>
           </div>
         </a>
       
       
         
-        <a href="../adding_multiple_media/" class="md-footer__link md-footer__link--next" aria-label="Next: Adding multiple media" rel="next">
+        <a href="../exporting_media/" class="md-footer__link md-footer__link--next" aria-label="Next: Exporting media" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Adding multiple media
+              Exporting media
             </div>
           </div>
           <div class="md-footer__button md-icon">
