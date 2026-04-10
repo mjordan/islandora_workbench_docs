@@ -310,7 +310,9 @@ See "[Hooks](/islandora_workbench_docs/hooks/)" for more information.
 | Setting | Required | Default value | Description |
 | --- | --- | --- | --- |
 | bootstrap |  | | List of absolute paths to one or more scripts that execute prior to Workbench connecting to Drupal. |
+| show_bootstrap_script_output |  | false | Print to the console any output (e.g. printed) from bootstrap scripts. Applies to all registered bootstrap scripts. |
 | shutdown |  | | List of absolute paths to one or more scripts that execute after Workbench connecting to Drupal. |
+| show_shutdown_script_output |  | false | Print to the console any output (e.g. printed) from shutdown scripts. Applies to all registered shutdown scripts. |
 | preprocessors |  | | List of absolute paths to one or more scripts that are applied to CSV values prior to the values being ingested into Drupal. |
 | node_post_create |  | | List of absolute paths to one or more scripts that execute after a node is created. |
 | node_post_update |  | | List of absolute paths to one or more scripts that execute after a node is updated. |

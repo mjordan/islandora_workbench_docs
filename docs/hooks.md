@@ -47,6 +47,14 @@ shutdown: ["/home/mark/hacking/workbench/scripts/generate_iiif_manifests.py"]
 
     In addition, your hook scripts might need configuration settings in addition to the standard Workbench settings. Since Workbench ignores any configuration settings it doesn't use, it's OK to include script-specific configuration settings in your Workbench config file. For an example of how this works, see the "Defining configuration settings for the scripts" section of the README for [Islandora Workbench larkm scripts](https://github.com/mjordan/islandora_workbench_larkm_scripts).
 
+By default, any output from bootstrap and shutdown scripts (specifically, anything printed to standard out) is not shown to the Workbench user. If you want to show output from these scripts to the user, include the following settings in your Workbench config file:
+
+```
+show_bootstrap_script_output: true
+show_shutdown_script_output: true
+```
+
+
 ## CSV preprocessor scripts
 
 CSV preprocessor scripts are applied to CSV values in a specific CSV field prior to the values being ingested into Drupal. They apply to the entire value from the CSV field and not split field values, e.g., if a field is multivalued, the preprocessor must split it and then reassemble it back into a string. Note that preprocessor scripts work only on string data and not on binary data like images, etc. and only on custom fields (so not title). Empty field values are OK; if the field is empty, it will be populated with the output of the preprocessor script. Preprocessor scripts are applied in `create` and `update` tasks.
