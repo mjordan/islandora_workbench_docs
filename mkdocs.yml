@@ -12,63 +12,81 @@ theme:
     - search.highlight
 nav:
     - Home: index.md
-    - Workbench's relationship to Drupal and Islandora: drupal_and_workbench.md
-    - Requirements and installation: installation.md
-    - User management: user_management.md
-    - Choosing a task: choosing_a_task.md
-    - Optimizing your use of Workbench: optimizing_your_use_of_workbench.md
-    - Configuration: configuration.md
-    - Specifying configuration settings on the command line: configuration_settings_on_the_command_line.md
-    - Checking configuration and input data: check.md
-    - Preparing your data: preparing_data.md
-    - Field data (Drupal and CSV): fields.md
-    - Automatically populating the "Viewer override" field: viewer_override.md
-    - Ignoring CSV rows and columns: ignoring_csv_rows_and_columns.md
-    - Checking if nodes already exist: checking_if_nodes_exist.md
-    - CSV field templates: field_templates.md
-    - CSV value templates: csv_value_templates.md
-    - Creating paged, compound, and collection content: paged_and_compound.md
-    - Creating nodes without media: nodes_only.md
-    - Creating nodes from files: creating_nodes_from_files.md
-    - Recovering from interrupted "create" tasks: recovery_mode.md
-    - Creating nodes: creating_nodes.md
-    - Updating nodes: updating_nodes.md
-    - Deleting nodes: deleting_nodes.md
-    - Creating taxonomy terms: creating_taxonomy_terms.md
-    - Updating taxonomy terms: updating_terms.md
-    - Assigning URL aliases: aliases.md
-    - Creating redirects: redirects.md
-    - Adding alt text to images: alt_text.md
-    - Rolling back nodes and media: rolling_back.md
-    - Configuring media types: media_types.md
-    - Quick delete: quick_delete.md
-    - Adding media to nodes: adding_media.md
-    - Adding multiple media: adding_multiple_media.md
-    - Creating media track files: media_track_files.md
-    - Updating media: updating_media.md
-    - Deleting media: deleting_media.md
-    - Generating CSV files and exporting Islandora content: generating_csv_files.md
-    - Hooks: hooks.md
-    - Fixity checking: fixity.md
-    - Logging: logging.md
-    - The CSV ID to node ID map: csv_id_to_node_id_map.md
-    - Cancelling Workbench: cancelling.md
-    - Workflows: workflows.md
-    - Running scripts on existing entities: running_scripts.md
-    - Generating a contact sheet: contact_sheet.md
-    - Reducing Workbench's impact on Drupal: reducing_load.md
-    - Creating nodes from the sample data: sample_data.md
-    - Prompting the user: prompts.md
-    - Exporting Islandora 7 content: exporting_islandora_7_content.md
-    - Generating sample Islandora content: generating_sample_content.md
-    - Known limitations: limitations.md
-    - Troubleshooting: troubleshooting.md
-    - Development guide: development_guide.md
-    - Change log: changelog.md
-    - Test section 1 (please ignore):
+    - Quick links:
+         - Choosing a task: choosing_a_task.md
+         - Creating nodes: creating_nodes.md
+         - Updating nodes: updating_nodes.md
+         - Deleting nodes: deleting_nodes.md
+         - Rolling back nodes and media: rolling_back.md
+         - Troubleshooting and getting help: troubleshooting.md
+    - Overview/technical details:
+         - Workbench's relationship to Drupal and Islandora: drupal_and_workbench.md
+         - Requirements and installation: installation.md
+         - User management: user_management.md
          - Reducing Workbench's impact on Drupal: reducing_load.md
-    - Test section 2 (please ignore):
-         - Repeat of Reducing Workbench's impact on Drupal: reducing_load.md
+    - Configuration:
+         - Configuration settings: configuration.md
+         - Specifying configuration settings on the command line: configuration_settings_on_the_command_line.md
+         - Automatically populating the "Viewer override" field: viewer_override.md
+    - Data organization:
+         - Preparing your data: preparing_data.md
+         - Field data (Drupal and CSV): fields.md
+         - CSV field templates: field_templates.md
+         - CSV value templates: csv_value_templates.md
+         - Ignoring CSV rows and columns: ignoring_csv_rows_and_columns.md
+         - Checking if nodes already exist: checking_if_nodes_exist.md
+    - Running Workbench:
+         - Optimizing your use of Workbench: optimizing_your_use_of_workbench.md
+         - Checking configuration and input data: check.md
+         - Cancelling Workbench: cancelling.md
+    - Creating nodes:
+         - Creating single-file nodes: creating_nodes.md
+         - Creating paged, compound, and collection content: paged_and_compound.md
+         - Creating nodes without media: nodes_only.md
+         - Creating nodes from files: creating_nodes_from_files.md
+         - Creating redirects: redirects.md
+         - Assigning URL aliases: aliases.md
+    - Recovering from mistakes:
+         - Recovering from interrupted "create" tasks: recovery_mode.md
+         - Rolling back nodes and media: rolling_back.md
+    - Creating media:
+         - Adding media to nodes: adding_media.md
+         - Adding multiple media: adding_multiple_media.md
+         - Creating media track files: media_track_files.md
+         - Adding alt text to images: alt_text.md
+         - Configuring media types: media_types.md
+         - Fixity checking: fixity.md
+    - Creating and updating taxonomy terms:
+         - Creating taxonomy terms: creating_taxonomy_terms.md
+         - Updating taxonomy terms: updating_terms.md
+    - Updating nodes and media:
+         - Updating nodes: updating_nodes.md
+         - Updating media: updating_media.md
+         - Updating image alt text: alt_text.md
+    - Deleting nodes and media:
+         - Deleting nodes: deleting_nodes.md
+         - Quick delete: quick_delete.md
+         - Deleting media: deleting_media.md
+    - Exporting content:
+         - Exporting a CSV file containing node data: exporting_content.md
+         - Exporting media: exporting_media.md
+         - Generating CSV file templates: csv_file_templates.md
+         - Generating a CSV file for every newly created node: csv_file_for_newly_created_nodes.md
+         - Using the CSV ID to node ID map: csv_id_to_node_id_map.md
+    - Extending Islandora Workbench:
+         - Hooks: hooks.md
+         - Running scripts on existing entities: running_scripts.md
+         - Development guide: development_guide.md
+    - Miscellaneous topics:
+         - Known limitations: limitations.md
+         - Logging: logging.md
+         - Workflows: workflows.md
+         - Generating a contact sheet: contact_sheet.md
+         - Creating nodes from the sample data: sample_data.md
+         - Prompting the user: prompts.md
+         - Exporting Islandora 7 content: exporting_islandora_7_content.md
+         - Generating sample Islandora content: generating_sample_content.md
+    - Change log: changelog.md
 markdown_extensions:
   - admonition
 extra_css:
