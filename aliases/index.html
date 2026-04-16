@@ -1601,14 +1601,16 @@ IMG_2549.jp2,Manhatten Island,Manhatten is part of New York City.,/manhatten
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This method of assigning URL aliases is useful if, for example, you are migrating from another platform and want to retain the URLs of items from the source platform. If you want to assign URL aliases that are derived from node-specific field data (like title, date, taxonomy terms, etc.), you can use the Drupal contrib module <a href="https://www.drupal.org/project/pathauto">Pathauto</a> instead.</p>
-<p>But, note also that any URL aliases created through Drupal's core URL alias functionality, which the method described above uses, is overwritten by Pathauto. This means that if you use Pathauto to create aliases, any URL aliases created by Workbench will likely not work.</p>
 </div>
 <p>You can also assign URL aliases in <code>update</code> tasks:</p>
 <pre><code class="language-text">node_id,url_alias
 345,/this_is_a_cool_item
 367,/soisthisone
 </code></pre>
-<p>However, in <code>update</code> tasks, you can only assign/update the <code>url_alias</code> for nodes that do not already have an alias. Your <code>update_mode</code> setting can be either <code>append</code> or <code>replace</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Even though it is possible for a node to have multiple URL aliases, only one alias shows up in the Drupal "edit" web form for each node.</p>
+</div>
 
 
 
