@@ -11,8 +11,6 @@ No other configuration is required. URL aliases must start with a forward slash 
 !!! note
     This method of assigning URL aliases is useful if, for example, you are migrating from another platform and want to retain the URLs of items from the source platform. If you want to assign URL aliases that are derived from node-specific field data (like title, date, taxonomy terms, etc.), you can use the Drupal contrib module [Pathauto](https://www.drupal.org/project/pathauto) instead.
 
-    But, note also that any URL aliases created through Drupal's core URL alias functionality, which the method described above uses, is overwritten by Pathauto. This means that if you use Pathauto to create aliases, any URL aliases created by Workbench will likely not work.
-
 You can also assign URL aliases in `update` tasks:
 
 ```text
@@ -21,4 +19,5 @@ node_id,url_alias
 367,/soisthisone
 ```
 
-However, in `update` tasks, you can only assign/update the `url_alias` for nodes that do not already have an alias. Your `update_mode` setting can be either `append` or `replace`.
+!!! warning
+    Even though it is possible for a node to have multiple URL aliases, only one alias shows up in the Drupal "edit" web form for each node.
