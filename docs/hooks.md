@@ -81,6 +81,8 @@ Each preprocessor script gets passed two arguments:
 
 When executed, the script processes the string content of the CSV field, and then replaces the original version of the CSV field value with the version processed by the script. An example preprocessor script is available in `scripts/samplepreprocessor.py`.
 
+CSV preprocessor scripts are also applied to page/child objects created using the `paged_content_from_directories: true` configuration setting.
+
 ## Post-action scripts
 
 Post-action scripts execute after a node is created or updated, or after a media is created.
@@ -107,6 +109,8 @@ The arguments passed to each post-action hook are:
 1. the absolute path to the Workbench config file that was specified in the `--config` argument
 1. the HTTP response code returned from the action (create, update), e.g. `201` or `403`. Note that this response code is a string, not an integer.
 1. the entire HTTP response body; this will be raw JSON.
+
+`media_post_create` scripts are passed a fourth argument, the absolute local path to the file attached to the media.
 
 These arguments are passed to post-action scripts automatically. You don't specific them when you register your scripts in your config file. The `scripts/entity_post_task_example.py` illustrates these arguments.
 

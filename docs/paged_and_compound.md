@@ -81,6 +81,7 @@ Important things to note when using this method:
 * If your page directories contain files other than page images, you need to include the `paged_content_image_file_extension` setting in your configuration. Otherwise, Workbench can't tell which files to create pages from.
 * If you don't want to use your `id` column to name the directories that contain each item's pages, you can include `page_files_source_dir_field: directory` to your config file and add a `directory` column to your input CSV to name the directories.
 * If a sequence indicator is not an integer greater than 0 (which is a constraint of `field_weight`), the page node will be created but its `field_weight` will not be populated. An entry in your Workbench log will document this.
+* It is a good idea to not make your sequence indicators increment by 1, since if you need to add some pages later (for example, pages that were not digitized with the others), you cannot insert new `field_weight` values between integers that differ by 1. You can hard-code spaced-out sequence indicators in your page filenames, but Workbench provides a configuration setting, `paged_content_page_weight_multiplier`, which you can use to create some space between adjacent `field_weight` values. Using this setting, you can use sequential, incremented-by-one sequence indicators in your page filenames, and have Workbench space out the `field_weight` values for you. For example, if your sequence indicators are `003` and `004`, by default they will be converted into `field_weight` values of "3" and "4" respectively. If you set `paged_content_page_weight_multiplier: 10`, Workbench will populate the nodes' `field_weight` with "30" and "40" respectively. Since Drupal sorts `field_weight` values as integers, these multiplied values sort in the same way that the original values do. However, you will be able to assign a newly added page a field_weight value of "35" if you need to and not have to update subsquent `field_weight` values.
 
 #### Applying field data to pages/children created from subdirectories
 
@@ -90,7 +91,7 @@ The Islandora Model applied to all page/child nodes is the one defined in the `p
 
 Fields on pages/children that are configured as required in the parent and page content type are automatically inherited from the parent. No special configuration is necessary.
 
-You can add additional (non-required field) metadata to pages/children using [CSV value templates](/islandora_workbench_docs/csv_value_templates/#applying-csv-value-templates-to-paged-content) during the `create` task that creates the pages/children from subdirectories.
+You can add additional (non-required field) metadata to pages/children using [CSV value templates](/islandora_workbench_docs/csv_value_templates/#applying-csv-value-templates-to-paged-content) during the `create` task that creates the pages/children from subdirectories. [CSV preprocessor scripts](/islandora_workbench_docs/hooks/#csv-preprocessor-scripts) are also applied to pages/children.
 
 #### Ingesting pages, their parents, and their "grandparents" using a single CSV file
 

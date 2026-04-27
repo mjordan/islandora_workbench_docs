@@ -5,6 +5,7 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 * January 26, 2026: Resolved (commit 12a0419) [issue 1055](https://github.com/mjordan/islandora_workbench/issues/1055).
 * April 8, 2026: Resolved (commit 842c2f1) [issue 1072](https://github.com/mjordan/islandora_workbench/issues/1072).
 * April 10, 2026: Resolved (commit 0675090) [issue 1076](https://github.com/mjordan/islandora_workbench/issues/1076).
+* April 26, 2026: Resolved (commit b243fe3) [issue 1084](https://github.com/mjordan/islandora_workbench/issues/1084), (commit 017e915) [issue 1085](https://github.com/mjordan/islandora_workbench/issues/1085), and (commit e0a1d08) [issue 1086](https://github.com/mjordan/islandora_workbench/issues/1086).
 
 ### Documentation
 
@@ -15,3 +16,4 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 * April 8, 2026: Updated "[Hooks](/islandora_workbench_docs/hooks/)" to clarify several points and examples and to note that these scripts now get a third argument, the absolute path to the Workbench config file that was specified in Workbench's --config argument; fixed a minor typo on "[Creating paged, compound, and collection content](/islandora_workbench_docs/paged_and_compound/)"; added a note to "[Troubleshooting](/islandora_workbench_docs/troubleshooting/)" about eliminating changes to firewall, proxy, and load balancer configuration before reporting a problem or requesting help.
 * April 10, 2026: Added docs to "[Configuration](/islandora_workbench_docs/configuration/)" and "[Hooks](/islandora_workbench_docs/hooks/)" about the new `show_bootstrap_script_output` and `show_shutdown_script_output` settings.
 * April 15, 2026: Corrected "[Assigning URL aliases](/islandora_workbench_docs/aliases/)" to clarify that nodes can have multiple URL aliases. Thanks to @dara2 for finding this error.
+* April 26, 2026: Updated "[Using subdirectories](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#using-subdirectories_)" to describe how to use the new `paged_content_page_weight_multiplier` configuration setting; updated "[CSV preprocessor scripts](/islandora_workbench_docs/hooks/#csv-preprocessor-scripts)" to say that they are applied to pages/children created using the `paged_content_from_directories: true` configuration setting.
