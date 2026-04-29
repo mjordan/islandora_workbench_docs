@@ -16,10 +16,6 @@ If Workbench normalizes a filename, it logs the original and the normalized vers
 
 This is limitation of Drupal (see [this issue](https://github.com/Islandora/documentation/issues/1485)).
 
-## Password prompt always fails first time, and prompts a second time (which works)
-
-More information is available at this [issue](https://github.com/mjordan/islandora_workbench/issues/450).
-
 ## Workbench doesn't support taxonomy reference fields that use the "Filter by an entity reference View" reference type
 
 Only taxonomy reference fields that use the "Default" reference type are currently supported. As a work around, to populate a "Filter by an entity reference View" field, you can do the following:

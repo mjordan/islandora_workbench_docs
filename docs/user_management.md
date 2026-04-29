@@ -6,7 +6,8 @@ Workbench configuration files must contain a `username` setting (unless you use 
 
 1. in the `password` setting in your YAML configuration file (least secure)
 1. in the `ISLANDORA_WORKBENCH_PASSWORD` environment variable (more secure)
-1. in response to a prompt when you run Workbench (most secure).
+1. in response to a prompt when you run Workbench (more secure)
+1. in an encrypted credentials file that requires a decryption key (most secure).
 
 If the `password` setting is present in your configuration files, Workbench will use its value as the user password and will ignore the other two methods of providing a password. If the `password` setting is absent, Workbench will look for the `ISLANDORA_WORKBENCH_PASSWORD` environment variable and if it is present, use its value. If both the `password` setting and the `ISLANDORA_WORKBENCH_PASSWORD` environment variable are absent, Workbench will prompt the user for a password before proceeding.
 
@@ -29,6 +30,15 @@ password: islandora
 ```
 
 The credentials file can be somewhere only visible to the computer user running Workbench, such as their home directory, or multiple Workbench users can point to the same credentials from their respective configuration files provided all users are able to read the file.
+
+## Encrypting the credentials file
+
+You can encrypt the credentials file, requiring the Workbench user to enter a decryption key to proceed. To do this:
+
+1. Create a credentials file and configure its path as described in the previous section.
+2. Encrypt the file using the `encrypt_credentials_file.py` file in Workbench's `scripts` directory: `python encrypt_credentials_file.py /path/to/the/creditials/file.yml`.
+3. The script will tell you what the encryption/decryption key for that file is. This key will be necessary for Workbench to read the file.
+4. Workbench automatically detects if the credentials file is encrypted and if it is, will prompt the user to enter the key. Another option is for a systems administrator to add the key to the `ISLANDORA_WORKBENCH_ENCRYPTION_KEY` environment variable in the user's system. If that environment variable is present,  the user will not be prompted for the key. There is no option to store the key in the Workbench configuration file.
 
 ## The `include_password_in_rollback_config_file` configuration setting
 
