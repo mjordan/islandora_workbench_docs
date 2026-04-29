@@ -2,12 +2,13 @@ By default, Islandora Workbench requires user credentials that have administrato
 
 ## Password management
 
-Workbench configuration files must contain a `username` setting (unless you use an external credentials file, as described below), but you can provide the corresponding password in three ways, depending on your security tolerance:
+Workbench configuration files must contain a `username` setting (unless you use an external credentials file, as described below), but you can provide the corresponding password in five ways, depending on your security policies:
 
-1. in the `password` setting in your YAML configuration file (least secure)
+1. in the `password` setting in your Workbench configuration file (least secure)
 1. in the `ISLANDORA_WORKBENCH_PASSWORD` environment variable (more secure)
-1. in response to a prompt when you run Workbench (more secure)
-1. in an encrypted credentials file that requires a decryption key (most secure).
+1. in response to a prompt when the user runs Workbench (more secure)
+1. in a credentials file separate from the user's Workbench configuration file (more secure)
+1. by encrypting the credentials file (most secure).
 
 If the `password` setting is present in your configuration files, Workbench will use its value as the user password and will ignore the other two methods of providing a password. If the `password` setting is absent, Workbench will look for the `ISLANDORA_WORKBENCH_PASSWORD` environment variable and if it is present, use its value. If both the `password` setting and the `ISLANDORA_WORKBENCH_PASSWORD` environment variable are absent, Workbench will prompt the user for a password before proceeding.
 
@@ -16,7 +17,9 @@ If the `password` setting is present in your configuration files, Workbench will
 
 ## The `credentials_file_path` configuration setting
 
-As an alternative to including Drupal user credentials in your Workbench configuration files, you can store the `username` and `password` settings in their own simple YAML file by replacing the `username` and `password` config settings with the `credentials_file_path` setting. For example, a Workbench config file that contains the `username` and `password` config settings looks like this:
+An alternative to including Drupal user credentials in the main Workbench configuration file is to store the `username` and `password` settings in a separate YAML file. To do this, replace the `username` and `password` config settings with the `credentials_file_path` setting, which specifies the location of the separate file:
+
+For example, a Workbench config file that contains the `username` and `password` config settings looks like this:
 
 ```
 host: https://myislanorahost.org
@@ -25,7 +28,7 @@ password: islandora
 input_dir: /some/directory/path
 ```
 
-The `credentials_file_path` setting replaces `username` and `password`:
+The `credentials_file_path` setting replaces `username` and `password`, pointing to the file containing the credentials:
 
 ```
 host: https://myislanorahost.org
@@ -33,18 +36,18 @@ credentials_file_path: /home/mark/credentials.yml
 input_dir: /some/directory/path
 ```
 
-In this configuration, instead of being in the main configuration file, the `username` and `password` settings are instead in the referenced credentials file:
+If `credentials_file_path` is present in the configuration file, Workbench reads the referenced file for the `username` and `password` settings:
 
 ```yaml
 username: admin
 password: islandora
 ```
 
-The credentials file needs to be somewhere readable to the computer user running Workbench, such as their home directory, or it can be located where multiple Workbench users can access it from their respective configuration files. The only requiement is that all Workbench users who reference the credentials file need read permmissions on the file.
+The credentials file needs to be located where it is readable by the user running Workbench, such as their home directory. Or, the credentials file can be shared by multiple Workbench users as long as it is located where it is readable by those users. The only requiement is that all Workbench users who reference the credentials file need read permmissions on the file.
 
 ## Encrypting the credentials file
 
-You can encrypt the credentials file, requiring the Workbench user to enter a decryption key to proceed. To do this:
+The credentials file can be encrypted, requiring the Workbench user to enter a decryption key to proceed. To do this:
 
 1. Create a credentials file and configure its path as described in the previous section.
 2. Encrypt the file using the `encrypt_credentials_file.py` file in Workbench's `scripts` directory: `python encrypt_credentials_file.py /path/to/the/creditials/file.yml`.
