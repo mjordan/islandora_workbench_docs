@@ -444,6 +444,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#encrypting-the-credentials-file" class="md-nav__link">
+    Encrypting the credentials file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-include_password_in_rollback_config_file-configuration-setting" class="md-nav__link">
     The include_password_in_rollback_config_file configuration setting
   </a>
@@ -1655,6 +1662,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#encrypting-the-credentials-file" class="md-nav__link">
+    Encrypting the credentials file
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-include_password_in_rollback_config_file-configuration-setting" class="md-nav__link">
     The include_password_in_rollback_config_file configuration setting
   </a>
@@ -1703,7 +1717,8 @@
 <ol>
 <li>in the <code>password</code> setting in your YAML configuration file (least secure)</li>
 <li>in the <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable (more secure)</li>
-<li>in response to a prompt when you run Workbench (most secure).</li>
+<li>in response to a prompt when you run Workbench (more secure)</li>
+<li>in an encrypted credentials file that requires a decryption key (most secure).</li>
 </ol>
 <p>If the <code>password</code> setting is present in your configuration files, Workbench will use its value as the user password and will ignore the other two methods of providing a password. If the <code>password</code> setting is absent, Workbench will look for the <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable and if it is present, use its value. If both the <code>password</code> setting and the <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable are absent, Workbench will prompt the user for a password before proceeding.</p>
 <div class="admonition warning">
@@ -1719,6 +1734,14 @@
 password: islandora
 </code></pre>
 <p>The credentials file can be somewhere only visible to the computer user running Workbench, such as their home directory, or multiple Workbench users can point to the same credentials from their respective configuration files provided all users are able to read the file.</p>
+<h2 id="encrypting-the-credentials-file">Encrypting the credentials file</h2>
+<p>You can encrypt the credentials file, requiring the Workbench user to enter a decryption key to proceed. To do this:</p>
+<ol>
+<li>Create a credentials file and configure its path as described in the previous section.</li>
+<li>Encrypt the file using the <code>encrypt_credentials_file.py</code> file in Workbench's <code>scripts</code> directory: <code>python encrypt_credentials_file.py /path/to/the/creditials/file.yml</code>.</li>
+<li>The script will tell you what the encryption/decryption key for that file is. This key will be necessary for Workbench to read the file.</li>
+<li>Workbench automatically detects if the credentials file is encrypted or not and if it is, will prompt the user to enter the key. Another option is for a systems administrator to add the key to the <code>ISLANDORA_WORKBENCH_ENCRYPTION_KEY</code> environment variable in the user's system. If that environment variable is present,  the user will not be prompted for the key. There is no option to store the key in the Workbench configuration file.</li>
+</ol>
 <h2 id="the-include_password_in_rollback_config_file-configuration-setting">The <code>include_password_in_rollback_config_file</code> configuration setting</h2>
 <p>By default, Workbench does not include the <code>password</code> value in rollback configuration files. If you want it to include that value, set <code>include_password_in_rollback_config_file</code> to <code>true</code> in the <code>create</code> task configuration file that generates the rollback.</p>
 <h2 id="the-remove_password_from_config_file-configuration-setting">The <code>remove_password_from_config_file</code> configuration setting</h2>
