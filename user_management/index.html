@@ -1726,7 +1726,7 @@
 <p>If you put the password in configuration files, you should not leave the files in directories that are widely readable, send them in emails or share them in Slack, commit the configuration files to Git repositories, etc.</p>
 </div>
 <h2 id="the-credentials_file_path-configuration-setting">The <code>credentials_file_path</code> configuration setting</h2>
-<p>As an alternative to including Drupal user credentials in your Workbench configuration files, you can store the <code>username</code> and <code>password</code> settings in their own simple YAML file by replacing the <code>username</code> and <code>password</code> config settings with the <code>credentials_file_path</code> setting. The syntax within the main config file is:</p>
+<p>As an alternative to including Drupal user credentials in your Workbench configuration files, you can store the <code>username</code> and <code>password</code> settings in their own simple YAML file by replacing the <code>username</code> and <code>password</code> config settings with the <code>credentials_file_path</code> setting. The syntax within the main config file is (with some other config settings included for context):</p>
 <pre><code>host: https://myislanorahost.org
 credentials_file_path: /home/mark/credentials.yml
 input_dir: /some/directory/path
