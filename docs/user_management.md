@@ -40,7 +40,7 @@ username: admin
 password: islandora
 ```
 
-The credentials file can be somewhere only visible to the computer user running Workbench, such as their home directory, or multiple Workbench users can point to the same credentials from their respective configuration files provided all users are able to read the file.
+The credentials file needs to be somewhere readable to the computer user running Workbench, such as their home directory, or it can be located where multiple Workbench users can access it from their respective configuration files. The only requiement is that all Workbench users who reference the credentials file need read permmissions on the file.
 
 ## Encrypting the credentials file
 
