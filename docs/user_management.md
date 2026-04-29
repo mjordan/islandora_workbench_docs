@@ -40,15 +40,6 @@ username: admin
 password: islandora
 ```
 
-instead of
-
-```
-host: https://myislanorahost.org
-username: admin
-password: islandora
-input_dir: /some/directory/path
-```
-
 The credentials file can be somewhere only visible to the computer user running Workbench, such as their home directory, or multiple Workbench users can point to the same credentials from their respective configuration files provided all users are able to read the file.
 
 ## Encrypting the credentials file
