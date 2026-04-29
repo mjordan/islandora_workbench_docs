@@ -1741,7 +1741,7 @@ input_dir: /some/directory/path
 <pre><code class="language-yaml">username: admin
 password: islandora
 </code></pre>
-<p>The credentials file can be somewhere only visible to the computer user running Workbench, such as their home directory, or multiple Workbench users can point to the same credentials from their respective configuration files provided all users are able to read the file.</p>
+<p>The credentials file needs to be somewhere readable to the computer user running Workbench, such as their home directory, or it can be located where multiple Workbench users can access it from their respective configuration files. The only requiement is that all Workbench users who reference it need read permmissions on the credential file.</p>
 <h2 id="encrypting-the-credentials-file">Encrypting the credentials file</h2>
 <p>You can encrypt the credentials file, requiring the Workbench user to enter a decryption key to proceed. To do this:</p>
 <ol>
