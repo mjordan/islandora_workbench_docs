@@ -1713,12 +1713,13 @@
 
 <p>By default, Islandora Workbench requires user credentials that have administrator-level permissions in the target Drupal. However, it is possible to avoid giving the user the administrator role; the steps required to do this are described below. In either case, you should exercise caution when managing the Workbench user's credentials. Workbench offers a few ways to help you do this.</p>
 <h2 id="password-management">Password management</h2>
-<p>Workbench configuration files must contain a <code>username</code> setting (unless you use an external credentials file, as described below), but you can provide the corresponding password in three ways, depending on your security tolerance:</p>
+<p>Workbench configuration files must contain a <code>username</code> setting (unless you use an external credentials file, as described below), but you can provide the corresponding password in five ways, depending on your security tolerance:</p>
 <ol>
-<li>in the <code>password</code> setting in your YAML configuration file (least secure)</li>
+<li>in the <code>password</code> setting in your Workbench configuration file (least secure)</li>
 <li>in the <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable (more secure)</li>
 <li>in response to a prompt when you run Workbench (more secure)</li>
-<li>in an encrypted credentials file that requires a decryption key (most secure).</li>
+<li>in a credentials file separate from your Workbench configuration file (more secure)</li>
+<li>by encrypting the credentials file (most secure).</li>
 </ol>
 <p>If the <code>password</code> setting is present in your configuration files, Workbench will use its value as the user password and will ignore the other two methods of providing a password. If the <code>password</code> setting is absent, Workbench will look for the <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable and if it is present, use its value. If both the <code>password</code> setting and the <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable are absent, Workbench will prompt the user for a password before proceeding.</p>
 <div class="admonition warning">
@@ -1726,7 +1727,8 @@
 <p>If you put the password in configuration files, you should not leave the files in directories that are widely readable, send them in emails or share them in Slack, commit the configuration files to Git repositories, etc.</p>
 </div>
 <h2 id="the-credentials_file_path-configuration-setting">The <code>credentials_file_path</code> configuration setting</h2>
-<p>As an alternative to including Drupal user credentials in your Workbench configuration files, you can store the <code>username</code> and <code>password</code> settings in their own simple YAML file by replacing the <code>username</code> and <code>password</code> config settings with the <code>credentials_file_path</code> setting. For example, a Workbench config file that contains the <code>username</code> and <code>password</code> config settings looks like this:</p>
+<p>As an alternative to including Drupal user credentials in your Workbench configuration files, you can store the <code>username</code> and <code>password</code> settings in their own simple YAML file by replacing the <code>username</code> and <code>password</code> config settings with the <code>credentials_file_path</code> setting.</p>
+<p>For example, a Workbench config file that contains the <code>username</code> and <code>password</code> config settings looks like this:</p>
 <pre><code>host: https://myislanorahost.org
 username: admin
 password: islandora
@@ -1737,11 +1739,11 @@ input_dir: /some/directory/path
 credentials_file_path: /home/mark/credentials.yml
 input_dir: /some/directory/path
 </code></pre>
-<p>In this configuration, instead of being in the main configuration file, the <code>username</code> and <code>password</code> settings are instead in the referenced credentials file:</p>
+<p>If <code>credentials_file_path</code> is present, instead of being in the main configuration file, the <code>username</code> and <code>password</code> settings are stored in the referenced credentials file:</p>
 <pre><code class="language-yaml">username: admin
 password: islandora
 </code></pre>
-<p>The credentials file needs to be somewhere readable to the computer user running Workbench, such as their home directory, or it can be located where multiple Workbench users can access it from their respective configuration files. The only requiement is that all Workbench users who reference the credentials file need read permmissions on the file.</p>
+<p>The credentials file needs to be located where it is readable by the computer user running Workbench, such as their home directory. Or, it can be shared by multiple Workbench users as long as it is located where it is readable by those users. The only requiement is that all Workbench users who reference the credentials file need read permmissions on the file.</p>
 <h2 id="encrypting-the-credentials-file">Encrypting the credentials file</h2>
 <p>You can encrypt the credentials file, requiring the Workbench user to enter a decryption key to proceed. To do this:</p>
 <ol>
