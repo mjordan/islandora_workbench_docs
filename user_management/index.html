@@ -1731,15 +1731,15 @@
 credentials_file_path: /home/mark/credentials.yml
 input_dir: /some/directory/path
 </code></pre>
+<p>In this configuration, the <code>username</code> and <code>password</code> settings are not included in the config file but are instead included in the referenced credentials file:</p>
+<pre><code class="language-yaml">username: admin
+password: islandora
+</code></pre>
 <p>instead of</p>
 <pre><code>host: https://myislanorahost.org
 username: admin
 password: islandora
 input_dir: /some/directory/path
-</code></pre>
-<p>In this configuration, the <code>username</code> and <code>password</code> settings are not included in the config file but are instead included in the referenced credentials file:</p>
-<pre><code class="language-yaml">username: admin
-password: islandora
 </code></pre>
 <p>The credentials file can be somewhere only visible to the computer user running Workbench, such as their home directory, or multiple Workbench users can point to the same credentials from their respective configuration files provided all users are able to read the file.</p>
 <h2 id="encrypting-the-credentials-file">Encrypting the credentials file</h2>
