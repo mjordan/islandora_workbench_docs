@@ -16,7 +16,16 @@ If the `password` setting is present in your configuration files, Workbench will
 
 ## The `credentials_file_path` configuration setting
 
-As an alternative to including Drupal user credentials in your Workbench configuration files, you can store the `username` and `password` settings in their own simple YAML file by replacing the `username` and `password` config settings with the `credentials_file_path` setting. The syntax within the main config file is (with some other config settings included for context):
+As an alternative to including Drupal user credentials in your Workbench configuration files, you can store the `username` and `password` settings in their own simple YAML file by replacing the `username` and `password` config settings with the `credentials_file_path` setting. For example, a Workbench config file that contains the `username` and `password` config settings looks like this:
+
+```
+host: https://myislanorahost.org
+username: admin
+password: islandora
+input_dir: /some/directory/path
+```
+
+The `credentials_file_path` setting replaces `username` and `password`:
 
 ```
 host: https://myislanorahost.org
@@ -24,7 +33,7 @@ credentials_file_path: /home/mark/credentials.yml
 input_dir: /some/directory/path
 ```
 
-In this configuration, the `username` and `password` settings are not included in the config file but are instead included in the referenced credentials file:
+In this configuration, instead of being in the main configuration file, the `username` and `password` settings are instead in the referenced credentials file:
 
 ```yaml
 username: admin
