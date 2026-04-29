@@ -1727,19 +1727,19 @@
 <p>If you put the password in configuration files, you should not leave the files in directories that are widely readable, send them in emails or share them in Slack, commit the configuration files to Git repositories, etc.</p>
 </div>
 <h2 id="the-credentials_file_path-configuration-setting">The <code>credentials_file_path</code> configuration setting</h2>
-<p>As an alternative to including Drupal user credentials in your Workbench configuration files, you can store the <code>username</code> and <code>password</code> settings in their own simple YAML file by replacing the <code>username</code> and <code>password</code> config settings with the <code>credentials_file_path</code> setting.</p>
+<p>As an alternative to including Drupal user credentials in your Workbench configuration files, you can store the <code>username</code> and <code>password</code> settings in a separate YAML file by replacing the <code>username</code> and <code>password</code> config settings with the <code>credentials_file_path</code> setting, which specifies the location of the separate file:</p>
 <p>For example, a Workbench config file that contains the <code>username</code> and <code>password</code> config settings looks like this:</p>
 <pre><code>host: https://myislanorahost.org
 username: admin
 password: islandora
 input_dir: /some/directory/path
 </code></pre>
-<p>The <code>credentials_file_path</code> setting replaces <code>username</code> and <code>password</code>:</p>
+<p>The <code>credentials_file_path</code> setting replaces <code>username</code> and <code>password</code>, pointing to the file containing the credentials:</p>
 <pre><code>host: https://myislanorahost.org
 credentials_file_path: /home/mark/credentials.yml
 input_dir: /some/directory/path
 </code></pre>
-<p>If <code>credentials_file_path</code> is present, instead of being in the main configuration file, the <code>username</code> and <code>password</code> settings are stored in the referenced credentials file:</p>
+<p>If <code>credentials_file_path</code> is present in the configuration file, Workbench reads the referenced file for the <code>username</code> and <code>password</code> settings:</p>
 <pre><code class="language-yaml">username: admin
 password: islandora
 </code></pre>
