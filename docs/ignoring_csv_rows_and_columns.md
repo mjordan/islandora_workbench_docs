@@ -48,6 +48,10 @@ id,file,title,field_model,field_description
 
 ## Using CSV row ranges
 
+Workbench allows you to specify a range of contiguous CSV rows to either include or exclude during processing.
+
+### Specifying rows to process
+
 In `create` and `update` tasks, you can use the `csv_start_row` and `csv_stop_row` configuration settings to tell Workbench to only process a specific subset of input CSV records. These settings apply when using text CSV, Google Sheets, or Excel input files. Each setting takes as its value a row number (ignoring the header row). For example, row number 2 is the second row of data after the CSV header row. Below are some example configurations.
 
 Process CSV rows 10 to the end of the CSV file (ignoring rows 1-9):
@@ -76,6 +80,86 @@ csv_stop_row: 100
     When the `csv_start_row` or `csv_stop_row` options are in use, Workbench will display a message similar to the following when run indicating the row number and the value from its ID field:
 
     `Using a subset of the input CSV (will start at row 10 / row ID scm_4587, stop at row 15 / row ID 4976).`
+
+
+### Specifying rows to skip
+
+Whereas `csv_start_row` and `csv_stop_row` tell Workbench to process a specific continguous subset of input CSV records, `csv_start_row_skip` and `csv_stop_row_skip` tell it to skip a contiguous subset of rows. With an input CSV like this:
+
+```
+field_identifier,file,title
+example_id_01,,Row range example item 1
+example_id_02,,Row range example item 2
+example_id_03,,Row range example item 3
+example_id_04,,Row range example item 4
+example_id_05,,Row range example item 5
+example_id_06,,Row range example item 6
+example_id_07,,Row range example item 7
+example_id_08,,Row range example item 8
+example_id_9,,Row range example item 9
+example_id_10,,Row range example item 10
+```
+
+if you want Workbench to skip rows 3, 4, and 5, you can include these settings in your config file:
+
+```
+csv_start_row_skip: 3
+csv_stop_row_skip: 5
+```
+
+This has the same effect as commenting out rows 3, 4, and 5:
+
+```
+field_identifier,file,title
+example_id_01,,Row range example item 1
+example_id_02,,Row range example item 2
+# example_id_03,,Row range example item 3
+# example_id_04,,Row range example item 4
+# example_id_05,,Row range example item 5
+example_id_06,,Row range example item 6
+example_id_07,,Row range example item 7
+example_id_08,,Row range example item 8
+example_id_9,,Row range example item 9
+example_id_10,,Row range example item 10
+```
+
+A useful technique in `create` or `update` tasks is to test your configuration by processing a small set of rows before committing to processing your entire input CSV. You can run this test easily using a combination of `csv_start_row`/`csv_stop_row` and then, if you are satisfied with the results of your test, run the same configuration but skipping the rows you processed as part of the test by replacing those two settings with their "_skip" equivalents `csv_start_row_skip`/`csv_stop_row_skip`. First, tell Workbench to load three rows:
+
+```
+csv_start_row: 3
+csv_stop_row: 5
+```
+
+```
+python ./workbench --config mytask.yml
+OK, connection to Drupal at http://islandora.traefik.me verified.
+Using a subset of the input CSV (will start at row 3 / row ID "example_id_03", stop at row 5 / row ID "example_id_05").
+"Create" task started using config file issue_1082.yml.
+Node for "Row range example item 3" (record example_id_03) created at http://islandora.traefik.me/node/2160.
+Node for "Row range example item 4" (record example_id_04) created at http://islandora.traefik.me/node/2161.
+Node for "Row range example item 5" (record example_id_05) created at http://islandora.traefik.me/node/2162.
+```
+
+Then, if you are happy with the test's results, process the rest of the rows using the "_skip" equivalents:
+
+```
+csv_start_row_skip: 3
+csv_stop_row_skip: 5
+```
+
+```
+python ./workbench --config mytask.yml
+OK, connection to Drupal at http://islandora.traefik.me verified.
+Using a subset of the input CSV (will skip rows 3 to 5).
+"Create" task started using config file issue_1082.yml.
+Node for "Row range example item 1" (record example_id_01) created at http://islandora.traefik.me/node/2163.
+Node for "Row range example item 2" (record example_id_02) created at http://islandora.traefik.me/node/2164.
+Node for "Row range example item 6" (record example_id_06) created at http://islandora.traefik.me/node/2165.
+Node for "Row range example item 7" (record example_id_07) created at http://islandora.traefik.me/node/2166.
+Node for "Row range example item 8" (record example_id_08) created at http://islandora.traefik.me/node/2167.
+Node for "Row range example item 9" (record example_id_9) created at http://islandora.traefik.me/node/2168.
+Node for "Row range example item 10" (record example_id_10) created at http://islandora.traefik.me/node/2169.
+```
 
 
 ## Processing specific CSV rows
