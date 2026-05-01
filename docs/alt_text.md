@@ -35,4 +35,4 @@ Notes:
 * Workbench strips out all HTML markup within the alt text to prevent potential cross-site scripting vulnerabilities.
 * In `add_alt_text` and `update_alt_text` tasks, you can use URLs instead of node IDs in the `node_id` CSV column.
 * In `update_alt_text` tasks, the same `update_mode` options are available as are in `update` tasks -- "replace" (default), "append", and "delete".
-* If you have enabled the standalone media url in Drupal, ensure your `config.yml` includes: `standalone_media_url: true` otherwise the task will throw a 403 error when it attempts to set the alt-text.
+* If you have enabled the standalone media URL in Drupal, ensure your configuration file includes `standalone_media_url: true`. Otherwise the task will throw a 403 error when it attempts to set the alt text.

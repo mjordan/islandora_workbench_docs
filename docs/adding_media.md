@@ -19,6 +19,8 @@ input_csv: add_media.csv
 # media_use_tid is optional, it defaults to "Original file".
 media_use_tid: 21
 media_type: file
+# If you have enabled the standalone media URL in Drupal, ensure your configuration file includes "standalone_media_url: true".
+standalone_media_url: true
 ```
 
 This is the same configuration file using a term URI in `media_use_tid` rather than a term ID:
@@ -31,6 +33,8 @@ password: islandora
 input_csv: add_media.csv
 media_use_tid: "http://pcdm.org/use#Transcript"
 media_type: file
+# If you have enabled the standalone media URL in Drupal, ensure your configuration file includes "standalone_media_url: true".
+standalone_media_url: true
 ```
 
 If you want to specify a media_use_tid per CSV row, you can include that column in your CSV (in either "add_media" or "create" tasks):
