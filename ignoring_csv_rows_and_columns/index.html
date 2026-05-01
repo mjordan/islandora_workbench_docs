@@ -1827,27 +1827,30 @@ example_id_10,,Row range example item 10
 <pre><code>csv_start_row: 3
 csv_stop_row: 5
 </code></pre>
-<p>python ./workbench --config mytask.yml
+<pre><code>python ./workbench --config mytask.yml
 OK, connection to Drupal at http://islandora.traefik.me verified.
-Using a subset of the input CSV (will start at row 3 / row ID "example_id_03", stop at row 5 / row ID "example_id_05").
-"Create" task started using config file issue_1082.yml.
-Node for "Row range example item 3" (record example_id_03) created at http://islandora.traefik.me/node/2160.
-Node for "Row range example item 4" (record example_id_04) created at http://islandora.traefik.me/node/2161.
-Node for "Row range example item 5" (record example_id_05) created at http://islandora.traefik.me/node/2162.</p>
+Using a subset of the input CSV (will start at row 3 / row ID &quot;example_id_03&quot;, stop at row 5 / row ID &quot;example_id_05&quot;).
+&quot;Create&quot; task started using config file issue_1082.yml.
+Node for &quot;Row range example item 3&quot; (record example_id_03) created at http://islandora.traefik.me/node/2160.
+Node for &quot;Row range example item 4&quot; (record example_id_04) created at http://islandora.traefik.me/node/2161.
+Node for &quot;Row range example item 5&quot; (record example_id_05) created at http://islandora.traefik.me/node/2162.
+</code></pre>
+<p>Using the "_skip" equivalents:</p>
 <pre><code>csv_start_row_skip: 3
 csv_stop_row_skip: 5
 </code></pre>
-<p>python ./workbench --config mytask.yml
+<pre><code>python ./workbench --config mytask.yml
 OK, connection to Drupal at http://islandora.traefik.me verified.
 Using a subset of the input CSV (will skip rows 3 to 5).
-"Create" task started using config file issue_1082.yml.
-Node for "Row range example item 1" (record example_id_01) created at http://islandora.traefik.me/node/2163.
-Node for "Row range example item 2" (record example_id_02) created at http://islandora.traefik.me/node/2164.
-Node for "Row range example item 6" (record example_id_06) created at http://islandora.traefik.me/node/2165.
-Node for "Row range example item 7" (record example_id_07) created at http://islandora.traefik.me/node/2166.
-Node for "Row range example item 8" (record example_id_08) created at http://islandora.traefik.me/node/2167.
-Node for "Row range example item 9" (record example_id_9) created at http://islandora.traefik.me/node/2168.
-Node for "Row range example item 10" (record example_id_10) created at http://islandora.traefik.me/node/2169.</p>
+&quot;Create&quot; task started using config file issue_1082.yml.
+Node for &quot;Row range example item 1&quot; (record example_id_01) created at http://islandora.traefik.me/node/2163.
+Node for &quot;Row range example item 2&quot; (record example_id_02) created at http://islandora.traefik.me/node/2164.
+Node for &quot;Row range example item 6&quot; (record example_id_06) created at http://islandora.traefik.me/node/2165.
+Node for &quot;Row range example item 7&quot; (record example_id_07) created at http://islandora.traefik.me/node/2166.
+Node for &quot;Row range example item 8&quot; (record example_id_08) created at http://islandora.traefik.me/node/2167.
+Node for &quot;Row range example item 9&quot; (record example_id_9) created at http://islandora.traefik.me/node/2168.
+Node for &quot;Row range example item 10&quot; (record example_id_10) created at http://islandora.traefik.me/node/2169.
+</code></pre>
 <h2 id="processing-specific-csv-rows">Processing specific CSV rows</h2>
 <p>You can tell Workbench to process only specific rows in your CSV file (or, looked at from another perspective, to ignore all rows other than the specified ones). To do this, add the <code>csv_rows_to_process</code> setting to your config file with a list of "id" column values, e.g.:</p>
 <p><code>csv_rows_to_process: ["test_001", "test_007", "test_103"]</code></p>
