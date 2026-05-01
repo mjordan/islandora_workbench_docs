@@ -134,7 +134,7 @@ csv_stop_row: 5
 python ./workbench --config mytask.yml
 OK, connection to Drupal at http://islandora.traefik.me verified.
 Using a subset of the input CSV (will start at row 3 / row ID "example_id_03", stop at row 5 / row ID "example_id_05").
-"Create" task started using config file issue_1082.yml.
+"Create" task started using config file mytask.yml.
 Node for "Row range example item 3" (record example_id_03) created at http://islandora.traefik.me/node/2160.
 Node for "Row range example item 4" (record example_id_04) created at http://islandora.traefik.me/node/2161.
 Node for "Row range example item 5" (record example_id_05) created at http://islandora.traefik.me/node/2162.
@@ -151,7 +151,7 @@ csv_stop_row_skip: 5
 python ./workbench --config mytask.yml
 OK, connection to Drupal at http://islandora.traefik.me verified.
 Using a subset of the input CSV (will skip rows 3 to 5).
-"Create" task started using config file issue_1082.yml.
+"Create" task started using config file mytask.yml.
 Node for "Row range example item 1" (record example_id_01) created at http://islandora.traefik.me/node/2163.
 Node for "Row range example item 2" (record example_id_02) created at http://islandora.traefik.me/node/2164.
 Node for "Row range example item 6" (record example_id_06) created at http://islandora.traefik.me/node/2165.
