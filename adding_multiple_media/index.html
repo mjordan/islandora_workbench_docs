@@ -1625,6 +1625,7 @@ main.jpg,2078,/tmp/thumbs/main_tn.jpg,/tmp/rightsdocs/036.txt
 <li><a href="/islandora_workbench_docs/fixity">Fixity checking</a> is only available for files named in the <code>file</code> CSV column, not in the additional columns described here. See <a href="https://github.com/mjordan/islandora_workbench/issues/307">this issue</a> for more information.</li>
 <li>If you create an "Extracted Text" media, the contents of the specified text file will be added to the media's "field_edited_text" field, allowing it to be indexed in Solr.</li>
 <li>Mappings of file extensions to Islandora media types configured via the <code>media_types_override</code> config setting apply to files named in the <code>file</code> CSV column and in columns defined in the <code>additional_files</code> setting.</li>
+<li>If you have enabled the standalone media URL in Drupal, ensure your configuration file includes <code>standalone_media_url: true</code>.</li>
 </ul>
 
 
