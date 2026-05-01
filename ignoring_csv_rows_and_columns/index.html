@@ -1823,7 +1823,7 @@ example_id_08,,Row range example item 8
 example_id_9,,Row range example item 9
 example_id_10,,Row range example item 10
 </code></pre>
-<p>A useful technique in <code>create</code> or <code>update</code> tasks is to test your configuration by processing a small set of rows before committing to processing your entire input CSV. You can run this test easily using a combination of <code>csv_start_row</code>/<code>csv_stop_row</code> and then, if you are satisfied with the results of your test, run the same configuration but skipping the rows you processed as part of the test by replacing those two settings with the "_skip" equivalents <code>csv_start_row_skip</code>/<code>csv_stop_row_skip</code>. First, tell Workbench to load three rows:</p>
+<p>A useful technique in <code>create</code> or <code>update</code> tasks is to test your configuration by processing a small set of rows before committing to processing your entire input CSV. You can run this test easily using a combination of <code>csv_start_row</code>/<code>csv_stop_row</code> and then, if you are satisfied with the results of your test, run the same configuration but skipping the rows you processed as part of the test by replacing those two settings with their "_skip" equivalents <code>csv_start_row_skip</code>/<code>csv_stop_row_skip</code>. First, tell Workbench to load three rows:</p>
 <pre><code>csv_start_row: 3
 csv_stop_row: 5
 </code></pre>
@@ -1835,7 +1835,7 @@ Node for &quot;Row range example item 3&quot; (record example_id_03) created at 
 Node for &quot;Row range example item 4&quot; (record example_id_04) created at http://islandora.traefik.me/node/2161.
 Node for &quot;Row range example item 5&quot; (record example_id_05) created at http://islandora.traefik.me/node/2162.
 </code></pre>
-<p>Using the "_skip" equivalents:</p>
+<p>Then, if you are happy with the test's results, process the rest of the rows using the "_skip" equivalents:</p>
 <pre><code>csv_start_row_skip: 3
 csv_stop_row_skip: 5
 </code></pre>
