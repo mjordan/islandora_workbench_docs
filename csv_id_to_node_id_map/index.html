@@ -1735,6 +1735,10 @@
 <li>To do this, provide the script with the <code>--remove_entries_after</code> argument, e.g., <code>python scripts/manage_csv_to_node_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_after "2023-05-29 19:17"</code>.</li>
 </ul>
 </li>
+<li>Merge one CSV ID to node ID map database into another. The script first dumps the target database into a CSV file backup before inserting rows from the source database.<ul>
+<li>To do this, provide the script with the <code>--target_db_path</code> and <code>--source_db_path</code> arguments, e.g., <code>python manage_csv_to_node_id_map.py --target_db_path csv_id_to_node_id_map_1.db --source_db_path csv_id_to_node_id_map_2.db</code></li>
+</ul>
+</li>
 </ul>
 <p>The value of the <code>--remove_entries_before</code> and <code>--remove_entries_after</code> arguments is a date string that can take the form <code>yyyy-mm-dd hh:mm:ss</code> or any truncated version of that format, e.g. <code>yyyy-mm-dd hh:mm</code>, <code>yyyy-mm-dd hh</code>, or <code>yyyy-mm-dd</code>. Any rows in the database table that have a <code>timestamp</code> value that matches the date value will be deleted from the database. Note that if your timestamp value has a space in it, you need to wrap it quotation marks as illustrated above; if you don't, the script will delete all the entries on the timestamp value before the space, in other words, that day.</p>
 <h3 id="defining-the-location-of-your-csv-id-to-node-id-map-file">Defining the location of your CSV ID to node ID map file</h3>
