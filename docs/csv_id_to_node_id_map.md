@@ -43,6 +43,8 @@ As noted above, you can use SQLite to query the CSV ID to node ID map, but if yo
     * To do this, provide the script with the `--remove_entries_before` argument, e.g., `python scripts/manage_csv_to_node_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_before "2023-05-29 19:17"`.
 * Delete entries from the database created after a specific date.
     * To do this, provide the script with the `--remove_entries_after` argument, e.g., `python scripts/manage_csv_to_node_id_map.py --db_path csv_id_to_node_id_map.db --remove_entries_after "2023-05-29 19:17"`.
+* Merge one CSV ID to node ID map database into another. The script first dumps the target database into a CSV file backup before inserting rows from the source database.
+    * To do this, provide the script with the `--target_db_path` and `--source_db_path` arguments, e.g., `python manage_csv_to_node_id_map.py --target_db_path csv_id_to_node_id_map_1.db --source_db_path csv_id_to_node_id_map_2.db`
 
 
 The value of the `--remove_entries_before` and `--remove_entries_after` arguments is a date string that can take the form `yyyy-mm-dd hh:mm:ss` or any truncated version of that format, e.g. `yyyy-mm-dd hh:mm`, `yyyy-mm-dd hh`, or `yyyy-mm-dd`. Any rows in the database table that have a `timestamp` value that matches the date value will be deleted from the database. Note that if your timestamp value has a space in it, you need to wrap it quotation marks as illustrated above; if you don't, the script will delete all the entries on the timestamp value before the space, in other words, that day.
@@ -64,7 +66,7 @@ csv_id_to_node_id_map_filename: mymap.db
 
 The value of `csv_id_to_node_id_map_dir` doesn't have to be `.` (Workbench's current directory). Any directory path is valid, as long as it exists and is writable by the user running Workbench. If you are working in a distributed environment, where multiple people are running Workbench, the directory and file need to be writable by all users who run Workbench.
 
-You can easily move a database file into another directory (from the default temporary directory location) as long as you configure Workbench to use that new location going forward. You can even combine the data in multiple database files by exporting the data to CSV from a database and then importing it into the consolidated database using commonly available SQLite3 utilities.
+You can easily move a database file into another directory (from the default temporary directory location) as long as you configure Workbench to use that new location going forward. If you want all your Workbench users to start using a shared database, you can combine the data in multiple database files by using the `manage_csv_to_node_id_map.py` script as described above and have all users use the new combined database file.
 
 ### "host" values in the map
 
