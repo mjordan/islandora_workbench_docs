@@ -1,9 +1,9 @@
 !!! warning
     By default, Islandora Workbench requires user credentials that have administrator-level permissions in the target Drupal. However, it is possible to avoid giving the user the administrator role; the steps required to do this are described in the "Using a non-administrator user" section below.
 
-    In any case, you should exercise caution when managing the Workbench user's credentials. As described below, Workbench provides a variety of options for managing the Drupal credentials it requires.
+    In any case, you must exercise caution when storing the Workbench user's credentials. As described below, Workbench provides a variety of options for managing the Drupal credentials it requires.
 
-    The choice of what level of privilegies to give the Workbench user, and how that user's credentials are managed, needs to be informed by your institution's cybersecurity policies and practices. Always consult with your local systems administrators before deciding which options to choose.
+    The choice of what role/level of privilegies to give the Workbench user, and how that user's credentials are managed, needs to be informed by your institution's cybersecurity policies and practices. Always consult with your local systems administrators before deciding which options to choose.
 
 ## Password management
 
@@ -54,14 +54,14 @@ The credentials file needs to be located where it is readable by the user runnin
 The credentials file can be encrypted, requiring the Workbench user to enter a decryption key to proceed. To do this:
 
 1. Create a credentials file and configure its path as described in the previous section.
-2. Encrypt the file using the `encrypt_credentials_file.py` file in Workbench's `scripts` directory: `python encrypt_credentials_file.py /path/to/the/creditials/file.yml`. Encrypting the credentials file overwrites the original version with the encrypted version.
+2. Encrypt the file using the `encrypt_credentials_file.py` script in Workbench's `scripts` directory: `python encrypt_credentials_file.py /path/to/the/creditials/file.yml`. Encrypting the credentials file overwrites the original version with the encrypted version.
 3. The script will tell you what the encryption/decryption key for that file is. This key will be necessary for Workbench to read the file.
 4. Workbench automatically detects if the credentials file registered in the `credentials_file_path` config setting is encrypted and if it is, will prompt the user to enter the key.
 
 There is no option to store the key in the Workbench configuration file, but there are a couple of alternatives to having Workbench prompt the user for the key:
 
-- Have your systems administrator to add the key to the `ISLANDORA_WORKBENCH_ENCRYPTION_KEY` environment variable in your computer. If that environment variable is present, you will not be prompted for the key.
-- If you systems administrator prefers storing the decryption key in a securely-located file instead of having Workbench prompt for the key or storing the key in an environment variable, they can put the key in a plain text file and register the path to that file in the `credentials_key_file_path` setting. Note that it is important that this key file be placed in a directory only readable by the current Workbench user, such as their home directory. If it is in a directory that multiple people can read, the security benefits of encrypting the credentials are reduced.
+- Have your systems administrator add the key to the `ISLANDORA_WORKBENCH_ENCRYPTION_KEY` environment variable in your computer. If that environment variable is present, Workbench will not prompt for the key.
+- If you systems administrator prefers storing the decryption key in a securely-located file instead of having Workbench prompt for the key or storing the key in an environment variable, they can put the key in a plain text file and register the path to that file in the `credentials_key_file_path` setting. Note that it is important that this key file be placed in a directory readable only by the current Workbench user, such as their home directory. If it is in a directory that multiple people can read, the security benefits of encrypting the credentials are reduced.
 
 ## The `include_password_in_rollback_config_file` configuration setting
 
