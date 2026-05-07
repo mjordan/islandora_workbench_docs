@@ -1714,8 +1714,8 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>By default, Islandora Workbench requires user credentials that have administrator-level permissions in the target Drupal. However, it is possible to avoid giving the user the administrator role; the steps required to do this are described in the "Using a non-administrator user" section below.</p>
-<p>In any case, you should exercise caution when managing the Workbench user's credentials. As described below, Workbench provides a variety of options for managing the Drupal credentials it requires.</p>
-<p>The choice of what level of privilegies to give the Workbench user, and how that user's credentials are managed, needs to be informed by your institution's cybersecurity policies and practices. Always consult with your local systems administrators before deciding which options to choose.</p>
+<p>In any case, you must exercise caution when storing the Workbench user's credentials. As described below, Workbench provides a variety of options for managing the Drupal credentials it requires.</p>
+<p>The choice of what role/level of privilegies to give the Workbench user, and how that user's credentials are managed, needs to be informed by your institution's cybersecurity policies and practices. Always consult with your local systems administrators before deciding which options to choose.</p>
 </div>
 <h2 id="password-management">Password management</h2>
 <p>Workbench configuration files must contain a <code>username</code> setting (unless you use an external credentials file, as described below), but you can provide the corresponding password in five ways, depending on your security policies:</p>
@@ -1751,14 +1751,14 @@ password: islandora
 <p>The credentials file can be encrypted, requiring the Workbench user to enter a decryption key to proceed. To do this:</p>
 <ol>
 <li>Create a credentials file and configure its path as described in the previous section.</li>
-<li>Encrypt the file using the <code>encrypt_credentials_file.py</code> file in Workbench's <code>scripts</code> directory: <code>python encrypt_credentials_file.py /path/to/the/creditials/file.yml</code>. Encrypting the credentials file overwrites the original version with the encrypted version.</li>
+<li>Encrypt the file using the <code>encrypt_credentials_file.py</code> script in Workbench's <code>scripts</code> directory: <code>python encrypt_credentials_file.py /path/to/the/creditials/file.yml</code>. Encrypting the credentials file overwrites the original version with the encrypted version.</li>
 <li>The script will tell you what the encryption/decryption key for that file is. This key will be necessary for Workbench to read the file.</li>
 <li>Workbench automatically detects if the credentials file registered in the <code>credentials_file_path</code> config setting is encrypted and if it is, will prompt the user to enter the key.</li>
 </ol>
 <p>There is no option to store the key in the Workbench configuration file, but there are a couple of alternatives to having Workbench prompt the user for the key:</p>
 <ul>
-<li>Have your systems administrator to add the key to the <code>ISLANDORA_WORKBENCH_ENCRYPTION_KEY</code> environment variable in your computer. If that environment variable is present, you will not be prompted for the key.</li>
-<li>If you systems administrator prefers storing the decryption key in a securely-located file instead of having Workbench prompt for the key or storing the key in an environment variable, they can put the key in a plain text file and register the path to that file in the <code>credentials_key_file_path</code> setting. Note that it is important that this key file be placed in a directory only readable by the current Workbench user, such as their home directory. If it is in a directory that multiple people can read, the security benefits of encrypting the credentials are reduced.</li>
+<li>Have your systems administrator add the key to the <code>ISLANDORA_WORKBENCH_ENCRYPTION_KEY</code> environment variable in your computer. If that environment variable is present, Workbench will not prompt for the key.</li>
+<li>If you systems administrator prefers storing the decryption key in a securely-located file instead of having Workbench prompt for the key or storing the key in an environment variable, they can put the key in a plain text file and register the path to that file in the <code>credentials_key_file_path</code> setting. Note that it is important that this key file be placed in a directory readable only by the current Workbench user, such as their home directory. If it is in a directory that multiple people can read, the security benefits of encrypting the credentials are reduced.</li>
 </ul>
 <h2 id="the-include_password_in_rollback_config_file-configuration-setting">The <code>include_password_in_rollback_config_file</code> configuration setting</h2>
 <p>By default, Workbench does not include the <code>password</code> value in rollback configuration files. If you want it to include that value, set <code>include_password_in_rollback_config_file</code> to <code>true</code> in the <code>create</code> task configuration file that generates the rollback.</p>
