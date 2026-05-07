@@ -1,4 +1,9 @@
-By default, Islandora Workbench requires user credentials that have administrator-level permissions in the target Drupal. However, it is possible to avoid giving the user the administrator role; the steps required to do this are described below. In either case, you should exercise caution when managing the Workbench user's credentials. Workbench offers a few ways to help you do this.
+!!! warning
+    By default, Islandora Workbench requires user credentials that have administrator-level permissions in the target Drupal. However, it is possible to avoid giving the user the administrator role; the steps required to do this are described in the "Using a non-administrator user" section below.
+
+    In any case, you should exercise caution when managing the Workbench user's credentials. As described below, Workbench provides a variety of options for managing the Drupal credentials it requires.
+
+    The choice of what level of privilegies to give the Workbench user, and how that user's credentials are managed, needs to be informed by your institution's cybersecurity policies and practices. Always consult with your local systems administrators before deciding which options to choose.
 
 ## Password management
 
@@ -11,9 +16,6 @@ Workbench configuration files must contain a `username` setting (unless you use 
 1. by encrypting the credentials file (most secure).
 
 If the `password` setting is present in your configuration files, Workbench will use its value as the user password and will ignore the other two methods of providing a password. If the `password` setting is absent, Workbench will look for the `ISLANDORA_WORKBENCH_PASSWORD` environment variable and if it is present, use its value. If both the `password` setting and the `ISLANDORA_WORKBENCH_PASSWORD` environment variable are absent, Workbench will prompt the user for a password before proceeding.
-
-!!! warning
-    If you put the password in configuration files, you should not leave the files in directories that are widely readable, send them in emails or share them in Slack, commit the configuration files to Git repositories, etc.
 
 ## The `credentials_file_path` configuration setting
 
@@ -52,14 +54,14 @@ The credentials file needs to be located where it is readable by the user runnin
 The credentials file can be encrypted, requiring the Workbench user to enter a decryption key to proceed. To do this:
 
 1. Create a credentials file and configure its path as described in the previous section.
-2. Encrypt the file using the `encrypt_credentials_file.py` file in Workbench's `scripts` directory: `python encrypt_credentials_file.py /path/to/the/creditials/file.yml`.
+2. Encrypt the file using the `encrypt_credentials_file.py` file in Workbench's `scripts` directory: `python encrypt_credentials_file.py /path/to/the/creditials/file.yml`. Encrypting the credentials file overwrites the original version with the encrypted version.
 3. The script will tell you what the encryption/decryption key for that file is. This key will be necessary for Workbench to read the file.
-4. Workbench automatically detects if the credentials file is encrypted and if it is, will prompt the user to enter the key.
+4. Workbench automatically detects if the credentials file registered in the `credentials_file_path` config setting is encrypted and if it is, will prompt the user to enter the key.
 
 There is no option to store the key in the Workbench configuration file, but there are a couple of alternatives to having Workbench prompt the user for the key:
 
 - Have your systems administrator to add the key to the `ISLANDORA_WORKBENCH_ENCRYPTION_KEY` environment variable in your computer. If that environment variable is present, you will not be prompted for the key.
-- If you systems administrator prefers storing the decryption key in a securely-located file instead of having Workbench prompt for the key, they can put the key in a plain text file and register the path to that file in the `credentials_key_file_path` setting. Note that it is important that this key file be placed in a directory only readable by the current Workbench user, such as their home directory. If it is in a directory that multiple people can read, the security benefits of encrypting the credentials are reduced.
+- If you systems administrator prefers storing the decryption key in a securely-located file instead of having Workbench prompt for the key or storing the key in an environment variable, they can put the key in a plain text file and register the path to that file in the `credentials_key_file_path` setting. Note that it is important that this key file be placed in a directory only readable by the current Workbench user, such as their home directory. If it is in a directory that multiple people can read, the security benefits of encrypting the credentials are reduced.
 
 ## The `include_password_in_rollback_config_file` configuration setting
 
@@ -73,7 +75,7 @@ This setting will interfere with automated or scripted workflows since Workbench
 
 ## Using a non-administrator user
 
-If you prefer that the user indicated in Workbench's `username` config setting not have full administrator permissions, you will need to do the following:
+If you prefer that the Drupal user indicated in Workbench's `username` config setting not have full administrator-role permissions, you will need to do the following:
 
 1. Create a new Drupal role named, for example, "Workbench user", for non-admin users whose credentials you want to use in your config file.
 2. Include `use_workbench_permissions: true` in your Workbench config file. If you do not include this setting, or set it to `false` (the default), Workbench will expect the user defined in `username` to have the administrator role.
