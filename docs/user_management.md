@@ -32,7 +32,9 @@ The `credentials_file_path` setting replaces `username` and `password`, pointing
 
 ```
 host: https://myislanorahost.org
-credentials_file_path: /home/mark/credentials.yml
+credentials_file_path: /opt/workbench/credentials.yml
+# Optional, see below for details.
+credentials_key_file_path: /home/mark/key.yml
 input_dir: /some/directory/path
 ```
 
@@ -52,7 +54,12 @@ The credentials file can be encrypted, requiring the Workbench user to enter a d
 1. Create a credentials file and configure its path as described in the previous section.
 2. Encrypt the file using the `encrypt_credentials_file.py` file in Workbench's `scripts` directory: `python encrypt_credentials_file.py /path/to/the/creditials/file.yml`.
 3. The script will tell you what the encryption/decryption key for that file is. This key will be necessary for Workbench to read the file.
-4. Workbench automatically detects if the credentials file is encrypted and if it is, will prompt the user to enter the key. Another option is for a systems administrator to add the key to the `ISLANDORA_WORKBENCH_ENCRYPTION_KEY` environment variable in the user's system. If that environment variable is present,  the user will not be prompted for the key. There is no option to store the key in the Workbench configuration file.
+4. Workbench automatically detects if the credentials file is encrypted and if it is, will prompt the user to enter the key.
+
+There is no option to store the key in the Workbench configuration file, but there are a couple of alternatives to having Workbench prompt the user for the key:
+
+- Have your systems administrator to add the key to the `ISLANDORA_WORKBENCH_ENCRYPTION_KEY` environment variable in your computer. If that environment variable is present, you will not be prompted for the key.
+- If you systems administrator prefers storing the decryption key in a securely-located file instead of having Workbench prompt for the key, they can put the key in a plain text file and register the path to that file in the `credentials_key_file_path` setting. Note that it is important that this key file be placed in a directory only readable by the current Workbench user, such as their home directory. If it is in a directory that multiple people can read, the security benefits of encrypting the credentials are reduced.
 
 ## The `include_password_in_rollback_config_file` configuration setting
 

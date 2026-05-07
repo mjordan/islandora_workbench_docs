@@ -100,7 +100,7 @@ Strictly speaking, YAML lists can be represented as either a series of entries o
 | host | ✔️ | | The hostname, including `http://` or `https://` of your Islandora repository, and port number if not the default 80. |
 | username |  | | The username used to authenticate the requests. This Drupal user should be a member of the "Administrator" role. If you want to create nodes that are owned by a specific Drupal user, include their numeric user ID in the `uid` column in your CSV. |
 | password |  | | The user's password. You can also set the password in your `ISLANDORA_WORKBENCH_PASSWORD` environment variable. If you do this, omit the `password` option in your configuration file. If a password is not available in either your configuration file or in the environment variable, Workbench will prompt for a password.|
-| credentials_file_path |  | | The absolute or relative path to a simple YAML file that contains the `username` and `password` config settings. Putting your `username` and `password` settings in this file allows you to omit them from the main configuration file. |
+
 
 ### Drupal settings
 
@@ -123,6 +123,9 @@ Strictly speaking, YAML lists can be represented as either a series of entries o
 | text_format_id |  | basic_html | The text format ID (machine name) to apply to all Drupal text fields that have a "formatted" field type. See "[Text fields with markup](/islandora_workbench_docs/fields/#text-fields-with-markup)" for more information. |
 | field_text_format_ids |  | | Defines a mapping between field machine names the machine names of format IDs for "formatted" fields. See "[Text fields with markup](/islandora_workbench_docs/fields/#text-fields-with-markup)" for more information. |
 | paragraph_fields |  | | Defines structure of paragraph fields in the input CSV. See "[Entity Reference Revisions fields (paragraphs)](/islandora_workbench_docs/fields/#entity-reference-revisions-fields-paragraphs)" for more information. |
+| credentials_file_path |  | | The absolute or relative path to a simple YAML file that contains the `username` and `password` config settings. Putting your `username` and `password` settings in this file allows you to omit them from the main configuration file. See "[User management](/islandora_workbench_docs/user_management/#the-credentials_file_path-configuration-setting)" for more information. |
+| credentials_key_file_path |  | | The absolute or relative path to a plain text file that contains the key required to use an encrypted credentials file. Putting your `username` and `password` settings in this file replaces prompting the user for the key. |
+
 
 
 ### Input data location settings
