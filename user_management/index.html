@@ -1754,7 +1754,7 @@ password: islandora
 </ol>
 <p>There is no option to store the key in the Workbench configuration file, but there are a couple of alternatives to having Workbench prompt the user for the key:</p>
 <ul>
-<li>Have a systems administrator to add the key to the <code>ISLANDORA_WORKBENCH_ENCRYPTION_KEY</code> environment variable in the user's system. If that environment variable is present,  the user will not be prompted for the key.</li>
+<li>Have your systems administrator to add the key to the <code>ISLANDORA_WORKBENCH_ENCRYPTION_KEY</code> environment variable in your computer. If that environment variable is present, you will not be prompted for the key.</li>
 <li>If you systems administrators prefer storing the decryption key in a securely-located file instead of having Workbench prompt for the key, they can put the key in a plain text file and register the path to that file in the <code>credentials_key_file_path</code> setting. Note that it is important that this key file be placed in a directory only readable by the current Workbench user, such as their home directory. If it is in a directory that multiple people can read, the security benefits of encrypting the credentials are reduced.</li>
 </ul>
 <h2 id="the-include_password_in_rollback_config_file-configuration-setting">The <code>include_password_in_rollback_config_file</code> configuration setting</h2>
