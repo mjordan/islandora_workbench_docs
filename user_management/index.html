@@ -1711,7 +1711,11 @@
 
   <h1>User management</h1>
 
-<p>By default, Islandora Workbench requires user credentials that have administrator-level permissions in the target Drupal. However, it is possible to avoid giving the user the administrator role; the steps required to do this are described below. In either case, you should exercise caution when managing the Workbench user's credentials. Workbench offers a few ways to help you do this.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>By default, Islandora Workbench requires user credentials that have administrator-level permissions in the target Drupal. However, it is possible to avoid giving the user the administrator role; the steps required to do this are described below. In either case, you should exercise caution when managing the Workbench user's credentials.</p>
+<p>As described below, Workbench provides a variety of options for managing the Drupal credentials it requires, but which options you choose need to be informed by your institution's cybersecurity policies and risk tolerance. Always consult with your local systems administrators before deciding which options to choose.</p>
+</div>
 <h2 id="password-management">Password management</h2>
 <p>Workbench configuration files must contain a <code>username</code> setting (unless you use an external credentials file, as described below), but you can provide the corresponding password in five ways, depending on your security policies:</p>
 <ol>
@@ -1722,10 +1726,6 @@
 <li>by encrypting the credentials file (most secure).</li>
 </ol>
 <p>If the <code>password</code> setting is present in your configuration files, Workbench will use its value as the user password and will ignore the other two methods of providing a password. If the <code>password</code> setting is absent, Workbench will look for the <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable and if it is present, use its value. If both the <code>password</code> setting and the <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable are absent, Workbench will prompt the user for a password before proceeding.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If you put the password in configuration files, you should not leave the files in directories that are widely readable, send them in emails or share them in Slack, commit the configuration files to Git repositories, etc.</p>
-</div>
 <h2 id="the-credentials_file_path-configuration-setting">The <code>credentials_file_path</code> configuration setting</h2>
 <p>An alternative to including Drupal user credentials in the main Workbench configuration file is to store the <code>username</code> and <code>password</code> settings in a separate YAML file. To do this, replace the <code>username</code> and <code>password</code> config settings with the <code>credentials_file_path</code> setting, which specifies the location of the separate file:</p>
 <p>For example, a Workbench config file that contains the <code>username</code> and <code>password</code> config settings looks like this:</p>
@@ -1759,10 +1759,6 @@ password: islandora
 <li>Have your systems administrator to add the key to the <code>ISLANDORA_WORKBENCH_ENCRYPTION_KEY</code> environment variable in your computer. If that environment variable is present, you will not be prompted for the key.</li>
 <li>If you systems administrator prefers storing the decryption key in a securely-located file instead of having Workbench prompt for the key or storing the key in an environment variable, they can put the key in a plain text file and register the path to that file in the <code>credentials_key_file_path</code> setting. Note that it is important that this key file be placed in a directory only readable by the current Workbench user, such as their home directory. If it is in a directory that multiple people can read, the security benefits of encrypting the credentials are reduced.</li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>As describe above, Workbench provides a few options for managing the Drupal credentials it requires, but which options you choose need to be informed by your institution's cybersecurity policies and risk tolerance. Always consult with your systems administrators before deciding which options to choose.</p>
-</div>
 <h2 id="the-include_password_in_rollback_config_file-configuration-setting">The <code>include_password_in_rollback_config_file</code> configuration setting</h2>
 <p>By default, Workbench does not include the <code>password</code> value in rollback configuration files. If you want it to include that value, set <code>include_password_in_rollback_config_file</code> to <code>true</code> in the <code>create</code> task configuration file that generates the rollback.</p>
 <h2 id="the-remove_password_from_config_file-configuration-setting">The <code>remove_password_from_config_file</code> configuration setting</h2>
