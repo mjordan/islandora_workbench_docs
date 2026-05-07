@@ -2213,12 +2213,6 @@ csv_field_templates:
 <td></td>
 <td>The user's password. You can also set the password in your <code>ISLANDORA_WORKBENCH_PASSWORD</code> environment variable. If you do this, omit the <code>password</code> option in your configuration file. If a password is not available in either your configuration file or in the environment variable, Workbench will prompt for a password.</td>
 </tr>
-<tr>
-<td>credentials_file_path</td>
-<td></td>
-<td></td>
-<td>The absolute or relative path to a simple YAML file that contains the <code>username</code> and <code>password</code> config settings. Putting your <code>username</code> and <code>password</code> settings in this file allows you to omit them from the main configuration file.</td>
-</tr>
 </tbody>
 </table>
 <h3 id="drupal-settings">Drupal settings</h3>
@@ -2333,6 +2327,18 @@ csv_field_templates:
 <td></td>
 <td></td>
 <td>Defines structure of paragraph fields in the input CSV. See "<a href="/islandora_workbench_docs/fields/#entity-reference-revisions-fields-paragraphs">Entity Reference Revisions fields (paragraphs)</a>" for more information.</td>
+</tr>
+<tr>
+<td>credentials_file_path</td>
+<td></td>
+<td></td>
+<td>The absolute or relative path to a simple YAML file that contains the <code>username</code> and <code>password</code> config settings. Putting your <code>username</code> and <code>password</code> settings in this file allows you to omit them from the main configuration file. See "<a href="/islandora_workbench_docs/user_management/#the-credentials_file_path-configuration-setting">User management</a>" for more information.</td>
+</tr>
+<tr>
+<td>credentials_key_file_path</td>
+<td></td>
+<td></td>
+<td>The absolute or relative path to a plain text file that contains the key required to use an encrypted credentials file. Putting your <code>username</code> and <code>password</code> settings in this file replaces prompting the user for the key.</td>
 </tr>
 </tbody>
 </table>
