@@ -1759,6 +1759,10 @@ password: islandora
 <li>Have your systems administrator to add the key to the <code>ISLANDORA_WORKBENCH_ENCRYPTION_KEY</code> environment variable in your computer. If that environment variable is present, you will not be prompted for the key.</li>
 <li>If you systems administrator prefers storing the decryption key in a securely-located file instead of having Workbench prompt for the key or storing the key in an environment variable, they can put the key in a plain text file and register the path to that file in the <code>credentials_key_file_path</code> setting. Note that it is important that this key file be placed in a directory only readable by the current Workbench user, such as their home directory. If it is in a directory that multiple people can read, the security benefits of encrypting the credentials are reduced.</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As describe above, Workbench provides a few options for managing the Drupal credentials it requires, but which options you choose need to be informed by your institution's cybersecurity policies and risk tolerance. Always consult with your systems administrators before deciding which options to choose.</p>
+</div>
 <h2 id="the-include_password_in_rollback_config_file-configuration-setting">The <code>include_password_in_rollback_config_file</code> configuration setting</h2>
 <p>By default, Workbench does not include the <code>password</code> value in rollback configuration files. If you want it to include that value, set <code>include_password_in_rollback_config_file</code> to <code>true</code> in the <code>create</code> task configuration file that generates the rollback.</p>
 <h2 id="the-remove_password_from_config_file-configuration-setting">The <code>remove_password_from_config_file</code> configuration setting</h2>
