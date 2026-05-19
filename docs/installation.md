@@ -1,7 +1,7 @@
 ## Requirements
 
 * An modern [Islandora](https://islandora.ca/) repository, with the [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module enabled.
-* Python 3.9 or higher
+* Python 3.11 or higher
 * The following Python libraries:
     * [ruamel.yaml](https://yaml.readthedocs.io/en/latest/index.html)
     * [Requests](https://2.python-requests.org/en/master/)
@@ -11,6 +11,8 @@
     * [unidecode](https://pypi.org/project/Unidecode/)
     * [edtf-validate](https://pypi.org/project/edtf-validate/)
     * [rich](https://pypi.org/project/rich/)
+    * [cryptography](https://pypi.org/project/cryptography/)
+    * [pytest](https://pypi.org/project/pytest/)
     * If you want to have these libraries automatically installed, you will need [pip](https://pypi.org/project/pip/) version 19 or higher.
 
 Islandora Workbench has been installed and used on Linux, Mac, and Windows.

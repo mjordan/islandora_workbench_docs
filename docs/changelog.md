@@ -2,6 +2,7 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### main branch (no tag/release)
 
+* May 15, 2026: Merged (commit c0d292cb) [PR 1080](https://github.com/mjordan/islandora_workbench/pull/1080).
 * May 7, 2026: Resolved (commit 537c585) [issue 1089](https://github.com/mjordan/islandora_workbench/issues/1089).
 * May 4, 2026: Resolved (commit c4a0673) [issue 1083](https://github.com/mjordan/islandora_workbench/issues/1083) and (commit 537c585) [issue 1087](https://github.com/mjordan/islandora_workbench/issues/1087).
 * April 30, 2026: Resolved (commit 8536fc4) [issue 1082](https://github.com/mjordan/islandora_workbench/issues/1082).
@@ -13,6 +14,7 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### Documentation
 
+* May 15, 2026: Updated "[Installation](/islandora_workbench_docs/installation/)" to reflect new minimim version of Python and new libraries added in PR #1080.
 * May 7, 2026: Updated "[User managerment](/islandora_workbench_docs/user_management/)" to include docs to include the `credentials_key_file_path` config setting.
 * May 4, 2026: Updated the "[CSV ID to node ID map](/islandora_workbench_docs/csv_id_to_node_id_map/)" documentation to include the new ability to merge two databases.
 * May 1, 2026: Updated "[Ignoring CSV rows and columns](/islandora_workbench_docs/ignoring_csv_rows_and_columns/)" to document the new `csv_start_row_skip` and `csv_stop_row_skip` settings; added note about including `standalone_media_url: true` in paged documenting media-related tasks.
