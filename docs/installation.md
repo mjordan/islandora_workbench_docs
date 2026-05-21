@@ -1,4 +1,4 @@
-Islandora Workbench has been installed and used on Linux, Mac, and Windows.
+Islandora Workbench is actively used on Linux, Mac, and Windows.
 
 ## Requirements
 
