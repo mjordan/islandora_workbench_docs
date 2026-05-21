@@ -1642,11 +1642,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#everyday-workflow-for-using-workbench-with-an-existing-virtual-environment" class="md-nav__link">
-    Everyday workflow for using Workbench with an existing virtual environment
+  <a href="#everyday-workflow-for-using-workbench-within-an-existing-virtual-environment" class="md-nav__link">
+    Everyday workflow for using Workbench within an existing virtual environment
   </a>
   
-    <nav class="md-nav" aria-label="Everyday workflow for using Workbench with an existing virtual environment">
+    <nav class="md-nav" aria-label="Everyday workflow for using Workbench within an existing virtual environment">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1725,8 +1725,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#condensed-everyday-workflow-to-use-workbench-with-an-existing-virtual-a-environment" class="md-nav__link">
-    Condensed: Everyday workflow to use Workbench with an existing virtual a environment
+  <a href="#condensed-everyday-workflow-to-use-workbench-within-an-existing-virtual-a-environment" class="md-nav__link">
+    Condensed: Everyday workflow to use Workbench within an existing virtual a environment
   </a>
   
 </li>
@@ -1812,27 +1812,33 @@
   <h1>Installation with venv</h1>
 
 <h2 id="installing-workbench-inside-of-a-python-virtual-environment">Installing Workbench inside of a Python virtual environment</h2>
-<p>Within the Python community it is strongly recommended that software is installed within what are called Python "virtual environments." Python virtual environments isolate an application's required Python modules in a way that avoids conflicts with other Python software and modules on your computer. Essentially they are a special directory that contains the required Python modules for Workbench and a few other files. They are not related to virtual machines (VMs) or Docker containers, though they can be used in conjunction with VMs and Docker.</p>
+<p>Current best practice for Python application is to install them within what are called Python "virtual environments." Python virtual environments isolate an application's required Python modules in a way that avoids conflicts with other Python software and modules on your computer. Essentially a virtual environment is a special directory that contains the required Python modules for the application and a few other files. Python virtual environments are not related to virtual machines (VMs) or Docker containers, though they can be used in conjunction with VMs and Docker.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>These instructions assume you have already installed <code>git</code> and a version of Python that is compatible with Workbench (currently 3.11 or higher).</p>
 </div>
+<h3 id="overview">Overview</h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Below you will see the command <code>python3 -m venv venv</code> in several places. The two instances of "venv" have distinct meanings. The first is the name of a a Python module and the second is the name of the target directory. Using "venv" for the target directory name looks confusing, but it is a convention within the Python community that we recommend using.</p>
+<p>Below you will see the command <code>python3 -m venv venv</code> in several places. The two instances of "venv" have distinct meanings. The first is the name of a a Python module and the second is the name of the virtual environment directory running the command will create. Using "venv" for the directory name looks confusing, but it is a convention within the Python community that is widely used.</p>
 </div>
-<h3 id="overview">Overview</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The documentation below uses terminal command prompt examples from macOS, e.g. <code>jdoe-laptop:islandora_workbench jdoe$</code> and <code>(venv) jdoe-laptop::islandora_workbench jdoe$</code>. Command prompts on your Linux or Windows computer will look a little different:</p>
+<p>Linux: <code>jdoe@computer-name:</code> and <code>(venv) jdoe@computer-name:</code></p>
+<p>Windows: <code>C:\Users\jdoe</code> and <code>(venv) C:\Users\jdoe</code></p>
+</div>
 <h4 id="the-high-level-steps-for-installing-workbench-inside-a-python-virtual-environments">The high level steps for <em>installing</em> Workbench inside a Python virtual environments:</h4>
 <p>The following steps are normally only run once.</p>
 <p>(Open a terminal window)</p>
 <ol>
-<li>Clone Workbench git repository</li>
-<li>Inside of git repo folder, create a virtual environment</li>
+<li>Clone the Workbench git repository</li>
+<li>Inside of the resulting <code>islandora_workbench</code> directory, create a virtual environment</li>
 <li>Activate the virtual environment in your current terminal window</li>
 <li>Inside that terminal window install the Workbench required modules</li>
 </ol>
 <h4 id="the-high-level-steps-for-using-python-virtual-environments-when-running-workbench">The high level steps for <em>using</em> Python virtual environments when running Workbench:</h4>
-<p>These steps have to be run each time you want to use Islandora Workbench.</p>
+<p>These steps have to be run each time you open a new terminal window to use Islandora Workbench.</p>
 <p>(Open a terminal window)</p>
 <ol>
 <li>Inside of the Workbench git repo folder, activate the virtual environment in your current terminal window</li>
@@ -1851,8 +1857,8 @@
 <p><code>cd islandora_workbench</code></p>
 <p>Use the <code>venv</code> module create a Python "virtual environment" called "venv" by typing <code>python3 -m venv venv</code></p>
 <h3 id="step-3-activate-your-virtual-environment">Step 3: Activate your virtual environment</h3>
-<p>In your terminal window you must first activate the environment every time you want to <em>install</em>, <em>use</em>, or <em>upgrade</em> Islandora Workbench.</p>
-<p>For activating the virtual environment you need to use the environment folder you created above, which was called "venv". First make sure you are inside the directory that has the Workbench repository. In this example it would be:</p>
+<p>You must activate the virtual environment every time you open a new terminal window to <em>install</em>, <em>use</em>, or <em>upgrade</em> Islandora Workbench.</p>
+<p>To activate the virtual environment you need to run a command referencing the environment folder you created above, which was called "venv". First make sure you are inside the directory that has the Workbench repository. In this example it would be:</p>
 <p><code>cd /Users/jdoe/Documents/islandora_workbench</code></p>
 <p>Then activate the environment with this command:</p>
 <ul>
@@ -1867,15 +1873,15 @@
 </div>
 <h3 id="step-4-install-workbenchs-required-python-modules-inside-your-virtual-environment">Step 4: Install Workbench's required Python modules inside your virtual environment</h3>
 <p><em>Important/stop</em>: You need to make sure the environment is activate at this point; if it is not, refer to the activation instructions above:</p>
-<p>After activation example: <code>(venv) jdoe-laptop::islandora_workbench jdoe$</code></p>
+<p>After activation, you will see "(venv)" at the beginning of your terminal's command prompt: <code>(venv) jdoe-laptop::islandora_workbench jdoe$</code></p>
 <p>Run this command to start the process to install the required Python modules (note there single period to the right of the word "install")</p>
 <p><code>python3 -m pip install .</code></p>
 <p>Congratulations, if there are no errors, at this point Islandora Workbench has been installed inside the virtual environment.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you get an error similar to <code>ModuleNotFoundError: No module named 'setuptools</code> which can happen if you are running Python version 3.12 or newer, you may need to run <code>python3 -m pip install setuptools</code> before step 4 above.</p>
+<p>If you get an error similar to <code>ModuleNotFoundError: No module named 'setuptools'</code> which can happen if you are running Python version 3.12 or newer, you may need to run <code>python3 -m pip install setuptools</code> before step 4 above.</p>
 </div>
-<h2 id="everyday-workflow-for-using-workbench-with-an-existing-virtual-environment">Everyday workflow for using Workbench with an existing virtual environment</h2>
+<h2 id="everyday-workflow-for-using-workbench-within-an-existing-virtual-environment">Everyday workflow for using Workbench within an existing virtual environment</h2>
 <p>Now that you have created your virtual environment for Workbench, the following are the instructions for daily use of Islandora Workbench within that virtual environment.</p>
 <h3 id="step-1-activate-the-virtual-environment">Step 1: Activate the virtual environment</h3>
 <p><code>cd</code> into the folder called islandora_workbench that contains the git repo from the section above by running the following command: <code>cd /Users/jdoe/Documents/islandora_workbench</code></p>
@@ -1885,12 +1891,12 @@
 <li>Windows: <code>venv\Scripts\activate</code></li>
 </ul>
 <p><em>Important/stop</em>: You need to make sure the environment is active at this point, see activation instructions above:</p>
-<p>After activation example: <code>(venv) jdoe-laptop::islandora_workbench jdoe$</code></p>
+<p>After activation, you will see "(venv)" at the beginning of your terminal's command prompt: <code>(venv) jdoe-laptop::islandora_workbench jdoe$</code></p>
 <h3 id="step-2-run-workbench-commands">Step 2: Run Workbench commands</h3>
 <p>Within your virtual environment, you can now run Workbench:</p>
 <p><code>./workbench --config config.yml --check</code></p>
 <h2 id="updating-islandora-workbench-within-a-existing-virtual-environment">Updating Islandora Workbench within a existing virtual environment</h2>
-<p>Since Islandora Workbench needs to be updated frequently, you will want to keep your version up to date.</p>
+<p>Since Islandora Workbench needs to be updated frequently, it is important to keep your copy up to date.</p>
 <h3 id="step-1-change-into-the-virtual-environment-directory">Step 1: Change into the virtual environment directory</h3>
 <p><code>cd</code> into the folder called "islandora_workbench" that contains the git repo from the section above: <code>cd /Users/jdoe/Documents/islandora_workbench</code></p>
 <h3 id="step-2-pull-in-latest-workbench-changes-from-github">Step 2: Pull in latest Workbench changes from Github</h3>
@@ -1902,12 +1908,11 @@
 <li>Windows: <code>venv\Scripts\activate</code></li>
 </ul>
 <p><em>Important/stop</em>: You need to make sure the environment is activated at this point, see activation instructions above:</p>
-<p>After activation example: <code>(venv) jdoe-laptop::islandora_Workbench jdoe$</code></p>
+<p>After activation, you will see "(venv)" at the beginning of your terminal's command prompt: <code>(venv) jdoe-laptop::islandora_workbench jdoe$</code></p>
 <h3 id="step-4-upgrade-workbenchs-required-python-modules-inside-a-virtual-environment">Step 4: Upgrade Workbench's required Python modules inside a virtual environment</h3>
 <p>Since you have already pulled in the latest changes using git, see above, it's a good idea to rerun the setup tools in case new Python libraries have been added since you last ran the "pip install". Within your active virtual environment directory, run:</p>
 <p><code>python -m pip install --upgrade .</code></p>
-<p>Note: There single period below to the right of the word "--upgrade"</p>
-<hr />
+<p>Note: There single period to the right of the word "--upgrade"</p>
 <h2 id="condensed-instructions">Condensed instructions</h2>
 <h3 id="condensed-installing-workbench-inside-of-a-python-virtual-environment">Condensed: Installing Workbench inside of a Python virtual environment</h3>
 <p>You only need to run these steps once.</p>
@@ -1920,9 +1925,9 @@
 <li>Windows: <code>venv\Scripts\activate</code></li>
 </ul>
 <p>Important/stop: Make sure environment was activated.</p>
-<p>After activation, you should see "(venv) at the start of your prompt: <code>(venv) jdoe-laptop::islandora_workbench jdoe$</code></p>
+<p>After activation, you should see "(venv)" at the start of your prompt: <code>(venv) jdoe-laptop::islandora_workbench jdoe$</code></p>
 <p>Note: there is a period to the right of "install": <code>python3 -m pip install .</code></p>
-<h3 id="condensed-everyday-workflow-to-use-workbench-with-an-existing-virtual-a-environment">Condensed: Everyday workflow to use Workbench with an existing virtual a environment</h3>
+<h3 id="condensed-everyday-workflow-to-use-workbench-within-an-existing-virtual-a-environment">Condensed: Everyday workflow to use Workbench within an existing virtual a environment</h3>
 <p>You need to run these steps whenever you open a new terminal window to run Workbench.</p>
 <ol>
 <li><code>cd /Users/jdoe/Documents/islandora_workbench</code></li>
@@ -1932,8 +1937,8 @@
 </ul>
 </li>
 </ol>
-<p>Stop: Make sure the virtual environment was activated.</p>
-<p>After activation, you should see "(venv) at the start of your prompt: <code>(venv) jdoe-laptop::islandora_workbench jdoe$</code></p>
+<p>Important/stop: Make sure the virtual environment was activated.</p>
+<p>After activation, you should see "(venv)" at the start of your prompt: <code>(venv) jdoe-laptop::islandora_workbench jdoe$</code></p>
 <p>You are now ready to run Workbench: <code>./workbench --config path/to/config.yml --check</code></p>
 <h2 id="common-errors">Common errors</h2>
 <h3 id="error-if-the-virtual-environment-is-not-activated-after-installation-inside-environment">Error if the virtual environment is not activated (after installation inside environment)</h3>
@@ -1946,7 +1951,7 @@
 <p>That is because normally the "base" Python installation on your computer would not have all of the modules that you should have previously installed in your virtual environment.</p>
 <h4 id="solution">Solution:</h4>
 <ul>
-<li>Activate the virtual environment, see above.</li>
+<li>Activate the virtual environment as described above.</li>
 <li>Then re-run your <code>workbench</code> command.</li>
 </ul>
 <h3 id="modulenotfounderror-no-module-named-setuptools">ModuleNotFoundError: No module named 'setuptools'</h3>
