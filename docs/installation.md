@@ -1,3 +1,5 @@
+Islandora Workbench has been installed and used on Linux, Mac, and Windows.
+
 ## Requirements
 
 * An modern [Islandora](https://islandora.ca/) repository, with the [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module enabled.
@@ -15,24 +17,22 @@
     * [pytest](https://pypi.org/project/pytest/)
     * If you want to have these libraries automatically installed, you will need [pip](https://pypi.org/project/pip/) version 19 or higher.
 
-Islandora Workbench has been installed and used on Linux, Mac, and Windows.
+The preferred method for installing Workbench is to install it within a Python virtual environment. You can use these [instructions on how to install Workbench within a virtual enviroment](installation_with_venv.md) for macOS, Linux, or Windows.
 
 !!! warning
     Some systems have both Python 2 and Python 3 installed. It's a good idea to check which version is used when you run `python`. To do this, run `python --version`, which will output something like "Python 2.7.17" or "Python 3.8.10". If `python --version` indicates you're running version 2, try running `python3 --version` to see if you have version 3 installed.
-
-    Also, if you installed an alternate version of Python 3.x on your system (for example via Homebrew on a Mac), you may need to run Workbench by calling that Python interpreter directly. For Python 3.x installed via Homebrew, that will be at `/opt/homebrew/bin/python3`, so to run Workbench you would use `/opt/homebrew/bin/python3 workbench` while in the `islandora_workbench` directory.
 
 If you are using Drupal 8.5 or earlier, please refer to the "Using Drupal 8.5 or earlier" section below. If you are using Python 3.8, please refer to that section below.
 
 ### macOS, Homebrew and pip
 
-As of around 2024, trying to install Islandora Workbench on a Mac with Homebrew using pip will print a warning message and fail.
+The preferred method for installing Islandora Workbench is now to use a virtual environment. You can use these [instructions on how to install Workbench with a virtual enviroment](installation_with_venv.md) for macOS. As of around 2024, trying to install Islandora Workbench on a Mac with Homebrew using pip will print a warning message and fail.
 
-The preferred method for installing software via pip is now to use a virtual environment.
-
-You can use these [instructions on how to install Workbench with a virtual enviroment](installation_with_venv.md) for macOS, Linux, or Windows.
+If you installed Workbench via Homebrew on a Mac using an alternate version of Python 3.x on your system, you may need to run Workbench by calling that Python interpreter directly. For Python 3.x installed via Homebrew, that will be at `/opt/homebrew/bin/python3`, so to run Workbench you would use `/opt/homebrew/bin/python3 workbench` while in the `islandora_workbench` directory.
 
 ## Installing Islandora Workbench
+
+The preferred method for installing Workbench is to install it within a Python virtual environment. You can use these [instructions on how to install Workbench within a virtual enviroment](installation_with_venv.md) for macOS, Linux, or Windows. The instructions below assume you are not installing it within a Python virtual environment.
 
 Installation involves two steps:
 
