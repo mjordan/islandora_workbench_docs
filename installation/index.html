@@ -459,15 +459,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#preferred-method-installing-python-libraries-in-the-user-directory" class="md-nav__link">
-    Preferred method: installing Python libraries in the user directory
+  <a href="#preferred-method-installing-python-libraries-in-a-virtual-environment" class="md-nav__link">
+    Preferred method: installing Python libraries in a virtual environment
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#use-if-authorized-to-do-so-installing-python-libraries-in-your-system-python" class="md-nav__link">
-    Use if authorized to do so: installing Python libraries in your system Python
+  <a href="#alternative-method-installing-python-libraries-in-the-user-directory" class="md-nav__link">
+    Alternative method: installing Python libraries in the user directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-python-librareis-in-your-system-python" class="md-nav__link">
+    Install Python librareis in your system Python
   </a>
   
 </li>
@@ -1758,15 +1765,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#preferred-method-installing-python-libraries-in-the-user-directory" class="md-nav__link">
-    Preferred method: installing Python libraries in the user directory
+  <a href="#preferred-method-installing-python-libraries-in-a-virtual-environment" class="md-nav__link">
+    Preferred method: installing Python libraries in a virtual environment
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#use-if-authorized-to-do-so-installing-python-libraries-in-your-system-python" class="md-nav__link">
-    Use if authorized to do so: installing Python libraries in your system Python
+  <a href="#alternative-method-installing-python-libraries-in-the-user-directory" class="md-nav__link">
+    Alternative method: installing Python libraries in the user directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-python-librareis-in-your-system-python" class="md-nav__link">
+    Install Python librareis in your system Python
   </a>
   
 </li>
@@ -1878,6 +1892,7 @@
 <p>The preferred method for installing Workbench is to install it within a Python virtual environment. You can use these <a href="../installation_with_venv/">instructions on how to install Workbench within a virtual enviroment</a> for macOS, Linux, or Windows. The instructions below assume you are not installing it within a Python virtual environment.</p>
 <p>Installation involves two steps:</p>
 <ol>
+<li>if using a Python virtual environment, make sure your envrionment is set up as described on the page linked above</li>
 <li>cloning the Islandora Workbench Github repo</li>
 <li>running <code>python -m pip install .</code> to install the required Python libraries (listed above)</li>
 </ol>
@@ -1890,10 +1905,13 @@
 <p class="admonition-title">Note</p>
 <p>As of May 10, 2026 (commit c0d292c), Islandora Workbench no longer uses <code>setup.py</code> to install its Python libraries. The directions below are up to date.</p>
 </div>
-<h4 id="preferred-method-installing-python-libraries-in-the-user-directory">Preferred method: installing Python libraries in the user directory</h4>
-<p>For most people, the preferred place to install Python libraries is in your user directory. To do this, change into the "islandora_workbench" directory created by cloning the repo, and run the following command:</p>
+<h4 id="preferred-method-installing-python-libraries-in-a-virtual-environment">Preferred method: installing Python libraries in a virtual environment</h4>
+<p>Set up your virtual environment, then run:</p>
 <p><code>python -m pip install --user .</code></p>
-<h4 id="use-if-authorized-to-do-so-installing-python-libraries-in-your-system-python">Use if authorized to do so: installing Python libraries in your system Python</h4>
+<h4 id="alternative-method-installing-python-libraries-in-the-user-directory">Alternative method: installing Python libraries in the user directory</h4>
+<p>Using virtual environments adds a little overhead to using Workbench, so if you would prefer to avoid that overhead, the preferred place to install Python libraries is in your user directory. To do this, change into the "islandora_workbench" directory created by cloning the repo, and run the following command:</p>
+<p><code>python -m pip install --user .</code></p>
+<h4 id="install-python-librareis-in-your-system-python">Install Python librareis in your system Python</h4>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Only use this method after consulting with your local IT department</p>
