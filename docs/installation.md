@@ -36,6 +36,7 @@ The preferred method for installing Workbench is to install it within a Python v
 
 Installation involves two steps:
 
+1. if using a Python virtual environment, make sure your envrionment is set up as described on the page linked above
 1. cloning the Islandora Workbench Github repo
 1. running `python -m pip install .` to install the required Python libraries (listed above)
 
@@ -47,11 +48,27 @@ In a terminal, run:
 
 This will create a directory named `islandora_workbench` where you will run the `./workbench` command.
 
-### Step 2: running setup.py to install the required Python libraries
+### Step 2: running `pip` to install the required Python libraries
 
-For most people, the preferred place to install Python libraries is in your user directory. To do this, change into the "islandora_workbench" directory created by cloning the repo, and run the following command:
+!!! note
+    As of May 10, 2026 (commit c0d292c), Islandora Workbench no longer uses `setup.py` to install its Python libraries. The directions below are up to date.
+
+#### Preferred method: installing Python libraries in a virtual environment
+
+Set up your virtual environment, then run:
 
 `python -m pip install --user .`
+
+#### Alternative method: installing Python libraries in the user directory
+
+Using virtual environments adds a little overhead to running Workbench, so if you would prefer to avoid that overhead, the preferred place to install Python libraries is in your user directory. To do this, change into the "islandora_workbench" directory created by cloning the repo, and run the following command:
+
+`python -m pip install --user .`
+
+#### Install Python librareis in your system Python
+
+!!! warning
+    Only use this method after consulting with your local IT department
 
 A less common method is to install the required Python libraries into your computer's central Python environment. To do this, omit the `--user` (note: you must have administrator privileges on the computer to do this):
 
