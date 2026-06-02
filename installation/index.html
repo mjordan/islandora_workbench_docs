@@ -451,9 +451,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-running-setuppy-to-install-the-required-python-libraries" class="md-nav__link">
-    Step 2: running setup.py to install the required Python libraries
+  <a href="#step-2-running-pip-to-install-the-required-python-libraries" class="md-nav__link">
+    Step 2: running pip to install the required Python libraries
   </a>
+  
+    <nav class="md-nav" aria-label="Step 2: running pip to install the required Python libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preferred-method-installing-python-libraries-in-the-user-directory" class="md-nav__link">
+    Preferred method: installing Python libraries in the user directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-if-authorized-to-do-so-installing-python-libraries-in-your-system-python" class="md-nav__link">
+    Use if authorized to do so: installing Python libraries in your system Python
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1730,9 +1750,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-running-setuppy-to-install-the-required-python-libraries" class="md-nav__link">
-    Step 2: running setup.py to install the required Python libraries
+  <a href="#step-2-running-pip-to-install-the-required-python-libraries" class="md-nav__link">
+    Step 2: running pip to install the required Python libraries
   </a>
+  
+    <nav class="md-nav" aria-label="Step 2: running pip to install the required Python libraries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preferred-method-installing-python-libraries-in-the-user-directory" class="md-nav__link">
+    Preferred method: installing Python libraries in the user directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-if-authorized-to-do-so-installing-python-libraries-in-your-system-python" class="md-nav__link">
+    Use if authorized to do so: installing Python libraries in your system Python
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1845,9 +1885,19 @@
 <p>In a terminal, run:</p>
 <p><code>git clone https://github.com/mjordan/islandora_workbench.git</code></p>
 <p>This will create a directory named <code>islandora_workbench</code> where you will run the <code>./workbench</code> command.</p>
-<h3 id="step-2-running-setuppy-to-install-the-required-python-libraries">Step 2: running setup.py to install the required Python libraries</h3>
+<h3 id="step-2-running-pip-to-install-the-required-python-libraries">Step 2: running <code>pip</code> to install the required Python libraries</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As of May 10, 2026 (commit c0d292c), Islandora Workbench no longer uses <code>setup.py</code> to install its Python libraries. The directions below are up to date.</p>
+</div>
+<h4 id="preferred-method-installing-python-libraries-in-the-user-directory">Preferred method: installing Python libraries in the user directory</h4>
 <p>For most people, the preferred place to install Python libraries is in your user directory. To do this, change into the "islandora_workbench" directory created by cloning the repo, and run the following command:</p>
 <p><code>python -m pip install --user .</code></p>
+<h4 id="use-if-authorized-to-do-so-installing-python-libraries-in-your-system-python">Use if authorized to do so: installing Python libraries in your system Python</h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Only use this method after consulting with your local IT department</p>
+</div>
 <p>A less common method is to install the required Python libraries into your computer's central Python environment. To do this, omit the <code>--user</code> (note: you must have administrator privileges on the computer to do this):</p>
 <p><code>sudo python -m pip install .</code></p>
 <p><code>sudo</code> is only required on Linux and Macs, on Windows you will need to run <code>python -m pip install .</code> as administrator.</p>
