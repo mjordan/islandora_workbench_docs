@@ -1655,6 +1655,10 @@
 
   <h1>Exporting a CSV file containing node data</h1>
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently, Islandora Workbench cannot export the children of hierarchial objects (book or newspaper issue pages, children of compund items, etc.). More information is available at <a href="https://github.com/mjordan/islandora_workbench/issues/503">this Github issue</a>.</p>
+</div>
 <h2 id="exporting-a-csv-file-containing-field-data-from-a-list-of-node-ids">Exporting a CSV file containing field data from a list of node IDs</h2>
 <p>The <code>export_csv</code> task generates a CSV file that contains one row for each node identified in the input CSV file. The cells of the CSV are populated with data that is consistent with the structures that Workbench uses in <code>update</code> tasks. Using this CSV file, you can:</p>
 <ul>
