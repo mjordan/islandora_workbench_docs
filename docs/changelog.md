@@ -14,6 +14,7 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### Documentation
 
+* June 11, 2026: Updated "[Updating Islandora Workbench](/islandora_workbench_docs/installation/#updating-islandora-workbench)" for clarity and completeness; updated "[Exporting a CSV file containing node data](/islandora_workbench_docs/exporting_content/)" to include note about the current inability to export hierarchical content.
 * June 2, 2026: Updated "[Installation](/islandora_workbench_docs/installation/)" to clarify installation instructions (e.g., deprecated use of `setup.py`).
 * May 21, 2026: Updated "[Installation with venv](/islandora_workbench_docs/installation_with_venv/)" to be consistent with other documentation; updated "[Requirements and installation](/installation/)" to recommend installing Workbench in a virtual environment.
 * May 15, 2026: Updated "[Installation](/islandora_workbench_docs/installation/)" to reflect new minimim version of Python and new libraries added in PR #1080.

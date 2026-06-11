@@ -32,13 +32,13 @@ If you installed Workbench via Homebrew on a Mac using an alternate version of P
 
 ## Installing Islandora Workbench
 
-The preferred method for installing Workbench is to install it within a Python virtual environment. You can use these [instructions on how to install Workbench within a virtual enviroment](installation_with_venv.md) for macOS, Linux, or Windows. The instructions below assume you are not installing it within a Python virtual environment.
+The preferred method for installing Workbench is to install it within a Python virtual environment. You can use these [instructions on how to install Workbench within a virtual enviroment](installation_with_venv.md) for macOS, Linux, or Windows.
 
 Installation involves two steps:
 
 1. if using a Python virtual environment, make sure your envrionment is set up as described on the page linked above
 1. cloning the Islandora Workbench Github repo
-1. running `python -m pip install .` to install the required Python libraries (listed above)
+1. running Python's Pip tool to install the required external Python libraries (specific commands provided above)
 
 ### Step 1: cloning the Islandora Workbench Github repo
 
@@ -78,17 +78,41 @@ A less common method is to install the required Python libraries into your compu
 
 ## Updating Islandora Workbench
 
-Since Islandora Workbench is under development, you will want to update it often. To do this, within the `islandora_workbench` directory, run the following `git` command:
+Since Islandora Workbench is under constant development, you should update it often. Updating the Workbench source code is done in the same way regardless of how it was originally installed, but ensuring that the external Python libraries that Workbench uses are up to date is determined by how they were originally installed on your computer.
+
+### 1. Updating the Islandora Workbench source code
+
+Within the `islandora_workbench` directory, run the following `git` command:
+
+`git branch`
+
+The output of this command will list all your local git branches, but since you are likely updating the `main` branch, you should see `* main` in the list. If you see `main` without the leading asterisk, run the command
+
+`git checkout main`
+
+Once you are in the main branch, pull in the updates from Github:
 
 `git pull origin main`
 
-After you pull in the latest changes using `git`, it's a good idea to rerun the setup tools in case new Python libraries have been added since you last ran the setup tools (same command as above):
+### 2. Updating the Python libraries
 
-`python -m pip install --user --upgrade .`
+!!! note
+    All of the commands provided below end in a single period (`.`). This tells Pip where to look for the list of external libraries, in this case, in the current directory.
 
-or if you originally installed the required Python libraries centrally, without the `--user` option (again, you will need administrator privileges on the machine):
+If Workbench was originally installed in a virtual environment:
 
-`sudo python -m pip install --upgrade .`
+1. Within the `islandora_workbench` directory, ensure that your virtual environment is active by looking for `(venv)` at the beginning of your command prompt.
+1. Run the following command: `python -m pip install --upgrade .`
+
+If Workbench was originally installed using Pip's `--user` option:
+
+1. Within the `islandora_workbench` directory, run the following command: `python -m pip install --user --upgrade .`
+
+If Workbench was originally installed in your computer's system Python:
+
+1. Check in with your local IT department.
+1. Within the `islandora_workbench` directory, run the following command: `sudo python -m pip install --upgrade .`
+
 
 ## Keeping the Islandora Workbench Integration Drupal module up to date
 
