@@ -1963,6 +1963,10 @@
 <p>Since Islandora Workbench is under development, you will want to update it often. Updating the Workbench code is done in the same way regardless of how it was originally installed, but ensuring that external Python libraries that Workbench uses are up to date is determined by how they were originally installed on your computer.</p>
 <h3 id="1-updating-the-islandora-workbench-code">1. Updating the Islandora Workbench code</h3>
 <p>Within the <code>islandora_workbench</code> directory, run the following <code>git</code> command:</p>
+<p><code>git branch</code></p>
+<p>The ouput of this command will list all your local git branches, but since you are likely updating the <code>main</code> branch, you should see <code>* main</code> in the list. If you see <code>main</code> without the leading asterisk, run the command</p>
+<p><code>git checkout main</code></p>
+<p>Once you are in the main branch, pull in the updates from Github:</p>
 <p><code>git pull origin main</code></p>
 <h3 id="2-updating-the-python-libraries">2. Updating the Python libraries</h3>
 <div class="admonition note">
