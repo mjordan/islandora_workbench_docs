@@ -101,7 +101,7 @@ Once you are in the main branch, pull in the updates from Github:
 
 If Workbench was originally installed in a virtual environment:
 
-1. Within the `islandora_workbench` directory, ensure that your virtual environment is active by looking for `(venv)` at the beginning of your command prompt.
+1. Within the `islandora_workbench` directory, ensure that your virtual environment is active by looking for `(venv)` at the beginning of your command prompt (additional information and examples can be found [here](/islandora_workbench_docs/installation_with_venv/#step-1-activate-the-virtual-environment)).
 1. Run the following command: `python -m pip install --upgrade .`
 
 If Workbench was originally installed using Pip's `--user` option:
