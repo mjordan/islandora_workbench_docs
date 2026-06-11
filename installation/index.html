@@ -1965,17 +1965,20 @@
 <p>Within the <code>islandora_workbench</code> directory, run the following <code>git</code> command:</p>
 <p><code>git pull origin main</code></p>
 <h3 id="2-updating-the-python-libraries">2. Updating the Python libraries</h3>
-<p>Note that in all of the commands provided below end in a single period (<code>.</code>). This tells Pip where to look for the list of external libraries.</p>
-<p>If Workbench was installed in a virtual environment:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All of the commands provided below end in a single period (<code>.</code>). This tells Pip where to look for the list of external libraries.</p>
+</div>
+<p>If Workbench was originally installed in a virtual environment:</p>
 <ol>
 <li>Within the <code>islandora_workbench</code> directory, ensure that your virtual environment is active</li>
 <li>Run the following command: <code>python -m pip install --upgrade .</code></li>
 </ol>
-<p>If Workbench was installed using Pip's <code>--user</code> option:</p>
+<p>If Workbench was originally installed using Pip's <code>--user</code> option:</p>
 <ol>
 <li>Within the <code>islandora_workbench</code> directory, run the following command: <code>python -m pip install --user --upgrade .</code></li>
 </ol>
-<p>If Workbench was installed in your computer's system Python:</p>
+<p>If Workbench was originally installed in your computer's system Python:</p>
 <ol>
 <li>Check in with your local systems adminstrator.</li>
 <li>Within the <code>islandora_workbench</code> directory, run the following command: <code>sudo python -m pip install --upgrade .</code></li>
