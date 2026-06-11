@@ -1965,19 +1965,20 @@
 <p>Within the <code>islandora_workbench</code> directory, run the following <code>git</code> command:</p>
 <p><code>git pull origin main</code></p>
 <h3 id="2-updating-the-python-libraries">2. Updating the Python libraries</h3>
+<p>Note that in all of the commands provided below end in a single period (<code>.</code>). This tells Pip where to look for the list of external libraries.</p>
 <p>If Workbench was installed in a virtual environment:</p>
 <ol>
 <li>Within the <code>islandora_workbench</code> directory, ensure that your virtual environment is active</li>
-<li>Run the following command: <code>python -m pip install --upgrade .</code> (note the period at the end of this command)</li>
+<li>Run the following command: <code>python -m pip install --upgrade .</code></li>
 </ol>
 <p>If Workbench was installed using Pip's <code>--user</code> option:</p>
 <ol>
-<li>Within the <code>islandora_workbench</code> directory, run the following command: <code>python -m pip install --user --upgrade .</code> (note the period at the end of this command)</li>
+<li>Within the <code>islandora_workbench</code> directory, run the following command: <code>python -m pip install --user --upgrade .</code></li>
 </ol>
 <p>If Workbench was installed in your computer's system Python:</p>
 <ol>
 <li>Check in with your local systems adminstrator.</li>
-<li>Within the <code>islandora_workbench</code> directory, run the following command: <code>sudo python -m pip install --upgrade .</code> (note the period at the end of this command)</li>
+<li>Within the <code>islandora_workbench</code> directory, run the following command: <code>sudo python -m pip install --upgrade .</code></li>
 </ol>
 <h2 id="keeping-the-islandora-workbench-integration-drupal-module-up-to-date">Keeping the Islandora Workbench Integration Drupal module up to date</h2>
 <p>Islandora Workbench communicates with Drupal using REST endpoints and Views. The Islandora Workbench Integration module (linked above in the "Requirements" section) ensures that the target Drupal has all required REST endpoints and Views enabled. Therefore, keeping it in sync with Islandora Workbench is important.</p>
