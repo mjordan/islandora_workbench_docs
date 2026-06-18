@@ -55,9 +55,9 @@ This will create a directory named `islandora_workbench` where you will run the 
 
 #### Preferred method: installing Python libraries in a virtual environment
 
-Set up your virtual environment, then run:
+Set up and activate your virtual environment, then run:
 
-`python -m pip install --user .`
+`python -m pip install .`
 
 #### Alternative method: installing Python libraries in the user directory
 
