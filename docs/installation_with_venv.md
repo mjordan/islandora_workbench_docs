@@ -13,7 +13,7 @@ Current best practice for Python application is to install them within what are 
 !!! note
     The documentation below uses terminal command prompt examples from macOS, e.g. `jdoe-laptop:islandora_workbench jdoe$` and `(venv) jdoe-laptop::islandora_workbench jdoe$`. Command prompts on your Linux or Windows computer will look a little different:
 
-    Linux: `jdoe@computer-name:` and `(venv) jdoe@computer-name:`
+    Linux and macOS: `jdoe@computer-name:` and `(venv) jdoe@computer-name:`
 
     Windows: `C:\Users\jdoe` and `(venv) C:\Users\jdoe`
 
@@ -21,25 +21,38 @@ Current best practice for Python application is to install them within what are 
 
 The following steps are normally only run once.
 
-(Open a terminal window)
-
-1. Clone the Workbench git repository
-2. Inside of the resulting `islandora_workbench` directory, create a virtual environment
-3. Activate the virtual environment in your current terminal window
-4. Inside that terminal window install the Workbench required modules
+1. Open a terminal window
+2. Clone the Workbench git repository
+3. Inside of the resulting `islandora_workbench` directory, create a virtual environment
+4. Activate the virtual environment in your current terminal window
+5. Inside that terminal window install the Workbench required modules
 
 #### The high level steps for *using* Python virtual environments when running Workbench:
 
 These steps have to be run each time you open a new terminal window to use Islandora Workbench.
 
-(Open a terminal window)
+1. Open a terminal window
+2. Inside of the Workbench git repo folder, activate the virtual environment in your current terminal window
+3. run the `workbench` commands inside that window
 
-1. Inside of the Workbench git repo folder, activate the virtual environment in your current terminal window
-2. run the `workbench` commands inside that window
+### Step 0: Know how to activate you virtual environment
+
+In the directions below, you will be told to activate your virtual environment. This "step 0" is provided here for your reference later.
+
+In order for Python to run in a virtual environment, the virtual environment must be active. Generally speaking, you will need to activate a directory's virtual environment every time you open a new terminal window.
+
+How you activate the virtual environment depends on your operating system. Within the directory where you want to activate the virtual environment:
+
+* On Linux or macOS, run: `source venv/bin/activate`
+* On Windows, run : `venv\Scripts\activate`
+
+The `venv` that is at the start of the path to `activate` is the name of the directory created when you used Python to set up the virtual environment.
+
+You can confirm that the virtual environment is active by the presence of `(venv)` at the start of your command prompt.
 
 ### Step 1: Clone Workbench git repository
 
-(Open a terminal window)
+Open a terminal window.
 
 `cd` to the directory where you want to install Workbench. As an example we will use `/Users/jdoe/Documents/` as the parent directory for the `islandora_workbench` directory.
 
@@ -83,7 +96,7 @@ Then activate the environment with this command:
 
 ### Step 4: Install Workbench's required Python modules inside your virtual environment
 
-*Important/stop*: You need to make sure the environment is activate at this point; if it is not, refer to the activation instructions above:
+*Important/stop*: You need to make sure the environment is activate at this point; if it is not, refer to the activation instructions above.
 
 After activation, you will see "(venv)" at the beginning of your terminal's command prompt: `(venv) jdoe-laptop::islandora_workbench jdoe$`
 
@@ -110,7 +123,7 @@ Then activate the environment with this command:
 * Linux/macOS: `source venv/bin/activate`
 * Windows: `venv\Scripts\activate`
 
-*Important/stop*: You need to make sure the environment is active at this point, see activation instructions above:
+*Important/stop*: You need to make sure the environment is active at this point, see activation instructions above.
 
 After activation, you will see "(venv)" at the beginning of your terminal's command prompt: `(venv) jdoe-laptop::islandora_workbench jdoe$`
 
