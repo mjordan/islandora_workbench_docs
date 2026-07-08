@@ -91,7 +91,7 @@ Here's an example that tells Workbench that the custom media type "Custom media"
 
 ```yaml
 media_type_file_fields:
- - my_custom_media: field_media_file
+  my_custom_media: field_media_file
 ```
 
 Put together, the two configuration options would look like this:
@@ -100,7 +100,7 @@ Put together, the two configuration options would look like this:
 media_types_override:
   - my_custom_media: ['cus']
 media_type_file_fields:
- - my_custom_media: field_media_file
+  my_custom_media: field_media_file
 ```
 
 In this example, your Workbench job is creating media of varying types (for example, images, videos, and documents, all using the default extension-to-media type mappings. If all the files you are adding in the Workbench job all have the same media type (in the following example, your "my_custom_media" type), you could use this configuration:
@@ -108,6 +108,6 @@ In this example, your Workbench job is creating media of varying types (for exam
 ```yaml
 media_type: my_custom_media
 media_type_file_fields:
- - my_custom_media: field_media_file
+  my_custom_media: field_media_file
 ```
 
