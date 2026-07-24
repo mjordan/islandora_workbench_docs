@@ -1,5 +1,5 @@
 !!! note
-    This section describes using CSV *value* templates in your configuration file. For information on CSV *field* templates, see the "[CSV field templates](/islandora_workbench_docs/field_templates.md)". For information on CSV *file* templates, see the "[CSV file templates](/islandora_workbench_docs/generating_csv_files/#csv-file-templates)" section.
+    This section describes using CSV *value* templates in your configuration file. For information on CSV *field* templates, see the "[CSV field templates](/islandora_workbench_docs/field_templates/)". For information on CSV *file* templates, see the "[CSV file templates](/islandora_workbench_docs/csv_file_templates/)" section.
 
 ## Applying CSV value templates to rows in your input CSV
 

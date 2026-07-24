@@ -16,7 +16,7 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### Documentation
 
-* July 24, 2026: Updated "[Exporting image, video, etc. files along with CSV data](/islandora_workbench_docs/exporting_media/#exporting-image-video-etc-files-along-with-csv-data)" to clarify when Workbench will create the directory named in the `export_file_directory` config setting.
+* July 24, 2026: Updated "[Exporting image, video, etc. files along with CSV data](/islandora_workbench_docs/exporting_media/#exporting-image-video-etc-files-along-with-csv-data)" to clarify when Workbench will create the directory named in the `export_file_directory` config setting. Also fixed some broken internal links.
 * June 23, 2026: Updated "[Installation with venv](/islandora_workbench_docs/installation_with_venv/)" for clarity and consistency.
 * June 18, 2026: Updated "[Installation](/islandora_workbench_docs/installation/)" to fix typo in command when installing Workbench within a virtual environment.
 * June 11, 2026: Updated "[Updating Islandora Workbench](/islandora_workbench_docs/installation/#updating-islandora-workbench)" for clarity and completeness; updated "[Exporting a CSV file containing node data](/islandora_workbench_docs/exporting_content/)" to include note about the current inability to export hierarchical content.
