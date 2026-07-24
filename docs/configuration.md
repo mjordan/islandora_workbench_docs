@@ -171,7 +171,7 @@ Strictly speaking, YAML lists can be represented as either a series of entries o
 | field_viewer_override_extensions |  |  | List of mappings from values in the Islandora Display vocabulary to extensions on files named in the input CSV `file` column. Allows for automatic population of the `file` field. More detail provided at "[Automatically populating the "Viewer override" field](/islandora_workbench_docs/viewer_override/)". |
 
 
-### Output CSV settings
+### Exporting CSV and files settings
 
 See "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/)" section for more information.
 
@@ -183,7 +183,7 @@ See "[Generating CSV files](/islandora_workbench_docs/generating_csv_files/)" se
 | export_csv_field_list | | [] (empty list) | List of fields to include in exported CSV data. If empty, all fields will be included.  See "[Using a Drupal View to identify content to export as CSV](/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv)" for more information. |
 | view_parameters | | | List of URL parameter/value strings to include in requests to a View. See "[Using a Drupal View to identify content to export as CSV](/islandora_workbench_docs/generating_csv_files/#using-a-drupal-view-to-identify-content-to-export-as-csv)" for more information. |
 | export_csv_file_path | ✔️ in `get_data_from_view` tasks. | | Used in the "export_csv" and "get_data_from_view" tasks. The path to the exported CSV file. Required in the "get_data_from_view" task; in the "export_csv" task, if left empty (the default), the file will be named after the value of the `input_csv` with ".csv_file_with_field_values" appended and saved in the directory identified in `input_dir`. |
-| export_file_directory | | | Used in the "export_csv" and "get_data_from_view" tasks. The path to the directory where files corresponding to the data in the CSV output file will be written. Must exist; if Workbench cannot find this directory, it will exit. |
+| export_file_directory | | | Used in the "export_csv" and "get_data_from_view" tasks. The path to the directory where files corresponding to the data in the CSV output file will be written. If the directory doesn't exist, Workbench will create it (but not any leading directories); if Workbench cannot create the directory, it will exit. |
 | export_file_url_instead_of_download | | false | Used in the "export_csv" and "get_data_from_view" tasks. Tells Workbench to not download media files but instread to export the direct URLs to the files. |
 
 

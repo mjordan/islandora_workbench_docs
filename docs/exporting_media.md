@@ -2,7 +2,7 @@
 
 In `export_csv` and `get_data_from_view` tasks, you can optionally export media files. To do this, add the following settings to your configuration file:
 
-* `export_file_directory`: This is the path to the directory where Workbench will save the exported files. This is required unless the `export_file_url_instead_of_download` option is set to `true`.
+* `export_file_directory`: This is the path to the directory where Workbench will save the exported files. This is required unless the `export_file_url_instead_of_download` option is set to `true`. If the directory doesn't exist, Workbench will create it (but not any leading directories); if Workbench cannot create the directory, it will exit.
 * `export_file_media_use_term_id`: Optional. This setting tells Workbench which Islandora Media Use term to use to identify the file to export. Defaults to `http://pcdm.org/use#OriginalFile` (for Original File). Can be either a term ID or a term URI. See below for how to export multiple files, with separate Islandora Media Use terms.
 * `export_file_url_instead_of_download`: Optional. If set to `true`, file columns will contain the URL where the media file is located, and files won't be downloaded.
 * `additional_files`: Optional. Same as in [Adding Multiple Media](adding_multiple_media.md). Useful for getting out more than just the Original Files.

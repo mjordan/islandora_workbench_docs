@@ -2,6 +2,7 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### main branch (no tag/release)
 
+* July 24, 2026: Resolved the problem with `--check` reported in [issue 906](https://github.com/mjordan/islandora_workbench/issues/906).
 * June 22, 2026: Merged (commit c0d292cb) [PR 1103](https://github.com/mjordan/islandora_workbench/pull/1103).
 * May 15, 2026: Merged (commit c0d292cb) [PR 1080](https://github.com/mjordan/islandora_workbench/pull/1080).
 * May 7, 2026: Resolved (commit 537c585) [issue 1089](https://github.com/mjordan/islandora_workbench/issues/1089).
@@ -15,6 +16,7 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### Documentation
 
+* July 24, 2026: Updated "[Exporting image, video, etc. files along with CSV data](/islandora_workbench_docs/exporting_media/#exporting-image-video-etc-files-along-with-csv-data)" to clarify when Workbench will create the directory named in the `export_file_directory` config setting.
 * June 23, 2026: Updated "[Installation with venv](/islandora_workbench_docs/installation_with_venv/)" for clarity and consistency.
 * June 18, 2026: Updated "[Installation](/islandora_workbench_docs/installation/)" to fix typo in command when installing Workbench within a virtual environment.
 * June 11, 2026: Updated "[Updating Islandora Workbench](/islandora_workbench_docs/installation/#updating-islandora-workbench)" for clarity and completeness; updated "[Exporting a CSV file containing node data](/islandora_workbench_docs/exporting_content/)" to include note about the current inability to export hierarchical content.
