@@ -2116,14 +2116,15 @@ input_dir: input_data/parents_exist
 allow_missing_files: true
 page_files_source_dir_field: directory
 
-# In this type of task, CSV field templates apply to the children being created, not the existing parent.
+# In this type of task, CSV field templates apply to the children being created,
+# not the existing parent.
 csv_field_templates:
-- field_model: http://id.loc.gov/ontologies/bibframe/part
+- field_language: Italian
 
 page_title_template: '$parent_title, side $weight'
 
-# In this type of task, csv_field_templates and csv_value_templates_for_paged_content
-# both do the same thing.
+# In this type of task, either csv_field_templates or csv_value_templates_for_paged_content
+# can be used to apply optional field values to children being created.
 csv_value_templates_for_paged_content:
   - field_edtf_date: $csv_value
   - field_identifier: $csv_value-$weight
