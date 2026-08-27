@@ -2,6 +2,7 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### main branch (no tag/release)
 
+* August 27, 2026: Merged (commit 63b8e0b) [PR 1117](https://github.com/mjordan/islandora_workbench/pull/1117).
 * August 25, 2026: Resolved (commit a2a85d2) [issue 1115](https://github.com/mjordan/islandora_workbench/issues/1115).
 * July 31, 2026: Merged (commit dcb49fe) [PR 1112](https://github.com/mjordan/islandora_workbench/pull/1112).
 * July 24, 2026: Resolved the problem with `--check` reported in [issue 906](https://github.com/mjordan/islandora_workbench/issues/906).
