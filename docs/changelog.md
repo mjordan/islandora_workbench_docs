@@ -2,6 +2,7 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### main branch (no tag/release)
 
+* August 28, 2026: Merged (commit 08d86d9) addition of "hocr" to the media type configuration defaults (part of [issue 1121](https://github.com/mjordan/islandora_workbench/issues/1121)).
 * August 27, 2026: Merged (commit 63b8e0b) [PR 1117](https://github.com/mjordan/islandora_workbench/pull/1117).
 * August 25, 2026: Resolved (commit a2a85d2) [issue 1115](https://github.com/mjordan/islandora_workbench/issues/1115).
 * July 31, 2026: Merged (commit dcb49fe) [PR 1112](https://github.com/mjordan/islandora_workbench/pull/1112).
@@ -19,6 +20,7 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### Documentation
 
+* August 28, 2026: Updated "[Configuring media types](https://mjordan.github.io/islandora_workbench_docs/media_types/)" to include "hocr" file extensions.
 * August 25, 2026: Fixed confusing example config file for "[Adding children to nodes that already exist](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#adding-children-to-nodes-that-already-exist)".
 * July 24, 2026: Updated "[Exporting image, video, etc. files along with CSV data](/islandora_workbench_docs/exporting_media/#exporting-image-video-etc-files-along-with-csv-data)" to clarify when Workbench will create the directory named in the `export_file_directory` config setting. Also fixed some broken internal links.
 * June 23, 2026: Updated "[Installation with venv](/islandora_workbench_docs/installation_with_venv/)" for clarity and consistency.

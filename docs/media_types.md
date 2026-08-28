@@ -9,7 +9,7 @@ By default Workbench uses the following mapping of file extensions to Islandora 
 | --- | --- |
 | png, gif, jpg, jpeg | image |
 | pdf, doc, docx, ppt, pptx | document |
-| tif, tiff, jp2, zip, tar | file |
+| tif, tiff, jp2, zip, tar, hocr | file |
 | mp3, wav, aac | audio |
 | mp4 | video |
 | txt | extracted_text |
