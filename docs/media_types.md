@@ -5,14 +5,14 @@
 
 By default Workbench uses the following mapping of file extensions to Islandora media types. Note that this default mapping is intended to cover commonly used file extensions, and does not comprehensively mirror the "Allowed file extensions" settings in all of Islandora media types' file fields:
 
-| File extensions | Media type |
+|  Media type | File extensions |
 | --- | --- |
-| png, gif, jpg, jpeg | image |
-| pdf, doc, docx, ppt, pptx | document |
-| tif, tiff, jp2, zip, tar, hocr | file |
-| mp3, wav, aac | audio |
-| mp4 | video |
-| txt | extracted_text |
+| image | png, gif, jpg, jpeg |
+| document | pdf, doc, docx, ppt, pptx |
+| file | tif, tiff, jp2, zip, tar, hocr |
+| audio | mp3, wav, aac |
+| video | mp4 |
+| extracted_text | txt |
 
 If a file's extension is not defined in this default mapping, the media is assigned the "file" type.
 
