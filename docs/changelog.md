@@ -2,6 +2,7 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### main branch (no tag/release)
 
+* September 1, 2026: Merged (commit fd03e30) [PR 1120](https://github.com/mjordan/islandora_workbench/pull/1120).
 * August 28, 2026: Merged (commit 08d86d9) addition of "hocr" to the media type configuration defaults (part of [issue 1121](https://github.com/mjordan/islandora_workbench/issues/1121)).
 * August 27, 2026: Merged (commit 63b8e0b) [PR 1117](https://github.com/mjordan/islandora_workbench/pull/1117).
 * August 25, 2026: Resolved (commit a2a85d2) [issue 1115](https://github.com/mjordan/islandora_workbench/issues/1115).
