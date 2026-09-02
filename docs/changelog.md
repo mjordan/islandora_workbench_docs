@@ -21,7 +21,7 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### Documentation
 
-* September 2, 2026: Updated "[Choosing a task](https://mjordan.github.io/islandora_workbench_docs/choosing_a_task/)" to correct some broken links and to add a row for "Exporting media".
+* September 2, 2026: Updated "[Choosing a task](https://mjordan.github.io/islandora_workbench_docs/choosing_a_task/)" to correct some broken links and to add a row for "Exporting media". Removed some confusing cruft from the "[Exporting media](/islandora_workbench_docs/exporting_media/)" page.
 * September 1, 2026: Updated "[Configuring media types](https://mjordan.github.io/islandora_workbench_docs/media_types/)" so the media type->file extension mappings follow same order as expected in the `media_types_override` setting.
 * August 28, 2026: Updated "[Configuring media types](https://mjordan.github.io/islandora_workbench_docs/media_types/)" to include "hocr" file extensions.
 * August 25, 2026: Fixed confusing example config file for "[Adding children to nodes that already exist](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#adding-children-to-nodes-that-already-exist)".
