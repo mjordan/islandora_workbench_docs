@@ -1295,13 +1295,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-the-csv-id-to-node-id-map" class="md-nav__link">
-    Using the CSV ID to node ID map
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#using-a-drupal-view-to-generate-a-media-report-as-csv" class="md-nav__link">
     Using a Drupal View to generate a media report as CSV
   </a>
@@ -1634,13 +1627,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-the-csv-id-to-node-id-map" class="md-nav__link">
-    Using the CSV ID to node ID map
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#using-a-drupal-view-to-generate-a-media-report-as-csv" class="md-nav__link">
     Using a Drupal View to generate a media report as CSV
   </a>
@@ -1685,8 +1671,6 @@
   - thumbnail: http://pcdm.org/use#ThumbnailImage
 </code></pre>
 <p>This will result in the columns <code>file</code> (for the original file), <code>extracted</code> (containing the path to the extracted text files), <code>service</code> ((containing the path to the service files)), and <code>thumbnail</code> ((containing the path to the thumbnail files).</p>
-<h2 id="using-the-csv-id-to-node-id-map">Using the CSV ID to node ID map</h2>
-<p>The "<a href="/islandora_workbench_docs/csv_id_to_node_id_map/">CSV ID to node ID map</a>" contains data that relates the value of the "id" column (or whatever column you define using <code>id_field</code>) in <code>create</code> task CSV to its corrsponding node ID. Workbench provides a script that lets you export this data for reuse, for example as the basis for <code>update</code> tasks.</p>
 <h2 id="using-a-drupal-view-to-generate-a-media-report-as-csv">Using a Drupal View to generate a media report as CSV</h2>
 <p>You can get a report of which media a set of nodes has using a View. This report is generated using a <code>get_media_report_from_view</code> task, and the View configuration it uses is the same as the View configuration described above (in fact, you can use the same View with both <code>get_data_from_view</code> and <code>get_media_report_from_view</code> tasks). A sample Workbench configuration file looks like:</p>
 <pre><code class="language-yaml">task: get_media_report_from_view
