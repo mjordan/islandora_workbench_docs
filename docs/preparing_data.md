@@ -392,12 +392,13 @@ If you do *not* want Workbench to do one or more of these cleanups, include the 
 * `outside_spaces`
 * `outside_subdelimiters`
 
-
 An example of using this configuration setting is:
 
 ```
 clean_csv_values_skip: ["smart_quotes", "inside_spaces"]
 ```
+
+The only other situation where Workbench alters your input data is when [adding alt text to images](/islandora_workbench_docs/alt_text/). In this case, Workbench strips out all HTML markup within the alt text to prevent potential cross-site scripting vulnerabilities.
 
 ## When Workbench skips invalid CSV data
 
