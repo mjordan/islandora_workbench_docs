@@ -2,6 +2,8 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### main branch (no tag/release)
 
+* September 19, 2026: Resolved [issue 1125](https://github.com/mjordan/islandora_workbench/issues/1125), [issue 1135](https://github.com/mjordan/islandora_workbench/issues/1135), [issue 1126](https://github.com/mjordan/islandora_workbench/issues/1126), [issue 1127](https://github.com/mjordan/islandora_workbench/issues/1127), [issue 1128](https://github.com/mjordan/islandora_workbench/issues/1128), [issue 1129](https://github.com/mjordan/islandora_workbench/issues/1129), [issue 1130](https://github.com/mjordan/islandora_workbench/issues/1130), [issue 1131](https://github.com/mjordan/islandora_workbench/issues/1131), [issue 1132](https://github.com/mjordan/islandora_workbench/issues/1132), [issue 1135](https://github.com/mjordan/islandora_workbench/issues/1135), [issue 1138](https://github.com/mjordan/islandora_workbench/issues/1138).
+* September 2, 2026: Resolved (commit 7ac77dd3) [issue 1122](https://github.com/mjordan/islandora_workbench/issues/1122).
 * September 1, 2026: Merged (commit fd03e30) [PR 1120](https://github.com/mjordan/islandora_workbench/pull/1120).
 * August 28, 2026: Merged (commit 08d86d9) addition of "hocr" to the media type configuration defaults (part of [issue 1121](https://github.com/mjordan/islandora_workbench/issues/1121)).
 * August 27, 2026: Merged (commit 63b8e0b) [PR 1117](https://github.com/mjordan/islandora_workbench/pull/1117).
@@ -21,7 +23,8 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### Documentation
 
-* September 2, 2026: Updated "[Choosing a task](https://mjordan.github.io/islandora_workbench_docs/choosing_a_task/)" to correct some broken links and to add a row for "Exporting media". Removed some confusing cruft from the "[Exporting media](/islandora_workbench_docs/exporting_media/)" page.
+* September 21, 2026: Updated "[Preparing your data](/islandora_workbench_docs/preparing_data/)" to document using the tilde (`~`) in file paths.
+* September 2, 2026: Updated "[Choosing a task](/islandora_workbench_docs/choosing_a_task/)" to correct some broken links and to add a row for "Exporting media". Removed some confusing cruft from the "[Exporting media](/islandora_workbench_docs/exporting_media/)" page.
 * September 1, 2026: Updated "[Configuring media types](https://mjordan.github.io/islandora_workbench_docs/media_types/)" so the media type->file extension mappings follow same order as expected in the `media_types_override` setting.
 * August 28, 2026: Updated "[Configuring media types](https://mjordan.github.io/islandora_workbench_docs/media_types/)" to include "hocr" file extensions.
 * August 25, 2026: Fixed confusing example config file for "[Adding children to nodes that already exist](https://mjordan.github.io/islandora_workbench_docs/paged_and_compound/#adding-children-to-nodes-that-already-exist)".

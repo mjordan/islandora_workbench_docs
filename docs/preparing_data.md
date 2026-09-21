@@ -151,6 +151,17 @@ Notice that the `file` values in the first two rows are absolute, but the `file`
 !!! note
     Most of the example paths used in this documentation are Linux paths. In general, paths on Mac computers look and work the same way. On Windows, relative paths and absolute paths like `'C:\Users\Mark\Downloads\myfile.pdf'` and UNC paths like `'\\some.windows.file.share.org\share_name\files\myfile.png'` work fine. These paths also work in Workbench configuration files in settings such as `input_dir`. Make sure all paths on Windows are wrapped in *single* (not double) quotes.
 
+
+## Using file paths relative to the user's home directory
+
+You can use the standard tilde (`~`) to define a file path relative to the user's home directory in many places when using Islandora Workbench. They are:
+
+* In the value of `--config` when running Workbench
+* In the following configuration settings: `input_dir`, `input_csv`, `log_file_path`, `output_csv`, `credentials_file_path`, `credentials_key_file_path`, `export_csv_file_path`, `export_file_directory`, `contact_sheet_output_dir`, `contact_sheet_css_path`, `rollback_dir`, `csv_id_to_node_id_map_dir`, `csv_id_to_node_id_map_path`, `sqlite_db_filename`, `path_to_workbench_script`, `path_to_python`, `check_lock_file_path`, `rollback_csv_file_path`, `rollback_config_file_path`
+- Within the paths defined in list-based hook script keys (`bootstrap`, `shutdown`, `node_post_create`, `node_post_update`, `media_post_create`, `run_scripts`, `preprocessors`)
+* In file paths included in the `file` column in the input CSV.
+
+
 ## Using URLs as file paths
 
 In the `file` column, you can also use URLs to files, like this:
