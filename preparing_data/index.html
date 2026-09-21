@@ -582,6 +582,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#using-file-paths-relative-to-the-users-home-directory" class="md-nav__link">
+    Using file paths relative to the user's home directory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#using-urls-as-file-paths" class="md-nav__link">
     Using URLs as file paths
   </a>
@@ -1730,6 +1737,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#using-file-paths-relative-to-the-users-home-directory" class="md-nav__link">
+    Using file paths relative to the user's home directory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#using-urls-as-file-paths" class="md-nav__link">
     Using URLs as file paths
   </a>
@@ -1961,6 +1975,14 @@ input_csv: /tmp/input.csv
 <p class="admonition-title">Note</p>
 <p>Most of the example paths used in this documentation are Linux paths. In general, paths on Mac computers look and work the same way. On Windows, relative paths and absolute paths like <code>'C:\Users\Mark\Downloads\myfile.pdf'</code> and UNC paths like <code>'\\some.windows.file.share.org\share_name\files\myfile.png'</code> work fine. These paths also work in Workbench configuration files in settings such as <code>input_dir</code>. Make sure all paths on Windows are wrapped in <em>single</em> (not double) quotes.</p>
 </div>
+<h2 id="using-file-paths-relative-to-the-users-home-directory">Using file paths relative to the user's home directory</h2>
+<p>You can use the standard tilde (<code>~</code>) to define a file path relative to the user's home directory in many places when using Islandora Workbench. They are:</p>
+<ul>
+<li>In the value of <code>--config</code> when running Workbench</li>
+<li>In the following configuration settings: <code>input_dir</code>, <code>input_csv</code>, <code>log_file_path</code>, <code>output_csv</code>, <code>credentials_file_path</code>, <code>credentials_key_file_path</code>, <code>export_csv_file_path</code>, <code>export_file_directory</code>, <code>contact_sheet_output_dir</code>, <code>contact_sheet_css_path</code>, <code>rollback_dir</code>, <code>csv_id_to_node_id_map_dir</code>, <code>csv_id_to_node_id_map_path</code>, <code>sqlite_db_filename</code>, <code>path_to_workbench_script</code>, <code>path_to_python</code>, <code>check_lock_file_path</code>, <code>rollback_csv_file_path</code>, <code>rollback_config_file_path</code></li>
+<li>Within the paths defined in list-based hook script keys (<code>bootstrap</code>, <code>shutdown</code>, <code>node_post_create</code>, <code>node_post_update</code>, <code>media_post_create</code>, <code>run_scripts</code>, <code>preprocessors</code>)</li>
+<li>In file paths included in the <code>file</code> column in the input CSV.</li>
+</ul>
 <h2 id="using-urls-as-file-paths">Using URLs as file paths</h2>
 <p>In the <code>file</code> column, you can also use URLs to files, like this:</p>
 <pre><code class="language-text">id,file,title
