@@ -3399,6 +3399,12 @@ csv_field_templates:
 <td></td>
 <td>Identifies the node ID of the last node created during an interupted <code>create</code> task. See "<a href="/islandora_workbench_docs/recovery_mode/">Recovering from interrupted "create" tasks</a>" for more information.</td>
 </tr>
+<tr>
+<td>exit_on_recovery_mode_parent_lookup_failure</td>
+<td></td>
+<td>true</td>
+<td>Tells Workbench to exit if it can't look find a parent in the CSV ID to node ID map during recovery mode create operations. Set to <code>false</code> if you want Workbench to continue despite the empty parent node ID.</td>
+</tr>
 </tbody>
 </table>
 <p>When you run Islandora Workbench with the <code>--check</code> argument, it will verify that all configuration options required for the current task are present, and if they aren't tell you so.</p>

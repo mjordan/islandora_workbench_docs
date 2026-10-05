@@ -1617,6 +1617,7 @@
 </div>
 <p>A few notes about recovery mode:</p>
 <ul>
+<li>By default, if Workbench can't find a node ID for a parent in the CSV ID to node ID map, it will log this error and exit. If you want Workbench to not exit (that is, to continue to create children with no identified parent), include <code>exit_on_recovery_mode_parent_lookup_failure: false</code> in your configuration file.</li>
 <li>As an alternative to changing the configuration file of the failed job, you can also provide <code>recovery_mode_starting_from_node_id</code> as a command-line argument to Workbench, e.g. <code>./workbench --config mycreatejob.yml --recovery_mode_starting_from_node_id 12687</code>.</li>
 <li>In recovery mode, Workbench will create a new rollback configuration and CSV file using the same naming configuration but will add both a timestamp and "recovery_mode" to the filenames. This is ensure that you do not overwrite the rollback files created during the earlier, interrupted part of your job.</li>
 <li>In rare circumstances, a node may be created but not registered in the CSV ID to node ID map before Workbench stops executing. If this happens, the last node created prior to the interruption may be created again (duplicated) when you restart your job in recovery mode. It is always a good idea to check the "boundary" between the end of the interrupted part of the job and the start of the resumed recovery-mode part of the job, and if necessary, delete the duplicate node.</li>
