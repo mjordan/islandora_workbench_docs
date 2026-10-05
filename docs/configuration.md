@@ -365,7 +365,7 @@ See "[Running scripts on existing entities](/islandora_workbench_docs/running_sc
 | secondary_tasks |  | | A list of configuration file names that are executed as secondary tasks after the primary task to create compound objects. See "[Using a secondary task](/islandora_workbench_docs/paged_and_compound/#using-a-secondary-task)" for more information. |
 | prompt_user_before_delete_task |  | false | If set to `true`, Workbench will prompt the user "You are about to delete [number] nodes and their attached media. Continue? (y/n)". See "[Deleting nodes](/islandora_workbench_docs/deleting_nodes/)" for more information.  |
 | recovery_mode_starting_from_node_id |  |  | Identifies the node ID of the last node created during an interupted `create` task. See "[Recovering from interrupted "create" tasks](/islandora_workbench_docs/recovery_mode/)" for more information.  |
-
+| exit_on_recovery_mode_parent_lookup_failure |  | true | Tells Workbench to exit if it can't look find a parent in the CSV ID to node ID map during recovery mode create operations. Set to `false` if you want Workbench to continue despite the empty parent node ID. |
 
 When you run Islandora Workbench with the `--check` argument, it will verify that all configuration options required for the current task are present, and if they aren't tell you so.
 
