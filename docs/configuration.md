@@ -124,7 +124,7 @@ Strictly speaking, YAML lists can be represented as either a series of entries o
 | field_text_format_ids |  | | Defines a mapping between field machine names the machine names of format IDs for "formatted" fields. See "[Text fields with markup](/islandora_workbench_docs/fields/#text-fields-with-markup)" for more information. |
 | paragraph_fields |  | | Defines structure of paragraph fields in the input CSV. See "[Entity Reference Revisions fields (paragraphs)](/islandora_workbench_docs/fields/#entity-reference-revisions-fields-paragraphs)" for more information. |
 | credentials_file_path |  | | The absolute or relative path to a simple YAML file that contains the `username` and `password` config settings. Putting your `username` and `password` settings in this file allows you to omit them from the main configuration file. See "[User management](/islandora_workbench_docs/user_management/#the-credentials_file_path-configuration-setting)" for more information. |
-| credentials_key_file_path |  | | The absolute or relative path to a plain text file that contains the key required to use an encrypted credentials file. Putting your `username` and `password` settings in this file replaces prompting the user for the key. |
+| credentials_key_file_path |  | | The absolute or relative path to a plain text file that contains the key required to use an encrypted credentials file. If the key is in this file, the user will not be prompted for it. |
 
 
 
