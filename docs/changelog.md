@@ -24,6 +24,7 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### Documentation
 
+* October 7, 2026: Updated "[Exporting a CSV file containing node data](/islandora_workbench_docs/exporting_content/)" to document exporting nodes together with their members, including limiting how many levels deep Workbench goes; updated "[Exporting media](/islandora_workbench_docs/exporting_media/)" to describe exporting files for members using the existing `additional_files` setting, to explain how to find Media Use term URIs and IDs, to show output from `export_file_url_instead_of_download`, and to clarify that files must be accessible to anonymous users; updated "[Configuration](/islandora_workbench_docs/configuration/)", "[Known limitations](/islandora_workbench_docs/limitations/)", and "[Installation](/islandora_workbench_docs/installation/)" accordingly.
 * October 5, 2026: Updated "[Configuration](/islandora_workbench_docs/configuration/)" and "[Recovering from interrupted "create" tasks](/islandora_workbench_docs/recovery_mode/)" to mention the new `exit_on_recovery_mode_parent_lookup_failure` setting.
 * September 21, 2026: Updated "[Preparing your data](/islandora_workbench_docs/preparing_data/)" to document using the tilde (`~`) in file paths.
 * September 2, 2026: Updated "[Choosing a task](/islandora_workbench_docs/choosing_a_task/)" to correct some broken links and to add a row for "Exporting media". Removed some confusing cruft from the "[Exporting media](/islandora_workbench_docs/exporting_media/)" page.
