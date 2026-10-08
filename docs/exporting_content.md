@@ -158,10 +158,11 @@ Some things to note:
 * The nodes you identify in your input CSV file or View are the *starting nodes*. Workbench exports each starting node and then all of its members, as rows in the same output CSV file.
 * A node is only exported once. If a node is reachable from more than one starting node, or through a loop in the hierarchy, Workbench logs a warning that the node has already been processed and skips the duplicate.
 * The `content_type` setting still applies to every node, including members. Members whose content type is different from the one named in `content_type` are skipped (and logged), exactly as non-matching nodes are in tasks that don't include members. If your hierarchy contains more than one content type, run the task once for each content type.
-* The `csv_member_max_depth` and `view_member_max_depth` settings are optional and must be whole numbers. If you omit them, there is no limit on how deep Workbench follows members.
+* The `csv_member_max_depth` and `view_member_max_depth` settings are optional and must be whole numbers. They limit how many levels of containers below the starting node Workbench descends into. If you omit them, there is no limit. See "[Limiting how deep Workbench goes](#limiting-how-deep-workbench-goes)" below.
 * To also export the media files of the nodes (including their members), add the settings described in "[Exporting image, video, etc. files along with CSV data](/islandora_workbench_docs/exporting_media/)". Because exporting members can produce many more rows and files than you expect, run a small test first.
 * Workbench finds members using a View provided by version 1.3.0 or higher of the [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module. Earlier versions do not include this View. By default Workbench expects it at `/islandora_workbench_integration/members-of-node`; if your site uses a different path, set `members_of_node_view_endpoint` in your configuration file. If the View is not available, `--check` will report the problem and exit before any export is attempted.
 * `get_media_report_from_view` tasks do not support exporting members.
+* The "members of node" View returns only members whose content type is "Repository Item" (`islandora_object`). If your members use a different content type, edit the View's "Content type" filter. If you can't yet upgrade the Integration module to version 1.3.0, you can create the View yourself; see "[Creating the \"Members of node\" View manually](#creating-the-members-of-node-view-manually)" below.
 
 ### Limiting how deep Workbench goes
 
@@ -179,3 +180,29 @@ Depth is counted from each starting node, not from the top of your repository. I
 
 Setting a depth is a good way to test an export on a large hierarchy before running it without a limit.
 
+### Creating the "Members of node" View manually
+
+If you want to export members before version 1.3.0 of the Integration module is available to you, you can create the "Members of node" View yourself. This is a temporary workaround; once you can upgrade the Integration module, upgrade it and delete your hand-built View first (the module's View uses the same machine name, `members_of_node`, and installing it over an existing View of that name may fail).
+
+Your site needs the Views, Views UI, RESTful Web Services, Serialization, and HTTP Basic Authentication modules enabled. If you already use `get_data_from_view` tasks, you have them.
+
+1. In Drupal, go to "Structure" > "Views" > "Add view".
+1. Name the View "Members of node" (the machine name will be `members_of_node`). Under "View settings", choose "Show: Content of type: Repository Item", "sorted by: Unsorted". Uncheck "Create a page", check "Provide a REST export", and enter `islandora_workbench_integration/members-of-node` as the REST export path. Set "Items to display" to 50, and click "Save and edit".
+1. In the REST export display's "Path settings", change the path to `islandora_workbench_integration/members-of-node/%`. The `%` is where Workbench inserts the ID of the node whose members it wants.
+1. Under "Format", choose "Serializer" and, in its "Settings", check only "json". Under "Show", choose "Fields".
+1. Under "Fields", remove any fields the wizard added and add exactly two: "Content: ID" and "Content: Weight". The JSON that the View returns must contain the keys `nid` and `field_weight_value`. In the "Show" > "Settings" dialog, set the alias of the ID field to `nid` and of the weight field to `field_weight_value` if those aren't already the keys.
+1. Under "Filter criteria", keep "Content: Content type (= Repository Item)" and remove "Content: Published (= Yes)" if the wizard added it. Under "Sort criteria", sort by "Content: Weight" ascending, then "Content: ID" ascending, removing any other sorts.
+1. Under "Contextual filters", add "Content: Member of" and leave its defaults as they are. This is what turns the `%` in the path into "members of this node".
+1. Under "Pager", choose "Full" with 50 items. A larger page size means Workbench makes fewer requests when a node has many members. Under "Path settings", set "Authentication" to `basic_auth` and `cookie`. Set "Access" to the "Multiple permissions" type (provided by the Integration module), and check both the "Use Islandora Workbench" and "Administer content" permissions. If your version of the Integration module doesn't offer that access type, choose "Permission" with only "Administer content" instead. The user in your Workbench configuration file must have the permissions you choose.
+1. Save the View.
+
+To test it, log in to Drupal in your browser and visit `/islandora_workbench_integration/members-of-node/<node ID>` for a node that has members. You should see a JSON list with one entry per member, each containing `nid` and `field_weight_value` (both as strings), sorted by weight:
+
+```json
+[{"nid":"786444","field_weight_value":"1"},{"nid":"786448","field_weight_value":"2"},{"nid":"786450","field_weight_value":"3"}]
+```
+
+For a node with no members you should see an empty list. The View returns at most 50 members per page; if a node has more, add `?page=1`, `?page=2`, and so on to the URL to see the rest. Workbench requests the additional pages itself, so you don't need to raise the number of items per page. Then run Workbench with `--check`; it reports whether it can reach the View.
+
+!!! note
+    The View in the Integration module only returns nodes whose content type is "Repository Item" (`islandora_object`). If your members use a different content type, change the "Content type" filter in the View to match.
