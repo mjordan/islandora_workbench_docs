@@ -118,6 +118,8 @@ If Workbench was originally installed in your computer's system Python:
 
 Islandora Workbench communicates with Drupal using REST endpoints and Views. The Islandora Workbench Integration module (linked above in the "Requirements" section) ensures that the target Drupal has all required REST endpoints and Views enabled. Therefore, keeping it in sync with Islandora Workbench is important.
 
+Exporting the members (children) of nodes in `export_csv` and `get_data_from_view` tasks relies on a "members of node" View provided by the Integration module. See "[Exporting nodes together with their members](/islandora_workbench_docs/exporting_content/#exporting-nodes-together-with-their-members)". This feature requires version 1.3.0 or higher of the Integration module. Other Workbench tasks do not need this version. If you cannot upgrade yet, see "[Creating the \"Members of node\" View manually](/islandora_workbench_docs/exporting_content/#creating-the-members-of-node-view-manually)".
+
 Workbench checks the version of the Integration module and tells you if you need to upgrade it. To upgrade the module, update its code via Git or Composer, and follow the instructions in the "Updates" section of its [README](https://github.com/mjordan/islandora_workbench_integration/blob/main/README.md).
 
 ## Configuring Drupal's media URLs
