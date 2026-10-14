@@ -24,6 +24,7 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### Documentation
 
+* October 14, 2026: Corrected out of date language in "[Choosing a task](/islandora_workbench_docs/choosing_a_task)".
 * October 5, 2026: Updated "[Configuration](/islandora_workbench_docs/configuration/)" and "[Recovering from interrupted "create" tasks](/islandora_workbench_docs/recovery_mode/)" to mention the new `exit_on_recovery_mode_parent_lookup_failure` setting.
 * September 21, 2026: Updated "[Preparing your data](/islandora_workbench_docs/preparing_data/)" to document using the tilde (`~`) in file paths.
 * September 2, 2026: Updated "[Choosing a task](/islandora_workbench_docs/choosing_a_task/)" to correct some broken links and to add a row for "Exporting media". Removed some confusing cruft from the "[Exporting media](/islandora_workbench_docs/exporting_media/)" page.
