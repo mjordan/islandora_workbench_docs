@@ -1296,8 +1296,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#limiting-how-deep-workbench-goes" class="md-nav__link">
-    Limiting how deep Workbench goes
+  <a href="#limiting-how-many-levels-in-the-member-of-hierarchy-workbench-exports" class="md-nav__link">
+    Limiting how many levels in the "member of" hierarchy Workbench exports
   </a>
   
 </li>
@@ -1669,8 +1669,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#limiting-how-deep-workbench-goes" class="md-nav__link">
-    Limiting how deep Workbench goes
+  <a href="#limiting-how-many-levels-in-the-member-of-hierarchy-workbench-exports" class="md-nav__link">
+    Limiting how many levels in the "member of" hierarchy Workbench exports
   </a>
   
 </li>
@@ -1854,14 +1854,14 @@ max_depth: 3
 <li>The nodes you identify in your input CSV file or View are the <em>starting nodes</em>. Workbench exports each starting node and then all of its members, as rows in the same output CSV file.</li>
 <li>A node is only exported once. If a node is reachable from more than one starting node, or through a loop in the hierarchy, Workbench logs a warning that the node has already been processed and skips the duplicate.</li>
 <li>The <code>content_type</code> setting still applies to every node, including members. Members whose content type is different from the one named in <code>content_type</code> are skipped (and logged), exactly as non-matching nodes are in tasks that don't include members. If your hierarchy contains more than one content type, run the task once for each content type.</li>
-<li>The <code>max_depth</code> setting is optional and must be a whole number. They limit how many levels of containers below the starting node Workbench descends into. If you omit them, there is no limit. See "<a href="#limiting-how-deep-workbench-goes">Limiting how deep Workbench goes</a>" below.</li>
+<li>The <code>max_depth</code> setting is optional and must be a whole number. It limits how many levels of members below the starting node Workbench exports. If you omit it, there is no limit. See "<a href="#limiting-how-deep-workbench-goes">Limiting how deep Workbench goes</a>" below.</li>
 <li>To also export the media files of the nodes (including their members), add the settings described in "<a href="/islandora_workbench_docs/exporting_media/">Exporting image, video, etc. files along with CSV data</a>". Because exporting members can produce many more rows and files than you expect, run a small test first.</li>
 <li>Workbench finds members using a View provided by version 1.4.0 or higher of the <a href="https://github.com/mjordan/islandora_workbench_integration">Islandora Workbench Integration</a> module. Earlier versions do not include this View. By default Workbench expects it at <code>/islandora_workbench_integration/members-of-node</code>; if your site uses a different path, set <code>members_of_node_view_endpoint</code> in your configuration file. If the View is not available, <code>--check</code> will report the problem and exit before any export is attempted.</li>
 <li><code>get_media_report_from_view</code> tasks do not support exporting members.</li>
 <li>The "members of node" View returns only members whose content type is "Repository Item" (<code>islandora_object</code>). If your members use a different content type, edit the View's "Content type" filter. If you can't yet upgrade the Integration module to version 1.4.0, you can create the View yourself; see "<a href="#creating-the-members-of-node-view-manually">Creating the \"Members of node\" View manually</a>" below.</li>
 </ul>
-<h3 id="limiting-how-deep-workbench-goes">Limiting how deep Workbench goes</h3>
-<p>Islandora content is often arranged in several levels of containers. For example, a Collection can contain sub-collections or Objects (compound or not), an Object or Serial can contain Serial Issues, and an Issue or compound Object can contain its Images or Pages. The depth settings control how many of these levels below the starting node Workbench follows:</p>
+<h3 id="limiting-how-many-levels-in-the-member-of-hierarchy-workbench-exports">Limiting how many levels in the "member of" hierarchy Workbench exports</h3>
+<p>Islandora content is often arranged hierarchicaly. For example, a collection can contain sub-collections or objects (compound or not), an object or periodical can contain periodical issues, and a periodical issue or compound object can contain its images or pages. The depth settings control how many of these levels below the starting node Workbench follows:</p>
 <table>
 <thead>
 <tr>
@@ -1872,19 +1872,19 @@ max_depth: 3
 <tbody>
 <tr>
 <td><code>0</code></td>
-<td>The Collection only.</td>
+<td>The collection only.</td>
 </tr>
 <tr>
 <td><code>1</code></td>
-<td>The Collection and the nodes directly in it (its sub-collections and Objects).</td>
+<td>The collection and the nodes directly in it (its sub-collections and Objects).</td>
 </tr>
 <tr>
 <td><code>2</code></td>
-<td>The above, plus the members of those nodes (for example, Serial Issues or the children of compound Objects).</td>
+<td>The above, plus the members of those nodes (for example, periodical issues or the children of compound objects).</td>
 </tr>
 <tr>
 <td><code>3</code></td>
-<td>The above, plus the members of those nodes (for example, the Images or Pages of each Issue).</td>
+<td>The above, plus the members of those nodes (for example, the images or pages of each issue).</td>
 </tr>
 <tr>
 <td>Not set</td>
