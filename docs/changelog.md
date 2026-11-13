@@ -2,6 +2,8 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### main branch (no tag/release)
 
+* November 11, 2026: Merged (commit dec9b1f) [PR 1147](https://github.com/mjordan/islandora_workbench/pull/1147).
+* November 9, 2026: Merged (commit c116d3c) [PR 1153](https://github.com/mjordan/islandora_workbench/pull/1153).
 * October 30, 2026: Merged (commit daac190) [PR 1146](https://github.com/mjordan/islandora_workbench/pull/1146), (commit ab7555f) [PR 1143](https://github.com/mjordan/islandora_workbench/pull/1143), and (commit be765aa) [PR 1062](https://github.com/mjordan/islandora_workbench/pull/1062).
 * October 5, 2026: Resolved (commit e76d64c) [issue 1114](https://github.com/mjordan/islandora_workbench/issues/1114).
 * September 19, 2026: Resolved [issue 1125](https://github.com/mjordan/islandora_workbench/issues/1125), [issue 1135](https://github.com/mjordan/islandora_workbench/issues/1135), [issue 1126](https://github.com/mjordan/islandora_workbench/issues/1126), [issue 1127](https://github.com/mjordan/islandora_workbench/issues/1127), [issue 1128](https://github.com/mjordan/islandora_workbench/issues/1128), [issue 1129](https://github.com/mjordan/islandora_workbench/issues/1129), [issue 1130](https://github.com/mjordan/islandora_workbench/issues/1130), [issue 1131](https://github.com/mjordan/islandora_workbench/issues/1131), [issue 1132](https://github.com/mjordan/islandora_workbench/issues/1132), [issue 1135](https://github.com/mjordan/islandora_workbench/issues/1135), [issue 1138](https://github.com/mjordan/islandora_workbench/issues/1138).
