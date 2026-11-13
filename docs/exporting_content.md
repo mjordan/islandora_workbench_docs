@@ -158,22 +158,22 @@ Some things to note:
 * The nodes you identify in your input CSV file or View are the *starting nodes*. Workbench exports each starting node and then all of its members, as rows in the same output CSV file.
 * A node is only exported once. If a node is reachable from more than one starting node, or through a loop in the hierarchy, Workbench logs a warning that the node has already been processed and skips the duplicate.
 * The `content_type` setting still applies to every node, including members. Members whose content type is different from the one named in `content_type` are skipped (and logged), exactly as non-matching nodes are in tasks that don't include members. If your hierarchy contains more than one content type, run the task once for each content type.
-* The `max_depth` setting is optional and must be a whole number. They limit how many levels of containers below the starting node Workbench descends into. If you omit them, there is no limit. See "[Limiting how deep Workbench goes](#limiting-how-deep-workbench-goes)" below.
+* The `max_depth` setting is optional and must be a whole number. It limits how many levels of members below the starting node Workbench exports. If you omit it, there is no limit. See "[Limiting how deep Workbench goes](#limiting-how-deep-workbench-goes)" below.
 * To also export the media files of the nodes (including their members), add the settings described in "[Exporting image, video, etc. files along with CSV data](/islandora_workbench_docs/exporting_media/)". Because exporting members can produce many more rows and files than you expect, run a small test first.
 * Workbench finds members using a View provided by version 1.4.0 or higher of the [Islandora Workbench Integration](https://github.com/mjordan/islandora_workbench_integration) module. Earlier versions do not include this View. By default Workbench expects it at `/islandora_workbench_integration/members-of-node`; if your site uses a different path, set `members_of_node_view_endpoint` in your configuration file. If the View is not available, `--check` will report the problem and exit before any export is attempted.
 * `get_media_report_from_view` tasks do not support exporting members.
 * The "members of node" View returns only members whose content type is "Repository Item" (`islandora_object`). If your members use a different content type, edit the View's "Content type" filter. If you can't yet upgrade the Integration module to version 1.4.0, you can create the View yourself; see "[Creating the \"Members of node\" View manually](#creating-the-members-of-node-view-manually)" below.
 
-### Limiting how deep Workbench goes
+### Limiting how many levels in the "member of" hierarchy Workbench exports
 
-Islandora content is often arranged in several levels of containers. For example, a Collection can contain sub-collections or Objects (compound or not), an Object or Serial can contain Serial Issues, and an Issue or compound Object can contain its Images or Pages. The depth settings control how many of these levels below the starting node Workbench follows:
+Islandora content is often arranged hierarchicaly. For example, a collection can contain sub-collections or objects (compound or not), an object or periodical can contain periodical issues, and a periodical issue or compound object can contain its images or pages. The depth settings control how many of these levels below the starting node Workbench follows:
 
 | Depth value | Nodes exported, starting from a Collection |
 | --- | --- |
-| `0` | The Collection only. |
-| `1` | The Collection and the nodes directly in it (its sub-collections and Objects). |
-| `2` | The above, plus the members of those nodes (for example, Serial Issues or the children of compound Objects). |
-| `3` | The above, plus the members of those nodes (for example, the Images or Pages of each Issue). |
+| `0` | The collection only. |
+| `1` | The collection and the nodes directly in it (its sub-collections and Objects). |
+| `2` | The above, plus the members of those nodes (for example, periodical issues or the children of compound objects). |
+| `3` | The above, plus the members of those nodes (for example, the images or pages of each issue). |
 | Not set | Every level, however deep. |
 
 Depth is counted from each starting node, not from the top of your repository. If your input CSV or View starts at Serial Issues instead of the Collection, a depth of `1` reaches the pages directly in each Issue.
