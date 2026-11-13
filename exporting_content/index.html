@@ -1287,6 +1287,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#exporting-nodes-together-with-their-members" class="md-nav__link">
+    Exporting nodes together with their members
+  </a>
+  
+    <nav class="md-nav" aria-label="Exporting nodes together with their members">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limiting-how-deep-workbench-goes" class="md-nav__link">
+    Limiting how deep Workbench goes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-members-of-node-view-manually" class="md-nav__link">
+    Creating the "Members of node" View manually
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1633,6 +1660,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#exporting-nodes-together-with-their-members" class="md-nav__link">
+    Exporting nodes together with their members
+  </a>
+  
+    <nav class="md-nav" aria-label="Exporting nodes together with their members">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#limiting-how-deep-workbench-goes" class="md-nav__link">
+    Limiting how deep Workbench goes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-members-of-node-view-manually" class="md-nav__link">
+    Creating the "Members of node" View manually
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1657,7 +1711,7 @@
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Currently, Islandora Workbench cannot export the children of hierarchial objects (book or newspaper issue pages, children of compund items, etc.). More information is available at <a href="https://github.com/mjordan/islandora_workbench/issues/503">this Github issue</a>.</p>
+<p><code>export_csv</code> and <code>get_data_from_view</code> tasks can optionally also export the children (members) of the nodes they start from, such as book or newspaper issue pages or the children of compound items. See "<a href="#exporting-nodes-together-with-their-members">Exporting nodes together with their members</a>" below. Other task types cannot export members.</p>
 </div>
 <h2 id="exporting-a-csv-file-containing-field-data-from-a-list-of-node-ids">Exporting a CSV file containing field data from a list of node IDs</h2>
 <p>The <code>export_csv</code> task generates a CSV file that contains one row for each node identified in the input CSV file. The cells of the CSV are populated with data that is consistent with the structures that Workbench uses in <code>update</code> tasks. Using this CSV file, you can:</p>
@@ -1736,22 +1790,132 @@ view_parameters:
 </div>
 <p>You can optionally configure your View to use a single Contextual Filters, and expose that Contextual Filter to use one or more query parameters. This way, you can include each query parameter's name and its value in your configuration file using Workbench's <code>view_parameters</code> config setting, as illustrated in the sample configuration file above. The configuration in the View's Contextual Filters for this type of parameter looks like this:</p>
 <p><img alt="Sample REST export display" src="../images/REST_export_query_paramters.png" /></p>
-<p>By adding a Contextual Filterf to your View display, you can control what nodes end up in the output CSV by including the value you want to filter on in your Workbench configuration's <code>view_parameters</code> setting. In the screenshot of the "Created date" Contextual Filter shown here, the query parameter is <code>date</code>, so you include that parameter in your <code>view_parameters</code> list in your configuration file along with the value you want to assign to the parameter (separated by an <code>=</code> sign), e.g.:</p>
+<p>By adding a Contextual Filter to your View display, you can control what nodes end up in the output CSV by including the value you want to filter on in your Workbench configuration's <code>view_parameters</code> setting. In the screenshot of the "Created date" Contextual Filter shown here, the query parameter is <code>date</code>, so you include that parameter in your <code>view_parameters</code> list in your configuration file along with the value you want to assign to the parameter (separated by an <code>=</code> sign), e.g.:</p>
 <pre><code>view_parameters:
  - 'date=20231202'
 </code></pre>
 <p>will set the value of the <code>date</code> query parameter in the "Created date" Contextual Filter to "20231202".</p>
 <p>Some things to note:</p>
 <ul>
-<li>Note that the values you include in <code>view_parameters</code> apply only to your View's Contextual Filter. Any "Filter Criteria" you include in the main part of your View configuration also take effect. In other words, both "Filter Criteria" and "Contextual Filters" determine what nodes end up in your output CSV file.<ul>
+<li>Note that the values you include in <code>view_parameters</code> apply only to your View's Contextual Filter. Any "Filter Criteria" you include in the main part of your View configuration also take effect. In other words, both "Filter Criteria" and "Contextual Filters" determine what nodes end up in your output CSV file.</li>
 <li>You can only include a single Contextual Filter in your View, but it can have multiple query parameters.</li>
-</ul>
-</li>
 <li>REST export Views displays don't use fields in the same way that other Views displays do. In fact, Drupal says within the Views user interface that for REST export displays, "The selected style or row format does not use fields." Instead, these displays export the entire node in JSON format. Workbench iterates through all fields on the node JSON that start with <code>field_</code> and includes those fields, plus <code>node_id</code> and <code>title</code>, in the output CSV.</li>
 <li>If you don't want to export all the fields on a content type, you can list the fields you want to export in the <code>export_csv_field_list</code> configuration option.</li>
 <li>Only content from nodes that have the content type identified in the <code>content_type</code> configuration setting will be written to the CSV file.</li>
 <li>If you want to export term names instead of term IDs, include <code>export_csv_term_mode: name</code> in your configuration file. The warning about this option slowing down the export applies to this task and the <code>export_csv</code> task.</li>
 </ul>
+<h2 id="exporting-nodes-together-with-their-members">Exporting nodes together with their members</h2>
+<p>By default, <code>export_csv</code> and <code>get_data_from_view</code> tasks export only the nodes you identify (in your input CSV or in your View). If those nodes have members (children), such as the pages of a book or the children of a compound object, you can tell Workbench to also find and export those members, and the members of those members, to any depth. Members are nodes that have the starting node's ID in their <code>field_member_of</code> field.</p>
+<p>To turn this on, add the setting that corresponds to your task to your configuration file:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>include_members: true</code></td>
+<td>Enables exporting members.</td>
+</tr>
+<tr>
+<td><code>max_depth</code></td>
+<td>Optional. Limits how many levels below each starting node Workbench follows.</td>
+</tr>
+</tbody>
+</table>
+<p>A sample <code>export_csv</code> configuration file:</p>
+<pre><code class="language-yaml">task: export_csv
+host: &quot;http://localhost:8000&quot;
+username: admin
+password: islandora
+input_csv: nodes_to_export.csv
+content_type: islandora_object
+export_csv_file_path: output.csv
+# Also export the members of each node in nodes_to_export.csv.
+include_members: true
+# Optional. If not present, Workbench follows members to any depth.
+max_depth: 3
+</code></pre>
+<p>A sample <code>get_data_from_view</code> configuration file:</p>
+<pre><code class="language-yaml">task: get_data_from_view
+host: &quot;http://localhost:8000/&quot;
+view_path: '/daily_nodes_created_test'
+username: admin
+password: islandora
+content_type: islandora_object
+export_csv_file_path: /tmp/islandora_export.csv
+include_members: true
+max_depth: 3
+</code></pre>
+<p>Some things to note:</p>
+<ul>
+<li>The nodes you identify in your input CSV file or View are the <em>starting nodes</em>. Workbench exports each starting node and then all of its members, as rows in the same output CSV file.</li>
+<li>A node is only exported once. If a node is reachable from more than one starting node, or through a loop in the hierarchy, Workbench logs a warning that the node has already been processed and skips the duplicate.</li>
+<li>The <code>content_type</code> setting still applies to every node, including members. Members whose content type is different from the one named in <code>content_type</code> are skipped (and logged), exactly as non-matching nodes are in tasks that don't include members. If your hierarchy contains more than one content type, run the task once for each content type.</li>
+<li>The <code>max_depth</code> setting is optional and must be a whole number. They limit how many levels of containers below the starting node Workbench descends into. If you omit them, there is no limit. See "<a href="#limiting-how-deep-workbench-goes">Limiting how deep Workbench goes</a>" below.</li>
+<li>To also export the media files of the nodes (including their members), add the settings described in "<a href="/islandora_workbench_docs/exporting_media/">Exporting image, video, etc. files along with CSV data</a>". Because exporting members can produce many more rows and files than you expect, run a small test first.</li>
+<li>Workbench finds members using a View provided by version 1.4.0 or higher of the <a href="https://github.com/mjordan/islandora_workbench_integration">Islandora Workbench Integration</a> module. Earlier versions do not include this View. By default Workbench expects it at <code>/islandora_workbench_integration/members-of-node</code>; if your site uses a different path, set <code>members_of_node_view_endpoint</code> in your configuration file. If the View is not available, <code>--check</code> will report the problem and exit before any export is attempted.</li>
+<li><code>get_media_report_from_view</code> tasks do not support exporting members.</li>
+<li>The "members of node" View returns only members whose content type is "Repository Item" (<code>islandora_object</code>). If your members use a different content type, edit the View's "Content type" filter. If you can't yet upgrade the Integration module to version 1.4.0, you can create the View yourself; see "<a href="#creating-the-members-of-node-view-manually">Creating the \"Members of node\" View manually</a>" below.</li>
+</ul>
+<h3 id="limiting-how-deep-workbench-goes">Limiting how deep Workbench goes</h3>
+<p>Islandora content is often arranged in several levels of containers. For example, a Collection can contain sub-collections or Objects (compound or not), an Object or Serial can contain Serial Issues, and an Issue or compound Object can contain its Images or Pages. The depth settings control how many of these levels below the starting node Workbench follows:</p>
+<table>
+<thead>
+<tr>
+<th>Depth value</th>
+<th>Nodes exported, starting from a Collection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>The Collection only.</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>The Collection and the nodes directly in it (its sub-collections and Objects).</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>The above, plus the members of those nodes (for example, Serial Issues or the children of compound Objects).</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>The above, plus the members of those nodes (for example, the Images or Pages of each Issue).</td>
+</tr>
+<tr>
+<td>Not set</td>
+<td>Every level, however deep.</td>
+</tr>
+</tbody>
+</table>
+<p>Depth is counted from each starting node, not from the top of your repository. If your input CSV or View starts at Serial Issues instead of the Collection, a depth of <code>1</code> reaches the pages directly in each Issue.</p>
+<p>Setting a depth is a good way to test an export on a large hierarchy before running it without a limit.</p>
+<h3 id="creating-the-members-of-node-view-manually">Creating the "Members of node" View manually</h3>
+<p>If you want to export members before version 1.4.0 of the Integration module is available to you, you can create the "Members of node" View yourself. This is a temporary workaround; once you can upgrade the Integration module, upgrade it and delete your hand-built View first (the module's View uses the same machine name, <code>members_of_node</code>, and installing it over an existing View of that name may fail).</p>
+<p>Your site needs the Views, Views UI, RESTful Web Services, Serialization, and HTTP Basic Authentication modules enabled. If you already use <code>get_data_from_view</code> tasks, you have them.</p>
+<ol>
+<li>In Drupal, go to "Structure" &gt; "Views" &gt; "Add view".</li>
+<li>Name the View "Members of node" (the machine name will be <code>members_of_node</code>). Under "View settings", choose "Show: Content of type: Repository Item", "sorted by: Unsorted". Uncheck "Create a page", check "Provide a REST export", and enter <code>islandora_workbench_integration/members-of-node</code> as the REST export path. Set "Items to display" to 50, and click "Save and edit".</li>
+<li>In the REST export display's "Path settings", change the path to <code>islandora_workbench_integration/members-of-node/%</code>. The <code>%</code> is where Workbench inserts the ID of the node whose members it wants.</li>
+<li>Under "Format", choose "Serializer" and, in its "Settings", check only "json". Under "Show", choose "Fields".</li>
+<li>Under "Fields", remove any fields the wizard added and add exactly two: "Content: ID" and "Content: Weight". The JSON that the View returns must contain the keys <code>nid</code> and <code>field_weight_value</code>. In the "Show" &gt; "Settings" dialog, set the alias of the ID field to <code>nid</code> and of the weight field to <code>field_weight_value</code> if those aren't already the keys.</li>
+<li>Under "Filter criteria", keep "Content: Content type (= Repository Item)" and remove "Content: Published (= Yes)" if the wizard added it. Under "Sort criteria", sort by "Content: Weight" ascending, then "Content: ID" ascending, removing any other sorts.</li>
+<li>Under "Contextual filters", add "Content: Member of" and leave its defaults as they are. This is what turns the <code>%</code> in the path into "members of this node".</li>
+<li>Under "Pager", choose "Full" with 50 items. A larger page size means Workbench makes fewer requests when a node has many members. Under "Path settings", set "Authentication" to <code>basic_auth</code> and <code>cookie</code>. Set "Access" to the "Multiple permissions" type (provided by the Integration module), and check both the "Use Islandora Workbench" and "Administer content" permissions. If your version of the Integration module doesn't offer that access type, choose "Permission" with only "Administer content" instead. The user in your Workbench configuration file must have the permissions you choose.</li>
+<li>Save the View.</li>
+</ol>
+<p>To test it, log in to Drupal in your browser and visit <code>/islandora_workbench_integration/members-of-node/&lt;node ID&gt;</code> for a node that has members. You should see a JSON list with one entry per member, each containing <code>nid</code> and <code>field_weight_value</code> (both as strings), sorted by weight:</p>
+<pre><code class="language-json">[{&quot;nid&quot;:&quot;786444&quot;,&quot;field_weight_value&quot;:&quot;1&quot;},{&quot;nid&quot;:&quot;786448&quot;,&quot;field_weight_value&quot;:&quot;2&quot;},{&quot;nid&quot;:&quot;786450&quot;,&quot;field_weight_value&quot;:&quot;3&quot;}]
+</code></pre>
+<p>For a node with no members you should see an empty list. The View returns at most 50 members per page; if a node has more, add <code>?page=1</code>, <code>?page=2</code>, and so on to the URL to see the rest. Workbench requests the additional pages itself, so you don't need to raise the number of items per page. Then run Workbench with <code>--check</code>; it reports whether it can reach the View.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The View in the Integration module only returns nodes whose content type is "Repository Item" (<code>islandora_object</code>). If your members use a different content type, change the "Content type" filter in the View to match.</p>
+</div>
 
 
 

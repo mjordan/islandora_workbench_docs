@@ -2597,6 +2597,24 @@ csv_field_templates:
 <td>false</td>
 <td>Used in the "export_csv" and "get_data_from_view" tasks. Tells Workbench to not download media files but instread to export the direct URLs to the files.</td>
 </tr>
+<tr>
+<td>include_members</td>
+<td></td>
+<td>false</td>
+<td>Used in the "export_csv" and "get_data_from_view" tasks. If <code>true</code>, Workbench also exports the members (children) of each node identified in the input CSV (in "export_csv" tasks) or returned by the View (in "get_data_from_view" tasks), to any depth. See "<a href="/islandora_workbench_docs/exporting_content/#exporting-nodes-together-with-their-members">Exporting nodes together with their members</a>".</td>
+</tr>
+<tr>
+<td>max_depth</td>
+<td></td>
+<td></td>
+<td>Used in the "export_csv" and "get_data_from_view" tasks when <code>include_members</code> is <code>true</code>. A whole number limiting how many levels of members Workbench follows below each starting node: <code>0</code> exports only the starting node, <code>1</code> adds its direct members, <code>2</code> adds their members, and so on. If not present, there is no limit. See "<a href="/islandora_workbench_docs/exporting_content/#limiting-how-deep-workbench-goes">Limiting how deep Workbench goes</a>".</td>
+</tr>
+<tr>
+<td>members_of_node_view_endpoint</td>
+<td></td>
+<td>/islandora_workbench_integration/members-of-node</td>
+<td>Used when <code>include_members</code> is <code>true</code>. The path to the "members of node" View provided by the Islandora Workbench Integration module. Only change this if your site uses a different path.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="media-settings">Media settings</h3>
