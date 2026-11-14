@@ -1752,7 +1752,7 @@ password: islandora
 <ol>
 <li>Create a credentials file and configure its path as described in the previous section.</li>
 <li>Encrypt the file using the <code>encrypt_credentials_file.py</code> script in Workbench's <code>scripts</code> directory: <code>python encrypt_credentials_file.py /path/to/the/creditials/file.yml</code>. Encrypting the credentials file overwrites the original version with the encrypted version.</li>
-<li>The script will tell you what the encryption/decryption key for that file is. This key will be necessary for Workbench to read the file.</li>
+<li>The script will tell you what the encryption/decryption key for that file is, and write the key to a file. To use the key to read the encrypted credentials, register it in your configuration file using the <code>credentials_key_file_path</code> config setting.</li>
 <li>Workbench automatically detects if the credentials file registered in the <code>credentials_file_path</code> config setting is encrypted and if it is, will prompt the user to enter the key.</li>
 </ol>
 <p>There is no option to store the key in the Workbench configuration file, but there are a couple of alternatives to having Workbench prompt the user for the key:</p>
