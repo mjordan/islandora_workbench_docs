@@ -55,7 +55,7 @@ The credentials file can be encrypted, requiring the Workbench user to enter a d
 
 1. Create a credentials file and configure its path as described in the previous section.
 2. Encrypt the file using the `encrypt_credentials_file.py` script in Workbench's `scripts` directory: `python encrypt_credentials_file.py /path/to/the/creditials/file.yml`. Encrypting the credentials file overwrites the original version with the encrypted version.
-3. The script will tell you what the encryption/decryption key for that file is. This key will be necessary for Workbench to read the file.
+3. The script will tell you what the encryption/decryption key for that file is, and write the key to a file. To use the key to read the encrypted credentials, register it in your configuration file using the `credentials_key_file_path` config setting.
 4. Workbench automatically detects if the credentials file registered in the `credentials_file_path` config setting is encrypted and if it is, will prompt the user to enter the key.
 
 There is no option to store the key in the Workbench configuration file, but there are a couple of alternatives to having Workbench prompt the user for the key:

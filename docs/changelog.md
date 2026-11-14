@@ -2,6 +2,7 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### main branch (no tag/release)
 
+* September 14, 2026: Resolved (commit f538a65) [issue 1154](https://github.com/mjordan/islandora_workbench/issues/1154).
 * November 11, 2026: Merged (commit dec9b1f) [PR 1147](https://github.com/mjordan/islandora_workbench/pull/1147).
 * November 9, 2026: Merged (commit c116d3c) [PR 1153](https://github.com/mjordan/islandora_workbench/pull/1153).
 * October 30, 2026: Merged (commit daac190) [PR 1146](https://github.com/mjordan/islandora_workbench/pull/1146), (commit ab7555f) [PR 1143](https://github.com/mjordan/islandora_workbench/pull/1143), and (commit be765aa) [PR 1062](https://github.com/mjordan/islandora_workbench/pull/1062).
@@ -27,6 +28,8 @@ You may also be interested in change log items recorded in [2025](/islandora_wor
 
 ### Documentation
 
+* November 14, 2026: Updated "[User management](/islandora_workbench_docs/user_management/)" to clarify use of the decryption key.
+* November 13, 2026: Added documentation for [exporting nodes and their members](/islandora_workbench_docs/exporting_content/#exporting-nodes-together-with-their-members).
 * October 14, 2026: Corrected out of date language in "[Choosing a task](/islandora_workbench_docs/choosing_a_task)".
 * October 7, 2026: Updated "[Exporting a CSV file containing node data](/islandora_workbench_docs/exporting_content/)" to document exporting nodes together with their members, including limiting how many levels deep Workbench goes; updated "[Exporting media](/islandora_workbench_docs/exporting_media/)" to describe exporting files for members using the existing `additional_files` setting, to explain how to find Media Use term URIs and IDs, to show output from `export_file_url_instead_of_download`, and to clarify that files must be accessible to anonymous users; updated "[Configuration](/islandora_workbench_docs/configuration/)", "[Known limitations](/islandora_workbench_docs/limitations/)", and "[Installation](/islandora_workbench_docs/installation/)" accordingly.
 * October 5, 2026: Updated "[Configuration](/islandora_workbench_docs/configuration/)" and "[Recovering from interrupted "create" tasks](/islandora_workbench_docs/recovery_mode/)" to mention the new `exit_on_recovery_mode_parent_lookup_failure` setting.
