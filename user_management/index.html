@@ -1748,13 +1748,12 @@ password: islandora
 </code></pre>
 <p>The credentials file needs to be located where it is readable by the user running Workbench, such as their home directory. Or, the credentials file can be shared by multiple Workbench users as long as it is located where it is readable by those users. The only requiement is that all Workbench users who reference the credentials file need read permmissions on the file.</p>
 <h2 id="encrypting-the-credentials-file">Encrypting the credentials file</h2>
-<p>The credentials file can be encrypted, requiring the Workbench user to enter a decryption key to proceed. To do this:</p>
+<p>The credentials file can be encrypted, requiring the Workbench user to use a decryption key to proceed. To do this:</p>
 <ol>
 <li>Create a credentials file and configure its path as described in the previous section.</li>
 <li>Encrypt the file using the <code>encrypt_credentials_file.py</code> script in Workbench's <code>scripts</code> directory: <code>python encrypt_credentials_file.py /path/to/the/creditials/file.yml</code>. Encrypting the credentials file overwrites the original version with the encrypted version.</li>
-<li>The script will tell you what the encryption/decryption key for that file is, and write the key to a file.</li>
+<li>The script will tell you what the encryption/decryption key for that file is, and will also write the key to a file.</li>
 <li>When you run Workbench, it will automatically detect if the credentials file registered in the <code>credentials_file_path</code> config setting is encrypted and if it is, will prompt the user to enter the key.</li>
-<li>If you register the path to the key file in your configuration file using the <code>credentials_key_file_path</code> config setting, Workbench will not prompt the user for the key, it will read the key from the designated file instead.</li>
 </ol>
 <p>There is no option to store the key in the Workbench configuration file, but there are a couple of alternatives to having Workbench prompt the user for the key:</p>
 <ul>
