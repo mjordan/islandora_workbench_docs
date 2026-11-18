@@ -2615,6 +2615,12 @@ csv_field_templates:
 <td>/islandora_workbench_integration/members-of-node</td>
 <td>Used when <code>include_members</code> is <code>true</code>. The path to the "members of node" View provided by the Islandora Workbench Integration module. Only change this if your site uses a different path.</td>
 </tr>
+<tr>
+<td>additional_files</td>
+<td></td>
+<td></td>
+<td>Used in <code>export_csv</code> and <code>get_data_from_view</code> tasks to indicate which media to export. See "<a href="/islandora_workbench_docs/generating_csv_files/#exporting-image-video-etc-files-along-with-csv-data">Exporting image, video, etc. files along with CSV data</a>" for more information. Also used in <code>create</code> and <code>add_media</code> tasks to map a set of CSV field names to media use terms IDs to create additional media (additional to the media created from the file named in the "file" column, that is). See "<a href="/islandora_workbench_docs/adding_multiple_media">Adding multiple media</a>" for more information.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="media-settings">Media settings</h3>
